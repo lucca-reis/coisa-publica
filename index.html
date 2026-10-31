@@ -372,6 +372,27 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 }
 @media (prefers-reduced-motion:reduce){ .brand-o{animation:none} .nav-sub,.nav-scrim{transition:none} }
 
+/* computer: the powers start at the middle of the page, so "Executivo" lines up with the left edge of the timeline's cards,
+   and spread to the icons on the right; no arrows. Enquetes becomes an icon (a ballot box) among the others. */
+.menu .menu-tools .cs-link{display:none}
+@media (min-width:761px){
+  .menu{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:0}
+  .menu nav{grid-column:2;justify-self:stretch;justify-content:space-between;gap:8px;max-width:none;margin:0 196px 0 -13px;padding:3px}
+  .menu .nav-grp{flex:none}
+  .menu nav > .nav-grp > .nav-leg{padding:7px 10px;font-size:14px;gap:0}
+  .menu nav > a[data-nav="consultas"]{display:none}
+  .menu .nav-car{display:none}
+  .menu .menu-tools .cs-link{display:grid}
+  .menu-tools{gap:6px}
+}
+@media (min-width:761px) and (max-width:1000px){
+  .menu nav{margin-right:154px}
+  .menu-tools{gap:2px}
+  .menu .menu-tools .vg-link,.menu .cal-link{width:34px;height:34px}
+  .menu nav > .nav-grp > .nav-leg{font-size:13px;padding:7px 8px}
+  .menu nav{margin-left:-11px}
+}
+
 /* calendar page */
 .cal{z-index:19}
 .cw{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,4vw,48px)}
@@ -1193,7 +1214,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <a href="#consultas" data-nav="consultas">Enquetes</a>
   </nav>
   <div class="nav-scrim" aria-hidden="true"></div>
-  <div class="menu-tools"><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a></div>
+  <div class="menu-tools"><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a></div>
 </header>
 <section class="landing" id="landing" aria-label="Praça dos Três Poderes">
   <div class="lx-wrap"><div class="lx" aria-label="Os três poderes">
@@ -2637,7 +2658,7 @@ function feedHTML(key){
     let date = '';
     if (g.d){ const [y,m,dd] = g.d.split('-').map(Number), wd = ['dom','seg','ter','qua','qui','sex','sáb'][new Date(y,m-1,dd).getDay()];
       date = g.d===t ? 'hoje' : `${wd}, ${dd} ${MO[m-1]}${y!==+t.slice(0,4)?' '+y:''}`; }
-    return `<li class="fd${g.d===t?' is-today':''}">${date ? `<p class="fd-date">${date}</p>` : ''}<ol class="fd-cards">${g.items.map(x=> cardHTML(x.c, key)).join('')}</ol></li>`;
+    return `<li class="fd${g.d===t?' is-today':''}" data-d="${g.d}">${date ? `<p class="fd-date">${date}</p>` : ''}<ol class="fd-cards">${g.items.map(x=> cardHTML(x.c, key)).join('')}</ol></li>`;
   }).join('');
 }
 
@@ -2648,10 +2669,13 @@ function renderToday(){
   document.getElementById('today-date').textContent = `${wd}, ${d} ${MO[m-1]}`;
   todayEl.innerHTML = `<div class="feed-h"><div class="feed-live" id="feed-live"></div></div>
     <ol class="feed" aria-label="Propostas e julgamentos, do mais recente ao mais antigo">${feedHTML(null)}</ol>`;
-  // the five most recent cards show; the others, and the days left empty without them, wait behind "Ver mais"
-  const cards = [...todayEl.querySelectorAll('.feed .card')], extra = cards.length - FEED_FIRST;
-  cards.forEach((c,i)=>{ if (i >= FEED_FIRST) c.closest('li').classList.add('fd-x'); });
-  todayEl.querySelectorAll('.fd').forEach(fd=>{ if (!fd.querySelector('.fd-cards > li:not(.fd-x)')) fd.classList.add('fd-x'); });
+  // every day of the current week shows (Sunday to Saturday, like the calendar); earlier days wait behind "Ver mais".
+  // A week with nothing yet shows its most recent day instead, so the page never starts empty.
+  const days = [...todayEl.querySelectorAll('.feed .fd')], wk = weekStartISO();
+  let shown = days.filter(fd=> fd.dataset.d && fd.dataset.d >= wk);
+  if (!shown.length) shown = days.slice(0, 1);
+  days.forEach(fd=>{ if (!shown.includes(fd)){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
+  const extra = todayEl.querySelectorAll('.fd-cards > li.fd-x').length;
   todayEl.classList.toggle('more', feedMore);
   if (extra > 0) todayEl.insertAdjacentHTML('beforeend', `<p class="fd-morewrap"><button type="button" class="fd-more" aria-expanded="${feedMore}">${feedMore ? 'Ver menos' : `Ver mais · ${extra} ${extra===1?'projeto':'projetos'}`}</button></p>`);
 }
@@ -2683,7 +2707,12 @@ function lxEnd(){
   const below = lx && isFinite(low) ? lx.getBoundingClientRect().bottom - low : 0;
   landing.style.setProperty('--lx-end', Math.round(gap - below) + 'px');
 }
-const FEED_FIRST = 5;
+// the Sunday that opens the current week, as AAAA-MM-DD
+function weekStartISO(){
+  const [y,m,d] = todayISO().split('-').map(Number), dt = new Date(Date.UTC(y, m-1, d));
+  dt.setUTCDate(dt.getUTCDate() - dt.getUTCDay());
+  return dt.toISOString().slice(0,10);
+}
 let feedMore = false;
 // footer with useful links, placed at the end of the opening view and of every page; pages that redraw themselves get it back
 const FOOT_HTML = `<footer class="site-foot"><div class="sf-grid">
