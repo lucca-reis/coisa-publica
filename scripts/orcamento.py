@@ -1,9 +1,10 @@
 """Orçamento federal executado no ano, por poder e por órgão: Legislativo, Judiciário, Executivo, Ministério Público e
 Defensoria. É a única base oficial que reúne os gastos dos tribunais, das casas do Congresso e do governo no mesmo formato.
 
-Fonte: Portal da Transparência (CGU), arquivos mensais "Despesas - Execução" (dados abertos, sem chave):
-  https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/AAAAMM
-Cada linha traz o órgão superior, o órgão, e os valores empenhado, liquidado e pago no mês.
+Fonte: Portal da Transparência (CGU), dados abertos, sem chave:
+  - arquivo anual "Orçamento da despesa" (https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa/AAAA):
+    dotação atualizada, empenhado e realizado de cada órgão de todos os poderes; é a base dos totais;
+  - arquivos mensais "Despesas - Execução" (.../despesas-execucao/AAAAMM): só o Executivo; dão o pago mês a mês.
 Grava data/transparencia/orcamento.json (totais do ano por poder, por órgão e por mês) e orcamento-amostra.json
 (cabeçalho e algumas linhas de um arquivo, para conferir o formato). Só usa a biblioteca padrão."""
 import csv, io, json, re, datetime, zoneinfo, pathlib, unicodedata, urllib.request, zipfile, traceback
@@ -87,20 +88,64 @@ for m in range(1, 13):
     except Exception:
         log.append(f'{mes}: ' + traceback.format_exc()[-400:])
 
+# ---------- orçamento anual de todos os poderes ("Orçamento da despesa": dotação, empenhado e realizado por órgão) ----------
+def baixar_anual():
+    for url in (f'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa/{ANO}',
+                f'https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/orcamento-despesa/{ANO}_OrcamentoDespesa.zip'):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=600) as r:
+                return zipfile.ZipFile(io.BytesIO(r.read())), url
+        except Exception as ex:
+            log.append(f'anual {url}: {ex}')
+    return None, None
+
+anual, fonte_anual = {}, None
+z, fonte_anual = baixar_anual()
+if z:
+    try:
+        for nome in [n for n in z.namelist() if n.lower().endswith('.csv')]:
+            with z.open(nome) as f:
+                leitor = csv.DictReader(io.TextIOWrapper(f, encoding='latin-1'), delimiter=';')
+                cab = leitor.fieldnames or []
+                c_sup, c_nsup = coluna(cab, 'CODIGO', 'ORGAO SUPERIOR'), coluna(cab, 'NOME', 'ORGAO SUPERIOR')
+                c_org, c_norg = coluna(cab, 'CODIGO', 'ORGAO SUBORDINADO'), coluna(cab, 'NOME', 'ORGAO SUBORDINADO')
+                c_dot = coluna(cab, 'ATUALIZADO') or coluna(cab, 'INICIAL')
+                c_emp, c_rea = coluna(cab, 'EMPENHADO'), coluna(cab, 'REALIZADO', sem=('%',))
+                amostra['anual'] = {'arquivo': nome, 'url': fonte_anual, 'colunas': cab, 'usadas': [c_sup, c_nsup, c_org, c_norg, c_dot, c_emp, c_rea]}
+                if not (c_nsup and c_rea): log.append(f'anual {nome}: colunas não encontradas'); continue
+                for i, r in enumerate(leitor):
+                    if i < 3: amostra.setdefault('anual_linhas', []).append(r)
+                    sup, nsup = r.get(c_sup) or '', (r.get(c_nsup) or '').strip()
+                    org, norg = (r.get(c_org) or sup), ((r.get(c_norg) or nsup).strip())
+                    o = anual.setdefault(org or norg, {'codigo': org, 'nome': norg, 'sup': sup, 'sup_nome': nsup, 'poder': poder(nsup),
+                                                       'dotacao': 0.0, 'empenhado': 0.0, 'pago': 0.0})
+                    o['dotacao'] += valor(r.get(c_dot)); o['empenhado'] += valor(r.get(c_emp)); o['pago'] += valor(r.get(c_rea))
+        log.append(f'anual: {len(anual)} órgãos')
+    except Exception:
+        log.append('anual: ' + traceback.format_exc()[-400:])
+
+# o anual manda (cobre todos os poderes); o mensal só acrescenta o pago mês a mês de quem aparece nele
+if anual:
+    for k, o in anual.items():
+        o['liquidado'] = (orgaos.get(k) or {}).get('liquidado', 0.0)
+        o['meses'] = (orgaos.get(k) or {}).get('meses', {})
+    orgaos = anual
+
 # por poder: totais e órgãos (os órgãos sem nenhum valor no ano ficam de fora)
 NOMES = {'leg': 'Legislativo', 'jud': 'Judiciário', 'exec': 'Executivo', 'mpu': 'Ministério Público e Defensoria'}
 poderes = {}
 for k, nome in NOMES.items():
     L = [o for o in orgaos.values() if o['poder'] == k and (o['pago'] or o['empenhado'])]
     L.sort(key=lambda o: -o['pago'])
-    poderes[k] = {'nome': nome, 'empenhado': round(sum(o['empenhado'] for o in L), 2), 'liquidado': round(sum(o['liquidado'] for o in L), 2),
+    poderes[k] = {'nome': nome, 'dotacao': round(sum(o.get('dotacao', 0.0) for o in L), 2), 'empenhado': round(sum(o['empenhado'] for o in L), 2), 'liquidado': round(sum(o['liquidado'] for o in L), 2),
                   'pago': round(sum(o['pago'] for o in L), 2),
                   'orgaos': [{**{x: o[x] for x in ('codigo', 'nome', 'sup', 'sup_nome')}, 'empenhado': round(o['empenhado'], 2), 'liquidado': round(o['liquidado'], 2),
-                              'pago': round(o['pago'], 2), 'meses': [[mm, round(o['meses'].get(mm, 0.0), 2)] for mm in meses_lidos]} for o in L[:120 if k == 'exec' else 80]]}
+                              'pago': round(o['pago'], 2), 'dotacao': round(o.get('dotacao', 0.0), 2), 'meses': [[mm, round(o['meses'].get(mm, 0.0), 2)] for mm in meses_lidos]} for o in L[:120 if k == 'exec' else 80]]}
 
 OUT.mkdir(parents=True, exist_ok=True)
 res = {'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'), 'ano': ANO, 'meses': meses_lidos, 'poderes': poderes,
-       'fonte': 'https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao', 'erros': log[:40]}
+       'fonte': 'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa' if anual else 'https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao',
+       'fonte_mensal': 'https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao', 'erros': log[:40]}
 (OUT / 'orcamento.json').write_text(json.dumps(res, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 (OUT / 'orcamento-amostra.json').write_text(json.dumps(amostra, ensure_ascii=False, indent=1, default=str)[:30000], encoding='utf-8')
 print(json.dumps({'meses': meses_lidos, 'poderes': {k: [v['pago'], len(v['orgaos'])] for k, v in poderes.items()}, 'erros': log[:8]}, ensure_ascii=False))
