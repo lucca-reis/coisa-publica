@@ -376,7 +376,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
    and spread to the icons on the right; no arrows. Enquetes becomes an icon (a ballot box) among the others. */
 .menu .menu-tools .cs-link{display:none}
 @media (min-width:761px){
-  .menu{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:0}
+  .menu{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:0;padding-left:max(16px, var(--edge, 16px));padding-right:max(16px, var(--edge, 16px))}
   .menu nav{grid-column:2;justify-self:stretch;justify-content:flex-start;gap:6px;max-width:none;margin:0 196px 0 -13px;padding:3px}
   .menu .nav-grp{flex:none}
   .menu nav > .nav-grp > .nav-leg{padding:7px 10px;font-size:14px;gap:0}
@@ -492,6 +492,7 @@ a.ev:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
   .landing > .lx-wrap{display:block;grid-column:1;grid-row:1;align-self:stretch;margin-bottom:var(--lx-end, 0px)}
   .landing > .today{grid-column:2;grid-row:1;max-width:none;box-sizing:border-box}
   .landing > .site-foot{grid-column:1 / -1;grid-row:2;max-width:none}
+  .landing .lx{translate:var(--lx-sx, 0px) 0}
   .landing .lx-row{position:absolute;flex-direction:column;align-items:center;gap:8px;width:calc(var(--S) + 60px);transform:translateX(-50%)}
   .landing .lx-row[data-k="cong"]{left:50%;top:0}
   .landing .lx-row[data-k="pres"]{left:calc(50% - var(--s) / 2);top:calc(.866 * var(--s))}
@@ -2753,12 +2754,17 @@ function lxEnd(){
   const last = cards[cards.length-1]; if (!last) return;
   // measured against the end of the wrapper's grid row (its bottom plus the trim already applied), so it holds after "Ver mais" too
   const wrap = document.querySelector('.lx-wrap'); if (!wrap || getComputedStyle(wrap).display==='contents') return;
-  // the gap from the last card to the page's right edge matches the gap from the page's left edge to the left circle
+  // the circles move left by half their natural gap to the page's edge; that half gap (--edge) is also the gap from the
+  // last card to the right edge and the menu's side margins, so logo, circles, cards and icons share one margin
+  const lxEl = document.querySelector('.landing .lx');
   const left = Math.min(...[...document.querySelectorAll('.lx .sph')].map(c=> c.getBoundingClientRect().left));
-  if (isFinite(left)){ const L = document.getElementById('landing'), lr = L.getBoundingClientRect();
+  if (isFinite(left) && lxEl){ const L = document.getElementById('landing'), lr = L.getBoundingClientRect();
+    const sx = parseFloat(lxEl.style.getPropertyValue('--lx-sx')) || 0, base = left - lr.left - sx, g = Math.round(base / 2);
+    if (lxEl.style.getPropertyValue('--lx-sx') !== (-g)+'px') lxEl.style.setProperty('--lx-sx', (-g)+'px');
     const edge = lr.left + L.clientWidth, now = parseFloat(todayEl.style.paddingRight) || 0;
-    const pr = Math.max(0, Math.round(now + (left - lr.left) - (edge - last.getBoundingClientRect().right)));
-    if (todayEl.style.paddingRight !== pr+'px') todayEl.style.paddingRight = pr+'px'; }
+    const pr = Math.max(0, Math.round(now + g - (edge - last.getBoundingClientRect().right)));
+    if (todayEl.style.paddingRight !== pr+'px') todayEl.style.paddingRight = pr+'px';
+    if (document.documentElement.style.getPropertyValue('--edge') !== g+'px') document.documentElement.style.setProperty('--edge', g+'px'); }
   const cur = parseFloat(getComputedStyle(wrap).marginBottom) || 0;
   const gap = wrap.getBoundingClientRect().bottom + cur - last.getBoundingClientRect().bottom;
   // the lowest point of the bottom circles (not their titles) lines up with the last card

@@ -25,14 +25,14 @@ UA = {'Accept': 'application/json', 'User-Agent': 'quorum (github.com/lucca-reis
 TIPOS = ['MPV', 'PL', 'PLP', 'PEC', 'PLN']
 log, amostra = [], {'sem_pasta': [], 'sem_em': [], 'siglas_desconhecidas': {}}
 
-def get(url, raw=False):
-    for n in range(5):
+def get(url, raw=False, tentativas=5, espera=90):
+    for n in range(tentativas):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA if not raw else {'User-Agent': UA['User-Agent']}), timeout=90) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA if not raw else {'User-Agent': UA['User-Agent']}), timeout=espera) as r:
                 b = r.read()
             return b if raw else json.loads(b.decode('utf-8'))
         except Exception as ex:
-            if n == 4: log.append(f'{url[:120]}: {ex}'); return None
+            if n == tentativas - 1: log.append(f'{url[:120]}: {ex}'); return None
             time.sleep(4 + 6 * n)
 
 def norm(t):
@@ -110,7 +110,7 @@ def contexto(txt):
     return out[:4] + [re.sub(r'\s+', ' ', txt[-300:])]
 
 def texto_html(url):
-    b = get(url, raw=True)
+    b = get(url, raw=True, tentativas=1, espera=20)   # o Planalto pode recusar robôs: uma tentativa só
     if not b: return ''
     t = b.decode('latin-1', 'replace')
     if 'charset=utf-8' in t[:2000].lower(): t = b.decode('utf-8', 'replace')
