@@ -2,669 +2,186 @@
  "sem_pasta": [],
  "sem_em": [
   {
-   "id": 2581700,
-   "sigla": "MPV 1323/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3055048",
-   "chars": 14047
-  },
-  {
-   "id": 2582520,
-   "sigla": "MPV 1324/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3055049",
-   "chars": 13114
-  },
-  {
-   "id": 2586418,
-   "sigla": "PL 5893/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3049234",
-   "chars": 46370
-  },
-  {
-   "id": 2587127,
-   "sigla": "MPV 1325/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3055050",
-   "chars": 15932
-  },
-  {
-   "id": 2589912,
-   "sigla": "MPV 1326/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075200",
-   "chars": 27689
-  },
-  {
-   "id": 2591970,
-   "sigla": "PL 6132/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3058412",
-   "chars": 15349
-  },
-  {
-   "id": 2591974,
-   "sigla": "PL 6133/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3058416",
-   "chars": 15435
-  },
-  {
-   "id": 2592447,
-   "sigla": "PL 6170/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3059582",
-   "chars": 87155
-  },
-  {
-   "id": 2594000,
-   "sigla": "PL 6237/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3063060",
-   "chars": 31818
-  },
-  {
-   "id": 2595101,
-   "sigla": "MPV 1327/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075203",
-   "chars": 14507
-  },
-  {
    "id": 2595808,
    "sigla": "PLP 265/2025",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3065815",
-   "chars": 4774
-  },
-  {
-   "id": 2597258,
-   "sigla": "PL 6462/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3091273",
-   "chars": 20841
-  },
-  {
-   "id": 2597834,
-   "sigla": "MPV 1328/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075205",
-   "chars": 17911
-  },
-  {
-   "id": 2598708,
-   "sigla": "MPV 1329/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075207",
-   "chars": 14631
-  },
-  {
-   "id": 2598718,
-   "sigla": "MPV 1330/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075209",
-   "chars": 12577
-  },
-  {
-   "id": 2599846,
-   "sigla": "MPV 1331/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075210",
-   "chars": 9400
-  },
-  {
-   "id": 2599884,
-   "sigla": "MPV 1332/2025",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075212",
-   "chars": 7553
-  },
-  {
-   "id": 2599885,
-   "sigla": "PL 1/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3073106",
-   "chars": 10288
-  },
-  {
-   "id": 2599888,
-   "sigla": "MPV 1333/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075214",
-   "chars": 13889
-  },
-  {
-   "id": 2599928,
-   "sigla": "MPV 1334/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075288",
-   "chars": 13751
-  },
-  {
-   "id": 2599930,
-   "sigla": "MPV 1335/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3079715",
-   "chars": 33583
-  },
-  {
-   "id": 2601389,
-   "sigla": "MPV 1336/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3079716",
-   "chars": 11887
-  },
-  {
-   "id": 2607473,
-   "sigla": "MPV 1338/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3094409",
-   "chars": 10881
-  },
-  {
-   "id": 2607474,
-   "sigla": "MPV 1339/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3094410",
-   "chars": 11391
-  },
-  {
-   "id": 2608575,
-   "sigla": "PLP 55/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3096551",
-   "chars": 3836
+   "chars": 4774,
+   "contexto": [
+    " de 2025. DEPUTADA TABATA AMARAL PRESIDENTE DA COMISSÃO *CD251335503000* PLP n.265/2025 Apresentação: 10/12/2025 19:59:30.993 - Mesa Assinado eletronicamente pelo(a) Dep. Tabata Amaral Para verificar a assinatura, acesse https://infoleg-autenticidade-assinatura.camara.leg.br/CD251335503000"
+   ]
   },
   {
    "id": 2608662,
    "sigla": "MPV 1340/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3096745",
-   "chars": 10208
-  },
-  {
-   "id": 2608770,
-   "sigla": "MPV 1341/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3097147",
-   "chars": 9288
-  },
-  {
-   "id": 2608922,
-   "sigla": "PL 1160/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3097591",
-   "chars": 4085
-  },
-  {
-   "id": 2610017,
-   "sigla": "MPV 1342/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3099900",
-   "chars": 28609
-  },
-  {
-   "id": 2610975,
-   "sigla": "MPV 1343/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3102087",
-   "chars": 16258
-  },
-  {
-   "id": 2610976,
-   "sigla": "MPV 1344/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3102088",
-   "chars": 12004
-  },
-  {
-   "id": 2611078,
-   "sigla": "PL 1315/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3102262",
-   "chars": 55454
-  },
-  {
-   "id": 2611652,
-   "sigla": "MPV 1345/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3106422",
-   "chars": 16192
-  },
-  {
-   "id": 2612633,
-   "sigla": "MPV 1346/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3106415",
-   "chars": 13590
-  },
-  {
-   "id": 2612634,
-   "sigla": "MPV 1347/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3106416",
-   "chars": 9511
-  },
-  {
-   "id": 2613550,
-   "sigla": "MPV 1348/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3117421",
-   "chars": 16349
-  },
-  {
-   "id": 2613731,
-   "sigla": "PL 1625/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3109125",
-   "chars": 7463
-  },
-  {
-   "id": 2614364,
-   "sigla": "MPV 1349/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3117423",
-   "chars": 34472
-  },
-  {
-   "id": 2616127,
-   "sigla": "PL 1838/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3113430",
-   "chars": 20406
-  },
-  {
-   "id": 2616962,
-   "sigla": "MPV 1350/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3117426",
-   "chars": 6829
-  },
-  {
-   "id": 2617268,
-   "sigla": "PL 1893/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3115560",
-   "chars": 14048
-  },
-  {
-   "id": 2618769,
-   "sigla": "MPV 1351/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122672",
-   "chars": 10077
-  },
-  {
-   "id": 2619357,
-   "sigla": "MPV 1352/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122673",
-   "chars": 10560
-  },
-  {
-   "id": 2620628,
-   "sigla": "MPV 1353/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122675",
-   "chars": 19604
-  },
-  {
-   "id": 2620629,
-   "sigla": "MPV 1354/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122676",
-   "chars": 18471
-  },
-  {
-   "id": 2620929,
-   "sigla": "MPV 1355/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3124365",
-   "chars": 54210
-  },
-  {
-   "id": 2620930,
-   "sigla": "MPV 1356/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3124367",
-   "chars": 23317
-  },
-  {
-   "id": 2624161,
-   "sigla": "MPV 1357/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3131650",
-   "chars": 10140
-  },
-  {
-   "id": 2624751,
-   "sigla": "MPV 1358/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3131648",
-   "chars": 16121
-  },
-  {
-   "id": 2625945,
-   "sigla": "MPV 1359/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3136443",
-   "chars": 19171
-  },
-  {
-   "id": 2625946,
-   "sigla": "MPV 1360/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3136444",
-   "chars": 15539
-  },
-  {
-   "id": 2626766,
-   "sigla": "MPV 1361/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3136445",
-   "chars": 13832
-  },
-  {
-   "id": 2627586,
-   "sigla": "MPV 1362/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3140243",
-   "chars": 12078
-  },
-  {
-   "id": 2629391,
-   "sigla": "MPV 1363/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3140616",
-   "chars": 29242
-  },
-  {
-   "id": 2629561,
-   "sigla": "MPV 1364/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3141844",
-   "chars": 11432
-  },
-  {
-   "id": 2630089,
-   "sigla": "MPV 1365/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3142923",
-   "chars": 9722
-  },
-  {
-   "id": 2632300,
-   "sigla": "MPV 1366/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157741",
-   "chars": 28427
-  },
-  {
-   "id": 2632301,
-   "sigla": "MPV 1367/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157740",
-   "chars": 11455
-  },
-  {
-   "id": 2634391,
-   "sigla": "MPV 1368/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157738",
-   "chars": 17324
-  },
-  {
-   "id": 2634392,
-   "sigla": "MPV 1369/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157737",
-   "chars": 10473
-  },
-  {
-   "id": 2634542,
-   "sigla": "MPV 1370/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157736",
-   "chars": 26372
-  },
-  {
-   "id": 2634698,
-   "sigla": "MPV 1371/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157735",
-   "chars": 10316
-  },
-  {
-   "id": 2635439,
-   "sigla": "MPV 1372/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157734",
-   "chars": 12548
-  },
-  {
-   "id": 2635466,
-   "sigla": "MPV 1373/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157733",
-   "chars": 33474
-  },
-  {
-   "id": 2635476,
-   "sigla": "PLP 186/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3153934",
-   "chars": 12940
-  },
-  {
-   "id": 2636183,
-   "sigla": "MPV 1374/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157335",
-   "chars": 23899
-  },
-  {
-   "id": 2637101,
-   "sigla": "MPV 1375/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157732",
-   "chars": 16560
-  },
-  {
-   "id": 2639957,
-   "sigla": "MPV 1376/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3163739",
-   "chars": 35178
-  },
-  {
-   "id": 2640259,
-   "sigla": "MPV 1377/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166453",
-   "chars": 42019
-  },
-  {
-   "id": 2641178,
-   "sigla": "MPV 1378/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166454",
-   "chars": 9526
-  },
-  {
-   "id": 2641546,
-   "sigla": "MPV 1379/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166455",
-   "chars": 15429
-  },
-  {
-   "id": 2641578,
-   "sigla": "MPV 1380/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166456",
-   "chars": 40955
-  },
-  {
-   "id": 2641748,
-   "sigla": "MPV 1381/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3167653",
-   "chars": 20133
-  },
-  {
-   "id": 2641811,
-   "sigla": "MPV 1382/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3167965",
-   "chars": 15439
-  },
-  {
-   "id": 2642328,
-   "sigla": "PL 4951/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3169586",
-   "chars": 11102
-  },
-  {
-   "id": 2642329,
-   "sigla": "PL 4952/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3169587",
-   "chars": 14603
+   "chars": 10208,
+   "contexto": [
+    " (cinquenta mil reais) a R$ 500.000.000,00 (quinhentos milhões de reais).\" (NR) Art. 14. Esta Medida Provisória entra em vigor na data de sua publicação. Brasília, 12 de março de 2026; 205º da Independência e 138º da República. LUIZ INÁCIO LULA DA SILVA Fernando Haddad Alexandre Silveira de Oliveira"
+   ]
   },
   {
    "id": 2643429,
    "sigla": "MPV 1383/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3171692",
-   "chars": 41839
+   "chars": 41839,
+   "contexto": [
+    "7 /65 /74 /67 /68 □ /64 /77 /68 □ /85 /102 /85 /81 /106/63 /85 /102 /85 /81 /94/70 /59 □ /218 /219 /220 /221 /76 /67 /74 /67 □ /67 /60 /63 /68 /68 /67 /74 □ /59 □ /60 /59 /64 /65 /63 /92 /70 /59 /86 □ /60 /72 /69 /87 /61 /63 □ /64 /59 /68 □ /64 /77 /68 □ /70 /67 /68 □ /63 /70 /69 /97 /112 /63 /68/79"
+   ]
   },
   {
    "id": 2643435,
    "sigla": "MPV 1384/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3171701",
-   "chars": 1
+   "chars": 1,
+   "contexto": [
+    " "
+   ]
   },
   {
    "id": 2643436,
    "sigla": "MPV 1385/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3171702",
-   "chars": 0
+   "chars": 0,
+   "contexto": [
+    ""
+   ]
   },
   {
    "id": 2644522,
    "sigla": "MPV 1386/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3174804",
-   "chars": 36569
+   "chars": 36569,
+   "contexto": [
+    "1 /2 /9 /39 /84 /1 /21 /36 /16 /9 /10 /86 /14 /11 /9 /28 □ /20 /24 □ /12 /5 □ /9 /13 /1 /10 /7 /1 □ /12 /5 □ /20 /22 /20 /45 /49 /5 /6 /9 /12 /1 /16 □ /0 /58 /62 /30 □ /58 /96 /31 /87 /96 /97 /17 /36 /60 /37 /18 /16 /5 /10 /11 /12 /5 /6 /7 /5 □ /12 /1 □ /49 /5 /6 /9 /12 /1 □ /57 /5 /12 /5 /16 /9 /14"
+   ]
   },
   {
    "id": 2644523,
    "sigla": "MPV 1387/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3174805",
-   "chars": 0
+   "chars": 0,
+   "contexto": [
+    ""
+   ]
   },
   {
    "id": 2644524,
    "sigla": "MPV 1388/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3174806",
-   "chars": 27600
+   "chars": 27600,
+   "contexto": [
+    " /1 □ /11 /6 /2 /11 /10 /1 □ /30 /130 □ /12 /1 □ /168 /169 /170 /152 /158 /12 /1 □ /9 /16/7 /21 □ /27 /49 □ /12 /1 □ /109 /6 /5 /133 /1 □ /30 □ /9 /1 □ /0 /5 /2 /16 /5 /7 /1 /6 /19 □ /27 /27 /21 /138 /24 /138 /28 □ /12 /5 □ /27 /19 □ /12 /5 □ /166 /9 /6 /5 /11 /16 /1 □ /12 /5 □ /20 /22 /20 /138 /149"
+   ]
   },
   {
    "id": 2646241,
    "sigla": "MPV 1389/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3179188",
-   "chars": 20113
+   "chars": 20113,
+   "contexto": [
+    "/171 /1 □ /12 /9 /3 /6 /11 /12 /9 /12 /5 □ /5 □ /1 □ /5 /29 /3 /11 /14 /106 /35 /16 /11 /1 □ /12 /11 /6 /9 /172 /4 /11 /2 /1 □ /5 /6 /7 /16 /5 □ /9 □ /38 /1 /38 /3 /14 /9 /39 /99 /1 □/16 /5 /10 /11 /12 /5 /6 /7 /5 □ /5 □ /9 □ /2 /1 /6 /10 /5 /16 /33 /9 /39 /99 /1 □ /9 /4 /35 /11 /5 /6 /7 /9 /14 /107"
+   ]
   },
   {
    "id": 2646242,
    "sigla": "MPV 1390/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3179189",
-   "chars": 20113
+   "chars": 20113,
+   "contexto": [
+    "/171 /1 □ /12 /9 /3 /6 /11 /12 /9 /12 /5 □ /5 □ /1 □ /5 /29 /3 /11 /14 /106 /35 /16 /11 /1 □ /12 /11 /6 /9 /172 /4 /11 /2 /1 □ /5 /6 /7 /16 /5 □ /9 □ /38 /1 /38 /3 /14 /9 /39 /99 /1 □/16 /5 /10 /11 /12 /5 /6 /7 /5 □ /5 □ /9 □ /2 /1 /6 /10 /5 /16 /33 /9 /39 /99 /1 □ /9 /4 /35 /11 /5 /6 /7 /9 /14 /107"
+   ]
   },
   {
    "id": 2646385,
    "sigla": "MPV 1391/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3180015",
-   "chars": 36432
+   "chars": 36432,
+   "contexto": [
+    "232/53□ /231 /234 /233 /236 /238 /233 /232/53□ /238/2/233 /232 /254 /232 □ /231 □ /233 /235 /231 /234 /233 /236 /254 /230 /233 /238 /233 /232 /253/8 □ /244 /233 /230 /244/27/243 /238/28 /29/254 □ /234 /231 /232 /234 /231 □/60 /80□ /234 /231 □ /254/27/236/27/242 /230 /254 □ /234 /231 □/60 /57 /55 /81"
+   ]
   },
   {
    "id": 2646885,
    "sigla": "MPV 1392/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3181521",
-   "chars": 19149
-  },
-  {
-   "id": 2647154,
-   "sigla": "MPV 1393/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3182103",
-   "chars": 34559
-  },
-  {
-   "id": 2647155,
-   "sigla": "MPV 1394/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3182104",
-   "chars": 40660
-  },
-  {
-   "id": 2647160,
-   "sigla": "PL 5477/2026",
-   "trechos": [],
-   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3182117",
-   "chars": 10867
+   "chars": 19149,
+   "contexto": [
+    "anizará e funcionará em conformidade com a presente Constituição: ARTIGO 1 Definições Na presente Constituição, entender-se-á por: a) \"Membros\", os Estados Membros, bem como os Membros Associados mencionados no Artigo 6; b) \"Estatutos\", os estatutos do Centro que sua Assembleia Geral aprove; "
+   ]
   },
   {
    "id": 2647392,
    "sigla": "MPV 1395/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3183319",
-   "chars": 10664
+   "chars": 10664,
+   "contexto": [
+    " e à participação no processo de certificação de estabelecimentos de criação livres de brucelose e tuberculose bovina e bubalina, no Estado de Santa Catarina. Art. 2º Fica revogada a Portaria nº 163, de 11 de junho de 2014. Art. 3º Esta Portaria entra em vigor na data da sua publicação. IVANOR BOING"
+   ]
   },
   {
    "id": 2647407,
    "sigla": "MPV 1396/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3183445",
-   "chars": 29790
+   "chars": 29790,
+   "contexto": [
+    "das urgentes são aquelas que, em razão de risco relevante ao consumidor, exijam tratamento p rioritário, nas quais o atendimento deverá ser prestado imediatamente e a qualquer tempo. Parágrafo único. As hipóteses de urgência serão disciplinadas pelas agênc ias e pelos órgãos reguladores competentes."
+   ]
   },
   {
    "id": 2647522,
    "sigla": "PLP 267/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3183630",
-   "chars": 15430
+   "chars": 15430,
+   "contexto": [
+    "uidade de suas atividades. Respeitosamente, Assinada por: Dario Carnevalli Durigan, Bruno Moretti, Paulo Henrique Rodrigues Pereira input_1791912011709_arquivo 5 *CD269335915000* PLP n.267/2026 Apresentação: 13/10/2026 17:16:09.313 - Mesa Autenticado Eletronicamente, após conferência com o original."
+   ]
   },
   {
    "id": 2648606,
    "sigla": "MPV 1397/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3185390",
-   "chars": 11949
+   "chars": 11949,
+   "contexto": [
+    "nal, no valor de R$ 300.000.000,00 (trezentos milhões de reais), para atender à programação constante do Anexo. Art. 2º Esta Medida Provisória entra em vigor na data de sua publicação. Brasília, 20 de outubro de 2026; 205º da Independência e 138º da República. LUIZ INÁCIO LULA DA SILVA Bruno Moretti"
+   ]
   },
   {
    "id": 2648616,
    "sigla": "MPV 1398/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3185402",
-   "chars": 15996
+   "chars": 15996,
+   "contexto": [
+    "DA SILVA Presidente da República MIRIAM APARECIDA BELCHIOR Ministra de Estado Chefe da Casa CiviI AFONSO OLIVEIRA DE ALMEIDA Diretor-Geral da Imprensa Nacional DIÁRIO OFICIAL DA UNIÃO WANDERSON MAIA NASCIMENTO Coordenador-Geral de Publicação, Produção e Pres",
+    "e s 2318 22BO Ações de Proteção e Defesa Civil 06 182 300.000.000 2318 22BO 6500 Ações de Proteção e Defesa Civil - Nacional (Crédito Extraordinário) 06 182 300.000.000 . . . .F .3-ODC . 2 .90 .0 .1000 300.000.000 .T OT A L - FISCAL 300.000.000 .TOTAL - S EG U R I DA D E 0 .TOTAL - GERAL 300.000.000"
+   ]
   },
   {
    "id": 2648653,
    "sigla": "PEC 18/2026",
    "trechos": [],
    "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3185494",
-   "chars": 5051
+   "chars": 5051,
+   "contexto": [
+    "tenticado Eletronicamente, após conferência com o original. EM nº 2.269/2026 Brasília, 21 de outubro de 2026. Senhor Presidente da República, 1. Submeto à sua apreciação a Proposta de Emenda à Constituição que acrescenta os §§ 21 a 23 ao art. 166 da Constituiç",
+    "amento da gratuidade do transporte público coletivo de passageiros e dar efetividade ao direito social ao transporte. Respeitosamente, Assinado por: Bruno Moretti *CD263927987100* PEC n.18/2026 Apresentação: 21/10/2026 15:39:11.903 - Mesa Autenticado Eletronicamente, após conferência com o original."
+   ]
   }
  ],
  "siglas_desconhecidas": {}
