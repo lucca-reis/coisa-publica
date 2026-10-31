@@ -391,23 +391,22 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .mdr-sec:first-child{border-top:0}
   .mdr-h{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
   .mdr-h i{width:8px;height:8px;border-radius:50%;background:var(--pc)}
-  .mdr-l{list-style:none;margin:0;padding:0}
-  .mdr a,.mdr summary{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 12px;margin:0 -12px;border-radius:14px;color:var(--ink);text-decoration:none;font-size:17px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .mdr a:active,.mdr summary:active{background:color-mix(in srgb, var(--ink) 6%, var(--bg))}
-  .mdr a[aria-current="page"]{background:color-mix(in srgb, var(--ink) 8%, var(--bg))}
-  .mdr a b{font-weight:500;min-width:3.2em}
-  .mdr a small,.mdr summary small{margin-left:auto;font-size:13px;color:var(--muted)}
-  .mdr summary{list-style:none}
-  .mdr summary::-webkit-details-marker{display:none}
-  .mdr summary::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:translateY(-2px) rotate(45deg);margin-left:8px;color:var(--muted)}
-  .mdr details[open] summary::after{transform:translateY(2px) rotate(-135deg)}
-  .mdr details small{margin-left:auto}
-  .mdr .nav-find{margin:4px 0 6px}
-  .mdr .mdr-min a{font-size:15px;min-height:44px;padding-left:24px}
   .mdr-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none;margin:4px 0 0;padding:0}
-  .mdr-tiles a{flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;min-height:78px;margin:0;padding:12px 14px;background:color-mix(in srgb, var(--ink) 5%, var(--bg));font-size:15px}
-  .mdr-tiles a[aria-current="page"]{background:var(--ink);color:var(--bg)}
-  .mdr-home{font-weight:500}
+  .mdr-tiles > li[hidden]{display:none}
+  .mdr-wide{grid-column:1 / -1}
+  .mdr-tiles a,.mdr-btn{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:6px;width:100%;height:100%;min-height:78px;padding:12px 14px;
+    border-radius:14px;background:color-mix(in srgb, var(--ink) 5%, var(--bg));color:var(--ink);font-family:var(--display);font-size:15px;line-height:1.25;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s}
+  .mdr-tiles a:active,.mdr-btn:active{background:color-mix(in srgb, var(--ink) 10%, var(--bg))}
+  .mdr-tiles a:focus-visible,.mdr-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .mdr-tiles a[aria-current="page"],.mdr-btn[aria-expanded="true"]{background:var(--ink);color:var(--bg)}
+  .mdr-t{font-size:13px;font-weight:600;letter-spacing:.04em;line-height:1;display:flex}
+  .mdr-t svg{width:22px;height:22px}
+  .mdr-t svg.gl{width:auto;height:13px;fill:currentColor}
+  .mdr-wide > a{min-height:56px;justify-content:center}
+  .mdr-mins{padding-top:2px}
+  .mdr .nav-find{margin:2px 0 8px}
+  .mdr-min a{min-height:64px;font-size:14px;justify-content:space-between}
+  .mdr-min a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
 }
 @media (max-width:380px){
   .today-date{display:none}
@@ -3371,17 +3370,23 @@ const ham = document.getElementById('ham'), mdr = document.getElementById('mdr')
   const sec = (title, pc, inner)=> `<section class="mdr-sec"><h2 class="mdr-h">${pc ? `<i style="--pc:${pc}"></i>` : ''}${title}</h2>${inner}</section>`;
   const go = (k, l, extra)=> `<li><a href="#" data-go="${k}" data-k="${k}">${l}${extra||''}</a></li>`;
   const ct = (k, l)=> `<li><a href="#tribunal-${k}" data-k="t:${k}"><b>${k.toUpperCase()}</b>${l}</a></li>`;
+  // every item is a tile, like the Explorar tiles: sigla or icon on top, name below
+  const tile = (attrs, top, l, wide)=> `<li${wide ? ' class="mdr-wide"' : ''}><a ${attrs}>${top ? `<span class="mdr-t">${top}</span>` : ''}<span class="mdr-n">${l}</span></a></li>`;
+  const tiles = (inner)=> `<ul class="mdr-tiles">${inner}</ul>`;
   mdr.innerHTML = `
-    <section class="mdr-sec"><ul class="mdr-l">${go('home','Início')}</ul></section>
-    ${sec('Executivo', '#009C3B', `<ul class="mdr-l">${go('pres','Presidência da República')}</ul>
-      <details class="mdr-min"><summary>Ministérios <small>${EXEC_MIN.length}</small></summary>
-        <label class="nav-find"><span class="sr-only">Buscar ministério</span><input type="search" id="mdr-q" placeholder="Buscar ministério" autocomplete="off"></label>
-        <ul class="mdr-l" id="mdr-min">${EXEC_MIN.map(M=>`<li><a href="#ministerio-${slugName(M.pasta)}" data-k="m:${slugName(M.pasta)}">${esc(M.pasta)}</a></li>`).join('')}</ul></details>`)}
-    ${sec('Legislativo', '#F2C200', `<ul class="mdr-l">${go('senado','Senado Federal')}${go('camara','Câmara dos Deputados')}</ul>`)}
-    ${sec('Judiciário', '#1F4FB5', `<ul class="mdr-l"><li><a href="#" data-go="stf" data-k="stf"><b>STF</b>Supremo Tribunal Federal</a></li>${ct('stj','Superior Tribunal de Justiça')}${ct('tst','Tribunal Superior do Trabalho')}${ct('tse','Tribunal Superior Eleitoral')}${ct('stm','Superior Tribunal Militar')}</ul>`)}
-    ${sec('Explorar', '', `<ul class="mdr-tiles">${[['projetos','Projetos'],['consultas','Enquetes'],['transp','Transparência'],['visao','Visão geral'],['calendario','Calendário']].map(([k,l])=>`<li><a href="#" data-go="${k}" data-k="${k}">${ICON(k)}${l}</a></li>`).join('')}</ul>`)}`;
+    <section class="mdr-sec">${tiles(tile('href="#" data-go="home" data-k="home"', '', 'Início', true))}</section>
+    ${sec('Executivo', '#009C3B', tiles(tile('href="#" data-go="pres" data-k="pres"', GLYPHS.exec, 'Presidência da República')
+      + `<li><button type="button" class="mdr-btn" aria-expanded="false" aria-controls="mdr-mins"><span class="mdr-t">${EXEC_MIN.length}</span><span class="mdr-n">Ministérios</span></button></li>`
+      + `<li class="mdr-wide mdr-mins" id="mdr-mins" hidden><label class="nav-find"><span class="sr-only">Buscar ministério</span><input type="search" id="mdr-q" placeholder="Buscar ministério" autocomplete="off"></label>
+          <ul class="mdr-tiles mdr-min" id="mdr-min">${EXEC_MIN.map(M=> tile(`href="#ministerio-${slugName(M.pasta)}" data-k="m:${slugName(M.pasta)}" style="--c:${PARTY[M.p]||'var(--nc)'}"`, '', esc(M.pasta))).join('')}</ul></li>`))}
+    ${sec('Legislativo', '#F2C200', tiles(tile('href="#" data-go="senado" data-k="senado"', GLYPHS.leg, 'Senado Federal') + tile('href="#" data-go="camara" data-k="camara"', GLYPHS.leg, 'Câmara dos Deputados')))}
+    ${sec('Judiciário', '#1F4FB5', tiles(tile('href="#" data-go="stf" data-k="stf"', 'STF', 'Supremo Tribunal Federal')
+      + [['stj','Superior Tribunal de Justiça'],['tst','Tribunal Superior do Trabalho'],['tse','Tribunal Superior Eleitoral'],['stm','Superior Tribunal Militar']].map(([k,l])=> tile(`href="#tribunal-${k}" data-k="t:${k}"`, k.toUpperCase(), l)).join('')))}
+    ${sec('Explorar', '', tiles([['projetos','Projetos'],['consultas','Enquetes'],['transp','Transparência'],['visao','Visão geral'],['calendario','Calendário']].map(([k,l])=> tile(`href="#" data-go="${k}" data-k="${k}"`, ICON(k), l)).join('')))}`;
+  const mb = mdr.querySelector('.mdr-btn'), mm = document.getElementById('mdr-mins');
+  mb.addEventListener('click', e=>{ e.stopPropagation(); const on = mm.hidden; mm.hidden = !on; mb.setAttribute('aria-expanded', String(on)); if (on) document.getElementById('mdr-q').focus({preventScroll:true}); });
   const q = document.getElementById('mdr-q');
-  q.addEventListener('input', ()=>{ const f = minFold(q.value.trim()); mdr.querySelectorAll('#mdr-min li').forEach(li=>{ li.hidden = !!f && !minFold(li.textContent).includes(f); }); });
+  q.addEventListener('input', ()=>{ const f = minFold(q.value.trim()); mdr.querySelectorAll('#mdr-min > li').forEach(li=>{ li.hidden = !!f && !minFold(li.textContent).includes(f); }); });
 })();
 function mdrOpen(on){
   if (on === !mdr.hidden) return;
