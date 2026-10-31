@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['scripts/orcamento.py', '.github/workflows/orcamento.yml']
+    paths: ['scripts/orcamento.py', 'scripts/rgf.py', '.github/workflows/orcamento.yml']
 
 permissions:
   contents: write
@@ -27,6 +27,11 @@ jobs:
       - name: Execução da despesa do ano, por órgão (Portal da Transparência)
         run: python scripts/orcamento.py
         timeout-minutes: 50
+        continue-on-error: true
+      - name: Despesa com pessoal de cada órgão federal (RGF, Tesouro Nacional)
+        run: python scripts/rgf.py
+        timeout-minutes: 15
+        continue-on-error: true
       - name: Salvar se mudou
         run: |
           git config user.name "quorum-robo"
