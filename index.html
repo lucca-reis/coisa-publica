@@ -2633,7 +2633,10 @@ function renderToday(){
 function lxEnd(){
   const cards = [...todayEl.querySelectorAll('.feed .card')].filter(c=> c.offsetParent);
   const last = cards[cards.length-1]; if (!last) return;
-  const gap = todayEl.getBoundingClientRect().bottom - last.getBoundingClientRect().bottom;
+  // measured against the end of the wrapper's grid row (its bottom plus the trim already applied), so it holds after "Ver mais" too
+  const wrap = document.querySelector('.lx-wrap'); if (!wrap || getComputedStyle(wrap).display==='contents') return;
+  const cur = parseFloat(getComputedStyle(wrap).marginBottom) || 0;
+  const gap = wrap.getBoundingClientRect().bottom + cur - last.getBoundingClientRect().bottom;
   // the lowest point of the bottom circles (not their titles) lines up with the last card
   const lx = document.querySelector('.lx'), low = Math.max(...[...document.querySelectorAll('.lx .sph')].map(c=> c.getBoundingClientRect().bottom));
   const below = lx && isFinite(low) ? lx.getBoundingClientRect().bottom - low : 0;
@@ -2674,13 +2677,17 @@ function addFoot(el){ if (el && !(el.lastElementChild && el.lastElementChild.cla
 function placeToday(){ /* the feed sits in the landing grid, beside the drawing */ }
 renderToday(); refreshLive();
 requestAnimationFrame(lxEnd); addEventListener('resize', ()=> requestAnimationFrame(lxEnd)); setTimeout(lxEnd, 1500);
+todayEl.addEventListener('animationend', ()=> requestAnimationFrame(lxEnd));   // cards that fade in after "Ver mais" settle in place
+// cards off screen are laid out with an estimated height (content-visibility) until they come into view, so measure again while scrolling
+let lxRaf = 0;
+document.getElementById('landing').addEventListener('scroll', ()=>{ if (!lxRaf) lxRaf = requestAnimationFrame(()=>{ lxRaf = 0; lxEnd(); }); }, {passive:true});
 todayEl.addEventListener('click', e=>{
   const more = e.target.closest('.fd-more');
   if (more){ e.stopPropagation(); feedMore = !feedMore;
     todayEl.classList.toggle('more', feedMore); more.setAttribute('aria-expanded', String(feedMore));
     const n = todayEl.querySelectorAll('.fd-cards > li.fd-x').length;
     more.textContent = feedMore ? 'Ver menos' : `Ver mais · ${n} ${n===1?'projeto':'projetos'}`;
-    lxEnd(); setTimeout(lxEnd, 700);
+    lxEnd(); setTimeout(lxEnd, 700); setTimeout(lxEnd, 1600);
     if (!feedMore) more.scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'});
     return; }
   const b = e.target.closest('.lv-tag[data-go]');
