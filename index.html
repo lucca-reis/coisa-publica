@@ -926,14 +926,15 @@ h1[tabindex="-1"]:focus{outline:none}
 /* overview page (#visao-geral): a dashboard built from the same data as the rest of the site */
 .cw.vg{max-width:1180px;gap:clamp(20px,3vw,32px)}
 /* transparency page (#transparencia): spending by power and, inside each power, by person or office */
-.tp-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tp-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tp-tu{font-size:12px;color:var(--muted)}
 .tp-tab{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:20px;background:color-mix(in srgb, var(--ink) 4%, var(--bg));box-shadow:inset 0 0 0 1.5px transparent;transition:background-color .2s, box-shadow .2s}
 .tp-tab:hover{background:color-mix(in srgb, var(--ink) 7%, var(--bg))}
 .tp-tab:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .tp-tab[aria-selected="true"]{box-shadow:inset 0 0 0 1.5px var(--ink);background:var(--bg)}
 .tp-tn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500}
 .tp-tn::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pc)}
-.tp-tab.pw-leg{--pc:#F2C200}.tp-tab.pw-exec{--pc:#009C3B}.tp-tab.pw-jud{--pc:#1F4FB5}
+.tp-tab.pw-leg{--pc:#F2C200}.tp-tab.pw-exec{--pc:#009C3B}.tp-tab.pw-jud{--pc:#1F4FB5}.tp-tab.pw-mp{--pc:color-mix(in srgb, var(--ink) 55%, var(--bg))}
 .tp-tv{font-size:clamp(20px,2.4vw,30px);font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .vb.w6{grid-column:span 6}
 .tp-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px}
@@ -963,6 +964,9 @@ h1[tabindex="-1"]:focus{outline:none}
 .tp-rbar i{display:block;height:100%;border-radius:4px;background:color-mix(in srgb, #F2C200 80%, var(--ink))}
 .tp-rbar i.senado{background:color-mix(in srgb, #F2C200 55%, var(--ink))}
 .tp-rbar i.exec{background:#009C3B}
+.tp-rbar i.jud{background:#1F4FB5}
+.tp-rbar i.mpu{background:color-mix(in srgb, var(--ink) 55%, var(--bg))}
+.tp-g{margin:18px 0 6px;font-size:13px;font-weight:500;color:var(--muted)}.tp-g:first-of-type{margin-top:4px}
 .tp-rv{font-size:14px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
 .tp-r.open .tp-rb{background:color-mix(in srgb, var(--ink) 4%, var(--bg))}
 .tp-det{display:flex;flex-direction:column;gap:12px;padding:10px 6px 20px}
@@ -975,7 +979,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .tp-courts a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 12px;align-items:baseline;padding:14px 16px;border-radius:16px;background:var(--bg);color:var(--ink);text-decoration:none}
 .tp-courts a:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
 .tp-courts b{font-weight:500}.tp-courts span{font-size:13px;color:var(--muted)}.tp-courts i{font-style:normal;color:var(--muted)}
-@media (max-width:760px){ .vb.w6{grid-column:span 12} .tp-kpis{grid-template-columns:minmax(0,1fr)} .tp-dg{grid-template-columns:minmax(0,1fr)} .tp-rb{grid-template-columns:2em minmax(0,1fr) auto} .tp-rbar{grid-column:2 / -1;grid-row:2} .tp-tab{padding:12px 12px} .tp-tn{font-size:13px} .tp-tv{font-size:17px} }
+@media (max-width:760px){ .vb.w6{grid-column:span 12} .tp-kpis{grid-template-columns:minmax(0,1fr)} .tp-dg{grid-template-columns:minmax(0,1fr)} .tp-rb{grid-template-columns:2em minmax(0,1fr) auto} .tp-rbar{grid-column:2 / -1;grid-row:2} .tp-tab{padding:12px 12px} .tp-tabs{grid-template-columns:repeat(2,minmax(0,1fr))} .tp-tn{font-size:13px} .tp-tv{font-size:17px} }
 .vg-sub{margin:6px 0 0;font-size:14px;color:var(--muted)}
 .vg-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
 .vb{grid-column:span 6;background:color-mix(in srgb, var(--ink) 5%, var(--bg));border-radius:22px;padding:20px 22px 22px;display:flex;flex-direction:column;gap:16px;min-width:0}
@@ -1072,6 +1076,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .tr-months{display:flex;align-items:flex-end;gap:4px;height:56px;flex:none;width:100%}
 .tr-months i{flex:1;min-height:2px;border-radius:3px 3px 1px 1px;background:var(--ink);opacity:.85;position:relative}
 .tr-months i:last-child{opacity:.35}
+.tp-full .tr-months i:last-child{opacity:.85}
 .tr-mlab{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);width:100%}
 .tr-cats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px 18px}
 .tr-cats li{display:flex;flex-direction:column;gap:4px;font-size:12.5px}
@@ -4002,13 +4007,17 @@ function hideVg(){
    A dashboard of public spending, by power and, inside each power, by person or office. Only what the official
    sources publish, as published: the parliamentary quota of the Câmara and the Senado (data/transparencia/, robot)
    and the payment cards of the Presidency, the Vice-Presidency and the ministries in the Portal da Transparência
-   (data/transparencia/exec.json, robot). The Judiciary is not in the Portal; its courts publish on their own sites. */
+   (data/transparencia/exec.json, robot), the Executive budget by ministry (orcamento.json) and the personnel spending of
+   every federal body, courts, Congress, TCU, MPU and DPU included, from the Fiscal Management Report (rgf.json, Tesouro). */
 const tp = document.getElementById('tp');
 let tpTab = 'leg', tpCasa = 'todas', tpSort = 'total', tpQ = '', tpShown = 40, tpOpen = null;
+const RGF_SRC_URL = 'https://siconfi.tesouro.gov.br/siconfi/pages/public/consulta_finbra_rgf/finbra_rgf_list.jsf';
 const TP_SOURCES = [
   {l:'Câmara dos Deputados: cota para o exercício da atividade parlamentar', u:'https://www.camara.leg.br/transparencia/gastos-parlamentares'},
   {l:'Senado Federal: cota para o exercício da atividade parlamentar dos senadores', u:'https://www12.senado.leg.br/transparencia/sen/verba-indenizatoria-ceaps'},
-  {l:'Portal da Transparência (CGU): cartões de pagamento do governo federal', u:'https://portaldatransparencia.gov.br/cartoes'}
+  {l:'Portal da Transparência (CGU): cartões de pagamento do governo federal', u:'https://portaldatransparencia.gov.br/cartoes'},
+  {l:'Portal da Transparência (CGU): orçamento da despesa do governo federal', u:'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'},
+  {l:'Tesouro Nacional (SICONFI): Relatório de Gestão Fiscal de cada órgão federal, despesa com pessoal', u:RGF_SRC_URL}
 ];
 const tpPeople = ()=> !trResumo ? [] : ['camara','senado'].flatMap(c=> Object.entries((trResumo[c]||{}).pessoas||{}).map(([s,p])=> ({...p, s, casa:c})));
 function tpPeriod(){
@@ -4038,6 +4047,7 @@ function tpLeg(){
       </div>
       <div id="tp-list">${tpList()}</div>
     </section>
+    ${rgfSection('Despesa com pessoal · 12 meses', rgfOf('leg'), 'leg', 'r-')}
   </div>
   <p class="vb-note tp-note">A cota parlamentar paga despesas do mandato, como escritório, passagens, combustível e divulgação, mediante nota fiscal. Os valores aparecem como a Câmara e o Senado publicam; o mês atual ainda está incompleto.</p>`;
 }
@@ -4067,6 +4077,65 @@ function tpDetail(id){
       <p class="vb-note">Últimos gastos</p><ul class="tr-list">${D.itens.slice(0, 12).map(item).join('')}</ul>
       <p class="vb-note">${FMT_NUM.format(D.itens.length)} documentos no período · <a href="${H.src}" target="_blank" rel="noopener">Ver no site ${casa==='camara'?'da Câmara':'do Senado'} ↗</a></p>`;
   }).catch(()=>{ const box = document.getElementById('tp-det'); if (box) box.innerHTML = `<p class="vd-none">Não deu para carregar os gastos agora. <a href="${H.src}" target="_blank" rel="noopener">Ver no site oficial ↗</a></p>`; });
+}
+/* Despesa com pessoal de cada órgão federal (RGF, Anexo 1, no SICONFI do Tesouro: data/transparencia/rgf.json, robô)
+   e orçamento do Executivo por ministério (Portal da Transparência: data/transparencia/orcamento.json, robô). */
+let trRgf = null, trOrc = null, tpAll = {};
+const loadRgf = ()=> trRgf ? Promise.resolve(trRgf) : trFetch('data/transparencia/rgf.json').then(js=> (trRgf = js));
+const loadOrc = ()=> trOrc ? Promise.resolve(trOrc) : trFetch('data/transparencia/orcamento.json').then(js=> (trOrc = js));
+const moneyBig = v => v>=1e12 ? 'R$ '+FMT_PCT.format(Math.round(v/1e11)/10)+' tri' : v>=1e9 ? 'R$ '+FMT_PCT.format(Math.round(v/1e8)/10)+' bi' : moneyShort(v);
+const RGF_SRC = 'https://siconfi.tesouro.gov.br/siconfi/pages/public/consulta_finbra_rgf/finbra_rgf_list.jsf';
+const RGF_NAME = {'União':'Executivo federal (União)', 'Distrito Federal':'Distrito Federal · pessoal pago pela União', 'Amapá':'Amapá (ex-território) · pessoal pago pela União', 'Roraima':'Roraima (ex-território) · pessoal pago pela União'};
+const rgfOf = k => trRgf ? (trRgf.orgaos||[]).filter(o=> o.poder===k && o.bruta) : [];
+const rgfSum = L => L.reduce((a,o)=> a+(o.bruta||0), 0);
+function rgfPeriod(L){
+  const o = L.find(x=> x.meses && x.meses.length); if (!o) return '';
+  const a = o.meses[0][0], b = o.meses[o.meses.length-1][0];
+  return `${monLab(a)} ${a.slice(0,4)} a ${monLab(b)} ${b.slice(0,4)}`;
+}
+function rgfRows(L, cls, max, pre){
+  return `<ol class="tp-rows">${L.map((o,i)=>{ const id = pre+slugName(o.nome), open = tpOpen===id;
+    return `<li class="tp-r${open?' open':''}"><button type="button" class="tp-rb" data-p="${id}" aria-expanded="${open}">
+      <span class="tp-rk">${i+1}</span><span class="tp-rn">${esc(RGF_NAME[o.nome]||o.nome)}<small>ativos ${moneyBig(o.ativo||0)} · inativos e pensionistas ${moneyBig(o.inativo||0)}</small></span>
+      <span class="tp-rbar" aria-hidden="true"><i class="${cls}" style="width:${((o.bruta||0)/max*100).toFixed(1)}%"></i></span>
+      <span class="tp-rv">${moneyBig(o.bruta||0)}</span></button>
+      ${open ? `<div class="tp-det">${o.meses && o.meses.length ? `<div class="tp-full">${tpMonths(o.meses.map(([m,v])=> [m, v||0]))}</div>` : ''}
+        <ul class="vt-who">
+          <li><span>Pessoal ativo</span><span>${MONEY0.format(o.ativo||0)}</span></li>
+          <li><span>Inativos e pensionistas</span><span>${MONEY0.format(o.inativo||0)}</span></li>
+          ${o.dtp!=null ? `<li><span>Despesa total com pessoal, pela regra da LRF</span><span>${MONEY0.format(o.dtp)}</span></li>` : ''}
+          ${o.limite ? `<li><span>Limite máximo da LRF para o órgão</span><span>${MONEY0.format(o.limite)}</span></li>` : ''}
+          ${o.dtp!=null && o.limite ? `<li><span>Parte do limite usada</span><span>${FMT_PCT.format(Math.round(o.dtp/o.limite*1000)/10)}%</span></li>` : ''}
+        </ul>
+        <p class="vb-note">Relatório de Gestão Fiscal do ${o.periodo}º quadrimestre de ${o.ano} · <a href="${RGF_SRC}" target="_blank" rel="noopener">Ver no SICONFI (Tesouro Nacional) ↗</a></p></div>` : ''}</li>`; }).join('')}</ol>`;
+}
+function rgfSection(title, L, cls, pre, note){
+  if (!trRgf) return `<section class="vb w12"><div class="vb-h"><h2>${title}</h2></div><p class="vd-none">Carregando os relatórios do Tesouro…</p></section>`;
+  if (!L.length) return '';
+  const max = Math.max(1, ...L.map(o=> o.bruta||0));
+  return `<section class="vb w12"><div class="vb-h"><h2>${title}</h2><a href="${RGF_SRC}" target="_blank" rel="noopener">Tesouro Nacional ↗</a></div>
+    <p class="tp-who">${rgfPeriod(L)} · ${note||'salários, encargos, aposentadorias e pensões, como cada órgão declara'}</p>${rgfRows(L, cls, max, pre)}</section>`;
+}
+function orcSection(){
+  if (!trOrc) return `<section class="vb w12"><div class="vb-h"><h2>Orçamento por ministério</h2></div><p class="vd-none">Carregando o orçamento…</p></section>`;
+  const O = ((trOrc.poderes||{}).exec||{}).orgaos || [];
+  if (!O.length) return '';
+  const G = {};
+  O.forEach(o=>{ const g = G[o.sup_nome] = G[o.sup_nome] || {nome:o.sup_nome, dotacao:0, pago:0, subs:[], meses:{}};
+    g.dotacao += o.dotacao||0; g.pago += o.pago||0; g.subs.push(o);
+    (o.meses||[]).forEach(([m,v])=>{ const k = m.slice(0,4)+'-'+m.slice(4); g.meses[k] = (g.meses[k]||0) + v; }); });
+  const L = Object.values(G).filter(g=> g.pago || g.dotacao).sort((a,b)=> b.pago-a.pago), max = Math.max(1, ...L.map(g=> g.pago));
+  const tot = L.reduce((a,g)=> a+g.pago, 0), totD = L.reduce((a,g)=> a+g.dotacao, 0);
+  return `<section class="vb w12"><div class="vb-h"><h2>Orçamento de ${trOrc.ano} por ministério</h2><a href="${trOrc.fonte}" target="_blank" rel="noopener">Portal da Transparência ↗</a></div>
+    <p class="tp-who">Realizado até agora: ${moneyBig(tot)} de ${moneyBig(totD)} previstos no orçamento atualizado</p>
+    <ol class="tp-rows">${L.map((g,i)=>{ const id = 'o-'+slugName(g.nome), open = tpOpen===id, M = Object.entries(g.meses).sort();
+      return `<li class="tp-r${open?' open':''}"><button type="button" class="tp-rb" data-p="${id}" aria-expanded="${open}">
+        <span class="tp-rk">${i+1}</span><span class="tp-rn">${esc(g.nome)}<small>${g.dotacao ? `${FMT_PCT.format(Math.round(g.pago/g.dotacao*1000)/10)}% de ${moneyBig(g.dotacao)} previstos` : 'sem dotação informada'}</small></span>
+        <span class="tp-rbar" aria-hidden="true"><i class="exec" style="width:${(g.pago/max*100).toFixed(1)}%"></i></span>
+        <span class="tp-rv">${moneyBig(g.pago)}</span></button>
+        ${open ? `<div class="tp-det">${M.length ? `<p class="vb-note">Pago por mês</p>${tpMonths(M)}` : ''}
+          <p class="vb-note">Órgãos e fundos da pasta</p><ul class="vt-who">${g.subs.slice().sort((a,b)=> b.pago-a.pago).slice(0,10).map(o=>`<li><span>${esc(o.nome)}</span><span>${moneyBig(o.pago||0)}</span></li>`).join('')}</ul></div>` : ''}</li>`; }).join('')}</ol>
+    <p class="vb-note">Valor realizado no ano, como publicado. O Ministério da Fazenda inclui os juros e a rolagem da dívida pública, e a Previdência inclui as aposentadorias do INSS.</p></section>`;
 }
 function tpExec(){
   if (!trExec) return '<p class="vd-none">Carregando os dados do Portal da Transparência…</p>';
@@ -4098,30 +4167,55 @@ function tpExec(){
         : '<p class="vd-none">Os gastos dos ministérios entram na próxima atualização diária do robô.</p>'}
       ${semOrgao.length ? `<p class="vb-note">Sem órgão próprio no Portal (os gastos entram na Presidência ou não foram encontrados): ${semOrgao.map(m=> esc(m.pasta)).join(', ')}.</p>` : ''}
     </section>
+    ${orcSection()}
+    ${rgfSection('Despesa com pessoal · 12 meses', rgfOf('exec'), 'exec', 'r-', 'servidores civis e militares, aposentados e pensionistas do Executivo, como o governo declara')}
   </div>
   <p class="vb-note tp-note">O cartão de pagamento do governo federal paga despesas pequenas e urgentes de cada órgão. Gastos marcados como sigilosos aparecem só no total, sem lugar nem data. Valores como publicados pela CGU no Portal da Transparência.</p>`;
 }
+const JUD_G = [['sup','Tribunais superiores e conselhos', n=> /^(Supremo|Superior|Tribunal Superior|Conselho)/.test(n)],
+  ['fed','Justiça Federal', n=> /Regional Federal/.test(n)], ['trab','Justiça do Trabalho', n=> /Regional do Trabalho/.test(n)],
+  ['ele','Justiça Eleitoral', n=> /Regional Eleitoral/.test(n)], ['dft','Justiça do Distrito Federal', ()=> true]];
 function tpJud(){
   const C = [['STF','Supremo Tribunal Federal','https://portal.stf.jus.br'], ...Object.values(COURTS).map(c=> [c.sigla, c.nome, c.site])];
-  return `<div class="vg-grid"><section class="vb w12"><div class="vb-h"><h2>Judiciário</h2></div>
-    <p class="tp-lede">O Portal da Transparência da CGU reúne os gastos do Executivo federal. O STF e os tribunais superiores publicam as próprias despesas, salários e diárias nos sites de cada tribunal, na área de transparência. Ainda não há um arquivo único que o robô do Quorum consiga ler; por isso esta parte traz só os caminhos oficiais.</p>
-    <ul class="tp-courts">${C.map(([s,n,u])=>`<li><a href="${u}" target="_blank" rel="noopener"><b>${s}</b><span>${esc(n)}</span><i aria-hidden="true">↗</i></a></li>`).join('')}</ul>
-  </section></div>`;
+  const L = rgfOf('jud'), max = Math.max(1, ...L.map(o=> o.bruta||0)), seen = new Set();
+  const groups = JUD_G.map(([k,t,f])=>{ const G = L.filter(o=> !seen.has(o) && f(o.nome)); G.forEach(o=> seen.add(o)); return [k,t,G]; }).filter(g=> g[2].length);
+  const body = !trRgf ? '<p class="vd-none">Carregando os relatórios do Tesouro…</p>' : groups.map(([k,t,G])=>{ const all = tpAll[k] || G.length <= 7, S = all ? G : G.slice(0,5);
+    return `<h3 class="tp-g">${t} · ${moneyBig(rgfSum(G))}</h3>${rgfRows(S, 'jud', max, 'r-')}${all ? '' : `<p class="fd-morewrap"><button type="button" class="fd-more" data-all="${k}">Mostrar todos · ${G.length}</button></p>`}`; }).join('');
+  return `<div class="vg-grid">
+    ${trRgf && L.length ? `<section class="vb w12" aria-label="Totais"><div class="tp-kpis">
+      ${groups.slice(0,3).map(([k,t,G])=> tpKpi(t, moneyBig(rgfSum(G)), `${G.length} ${G.length>1?'órgãos':'órgão'} · pessoal em 12 meses`)).join('')}
+    </div></section>` : ''}
+    <section class="vb w12"><div class="vb-h"><h2>Despesa com pessoal · 12 meses</h2><a href="${RGF_SRC}" target="_blank" rel="noopener">Tesouro Nacional ↗</a></div>
+      <p class="tp-who">${rgfPeriod(L)}${L.length ? ` · ${L.length} tribunais e conselhos da União` : ''} · salários, encargos, aposentadorias e pensões, como cada tribunal declara</p>${body}</section>
+    <section class="vb w12"><div class="vb-h"><h2>Nos sites dos tribunais</h2></div>
+      <p class="tp-lede">Diárias, contratos e a remuneração de cada magistrado ficam nas páginas de transparência de cada tribunal.</p>
+      <ul class="tp-courts">${C.map(([s,n,u])=>`<li><a href="${u}" target="_blank" rel="noopener"><b>${s}</b><span>${esc(n)}</span><i aria-hidden="true">↗</i></a></li>`).join('')}</ul></section>
+  </div>
+  <p class="vb-note tp-note">A despesa com pessoal vem do Relatório de Gestão Fiscal que cada órgão entrega ao Tesouro Nacional a cada quatro meses (Lei de Responsabilidade Fiscal). Os tribunais dos estados não entram aqui: são do Judiciário estadual.</p>`;
+}
+function tpMp(){
+  return `<div class="vg-grid">${rgfSection('Despesa com pessoal · 12 meses', rgfOf('mpu'), 'mpu', 'r-')}
+    <section class="vb w12"><div class="vb-h"><h2>Nos sites oficiais</h2></div><ul class="tp-courts">
+      <li><a href="https://www.transparencia.mpf.mp.br" target="_blank" rel="noopener"><b>MPU</b><span>Ministério Público da União</span><i aria-hidden="true">↗</i></a></li>
+      <li><a href="https://www.dpu.def.br/transparencia" target="_blank" rel="noopener"><b>DPU</b><span>Defensoria Pública da União</span><i aria-hidden="true">↗</i></a></li>
+      <li><a href="https://www.cnmp.mp.br/portal/transparencia" target="_blank" rel="noopener"><b>CNMP</b><span>Conselho Nacional do Ministério Público</span><i aria-hidden="true">↗</i></a></li></ul></section></div>
+  <p class="vb-note tp-note">O Ministério Público e a Defensoria não fazem parte dos três poderes: são instituições independentes. A despesa com pessoal vem do Relatório de Gestão Fiscal entregue ao Tesouro Nacional.</p>`;
 }
 function renderTp(keep){
   const top = tp.scrollTop;
-  const tot = { leg: trResumo ? (trResumo.camara?.total||0)+(trResumo.senado?.total||0) : null,
+  const pes = k=> trRgf ? rgfSum(rgfOf(k)) : null;
+  const tot0 = { leg: trResumo ? (trResumo.camara?.total||0)+(trResumo.senado?.total||0) : null,
                 exec: trExec ? (trExec.cartoes?.presidencia?.total||0)+(trExec.cartoes?.vice?.total||0)+Object.values(trExec.ministerios||{}).reduce((a,m)=> a+(m.total||0),0) : null };
   tp.innerHTML = `<div class="cw vg tpw">
-    <header class="cw-head"><div><p class="inst-eye">Portal da Transparência e cota parlamentar</p><h1 id="tp-title">Transparência</h1>
+    <header class="cw-head"><div><p class="inst-eye">Portal da Transparência, Tesouro Nacional e cota parlamentar</p><h1 id="tp-title">Transparência</h1>
       <p class="vg-sub">Gastos públicos dos últimos 12 meses${tpPeriod() ? ` (${tpPeriod()})` : ''}, por poder e por pessoa, como os órgãos publicam.</p></div>
       ${infoBox(TP_SOURCES,'Fontes','Os robôs do Quorum baixam esses dados uma vez por dia.')}</header>
-    <div class="tp-tabs" role="tablist" aria-label="Poder">${[['leg','Legislativo','pw-leg',tot.leg],['exec','Executivo','pw-exec',tot.exec],['jud','Judiciário','pw-jud',null]].map(([k,l,c,v])=>
-      `<button type="button" role="tab" class="tp-tab ${c}" data-tab="${k}" aria-selected="${tpTab===k}"><span class="tp-tn">${l}</span><span class="tp-tv">${v==null ? (k==='jud' ? 'nos tribunais' : 'carregando…') : moneyShort(v)}</span></button>`).join('')}</div>
-    <div id="tp-body" role="tabpanel">${tpTab==='leg' ? tpLeg() : tpTab==='exec' ? tpExec() : tpJud()}</div>
+    <div class="tp-tabs" role="tablist" aria-label="Poder">${[['leg','Legislativo','pw-leg'],['exec','Executivo','pw-exec'],['jud','Judiciário','pw-jud'],['mpu','MP e Defensoria','pw-mp']].map(([k,l,c])=>{ const v = pes(k);
+      return `<button type="button" role="tab" class="tp-tab ${c}" data-tab="${k}" aria-selected="${tpTab===k}"><span class="tp-tn">${l}</span><span class="tp-tv">${v==null ? (tot0[k]!=null ? moneyShort(tot0[k]) : 'carregando…') : moneyBig(v)}</span>${v!=null ? '<span class="tp-tu">com pessoal em 12 meses</span>' : ''}</button>`; }).join('')}</div>
+    <div id="tp-body" role="tabpanel">${tpTab==='leg' ? tpLeg() : tpTab==='exec' ? tpExec() : tpTab==='jud' ? tpJud() : tpMp()}</div>
   </div>`;
   if (keep) tp.scrollTop = top;
-  if (tpOpen && !tpOpen.startsWith('m-') && tpTab==='leg') tpDetail(tpOpen);
+  if (tpOpen && /^(camara|senado)-/.test(tpOpen) && tpTab==='leg') tpDetail(tpOpen);
 }
 function tpRedrawList(){ const L = document.getElementById('tp-list'); if (L){ L.innerHTML = tpList(); if (tpOpen) tpDetail(tpOpen); } }
 tp.addEventListener('click', e=>{
@@ -4129,8 +4223,9 @@ tp.addEventListener('click', e=>{
   const c = e.target.closest('[data-casa]'); if (c){ tpCasa = c.dataset.casa; tpShown = 40; tp.querySelectorAll('[data-casa]').forEach(b=> b.setAttribute('aria-pressed', String(b===c))); tpRedrawList(); return; }
   const o = e.target.closest('[data-sort]'); if (o){ tpSort = o.dataset.sort; tp.querySelectorAll('[data-sort]').forEach(b=> b.setAttribute('aria-pressed', String(b===o))); tpRedrawList(); return; }
   const m = e.target.closest('[data-more]'); if (m){ tpShown += 60; tpRedrawList(); return; }
+  const g = e.target.closest('[data-all]'); if (g){ tpAll[g.dataset.all] = true; renderTp(true); return; }
   const r = e.target.closest('.tp-rb'); if (r){ const id = r.dataset.p; tpOpen = tpOpen===id ? null : id;
-    if (id.startsWith('m-')) renderTp(true); else tpRedrawList();
+    if (/^(camara|senado)-/.test(id)) tpRedrawList(); else renderTp(true);
     const row = tp.querySelector(`.tp-rb[data-p="${id}"]`); if (row) row.focus({preventScroll:true}); return; }
 });
 tp.addEventListener('input', e=>{ if (e.target.id==='tp-q'){ tpQ = e.target.value; tpShown = 40; tpRedrawList(); } });
@@ -4144,6 +4239,8 @@ function showTp(){
   renderTp(false);
   if (!trResumo) loadTr().then(()=>{ if (!tp.hidden) renderTp(true); }).catch(()=>{ if (!tp.hidden){ const b = document.getElementById('tp-body'); if (b && tpTab==='leg') b.innerHTML = '<p class="vd-none">Não deu para carregar os gastos agora.</p>'; } });
   if (!trExec) loadExec().then(()=>{ if (!tp.hidden) renderTp(true); }).catch(()=>{});
+  if (!trRgf) loadRgf().then(()=>{ if (!tp.hidden) renderTp(true); }).catch(()=>{ trRgf = {orgaos:[]}; if (!tp.hidden) renderTp(true); });
+  if (!trOrc) loadOrc().then(()=>{ if (!tp.hidden) renderTp(true); }).catch(()=>{ trOrc = {poderes:{}}; if (!tp.hidden) renderTp(true); });
   tp.scrollTop = 0;
   tp.hidden = false; requestAnimationFrame(()=>tp.classList.add('show'));
   document.title = 'Transparência · Quorum';
