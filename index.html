@@ -2605,12 +2605,15 @@ function renderToday(){
   todayEl.classList.toggle('more', feedMore);
   if (extra > 0) todayEl.insertAdjacentHTML('beforeend', `<p class="fd-morewrap"><button type="button" class="fd-more" aria-expanded="${feedMore}">${feedMore ? 'Ver menos' : `Ver mais · ${extra} ${extra===1?'projeto':'projetos'}`}</button></p>`);
 }
-// the circles on the left rise with the page from the bottom of the last card shown
+// the circles on the left rise with the page once the bottom of the last card shown reaches the bottom of the lower circles
 function lxEnd(){
   const cards = [...todayEl.querySelectorAll('.feed .card')].filter(c=> c.offsetParent);
   const last = cards[cards.length-1]; if (!last) return;
   const gap = todayEl.getBoundingClientRect().bottom - last.getBoundingClientRect().bottom;
-  landing.style.setProperty('--lx-end', Math.max(0, Math.round(gap)) + 'px');
+  // the lowest point of the bottom circles (not their titles) lines up with the last card
+  const lx = document.querySelector('.lx'), low = Math.max(...[...document.querySelectorAll('.lx .sph')].map(c=> c.getBoundingClientRect().bottom));
+  const below = lx && isFinite(low) ? lx.getBoundingClientRect().bottom - low : 0;
+  landing.style.setProperty('--lx-end', Math.round(gap - below) + 'px');
 }
 const FEED_FIRST = 5;
 let feedMore = false;
