@@ -26,14 +26,14 @@ TIPOS = ['MPV', 'PL', 'PLP', 'PEC', 'PLN']
 log, amostra = [], {'sem_pasta': [], 'sem_em': [], 'siglas_desconhecidas': {}}
 
 def get(url, raw=False):
-    for n in range(3):
+    for n in range(5):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA if not raw else {'User-Agent': UA['User-Agent']}), timeout=90) as r:
                 b = r.read()
             return b if raw else json.loads(b.decode('utf-8'))
         except Exception as ex:
-            if n == 2: log.append(f'{url[:120]}: {ex}'); return None
-            time.sleep(4)
+            if n == 4: log.append(f'{url[:120]}: {ex}'); return None
+            time.sleep(4 + 6 * n)
 
 def norm(t):
     t = unicodedata.normalize('NFD', str(t or ''))
@@ -86,6 +86,36 @@ def pastas_do_texto(txt):
                 break   # passou da sigla: o resto já é texto
     return achadas, trechos
 
+# sem a sigla, o nome do cargo: "Ministro de Estado da Fazenda", "Ministra de Estado da Gestão e da Inovação..."
+CARGO_RE = re.compile(r'Ministr[oa]s?\s+de\s+Estado\s+(?:Chefe\s+)?d[aoe]s?\s+([^\n.;]{3,90})|(Advogad[oa]-Geral da União)|Chefe da (Casa Civil)|(Controlador[a]?-Geral da União)', re.I)
+def chave(t):
+    return ' '.join(w for w in re.sub(r'[^a-z0-9]+', ' ', norm(t).lower()).split() if w not in ('de', 'da', 'do', 'das', 'dos', 'e'))
+CHAVES = sorted(((chave(p), slug(p)) for p in PASTAS), key=lambda x: -len(x[0]))
+def nomes_do_texto(txt):
+    achadas = []
+    for m in CARGO_RE.finditer(txt):
+        alvo = chave(next(g for g in m.groups() if g))
+        alvo = alvo.replace('advogado geral', 'advocacia geral').replace('advogada geral', 'advocacia geral').replace('controlador geral', 'controladoria geral').replace('controladora geral', 'controladoria geral')
+        for k, sl in CHAVES:
+            if alvo.startswith(k) or (k and k in alvo[:len(k) + 25]):
+                if sl not in achadas: achadas.append(sl)
+                break
+    return achadas
+
+def contexto(txt):
+    out = []
+    for pal in ('Exposição de Motivos', 'EM n', 'EMI', 'Ministro de Estado', 'Ministra de Estado'):
+        i = txt.find(pal)
+        if i >= 0: out.append(re.sub(r'\s+', ' ', txt[max(0, i - 60): i + 200]))
+    return out[:4] + [re.sub(r'\s+', ' ', txt[-300:])]
+
+def texto_html(url):
+    b = get(url, raw=True)
+    if not b: return ''
+    t = b.decode('latin-1', 'replace')
+    if 'charset=utf-8' in t[:2000].lower(): t = b.decode('utf-8', 'replace')
+    return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', t))
+
 def texto_pdf(url):
     if not url or not PdfReader: return ''
     b = get(url, raw=True)
@@ -123,8 +153,19 @@ for pid, p in sorted(props.items()):
     st = d.get('statusProposicao') or {}
     txt = texto_pdf(d.get('urlInteiroTeor'))
     ps, trechos = pastas_do_texto(txt)
+    if not ps: ps = nomes_do_texto(txt)
+    # medidas provisórias: a Exposição de Motivos também sai no site do Planalto
+    if not ps and d.get('siglaTipo') == 'MPV':
+        ano, num = int(d.get('ano') or 0), d.get('numero')
+        for u in (f'https://www.planalto.gov.br/ccivil_03/_ato2023-2026/{ano}/exm/Exm-MP-{num}-{str(ano)[2:]}.htm',
+                  f'https://www.planalto.gov.br/ccivil_03/_Ato2023-2026/{ano}/Exm/Exm-MP-{num}-{str(ano)[2:]}.htm'):
+            h = texto_html(u)
+            if h:
+                ps, tr = pastas_do_texto(h); trechos = trechos or tr
+                if not ps: ps = nomes_do_texto(h)
+                if ps: break
     if not ps:
-        (amostra['sem_em'] if not trechos else amostra['sem_pasta']).append({'id': pid, 'sigla': f"{d.get('siglaTipo')} {d.get('numero')}/{d.get('ano')}", 'trechos': trechos[:3], 'pdf': d.get('urlInteiroTeor'), 'chars': len(txt)})
+        (amostra['sem_em'] if not trechos else amostra['sem_pasta']).append({'id': pid, 'sigla': f"{d.get('siglaTipo')} {d.get('numero')}/{d.get('ano')}", 'trechos': trechos[:3], 'pdf': d.get('urlInteiroTeor'), 'chars': len(txt), 'contexto': contexto(txt)})
     out[pid] = {'id': pid, 'sigla': d.get('siglaTipo'), 'numero': d.get('numero'), 'ano': d.get('ano'),
                 'ementa': (d.get('ementa') or '').strip(),
                 'data': (d.get('dataApresentacao') or '')[:10], 'situacao': st.get('descricaoSituacao') or '',
