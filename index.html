@@ -490,7 +490,7 @@ a.ev:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
     height:calc(2 * var(--S) + 2 * var(--tx) + var(--gy))}
   /* the circles stay put until the bottom of the timeline's last card reaches them, then rise with the page (--lx-end trims the "Ver mais" line off the wrapper) */
   .landing > .lx-wrap{display:block;grid-column:1;grid-row:1;align-self:stretch;margin-bottom:var(--lx-end, 0px)}
-  .landing > .today{grid-column:2;grid-row:1;max-width:none}
+  .landing > .today{grid-column:2;grid-row:1;max-width:none;box-sizing:border-box}
   .landing > .site-foot{grid-column:1 / -1;grid-row:2;max-width:none}
   .landing .lx-row{position:absolute;flex-direction:column;align-items:center;gap:8px;width:calc(var(--S) + 60px);transform:translateX(-50%)}
   .landing .lx-row[data-k="cong"]{left:50%;top:0}
@@ -2719,6 +2719,12 @@ function lxEnd(){
   const last = cards[cards.length-1]; if (!last) return;
   // measured against the end of the wrapper's grid row (its bottom plus the trim already applied), so it holds after "Ver mais" too
   const wrap = document.querySelector('.lx-wrap'); if (!wrap || getComputedStyle(wrap).display==='contents') return;
+  // the gap from the last card to the page's right edge matches the gap from the page's left edge to the left circle
+  const left = Math.min(...[...document.querySelectorAll('.lx .sph')].map(c=> c.getBoundingClientRect().left));
+  if (isFinite(left)){ const L = document.getElementById('landing'), lr = L.getBoundingClientRect();
+    const edge = lr.left + L.clientWidth, now = parseFloat(todayEl.style.paddingRight) || 0;
+    const pr = Math.max(0, Math.round(now + (left - lr.left) - (edge - last.getBoundingClientRect().right)));
+    if (todayEl.style.paddingRight !== pr+'px') todayEl.style.paddingRight = pr+'px'; }
   const cur = parseFloat(getComputedStyle(wrap).marginBottom) || 0;
   const gap = wrap.getBoundingClientRect().bottom + cur - last.getBoundingClientRect().bottom;
   // the lowest point of the bottom circles (not their titles) lines up with the last card
