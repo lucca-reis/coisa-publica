@@ -862,10 +862,6 @@ a.ag-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .c-body .c-vres{font-size:13.5px;font-weight:400}
 .c-who{font-size:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .c-full{padding:0;background:none;font-size:13px;color:var(--muted);margin-top:2px}
-/* opening view: cards always open; the whole card leads to the project page */
-.card.go{cursor:pointer}
-.card.go .c-more{display:none}
-.card.go .c-head{cursor:pointer}
 .c-full:hover{color:var(--ink)}
 @media (max-width:560px){ .c-head{min-height:108px;padding:16px 14px} .c-body{padding:0 14px 16px} }
 /* power symbols (family A: dots), used only in the calendar */
@@ -894,6 +890,57 @@ h1[tabindex="-1"]:focus{outline:none}
 @media (max-width:420px){ .c-dl{grid-template-columns:minmax(0,1fr)} }
 /* overview page (#visao-geral): a dashboard built from the same data as the rest of the site */
 .cw.vg{max-width:1180px;gap:clamp(20px,3vw,32px)}
+/* transparency page (#transparencia): spending by power and, inside each power, by person or office */
+.tp-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tp-tab{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:20px;background:color-mix(in srgb, var(--ink) 4%, var(--bg));box-shadow:inset 0 0 0 1.5px transparent;transition:background-color .2s, box-shadow .2s}
+.tp-tab:hover{background:color-mix(in srgb, var(--ink) 7%, var(--bg))}
+.tp-tab:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.tp-tab[aria-selected="true"]{box-shadow:inset 0 0 0 1.5px var(--ink);background:var(--bg)}
+.tp-tn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500}
+.tp-tn::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pc)}
+.tp-tab.pw-leg{--pc:#F2C200}.tp-tab.pw-exec{--pc:#009C3B}.tp-tab.pw-jud{--pc:#1F4FB5}
+.tp-tv{font-size:clamp(20px,2.4vw,30px);font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.vb.w6{grid-column:span 6}
+.tp-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px}
+.tp-k{display:flex;flex-direction:column;gap:3px;min-width:0}
+.tp-kl{font-size:13px;color:var(--muted)}
+.tp-k b{font-size:clamp(28px,3.4vw,44px);font-weight:500;letter-spacing:-.035em;line-height:1.05}
+.tp-ks{font-size:12.5px;color:var(--muted)}
+.tp-mo{display:flex;flex-direction:column;gap:4px}
+.tp-ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tp-q{flex:1 1 220px}
+.tp-q input{box-sizing:border-box;width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:12px;padding:10px 14px;outline:none}
+.tp-q input:focus-visible{border-color:var(--ink)}
+.tp-seg{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--bg)}
+.tp-seg button{all:unset;cursor:pointer;padding:7px 12px;border-radius:999px;font-size:13px;color:var(--muted)}
+.tp-seg button:hover{color:var(--ink)}
+.tp-seg button[aria-pressed="true"]{background:color-mix(in srgb, var(--ink) 9%, var(--bg));color:var(--ink)}
+.tp-seg button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tp-rows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tp-r{border-top:1px solid var(--rule)}
+.tp-rb{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:2.4em minmax(0,1.3fr) minmax(60px,1fr) auto;gap:4px 16px;align-items:center;padding:11px 6px;border-radius:12px}
+.tp-rb:hover{background:color-mix(in srgb, var(--ink) 4%, var(--bg))}
+.tp-rb:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tp-rk{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tp-rn{display:flex;flex-direction:column;font-size:14.5px;line-height:1.3;min-width:0}
+.tp-rn small{font-size:12px;color:var(--muted)}
+.tp-rbar{height:8px;border-radius:4px;background:color-mix(in srgb, var(--ink) 7%, var(--bg));overflow:hidden}
+.tp-rbar i{display:block;height:100%;border-radius:4px;background:color-mix(in srgb, #F2C200 80%, var(--ink))}
+.tp-rbar i.senado{background:color-mix(in srgb, #F2C200 55%, var(--ink))}
+.tp-rbar i.exec{background:#009C3B}
+.tp-rv{font-size:14px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tp-r.open .tp-rb{background:color-mix(in srgb, var(--ink) 4%, var(--bg))}
+.tp-det{display:flex;flex-direction:column;gap:12px;padding:10px 6px 20px}
+.tp-dg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.tp-who{margin:-6px 0 0;font-size:13px;color:var(--muted)}
+.tp-det a,.tpw .vb-note a{color:var(--ink);text-underline-offset:3px}
+.tp-note{margin:4px 0 0;max-width:72ch}
+.tp-lede{margin:0;font-size:15px;line-height:1.55;max-width:70ch}
+.tp-courts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.tp-courts a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 12px;align-items:baseline;padding:14px 16px;border-radius:16px;background:var(--bg);color:var(--ink);text-decoration:none}
+.tp-courts a:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.tp-courts b{font-weight:500}.tp-courts span{font-size:13px;color:var(--muted)}.tp-courts i{font-style:normal;color:var(--muted)}
+@media (max-width:760px){ .vb.w6{grid-column:span 12} .tp-kpis{grid-template-columns:minmax(0,1fr)} .tp-dg{grid-template-columns:minmax(0,1fr)} .tp-rb{grid-template-columns:2em minmax(0,1fr) auto} .tp-rbar{grid-column:2 / -1;grid-row:2} .tp-tab{padding:12px 12px} .tp-tn{font-size:13px} .tp-tv{font-size:17px} }
 .vg-sub{margin:6px 0 0;font-size:14px;color:var(--muted)}
 .vg-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
 .vb{grid-column:span 6;background:color-mix(in srgb, var(--ink) 5%, var(--bg));border-radius:22px;padding:20px 22px 22px;display:flex;flex-direction:column;gap:16px;min-width:0}
@@ -1146,7 +1193,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <a href="#consultas" data-nav="consultas">Enquetes</a>
   </nav>
   <div class="nav-scrim" aria-hidden="true"></div>
-  <div class="menu-tools"><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a></div>
+  <div class="menu-tools"><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9h17"/><circle cx="6.6" cy="6.8" r=".7" fill="currentColor" stroke="none"/><circle cx="8.9" cy="6.8" r=".7" fill="currentColor" stroke="none"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a></div>
 </header>
 <section class="landing" id="landing" aria-label="Praça dos Três Poderes">
   <div class="lx-wrap"><div class="lx" aria-label="Os três poderes">
@@ -1198,6 +1245,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
 <article class="proj cal" id="cal" hidden aria-labelledby="cal-title"></article>
 <article class="proj cal cons" id="cons" hidden aria-labelledby="cons-title"></article>
 <article class="proj cal vgp" id="vg" hidden aria-labelledby="vg-title"></article>
+<article class="proj cal vgp tpp" id="tp" hidden aria-labelledby="tp-title"></article>
 <article class="proj cal inst" id="inst" hidden aria-labelledby="inst-title"></article>
 
 <script>
@@ -2600,13 +2648,6 @@ function renderToday(){
   document.getElementById('today-date').textContent = `${wd}, ${d} ${MO[m-1]}`;
   todayEl.innerHTML = `<div class="feed-h"><div class="feed-live" id="feed-live"></div></div>
     <ol class="feed" aria-label="Propostas e julgamentos, do mais recente ao mais antigo">${feedHTML(null)}</ol>`;
-  // on the opening view every card shows in full and leads to its page
-  todayEl.querySelectorAll('.card').forEach(card=>{
-    const h = card.querySelector('.c-head'), full = card.querySelector('.c-full');
-    card.classList.add('open', 'go'); card.querySelector('.c-body').hidden = false;
-    h.removeAttribute('aria-expanded'); h.removeAttribute('aria-controls');
-    if (full) h.setAttribute('aria-label', card.querySelector('.c-title').textContent + ': abrir a página');
-  });
   // the five most recent cards show; the others, and the days left empty without them, wait behind "Ver mais"
   const cards = [...todayEl.querySelectorAll('.feed .card')], extra = cards.length - FEED_FIRST;
   cards.forEach((c,i)=>{ if (i >= FEED_FIRST) c.closest('li').classList.add('fd-x'); });
@@ -2669,7 +2710,7 @@ const FOOT_HTML = `<footer class="site-foot"><div class="sf-grid">
     <li><a href="https://github.com/lucca-reis/quorum" target="_blank" rel="noopener">Código do site</a></li></ul></nav>
 </div><p class="sf-note">Quorum reúne informações públicas dos Três Poderes, com links para a fonte de cada dado. Os robôs do site atualizam votações, pautas e enquetes ao longo do dia. Site independente, sem vínculo com os órgãos citados.</p></footer>`;
 function addFoot(el){ if (el && !(el.lastElementChild && el.lastElementChild.classList.contains('site-foot'))) el.insertAdjacentHTML('beforeend', FOOT_HTML); }
-['landing','stfv','presv','proj','cal','cons','vg','inst'].forEach(id=>{
+['landing','stfv','presv','proj','cal','cons','vg','tp','inst'].forEach(id=>{
   const el = document.getElementById(id); if (!el) return;
   addFoot(el);
   new MutationObserver(()=> addFoot(el)).observe(el, {childList:true});
@@ -2692,12 +2733,7 @@ todayEl.addEventListener('click', e=>{
     return; }
   const b = e.target.closest('.lv-tag[data-go]');
   if (b){ e.stopPropagation(); const k = b.dataset.go; if (k==='camara'||k==='senado') enterPlan(()=>open(k, true)); else enterView(VIEWS[k==='exec'?'pres':'stf']); return; }
-  const card = e.target.closest('.card.go');
-  if (card && !e.target.closest('a:not(.c-full)')){
-    e.preventDefault(); e.stopPropagation();
-    const full = card.querySelector('.c-full'); if (!full) return;
-    projFrom = true; location.hash = full.getAttribute('href');
-  }
+  if (cardClick(e)) setTimeout(lxEnd, 50);   // a card opening or closing changes where the timeline ends
 });
 
 /* ---------- opening view ---------- */
@@ -3031,6 +3067,7 @@ function navTo(key){
   resetLayers();
   if (key==='calendario' || key==='consultas'){ location.hash = '#'+key; return; }
   if (key==='visao'){ location.hash = '#visao-geral'; return; }
+  if (key==='transp'){ location.hash = '#transparencia'; return; }
   if (VIEWS[key]){
     const cur = openView();
     if (cur===key) return;
@@ -3080,7 +3117,7 @@ const NAV_LINKS = [...document.querySelectorAll('.menu [data-nav]:not(.brand)')]
 let navHere;
 setInterval(()=>{
   if (document.hidden) return;
-  const here = !inst.hidden ? instKey : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
+  const here = !inst.hidden ? instKey : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
   if (here===navHere) return; navHere = here;
   NAV_LINKS.forEach(a=>{ if (a.dataset.nav===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   document.querySelectorAll('.nav-sub [data-route]').forEach(a=>{ if (a.dataset.route===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
@@ -3097,6 +3134,7 @@ function goBack(){
   else if (!cal.hidden) leaveCal();
   else if (!cons.hidden) leaveCal();
   else if (!vg.hidden) leaveCal();
+  else if (!tp.hidden) leaveCal();
   else if (!inst.hidden) leaveCal();
   else if (personState) closePerson();
   else if (partyState) closeParty();
@@ -3899,6 +3937,164 @@ function hideVg(){
   document.title = 'Quorum';
 }
 
+/* ---------- transparency (#transparencia) ----------
+   A dashboard of public spending, by power and, inside each power, by person or office. Only what the official
+   sources publish, as published: the parliamentary quota of the Câmara and the Senado (data/transparencia/, robot)
+   and the payment cards of the Presidency, the Vice-Presidency and the ministries in the Portal da Transparência
+   (data/transparencia/exec.json, robot). The Judiciary is not in the Portal; its courts publish on their own sites. */
+const tp = document.getElementById('tp');
+let tpTab = 'leg', tpCasa = 'todas', tpSort = 'total', tpQ = '', tpShown = 40, tpOpen = null;
+const TP_SOURCES = [
+  {l:'Câmara dos Deputados: cota para o exercício da atividade parlamentar', u:'https://www.camara.leg.br/transparencia/gastos-parlamentares'},
+  {l:'Senado Federal: cota para o exercício da atividade parlamentar dos senadores', u:'https://www12.senado.leg.br/transparencia/sen/verba-indenizatoria-ceaps'},
+  {l:'Portal da Transparência (CGU): cartões de pagamento do governo federal', u:'https://portaldatransparencia.gov.br/cartoes'}
+];
+const tpPeople = ()=> !trResumo ? [] : ['camara','senado'].flatMap(c=> Object.entries((trResumo[c]||{}).pessoas||{}).map(([s,p])=> ({...p, s, casa:c})));
+function tpPeriod(){
+  const P = (trResumo && trResumo.periodo) || (trExec && trExec.periodo); if (!P) return '';
+  const f = iso=>{ const [y,m,d] = iso.split('-'); return `${+d} ${MO[+m-1]} ${y}`; };
+  return `${f(P[0])} a ${f(P[1])}`;
+}
+// one column of the timeline-like monthly chart, with the month names under it
+const tpMonths = M => `<div class="tp-mo">${trMonths(M)}<div class="tr-mlab"><span>${monLab(M[0][0])}</span><span>${monLab(M[M.length-1][0])}</span></div></div>`;
+function tpKpi(label, value, sub){ return `<div class="tp-k"><span class="tp-kl">${label}</span><b>${value}</b>${sub ? `<span class="tp-ks">${sub}</span>` : ''}</div>`; }
+function tpLeg(){
+  if (!trResumo) return '<p class="vd-none">Carregando os gastos da cota parlamentar…</p>';
+  const R = trResumo, C = R.camara || {}, S = R.senado || {};
+  return `<div class="vg-grid">
+    <section class="vb w12" aria-label="Totais"><div class="tp-kpis">
+      ${tpKpi('Câmara dos Deputados', moneyShort(C.total||0), `${FMT_NUM.format(C.parlamentares||0)} deputados · ${FMT_NUM.format(C.documentos||0)} documentos`)}
+      ${tpKpi('Senado Federal', moneyShort(S.total||0), `${FMT_NUM.format(S.parlamentares||0)} senadores · ${FMT_NUM.format(S.documentos||0)} documentos`)}
+      ${tpKpi('As duas casas', moneyShort((C.total||0)+(S.total||0)), 'cota parlamentar em 12 meses')}
+    </div></section>
+    ${['camara','senado'].map(c=>{ const H = R[c]; if (!H) return ''; return `<section class="vb w6" aria-labelledby="tp-${c}"><div class="vb-h"><h2 id="tp-${c}">${TR_HOUSE[c].name} · por mês e por tipo de gasto</h2><a href="${H.fonte||TR_HOUSE[c].src}" target="_blank" rel="noopener">Fonte ↗</a></div>
+      ${tpMonths(H.meses)}${trCats(H.cats, 8)}</section>`; }).join('')}
+    <section class="vb w12" aria-labelledby="tp-pp"><div class="vb-h"><h2 id="tp-pp">Por parlamentar</h2><span class="vb-note">Toque num nome para ver os gastos, com as notas fiscais quando a Casa publica</span></div>
+      <div class="tp-ctl">
+        <label class="tp-q"><span class="sr-only">Buscar parlamentar</span><input type="search" id="tp-q" placeholder="Buscar parlamentar" value="${esc(tpQ)}" autocomplete="off"></label>
+        <div class="tp-seg" role="group" aria-label="Casa">${[['todas','Todas'],['camara','Câmara'],['senado','Senado']].map(([k,l])=>`<button type="button" data-casa="${k}" aria-pressed="${tpCasa===k}">${l}</button>`).join('')}</div>
+        <div class="tp-seg" role="group" aria-label="Ordem">${[['total','Maior gasto'],['nome','Nome'],['docs','Mais documentos']].map(([k,l])=>`<button type="button" data-sort="${k}" aria-pressed="${tpSort===k}">${l}</button>`).join('')}</div>
+      </div>
+      <div id="tp-list">${tpList()}</div>
+    </section>
+  </div>
+  <p class="vb-note tp-note">A cota parlamentar paga despesas do mandato, como escritório, passagens, combustível e divulgação, mediante nota fiscal. Os valores aparecem como a Câmara e o Senado publicam; o mês atual ainda está incompleto.</p>`;
+}
+function tpList(){
+  const all = tpPeople(), q = slugName(tpQ);
+  let L = all.filter(p=> (tpCasa==='todas' || p.casa===tpCasa) && (!q || p.s.includes(q)));
+  L.sort(tpSort==='nome' ? (a,b)=> a.n.localeCompare(b.n,'pt') : tpSort==='docs' ? (a,b)=> b.q-a.q : (a,b)=> b.t-a.t);
+  const max = Math.max(1, ...all.map(p=> p.t));
+  if (!L.length) return '<p class="vd-none">Nenhum parlamentar com esse nome nos arquivos da cota.</p>';
+  const rank = new Map([...all].sort((a,b)=> b.t-a.t).map((p,i)=> [p.casa+p.s, i+1]));
+  return `<ol class="tp-rows">${L.slice(0, tpShown).map(p=>{ const id = p.casa+'-'+p.s, open = tpOpen===id;
+    return `<li class="tp-r${open?' open':''}"><button type="button" class="tp-rb" data-p="${id}" aria-expanded="${open}">
+      <span class="tp-rk">${rank.get(p.casa+p.s)}</span>
+      <span class="tp-rn">${esc(p.n)}<small>${p.casa==='camara'?'Deputado(a)':'Senador(a)'} · ${FMT_NUM.format(p.q)} documentos</small></span>
+      <span class="tp-rbar" aria-hidden="true"><i class="${p.casa}" style="width:${(p.t/max*100).toFixed(1)}%"></i></span>
+      <span class="tp-rv">${MONEY0.format(p.t)}</span></button>
+      ${open ? `<div class="tp-det" id="tp-det">Carregando…</div>` : ''}</li>`; }).join('')}</ol>
+    ${L.length > tpShown ? `<p class="fd-morewrap"><button type="button" class="fd-more" data-more="1">Mostrar mais · ${FMT_NUM.format(L.length - tpShown)}</button></p>` : ''}`;
+}
+function tpDetail(id){
+  const casa = id.split('-')[0], s = id.slice(casa.length+1), H = TR_HOUSE[casa];
+  trFetch(`data/transparencia/p/${casa}-${s}.json`).then(D=>{
+    const box = document.getElementById('tp-det'); if (!box || tpOpen!==id) return;
+    const item = x=>{ const [y,m,d] = x.d.split('-'); const url = x.u && H.doc ? H.doc + x.u + '.pdf' : '';
+      return `<li><time datetime="${x.d}">${+d} ${MO[+m-1]}${y!==todayISO().slice(0,4)?' '+y.slice(2):''}</time><span class="w">${esc(x.c)}<small>${esc(x.f||'')}</small></span><span class="v">${url ? `<a href="${url}" target="_blank" rel="noopener" title="Ver nota fiscal">${MONEY.format(x.v)}</a>` : MONEY.format(x.v)}</span></li>`; };
+    box.innerHTML = `<div class="tp-dg"><div>${tpMonths(D.meses)}</div><div>${trCats(D.cats, 6)}</div></div>
+      <p class="vb-note">Últimos gastos</p><ul class="tr-list">${D.itens.slice(0, 12).map(item).join('')}</ul>
+      <p class="vb-note">${FMT_NUM.format(D.itens.length)} documentos no período · <a href="${H.src}" target="_blank" rel="noopener">Ver no site ${casa==='camara'?'da Câmara':'do Senado'} ↗</a></p>`;
+  }).catch(()=>{ const box = document.getElementById('tp-det'); if (box) box.innerHTML = `<p class="vd-none">Não deu para carregar os gastos agora. <a href="${H.src}" target="_blank" rel="noopener">Ver no site oficial ↗</a></p>`; });
+}
+function tpExec(){
+  if (!trExec) return '<p class="vd-none">Carregando os dados do Portal da Transparência…</p>';
+  const E = trExec, P = E.cartoes && E.cartoes.presidencia, V = E.cartoes && E.cartoes.vice;
+  const M = Object.values(E.ministerios || {});
+  const comOrgao = M.filter(m=> m.orgao && m.transacoes != null).sort((a,b)=> (b.total||0)-(a.total||0));
+  const semOrgao = M.filter(m=> !m.orgao);
+  const totM = comOrgao.reduce((a,m)=> a+(m.total||0), 0), max = Math.max(1, ...comOrgao.map(m=> m.total||0));
+  const block = (title, C, who)=> C ? `<section class="vb w6"><div class="vb-h"><h2>${title}</h2><a href="${C.fonte}" target="_blank" rel="noopener">Portal da Transparência ↗</a></div>
+      ${who ? `<p class="tp-who">${esc(who)}</p>` : ''}${C.transacoes ? cardBlock(C, 8) : '<p class="vd-none">O Portal não traz gastos com cartão de pagamento deste órgão no período.</p>'}</section>` : '';
+  const pres = (typeof EXEC_ALL!=='undefined' ? EXEC_ALL : []).find(x=> x.role==='Presidente da República'), vice = (typeof EXEC_ALL!=='undefined' ? EXEC_ALL : []).find(x=> x.role==='Vice-presidente');
+  return `<div class="vg-grid">
+    <section class="vb w12" aria-label="Totais"><div class="tp-kpis">
+      ${tpKpi('Presidência da República', P ? moneyShort(P.total) : '—', P ? `${FMT_NUM.format(P.transacoes)} transações · ${P.total ? FMT_PCT.format(Math.floor(P.sigiloso/P.total*1000)/10) : 0}% sigilosas` : 'não informado')}
+      ${tpKpi('Vice-Presidência', V ? moneyShort(V.total) : '—', V ? `${FMT_NUM.format(V.transacoes)} transações` : 'não informado')}
+      ${tpKpi('Ministérios', comOrgao.length ? moneyShort(totM) : '—', comOrgao.length ? `${comOrgao.length} pastas com dados no Portal` : 'chegam na próxima atualização do robô')}
+    </div></section>
+    ${block('Presidência · cartão de pagamento', P, pres && `${pres.n} · gastos do órgão, não da pessoa`)}
+    ${block('Vice-Presidência · cartão de pagamento', V, vice && `${vice.n} · gastos do órgão, não da pessoa`)}
+    <section class="vb w12" aria-labelledby="tp-mins"><div class="vb-h"><h2 id="tp-mins">Ministérios · cartão de pagamento</h2><span class="vb-note">Gastos do órgão de cada pasta; o nome é de quem a comanda hoje</span></div>
+      ${comOrgao.length ? `<ol class="tp-rows">${comOrgao.map((m,i)=>{ const id = 'm-'+slugName(m.pasta), open = tpOpen===id;
+        return `<li class="tp-r${open?' open':''}"><button type="button" class="tp-rb" data-p="${id}" aria-expanded="${open}">
+          <span class="tp-rk">${i+1}</span><span class="tp-rn">${esc(m.pasta)}<small>${esc(m.ministro)}${m.completo===false ? ' · dados parciais' : ''}</small></span>
+          <span class="tp-rbar" aria-hidden="true"><i class="exec" style="width:${((m.total||0)/max*100).toFixed(1)}%"></i></span>
+          <span class="tp-rv">${MONEY0.format(m.total||0)}</span></button>
+          ${open ? `<div class="tp-det">${m.transacoes ? cardBlock({...m, itens:m.itens||[]}, 10) : '<p class="vd-none">O Portal não traz gastos com cartão de pagamento desta pasta no período.</p>'}
+            ${(m.estab||[]).length ? `<p class="vb-note">Onde mais se gastou (sem os gastos sigilosos)</p><ul class="vt-who">${m.estab.slice(0,6).map(([e,v])=>`<li><span>${esc(e)}</span><span>${MONEY0.format(v)}</span></li>`).join('')}</ul>` : ''}
+            <p class="vb-note">${esc(m.orgao.nome)} · <a href="${m.fonte}" target="_blank" rel="noopener">Ver no Portal da Transparência ↗</a>${m.completo===false ? ' · o robô lê até 120 transações por mês; meses com mais ficam incompletos aqui' : ''}</p></div>` : ''}</li>`; }).join('')}</ol>`
+        : '<p class="vd-none">Os gastos dos ministérios entram na próxima atualização diária do robô.</p>'}
+      ${semOrgao.length ? `<p class="vb-note">Sem órgão próprio no Portal (os gastos entram na Presidência ou não foram encontrados): ${semOrgao.map(m=> esc(m.pasta)).join(', ')}.</p>` : ''}
+    </section>
+  </div>
+  <p class="vb-note tp-note">O cartão de pagamento do governo federal paga despesas pequenas e urgentes de cada órgão. Gastos marcados como sigilosos aparecem só no total, sem lugar nem data. Valores como publicados pela CGU no Portal da Transparência.</p>`;
+}
+function tpJud(){
+  const C = [['STF','Supremo Tribunal Federal','https://portal.stf.jus.br'], ...Object.values(COURTS).map(c=> [c.sigla, c.nome, c.site])];
+  return `<div class="vg-grid"><section class="vb w12"><div class="vb-h"><h2>Judiciário</h2></div>
+    <p class="tp-lede">O Portal da Transparência da CGU reúne os gastos do Executivo federal. O STF e os tribunais superiores publicam as próprias despesas, salários e diárias nos sites de cada tribunal, na área de transparência. Ainda não há um arquivo único que o robô do Quorum consiga ler; por isso esta parte traz só os caminhos oficiais.</p>
+    <ul class="tp-courts">${C.map(([s,n,u])=>`<li><a href="${u}" target="_blank" rel="noopener"><b>${s}</b><span>${esc(n)}</span><i aria-hidden="true">↗</i></a></li>`).join('')}</ul>
+  </section></div>`;
+}
+function renderTp(keep){
+  const top = tp.scrollTop;
+  const tot = { leg: trResumo ? (trResumo.camara?.total||0)+(trResumo.senado?.total||0) : null,
+                exec: trExec ? (trExec.cartoes?.presidencia?.total||0)+(trExec.cartoes?.vice?.total||0)+Object.values(trExec.ministerios||{}).reduce((a,m)=> a+(m.total||0),0) : null };
+  tp.innerHTML = `<div class="cw vg tpw">
+    <header class="cw-head"><div><p class="inst-eye">Portal da Transparência e cota parlamentar</p><h1 id="tp-title">Transparência</h1>
+      <p class="vg-sub">Gastos públicos dos últimos 12 meses${tpPeriod() ? ` (${tpPeriod()})` : ''}, por poder e por pessoa, como os órgãos publicam.</p></div>
+      ${infoBox(TP_SOURCES,'Fontes','Os robôs do Quorum baixam esses dados uma vez por dia.')}</header>
+    <div class="tp-tabs" role="tablist" aria-label="Poder">${[['leg','Legislativo','pw-leg',tot.leg],['exec','Executivo','pw-exec',tot.exec],['jud','Judiciário','pw-jud',null]].map(([k,l,c,v])=>
+      `<button type="button" role="tab" class="tp-tab ${c}" data-tab="${k}" aria-selected="${tpTab===k}"><span class="tp-tn">${l}</span><span class="tp-tv">${v==null ? (k==='jud' ? 'nos tribunais' : 'carregando…') : moneyShort(v)}</span></button>`).join('')}</div>
+    <div id="tp-body" role="tabpanel">${tpTab==='leg' ? tpLeg() : tpTab==='exec' ? tpExec() : tpJud()}</div>
+  </div>`;
+  if (keep) tp.scrollTop = top;
+  if (tpOpen && !tpOpen.startsWith('m-') && tpTab==='leg') tpDetail(tpOpen);
+}
+function tpRedrawList(){ const L = document.getElementById('tp-list'); if (L){ L.innerHTML = tpList(); if (tpOpen) tpDetail(tpOpen); } }
+tp.addEventListener('click', e=>{
+  const t = e.target.closest('[data-tab]'); if (t){ tpTab = t.dataset.tab; tpOpen = null; renderTp(true); return; }
+  const c = e.target.closest('[data-casa]'); if (c){ tpCasa = c.dataset.casa; tpShown = 40; tp.querySelectorAll('[data-casa]').forEach(b=> b.setAttribute('aria-pressed', String(b===c))); tpRedrawList(); return; }
+  const o = e.target.closest('[data-sort]'); if (o){ tpSort = o.dataset.sort; tp.querySelectorAll('[data-sort]').forEach(b=> b.setAttribute('aria-pressed', String(b===o))); tpRedrawList(); return; }
+  const m = e.target.closest('[data-more]'); if (m){ tpShown += 60; tpRedrawList(); return; }
+  const r = e.target.closest('.tp-rb'); if (r){ const id = r.dataset.p; tpOpen = tpOpen===id ? null : id;
+    if (id.startsWith('m-')) renderTp(true); else tpRedrawList();
+    const row = tp.querySelector(`.tp-rb[data-p="${id}"]`); if (row) row.focus({preventScroll:true}); return; }
+});
+tp.addEventListener('input', e=>{ if (e.target.id==='tp-q'){ tpQ = e.target.value; tpShown = 40; tpRedrawList(); } });
+tp.addEventListener('keydown', e=>{
+  const t = e.target.closest('[role="tab"]'); if (!t || !['ArrowLeft','ArrowRight'].includes(e.key)) return;
+  const tabs = [...tp.querySelectorAll('[role="tab"]')], i = tabs.indexOf(t), n = tabs[(i + (e.key==='ArrowRight'?1:-1) + tabs.length) % tabs.length];
+  tpTab = n.dataset.tab; tpOpen = null; renderTp(true); tp.querySelector(`[data-tab="${tpTab}"]`).focus();
+});
+function showTp(){
+  if (!tp.hidden) return;
+  renderTp(false);
+  if (!trResumo) loadTr().then(()=>{ if (!tp.hidden) renderTp(true); }).catch(()=>{ if (!tp.hidden){ const b = document.getElementById('tp-body'); if (b && tpTab==='leg') b.innerHTML = '<p class="vd-none">Não deu para carregar os gastos agora.</p>'; } });
+  if (!trExec) loadExec().then(()=>{ if (!tp.hidden) renderTp(true); }).catch(()=>{});
+  tp.scrollTop = 0;
+  tp.hidden = false; requestAnimationFrame(()=>tp.classList.add('show'));
+  document.title = 'Transparência · Quorum';
+  tp.querySelector('#tp-title').setAttribute('tabindex','-1');
+  tp.querySelector('#tp-title').focus({preventScroll:true});
+}
+function hideTp(){
+  if (tp.hidden) return;
+  tp.classList.remove('show'); tp.hidden = true; tp.innerHTML = '';
+  document.title = 'Quorum';
+}
+
 /* ---------- institution pages: superior courts (#tribunal-*) and ministries (#ministerio-*) ----------
    Text only for now. Court data comes from the Constitution (composition) and from news of each court's
    current leadership; ministries come from EXEC_MIN, the same list the Presidência view uses. */
@@ -4003,6 +4199,7 @@ function showRoute(){
   else if (!/^#p-/.test(location.hash)) hideCal();
   if (location.hash === '#consultas') showCons(); else hideCons();
   if (location.hash === '#visao-geral') showVg(); else if (!/^#p-/.test(location.hash)) hideVg();
+  if (location.hash === '#transparencia') showTp(); else if (!/^#p-/.test(location.hash)) hideTp();
   const im = location.hash.match(/^#(tribunal|ministerio)-([a-z0-9-]+)$/);
   if (im && showInst(im[1], im[2])) {} else if (!/^#p-/.test(location.hash)) hideInst();
   const m = location.hash.match(/^#p-([a-z0-9-]+)$/);

@@ -1,5 +1,5 @@
-"""Dados do Executivo no Portal da Transparência (CGU): cartão de pagamento da Presidência e da
-Vice-Presidência nos últimos 12 meses.
+"""Dados do Executivo no Portal da Transparência (CGU): cartão de pagamento da Presidência, da
+Vice-Presidência e de cada ministério nos últimos 12 meses.
 
 Usa a API oficial (https://api.portaldatransparencia.gov.br/swagger-ui/index.html), que exige uma chave
 gratuita. A chave fica no segredo PORTAL_TRANSPARENCIA_KEY do GitHub e nunca vai para o repositório.
@@ -101,24 +101,31 @@ def acha_orgao(chave, *excluir):
 PRES = ORG.get('20101') or acha_orgao('PRESIDENCIA DA REPUBLICA', 'VICE', 'VINCULO')
 VICE = acha_orgao('VICE-PRESIDENCIA')
 # pasta do site -> órgão SIAFI do ministério (pelo nome; o que não casar fica sem órgão)
-STOP = {'E', 'DA', 'DE', 'DO', 'DAS', 'DOS', 'MINISTERIO'}
+STOP = {'E', 'A', 'DA', 'DE', 'DO', 'DAS', 'DOS', 'EM', 'MINISTERIO'}
+def palavras(t):
+    t = norm(t).split(' - ')[0]          # tira "- Unidades com vínculo direto"
+    return {w for w in re.split(r'[^A-Z]+', t) if w and w not in STOP}
 def orgao_da_pasta(pasta):
-    alvo = {w for w in norm(pasta).split() if w not in STOP}
-    melhor, nota = None, 0
-    for o in ORG.values():
+    """O órgão "Ministério ..." que tem todas as palavras do nome curto da pasta; no empate, o nome mais parecido
+    e, depois, o código mais novo. Pastas que são da Presidência (Casa Civil, Secom, GSI...) ficam sem órgão próprio."""
+    alvo = palavras(pasta)
+    melhor, nota = None, (0, 0)
+    for o in sorted(ORG.values(), key=lambda o: o['codigo'], reverse=True):
         n = norm(o['nome'])
-        if not n.startswith('MINISTERIO'): continue
-        ws = {w for w in n.split() if w not in STOP}
-        sc = len(alvo & ws) / max(1, len(alvo | ws))
+        if not n.startswith('MINISTERIO') or 'EXTINCAO' in n or n.startswith('MINISTERIO PUBLICO'): continue
+        ws = palavras(o['nome'])
+        sc = (len(alvo & ws) / max(1, len(alvo)), len(alvo & ws) / max(1, len(alvo | ws)))
         if sc > nota: melhor, nota = o, sc
-    return melhor if nota >= 0.4 else None
+    return melhor if nota[0] == 1 else None
 
-def cartao_de(orgao):
+def cartao_de(orgao, limite=60):
     if not orgao: return None
-    itens = []
+    itens, completo = [], True
     for m in MESES:
         mm = m.strftime('%m/%Y')
-        for x in paginas('cartoes', 60, mesExtratoInicio=mm, mesExtratoFim=mm, codigoOrgao=orgao['codigo']):
+        pg = paginas('cartoes', limite, mesExtratoInicio=mm, mesExtratoFim=mm, codigoOrgao=orgao['codigo'])
+        if len(pg) >= limite * 15: completo = False   # bateu no limite de páginas: o mês pode ter mais gastos
+        for x in pg:
             data = str(x.get('dataTransacao') or '')
             iso = None
             for fmt in ('%d/%m/%Y', '%Y-%m-%d'):
@@ -132,7 +139,11 @@ def cartao_de(orgao):
     por_mes = {m.strftime('%Y-%m'): 0.0 for m in MESES}
     for i in itens: por_mes[i['m']] = por_mes.get(i['m'], 0) + i['v']
     sig = sum(i['v'] for i in itens if norm(i['e']).startswith('SIGILOS'))
-    return {'orgao': orgao, 'total': round(sum(i['v'] for i in itens), 2), 'sigiloso': round(sig, 2), 'transacoes': len(itens),
+    estab = {}
+    for i in itens:
+        if not norm(i['e']).startswith('SIGILOS'): estab[i['e']] = estab.get(i['e'], 0) + i['v']
+    return {'orgao': orgao, 'total': round(sum(i['v'] for i in itens), 2), 'sigiloso': round(sig, 2), 'transacoes': len(itens), 'completo': completo,
+            'estab': [[k, round(v, 2)] for k, v in sorted(estab.items(), key=lambda kv: -kv[1])[:10]],
             'meses': [[m, round(v, 2)] for m, v in por_mes.items()], 'itens': [i for i in itens if not norm(i['e']).startswith('SIGILOS')][:300],
             'fonte': f"https://portaldatransparencia.gov.br/cartoes/consulta?ordenarPor=dataTransacao&direcao=desc&orgaos={orgao['codigo']}"}
 
@@ -140,13 +151,25 @@ cartoes = {}
 if PRES: cartoes['presidencia'] = cartao_de(PRES)
 if VICE: cartoes['vice'] = cartao_de(VICE)
 
+# ministérios: o cartão de pagamento do órgão de cada pasta (gastos do órgão, não do ministro), com limite de tempo
+ministerios, t0 = {}, time.time()
+for p in pessoas:
+    if not p.get('pasta'): continue
+    k = slug(p['pasta'])
+    if time.time() - t0 > 20 * 60:
+        log.append('ministérios: tempo esgotado em ' + p['pasta']); break
+    o = orgao_da_pasta(p['pasta'])
+    c = cartao_de(o, 8) if o else None
+    ministerios[k] = {'pasta': p['pasta'], 'ministro': p['n'], **({k2: v for k2, v in c.items() if k2 != 'itens'} | {'itens': c['itens'][:40]} if c else {'orgao': None})}
+
 # Remuneração de presidente, vice e ministros: testada e deixada de fora por enquanto. O endpoint de servidores
 # só aceita busca por órgão do SIAPE ou CPF, e presidente, vice e ministros não aparecem por nome nesses órgãos.
 
 OUT.mkdir(parents=True, exist_ok=True)
 res = {'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'), 'periodo': [MESES[0].isoformat(), HOJE.isoformat()],
-       'cartoes': cartoes, 'orgaos': sorted(ORG.values(), key=lambda o: o['codigo']), 'chamadas': chamadas, 'erros': log[:60]}
+       'cartoes': cartoes, 'ministerios': ministerios, 'orgaos': sorted(ORG.values(), key=lambda o: o['codigo']), 'chamadas': chamadas, 'erros': log[:60]}
 (OUT / 'exec.json').write_text(json.dumps(res, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 (OUT / 'exec-amostra.json').write_text(json.dumps(amostra, ensure_ascii=False, indent=1)[:60000], encoding='utf-8')
 print(json.dumps({'pres': PRES, 'vice': VICE, 'cartoes': {k: v and v['transacoes'] for k, v in cartoes.items()},
+                  'ministerios': {k: (v.get('orgao') or {}).get('codigo') for k, v in ministerios.items()},
                   'chamadas': chamadas, 'erros': log[:10]}, ensure_ascii=False))
