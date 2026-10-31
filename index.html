@@ -690,8 +690,11 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .fd-more:hover{color:var(--ink);text-decoration-color:currentColor}
 .fd-more:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
 /* site footer: useful links at the end of every page */
-.site-foot{box-sizing:border-box;width:100%;max-width:1280px;margin:96px auto 0;padding:40px 0 12px;border-top:1px solid var(--rule);font-family:var(--display);color:var(--ink)}
+.site-foot{box-sizing:border-box;width:100%;max-width:1280px;margin:96px auto 0;padding:40px 0 12px;position:relative;font-family:var(--display);color:var(--ink)}
 .landing > .site-foot{max-width:980px;margin-top:48px;grid-column:1/-1}
+/* the footer's top line runs from one edge of the page to the other */
+.site-foot::before{content:"";position:absolute;top:0;left:calc(50% - 50vw);width:100vw;border-top:1px solid var(--rule);pointer-events:none}
+.landing,.ov,.proj,.stfv{overflow-x:clip}
 .sf-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:32px 40px}
 .sf-grid h2{margin:0 0 14px;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.02em}
 .sf-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px}
