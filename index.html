@@ -461,7 +461,7 @@ a.ev:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
   .landing{--lx-top:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;justify-items:stretch;align-items:start;column-gap:0;
     padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-top))}
   /* --u scales the drawings (a sphere box is 320u wide): two rows of spheres with their text fit the height, two spheres side by side fit the width */
-  .landing .lx{--tx:76px;--gy:18px;--gx:28px;--u:clamp(.2px, min(calc((100vh - var(--menu-h) - var(--lx-top) - 40px - 2 * var(--tx) - var(--gy)) / 640), calc((50vw - 210px) / 690)) * .72, .62px);
+  .landing .lx{--tx:34px;--gy:18px;--gx:28px;--u:clamp(.2px, min(calc((100vh - var(--menu-h) - var(--lx-top) - 60px - 2 * var(--tx) - var(--gy)) / 640), calc((50vw - 170px) / 690)) * .92, .9px);
     --S:calc(320 * var(--u));--s:calc((var(--S) + var(--tx) + var(--gy)) / .866);
     --lx-mt:max(0px, calc((100vh - var(--menu-h) - var(--lx-top) - 24px - (2 * var(--S) + 2 * var(--tx) + var(--gy))) / 2));
     position:sticky;top:var(--lx-mt);display:block;max-width:none;margin:var(--lx-mt) clamp(24px,4vw,64px) 0 0;
@@ -500,6 +500,8 @@ i.ph-0{opacity:.32}i.ph-1{opacity:.65}i.ph-2{background:color-mix(in srgb, var(-
 .lx-ph span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
 .lx-ph i{width:7px;height:7px;border-radius:50%}
 .lx-s:empty{display:none}
+/* on the opening view each circle carries only its title (and "ao vivo" while a session is on) */
+.landing .lx-bar,.landing .lx-ph{display:none}
 .lx-text:hover .lx-name{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .lx-n{font-size:clamp(24px,2vw,30px);font-weight:500;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .lx-l{font-size:14px;line-height:1.35}
@@ -670,7 +672,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 @media (max-width:560px){ .c-meta{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .card{padding:14px 16px 16px;border-radius:18px} }
 @media (max-width:700px){
   .landing{--lx-gap:28px;padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-gap) + 24px)}
-  .landing .lx{--u:.35px}
+  .landing .lx{--u:.36px}
   .lx-row{gap:10px}
   .lx-name{font-size:14px;gap:5px}
   .lx-name::before{width:7px;height:7px}
