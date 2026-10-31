@@ -2133,5 +2133,464 @@
    "conta": "DESPESA BRUTA COM PESSOAL (I)",
    "valor": 86505014.22
   }
- ]
-}
+ ],
+ "stf_linhas": [
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-11>",
+   45985852.85
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-10>",
+   46923946.84
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-9>",
+   71149860.98
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-8>",
+   50964252.96
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-7>",
+   66136768.75
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-6>",
+   47747301.38
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-5>",
+   47797093.41
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-4>",
+   47421722.22
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-3>",
+   47904932.1
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-2>",
+   48811104.69
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR-1>",
+   52073610.87
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "<MR>",
+   51313958.04
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "TOTAL (ÚLTIMOS 12 MESES) (a)",
+   624230405.09
+  ],
+  [
+   "DespesaComPessoalBruta",
+   "DESPESA BRUTA COM PESSOAL (I)",
+   "INSCRITAS EM RESTOS A PAGAR NÃO PROCESSADOS (b)",
+   8812038.86
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-11>",
+   31735392.72
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-10>",
+   32615145.94
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-9>",
+   49588237.43
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-8>",
+   36658349.84
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-7>",
+   44480789.66
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-6>",
+   33276549.82
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-5>",
+   33413576.18
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-4>",
+   32998515.09
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-3>",
+   33397116.35
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-2>",
+   34395226.39
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR-1>",
+   36642484.06
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "<MR>",
+   35932908.23
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "TOTAL (ÚLTIMOS 12 MESES) (a)",
+   435134291.71
+  ],
+  [
+   "DespesaComPessoalAtivoBruta",
+   "Pessoal Ativo",
+   "INSCRITAS EM RESTOS A PAGAR NÃO PROCESSADOS (b)",
+   8265633.5
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-11>",
+   27061154.17
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-10>",
+   27928331.13
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-9>",
+   40352569.94
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-8>",
+   31951734.24
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-7>",
+   39713015.41
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-6>",
+   28474695.3
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-5>",
+   28568773.89
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-4>",
+   28155586.83
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-3>",
+   28439880.92
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-2>",
+   29460714.61
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR-1>",
+   31393904.23
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "<MR>",
+   30668594.32
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "TOTAL (ÚLTIMOS 12 MESES) (a)",
+   372168954.99
+  ],
+  [
+   "VencimentosVantagensEOutrasDespesasVariaveis",
+   "Vencimentos, Vantagens e Outras Despesas Variáveis",
+   "INSCRITAS EM RESTOS A PAGAR NÃO PROCESSADOS (b)",
+   8117038.56
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-11>",
+   4674238.55
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-10>",
+   4686814.81
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-9>",
+   9235667.49
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-8>",
+   4706615.6
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-7>",
+   4767774.25
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-6>",
+   4801854.52
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-5>",
+   4844802.29
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-4>",
+   4842928.26
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-3>",
+   4957235.43
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-2>",
+   4934511.78
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR-1>",
+   5248579.83
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "<MR>",
+   5264313.91
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "TOTAL (ÚLTIMOS 12 MESES) (a)",
+   62965336.72
+  ],
+  [
+   "ObrigacoesPatronais",
+   "Obrigações Patronais",
+   "INSCRITAS EM RESTOS A PAGAR NÃO PROCESSADOS (b)",
+   148594.94
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-11>",
+   14250460.13
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-10>",
+   14308800.9
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-9>",
+   21561623.55
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-8>",
+   14305903.12
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-7>",
+   21655979.09
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-6>",
+   14470751.56
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-5>",
+   14383517.23
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-4>",
+   14423207.13
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-3>",
+   14507815.75
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-2>",
+   14415878.3
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR-1>",
+   15431126.81
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "<MR>",
+   15381049.81
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "TOTAL (ÚLTIMOS 12 MESES) (a)",
+   189096113.38
+  ],
+  [
+   "DespesaComPessoalInativoEPensionistasBruta",
+   "Pessoal Inativo e Pensionistas",
+   "INSCRITAS EM RESTOS A PAGAR NÃO PROCESSADOS (b)",
+   546405.36
+  ],
+  [
+   "AposentadoriasReservaEReformas",
+   "Aposentadorias, Reserva e Reformas",
+   "<MR-11>",
+   11012204.53
+  ],
+  [
+   "AposentadoriasReservaEReformas",
+   "Aposentadorias, Reserva e Reformas",
+   "<MR-10>",
+   11043561.03
+  ],
+  [
+   "AposentadoriasReservaEReformas",
+   "Aposentadorias, Reserva e Reformas",
+   "<MR-9>",
+   16692065.67
+  ],
+  [
+   "AposentadoriasReservaEReformas",
+   "Aposentadorias, Reserva e Reformas",
+   "<MR-8>",
+   11068066.03
+  ],
+  [
+   "AposentadoriasReservaEReformas",
+   "Aposentadorias, Reserva e Reformas",
+   "<MR-7>",
+   16698316.88
+  ],
+  [
+   "AposentadoriasReservaEReformas",
+   "Aposentadorias, Reserva e Reformas",
+   "<MR-6>",
+   11157355.64
+  ],
+  [
+   "AposentadoriasReservaEReformas",
+   "Aposentadorias, Reserva 
