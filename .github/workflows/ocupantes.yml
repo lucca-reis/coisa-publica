@@ -1,0 +1,38 @@
+name: Ocupantes atuais do Congresso
+
+on:
+  schedule:
+    - cron: '7 9 * * *'   # todo dia às 6h07 de Brasília
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/ocupantes.py', '.github/workflows/ocupantes.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ocupantes
+  cancel-in-progress: false
+
+jobs:
+  ocupantes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Deputados e senadores em exercício e presidentes das Casas
+        run: python scripts/ocupantes.py
+        timeout-minutes: 10
+      - name: Salvar se mudou
+        run: |
+          git config user.name "quorum-robo"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/
+          if git diff --cached --quiet; then echo "Nada mudou."; exit 0; fi
+          git commit -m "Ocupantes atualizados $(TZ=America/Sao_Paulo date '+%d/%m')"
+          git pull --rebase origin main
+          git push
