@@ -1178,6 +1178,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .mp-feed{display:flex;flex-direction:column;gap:12px}
 .mp-h{margin:6px 0 0;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .mp-feed .feed{list-style:none;margin:0;padding:0}
+#min-props .card:not(.open) .c-phase{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .inst-card{background:color-mix(in srgb, var(--ink) 5%, var(--bg));border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:18px}
 .inst-card h2{margin:0;font-size:13px;font-weight:400;color:var(--muted)}
 .inst-dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px}
@@ -3412,6 +3413,9 @@ const fOf = e => e.f || (e.house==='stf' ? 'stf' : e.house==='exec' ? 'exec' : e
 /* outside the hand-written agenda: the latest official news of each superior court and ministry (data/instituicoes.json)
    and the proposals each ministry sent to Congress in the last year (data/ministerios.json); loaded when the calendar opens */
 let CAL_EXT = [], calExtP = null, minData = null;
+// the site writes medidas provisórias as "MP 1370/2026"; the Câmara as "MPV 1370/2026"
+const propRef = x=>{ const n = `${x.numero}/${x.ano}`, codes = [`${x.sigla} ${n}`, x.sigla==='MPV' ? `MP ${n}` : null].filter(Boolean);
+  return Object.keys(PROJECTS).find(r=> codes.some(c=> PROJECTS[r].code===c || PROJECTS[r].code.startsWith(c+' '))) || null; };
 const loadMinData = ()=> minData ? Promise.resolve(minData) : trFetch('data/ministerios.json').then(js=> (minData = js));
 function loadCalExt(){
   if (calExtP) return calExtP;
@@ -3420,7 +3424,7 @@ function loadCalExt(){
     if (I) Object.entries(I.tribunais||{}).forEach(([k,X])=> (X.itens||[]).forEach(n=>{ if (n.d) out.push({date:n.d.slice(0,10), time:n.d.slice(11,16), house:k, f:k, power:'stf', text:n.t, url:n.u, major:true, news:true}); }));
     if (I) Object.entries(I.ministerios||{}).forEach(([k,X])=> (X.itens||[]).forEach(n=>{ if (n.d) out.push({date:n.d.slice(0,10), time:n.d.slice(11,16), house:'min', f:'min', power:'exec', where:X.pasta||'Ministério', text:n.t, url:n.u, major:false, news:true}); }));
     if (M) Object.values(M.props||{}).forEach(x=>{ if (!x.data || x.data < since) return;
-      const code = `${x.sigla} ${x.numero}/${x.ano}`, ref = Object.keys(PROJECTS).find(r=> PROJECTS[r].code===code);
+      const code = `${x.sigla} ${x.numero}/${x.ano}`, ref = propRef(x);
       const names = (x.pastas||[]).map(k=> (M.pastas[k]||{}).pasta || k);
       out.push({date:x.data, house:'min', f:'min', power:'exec', where:names.length ? names.join(', ') : 'Governo federal', ref: ref||null, label: ref ? null : code,
         text: ref ? 'Enviado ao Congresso' : x.ementa, url: ref ? null : x.url, major:true, kind:'Proposta enviada ao Congresso', fromAgenda:false}); });
@@ -4400,11 +4404,11 @@ function ministryHTML(id){
 // proposals the ministry sent to Congress in the last year (data/ministerios.json, robot: the ministry comes from the
 // Exposição de Motivos that goes with each proposal). A proposal the site already follows opens its own card.
 function minPhase(x){
-  const t = x.situacao || '';
+  const t = (x.situacao || '') + ' ' + (x.tramitacao || '');
   return /Norma Jur/i.test(t) ? 'virou lei' : /Arquiv|Retirad|Perdeu a efic|Prejudic|Rejeitad/i.test(t) ? 'encerrada' : 'em andamento';
 }
 function minCard(x, M){
-  const code = `${x.sigla} ${x.numero}/${x.ano}`, ref = Object.keys(PROJECTS).find(r=> PROJECTS[r].code===code);
+  const code = `${x.sigla} ${x.numero}/${x.ano}`, ref = propRef(x);
   const c = ref && CARDS.find(c=> c.slug===ref); if (c) return cardHTML(c, null);
   const id = 'mx-'+x.id, names = (x.pastas||[]).map(k=> (M.pastas[k]||{}).pasta || k);
   const day = d=> d ? cardDate(d) : 'não informado';
@@ -4416,7 +4420,7 @@ function minCard(x, M){
     </button>
     <div class="c-body" id="${id}" hidden>
       <dl class="c-dl">
-        <div><dt>Situação</dt><dd>${esc(x.situacao || 'não informado')}${x.sit_data ? ` <span class="c-ago">· ${cardDate(x.sit_data)}</span>` : ''}</dd></div>
+        <div><dt>Situação</dt><dd>${esc(x.situacao || x.tramitacao || 'não informado')}${x.sit_data ? ` <span class="c-ago">· ${cardDate(x.sit_data)}</span>` : ''}</dd></div>
         <div><dt>Apresentada</dt><dd>${day(x.data)}</dd></div>
         <div><dt>${names.length>1 ? 'Ministérios' : 'Ministério'}</dt><dd>${esc(names.join(', ') || 'não informado')}</dd></div>
         ${x.em && x.em[0] ? `<div><dt>Exposição de Motivos</dt><dd>${esc(x.em[0].replace(/\s+/g,' ').replace(/\s+Bras\S*.*$/,'').trim())}</dd></div>` : ''}
