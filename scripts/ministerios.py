@@ -102,6 +102,17 @@ def nomes_do_texto(txt):
                 break
     return achadas
 
+# quem assina a MP ou o projeto junto com o presidente (o nome do ministro, atual ou anterior, no fim do texto)
+LINHAS = re.findall(r"\['([^']+)','([^']+)'(?:,'[^']*')?(?:,'[^']*')?(?:,'([^']*)')?\]", bloco)
+NOMES = {}
+for p_, n_, ant in LINHAS:
+    for nome in (n_, ant):
+        if nome and len(nome.split()) >= 2: NOMES[chave(nome)] = slug(p_)
+def assinaturas(txt):
+    i = txt.rfind('da República')
+    fim = chave(txt[i:i + 600] if i >= 0 else txt[-600:])
+    return [sl for k, sl in NOMES.items() if k in fim]
+
 def contexto(txt):
     out = []
     for pal in ('Exposição de Motivos', 'EM n', 'EMI', 'Ministro de Estado', 'Ministra de Estado'):
@@ -153,7 +164,9 @@ for pid, p in sorted(props.items()):
     st = d.get('statusProposicao') or {}
     txt = texto_pdf(d.get('urlInteiroTeor'))
     ps, trechos = pastas_do_texto(txt)
-    if not ps: ps = nomes_do_texto(txt)
+    # a Casa Civil encaminha toda proposta ao Congresso (o cargo dela aparece em todas), então só vale pela sigla da EM
+    if not ps: ps = [x for x in nomes_do_texto(txt) if x != 'casa-civil']
+    if not ps: ps = assinaturas(txt)
     # medidas provisórias: a Exposição de Motivos também sai no site do Planalto
     if not ps and d.get('siglaTipo') == 'MPV':
         ano, num = int(d.get('ano') or 0), d.get('numero')
@@ -162,7 +175,7 @@ for pid, p in sorted(props.items()):
             h = texto_html(u)
             if h:
                 ps, tr = pastas_do_texto(h); trechos = trechos or tr
-                if not ps: ps = nomes_do_texto(h)
+                if not ps: ps = [x for x in nomes_do_texto(h) if x != 'casa-civil']
                 if ps: break
     if not ps:
         (amostra['sem_em'] if not trechos else amostra['sem_pasta']).append({'id': pid, 'sigla': f"{d.get('siglaTipo')} {d.get('numero')}/{d.get('ano')}", 'trechos': trechos[:3], 'pdf': d.get('urlInteiroTeor'), 'chars': len(txt), 'contexto': contexto(txt)})
