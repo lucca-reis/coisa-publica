@@ -83,6 +83,10 @@ for c in lista(dig(js, 'MesaSenado', 'Colegiados', 'Colegiado')) or [dig(js, 'Me
         cargo = ' '.join(cargo) if isinstance(cargo, list) else cargo
         if norm(cargo) == 'PRESIDENTE' and not mesa_sen:
             mesa_sen = {'n': re.sub(r'^Senador[a]?\s+', '', (m.get('NomeParlamentar') or '').strip()), 'p': partido(m.get('SiglaPartido') or m.get('SiglaPartidoParlamentar') or ''), 'uf': m.get('SiglaUf') or m.get('UfParlamentar') or ''}
+# partido e UF do presidente do Senado vêm da lista de senadores
+if mesa_sen:
+    par = next((x for x in senado if norm(x['n']) == norm(mesa_sen['n'])), None)
+    if par: mesa_sen.update({'p': par['p'], 'uf': par['uf'], 'id': par['id']})
 if not mesa_sen: log.append('mesa do Senado: presidente não encontrado; amostra: ' + json.dumps(js, ensure_ascii=False)[:600])
 
 res = {'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'),

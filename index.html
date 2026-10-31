@@ -1207,6 +1207,17 @@ h1[tabindex="-1"]:focus{outline:none}
 .p-cards .card:hover{--card:color-mix(in srgb, var(--ink) 3%, var(--bg))}
 .p-cards .c-pill{background:color-mix(in srgb, var(--ink) 6%, var(--bg))}
 /* the power tag carries its colour: green Executivo, yellow Legislativo, blue Judiciário (the colours of the dot in Quorum) */
+.card .c-top{justify-content:flex-start;gap:6px;flex-wrap:wrap}
+/* the kind of proposal, next to the power: its own colour (never the powers' green, yellow or blue); a click opens its category */
+.c-type{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;line-height:1;cursor:pointer;
+  background:color-mix(in srgb, var(--tc) 14%, var(--bg));color:color-mix(in srgb, var(--tc) 78%, var(--ink));transition:background-color .2s}
+.c-type:hover{background:color-mix(in srgb, var(--tc) 24%, var(--bg))}
+.cat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.cat-chips .chip{text-decoration:none}
+.cat-chips .chip i{width:9px;height:9px;border-radius:50%;background:var(--tc, var(--ink))}
+.cat-chips .chip b{font-weight:500;color:var(--ink)}
+.cat-chips .chip[aria-current="page"]{background:color-mix(in srgb, var(--ink) 8%, var(--bg));box-shadow:none;color:var(--ink)}
+.cat-feed{list-style:none;margin:0;padding:0}
 .c-pill.pw-exec{background:color-mix(in srgb, #009C3B 16%, var(--bg));color:color-mix(in srgb, #009C3B 72%, var(--ink))}
 .c-pill.pw-leg{background:color-mix(in srgb, #F2C200 30%, var(--bg));color:color-mix(in srgb, #F2C200 30%, var(--ink))}
 .c-pill.pw-jud{background:color-mix(in srgb, #1F4FB5 14%, var(--bg));color:color-mix(in srgb, #1F4FB5 66%, var(--ink))}
@@ -1268,7 +1279,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <a href="#consultas" data-nav="consultas">Enquetes</a>
   </nav>
   <div class="nav-scrim" aria-hidden="true"></div>
-  <div class="menu-tools"><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a></div>
+  <div class="menu-tools"><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a></div>
 </header>
 <section class="landing" id="landing" aria-label="Praça dos Três Poderes">
   <div class="lx-wrap"><div class="lx" aria-label="Os três poderes">
@@ -1324,6 +1335,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
 <article class="proj cal vgp tpp" id="tp" hidden aria-labelledby="tp-title"></article>
 <article class="proj cal inst" id="inst" hidden aria-labelledby="inst-title"></article>
 
+<script src="data/ocupantes.js"></script>
 <script>
 const NS = 'http://www.w3.org/2000/svg';
 
@@ -1331,10 +1343,10 @@ const PARTY = {
   PSOL:'#A3238E', Rede:'#14A39A', PCdoB:'#8A1325', PT:'#D6202C', PV:'#3A9A41', PSB:'#F2B705',
   PDT:'#E46AA2', Avante:'#3CC2D4', Solidariedade:'#C9773A', MDB:'#86B840', PSD:'#F28C1E',
   Podemos:'#1F8F6A', PSDB:'#2F6DB5', PRD:'#6C7A8C', 'União':'#1AA0D8', PP:'#8FB3E3',
-  Republicanos:'#5446B8', 'Missão':'#E4CF4A', Novo:'#FF6A13', PL:'#2450B0', NC:'var(--nc)'
+  Republicanos:'#5446B8', 'Missão':'#E4CF4A', Novo:'#FF6A13', PL:'#2450B0', Cidadania:'#D8336D', NC:'var(--nc)'
 };
 // approximate left-to-right ordering used to place parties across the seats
-const ORDER = ['PSOL','Rede','PCdoB','PT','PV','PSB','PDT','Avante','Solidariedade','MDB','PSD','Podemos','PSDB','PRD','União','PP','Republicanos','Missão','Novo','PL','NC'];
+const ORDER = ['PSOL','Rede','PCdoB','PT','PV','PSB','PDT','Avante','Solidariedade','Cidadania','MDB','PSD','Podemos','PSDB','PRD','União','PP','Republicanos','Missão','Novo','PL','NC'];
 
 const HOUSES = {
   senado:{
@@ -2078,8 +2090,8 @@ function infoBox(items, label, note){
   return `<details class="info"><summary aria-label="${esc(label)}" title="${esc(label)}">i</summary><div class="info-pop" role="note"><p class="info-h">${esc(label)}</p>${note?`<p class="info-note">${esc(note)}</p>`:''}<ol>${items.map(l=>`<li><a href="${l.u}" target="_blank" rel="noopener">${esc(l.l)}</a></li>`).join('')}</ol></div></details>`;
 }
 const PANEL_SOURCES = {
-  camara:[{l:'Agência Câmara: pauta do Plenário de 28/10',u:'https://www.camara.leg.br/noticias/1314437-camara-pode-votar-hoje-projetos-sobre-protecao-as-mulheres-seguranca-em-presidios-e-clima'},{l:'Câmara: sessão do Plenário de 28/10',u:'https://www.camara.leg.br/evento-legislativo/83108'},{l:'Agência Câmara: urgência para oito projetos (13/10)',u:'https://www.camara.leg.br/noticias/1310978-camara-aprova-regime-de-urgencia-para-oito-projetos-de-lei-acompanhe'},{l:'Hub Político: bancadas da nova Câmara',u:'https://hubpolitico.com.br/inteligencia/relatorios/eleicao-2026/bancadas-camara-dos-deputados-2026'},{l:'Hub Político: deputados eleitos por estado',u:'https://hubpolitico.com.br/eleicoes/2026/apuracao/camara'}],
-  senado:[{l:'Senado Agora',u:'https://www12.senado.leg.br/noticias/senado-agora'},{l:'Agência Brasil: PEC da Segurança retirada de pauta',u:'https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-retira-pec-da-seguranca-publica-da-pauta-do-senado'},{l:'O Brasilianista: pauta após o segundo turno',u:'https://obrasilianista.com.br/2026/10/27/politica/alcolumbre-pode-acelerar-pauta-travada-do-segundo-turno'},{l:'SBT News: PEC da Segurança na semana que vem',u:'https://sbtnews.sbt.com.br/noticia/politica/governo-quer-tratar-da-pec-da-seguranca-o-quanto-antes'},{l:'CNN Brasil: Alcolumbre pauta a PEC para terça (3/11)',u:'https://www.cnnbrasil.com.br/politica/alcolumbre-pauta-pec-da-seguranca-para-sessao-de-terca-feira-3-no-senado/'},{l:'Hub Político: senadores eleitos em 2026',u:'https://hubpolitico.com.br/eleicoes/2026/apuracao/senado'},{l:'Senado Federal: senadores em exercício',u:'https://www25.senado.leg.br/en_US/web/senadores'}]
+  camara:[{l:'Agência Câmara: pauta do Plenário de 28/10',u:'https://www.camara.leg.br/noticias/1314437-camara-pode-votar-hoje-projetos-sobre-protecao-as-mulheres-seguranca-em-presidios-e-clima'},{l:'Câmara: sessão do Plenário de 28/10',u:'https://www.camara.leg.br/evento-legislativo/83108'},{l:'Agência Câmara: urgência para oito projetos (13/10)',u:'https://www.camara.leg.br/noticias/1310978-camara-aprova-regime-de-urgencia-para-oito-projetos-de-lei-acompanhe'},{l:'Câmara dos Deputados: deputados em exercício (dados abertos, atualizado todo dia)',u:'https://dadosabertos.camara.leg.br/api/v2/deputados'}],
+  senado:[{l:'Senado Federal: senadores em exercício (dados abertos, atualizado todo dia)',u:'https://legis.senado.leg.br/dadosabertos/senador/lista/atual'},{l:'Senado Agora',u:'https://www12.senado.leg.br/noticias/senado-agora'},{l:'Agência Brasil: PEC da Segurança retirada de pauta',u:'https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-retira-pec-da-seguranca-publica-da-pauta-do-senado'},{l:'O Brasilianista: pauta após o segundo turno',u:'https://obrasilianista.com.br/2026/10/27/politica/alcolumbre-pode-acelerar-pauta-travada-do-segundo-turno'},{l:'SBT News: PEC da Segurança na semana que vem',u:'https://sbtnews.sbt.com.br/noticia/politica/governo-quer-tratar-da-pec-da-seguranca-o-quanto-antes'},{l:'CNN Brasil: Alcolumbre pauta a PEC para terça (3/11)',u:'https://www.cnnbrasil.com.br/politica/alcolumbre-pauta-pec-da-seguranca-para-sessao-de-terca-feira-3-no-senado/'},{l:'Hub Político: senadores eleitos em 2026',u:'https://hubpolitico.com.br/eleicoes/2026/apuracao/senado'},{l:'Senado Federal: senadores em exercício',u:'https://www25.senado.leg.br/en_US/web/senadores'}]
 };
 function timelineHTML(key){
   const A = AGENDA[key], today = todayISO();
@@ -2099,7 +2111,7 @@ function timelineHTML(key){
 }
 function renderPanel(key){
   const A = AGENDA[key];
-  panel.innerHTML = `<div class="panel-head"><h2>${A.title}</h2>${infoBox(PANEL_SOURCES[key],'Fontes','Pautas e composição atualizadas em 28 out 2026.')}</div>${liveBox(key)}<ol class="tl feed" aria-label="Propostas que passaram por aqui, da mais recente à mais antiga">${feedHTML(key)}</ol>`;
+  panel.innerHTML = `<div class="panel-head"><h2>${A.title}</h2>${infoBox(PANEL_SOURCES[key],'Fontes',`Pautas atualizadas em 28 out 2026. Composição de hoje${OCC ? ', dos dados abertos de '+(key==='senado'?'Senado':'Câmara') : ''}.`)}</div>${liveBox(key)}<ol class="tl feed" aria-label="Propostas que passaram por aqui, da mais recente à mais antiga">${feedHTML(key)}</ol>`;
 }
 
 /* ---------- geometry (units of the circle radius, u points away from the president) ---------- */
@@ -2174,9 +2186,15 @@ const NOTES = {
   'camara|Jair Renan Bolsonaro':'Nome de urna: Jair Bolsonaro.'
 };
 const UF_NAME = {AC:'Acre',AL:'Alagoas',AP:'Amapá',AM:'Amazonas',BA:'Bahia',CE:'Ceará',DF:'Distrito Federal',ES:'Espírito Santo',GO:'Goiás',MA:'Maranhão',MT:'Mato Grosso',MS:'Mato Grosso do Sul',MG:'Minas Gerais',PA:'Pará',PB:'Paraíba',PR:'Paraná',PE:'Pernambuco',PI:'Piauí',RJ:'Rio de Janeiro',RN:'Rio Grande do Norte',RS:'Rio Grande do Sul',RO:'Rondônia',RR:'Roraima',SC:'Santa Catarina',SP:'São Paulo',SE:'Sergipe',TO:'Tocantins'};
+/* who sits in each chair today: the robot's list of deputies and senators in office (data/ocupantes.js, official open
+   data, every day), so the chairs change by themselves when a substitute takes over or the new legislature starts on
+   1 Feb 2027. The list of those elected in 2026 (PEOPLE_RAW) stays for the election results in each profile. */
+const OCC = (window.OCUPANTES && (OCUPANTES.camara||[]).length > 400 && (OCUPANTES.senado||[]).length > 70) ? OCUPANTES : null;
+const ELECTED = {}; for (const k of ['camara','senado']) PEOPLE_RAW[k].forEach(x=>{ ELECTED[k+'|'+slugName(x.n)] = x; });
+const SEATS_SRC = OCC ? {camara: OCC.camara.map(x=>({...x, cur:true})), senado: OCC.senado.map(x=>({...x, cur:true}))} : PEOPLE_RAW;
 for (const key of ['camara','senado']){
   const H = HOUSES[key];
-  H.people = PEOPLE_RAW[key].slice().sort((a,b)=> ORDER.indexOf(a.p)-ORDER.indexOf(b.p) || a.uf.localeCompare(b.uf) || (b.v||0)-(a.v||0) || a.n.localeCompare(b.n,'pt'));
+  H.people = SEATS_SRC[key].map(x=> PARTY[x.p] ? x : {...x, p:'NC', p0:x.p}).slice().sort((a,b)=> ORDER.indexOf(a.p)-ORDER.indexOf(b.p) || a.uf.localeCompare(b.uf) || (b.v||0)-(a.v||0) || a.n.localeCompare(b.n,'pt'));
   H.data = {}; H.people.forEach(x=>{ H.data[x.p]=(H.data[x.p]||0)+1; });
   // same number of seats on each side of the aisle (odd totals leave one extra below);
   // the serpentine path carries a party across the aisle at the same end, so it stays in one block
@@ -2335,7 +2353,7 @@ function openParty(seat, key){
     return `<section class="pv-house fade"><h3>${label[k][0]}<small>${list.length} ${list.length===1?label[k][1]:label[k][2]}</small></h3>
       ${list.length ? ufs.map(uf=>`<div class="uf"><span title="${esc(UF_NAME[uf])}">${uf}</span><div class="members">${byUF[uf].map(x=>{
         const i = HOUSES[k].people.indexOf(x);
-        const v = x.v ? fmt(x.v)+' votos' : (x.k==='cont' ? 'até 2031' : '');
+        const v = x.cur ? (k==='senado' && x.fim ? 'até '+x.fim.slice(0,4) : '') : x.v ? fmt(x.v)+' votos' : (x.k==='cont' ? 'até 2031' : '');
         return `<button class="member" type="button" data-house="${k}" data-i="${i}"><span class="m-dot"></span><span class="m-name">${esc(x.n)}</span><span class="m-v">${v}</span></button>`;
       }).join('')}</div></div>`).join('') : `<p class="pv-empty">Nenhum ${label[k][1]} deste partido.</p>`}
     </section>`;
@@ -2374,15 +2392,46 @@ function closeParty(){
 function openPerson(src, key, P){
   if (personState || busy) return;
   const person = document.getElementById('person');
-  const color = P ? PARTY[P.p] : 'var(--ink)';
+  const MPc0 = !P && OCC && OCC.mesa && OCC.mesa[key], MPx = MPc0 && (OCC[key]||[]).find(x=> slugName(x.n)===slugName(MPc0.n));
+  const MPc = MPc0 && (MPc0.p && MPc0.p!=='NC' ? MPc0 : {...MPc0, ...(MPx ? {p:MPx.p, uf:MPx.uf} : {})});
+  const color = P ? PARTY[P.p] : MPc && PARTY[MPc.p] ? PARTY[MPc.p] : 'var(--ink)';
   let html;
-  if (!P){
+  const MP = MPc;
+  if (MP){
+    html = `<div><h2 class="p-name">${esc(MP.n)}</h2><p class="p-meta"><span class="dot"></span>${esc(ROLE[key][1])} · ${esc(PARTY_NAME[MP.p] || MP.p)}${MP.uf ? ' · '+esc(UF_NAME[MP.uf]||MP.uf) : ''}</p></div>
+      <div class="p-grid">
+        <section><h3>No cargo desde</h3>${MP.desde ? `<span class="big">${cardDate(MP.desde)}</span>` : ''}<p class="empty">${MP.desde ? '' : 'A data não vem nos dados abertos. '}Eleito(a) pelos colegas para comandar a ${key==='senado'?'Casa, o Congresso Nacional':'Casa'} e a Mesa Diretora.</p></section>
+        <section><h3>${key==='senado' ? 'Mandato de senador(a)' : 'Mandato de deputado(a)'}</h3><span class="big">${key==='senado' ? (MPx && MPx.ini ? MPx.ini.slice(0,4)+'–'+(MPx.fim||'').slice(0,4) : '—') : (OCC.legislatura.inicio||'').slice(0,4)+'–'+(OCC.legislatura.fim||'').slice(0,4)}</span><p class="empty">Em exercício.</p></section>
+        <section><h3>Próxima eleição da Mesa</h3><span class="big">1º fev 2027</span><p class="empty">Com a posse da nova legislatura. Precisa de ${key==='senado'?41:257} votos, a maioria absoluta.</p></section>
+      </div>
+      <div class="p-src">${infoBox([{l: key==='senado' ? 'Senado Federal: Mesa (dados abertos)' : 'Câmara dos Deputados: Mesa Diretora (dados abertos)', u: key==='senado' ? 'https://www25.senado.leg.br/web/senado/composicao/mesa' : 'https://www.camara.leg.br/a-camara/estruturaadm/mesa'}],'Fontes')}</div>`;
+  } else if (!P){
     html = `<div><h2 class="p-name">${esc(ROLE[key][1])}</h2><p class="p-meta">Eleição da Mesa em 1º de fevereiro de 2027</p></div>
       <div class="p-grid">
         <section><h3>Quem pode ser eleito</h3><p class="empty">Qualquer ${key==='senado'?'senador ou senadora':'deputado ou deputada'} da nova legislatura.</p></section>
         <section><h3>Maioria necessária</h3><span class="big">${key==='senado'?41:257}</span><p class="empty">votos, maioria absoluta da Casa, no primeiro escrutínio.</p></section>
         <section><h3>Mandato</h3><span class="big">2 anos</span><p class="empty">2027–2029</p></section>
       </div>`;
+  } else if (P.cur){
+    const isSen = key==='senado', y = d=> (d||'').slice(0,4), el0 = ELECTED[key+'|'+slugName(P.n)], el = el0 && el0.uf===P.uf ? el0 : null;
+    const role = isSen ? 'Senador(a)' : 'Deputado(a) federal', sup = isSen && /suplente/i.test(P.part||'');
+    const term = isSen ? `${y(P.ini)||'—'}–${y(P.fim)||'—'}` : `${y(OCC.legislatura.inicio)||'2023'}–${y(OCC.legislatura.fim)||'2027'}`;
+    const src2 = isSen
+      ? [{l:'Senado Federal: senadores em exercício (dados abertos)', u:'https://www25.senado.leg.br/web/senadores/em-exercicio'}, P.id && {l:'Senado Federal: página do senador', u:'https://www25.senado.leg.br/web/senadores/senador/-/perfil/'+P.id}].filter(Boolean)
+      : [{l:'Câmara dos Deputados: deputados em exercício (dados abertos)', u:'https://www.camara.leg.br/deputados/quem-sao'}, P.id && {l:'Câmara dos Deputados: página do deputado', u:'https://www.camara.leg.br/deputados/'+P.id}].filter(Boolean);
+    html = `<div><h2 class="p-name">${esc(P.n)}</h2>
+        <p class="p-meta"><span class="dot"></span>${esc(role)} · ${esc(PARTY_NAME[P.p] || P.p0 || P.p)} · ${esc(UF_NAME[P.uf]||P.uf)}</p></div>
+      <div class="p-grid">
+        <section><h3>Mandato</h3><span class="big">${term}</span><p class="empty">${sup ? 'Suplente em exercício no lugar do titular.' : 'Em exercício.'}</p></section>
+        <section><h3>Eleição de 2026</h3>${el
+          ? `<span class="big">${el.v ? fmt(el.v) : 'eleito(a)'}</span><p class="empty">${el.v ? 'votos. ' : ''}${el.k==='cont' ? 'Mandato segue até 2031.' : `Eleito(a) para ${isSen ? '2027–2035' : '2027–2031'}; posse em 1º de fevereiro de 2027.`}</p>`
+          : '<p class="empty">Não aparece na lista de eleitos de 2026 usada pelo Quorum (nome de urna diferente ou não eleito).</p>'}</section>
+        <section><h3>Votações</h3><p class="empty">Os votos nas votações do Plenário que o Quorum acompanha aparecem em "Projetos e processos relacionados".</p></section>
+      </div>
+      <section class="p-ct" id="p-ct" aria-live="polite"><h3>Contato</h3><p class="tr-empty">Carregando…</p></section>
+      ${relatedHTML(P.n, key)}
+      <section class="p-tr" id="p-tr" aria-live="polite"><h3>Transparência · cota parlamentar</h3><p class="tr-empty">Carregando os gastos…</p></section>
+      <div class="p-src">${infoBox(src2,'Fontes')}</div>`;
   } else {
     const isSen = key==='senado', cont = isSen && P.k==='cont';
     const term = isSen ? (cont ? '2023–2031' : '2027–2035') : '2027–2031';
@@ -2410,7 +2459,7 @@ function openPerson(src, key, P){
   }
   person.style.setProperty('--c', color);
   person.style.setProperty('--on', onColor(color));
-  person.innerHTML = `<div class="avatar" role="button" tabindex="0" aria-label="Voltar"><span class="ph">${P?esc(initialsOf(P.n)):''}</span></div>
+  person.innerHTML = `<div class="avatar" role="button" tabindex="0" aria-label="Voltar"><span class="ph">${P?esc(initialsOf(P.n)):MPc?esc(initialsOf(MPc.n)):''}</span></div>
     <div class="p-info fade">${html}</div>`;
   personState = {src};
   if (P){ trSection(P, key); ctSection(P.n, key); }
@@ -2587,6 +2636,27 @@ function stageOf(P){
 }
 // colour class of a power tag
 function pwClass(k){ return k==='exec' ? 'pw-exec' : k==='stf' ? 'pw-jud' : (k==='camara'||k==='senado') ? 'pw-leg' : ''; }
+/* kinds of proposal and case: each card shows one, and each has its own page (#categoria-<k>; #projetos lists all) */
+const CATS = [
+  {k:'mp', l:'Medida provisória', pl:'Medidas provisórias', c:'#D9651E', re:/^MPV?\b|Medida Provis/i,
+   d:'Ato do presidente da República com força de lei desde a publicação. O Congresso tem até 120 dias para aprová-la, mudá-la ou deixá-la perder a validade.'},
+  {k:'pec', l:'Emenda à Constituição', pl:'Emendas à Constituição', c:'#C7343B', re:/^(PEC|EC)\b|Emenda(s)? (à|Constitucion)/i,
+   d:'Muda o texto da Constituição. Precisa de três quintos dos votos, em dois turnos, na Câmara e no Senado, e não passa pela sanção do presidente.'},
+  {k:'plp', l:'Lei complementar', pl:'Projetos de lei complementar', c:'#B2347F', re:/^PLP\b|Lei Complementar/i,
+   d:'Trata dos assuntos que a Constituição reserva à lei complementar. Precisa da maioria absoluta das duas Casas: 257 deputados e 41 senadores.'},
+  {k:'pl', l:'Projeto de lei', pl:'Projetos de lei', c:'#7B3FB3', re:/^PLN?\b|Projeto de Lei/i,
+   d:'Cria ou muda uma lei comum. Passa pela Câmara e pelo Senado e vai à sanção do presidente, que pode vetar no todo ou em parte.'},
+  {k:'pdl', l:'Decreto legislativo', pl:'Projetos de decreto legislativo', c:'#8B5A33', re:/^(PDL|PDS|PDC)\b|Decreto Legislativo/i,
+   d:'Decide assuntos que são só do Congresso, como aprovar tratados internacionais ou sustar atos do governo. Não vai à sanção.'},
+  {k:'acao', l:'Ação no Supremo', pl:'Ações no Supremo', c:'#4B4F57', re:/^(ADI|ADC|ADPF|ADO)\b|Ação Direta|Ação Declarat|Arguição/i,
+   d:'Pede ao Supremo que diga se uma lei ou ato está de acordo com a Constituição (ADI, ADC, ADPF). A decisão vale para todos.'},
+  {k:'re', l:'Recurso extraordinário', pl:'Recursos extraordinários', c:'#8E6F7E', re:/^(RE|ARE)\b|Recurso Extraordin/i,
+   d:'Leva ao Supremo uma causa já julgada em outras instâncias. Com repercussão geral, a tese fixada vale para os casos iguais em todo o país.'}
+];
+const CAT_OTHER = {k:'outro', l:'Outro', pl:'Outros', c:'#777B82', d:'Propostas e processos de outros tipos.'};
+const CAT_BY = Object.fromEntries(CATS.concat(CAT_OTHER).map(c=> [c.k, c]));
+function catOf(P){ const code = String(P.code||''); return CATS.find(c=> c.re.test(code)) || CATS.find(c=> c.re.test(P.type||'')) || CAT_OTHER; }
+const catTag = C => `<span class="c-type" data-cat="${C.k}" style="--tc:${C.c}" title="Ver: ${esc(C.pl)}">${esc(C.l)}</span>`;
 function cardHTML(c, key){
   const P = c.P, S = cardState(c, key), L = S.last;
   const live = S.here && liveState(S.here)?.s==='live' && L && L.date===todayISO() && L.key===S.here;
@@ -2603,7 +2673,7 @@ function cardHTML(c, key){
   const id = 'cx-'+c.slug+(key?'-'+key:'');
   return `<li><article class="card${live?' is-live':''}">
     <button type="button" class="c-head" aria-expanded="false" aria-controls="${id}">
-      <span class="c-top"><span class="c-pill ${pwClass(S.here)}">${POWER_NAME[S.here]} · ${stageOf(P)}${live ? ' · ao vivo' : ''}</span></span>
+      <span class="c-top"><span class="c-pill ${pwClass(S.here)}">${POWER_NAME[S.here]} · ${stageOf(P)}${live ? ' · ao vivo' : ''}</span>${catTag(catOf(P))}</span>
       <span class="c-main"><span class="c-text"><span class="c-title">${esc(P.title)}</span>
       ${ok(P.status) ? `<span class="c-phase">${esc(P.status)}</span>` : ''}
       ${v && !mv && !ex ? `<span class="c-vres">${esc(v.result)}</span>` : ''}</span>
@@ -2694,6 +2764,7 @@ function tallyTx(v){
 }
 // a card opens in place; the link inside goes to the full page
 function cardClick(e){
+  const ct = e.target.closest('.c-type'); if (ct){ e.stopPropagation(); e.preventDefault(); resetLayers(); location.hash = '#categoria-'+ct.dataset.cat; return true; }
   const full = e.target.closest('.c-full'); if (full){ e.stopPropagation(); projFrom = true; return true; }
   const h = e.target.closest('.c-head'); if (!h) return false;
   e.stopPropagation();
@@ -2701,8 +2772,8 @@ function cardClick(e){
   h.setAttribute('aria-expanded', String(open)); body.hidden = !open; card.classList.toggle('open', open);
   return true;
 }
-function feedHTML(key){
-  const list = CARDS.filter(c=> !key || c.P.house===key || c.ev.some(e=> e.key===key))
+function feedHTML(key, only){
+  const list = CARDS.filter(c=> (!key || c.P.house===key || c.ev.some(e=> e.key===key)) && (!only || only(c)))
     .map(c=> ({c, L: cardState(c, key).last}))
     .sort((a,b)=> (b.L ? b.L.date+String(evMin(b.L)+10).padStart(5,'0') : '0') .localeCompare(a.L ? a.L.date+String(evMin(a.L)+10).padStart(5,'0') : '0'));
   // grouped by the day each item was last dealt with, like the calendar but quieter
@@ -3190,6 +3261,7 @@ function navTo(key){
   if (key==='calendario' || key==='consultas'){ location.hash = '#'+key; return; }
   if (key==='visao'){ location.hash = '#visao-geral'; return; }
   if (key==='transp'){ location.hash = '#transparencia'; return; }
+  if (key==='projetos'){ location.hash = '#projetos'; return; }
   if (VIEWS[key]){
     const cur = openView();
     if (cur===key) return;
@@ -3239,7 +3311,7 @@ const NAV_LINKS = [...document.querySelectorAll('.menu [data-nav]:not(.brand)')]
 let navHere;
 setInterval(()=>{
   if (document.hidden) return;
-  const here = !inst.hidden ? instKey : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
+  const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey) : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
   if (here===navHere) return; navHere = here;
   NAV_LINKS.forEach(a=>{ if (a.dataset.nav===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   document.querySelectorAll('.nav-sub [data-route]').forEach(a=>{ if (a.dataset.route===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
@@ -4414,7 +4486,7 @@ function minCard(x, M){
   const day = d=> d ? cardDate(d) : 'não informado';
   return `<li><article class="card">
     <button type="button" class="c-head" aria-expanded="false" aria-controls="${id}">
-      <span class="c-top"><span class="c-pill ${pwClass('camara')}">Câmara · ${minPhase(x)}</span></span>
+      <span class="c-top"><span class="c-pill ${pwClass('camara')}">Câmara · ${minPhase(x)}</span>${catTag(catOf({code: x.sigla}))}</span>
       <span class="c-main"><span class="c-text"><span class="c-title">${esc(code)}</span><span class="c-phase">${esc(x.ementa || 'Ementa não informada')}</span></span></span>
       <span class="c-more" aria-hidden="true"></span>
     </button>
@@ -4443,6 +4515,20 @@ function minProps(id){
       <p class="vb-note">Propostas de autoria do Poder Executivo na Câmara dos Deputados. O ministério vem da Exposição de Motivos que acompanha cada uma. Atualizado toda semana.</p>`;
   }).catch(()=>{ const b = document.getElementById('min-props'); if (b) b.innerHTML = '<p class="vd-none">As propostas dos ministérios entram na próxima atualização do robô.</p>'; });
 }
+// #projetos and #categoria-<k>: every proposal and case the site follows, by kind
+function catHTML(id){
+  const C = id==='todas' ? null : CAT_BY[id]; if (id!=='todas' && !C) return null;
+  const n = k=> CARDS.filter(c=> catOf(c.P).k===k).length;
+  const chips = [{k:'todas', pl:'Todas', c:'var(--ink)'}, ...CATS, CAT_OTHER].filter(x=> x.k==='todas' || n(x.k)).map(x=>
+    `<a class="chip" href="${x.k==='todas' ? '#projetos' : '#categoria-'+x.k}" style="--tc:${x.c}"${x.k===id ? ' aria-current="page"' : ''}>${x.k==='todas' ? '' : '<i aria-hidden="true"></i>'}${esc(x.pl)} <b>${x.k==='todas' ? CARDS.length : n(x.k)}</b></a>`).join('');
+  const feed = feedHTML(null, C ? c=> catOf(c.P).k===C.k : null);
+  return `<div class="cw inst-w">
+    <header class="cw-head"><div><p class="inst-eye">Projetos${C ? ' · categoria' : ' · por tipo'}</p><h1 id="inst-title">${C ? esc(C.pl) : 'Projetos'}</h1></div>${infoBox([{l:'Constituição Federal, arts. 59 a 69 (processo legislativo) e 102 (Supremo)', u:CF},{l:'Câmara dos Deputados: tipos de proposição', u:'https://www2.camara.leg.br/atividade-legislativa/legislacao/proposicoes'}],'Fontes')}</header>
+    <p class="inst-lede">${C ? esc(C.d) : 'Todas as propostas e processos que o Quorum acompanha, separados pelo tipo. Toque numa categoria para ver só ela.'}</p>
+    <nav class="cat-chips" aria-label="Categorias">${chips}</nav>
+    ${feed ? `<ol class="feed cat-feed" aria-label="${C ? esc(C.pl) : 'Projetos'}, do mais recente ao mais antigo">${feed}</ol>` : '<p class="vd-none">Nenhum projeto desta categoria por enquanto.</p>'}
+  </div>`;
+}
 // latest official news of each court and ministry, from data/instituicoes.json (robot, every hour)
 let instData = null;
 const loadInstData = ()=> instData ? Promise.resolve(instData) : trFetch('data/instituicoes.json').then(js=> (instData = js));
@@ -4458,16 +4544,16 @@ function instNews(kind, id){
   }).catch(()=>{ const b = document.getElementById('inst-news'); if (b) b.innerHTML = '<p class="vd-none">Não deu para carregar as notícias agora.</p>'; });
 }
 function showInst(kind, id){
-  const html = kind==='tribunal' ? courtHTML(id) : ministryHTML(id);
+  const html = kind==='tribunal' ? courtHTML(id) : kind==='categoria' ? catHTML(id) : ministryHTML(id);
   if (!html) return false;
   inst.innerHTML = html;
-  instKey = (kind==='tribunal' ? 't:' : 'm:') + id;
+  instKey = (kind==='tribunal' ? 't:' : kind==='categoria' ? 'c:' : 'm:') + id;
   inst.scrollTop = 0;
   if (inst.hidden){ inst.hidden = false; requestAnimationFrame(()=>inst.classList.add('show')); }
   document.title = inst.querySelector('#inst-title').textContent + ' · Quorum';
   inst.querySelector('#inst-title').setAttribute('tabindex','-1');
   inst.querySelector('#inst-title').focus({preventScroll:true});
-  instNews(kind, id);
+  if (kind!=='categoria') instNews(kind, id);
   if (kind==='ministerio') minProps(id);
   return true;
 }
@@ -4485,7 +4571,7 @@ function showRoute(){
   if (location.hash === '#consultas') showCons(); else hideCons();
   if (location.hash === '#visao-geral') showVg(); else if (!/^#p-/.test(location.hash)) hideVg();
   if (location.hash === '#transparencia') showTp(); else if (!/^#p-/.test(location.hash)) hideTp();
-  const im = location.hash.match(/^#(tribunal|ministerio)-([a-z0-9-]+)$/);
+  const im = location.hash==='#projetos' ? [0,'categoria','todas'] : location.hash.match(/^#(tribunal|ministerio|categoria)-([a-z0-9-]+)$/);
   if (im && showInst(im[1], im[2])) {} else if (!/^#p-/.test(location.hash)) hideInst();
   const m = location.hash.match(/^#p-([a-z0-9-]+)$/);
   if (m && renderProject(m[1])){
