@@ -1,0 +1,671 @@
+{
+ "sem_pasta": [],
+ "sem_em": [
+  {
+   "id": 2581700,
+   "sigla": "MPV 1323/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3055048",
+   "chars": 14047
+  },
+  {
+   "id": 2582520,
+   "sigla": "MPV 1324/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3055049",
+   "chars": 13114
+  },
+  {
+   "id": 2586418,
+   "sigla": "PL 5893/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3049234",
+   "chars": 46370
+  },
+  {
+   "id": 2587127,
+   "sigla": "MPV 1325/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3055050",
+   "chars": 15932
+  },
+  {
+   "id": 2589912,
+   "sigla": "MPV 1326/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075200",
+   "chars": 27689
+  },
+  {
+   "id": 2591970,
+   "sigla": "PL 6132/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3058412",
+   "chars": 15349
+  },
+  {
+   "id": 2591974,
+   "sigla": "PL 6133/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3058416",
+   "chars": 15435
+  },
+  {
+   "id": 2592447,
+   "sigla": "PL 6170/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3059582",
+   "chars": 87155
+  },
+  {
+   "id": 2594000,
+   "sigla": "PL 6237/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3063060",
+   "chars": 31818
+  },
+  {
+   "id": 2595101,
+   "sigla": "MPV 1327/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075203",
+   "chars": 14507
+  },
+  {
+   "id": 2595808,
+   "sigla": "PLP 265/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3065815",
+   "chars": 4774
+  },
+  {
+   "id": 2597258,
+   "sigla": "PL 6462/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3091273",
+   "chars": 20841
+  },
+  {
+   "id": 2597834,
+   "sigla": "MPV 1328/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075205",
+   "chars": 17911
+  },
+  {
+   "id": 2598708,
+   "sigla": "MPV 1329/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075207",
+   "chars": 14631
+  },
+  {
+   "id": 2598718,
+   "sigla": "MPV 1330/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075209",
+   "chars": 12577
+  },
+  {
+   "id": 2599846,
+   "sigla": "MPV 1331/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075210",
+   "chars": 9400
+  },
+  {
+   "id": 2599884,
+   "sigla": "MPV 1332/2025",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075212",
+   "chars": 7553
+  },
+  {
+   "id": 2599885,
+   "sigla": "PL 1/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3073106",
+   "chars": 10288
+  },
+  {
+   "id": 2599888,
+   "sigla": "MPV 1333/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075214",
+   "chars": 13889
+  },
+  {
+   "id": 2599928,
+   "sigla": "MPV 1334/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3075288",
+   "chars": 13751
+  },
+  {
+   "id": 2599930,
+   "sigla": "MPV 1335/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3079715",
+   "chars": 33583
+  },
+  {
+   "id": 2601389,
+   "sigla": "MPV 1336/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3079716",
+   "chars": 11887
+  },
+  {
+   "id": 2607473,
+   "sigla": "MPV 1338/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3094409",
+   "chars": 10881
+  },
+  {
+   "id": 2607474,
+   "sigla": "MPV 1339/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3094410",
+   "chars": 11391
+  },
+  {
+   "id": 2608575,
+   "sigla": "PLP 55/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3096551",
+   "chars": 3836
+  },
+  {
+   "id": 2608662,
+   "sigla": "MPV 1340/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3096745",
+   "chars": 10208
+  },
+  {
+   "id": 2608770,
+   "sigla": "MPV 1341/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3097147",
+   "chars": 9288
+  },
+  {
+   "id": 2608922,
+   "sigla": "PL 1160/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3097591",
+   "chars": 4085
+  },
+  {
+   "id": 2610017,
+   "sigla": "MPV 1342/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3099900",
+   "chars": 28609
+  },
+  {
+   "id": 2610975,
+   "sigla": "MPV 1343/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3102087",
+   "chars": 16258
+  },
+  {
+   "id": 2610976,
+   "sigla": "MPV 1344/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3102088",
+   "chars": 12004
+  },
+  {
+   "id": 2611078,
+   "sigla": "PL 1315/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3102262",
+   "chars": 55454
+  },
+  {
+   "id": 2611652,
+   "sigla": "MPV 1345/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3106422",
+   "chars": 16192
+  },
+  {
+   "id": 2612633,
+   "sigla": "MPV 1346/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3106415",
+   "chars": 13590
+  },
+  {
+   "id": 2612634,
+   "sigla": "MPV 1347/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3106416",
+   "chars": 9511
+  },
+  {
+   "id": 2613550,
+   "sigla": "MPV 1348/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3117421",
+   "chars": 16349
+  },
+  {
+   "id": 2613731,
+   "sigla": "PL 1625/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3109125",
+   "chars": 7463
+  },
+  {
+   "id": 2614364,
+   "sigla": "MPV 1349/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3117423",
+   "chars": 34472
+  },
+  {
+   "id": 2616127,
+   "sigla": "PL 1838/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3113430",
+   "chars": 20406
+  },
+  {
+   "id": 2616962,
+   "sigla": "MPV 1350/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3117426",
+   "chars": 6829
+  },
+  {
+   "id": 2617268,
+   "sigla": "PL 1893/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3115560",
+   "chars": 14048
+  },
+  {
+   "id": 2618769,
+   "sigla": "MPV 1351/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122672",
+   "chars": 10077
+  },
+  {
+   "id": 2619357,
+   "sigla": "MPV 1352/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122673",
+   "chars": 10560
+  },
+  {
+   "id": 2620628,
+   "sigla": "MPV 1353/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122675",
+   "chars": 19604
+  },
+  {
+   "id": 2620629,
+   "sigla": "MPV 1354/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3122676",
+   "chars": 18471
+  },
+  {
+   "id": 2620929,
+   "sigla": "MPV 1355/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3124365",
+   "chars": 54210
+  },
+  {
+   "id": 2620930,
+   "sigla": "MPV 1356/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3124367",
+   "chars": 23317
+  },
+  {
+   "id": 2624161,
+   "sigla": "MPV 1357/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3131650",
+   "chars": 10140
+  },
+  {
+   "id": 2624751,
+   "sigla": "MPV 1358/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3131648",
+   "chars": 16121
+  },
+  {
+   "id": 2625945,
+   "sigla": "MPV 1359/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3136443",
+   "chars": 19171
+  },
+  {
+   "id": 2625946,
+   "sigla": "MPV 1360/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3136444",
+   "chars": 15539
+  },
+  {
+   "id": 2626766,
+   "sigla": "MPV 1361/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3136445",
+   "chars": 13832
+  },
+  {
+   "id": 2627586,
+   "sigla": "MPV 1362/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3140243",
+   "chars": 12078
+  },
+  {
+   "id": 2629391,
+   "sigla": "MPV 1363/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3140616",
+   "chars": 29242
+  },
+  {
+   "id": 2629561,
+   "sigla": "MPV 1364/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3141844",
+   "chars": 11432
+  },
+  {
+   "id": 2630089,
+   "sigla": "MPV 1365/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3142923",
+   "chars": 9722
+  },
+  {
+   "id": 2632300,
+   "sigla": "MPV 1366/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157741",
+   "chars": 28427
+  },
+  {
+   "id": 2632301,
+   "sigla": "MPV 1367/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157740",
+   "chars": 11455
+  },
+  {
+   "id": 2634391,
+   "sigla": "MPV 1368/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157738",
+   "chars": 17324
+  },
+  {
+   "id": 2634392,
+   "sigla": "MPV 1369/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157737",
+   "chars": 10473
+  },
+  {
+   "id": 2634542,
+   "sigla": "MPV 1370/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157736",
+   "chars": 26372
+  },
+  {
+   "id": 2634698,
+   "sigla": "MPV 1371/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157735",
+   "chars": 10316
+  },
+  {
+   "id": 2635439,
+   "sigla": "MPV 1372/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157734",
+   "chars": 12548
+  },
+  {
+   "id": 2635466,
+   "sigla": "MPV 1373/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157733",
+   "chars": 33474
+  },
+  {
+   "id": 2635476,
+   "sigla": "PLP 186/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3153934",
+   "chars": 12940
+  },
+  {
+   "id": 2636183,
+   "sigla": "MPV 1374/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157335",
+   "chars": 23899
+  },
+  {
+   "id": 2637101,
+   "sigla": "MPV 1375/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3157732",
+   "chars": 16560
+  },
+  {
+   "id": 2639957,
+   "sigla": "MPV 1376/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3163739",
+   "chars": 35178
+  },
+  {
+   "id": 2640259,
+   "sigla": "MPV 1377/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166453",
+   "chars": 42019
+  },
+  {
+   "id": 2641178,
+   "sigla": "MPV 1378/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166454",
+   "chars": 9526
+  },
+  {
+   "id": 2641546,
+   "sigla": "MPV 1379/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166455",
+   "chars": 15429
+  },
+  {
+   "id": 2641578,
+   "sigla": "MPV 1380/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3166456",
+   "chars": 40955
+  },
+  {
+   "id": 2641748,
+   "sigla": "MPV 1381/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3167653",
+   "chars": 20133
+  },
+  {
+   "id": 2641811,
+   "sigla": "MPV 1382/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3167965",
+   "chars": 15439
+  },
+  {
+   "id": 2642328,
+   "sigla": "PL 4951/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3169586",
+   "chars": 11102
+  },
+  {
+   "id": 2642329,
+   "sigla": "PL 4952/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3169587",
+   "chars": 14603
+  },
+  {
+   "id": 2643429,
+   "sigla": "MPV 1383/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3171692",
+   "chars": 41839
+  },
+  {
+   "id": 2643435,
+   "sigla": "MPV 1384/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3171701",
+   "chars": 1
+  },
+  {
+   "id": 2643436,
+   "sigla": "MPV 1385/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3171702",
+   "chars": 0
+  },
+  {
+   "id": 2644522,
+   "sigla": "MPV 1386/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3174804",
+   "chars": 36569
+  },
+  {
+   "id": 2644523,
+   "sigla": "MPV 1387/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3174805",
+   "chars": 0
+  },
+  {
+   "id": 2644524,
+   "sigla": "MPV 1388/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3174806",
+   "chars": 27600
+  },
+  {
+   "id": 2646241,
+   "sigla": "MPV 1389/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3179188",
+   "chars": 20113
+  },
+  {
+   "id": 2646242,
+   "sigla": "MPV 1390/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3179189",
+   "chars": 20113
+  },
+  {
+   "id": 2646385,
+   "sigla": "MPV 1391/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3180015",
+   "chars": 36432
+  },
+  {
+   "id": 2646885,
+   "sigla": "MPV 1392/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3181521",
+   "chars": 19149
+  },
+  {
+   "id": 2647154,
+   "sigla": "MPV 1393/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3182103",
+   "chars": 34559
+  },
+  {
+   "id": 2647155,
+   "sigla": "MPV 1394/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3182104",
+   "chars": 40660
+  },
+  {
+   "id": 2647160,
+   "sigla": "PL 5477/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3182117",
+   "chars": 10867
+  },
+  {
+   "id": 2647392,
+   "sigla": "MPV 1395/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3183319",
+   "chars": 10664
+  },
+  {
+   "id": 2647407,
+   "sigla": "MPV 1396/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3183445",
+   "chars": 29790
+  },
+  {
+   "id": 2647522,
+   "sigla": "PLP 267/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3183630",
+   "chars": 15430
+  },
+  {
+   "id": 2648606,
+   "sigla": "MPV 1397/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3185390",
+   "chars": 11949
+  },
+  {
+   "id": 2648616,
+   "sigla": "MPV 1398/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3185402",
+   "chars": 15996
+  },
+  {
+   "id": 2648653,
+   "sigla": "PEC 18/2026",
+   "trechos": [],
+   "pdf": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=3185494",
+   "chars": 5051
+  }
+ ],
+ "siglas_desconhecidas": {}
+}
