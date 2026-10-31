@@ -2754,13 +2754,15 @@ function lxEnd(){
   const last = cards[cards.length-1]; if (!last) return;
   // measured against the end of the wrapper's grid row (its bottom plus the trim already applied), so it holds after "Ver mais" too
   const wrap = document.querySelector('.lx-wrap'); if (!wrap || getComputedStyle(wrap).display==='contents') return;
-  // the circles move left by half their natural gap to the page's edge; that half gap (--edge) is also the gap from the
-  // last card to the right edge and the menu's side margins, so logo, circles, cards and icons share one margin
+  // the circles sit centred in the left half of the page (--lx-sx nudges them there); half of the gap from the page's
+  // left edge to the left circle (--edge) is the gap from the last card to the right edge and the menu's side margins
   const lxEl = document.querySelector('.landing .lx');
-  const left = Math.min(...[...document.querySelectorAll('.lx .sph')].map(c=> c.getBoundingClientRect().left));
+  const rs = [...document.querySelectorAll('.lx .sph')].map(c=> c.getBoundingClientRect());
+  const left = Math.min(...rs.map(r=> r.left)), right = Math.max(...rs.map(r=> r.right));
   if (isFinite(left) && lxEl){ const L = document.getElementById('landing'), lr = L.getBoundingClientRect();
-    const sx = parseFloat(lxEl.style.getPropertyValue('--lx-sx')) || 0, base = left - lr.left - sx, g = Math.round(base / 2);
-    if (lxEl.style.getPropertyValue('--lx-sx') !== (-g)+'px') lxEl.style.setProperty('--lx-sx', (-g)+'px');
+    const sx = parseFloat(lxEl.style.getPropertyValue('--lx-sx')) || 0, mid = lr.left + L.clientWidth / 2;
+    const nsx = Math.round(sx + (lr.left + mid) / 2 - (left + right) / 2), g = Math.round((left + nsx - sx - lr.left) / 2);
+    if (lxEl.style.getPropertyValue('--lx-sx') !== nsx+'px') lxEl.style.setProperty('--lx-sx', nsx+'px');
     const edge = lr.left + L.clientWidth, now = parseFloat(todayEl.style.paddingRight) || 0;
     const pr = Math.max(0, Math.round(now + g - (edge - last.getBoundingClientRect().right)));
     if (todayEl.style.paddingRight !== pr+'px') todayEl.style.paddingRight = pr+'px';
