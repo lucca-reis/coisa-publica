@@ -501,6 +501,16 @@ a.ev:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
   .landing .lx-text{max-width:100%}
   .landing .lx-ph{justify-content:center}
 }
+/* tablet: the three circles stacked on the left half, Legislativo, Executivo and Judiciário from top to bottom */
+@media (min-width:701px) and (max-width:1199px){
+  .landing .lx{--u:clamp(.2px, min(calc((100vh - var(--menu-h) - var(--lx-top) - 60px - 3 * var(--tx) - 2 * var(--gy)) / 960), calc((50vw - 80px) / 340)), .9px);
+    --row:calc(var(--S) + var(--tx) + var(--gy));
+    --lx-mt:max(0px, calc((100vh - var(--menu-h) - var(--lx-top) - 24px - (3 * var(--S) + 3 * var(--tx) + 2 * var(--gy))) / 2 - 20px));
+    height:calc(3 * var(--S) + 3 * var(--tx) + 2 * var(--gy))}
+  .landing .lx-row[data-k="cong"]{left:50%;top:0}
+  .landing .lx-row[data-k="pres"]{left:50%;top:var(--row)}
+  .landing .lx-row[data-k="stf"]{left:50%;top:calc(2 * var(--row))}
+}
 .lx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(12px,4vw,56px);width:100%;max-width:980px;margin:0 auto;font-family:var(--display)}
 .lx-row{display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0}
 .lx-shape{display:flex;justify-content:center;align-items:center;padding:0}
@@ -634,7 +644,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .sf-about{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)}
 .sf-who{margin:18px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
 .sf-who b{font-weight:500;font-size:13.5px;color:var(--ink)}
-.sf-legal{text-align:center;margin:40px 0 0;padding-top:16px;border-top:1px solid color-mix(in srgb, var(--rule) 60%, var(--bg));font-size:11.5px;line-height:1.5;color:var(--muted)}
+.sf-legal{text-align:center;margin:40px 0 0;padding-top:0;border-top:0;font-size:11.5px;line-height:1.5;color:var(--muted)}
 @media (max-width:900px){ .sf-grid{grid-template-columns:repeat(3,minmax(0,1fr))} .sf-brand{grid-column:1 / -1;max-width:520px} }
 @media (max-width:760px){ .sf-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .site-foot{margin-top:56px} .sf-site{grid-column:1 / -1} }
 
@@ -710,8 +720,10 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 @media (max-width:560px){ .c-meta{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .card{padding:14px 16px 16px;border-radius:18px} }
 @media (max-width:700px){
   .landing{--lx-gap:28px;padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-gap) + 24px)}
-  .landing .lx{--u:.36px}
-  .landing .lx-arc{font-size:25px}
+  /* phone: the circles as wide as the cards, one above the other */
+  .landing .lx{--u:calc((min(100vw, 980px) - 32px) / 308);display:flex;flex-direction:column;align-items:stretch;gap:calc(34 * var(--u))}
+  .landing .lx-shape svg{margin:0 calc(-6 * var(--u))}
+  .landing .lx-arc{font-size:11px}
   .lx-row{gap:10px}
   .lx-name{font-size:14px;gap:5px}
   .lx-name::before{width:7px;height:7px}
