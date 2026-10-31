@@ -377,7 +377,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 .menu .menu-tools .cs-link{display:none}
 @media (min-width:761px){
   .menu{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:0}
-  .menu nav{grid-column:2;justify-self:stretch;justify-content:space-between;gap:8px;max-width:none;margin:0 196px 0 -13px;padding:3px}
+  .menu nav{grid-column:2;justify-self:stretch;justify-content:flex-start;gap:6px;max-width:none;margin:0 196px 0 -13px;padding:3px}
   .menu .nav-grp{flex:none}
   .menu nav > .nav-grp > .nav-leg{padding:7px 10px;font-size:14px;gap:0}
   .menu nav > a[data-nav="consultas"]{display:none}
@@ -629,11 +629,12 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .sf-brand{display:flex;flex-direction:column;gap:10px;max-width:340px}
 .sf-grid .sf-logo{align-self:flex-start;font-size:26px;letter-spacing:-.015em;color:var(--ink);text-decoration:none}
 .sf-grid .sf-logo:hover{text-decoration:none}
+.sf-logo .brand-o{animation:none;background:var(--ink)}
 .sf-tag{margin:0;font-size:14px;line-height:1.4}
 .sf-about{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)}
 .sf-who{margin:18px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
 .sf-who b{font-weight:500;font-size:13.5px;color:var(--ink)}
-.sf-legal{margin:40px 0 0;padding-top:16px;border-top:1px solid color-mix(in srgb, var(--rule) 60%, var(--bg));font-size:11.5px;line-height:1.5;color:var(--muted)}
+.sf-legal{text-align:center;margin:40px 0 0;padding-top:16px;border-top:1px solid color-mix(in srgb, var(--rule) 60%, var(--bg));font-size:11.5px;line-height:1.5;color:var(--muted)}
 @media (max-width:900px){ .sf-grid{grid-template-columns:repeat(3,minmax(0,1fr))} .sf-brand{grid-column:1 / -1;max-width:520px} }
 @media (max-width:760px){ .sf-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .site-foot{margin-top:56px} .sf-site{grid-column:1 / -1} }
 
@@ -710,7 +711,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 @media (max-width:700px){
   .landing{--lx-gap:28px;padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-gap) + 24px)}
   .landing .lx{--u:.36px}
-  .landing .lx-arc{font-size:30px}
+  .landing .lx-arc{font-size:25px}
   .lx-row{gap:10px}
   .lx-name{font-size:14px;gap:5px}
   .lx-name::before{width:7px;height:7px}
@@ -877,9 +878,14 @@ a.ag-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .c-main{position:static}
 /* the vote drawing sits in the bottom right corner, so the label, title and subtitle stay together */
 .c-head .c-vline{position:absolute;right:18px;bottom:18px;max-width:none;margin:0}
+/* the power tag sits halfway between the card's top edge and the title; the band below the text is as tall as the band above */
+.card .c-head{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(50px,1fr) auto minmax(50px,1fr);justify-content:stretch;align-content:stretch;gap:0;padding-top:0;padding-bottom:0}
+.card .c-head > .c-top{grid-row:1;align-self:center}
+.card .c-head > .c-main{grid-row:2}
+.card.open .c-head{padding-bottom:0;grid-template-rows:minmax(50px,1fr) auto minmax(18px,.4fr)}
 .c-main:has(.c-vline) .c-text{padding-right:88px}
 .c-main:has(.xm) .c-text{padding-right:118px}
-@media (max-width:560px){ .c-head .c-vline{right:14px;bottom:16px} .c-main:has(.c-vline) .c-text{padding-right:64px} .c-main:has(.xm) .c-text{padding-right:86px} }
+@media (max-width:560px){ .card{padding-top:0;padding-bottom:0} .card .c-head{grid-template-rows:minmax(44px,1fr) auto minmax(44px,1fr)} .card.open .c-head{grid-template-rows:minmax(44px,1fr) auto minmax(14px,.4fr)} .c-head .c-vline{right:14px;bottom:16px} .c-main:has(.c-vline) .c-text{padding-right:64px} .c-main:has(.xm) .c-text{padding-right:86px} }
 .c-vline .mv-leg{flex-direction:row;column-gap:8px}
 .c-vline .mv-leg em,.c-vline .mv-x{display:none}
 .mv-leg em{font-style:normal}
@@ -2692,7 +2698,7 @@ function renderToday(){
   const NS = 'http://www.w3.org/2000/svg';
   [['mini','LEGISLATIVO','pw-leg'], ['lg-pres','EXECUTIVO','pw-exec'], ['lg-stf','JUDICIÁRIO','pw-jud']].forEach(([id, name, cls])=>{
     const g = document.getElementById(id), c = g && g.querySelector('.sph'); if (!c) return;
-    const cx = +c.getAttribute('cx'), cy = +c.getAttribute('cy'), fs = 22, R = +c.getAttribute('r') + 10 + 30 * .72;   // room for the larger letters used on phones
+    const cx = +c.getAttribute('cx'), cy = +c.getAttribute('cy'), fs = 17, R = +c.getAttribute('r') + 10 + 30 * .72;   // room for the larger letters used on phones
     const path = document.createElementNS(NS, 'path');
     path.setAttribute('id', 'arc-'+id); path.setAttribute('fill', 'none');
     path.setAttribute('d', `M ${cx-R} ${cy} A ${R} ${R} 0 0 0 ${cx+R} ${cy}`);
@@ -2736,7 +2742,7 @@ const FOOT_HTML = (()=>{
   return `<footer class="site-foot"><div class="sf-grid">
   <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Quorum, página inicial"><span aria-hidden="true">Qu<i class="brand-o"></i>rum</span></a>
     <p class="sf-tag">Pautas, votações e gastos dos Três Poderes, num só lugar.</p>
-    <p class="sf-about">Os dados vêm das fontes oficiais: dados abertos da Câmara e do Senado, notícias do STF e do Planalto, Diário Oficial, Portal da Transparência e TSE. Os robôs do site atualizam votações, pautas, enquetes e gastos ao longo do dia, e cada informação leva à sua fonte.</p></div>
+    <p class="sf-about">Dados de fontes oficiais, atualizados por robôs ao longo do dia. Cada informação leva à sua fonte.</p></div>
   <nav aria-label="Fontes oficiais"><h2>Fontes</h2><ul>
     <li>${ext('https://dadosabertos.camara.leg.br', 'Câmara dos Deputados')}</li>
     <li>${ext('https://www12.senado.leg.br/dados-abertos', 'Senado Federal')}</li>
