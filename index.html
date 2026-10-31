@@ -618,16 +618,24 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .fd-more:hover{color:var(--ink);text-decoration-color:currentColor}
 .fd-more:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
 /* site footer: useful links at the end of every page */
-.site-foot{box-sizing:border-box;width:100%;max-width:1280px;margin:72px auto 0;padding:28px 0 8px;border-top:1px solid var(--rule);font-family:var(--display);color:var(--ink)}
-.landing > .site-foot{max-width:980px;margin-top:24px;grid-column:1/-1}
-.sf-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 32px}
-.sf-grid h2{margin:0 0 10px;font-size:12.5px;font-weight:500;color:var(--muted)}
-.sf-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:14px}
-.sf-grid a{color:var(--ink);text-decoration:none}
-.sf-grid a:hover{text-decoration:underline;text-underline-offset:3px}
+.site-foot{box-sizing:border-box;width:100%;max-width:1280px;margin:96px auto 0;padding:40px 0 12px;border-top:1px solid var(--rule);font-family:var(--display);color:var(--ink)}
+.landing > .site-foot{max-width:980px;margin-top:48px;grid-column:1/-1}
+.sf-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:32px 40px}
+.sf-grid h2{margin:0 0 14px;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.02em}
+.sf-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:13.5px}
+.sf-grid a{color:color-mix(in srgb, var(--ink) 82%, var(--bg));text-decoration:none;transition:color .2s}
+.sf-grid a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .sf-grid a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
-.sf-note{margin:28px 0 0;font-size:12.5px;line-height:1.5;color:var(--muted);max-width:640px}
-@media (max-width:760px){ .sf-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .site-foot{margin-top:48px} }
+.sf-brand{display:flex;flex-direction:column;gap:10px;max-width:340px}
+.sf-grid .sf-logo{align-self:flex-start;font-size:26px;letter-spacing:-.015em;color:var(--ink);text-decoration:none}
+.sf-grid .sf-logo:hover{text-decoration:none}
+.sf-tag{margin:0;font-size:14px;line-height:1.4}
+.sf-about{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)}
+.sf-who{margin:18px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
+.sf-who b{font-weight:500;font-size:13.5px;color:var(--ink)}
+.sf-legal{margin:40px 0 0;padding-top:16px;border-top:1px solid color-mix(in srgb, var(--rule) 60%, var(--bg));font-size:11.5px;line-height:1.5;color:var(--muted)}
+@media (max-width:900px){ .sf-grid{grid-template-columns:repeat(3,minmax(0,1fr))} .sf-brand{grid-column:1 / -1;max-width:520px} }
+@media (max-width:760px){ .sf-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .site-foot{margin-top:56px} .sf-site{grid-column:1 / -1} }
 
 /* cards: the same piece on the opening view and in every section. Compact by default, they open in place */
 .feed{list-style:none;margin:0;display:flex;flex-direction:column;gap:22px}
@@ -2715,29 +2723,47 @@ function weekStartISO(){
 }
 let feedMore = false;
 // footer with useful links, placed at the end of the opening view and of every page; pages that redraw themselves get it back
-const FOOT_HTML = `<footer class="site-foot"><div class="sf-grid">
-  <nav aria-label="Fontes oficiais"><h2>Fontes oficiais</h2><ul>
-    <li><a href="https://www.camara.leg.br" target="_blank" rel="noopener">Câmara dos Deputados</a></li>
-    <li><a href="https://www12.senado.leg.br" target="_blank" rel="noopener">Senado Federal</a></li>
-    <li><a href="https://portal.stf.jus.br" target="_blank" rel="noopener">Supremo Tribunal Federal</a></li>
-    <li><a href="https://www.gov.br/planalto" target="_blank" rel="noopener">Presidência da República</a></li>
-    <li><a href="https://www.in.gov.br" target="_blank" rel="noopener">Diário Oficial da União</a></li></ul></nav>
-  <nav aria-label="Dados abertos"><h2>Dados abertos</h2><ul>
-    <li><a href="https://dadosabertos.camara.leg.br" target="_blank" rel="noopener">Dados abertos da Câmara</a></li>
-    <li><a href="https://www12.senado.leg.br/dados-abertos" target="_blank" rel="noopener">Dados abertos do Senado</a></li>
-    <li><a href="https://portaldatransparencia.gov.br" target="_blank" rel="noopener">Portal da Transparência</a></li>
-    <li><a href="https://eagendas.cgu.gov.br" target="_blank" rel="noopener">Agendas de autoridades (e-Agendas)</a></li></ul></nav>
-  <nav aria-label="Participe"><h2>Participe</h2><ul>
-    <li><a href="https://www12.senado.leg.br/ecidadania" target="_blank" rel="noopener">e-Cidadania do Senado</a></li>
-    <li><a href="https://www.camara.leg.br/deputados/quem-sao" target="_blank" rel="noopener">Contato dos deputados</a></li>
-    <li><a href="https://www25.senado.leg.br/web/senadores" target="_blank" rel="noopener">Contato dos senadores</a></li>
-    <li><a href="https://www.tse.jus.br" target="_blank" rel="noopener">Tribunal Superior Eleitoral</a></li></ul></nav>
-  <nav aria-label="No Quorum"><h2>No Quorum</h2><ul>
+// the site's own channels; an empty one simply doesn't show in the footer
+const SITE_INFO = {autor:'Lucca Reis', x:'', instagram:'', email:''};
+const FOOT_HTML = (()=>{
+  const ext = (u, t)=> `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
+  const own = [
+    SITE_INFO.x && `<li>${ext('https://x.com/'+SITE_INFO.x, 'X (Twitter) · @'+esc(SITE_INFO.x))}</li>`,
+    SITE_INFO.instagram && `<li>${ext('https://www.instagram.com/'+SITE_INFO.instagram, 'Instagram · @'+esc(SITE_INFO.instagram))}</li>`,
+    SITE_INFO.email && `<li><a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a></li>`,
+    `<li>${ext('https://github.com/lucca-reis/quorum', 'Código do site')}</li>`
+  ].filter(Boolean).join('');
+  return `<footer class="site-foot"><div class="sf-grid">
+  <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Quorum, página inicial"><span aria-hidden="true">Qu<i class="brand-o"></i>rum</span></a>
+    <p class="sf-tag">Pautas, votações e gastos dos Três Poderes, num só lugar.</p>
+    <p class="sf-about">Os dados vêm das fontes oficiais: dados abertos da Câmara e do Senado, notícias do STF e do Planalto, Diário Oficial, Portal da Transparência e TSE. Os robôs do site atualizam votações, pautas, enquetes e gastos ao longo do dia, e cada informação leva à sua fonte.</p></div>
+  <nav aria-label="Fontes oficiais"><h2>Fontes</h2><ul>
+    <li>${ext('https://dadosabertos.camara.leg.br', 'Câmara dos Deputados')}</li>
+    <li>${ext('https://www12.senado.leg.br/dados-abertos', 'Senado Federal')}</li>
+    <li>${ext('https://portal.stf.jus.br', 'Supremo Tribunal Federal')}</li>
+    <li>${ext('https://www.gov.br/planalto', 'Presidência da República')}</li>
+    <li>${ext('https://www.in.gov.br', 'Diário Oficial da União')}</li>
+    <li>${ext('https://portaldatransparencia.gov.br', 'Portal da Transparência')}</li>
+    <li>${ext('https://dadosabertos.tse.jus.br', 'Tribunal Superior Eleitoral')}</li></ul></nav>
+  <nav aria-label="Links úteis"><h2>Links úteis</h2><ul>
+    <li>${ext('https://www.camara.leg.br/deputados/quem-sao', 'Contato dos deputados')}</li>
+    <li>${ext('https://www25.senado.leg.br/web/senadores', 'Contato dos senadores')}</li>
+    <li>${ext('https://www12.senado.leg.br/ecidadania', 'e-Cidadania do Senado')}</li>
+    <li>${ext('https://falabr.cgu.gov.br', 'Fala.BR, ouvidoria do governo')}</li>
+    <li><a href="#transparencia">Transparência</a></li>
     <li><a href="#visao-geral">Visão geral</a></li>
-    <li><a href="#calendario">Calendário</a></li>
-    <li><a href="#consultas">Enquetes</a></li>
-    <li><a href="https://github.com/lucca-reis/quorum" target="_blank" rel="noopener">Código do site</a></li></ul></nav>
-</div><p class="sf-note">Quorum reúne informações públicas dos Três Poderes, com links para a fonte de cada dado. Os robôs do site atualizam votações, pautas e enquetes ao longo do dia. Site independente, sem vínculo com os órgãos citados.</p></footer>`;
+    <li><a href="#calendario">Calendário</a></li></ul></nav>
+  <div class="sf-site"><h2>O site</h2><ul>${own}</ul>
+    <p class="sf-who">Criação, design e desenvolvimento<br><b>${esc(SITE_INFO.autor)}</b></p></div>
+</div><p class="sf-legal">© ${new Date().getFullYear()} Quorum · ${esc(SITE_INFO.autor)}. Site independente, sem vínculo com os órgãos citados. Os dados públicos pertencem às fontes oficiais.</p></footer>`;
+})();
+// the logo in the footer goes back to the opening view, at the top
+document.addEventListener('click', e=>{
+  const l = e.target.closest('.sf-logo'); if (!l) return;
+  e.preventDefault();
+  if (location.hash && location.hash!=='#') location.hash = ''; else navTo('home');
+  setTimeout(()=>{ const L = document.getElementById('landing'); if (L) L.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'}); }, 50);
+}, true);   // capture: the opening view stops clicks from bubbling
 function addFoot(el){ if (el && !(el.lastElementChild && el.lastElementChild.classList.contains('site-foot'))) el.insertAdjacentHTML('beforeend', FOOT_HTML); }
 ['landing','stfv','presv','proj','cal','cons','vg','tp','inst'].forEach(id=>{
   const el = document.getElementById(id); if (!el) return;
