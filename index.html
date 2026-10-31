@@ -603,6 +603,24 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 #pres-svg{display:block;width:100%;height:auto;max-height:calc(100vh - var(--menu-h) - 130px);overflow:visible}
 #pres-frame{fill:color-mix(in srgb, var(--ink) 6%, var(--bg));stroke:none}
 .jz.ex{fill:var(--c)}
+.pres-grid{grid-template-rows:auto 1fr}
+.pres-grid > #pres-svg{grid-column:1;grid-row:1}
+.pres-grid > #pres-panel{grid-column:2;grid-row:1 / span 2}
+/* the Esplanada dos Ministérios: two rows of buildings facing each other, one per ministry, with the minister's party dot */
+.esp{grid-column:1;grid-row:2;align-self:start;margin:0 clamp(0px,4%,40px);opacity:0;transform:translateY(8px);transition:opacity .45s .1s, transform .45s .1s}
+.stfv.show .esp{opacity:1;transform:none}
+.esp-h{margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.esp-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(18px,48px) minmax(0,1fr);align-items:start}
+.esp-col{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.esp-lawn{align-self:stretch;margin:0 auto;width:2px;border-radius:2px;background:color-mix(in srgb, var(--ink) 7%, var(--bg))}
+.esp a{display:flex;align-items:center;gap:10px;min-height:36px;padding:0 12px;border-radius:9px;background:color-mix(in srgb, var(--ink) 6%, var(--bg));color:var(--ink);text-decoration:none;font-size:13px;line-height:1.2;transition:background-color .2s}
+.esp a:hover{background:color-mix(in srgb, var(--ink) 11%, var(--bg))}
+.esp a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.esp a i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--c)}
+.esp a span{min-width:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.esp a{padding-top:7px;padding-bottom:7px}
+@media (max-width:900px){ .pres-grid > #pres-svg,.pres-grid > #pres-panel,.esp{grid-column:1;grid-row:auto} .esp{margin:0} }
+@media (max-width:560px){ .esp a{font-size:12px;padding:0 9px;gap:7px;min-height:40px} .esp-cols{grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr)} }
 .pres-legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0;padding:0;list-style:none;font-size:13px;color:var(--muted)}
 .pres-legend li{display:flex;align-items:center;gap:6px}
 .pres-legend i{width:10px;height:10px;border-radius:50%;background:var(--c)}
@@ -1156,6 +1174,9 @@ h1[tabindex="-1"]:focus{outline:none}
 .cw.inst-w{max-width:880px;gap:28px}
 .inst-eye{margin:0 0 6px;font-size:13px;color:var(--muted)}
 .inst-lede{margin:0;font-size:clamp(16px,1.6vw,19px);line-height:1.5;max-width:62ch}
+.mp-feed{display:flex;flex-direction:column;gap:12px}
+.mp-h{margin:6px 0 0;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.mp-feed .feed{list-style:none;margin:0;padding:0}
 .inst-card{background:color-mix(in srgb, var(--ink) 5%, var(--bg));border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:18px}
 .inst-card h2{margin:0;font-size:13px;font-weight:400;color:var(--muted)}
 .inst-dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px}
@@ -1280,6 +1301,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
       <rect id="pres-frame" x="6" y="6" width="536.5" height="248" rx="24" vector-effect="non-scaling-stroke"/>
       <g id="pres-bench"></g>
     </svg>
+    <nav class="esp" id="esp" aria-labelledby="esp-h"></nav>
     <section class="stf-panel" id="pres-panel"></section>
   </div>
 </section>
@@ -2439,7 +2461,7 @@ const POWER_NAME = {camara:'Câmara', senado:'Senado', exec:'Presidência', stf:
 const POWER_GLYPH = {camara:'cong', senado:'cong', exec:'exec', stf:'stf'};
 // symbols of the three powers, all made of dots: many in a half circle (Legislativo), one (Executivo), eleven in a U (Judiciário)
 const GLYPHS = {leg:'<svg class="gl" viewBox="0 0 20 12" aria-hidden="true"><circle cx="5.40" cy="10.20" r="1.5"/><circle cx="7.70" cy="6.22" r="1.5"/><circle cx="12.30" cy="6.22" r="1.5"/><circle cx="14.60" cy="10.20" r="1.5"/><circle cx="1.40" cy="10.20" r="1.5"/><circle cx="2.55" cy="5.90" r="1.5"/><circle cx="5.70" cy="2.75" r="1.5"/><circle cx="10.00" cy="1.60" r="1.5"/><circle cx="14.30" cy="2.75" r="1.5"/><circle cx="17.45" cy="5.90" r="1.5"/><circle cx="18.60" cy="10.20" r="1.5"/></svg>',exec:'<svg class="gl" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="3.7"/></svg>',jud:'<svg class="gl" viewBox="0 0 12 12" aria-hidden="true"><circle cx="1.3" cy="1.30" r="1.15"/><circle cx="1.3" cy="4.05" r="1.15"/><circle cx="1.3" cy="6.80" r="1.15"/><circle cx="1.3" cy="9.55" r="1.15"/><circle cx="10.7" cy="1.30" r="1.15"/><circle cx="10.7" cy="4.05" r="1.15"/><circle cx="10.7" cy="6.80" r="1.15"/><circle cx="10.7" cy="9.55" r="1.15"/><circle cx="3.65" cy="10.70" r="1.15"/><circle cx="6" cy="10.70" r="1.15"/><circle cx="8.35" cy="10.70" r="1.15"/></svg>'};
-const GLYPH_OF = {camara:'leg', senado:'leg', cong:'leg', congresso:'leg', exec:'exec', pres:'exec', stf:'jud'};
+const GLYPH_OF = {camara:'leg', senado:'leg', cong:'leg', congresso:'leg', exec:'exec', pres:'exec', min:'exec', stf:'jud', stj:'jud', tst:'jud', tse:'jud', stm:'jud'};
 const glyph = k => GLYPHS[GLYPH_OF[k]||k] || '';
 function stepPower(text, P){
   if (P.house==='stf') return 'stf';
@@ -2936,6 +2958,13 @@ const EXEC_ALL = [...EXEC_TOP, ...[...EXEC_MIN].sort((a,b)=> ORDER.indexOf(a.p)-
     g.appendChild(c);
   });
 })();
+// below the frame, the Esplanada: each ministry is a building; clicking it opens the ministry's page
+(function(){
+  const half = Math.ceil(EXEC_MIN.length/2);
+  const li = M=> `<li><a href="#ministerio-${slugName(M.pasta)}" style="--c:${PARTY[M.p] || 'var(--nc)'}" title="${esc(M.pasta)} · ${esc(M.n)}${M.p!=='NC' ? ' ('+esc(M.p)+')' : ''}"><i aria-hidden="true"></i><span>${esc(M.pasta)}</span></a></li>`;
+  document.getElementById('esp').innerHTML = `<h2 class="esp-h" id="esp-h">Esplanada dos Ministérios</h2>
+    <div class="esp-cols"><ul class="esp-col">${EXEC_MIN.slice(0,half).map(li).join('')}</ul><span class="esp-lawn" aria-hidden="true"></span><ul class="esp-col">${EXEC_MIN.slice(half).map(li).join('')}</ul></div>`;
+})();
 const PRES_BENCH = (()=>{ const cols = Math.ceil(EXEC_MIN.length/4), left = -10, right = 26*1.9 + (cols-1)*26 + 10; return {cx:(left+right)/2, cy:0, r:10, w:right-left, h:26*3+20}; })();
 function sizePresBench(){
   const pu = svgUnit(planSvg, 1400, 640), su = svgUnit(presSvg, 549, 260);
@@ -3359,26 +3388,49 @@ const CAL_SOURCES = [
   {l:'Agência Senado: Senado aprova adicional de fronteira (28/10)', u:'https://www12.senado.leg.br/noticias/materias/2026/10/28/aprovada-ampliacao-do-adicional-de-fronteira-para-servidores-federais'},
   {l:'Jornal de Brasília: Senado aprova subvenção da cana (28/10)', u:'https://jornaldebrasilia.com.br/noticias/economia/senado-aprova-r-270-milhoes-em-subvencao-para-canavieiros-do-nordeste/'},
   {l:'Panorama Inconfidentes: Câmara aprova acordo do Mercosul (28/10)', u:'https://panoramainconfidentes.com.br/noticia/camara-aprova-acordo-do-mercosul-para-proteger-mulheres-vitimas-de-violencia'},
-  {l:'STF: notícias do Plenário', u:'https://noticias.stf.jus.br/'}
+  {l:'STF: notícias do Plenário', u:'https://noticias.stf.jus.br/'},
+  {l:'Notícias oficiais do STJ, TST, TSE, STM e dos ministérios (sites oficiais e gov.br)', u:'https://www.gov.br/pt-br/noticias'},
+  {l:'Câmara dos Deputados: propostas de autoria do Poder Executivo (dados abertos)', u:'https://dadosabertos.camara.leg.br'}
 ];
 /* calendar: one month at a time, the three powers as the opening view's shapes,
    only decisions and deadlines unless "todas as etapas" is on */
 const POWER = {camara:'cong', senado:'cong', congresso:'cong', stf:'stf', exec:'exec'};
-const POWER_LABEL = {cong:'Congresso', stf:'Supremo', exec:'Presidência'};
+const POWER_LABEL = {cong:'Congresso', stf:'Judiciário', exec:'Executivo'};
 const POWER_ORDER = ['cong','stf','exec'];
-const SUB_LABEL = {camara:'Câmara', senado:'Senado', congresso:'Congresso'};
+const SUB_LABEL = {camara:'Câmara', senado:'Senado', congresso:'Congresso', stf:'STF', stj:'STJ', tst:'TST', tse:'TSE', stm:'STM', exec:'Presidência', min:'Ministério'};
+/* calendar filters: each house, court and the ministries can be switched off */
+const CAL_FILTERS = [['camara','Câmara'],['senado','Senado'],['congresso','Congresso'],['stf','STF'],['stj','STJ'],['tst','TST'],['tse','TSE'],['stm','STM'],['exec','Presidência'],['min','Ministérios']];
+const fOf = e => e.f || (e.house==='stf' ? 'stf' : e.house==='exec' ? 'exec' : e.house);
+/* outside the hand-written agenda: the latest official news of each superior court and ministry (data/instituicoes.json)
+   and the proposals each ministry sent to Congress in the last year (data/ministerios.json); loaded when the calendar opens */
+let CAL_EXT = [], calExtP = null, minData = null;
+const loadMinData = ()=> minData ? Promise.resolve(minData) : trFetch('data/ministerios.json').then(js=> (minData = js));
+function loadCalExt(){
+  if (calExtP) return calExtP;
+  return calExtP = Promise.all([loadInstData().catch(()=>null), loadMinData().catch(()=>null)]).then(([I, M])=>{
+    const out = [], since = (()=>{ const d = new Date(); d.setFullYear(d.getFullYear()-1); return d.toISOString().slice(0,10); })();
+    if (I) Object.entries(I.tribunais||{}).forEach(([k,X])=> (X.itens||[]).forEach(n=>{ if (n.d) out.push({date:n.d.slice(0,10), time:n.d.slice(11,16), house:k, f:k, power:'stf', text:n.t, url:n.u, major:true, news:true}); }));
+    if (I) Object.entries(I.ministerios||{}).forEach(([k,X])=> (X.itens||[]).forEach(n=>{ if (n.d) out.push({date:n.d.slice(0,10), time:n.d.slice(11,16), house:'min', f:'min', power:'exec', where:X.pasta||'Ministério', text:n.t, url:n.u, major:false, news:true}); }));
+    if (M) Object.values(M.props||{}).forEach(x=>{ if (!x.data || x.data < since) return;
+      const code = `${x.sigla} ${x.numero}/${x.ano}`, ref = Object.keys(PROJECTS).find(r=> PROJECTS[r].code===code);
+      const names = (x.pastas||[]).map(k=> (M.pastas[k]||{}).pasta || k);
+      out.push({date:x.data, house:'min', f:'min', power:'exec', where:names.length ? names.join(', ') : 'Governo federal', ref: ref||null, label: ref ? null : code,
+        text: ref ? 'Enviado ao Congresso' : x.ementa, url: ref ? null : x.url, major:true, kind:'Proposta enviada ao Congresso', fromAgenda:false}); });
+    CAL_EXT = out; return out;
+  });
+}
 const MAJOR_RE = /aprova|sanciona|promulga|à sanção|prazo|MP publicada|Votação esperada|Retirad|vista|conclui|decide|adiad|suspens|julgamento|Eleição|Posse/i;
 const MINOR_RE = /Comissão|parecer|CCJ|relatório|Distribuíd|Apresentado|Chega ao|Recebid|Volta à|prorrogad|protocolado|preliminar/i;
 EVENTS.forEach(e=>{ e.power = POWER[e.house]; e.major = !!e.fromAgenda || (MAJOR_RE.test(e.text) && !MINOR_RE.test(e.text)); });
 const MES_AB = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 let calYear = null, calMonth = null, calSel = null, calView = null, calAll = false;
-const calFilter = new Set(POWER_ORDER);
+const calFilter = new Set(CAL_FILTERS.map(f=> f[0]));
 const pad2 = n => String(n).padStart(2,'0');
 const pw = k => `<span class="pw">${glyph(k)}</span>`;
-const visibleEvents = () => EVENTS.filter(e=>(calAll || e.major) && calFilter.has(e.power));
+const visibleEvents = () => EVENTS.concat(CAL_EXT).filter(e=>(calAll || e.major) && calFilter.has(fOf(e)));
 function eventsOn(iso){ return visibleEvents().filter(e=>e.date===iso).sort((a,b)=>POWER_ORDER.indexOf(a.power)-POWER_ORDER.indexOf(b.power)); }
 function evHTML(e){
-  const P = e.ref && PROJECTS[e.ref], sub = SUB_LABEL[e.house];
+  const P = e.ref && PROJECTS[e.ref], sub = e.where || SUB_LABEL[e.house];
   const body = `<span class="id">${sub?esc(sub)+' · ':''}${esc(P ? P.code : (e.label||''))}</span><span class="t">${esc(P ? P.title : e.text)}</span>${P && e.text && e.text!=='Na pauta do Plenário' ? `<span class="w">${esc(e.text)}</span>` : ''}${e.result ? `<span class="r">${esc(e.result)}</span>` : ''}${e.week ? '<span class="tag">previsão para a semana</span>' : ''}`;
   return P ? `<a class="ev" href="#p-${e.ref}">${body}</a>` : `<div class="ev">${body}</div>`;
 }
@@ -3422,7 +3474,7 @@ function monthListHTML(){
 }
 function pendingHTML(){
   const today = todayISO();
-  const rows = PENDING.flatMap(g=>g.items.map(([ref,note,dueLabel,due])=>({ref,note,dueLabel,due,power:POWER[g.where]||'cong',where:g.title}))).filter(r=>PROJECTS[r.ref] && calFilter.has(r.power));
+  const rows = PENDING.flatMap(g=>g.items.map(([ref,note,dueLabel,due])=>({ref,note,dueLabel,due,power:POWER[g.where]||'cong',where:g.title}))).filter(r=>PROJECTS[r.ref] && calFilter.has(r.power==='cong' ? (PENDING.find(g=> g.title===r.where)||{}).where : r.power));
   const dated = rows.filter(r=>r.due).sort((a,b)=>a.due.localeCompare(b.due)), undated = rows.filter(r=>!r.due);
   const row = r => { const P = PROJECTS[r.ref], last = P.steps.map(s=>s[0]).filter(d=>d<=today).sort().pop();
     const [yy,mm,dd] = (r.due||'').split('-').map(Number);
@@ -3439,11 +3491,11 @@ const ARROW_R = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="tr
 let calPast = 8;
 function agendaCard(e){
   const P = e.ref && PROJECTS[e.ref];
-  const where = [SUB_LABEL[e.house] || POWER_LABEL[e.power], e.time, e.week ? 'previsão para a semana' : (e.kind && e.fromAgenda ? e.kind.toLowerCase() : '')].filter(Boolean).join(' · ');
+  const where = [e.where ? (e.house==='min' ? 'Ministério · '+e.where : e.where) : (SUB_LABEL[e.house] || POWER_LABEL[e.power]), e.news ? 'notícia oficial' : '', e.time, e.week ? 'previsão para a semana' : (e.kind && (e.fromAgenda || e.house==='min') ? e.kind.toLowerCase() : '')].filter(Boolean).join(' · ');
   const title = P ? `${esc(P.code)} · ${esc(P.title)}` : esc(e.label || e.text);
   const what = e.text && e.text!=='Na pauta do Plenário' && (P || e.label) ? e.text : '';
-  const inner = `<span class="ag-where">${pw(e.power)}${esc(where)}</span><span class="ag-title">${title}</span>${what ? `<span class="ag-what">${esc(what)}</span>` : ''}${e.result ? `<span class="ag-res">→ ${esc(e.result)}</span>` : ''}`;
-  return `<li>${P ? `<a class="ag-card" href="#p-${e.ref}">${inner}</a>` : `<div class="ag-card">${inner}</div>`}</li>`;
+  const inner = `<span class="ag-where">${pw(e.f||e.power)}${esc(where)}</span><span class="ag-title">${title}</span>${what ? `<span class="ag-what">${esc(what)}</span>` : ''}${e.result ? `<span class="ag-res">→ ${esc(e.result)}</span>` : ''}`;
+  return `<li>${P ? `<a class="ag-card" href="#p-${e.ref}">${inner}</a>` : e.url ? `<a class="ag-card" href="${esc(e.url)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="ag-card">${inner}</div>`}</li>`;
 }
 function agendaDay(iso, list, today){
   const [y,m,d] = iso.split('-').map(Number), wd = DIAS[new Date(y,m-1,d).getDay()].replace('-feira','');
@@ -3467,7 +3519,7 @@ function renderCal(keepScroll){
       ${infoBox(CAL_SOURCES,'Fontes','As datas vêm das pautas do Plenário, das fichas de tramitação e dos atos publicados.')}
     </header>
     <div class="cv-bar">
-      <div class="cv-chips" role="group" aria-label="Mostrar poderes">${POWER_ORDER.map(k=>`<button type="button" class="chip" data-pw="${k}" aria-pressed="${calFilter.has(k)}">${pw(k)}${POWER_LABEL[k]}</button>`).join('')}</div>
+      <div class="cv-chips" role="group" aria-label="Mostrar casas, tribunais e Executivo">${CAL_FILTERS.map(([k,l])=>`<button type="button" class="chip" data-pw="${k}" aria-pressed="${calFilter.has(k)}">${pw(k)}${l}</button>`).join('')}</div>
       <label class="cv-all"><input type="checkbox" id="cv-all" ${calAll?'checked':''}> Todas as etapas</label>
     </div>
     <section aria-labelledby="ag-next"><h2 class="ag-h" id="ag-next">Hoje e próximos dias</h2>
@@ -3508,6 +3560,7 @@ function showCal(){
   if (!cal.hidden) return;
   calYear = null; calMonth = null; calSel = null; calPast = 8;
   renderCal(false);
+  if (!CAL_EXT.length) loadCalExt().then(()=>{ if (!cal.hidden) renderCal(true); });
   cal.scrollTop = 0;
   cal.hidden = false; requestAnimationFrame(()=>cal.classList.add('show'));
   document.title = 'Calendário · Quorum';
@@ -4330,10 +4383,53 @@ function ministryHTML(id){
         <div><dt>No cargo desde</dt><dd>${M.since ? esc(M.since) : 'não informado'}${M.since ? '' : '<small>Já estava no cargo antes da reforma ministerial de abril de 2026.</small>'}</dd></div>
         <div><dt>Antecessor(a)</dt><dd>${M.prev ? esc(M.prev) : 'não informado'}</dd></div>
       </dl></section>
+    <section class="mp-feed" aria-labelledby="ic4"><h2 class="mp-h" id="ic4">Propostas enviadas ao Congresso no último ano</h2><div id="min-props" aria-live="polite"><p class="vd-none">Carregando…</p></div></section>
     <section class="inst-card" aria-labelledby="ic3"><h2 id="ic3">Últimas notícias do ministério</h2><div id="inst-news" aria-live="polite"><p class="vd-none">Carregando…</p></div></section>
     <section class="inst-card" aria-labelledby="ic2"><h2 id="ic2">Na Presidência</h2><ul class="inst-links"><li><a class="int" href="#" data-vnav="pres">Ver os 38 ministérios no desenho da Presidência</a></li></ul></section>
     <section aria-label="Outros ministérios"><ul class="inst-more">${[prev,next].filter(Boolean).map(x=>`<li><a href="#ministerio-${slugName(x.pasta)}">${x===prev?'← ':''}${esc(x.pasta)}${x===next?' →':''}</a></li>`).join('')}</ul></section>
   </div>`;
+}
+// proposals the ministry sent to Congress in the last year (data/ministerios.json, robot: the ministry comes from the
+// Exposição de Motivos that goes with each proposal). A proposal the site already follows opens its own card.
+function minPhase(x){
+  const t = x.situacao || '';
+  return /Norma Jur/i.test(t) ? 'virou lei' : /Arquiv|Retirad|Perdeu a efic|Prejudic|Rejeitad/i.test(t) ? 'encerrada' : 'em andamento';
+}
+function minCard(x, M){
+  const code = `${x.sigla} ${x.numero}/${x.ano}`, ref = Object.keys(PROJECTS).find(r=> PROJECTS[r].code===code);
+  const c = ref && CARDS.find(c=> c.slug===ref); if (c) return cardHTML(c, null);
+  const id = 'mx-'+x.id, names = (x.pastas||[]).map(k=> (M.pastas[k]||{}).pasta || k);
+  const day = d=> d ? cardDate(d) : 'não informado';
+  return `<li><article class="card">
+    <button type="button" class="c-head" aria-expanded="false" aria-controls="${id}">
+      <span class="c-top"><span class="c-pill ${pwClass('camara')}">Câmara · ${minPhase(x)}</span></span>
+      <span class="c-main"><span class="c-text"><span class="c-title">${esc(code)}</span><span class="c-phase">${esc(x.ementa || 'Ementa não informada')}</span></span></span>
+      <span class="c-more" aria-hidden="true"></span>
+    </button>
+    <div class="c-body" id="${id}" hidden>
+      <dl class="c-dl">
+        <div><dt>Situação</dt><dd>${esc(x.situacao || 'não informado')}${x.sit_data ? ` <span class="c-ago">· ${cardDate(x.sit_data)}</span>` : ''}</dd></div>
+        <div><dt>Apresentada</dt><dd>${day(x.data)}</dd></div>
+        <div><dt>${names.length>1 ? 'Ministérios' : 'Ministério'}</dt><dd>${esc(names.join(', ') || 'não informado')}</dd></div>
+        ${x.em && x.em[0] ? `<div><dt>Exposição de Motivos</dt><dd>${esc(x.em[0].replace(/\s+/g,' ').replace(/\s+Bras\S*.*$/,'').trim())}</dd></div>` : ''}
+      </dl>
+      <a class="c-full" href="${esc(x.url)}" target="_blank" rel="noopener">Ver na Câmara <span aria-hidden="true">↗</span></a>
+    </div></article></li>`;
+}
+function minProps(id){
+  loadMinData().then(M=>{
+    const box = document.getElementById('min-props'); if (!box || instKey!=='m:'+id) return;
+    const ids = ((M.pastas||{})[id]||{}).itens || [], L = ids.map(i=> M.props[i]).filter(Boolean);
+    if (!L.length){ box.innerHTML = `<p class="vd-none">Nenhuma proposta enviada ao Congresso pelo ministério nos últimos 12 meses, pelas Exposições de Motivos lidas pelo robô.</p>`; return; }
+    const when = x=> x.sit_data || x.data || '';
+    L.sort((a,b)=> when(b).localeCompare(when(a)));
+    const t = todayISO(), groups = [];
+    L.forEach(x=>{ const d = when(x).slice(0,10), g = groups[groups.length-1]; if (g && g.d===d) g.items.push(x); else groups.push({d, items:[x]}); });
+    box.innerHTML = `<ol class="feed" aria-label="Propostas do ministério, da movimentação mais recente à mais antiga">${groups.map(g=>{
+      const [y,m,dd] = g.d.split('-').map(Number), wd = ['dom','seg','ter','qua','qui','sex','sáb'][new Date(y,m-1,dd).getDay()];
+      return `<li class="fd" data-d="${g.d}"><p class="fd-date">${g.d===t ? 'hoje' : `${wd}, ${dd} ${MO[m-1]}${y!==+t.slice(0,4)?' '+y:''}`}</p><ol class="fd-cards">${g.items.map(x=> minCard(x, M)).join('')}</ol></li>`; }).join('')}</ol>
+      <p class="vb-note">Propostas de autoria do Poder Executivo na Câmara dos Deputados. O ministério vem da Exposição de Motivos que acompanha cada uma. Atualizado toda semana.</p>`;
+  }).catch(()=>{ const b = document.getElementById('min-props'); if (b) b.innerHTML = '<p class="vd-none">As propostas dos ministérios entram na próxima atualização do robô.</p>'; });
 }
 // latest official news of each court and ministry, from data/instituicoes.json (robot, every hour)
 let instData = null;
@@ -4360,6 +4456,7 @@ function showInst(kind, id){
   inst.querySelector('#inst-title').setAttribute('tabindex','-1');
   inst.querySelector('#inst-title').focus({preventScroll:true});
   instNews(kind, id);
+  if (kind==='ministerio') minProps(id);
   return true;
 }
 function hideInst(){
@@ -4367,7 +4464,7 @@ function hideInst(){
   inst.classList.remove('show'); inst.hidden = true; inst.innerHTML = ''; instKey = null;
   document.title = 'Quorum';
 }
-inst.addEventListener('click', e=>{ const b = e.target.closest('[data-vnav]'); if (b){ e.preventDefault(); navTo(b.dataset.vnav); } });
+inst.addEventListener('click', e=>{ if (cardClick(e)) return; const b = e.target.closest('[data-vnav]'); if (b){ e.preventDefault(); navTo(b.dataset.vnav); } });
 
 function showRoute(){
   // the calendar stays underneath while a project opened from it is on top
