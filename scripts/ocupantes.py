@@ -33,7 +33,7 @@ def norm(t):
 PARTIDOS = {'PT': 'PT', 'PL': 'PL', 'UNIAO': 'União', 'PP': 'PP', 'PSD': 'PSD', 'MDB': 'MDB', 'REPUBLICANOS': 'Republicanos',
             'PDT': 'PDT', 'PSB': 'PSB', 'PSDB': 'PSDB', 'PODE': 'Podemos', 'PODEMOS': 'Podemos', 'PSOL': 'PSOL', 'PCDOB': 'PCdoB',
             'AVANTE': 'Avante', 'SOLIDARIEDADE': 'Solidariedade', 'NOVO': 'Novo', 'PV': 'PV', 'REDE': 'Rede', 'PRD': 'PRD',
-            'MISSAO': 'Missão', 'CIDADANIA': 'Cidadania', 'S.PART.': 'NC', 'S/PARTIDO': 'NC', 'SEM PARTIDO': 'NC', '': 'NC'}
+            'MISSAO': 'Missão', 'REPUBLIC': 'Republicanos', 'UNIÃO': 'União', 'CIDADANIA': 'Cidadania', 'S.PART.': 'NC', 'S/PARTIDO': 'NC', 'SEM PARTIDO': 'NC', '': 'NC'}
 def partido(s):
     k = norm(s)
     return PARTIDOS.get(k, s.strip() if s else 'NC')
@@ -79,8 +79,10 @@ mesa_sen = None
 js = get(SEN + 'composicao/mesaSF.json')
 for c in lista(dig(js, 'MesaSenado', 'Colegiados', 'Colegiado')) or [dig(js, 'MesaSenado', 'Colegiados', 'Colegiado')]:
     for m in lista(dig(c, 'Cargos', 'Cargo')):
-        if norm(m.get('DescricaoCargo')) == 'PRESIDENTE':
-            mesa_sen = {'n': (m.get('NomeParlamentar') or '').strip(), 'p': partido(m.get('SiglaPartido') or m.get('SiglaPartidoParlamentar') or ''), 'uf': m.get('SiglaUf') or m.get('UfParlamentar') or ''}
+        cargo = m.get('DescricaoCargo') or m.get('Cargo') or ''
+        cargo = ' '.join(cargo) if isinstance(cargo, list) else cargo
+        if norm(cargo) == 'PRESIDENTE' and not mesa_sen:
+            mesa_sen = {'n': re.sub(r'^Senador[a]?\s+', '', (m.get('NomeParlamentar') or '').strip()), 'p': partido(m.get('SiglaPartido') or m.get('SiglaPartidoParlamentar') or ''), 'uf': m.get('SiglaUf') or m.get('UfParlamentar') or ''}
 if not mesa_sen: log.append('mesa do Senado: presidente não encontrado; amostra: ' + json.dumps(js, ensure_ascii=False)[:600])
 
 res = {'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'),
