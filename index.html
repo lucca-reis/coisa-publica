@@ -461,9 +461,10 @@ a.ev:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
   .landing{--lx-top:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;justify-items:stretch;align-items:start;column-gap:0;
     padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-top))}
   /* --u scales the drawings (a sphere box is 320u wide): two rows of spheres with their text fit the height, two spheres side by side fit the width */
-  .landing .lx{--tx:34px;--gy:18px;--gx:28px;--u:clamp(.2px, min(calc((100vh - var(--menu-h) - var(--lx-top) - 60px - 2 * var(--tx) - var(--gy)) / 640), calc((50vw - 170px) / 690)) * .92, .9px);
+  .landing .lx{--tx:22px;--gy:18px;--gx:28px;--u:clamp(.2px, min(calc((100vh - var(--menu-h) - var(--lx-top) - 60px - 2 * var(--tx) - var(--gy)) / 640), calc((50vw - 170px) / 690)) * .92, .9px);
     --S:calc(320 * var(--u));--s:calc((var(--S) + var(--tx) + var(--gy)) / .866);
-    --lx-mt:max(0px, calc((100vh - var(--menu-h) - var(--lx-top) - 24px - (2 * var(--S) + 2 * var(--tx) + var(--gy))) / 2));
+    /* centred in the space below the menu, a little above the middle so it reads as centred */
+    --lx-mt:max(0px, calc((100vh - var(--menu-h) - var(--lx-top) - 24px - (2 * var(--S) + 2 * var(--tx) + var(--gy))) / 2 - 20px));
     position:sticky;top:var(--lx-mt);display:block;max-width:none;margin:var(--lx-mt) clamp(24px,4vw,64px) 0 0;
     height:calc(2 * var(--S) + 2 * var(--tx) + var(--gy))}
   /* the circles stay put until the bottom of the timeline's last card reaches them, then rise with the page (--lx-end trims the "Ver mais" line off the wrapper) */
@@ -500,8 +501,15 @@ i.ph-0{opacity:.32}i.ph-1{opacity:.65}i.ph-2{background:color-mix(in srgb, var(-
 .lx-ph span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
 .lx-ph i{width:7px;height:7px;border-radius:50%}
 .lx-s:empty{display:none}
-/* on the opening view each circle carries only its title (and "ao vivo" while a session is on) */
+/* on the opening view each circle carries only its title, written along the bottom of the circle in the colour of its power
+   ("ao vivo" still shows below while a session is on); the plain title stays for screen readers */
 .landing .lx-bar,.landing .lx-ph{display:none}
+.landing .lx-name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.lx-arc{font-family:var(--display);font-weight:500;letter-spacing:.18em;pointer-events:none}
+.lx-arc.pw-leg{fill:color-mix(in srgb, #F2C200 38%, var(--ink))}
+.lx-arc.pw-exec{fill:color-mix(in srgb, #009C3B 78%, var(--ink))}
+.lx-arc.pw-jud{fill:color-mix(in srgb, #1F4FB5 72%, var(--ink))}
+.landing.leaving .lx-arc{opacity:0}
 .lx-text:hover .lx-name{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .lx-n{font-size:clamp(24px,2vw,30px);font-weight:500;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .lx-l{font-size:14px;line-height:1.35}
@@ -673,6 +681,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 @media (max-width:700px){
   .landing{--lx-gap:28px;padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-gap) + 24px)}
   .landing .lx{--u:.36px}
+  .landing .lx-arc{font-size:30px}
   .lx-row{gap:10px}
   .lx-name{font-size:14px;gap:5px}
   .lx-name::before{width:7px;height:7px}
@@ -2605,6 +2614,21 @@ function renderToday(){
   todayEl.classList.toggle('more', feedMore);
   if (extra > 0) todayEl.insertAdjacentHTML('beforeend', `<p class="fd-morewrap"><button type="button" class="fd-more" aria-expanded="${feedMore}">${feedMore ? 'Ver menos' : `Ver mais · ${extra} ${extra===1?'projeto':'projetos'}`}</button></p>`);
 }
+// each power's name follows the bottom edge of its circle on the opening view
+(function(){
+  const NS = 'http://www.w3.org/2000/svg';
+  [['mini','LEGISLATIVO','pw-leg'], ['lg-pres','EXECUTIVO','pw-exec'], ['lg-stf','JUDICIÁRIO','pw-jud']].forEach(([id, name, cls])=>{
+    const g = document.getElementById(id), c = g && g.querySelector('.sph'); if (!c) return;
+    const cx = +c.getAttribute('cx'), cy = +c.getAttribute('cy'), fs = 22, R = +c.getAttribute('r') + 10 + 30 * .72;   // room for the larger letters used on phones
+    const path = document.createElementNS(NS, 'path');
+    path.setAttribute('id', 'arc-'+id); path.setAttribute('fill', 'none');
+    path.setAttribute('d', `M ${cx-R} ${cy} A ${R} ${R} 0 0 0 ${cx+R} ${cy}`);
+    const t = document.createElementNS(NS, 'text'), tp = document.createElementNS(NS, 'textPath');
+    t.setAttribute('class', 'lx-arc '+cls); t.setAttribute('font-size', fs); t.setAttribute('aria-hidden', 'true');
+    tp.setAttribute('href', '#arc-'+id); tp.setAttribute('startOffset', '50%'); tp.setAttribute('text-anchor', 'middle'); tp.textContent = name;
+    t.appendChild(tp); g.appendChild(path); g.appendChild(t);
+  });
+})();
 // the circles on the left rise with the page once the bottom of the last card shown reaches the bottom of the lower circles
 function lxEnd(){
   const cards = [...todayEl.querySelectorAll('.feed .card')].filter(c=> c.offsetParent);
