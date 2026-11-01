@@ -474,7 +474,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .hdd{position:fixed;z-index:28;top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) - 8px);right:max(10px, calc(var(--edge, 16px) - 8px));min-width:210px;padding-top:6px;display:flex;flex-direction:column;gap:2px;font-family:var(--display);font-size:14px;
     opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s, transform .18s, visibility 0s .18s}
   .hdd::before{content:"";position:absolute;inset:6px 0 0;border-radius:18px;background:var(--bg);box-shadow:0 0 0 1px var(--rule), 0 10px 30px -12px rgba(0,0,0,.25);z-index:-1}
-  .hdd a{display:block;margin:0 4px;padding:9px 16px;border-radius:14px;color:color-mix(in srgb, var(--ink) 80%, var(--bg));text-decoration:none}
+  .hdd a{display:block;margin:0 4px;padding:9px 16px;border-radius:14px;text-align:right;color:color-mix(in srgb, var(--ink) 80%, var(--bg));text-decoration:none}
   .hdd a:first-child{margin-top:4px}.hdd a:last-child{margin-bottom:4px}
   .hdd a:hover{background:color-mix(in srgb, var(--ink) 5%, var(--bg));color:var(--ink)}
   .hdd a[aria-current="page"]{background:color-mix(in srgb, var(--ink) 8%, var(--bg));color:var(--ink)}
