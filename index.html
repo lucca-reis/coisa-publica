@@ -376,6 +376,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 .srch{position:fixed;z-index:26;left:0;right:0;top:calc(var(--menu-h) + env(safe-area-inset-top, 0px));display:flex;gap:8px;align-items:center;box-sizing:border-box;
   padding:10px max(16px, var(--edge, 16px)) 14px;background:var(--bg);border-bottom:1px solid var(--rule);font-family:var(--display)}
 .srch[hidden]{display:none}
+.srch input::-webkit-search-cancel-button{display:none}
 .srch input,.bs-q input{flex:1;min-width:0;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:color-mix(in srgb, var(--ink) 5%, var(--bg));border:1px solid var(--rule);border-radius:999px;padding:11px 18px;outline:none}
 .srch input:focus,.bs-q input:focus{border-color:var(--ink)}
 .srch-go,.bs-q button{all:unset;cursor:pointer;padding:11px 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px}
@@ -414,7 +415,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 }
 /* tablets and phones: the hamburger menu; between 761 and 1199px the bar keeps the powers and only the search, the calendar
    (from 901px) and the hamburger, which holds the other pages */
-@media (max-width:1199px){
+@media all{
   .ham{all:unset;box-sizing:border-box;display:grid;place-items:center;width:44px;height:44px;margin-right:-8px;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .ham:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
   .ham span,.ham span::before,.ham span::after{display:block;width:20px;height:1.6px;border-radius:2px;background:var(--ink);transition:transform .25s, background-color .2s}
@@ -449,14 +450,19 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .mdr-min a{min-height:64px;font-size:14px;justify-content:space-between}
   .mdr-min a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
 }
-@media (min-width:761px) and (max-width:1199px){
-  .menu .menu-tools > a:not(.cal-link){display:none!important}
+/* tablets and computers: the bar keeps only the three powers, the magnifier and the hamburger; the other pages live in the
+   hamburger panel. The magnifier opens the search field right in the bar, over the powers. */
+@media (min-width:761px){
+  .menu .menu-tools > a{display:none!important}
   .menu .menu-tools{gap:4px}
+  .srch{top:calc(env(safe-area-inset-top, 0px) + (var(--menu-h) - 42px) / 2);left:calc(50% - 13px);right:calc(max(16px, var(--edge, 16px)) + 96px);height:42px;padding:0;border:0;background:transparent;z-index:28}
+  .srch input{height:42px;padding:0 18px}
+  .srch-go{display:none}
+  .srch-x{width:36px;height:36px;font-size:22px}
+  html.srch-on .menu nav{visibility:hidden}
   .ham{margin-right:-6px}
   .mdr{left:auto;width:min(420px, 100vw);border-left:1px solid var(--rule);box-shadow:-24px 0 48px -32px rgba(0,0,0,.35)}
 }
-@media (min-width:761px) and (max-width:900px){ .menu .menu-tools .cal-link{display:none!important} }
-@media (min-width:1200px) and (max-width:1320px){ .menu .menu-tools{gap:1px} }
 @media (max-width:380px){
   .today-date{display:none}
   .menu nav > a,.nav-leg{font-size:13px;padding:0 2px}
@@ -3452,6 +3458,7 @@ function mdrOpen(on){
   else { mdr.classList.remove('show'); mdr.hidden = true; const q = document.getElementById('mdr-q'); if (q && q.value){ q.value = ''; q.dispatchEvent(new Event('input')); } }
 }
 ham.addEventListener('click', e=>{ e.stopPropagation(); mdrOpen(mdr.hidden); });
+document.addEventListener('click', e=>{ if (!mdr.hidden && !mdr.contains(e.target) && !ham.contains(e.target)) mdrOpen(false); });
 mdr.addEventListener('click', e=>{
   e.stopPropagation();
   const a = e.target.closest('a'); if (!a) return;
@@ -3460,7 +3467,7 @@ mdr.addEventListener('click', e=>{
   else resetLayers();
 });
 document.addEventListener('keydown', e=>{ if (e.key==='Escape' && !mdr.hidden){ e.stopImmediatePropagation(); mdrOpen(false); ham.focus(); } }, true);
-addEventListener('resize', ()=>{ if (!mdr.hidden && !matchMedia('(max-width:1199px)').matches) mdrOpen(false); });
+
 // search the ministries by name, ignoring accents
 const minQ = document.getElementById('nav-min-q');
 const minFold = t=> String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -4768,11 +4775,12 @@ function searchAct(btn){
 }
 const srch = document.getElementById('srch'), srchBtn = document.getElementById('srch-btn'), srchQ = document.getElementById('srch-q');
 function srchOpen(on){
-  srch.hidden = !on; srchBtn.setAttribute('aria-expanded', String(on));
+  srch.hidden = !on; srchBtn.setAttribute('aria-expanded', String(on)); document.documentElement.classList.toggle('srch-on', on);
   if (on){ if (typeof mdrOpen==='function') mdrOpen(false); srchQ.value = ''; srchQ.focus(); }
 }
 srchBtn.addEventListener('click', e=>{ e.stopPropagation(); srchOpen(srch.hidden); });
 srch.addEventListener('click', e=> e.stopPropagation());
+document.addEventListener('click', e=>{ if (!srch.hidden && !srch.contains(e.target) && !srchBtn.contains(e.target) && !srchQ.value.trim()) srchOpen(false); });
 srch.querySelector('.srch-x').addEventListener('click', ()=> srchOpen(false));
 srch.addEventListener('submit', e=>{ e.preventDefault(); const q = srchQ.value.trim(); if (!q) return; srchOpen(false); bsAll = {}; resetLayers(); location.hash = '#busca?q=' + encodeURIComponent(q); });
 inst.addEventListener('submit', e=>{ if (e.target.id!=='bs-form') return; e.preventDefault(); const q = document.getElementById('bs-in').value.trim(); bsAll = {}; location.hash = '#busca?q=' + encodeURIComponent(q); });
