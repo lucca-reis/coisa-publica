@@ -1,0 +1,42 @@
+name: Pedido de aprovação de post
+
+# Cada rascunho chega numa branch post/AAAA-MM-DD-periodo. Este robô abre o pedido de aprovação (pull request)
+# com a imagem e os textos. Aprovar = "Merge"; descartar = fechar. Exige, em Settings > Actions > General,
+# a opção "Allow GitHub Actions to create and approve pull requests".
+on:
+  push:
+    branches: ['post/**']
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pedido:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Abrir ou atualizar o pedido
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          ID="${BRANCH#post/}"
+          python3 - "$ID" "$BRANCH" > corpo.md <<'PY'
+          import json, sys
+          pid, br = sys.argv[1], sys.argv[2]
+          P = json.load(open(f'posts/{pid}/post.json', encoding='utf-8'))
+          img = f'https://raw.githubusercontent.com/${{ github.repository }}/{br}/posts/{pid}/imagem.jpg'
+          print(f'![{P.get("alt","")}]({img})\n')
+          for rede, nome in (('bluesky','Bluesky'), ('instagram','Instagram')):
+              t = (P.get('textos') or {}).get(rede)
+              if t: print(f'**{nome}** ({len(t)} caracteres)\n\n> ' + t.replace('\n', '\n> ') + '\n')
+          f = P.get('fontes') or []
+          if f: print('**Fontes:** ' + ' · '.join(f'[{x["l"]}]({x["u"]})' for x in f) + '\n')
+          print('---\nAprovar: **Merge**. Descartar: **Close**. Para mudar o texto, edite `posts/%s/post.json` nesta branch antes de aprovar.' % pid)
+          PY
+          TITULO="Post · $(python3 -c "import json;P=json.load(open('posts/$ID/post.json'));print(P['imagem']['titulo'])") · $ID"
+          N=$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')
+          if [ -n "$N" ]; then gh pr edit "$N" --title "$TITULO" --body-file corpo.md
+          else gh pr create --base main --head "$BRANCH" --title "$TITULO" --body-file corpo.md; fi

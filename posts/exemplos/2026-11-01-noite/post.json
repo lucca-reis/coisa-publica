@@ -1,0 +1,13 @@
+{"id":"2026-11-01-noite","periodo":"noite","data":"2026-11-01",
+ "imagem":{"poder":"exe","eyebrow":"Na mesa do presidente","titulo":"Aguardam sanção ou veto",
+  "texto":"O presidente tem 15 dias úteis para sancionar ou vetar o que o Congresso aprova.",
+  "itens":[
+   {"quando":"até","dia":"6/11","tags":[{"cat":"mp"}],"titulo":"Enamed obrigatório para exercer a medicina"},
+   {"quando":"desde","dia":"28/10","tags":[{"cat":"pl"}],"titulo":"Subvenção a produtores de cana do Nordeste"},
+   {"quando":"desde","dia":"28/10","tags":[{"cat":"mp"}],"titulo":"Indenização para servidores em áreas de fronteira"}],
+  "fonte":"Agência Senado, Congresso Nacional"},
+ "alt":"Cartão do Quorum com três propostas que aguardam sanção ou veto do presidente.",
+ "textos":{
+  "bluesky":"Três propostas esperam sanção ou veto: o Enamed obrigatório para exercer a medicina (prazo até 6/11), a subvenção a produtores de cana do Nordeste e a indenização para servidores em áreas de fronteira.\n\nlucca-reis.github.io/quorum",
+  "instagram":"Na mesa do presidente ✍️\n\nTrês propostas aprovadas pelo Congresso esperam sanção ou veto:\n\n• Enamed obrigatório para exercer a medicina, com prazo até 6/11\n• Subvenção a produtores de cana do Nordeste\n• Indenização para servidores em áreas de fronteira\n\nO presidente tem 15 dias úteis para decidir. Se não decidir, a proposta é sancionada automaticamente.\n\nAcompanhe no Quorum, link na bio.\n\n#Congresso #Sanção #Lula #PolíticaBrasileira"},
+ "fontes":[{"l":"Agência Senado","u":"https://www12.senado.leg.br/noticias"}]}
