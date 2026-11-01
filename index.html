@@ -2964,8 +2964,8 @@ function lxEnd(){
   const left = Math.min(...rs.map(r=> r.left)), right = Math.max(...rs.map(r=> r.right));
   if (isFinite(left) && lxEl){ const L = document.getElementById('landing'), lr = L.getBoundingClientRect();
     const sx = parseFloat(lxEl.style.getPropertyValue('--lx-sx')) || 0, mid = lr.left + L.clientWidth / 2;
-    // in the triangle layout (computer) the group sits 15px right of the exact centre; the margins keep the centred measure
-    const off = matchMedia('(min-width:1200px)').matches ? 15 : 0;
+    // in the triangle layout (computer) the group sits 10px right of the exact centre; the margins keep the centred measure
+    const off = matchMedia('(min-width:1200px)').matches ? 10 : 0;
     const c0 = Math.round(sx + (lr.left + mid) / 2 - (left + right) / 2), nsx = c0 + off, g = Math.round((left + c0 - sx - lr.left) / 2);
     if (lxEl.style.getPropertyValue('--lx-sx') !== nsx+'px') lxEl.style.setProperty('--lx-sx', nsx+'px');
     const edge = lr.left + L.clientWidth, now = parseFloat(todayEl.style.paddingRight) || 0;
