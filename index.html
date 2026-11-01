@@ -368,12 +368,53 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 /* phones: every page sits in one organised menu behind the hamburger (top right): the three powers with their pages,
    then the site's sections as tiles. The old bottom bar and the header icons give way to it. */
 .ham{display:none}
+/* search: the magnifier opens a bar under the header; the results get their own page (#busca?q=...) */
+.menu .menu-tools button.vg-link{all:unset;box-sizing:border-box;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;cursor:pointer;color:var(--ink);transition:background-color .2s}
+.menu .menu-tools button.vg-link:hover{background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
+.menu .menu-tools button.vg-link[aria-expanded="true"]{background:var(--ink);color:var(--bg)}
+.menu .menu-tools button.vg-link:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.srch{position:fixed;z-index:26;left:0;right:0;top:calc(var(--menu-h) + env(safe-area-inset-top, 0px));display:flex;gap:8px;align-items:center;box-sizing:border-box;
+  padding:10px max(16px, var(--edge, 16px)) 14px;background:var(--bg);border-bottom:1px solid var(--rule);font-family:var(--display)}
+.srch[hidden]{display:none}
+.srch input,.bs-q input{flex:1;min-width:0;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:color-mix(in srgb, var(--ink) 5%, var(--bg));border:1px solid var(--rule);border-radius:999px;padding:11px 18px;outline:none}
+.srch input:focus,.bs-q input:focus{border-color:var(--ink)}
+.srch-go,.bs-q button{all:unset;cursor:pointer;padding:11px 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px}
+.srch-x{all:unset;cursor:pointer;width:40px;height:40px;display:grid;place-items:center;font-size:24px;line-height:1;color:var(--muted);border-radius:50%}
+.srch-x:hover{color:var(--ink)}
+.bs-q{display:flex;gap:8px;margin:0}
+.bs-n{margin:0;font-size:14px;color:var(--muted)}
+.bs-g h2{margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.bs-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.bs-l a,.bs-l button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;width:100%;min-height:60px;padding:10px 14px;border-radius:14px;background:color-mix(in srgb, var(--ink) 5%, var(--bg));color:var(--ink);transition:background-color .15s}
+.bs-l a:hover,.bs-l button:hover{background:color-mix(in srgb, var(--ink) 9%, var(--bg))}
+.bs-l a:focus-visible,.bs-l button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.bs-l i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--c, color-mix(in srgb, var(--ink) 30%, var(--bg)))}
+.bs-l span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.bs-l b{font-weight:500;font-size:15px;line-height:1.25}
+.bs-l small{font-size:12.5px;color:var(--muted);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bs-more{all:unset;cursor:pointer;margin-top:8px;font-size:14px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.bs-g{display:flex;flex-direction:column}
+.inst-w.bs{gap:28px}
+/* Quem somos */
+.qs-sec{display:flex;flex-direction:column;gap:10px;max-width:72ch}
+.qs-sec h2{margin:0;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.qs-sec p{margin:0;font-size:16px;line-height:1.6}
+.qs-sec ul{margin:0;padding-left:1.1em;font-size:15px;line-height:1.6}
+.qs-sec a{color:inherit}
+.person.top,.party.top{z-index:23}
 .mdr[hidden]{display:none!important}
 @media (max-width:760px){
   .menu nav,.menu .nav-scrim{display:none!important}
   .menu .menu-tools > a{display:none!important}
+  .menu .menu-tools .srch-link{width:44px;height:44px}
+  .srch{top:calc(var(--menu-h) + env(safe-area-inset-top, 0px));padding:8px 16px 12px}
+  .srch-go{display:none}
   html .ov,html .proj,html .landing,html .stfv{bottom:0}
   body{padding-bottom:0}
+}
+/* tablets and phones: the hamburger menu; between 761 and 1199px the bar keeps the powers and only the search, the calendar
+   (from 901px) and the hamburger, which holds the other pages */
+@media (max-width:1199px){
   .ham{all:unset;box-sizing:border-box;display:grid;place-items:center;width:44px;height:44px;margin-right:-8px;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .ham:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
   .ham span,.ham span::before,.ham span::after{display:block;width:20px;height:1.6px;border-radius:2px;background:var(--ink);transition:transform .25s, background-color .2s}
@@ -408,6 +449,14 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .mdr-min a{min-height:64px;font-size:14px;justify-content:space-between}
   .mdr-min a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
 }
+@media (min-width:761px) and (max-width:1199px){
+  .menu .menu-tools > a:not(.cal-link){display:none!important}
+  .menu .menu-tools{gap:4px}
+  .ham{margin-right:-6px}
+  .mdr{left:auto;width:min(420px, 100vw);border-left:1px solid var(--rule);box-shadow:-24px 0 48px -32px rgba(0,0,0,.35)}
+}
+@media (min-width:761px) and (max-width:900px){ .menu .menu-tools .cal-link{display:none!important} }
+@media (min-width:1200px) and (max-width:1320px){ .menu .menu-tools{gap:1px} }
 @media (max-width:380px){
   .today-date{display:none}
   .menu nav > a,.nav-leg{font-size:13px;padding:0 2px}
@@ -420,7 +469,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 .menu .menu-tools .cs-link{display:none}
 @media (min-width:761px){
   .menu{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:0;padding-left:max(16px, var(--edge, 16px));padding-right:max(16px, var(--edge, 16px))}
-  .menu nav{grid-column:2;justify-self:stretch;justify-content:flex-start;gap:6px;max-width:none;margin:0 196px 0 -13px;padding:3px}
+  .menu nav{grid-column:2;justify-self:stretch;justify-content:flex-start;gap:6px;max-width:none;margin:0 284px 0 -13px;padding:3px}
   .menu .nav-grp{flex:none}
   .menu nav > .nav-grp > .nav-leg{padding:7px 10px;font-size:14px;gap:0}
   .menu nav > a[data-nav="consultas"]{display:none}
@@ -429,7 +478,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .menu-tools{gap:6px}
 }
 @media (min-width:761px) and (max-width:1000px){
-  .menu nav{margin-right:154px}
+  .menu nav{margin-right:226px}
   .menu-tools{gap:2px}
   .menu .menu-tools .vg-link,.menu .cal-link{width:34px;height:34px}
   .menu nav > .nav-grp > .nav-leg{font-size:13px;padding:7px 8px}
@@ -1325,8 +1374,9 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <a href="#consultas" data-nav="consultas">Enquetes</a>
   </nav>
   <div class="nav-scrim" aria-hidden="true"></div>
-  <div class="menu-tools"><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a><button type="button" class="ham" id="ham" aria-expanded="false" aria-controls="mdr" aria-label="Abrir o menu"><span aria-hidden="true"></span></button></div>
+  <div class="menu-tools"><button type="button" class="vg-link srch-link" id="srch-btn" aria-label="Pesquisar" title="Pesquisar" aria-expanded="false" aria-controls="srch"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a><a class="vg-link qs-link" href="#quem-somos" data-nav="sobre" aria-label="Quem somos" title="Quem somos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></svg></a><button type="button" class="ham" id="ham" aria-expanded="false" aria-controls="mdr" aria-label="Abrir o menu"><span aria-hidden="true"></span></button></div>
 </header>
+<form class="srch" id="srch" role="search" hidden><label class="sr-only" for="srch-q">Pesquisar no Quorum</label><input type="search" id="srch-q" placeholder="Pesquisar pessoas, projetos, órgãos…" autocomplete="off" enterkeyhint="search"><button type="submit" class="srch-go">Pesquisar</button><button type="button" class="srch-x" aria-label="Fechar a pesquisa">×</button></form>
 <div class="mdr" id="mdr" hidden role="dialog" aria-modal="true" aria-label="Menu"></div>
 <section class="landing" id="landing" aria-label="Praça dos Três Poderes">
   <div class="lx-wrap"><div class="lx" aria-label="Os três poderes">
@@ -2582,6 +2632,7 @@ function resetLayers(){
   [partyEl, document.getElementById('person')].forEach(L=>{ L.classList.remove('show'); L.hidden = true; L.innerHTML = ''; });
   document.querySelectorAll('.picked').forEach(x=>x.classList.remove('picked'));
   partyState = null; personState = null; busy = false;
+  [partyEl, document.getElementById('person')].forEach(L=> L.classList.remove('top'));
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   if (typeof showRoute === 'function') showRoute();
 }
@@ -3342,6 +3393,7 @@ function navTo(key){
   if (key==='visao'){ location.hash = '#visao-geral'; return; }
   if (key==='transp'){ location.hash = '#transparencia'; return; }
   if (key==='projetos'){ location.hash = '#projetos'; return; }
+  if (key==='sobre'){ location.hash = '#quem-somos'; return; }
   if (VIEWS[key]){
     const cur = openView();
     if (cur===key) return;
@@ -3385,7 +3437,7 @@ const ham = document.getElementById('ham'), mdr = document.getElementById('mdr')
     ${sec('Legislativo', '#F2C200', tiles(tile('href="#" data-go="senado" data-k="senado"', GLYPHS.leg, 'Senado Federal') + tile('href="#" data-go="camara" data-k="camara"', GLYPHS.leg, 'Câmara dos Deputados')))}
     ${sec('Judiciário', '#1F4FB5', tiles(tile('href="#" data-go="stf" data-k="stf"', 'STF', 'Supremo Tribunal Federal')
       + [['stj','Superior Tribunal de Justiça'],['tst','Tribunal Superior do Trabalho'],['tse','Tribunal Superior Eleitoral'],['stm','Superior Tribunal Militar']].map(([k,l])=> tile(`href="#tribunal-${k}" data-k="t:${k}"`, k.toUpperCase(), l)).join('')))}
-    ${sec('Explorar', '', tiles([['projetos','Projetos'],['consultas','Enquetes'],['transp','Transparência'],['visao','Visão geral'],['calendario','Calendário']].map(([k,l])=> tile(`href="#" data-go="${k}" data-k="${k}"`, ICON(k), l)).join('')))}`;
+    ${sec('Explorar', '', tiles([['projetos','Projetos'],['consultas','Enquetes'],['transp','Transparência'],['visao','Visão geral'],['calendario','Calendário'],['sobre','Quem somos']].map(([k,l])=> tile(`href="#" data-go="${k}" data-k="${k}"`, ICON(k), l)).join('')))}`;
   const mb = mdr.querySelector('.mdr-btn'), mm = document.getElementById('mdr-mins');
   mb.addEventListener('click', e=>{ e.stopPropagation(); const on = mm.hidden; mm.hidden = !on; mb.setAttribute('aria-expanded', String(on)); if (on) document.getElementById('mdr-q').focus({preventScroll:true}); });
   const q = document.getElementById('mdr-q');
@@ -3394,7 +3446,7 @@ const ham = document.getElementById('ham'), mdr = document.getElementById('mdr')
 function mdrOpen(on){
   if (on === !mdr.hidden) return;
   ham.setAttribute('aria-expanded', String(on)); ham.setAttribute('aria-label', on ? 'Fechar o menu' : 'Abrir o menu');
-  if (on){ mdr.hidden = false; mdr.scrollTop = 0; requestAnimationFrame(()=> mdr.classList.add('show')); }
+  if (on){ if (typeof srch!=='undefined' && !srch.hidden) srchOpen(false); mdr.hidden = false; mdr.scrollTop = 0; requestAnimationFrame(()=> mdr.classList.add('show')); }
   else { mdr.classList.remove('show'); mdr.hidden = true; const q = document.getElementById('mdr-q'); if (q && q.value){ q.value = ''; q.dispatchEvent(new Event('input')); } }
 }
 ham.addEventListener('click', e=>{ e.stopPropagation(); mdrOpen(mdr.hidden); });
@@ -3406,7 +3458,7 @@ mdr.addEventListener('click', e=>{
   else resetLayers();
 });
 document.addEventListener('keydown', e=>{ if (e.key==='Escape' && !mdr.hidden){ e.stopImmediatePropagation(); mdrOpen(false); ham.focus(); } }, true);
-addEventListener('resize', ()=>{ if (!mdr.hidden && !matchMedia('(max-width:760px)').matches) mdrOpen(false); });
+addEventListener('resize', ()=>{ if (!mdr.hidden && !matchMedia('(max-width:1199px)').matches) mdrOpen(false); });
 // search the ministries by name, ignoring accents
 const minQ = document.getElementById('nav-min-q');
 const minFold = t=> String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -3432,7 +3484,7 @@ const NAV_LINKS = [...document.querySelectorAll('.menu [data-nav]:not(.brand)')]
 let navHere;
 setInterval(()=>{
   if (document.hidden) return;
-  const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey) : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
+  const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey==='s:' ? 'sobre' : instKey && instKey.startsWith('b:') ? 'busca' : instKey) : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
   if (here===navHere) return; navHere = here;
   NAV_LINKS.forEach(a=>{ if (a.dataset.nav===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   mdr.querySelectorAll('[data-k]').forEach(a=>{ if (a.dataset.k===(here||'home')) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
@@ -3446,6 +3498,9 @@ setInterval(()=>{
 const backBtn = document.getElementById('back-arrow');
 function goBack(){
   const o = document.querySelector('details.info[open]'); if (o){ o.open = false; return; }
+  if (!srch.hidden){ srchOpen(false); return; }
+  if (personState && document.getElementById('person').classList.contains('top')){ closePerson(); return; }
+  if (partyState && partyEl.classList.contains('top')){ closeParty(); return; }
   if (!proj.hidden) leaveProject();
   else if (!cal.hidden) leaveCal();
   else if (!cons.hidden) leaveCal();
@@ -4654,6 +4709,113 @@ function catHTML(id){
     ${feed ? `<ol class="feed cat-feed" aria-label="${C ? esc(C.pl) : 'Projetos'}, do mais recente ao mais antigo">${feed}</ol>` : '<p class="vd-none">Nenhum projeto desta categoria por enquanto.</p>'}
   </div>`;
 }
+/* ---------- search (#busca?q=...) ----------
+   One index of everything the site holds: people (deputies and senators in office, president, vice, ministers, STF),
+   parties, proposals and cases, ministries, courts, kinds of proposal and the site's own pages. */
+let SRCH = null;
+function searchIndex(){
+  if (SRCH) return SRCH;
+  const L = [];
+  const add = (g, label, sub, act, extra, c)=> L.push({g, label, sub, act, c, hay: minFold([label, sub, extra].filter(Boolean).join(' '))});
+  for (const k of ['camara','senado']) HOUSES[k].people.forEach((x,i)=> add('Pessoas', x.n, `${k==='senado'?'Senador(a)':'Deputado(a) federal'} · ${PARTY_NAME[x.p]||x.p0||x.p} · ${x.uf}`, `person:${k}:${i}`, (UF_NAME[x.uf]||'')+' '+(x.p0||''), PARTY[x.p]));
+  EXEC_ALL.forEach((M,i)=> add('Pessoas', M.n, M.top ? M.role : `Ministro(a) · ${M.pasta}`, `exec:${i}`, M.p, PARTY[M.p]));
+  STF_MIN.forEach((M,i)=>{ if (M.n) add('Pessoas', M.n, 'Ministro(a) do Supremo Tribunal Federal', `stf:${i}`, 'STF Supremo'); });
+  Object.values(COURTS).forEach(C=>{ if (C.pres) add('Pessoas', C.pres, `Presidente do ${C.sigla}`, `href:#tribunal-${Object.keys(COURTS).find(k=>COURTS[k]===C)}`); });
+  Object.entries(PROJECTS).forEach(([k,P])=> add('Projetos e processos', P.title, `${P.code} · ${P.type||catOf(P).l}`, `href:#p-${k}`, [P.summary, P.author, P.rapporteur, P.status, P.house].join(' '), catOf(P).c));
+  Object.keys(PARTY).forEach(p=>{ if (p!=='NC' && ((HOUSES.camara.data[p]||0)+(HOUSES.senado.data[p]||0))) add('Partidos', PARTY_NAME[p]||p, `${HOUSES.camara.data[p]||0} deputados · ${HOUSES.senado.data[p]||0} senadores`, `party:${p}`, p, PARTY[p]); });
+  EXEC_MIN.forEach(M=> add('Órgãos', 'Ministério ' + (/^(Casa|Secretaria|Gabinete|Advocacia|Controladoria|Comunicação Social|Relações Institucionais)/.test(M.pasta) ? '· ' : 'da ') + M.pasta, `Executivo · ${M.n}`, `href:#ministerio-${slugName(M.pasta)}`, M.pasta));
+  add('Órgãos', 'Presidência da República', 'Executivo', 'go:pres', 'Planalto governo');
+  add('Órgãos', 'Senado Federal', 'Legislativo', 'go:senado', 'Congresso');
+  add('Órgãos', 'Câmara dos Deputados', 'Legislativo', 'go:camara', 'Congresso');
+  add('Órgãos', 'Supremo Tribunal Federal', 'Judiciário · STF', 'go:stf', 'STF');
+  Object.entries(COURTS).forEach(([k,C])=> add('Órgãos', C.nome, `Judiciário · ${C.sigla}`, `href:#tribunal-${k}`, C.sigla));
+  CATS.forEach(C=> add('Tipos de proposta', C.pl, C.d, `href:#categoria-${C.k}`, C.l, C.c));
+  [['Projetos','projetos','todas as propostas e processos'],['Enquetes','consultas','consultas públicas e-Cidadania'],['Transparência','transp','gastos cota parlamentar cartão orçamento'],
+   ['Visão geral','visao','painel resumo números'],['Calendário','calendario','agenda datas pauta'],['Quem somos','sobre','sobre o site fontes autor']].forEach(([l,k,x])=> add('Páginas do Quorum', l, x, `go:${k}`, x));
+  return SRCH = L;
+}
+function searchRun(q){
+  const words = minFold(q).split(/\s+/).filter(Boolean); if (!words.length) return [];
+  return searchIndex().filter(x=> words.every(w=> x.hay.includes(w))).map(x=>{
+    const l = minFold(x.label); return {x, r: l===words.join(' ') ? 0 : l.startsWith(words[0]) ? 1 : words.every(w=> l.includes(w)) ? 2 : 3}; })
+    .sort((a,b)=> a.r-b.r || a.x.label.localeCompare(b.x.label,'pt')).map(o=> o.x);
+}
+let bsAll = {};
+function searchHTML(q){
+  const R = searchRun(q), G = {};
+  R.forEach(x=> (G[x.g] = G[x.g] || []).push(x));
+  const order = ['Pessoas','Projetos e processos','Órgãos','Partidos','Tipos de proposta','Páginas do Quorum'];
+  const item = x=> `<li><button type="button" data-act="${esc(x.act)}"${x.c ? ` style="--c:${x.c}"` : ''}><i aria-hidden="true"></i><span><b>${esc(x.label)}</b>${x.sub ? `<small>${esc(x.sub)}</small>` : ''}</span></button></li>`;
+  return `<div class="cw inst-w bs">
+    <header class="cw-head"><div><p class="inst-eye">Pesquisa</p><h1 id="inst-title">${q ? `“${esc(q)}”` : 'Pesquisar'}</h1></div></header>
+    <form class="bs-q" id="bs-form" role="search"><label class="sr-only" for="bs-in">Pesquisar no Quorum</label><input type="search" id="bs-in" value="${esc(q)}" placeholder="Pessoas, projetos, órgãos…" autocomplete="off" enterkeyhint="search"><button type="submit">Pesquisar</button></form>
+    <p class="bs-n">${!q ? 'Escreva o nome de uma pessoa, um projeto, um partido ou um órgão.' : R.length ? `${R.length} ${R.length===1?'resultado':'resultados'}` : 'Nenhum resultado. Tente outra palavra ou só parte do nome.'}</p>
+    ${order.filter(g=> G[g]).map(g=>{ const L = G[g], all = bsAll[g] || L.length <= 12;
+      return `<section class="bs-g" aria-label="${g}"><h2>${g} · ${L.length}</h2><ul class="bs-l">${(all ? L : L.slice(0,12)).map(item).join('')}</ul>${all ? '' : `<button type="button" class="bs-more" data-all="${esc(g)}">Mostrar todos · ${L.length}</button>`}</section>`; }).join('')}
+  </div>`;
+}
+function searchAct(btn){
+  const [t, a, b] = btn.dataset.act.split(':');
+  const lift = el=> el.classList.add('top');
+  if (t==='href'){ location.hash = btn.dataset.act.slice(5); return; }
+  if (t==='go'){ navTo(a); return; }
+  if (t==='person'){ lift(document.getElementById('person')); openPerson(btn.querySelector('i'), a, HOUSES[a].people[+b]); return; }
+  if (t==='exec'){ lift(document.getElementById('person')); openExec(btn.querySelector('i'), +a); return; }
+  if (t==='stf'){ lift(document.getElementById('person')); const el = btn.querySelector('i'); el.dataset.m = a; openMinister(el); return; }
+  if (t==='party'){ lift(partyEl); const el = btn.querySelector('i'); el.dataset.p = a; openParty(el, 'camara'); return; }
+}
+const srch = document.getElementById('srch'), srchBtn = document.getElementById('srch-btn'), srchQ = document.getElementById('srch-q');
+function srchOpen(on){
+  srch.hidden = !on; srchBtn.setAttribute('aria-expanded', String(on));
+  if (on){ if (typeof mdrOpen==='function') mdrOpen(false); srchQ.value = ''; srchQ.focus(); }
+}
+srchBtn.addEventListener('click', e=>{ e.stopPropagation(); srchOpen(srch.hidden); });
+srch.addEventListener('click', e=> e.stopPropagation());
+srch.querySelector('.srch-x').addEventListener('click', ()=> srchOpen(false));
+srch.addEventListener('submit', e=>{ e.preventDefault(); const q = srchQ.value.trim(); if (!q) return; srchOpen(false); bsAll = {}; resetLayers(); location.hash = '#busca?q=' + encodeURIComponent(q); });
+inst.addEventListener('submit', e=>{ if (e.target.id!=='bs-form') return; e.preventDefault(); const q = document.getElementById('bs-in').value.trim(); bsAll = {}; location.hash = '#busca?q=' + encodeURIComponent(q); });
+inst.addEventListener('click', e=>{
+  const m = e.target.closest('.bs-more'); if (m){ e.stopPropagation(); bsAll[m.dataset.all] = true; const top = inst.scrollTop; showInst('busca', (location.hash.match(/q=(.*)$/)||[])[1] ? decodeURIComponent(location.hash.match(/q=(.*)$/)[1]) : ''); inst.scrollTop = top; return; }
+  const b = e.target.closest('[data-act]'); if (b){ e.stopPropagation(); e.preventDefault(); searchAct(b); }
+}, true);
+
+/* ---------- Quem somos (#quem-somos) ---------- */
+function aboutHTML(){
+  const a = (u,t)=> `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
+  return `<div class="cw inst-w">
+    <header class="cw-head"><div><p class="inst-eye">Sobre o site</p><h1 id="inst-title">Quem somos</h1></div></header>
+    <p class="inst-lede">O Quorum reúne num só lugar o que acontece nos Três Poderes: o que o Congresso vota, o que o Supremo julga, o que o presidente assina e quanto cada órgão gasta, em linguagem simples e sempre com a fonte oficial ao lado.</p>
+    <section class="qs-sec"><h2>A proposta</h2>
+      <p>Acompanhar a política em Brasília costuma exigir abrir dezenas de sites, ler textos técnicos e juntar as peças sozinho. O Quorum faz esse trabalho de reunir e organizar: cada proposta vira um cartão que mostra por onde passou, quem votou e o que vem depois.</p>
+      <p>O site não dá opinião, não apoia partido nem candidato e não comenta se um gasto é alto ou baixo. Mostra os dados como os órgãos publicam, para que cada pessoa tire as próprias conclusões.</p></section>
+    <section class="qs-sec"><h2>Quem faz</h2>
+      <p>O Quorum foi criado, desenhado e desenvolvido por <b>${esc(SITE_INFO.autor)}</b>, comunicador e designer formado em Mídia e Comunicação pela Unicamp. É um projeto independente, sem vínculo com governo, partido ou órgão público.</p></section>
+    <section class="qs-sec"><h2>De onde vêm os dados</h2>
+      <p>Só de fontes oficiais e públicas:</p>
+      <ul>
+        <li>${a('https://dadosabertos.camara.leg.br','Dados abertos da Câmara dos Deputados')}: deputados em exercício, sessões, votações nominais, propostas e cota parlamentar;</li>
+        <li>${a('https://www12.senado.leg.br/dados-abertos','Dados abertos do Senado Federal')}: senadores em exercício, sessões, votações, cota parlamentar e as enquetes do e-Cidadania;</li>
+        <li>${a('https://portal.stf.jus.br','Supremo Tribunal Federal')} e os sites dos tribunais superiores: julgamentos, composição e notícias;</li>
+        <li>${a('https://www.gov.br/planalto','Planalto')} e ${a('https://www.in.gov.br','Diário Oficial da União')}: medidas provisórias, sanções, vetos e ministérios;</li>
+        <li>${a('https://portaldatransparencia.gov.br','Portal da Transparência (CGU)')} e ${a('https://siconfi.tesouro.gov.br','Tesouro Nacional (SICONFI)')}: cartões de pagamento, orçamento e despesa com pessoal;</li>
+        <li>${a('https://dadosabertos.tse.jus.br','Dados abertos do TSE')}: resultados das eleições e redes declaradas pelos eleitos;</li>
+        <li>agências oficiais de notícias (Agência Câmara, Agência Senado, STF Notícias, Agência Brasil) para os textos de cada proposta.</li>
+      </ul>
+      <p>Toda informação tem a fonte a um toque, no ícone “i”. Quando a fonte não informa algo, o site escreve “não informado” em vez de estimar.</p></section>
+    <section class="qs-sec"><h2>Como funciona</h2>
+      <p>Uma parte do site se atualiza sozinha: pequenos programas, os robôs, buscam os dados oficiais em horários marcados e guardam o resultado em arquivos que o site lê.</p>
+      <ul>
+        <li>de hora em hora: sessões ao vivo da Câmara e do Senado, notícias dos tribunais e ministérios e as enquetes;</li>
+        <li>todo dia: quem ocupa cada cadeira do Congresso, votações nominais, leis aprovadas, cota parlamentar e cartões de pagamento;</li>
+        <li>toda semana: contatos dos parlamentares, orçamento, despesa com pessoal e as propostas de cada ministério.</li>
+      </ul>
+      <p>A outra parte, os resumos das propostas e a agenda da semana, é escrita à mão a partir das notícias oficiais, sempre com o link de onde veio.</p></section>
+    <section class="qs-sec"><h2>Como foi construído</h2>
+      <p>É um site estático: um único arquivo com o desenho e o funcionamento, publicado no GitHub Pages, sem anúncios, sem cadastro e sem rastrear quem visita. Os robôs rodam no GitHub Actions. O código é aberto e pode ser lido por qualquer pessoa ${a('https://github.com/lucca-reis/quorum','no GitHub')}. O desenvolvimento contou com a ajuda do Claude, assistente de inteligência artificial da Anthropic.</p></section>
+    <section class="qs-sec"><h2>Limites</h2>
+      <p>Os dados oficiais às vezes atrasam ou mudam depois de publicados, e os robôs dependem dos sites dos órgãos estarem no ar. Ministros, ministros do Supremo e presidentes de tribunais são conferidos à mão. Achou um erro? ${SITE_INFO.email ? `Escreva para <a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a> ou abra` : 'Abra'} um aviso ${a('https://github.com/lucca-reis/quorum/issues','no GitHub')}.</p></section>
+  </div>`;
+}
 // latest official news of each court and ministry, from data/instituicoes.json (robot, every hour)
 let instData = null;
 const loadInstData = ()=> instData ? Promise.resolve(instData) : trFetch('data/instituicoes.json').then(js=> (instData = js));
@@ -4669,16 +4831,16 @@ function instNews(kind, id){
   }).catch(()=>{ const b = document.getElementById('inst-news'); if (b) b.innerHTML = '<p class="vd-none">Não deu para carregar as notícias agora.</p>'; });
 }
 function showInst(kind, id){
-  const html = kind==='tribunal' ? courtHTML(id) : kind==='categoria' ? catHTML(id) : ministryHTML(id);
+  const html = kind==='tribunal' ? courtHTML(id) : kind==='categoria' ? catHTML(id) : kind==='busca' ? searchHTML(id) : kind==='sobre' ? aboutHTML() : ministryHTML(id);
   if (!html) return false;
   inst.innerHTML = html;
-  instKey = (kind==='tribunal' ? 't:' : kind==='categoria' ? 'c:' : 'm:') + id;
+  instKey = kind==='sobre' ? 's:' : (kind==='tribunal' ? 't:' : kind==='categoria' ? 'c:' : kind==='busca' ? 'b:' : 'm:') + id;
   inst.scrollTop = 0;
   if (inst.hidden){ inst.hidden = false; requestAnimationFrame(()=>inst.classList.add('show')); }
   document.title = inst.querySelector('#inst-title').textContent + ' · Quorum';
   inst.querySelector('#inst-title').setAttribute('tabindex','-1');
   inst.querySelector('#inst-title').focus({preventScroll:true});
-  if (kind!=='categoria') instNews(kind, id);
+  if (kind==='tribunal' || kind==='ministerio') instNews(kind, id);
   if (kind==='ministerio') minProps(id);
   return true;
 }
@@ -4696,7 +4858,8 @@ function showRoute(){
   if (location.hash === '#consultas') showCons(); else hideCons();
   if (location.hash === '#visao-geral') showVg(); else if (!/^#p-/.test(location.hash)) hideVg();
   if (location.hash === '#transparencia') showTp(); else if (!/^#p-/.test(location.hash)) hideTp();
-  const im = location.hash==='#projetos' ? [0,'categoria','todas'] : location.hash.match(/^#(tribunal|ministerio|categoria)-([a-z0-9-]+)$/);
+  const bq = location.hash.match(/^#busca(?:\?q=(.*))?$/);
+  const im = location.hash==='#projetos' ? [0,'categoria','todas'] : location.hash==='#quem-somos' ? [0,'sobre','-'] : bq ? [0,'busca', bq[1] ? decodeURIComponent(bq[1].replace(/\+/g,' ')) : ''] : location.hash.match(/^#(tribunal|ministerio|categoria)-([a-z0-9-]+)$/);
   if (im && showInst(im[1], im[2])) {} else if (!/^#p-/.test(location.hash)) hideInst();
   const m = location.hash.match(/^#p-([a-z0-9-]+)$/);
   if (m && renderProject(m[1])){
