@@ -18,16 +18,16 @@
  "cartoes": {
   "params": {
    "pagina": 1,
-   "mesExtratoInicio": "11/2025",
-   "mesExtratoFim": "11/2025",
+   "mesExtratoInicio": "12/2025",
+   "mesExtratoFim": "12/2025",
    "codigoOrgao": "20101"
   },
   "resposta": [
    {
-    "id": 506830949,
-    "mesExtrato": "11/2025",
+    "id": 506861477,
+    "mesExtrato": "12/2025",
     "dataTransacao": "Sem informação",
-    "valorTransacao": "52,32",
+    "valorTransacao": "861,98",
     "tipoCartao": {
      "id": 1,
      "codigo": "1",
@@ -66,10 +66,10 @@
     }
    },
    {
-    "id": 506831013,
-    "mesExtrato": "11/2025",
+    "id": 506861541,
+    "mesExtrato": "12/2025",
     "dataTransacao": "Sem informação",
-    "valorTransacao": "279,85",
+    "valorTransacao": "640,06",
     "tipoCartao": {
      "id": 1,
      "codigo": "1",
