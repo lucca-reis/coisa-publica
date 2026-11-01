@@ -368,6 +368,9 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 /* phones: every page sits in one organised menu behind the hamburger (top right): the three powers with their pages,
    then the site's sections as tiles. The old bottom bar and the header icons give way to it. */
 .ham{display:none}
+.hdd{display:none}
+@media (min-width:761px){ .hdd{display:flex} }
+@media (min-width:761px) and (max-width:1199px){ html.srch-on .menu nav{visibility:hidden} }
 /* search: the magnifier opens a bar under the header; the results get their own page (#busca?q=...) */
 .menu .menu-tools button.vg-link{all:unset;box-sizing:border-box;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;cursor:pointer;color:var(--ink);transition:background-color .2s}
 .menu .menu-tools button.vg-link:hover{background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
@@ -455,11 +458,18 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 @media (min-width:761px){
   .menu .menu-tools > a{display:none!important}
   .menu .menu-tools{gap:4px}
-  .srch{top:calc(env(safe-area-inset-top, 0px) + (var(--menu-h) - 42px) / 2);left:calc(50% - 13px);right:calc(max(16px, var(--edge, 16px)) + 96px);height:42px;padding:0;border:0;background:transparent;z-index:28}
-  .srch input{height:42px;padding:0 18px}
+  .srch{top:calc(env(safe-area-inset-top, 0px) + (var(--menu-h) - 36px) / 2);left:auto;right:calc(max(16px, var(--edge, 16px)) + 92px);width:250px;height:36px;padding:0;border:0;background:transparent;z-index:28;gap:0}
+  .srch input{height:36px;padding:0 34px 0 14px;font-size:14px}
   .srch-go{display:none}
-  .srch-x{width:36px;height:36px;font-size:22px}
-  html.srch-on .menu nav{visibility:hidden}
+  .srch-x{position:absolute;right:2px;top:2px;width:32px;height:32px;font-size:18px}
+  .hdd{position:fixed;z-index:28;top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) - 8px);right:max(10px, calc(var(--edge, 16px) - 8px));min-width:210px;padding-top:6px;display:flex;flex-direction:column;gap:2px;font-family:var(--display);font-size:14px;
+    opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s, transform .18s, visibility 0s .18s}
+  .hdd::before{content:"";position:absolute;inset:6px 0 0;border-radius:18px;background:var(--bg);box-shadow:0 0 0 1px var(--rule), 0 10px 30px -12px rgba(0,0,0,.25);z-index:-1}
+  .hdd a{display:block;margin:0 4px;padding:9px 16px;border-radius:14px;color:color-mix(in srgb, var(--ink) 80%, var(--bg));text-decoration:none}
+  .hdd a:first-child{margin-top:4px}.hdd a:last-child{margin-bottom:4px}
+  .hdd a:hover{background:color-mix(in srgb, var(--ink) 5%, var(--bg));color:var(--ink)}
+  .hdd a[aria-current="page"]{background:color-mix(in srgb, var(--ink) 8%, var(--bg));color:var(--ink)}
+  .hdd.open{opacity:1;visibility:visible;transform:none;transition:opacity .18s, transform .18s}
   .ham{margin-right:-6px}
   .mdr{left:auto;width:min(420px, 100vw);border-left:1px solid var(--rule);box-shadow:-24px 0 48px -32px rgba(0,0,0,.35)}
 }
@@ -1383,6 +1393,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
   <div class="menu-tools"><button type="button" class="vg-link srch-link" id="srch-btn" aria-label="Pesquisar" title="Pesquisar" aria-expanded="false" aria-controls="srch"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a><a class="vg-link qs-link" href="#quem-somos" data-nav="sobre" aria-label="Quem somos" title="Quem somos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></svg></a><button type="button" class="ham" id="ham" aria-expanded="false" aria-controls="mdr" aria-label="Abrir o menu"><span aria-hidden="true"></span></button></div>
 </header>
 <form class="srch" id="srch" role="search" hidden><label class="sr-only" for="srch-q">Pesquisar no Quorum</label><input type="search" id="srch-q" placeholder="Pesquisar pessoas, projetos, órgãos…" autocomplete="off" enterkeyhint="search"><button type="submit" class="srch-go">Pesquisar</button><button type="button" class="srch-x" aria-label="Fechar a pesquisa">×</button></form>
+<div class="hdd" id="hdd" role="menu" aria-label="Páginas"><a href="#projetos" data-go="projetos" data-k="projetos" role="menuitem">Projetos</a><a href="#consultas" data-go="consultas" data-k="consultas" role="menuitem">Consultas públicas</a><a href="#transparencia" data-go="transp" data-k="transp" role="menuitem">Transparência</a><a href="#visao-geral" data-go="visao" data-k="visao" role="menuitem">Visão geral</a><a href="#calendario" data-go="calendario" data-k="calendario" role="menuitem">Calendário</a><a href="#quem-somos" data-go="sobre" data-k="sobre" role="menuitem">Quem somos</a></div>
 <div class="mdr" id="mdr" hidden role="dialog" aria-modal="true" aria-label="Menu"></div>
 <section class="landing" id="landing" aria-label="Praça dos Três Poderes">
   <div class="lx-wrap"><div class="lx" aria-label="Os três poderes">
@@ -3457,7 +3468,18 @@ function mdrOpen(on){
   if (on){ if (typeof srch!=='undefined' && !srch.hidden) srchOpen(false); mdr.hidden = false; mdr.scrollTop = 0; requestAnimationFrame(()=> mdr.classList.add('show')); }
   else { mdr.classList.remove('show'); mdr.hidden = true; const q = document.getElementById('mdr-q'); if (q && q.value){ q.value = ''; q.dispatchEvent(new Event('input')); } }
 }
-ham.addEventListener('click', e=>{ e.stopPropagation(); mdrOpen(mdr.hidden); });
+const hdd = document.getElementById('hdd'), wide = ()=> matchMedia('(min-width:761px)').matches;
+function hddOpen(on){ hdd.classList.toggle('open', on); ham.setAttribute('aria-expanded', String(on)); ham.setAttribute('aria-label', on ? 'Fechar o menu' : 'Abrir o menu'); }
+let hddHover = false;
+ham.addEventListener('click', e=>{ e.stopPropagation(); if (!wide()){ mdrOpen(mdr.hidden); return; }
+  const open = hdd.classList.contains('open'); hddOpen(open && !hddHover ? false : true); hddHover = false; });
+if (matchMedia('(hover:hover)').matches){
+  let t; const on = ()=>{ if (!wide()) return; clearTimeout(t); if (typeof srch!=='undefined' && !srch.hidden) srchOpen(false); if (!hdd.classList.contains('open')){ hddHover = true; hddOpen(true); } }, off = ()=>{ clearTimeout(t); t = setTimeout(()=>{ hddOpen(false); hddHover = false; }, 180); };
+  [ham, hdd].forEach(el=>{ el.addEventListener('mouseenter', on); el.addEventListener('mouseleave', off); });
+}
+hdd.addEventListener('click', e=>{ const a = e.target.closest('a'); if (!a) return; e.preventDefault(); e.stopPropagation(); hddOpen(false); navTo(a.dataset.go); });
+document.addEventListener('click', e=>{ if (hdd.classList.contains('open') && !hdd.contains(e.target) && !ham.contains(e.target)) hddOpen(false); });
+document.addEventListener('keydown', e=>{ if (e.key==='Escape' && hdd.classList.contains('open')){ e.stopImmediatePropagation(); hddOpen(false); ham.focus(); } }, true);
 document.addEventListener('click', e=>{ if (!mdr.hidden && !mdr.contains(e.target) && !ham.contains(e.target)) mdrOpen(false); });
 mdr.addEventListener('click', e=>{
   e.stopPropagation();
@@ -3496,6 +3518,7 @@ setInterval(()=>{
   const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey==='s:' ? 'sobre' : instKey && instKey.startsWith('b:') ? 'busca' : instKey) : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
   if (here===navHere) return; navHere = here;
   NAV_LINKS.forEach(a=>{ if (a.dataset.nav===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  hdd.querySelectorAll('[data-k]').forEach(a=>{ if (a.dataset.k===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   mdr.querySelectorAll('[data-k]').forEach(a=>{ if (a.dataset.k===(here||'home')) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   document.querySelectorAll('.nav-sub [data-route]').forEach(a=>{ if (a.dataset.route===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   const grp = here==='senado'||here==='camara' ? 'leg' : here==='pres'||/^m:/.test(here||'') ? 'exec' : here==='stf'||/^t:/.test(here||'') ? 'jud' : '';
@@ -4776,7 +4799,7 @@ function searchAct(btn){
 const srch = document.getElementById('srch'), srchBtn = document.getElementById('srch-btn'), srchQ = document.getElementById('srch-q');
 function srchOpen(on){
   srch.hidden = !on; srchBtn.setAttribute('aria-expanded', String(on)); document.documentElement.classList.toggle('srch-on', on);
-  if (on){ if (typeof mdrOpen==='function') mdrOpen(false); srchQ.value = ''; srchQ.focus(); }
+  if (on){ if (typeof mdrOpen==='function') mdrOpen(false); if (typeof hddOpen==='function') hddOpen(false); srchQ.value = ''; srchQ.focus(); }
 }
 srchBtn.addEventListener('click', e=>{ e.stopPropagation(); srchOpen(srch.hidden); });
 srch.addEventListener('click', e=> e.stopPropagation());
