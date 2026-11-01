@@ -461,6 +461,10 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   /* the search pill grows out of the magnifier: card-coloured, no outline, the magnifier at its right end; the magnifier closes it */
   .srch{top:calc(env(safe-area-inset-top, 0px) + (var(--menu-h) - 38px) / 2);left:auto;right:calc(max(16px, var(--edge, 16px)) + 48px);width:260px;height:38px;padding:0;border:0;border-radius:999px;
     background:color-mix(in srgb, var(--ink) 5%, var(--bg));z-index:1;gap:0}
+  .srch{overflow:hidden;transition:width .38s cubic-bezier(.2,.7,.3,1), opacity .22s, visibility 0s}
+  .srch[hidden]{display:flex!important;width:38px;opacity:0;visibility:hidden;pointer-events:none;transition:width .3s cubic-bezier(.4,0,.6,1), opacity .2s .08s, visibility 0s .3s}
+  .srch input{transition:opacity .2s .12s}
+  .srch[hidden] input{opacity:0;transition:opacity .1s}
   .srch input{height:38px;padding:0 44px 0 16px;font-size:14px;background:transparent;border:0;border-radius:999px}
   .srch input:focus{border:0;outline:none}
   .srch input::placeholder{color:var(--muted)}
@@ -483,7 +487,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .menu nav > a,.nav-leg{font-size:13px;padding:0 2px}
   .nav-car{margin-left:3px}
 }
-@media (prefers-reduced-motion:reduce){ .brand-o{animation:none} .nav-sub,.nav-scrim{transition:none} }
+@media (prefers-reduced-motion:reduce){ .srch,.srch[hidden],.srch input{transition:none!important} .brand-o{animation:none} .nav-sub,.nav-scrim{transition:none} }
 
 /* computer: the powers start at the middle of the page, so "Executivo" lines up with the left edge of the timeline's cards,
    and spread to the icons on the right; no arrows. Enquetes becomes an icon (a ballot box) among the others. */
