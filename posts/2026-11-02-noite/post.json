@@ -3,51 +3,10 @@
  "periodo": "noite",
  "data": "2026-11-02",
  "imagem": {
-  "poder": "jud",
-  "eyebrow": "Você sabia?",
-  "titulo": "Os Três Poderes na Constituição",
-  "texto": "Art. 2º: Legislativo, Executivo e Judiciário são independentes e harmônicos entre si.",
-  "itens": [
-   {
-    "quando": "Art.",
-    "dia": "44",
-    "tags": [
-     {
-      "t": "Legislativo",
-      "poder": "leg"
-     }
-    ],
-    "titulo": "Faz as leis e fiscaliza",
-    "texto": "Congresso Nacional: Câmara, com 513 deputados, e Senado, com 81 senadores."
-   },
-   {
-    "quando": "Art.",
-    "dia": "76",
-    "tags": [
-     {
-      "t": "Executivo",
-      "poder": "exe"
-     }
-    ],
-    "titulo": "Governa e executa as leis",
-    "texto": "Presidente da República, com a ajuda dos ministros de Estado."
-   },
-   {
-    "quando": "Art.",
-    "dia": "92",
-    "tags": [
-     {
-      "t": "Judiciário",
-      "poder": "jud"
-     }
-    ],
-    "titulo": "Julga e guarda a Constituição",
-    "texto": "STF, com 11 ministros, tribunais superiores e juízes de todo o país."
-   }
-  ],
-  "fonte": "Constituição Federal de 1988, arts. 2º, 44, 76 e 92"
+  "titulo": "O que são os Três Poderes?",
+  "especial": "scripts/posts/especiais/tres-poderes.js"
  },
- "alt": "Imagem da Coisa Pública, Você sabia?: Os Três Poderes na Constituição. Pelo artigo 2º, Legislativo, Executivo e Judiciário são independentes e harmônicos entre si. Artigo 44: o Legislativo faz as leis e fiscaliza; é o Congresso Nacional, com a Câmara de 513 deputados e o Senado de 81 senadores. Artigo 76: o Executivo governa e executa as leis; é o presidente da República, com os ministros de Estado. Artigo 92: o Judiciário julga e guarda a Constituição; é o STF, com 11 ministros, os tribunais superiores e os juízes.",
+ "alt": "Imagem da Coisa Pública: \"O que são os Três Poderes?\". Três círculos ligados por um triângulo, como na Praça dos Três Poderes. Em cima, o círculo amarelo do Legislativo, que faz as leis e fiscaliza. Embaixo à esquerda, o verde do Executivo, que governa e executa as leis. Embaixo à direita, o azul do Judiciário, que julga e guarda a Constituição. No centro: independentes e harmônicos entre si, como diz o artigo 2º da Constituição Federal.",
  "textos": {
   "bluesky": "Você sabia? A Constituição (art. 2º) diz que Legislativo, Executivo e Judiciário são independentes e harmônicos entre si.\n\nO Congresso faz as leis, o presidente governa e o Judiciário julga. E um controla o outro.\n\ncoisapublica.io",
   "instagram": "Você sabia? 📜\n\nO artigo 2º da Constituição de 1988 diz que são Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.\n\nLegislativo (art. 44): faz as leis e fiscaliza o governo. É exercido pelo Congresso Nacional, formado pela Câmara dos Deputados, com 513 deputados, e pelo Senado Federal, com 81 senadores.\n\nExecutivo (art. 76): governa e põe as leis em prática. É exercido pelo presidente da República, com a ajuda dos ministros de Estado.\n\nJudiciário (art. 92): julga os conflitos e garante que a Constituição seja cumprida. Tem o Supremo Tribunal Federal, com 11 ministros, os tribunais superiores e os juízes de todo o país.\n\nUm controla o outro: o presidente pode vetar leis aprovadas pelo Congresso, o Congresso pode derrubar o veto, e o Supremo pode decidir que uma lei vai contra a Constituição. É o sistema de freios e contrapesos.\n\nE a separação dos Poderes não pode ser abolida nem por emenda constitucional: é uma cláusula pétrea (art. 60, § 4º).\n\nLink na bio.\n\n#CoisaPública #TrêsPoderes #Constituição #VocêSabia #Política"
