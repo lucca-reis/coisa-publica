@@ -6,7 +6,7 @@ Roda em .github/workflows/publicar.yml. As chaves ficam nos segredos do GitHub, 
   BLUESKY_HANDLE e BLUESKY_APP_PASSWORD  (senha de app criada nas configurações do Bluesky)
   IG_USER_ID e IG_TOKEN                  (conta profissional do Instagram, API da Meta)
 Rede sem chave configurada é pulada, e o post fica esperando até ela ser configurada. Só usa a biblioteca padrão."""
-import json, os, re, sys, time, datetime, pathlib, urllib.request, urllib.parse, urllib.error
+import json, os, re, sys, time, datetime, hashlib, pathlib, urllib.request, urllib.parse, urllib.error
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 POSTS = ROOT / 'posts'
@@ -48,11 +48,18 @@ def bluesky(post, img):
 
 # ---------- Instagram (a imagem precisa estar num endereço público: o GitHub Pages do site) ----------
 def instagram(post, pid):
-    url = f'{SITE}posts/{pid}/imagem.jpg'
-    for _ in range(40):                      # espera o GitHub Pages publicar a imagem (até ~10 min)
+    # espera o GitHub Pages servir exatamente esta imagem (até ~10 min); se for um post refeito, a versão
+    # antiga pode continuar no ar por uns minutos, por isso compara o conteúdo e não só se o endereço responde
+    local = hashlib.sha1((POSTS / pid / 'imagem.jpg').read_bytes()).hexdigest()
+    url = f'{SITE}posts/{pid}/imagem.jpg?v={local[:10]}'
+    for _ in range(40):
         try:
-            urllib.request.urlopen(urllib.request.Request(url, headers=UA, method='HEAD'), timeout=30); break
-        except Exception: time.sleep(15)
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+                if hashlib.sha1(r.read()).hexdigest() == local: break
+        except Exception: pass
+        time.sleep(15)
+    else:
+        raise RuntimeError('o site ainda não serve a imagem nova')
     q = urllib.parse.urlencode({'image_url': url, 'caption': post['textos']['instagram'], 'alt_text': post.get('alt', ''), 'access_token': IG_TOKEN}).encode()
     c = req(GRAPH + f'{IG_ID}/media', q)['id']
     for _ in range(30):                      # o Instagram processa a imagem antes de publicar
@@ -65,7 +72,10 @@ def instagram(post, pid):
 
 redes = {'bluesky': (bool(BSKY_H and BSKY_P), bluesky), 'instagram': (bool(IG_ID and IG_TOKEN), instagram)}
 falhas = 0
-for d in sorted(p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\d{2}-\d{2}-((manha|tarde|noite)(-[a-z0-9]+)?|apresentacao-\d+)$', p.name)):
+# ordem de publicação: por data e, no mesmo dia, apresentação, manhã, tarde e noite (o mais novo fica no topo da grade)
+ORDEM = {'apresentacao': 0, 'manha': 1, 'tarde': 2, 'noite': 3}
+def chave(p): return (p.name[:10], ORDEM.get(p.name[11:].split('-')[0], 9), p.name)
+for d in sorted((p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\d{2}-\d{2}-((manha|tarde|noite)(-[a-z0-9]+)?|apresentacao-\d+)$', p.name)), key=chave):
     post, img, feito_f = d / 'post.json', d / 'imagem.jpg', d / 'publicado.json'
     if not post.exists() or not img.exists(): continue
     P = json.loads(post.read_text(encoding='utf-8'))

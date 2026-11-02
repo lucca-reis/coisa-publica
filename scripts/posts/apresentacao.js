@@ -16,9 +16,9 @@ const G = {
 };
 const CSS = `
 *{box-sizing:border-box}html,body{margin:0}
-body{width:1080px;height:1350px;background:#FAFAF7;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;overflow:hidden}
+body{width:1080px;height:1350px;background:#F3F3F3;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;overflow:hidden}
 .sph{position:absolute;left:290px;top:510px;width:500px;height:500px;border-radius:50%;display:grid;place-items:center}
-.sph svg{fill:#FAFAF7}
+.sph svg{fill:#F3F3F3}
 .top{position:absolute;left:96px;right:96px;top:96px}
 .logo{font-size:40px;letter-spacing:-.015em}
 .logo i{display:inline-block;width:.54em;height:.54em;border-radius:50%;background:#121417;margin:0 .045em}

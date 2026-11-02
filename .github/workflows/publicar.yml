@@ -4,7 +4,7 @@ name: Publicar posts aprovados
 on:
   push:
     branches: [main]
-    paths: ['posts/2*/**']
+    paths: ['posts/2*/**', 'posts/apagar.json']
   workflow_dispatch:
 
 permissions:
@@ -23,6 +23,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Apagar posts que vão ser refeitos (posts/apagar.json)
+        run: python scripts/posts/apagar.py
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
       - name: Publicar no Bluesky e no Instagram
         run: python scripts/posts/publicar.py
         env:
