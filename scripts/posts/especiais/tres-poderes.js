@@ -16,14 +16,14 @@ const circle = k => `<div class="c" style="left:${P[k][0]-R}px;top:${P[k][1]-R}p
   ${k==='leg' ? `<div class="lab side" style="left:${P[k][0]+R+30}px;top:${P[k][1]-44}px">` : `<div class="lab" style="left:${P[k][0]-200}px;top:${P[k][1]+R+22}px">`}<b style="color:${INK[k]}">${T[k][0]}</b><span>${T[k][1]}</span></div>`;
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 *{box-sizing:border-box}html,body{margin:0}
-body{width:1080px;height:1350px;background:#FAFAF7;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;overflow:hidden}
+body{width:1080px;height:1350px;background:#F3F3F3;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;overflow:hidden}
 .top{position:absolute;left:84px;right:84px;top:84px;display:flex;justify-content:space-between;align-items:center;font-size:28px;color:#6E6F73}
 .logo{font-size:42px;color:#121417;letter-spacing:-.015em}.logo i{display:inline-block;width:.54em;height:.54em;border-radius:50%;background:#121417;margin:0 .045em}
 .eye{position:absolute;left:84px;top:196px;margin:0;font-size:28px;letter-spacing:.08em;text-transform:uppercase;color:#6E6F73;font-weight:600}
 h1{position:absolute;left:84px;right:84px;top:236px;margin:0;font-size:84px;line-height:1.02;letter-spacing:-.035em;font-weight:700}
 svg.tri{position:absolute;left:0;top:0}
 .c{position:absolute;width:${2*R}px;height:${2*R}px;border-radius:50%;display:grid;place-items:center}
-.c svg{fill:#FAFAF7;display:block}
+.c svg{fill:#F3F3F3;display:block}
 .lab{position:absolute;width:400px;text-align:center;display:flex;flex-direction:column;gap:6px}
 .lab.side{width:300px;text-align:left}
 .lab b{font-size:36px;letter-spacing:-.02em;font-weight:700}.lab span{font-size:27px;color:#55585D;line-height:1.25}
