@@ -2991,6 +2991,7 @@ function feedList(key, only){
 const FEED_PAGE = 40, FEED_REST = {};
 let feedSeq = 0;
 function feedHTML(key, only, lim, list, prevD){
+  if (key || only) needProjetos();
   list = list || feedList(key, only);
   lim = lim || FEED_PAGE;
   const rest = list.slice(lim);
@@ -3166,7 +3167,7 @@ let lxRaf = 0;
 document.getElementById('landing').addEventListener('scroll', ()=>{ if (!lxRaf) lxRaf = requestAnimationFrame(()=>{ lxRaf = 0; lxEnd(); }); }, {passive:true});
 todayEl.addEventListener('click', e=>{
   const more = e.target.closest('.fd-more:not(.fd-next)');
-  if (more){ e.stopPropagation(); feedMore = !feedMore;
+  if (more){ e.stopPropagation(); feedMore = !feedMore; if (feedMore) needProjetos();
     todayEl.classList.toggle('more', feedMore); more.setAttribute('aria-expanded', String(feedMore));
     const n = todayExtra;
     more.textContent = feedMore ? 'Ver menos' : `Ver mais · ${FMT_NUM.format(n)} ${n===1?'projeto':'projetos'}`;
@@ -3663,6 +3664,7 @@ const proj = document.getElementById('proj');
 let projFrom = null, projFocus = null;
 function fmtDate(iso){ const [y,m,d]=iso.split('-').map(Number); return `${d} ${MO[m-1]} ${y}`; }
 function renderProject(slug){
+  needVotos(); if (!PROJECTS[slug]) needProjetos();
   const P = PROJECTS[slug]; if (!P) return false;
   const today = todayISO();
   const isStf = P.house==='stf';
@@ -4142,9 +4144,16 @@ function addAuto(js){
   try { renderToday(); refreshLive(); requestAnimationFrame(lxEnd); } catch(e){}
   try { if (!inst.hidden && instKey && /^(c|b):/.test(instKey)){ const top = inst.scrollTop; showRoute(); inst.scrollTop = top; } } catch(e){}
   try { if (/^#p-/.test(location.hash) && proj.hidden) showRoute(); } catch(e){}
+  try { const box = document.querySelector('#person .p-cards[data-n]'); if (box) box.outerHTML = relatedHTML(box.dataset.n, box.dataset.k, box.dataset.r||''); } catch(e){}
+  try { if (!vg.hidden) renderVg(true); } catch(e){}
+  try { const cur = openView(); if (cur && VIEWS[cur].render) VIEWS[cur].render(); } catch(e){}
 }
-setTimeout(()=> trFetch('data/projetos.json').then(addAuto).catch(()=>{}), 0);
-setTimeout(()=> trFetch('data/votos.json').then(js=>{ VOTOS = js; window.QV = js; try { const m = location.hash.match(/^#p-([a-z0-9-]+)$/); if (m && !proj.hidden){ const top = proj.scrollTop; renderProject(m[1]); proj.scrollTop = top; } } catch(e){} const box = document.querySelector('#person .p-cards[data-n]'); if (box) box.outerHTML = relatedHTML(box.dataset.n, box.dataset.k, box.dataset.r||''); }).catch(()=>{}), 0);
+/* nothing heavy loads with the opening page: the cards of the last weeks come from a small file (projetos-recentes.json);
+   the full list (projetos.json) and the roll-call votes (votos.json) load only when a page that uses them is opened */
+let projAllP = null, votosP = null;
+function needProjetos(){ if (!projAllP) projAllP = trFetch('data/projetos.json').then(addAuto).catch(()=>{ projAllP = null; }); return projAllP; }
+setTimeout(()=> trFetch('data/projetos-recentes.json').then(addAuto).catch(()=>{}), 0);
+function needVotos(){ if (votosP) return votosP; votosP = trFetch('data/votos.json').then(js=>{ VOTOS = js; window.QV = js; try { const m = location.hash.match(/^#p-([a-z0-9-]+)$/); if (m && !proj.hidden){ const top = proj.scrollTop; renderProject(m[1]); proj.scrollTop = top; } } catch(e){} const box = document.querySelector('#person .p-cards[data-n]'); if (box) box.outerHTML = relatedHTML(box.dataset.n, box.dataset.k, box.dataset.r||''); }).catch(()=>{ votosP = null; }); return votosP; }
 const VOTE_TX = {'Sim':'votou Sim','Não':'votou Não','Nao':'votou Não','Abstenção':'absteve-se','Obstrução':'obstruiu','Artigo 17':'não vota (preside)','SIM':'votou Sim','NAO':'votou Não','NÃO':'votou Não','ABST':'absteve-se','P-NRV':'presente, sem voto','AP':'ausente','LS':'de licença','MIS':'em missão'};
 function nameRe(n){
   const w = fold(n).replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(x=> x.length>1 && !['de','da','do','dos','das','e'].includes(x));
@@ -4152,6 +4161,7 @@ function nameRe(n){
   return t=>{ const f = ' '+fold(t).replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ')+' '; return f.includes(' '+full+' ') || f.includes(' '+short+' '); };
 }
 function relatedHTML(name, key, role){
+  needProjetos(); needVotos();
   const has = nameRe(name), sl = slugName(name), pres = role==='Presidente da República';
   const rows = [];
   CARDS.forEach(c=>{
@@ -4365,7 +4375,7 @@ function mpDeadline(pub){
   while (n < 120){ d = addDays(d, 1); const md = d.slice(5); if (!(md >= '12-23' || md <= '02-01')) n++; }
   return d;
 }
-function vgStates(){ return CARDS.map(c=>({c, P:c.P, S:cardState(c, null)})); }
+function vgStates(){ needProjetos(); return CARDS.map(c=>({c, P:c.P, S:cardState(c, null)})); }
 function vgPlacar(all){
   const t = todayISO();
   return `<div class="vp">${VG_POW.map(X=>{
@@ -4860,6 +4870,7 @@ function minProps(id){
 }
 // #projetos and #categoria-<k>: every proposal and case the site follows, by kind
 function catHTML(id){
+  needProjetos();
   const C = id==='todas' ? null : CAT_BY[id]; if (id!=='todas' && !C) return null;
   const n = k=> CARDS.filter(c=> catOf(c.P).k===k).length;
   const chips = [{k:'todas', pl:'Todas', c:'var(--ink)'}, ...CATS, CAT_OTHER].filter(x=> x.k==='todas' || n(x.k)).map(x=>
@@ -4877,6 +4888,7 @@ function catHTML(id){
    parties, proposals and cases, ministries, courts, kinds of proposal and the site's own pages. */
 let SRCH = null;
 function searchIndex(){
+  needProjetos();
   if (SRCH) return SRCH;
   const L = [];
   const add = (g, label, sub, act, extra, c)=> L.push({g, label, sub, act, c, hay: minFold([label, sub, extra].filter(Boolean).join(' '))});

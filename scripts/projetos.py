@@ -410,6 +410,11 @@ amostra['_erros'] = log[:60]
 (OUT / 'projetos-amostra.json').write_text(json.dumps(amostra, ensure_ascii=False, indent=1)[:60000], encoding='utf-8')
 if len(cards) < 100:
     print('Poucos cartões; arquivo anterior mantido.', log[:10]); sys.exit(0)
+# arquivo pequeno para a página inicial: só os cartões tratados nos últimos 45 dias (o resto carrega quando a pessoa pede)
+corte = (HOJE - datetime.timedelta(days=45)).isoformat()
+recentes = {k: c for k, c in cards.items() if max((st[0] for st in c['steps']), default='') >= corte}
+(OUT / 'projetos-recentes.json').write_text(json.dumps({'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'), 'inicio': INICIO,
+                                                        'total': len(recentes), 'projetos': recentes}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 (OUT / 'projetos.json').write_text(json.dumps({'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'), 'inicio': INICIO,
                                                'total': len(cards), 'projetos': cards, 'erros': log[:40]},
                                               ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
