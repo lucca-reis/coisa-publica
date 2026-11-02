@@ -414,11 +414,16 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 @media (max-width:760px){
   .menu{grid-template-columns:auto minmax(0,1fr) auto!important;column-gap:8px}
   .menu .today-date,.menu .menu-tools .srch-link{display:none!important}
-  .mpw{display:flex;grid-column:2;grid-row:1;justify-self:center;align-items:center;gap:0;min-width:0;padding:2px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
-  .menu .brand{font-size:clamp(15px, 4.4vw, 20px)}
-  .mpw button{all:unset;box-sizing:border-box;cursor:pointer;padding:7px clamp(3px, 1.2vw, 12px);border-radius:999px;font-size:clamp(10px, 2.85vw, 14px);line-height:1.2;white-space:nowrap;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:background-color .2s, color .2s}
-  .mpw button:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
-  .mpw button[aria-current]{background:var(--ink);color:var(--bg)}
+  /* the three powers as three dots (green Executivo, yellow Legislativo, blue Judiciário) right beside the hamburger */
+  .mpw{display:flex;grid-column:2;grid-row:1;justify-self:end;align-self:center;align-items:center;gap:0;min-width:0;margin-right:4px;padding:0 5px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
+  .menu .brand{font-size:20px}
+  .mpw button{all:unset;box-sizing:border-box;cursor:pointer;width:24px;height:34px;display:flex;align-items:center;justify-content:center;font-size:0;line-height:0;color:transparent;-webkit-tap-highlight-color:transparent}
+  .mpw button::before{content:"";width:13px;height:13px;border-radius:50%;background:var(--c);transition:transform .2s, box-shadow .2s}
+  .mpw button[data-grp="exec"]{--c:#009C3B} .mpw button[data-grp="leg"]{--c:#F2C200} .mpw button[data-grp="jud"]{--c:#1F4FB5}
+  .mpw button:focus-visible{outline:2px solid var(--ink);outline-offset:-6px;border-radius:50%}
+  /* the power that is open: its dot grows and the other two shrink a little */
+  .mpw:has([aria-current]) button::before{transform:scale(.72)}
+  .mpw button[aria-current]::before{transform:scale(1.3)}
   .menu-tools{grid-column:3!important}
   .menu .ham{margin-right:-12px}
 }
@@ -1442,7 +1447,7 @@ h1[tabindex="-1"]:focus{outline:none}
 <button class="back-arrow" id="back-arrow" type="button" aria-label="Voltar" title="Voltar" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <header class="menu">
   <div class="brand-wrap"><a class="brand" href="#" data-nav="home" aria-label="Coisa Pública"><span aria-hidden="true">C<i class="brand-o"></i>isa Pública</span></a><span class="today-date" id="today-date"></span></div>
-  <div class="mpw" role="group" aria-label="Os três poderes"><button type="button" data-pw="pres" data-grp="exec">Executivo</button><button type="button" data-pw="cong" data-grp="leg">Legislativo</button><button type="button" data-pw="stf" data-grp="jud">Judiciário</button></div>
+  <div class="mpw" role="group" aria-label="Os três poderes"><button type="button" data-pw="pres" data-grp="exec" aria-label="Executivo" title="Executivo">Executivo</button><button type="button" data-pw="cong" data-grp="leg" aria-label="Legislativo" title="Legislativo">Legislativo</button><button type="button" data-pw="stf" data-grp="jud" aria-label="Judiciário" title="Judiciário">Judiciário</button></div>
   <nav aria-label="Poderes">
     <div class="nav-grp nav-grp-exec" data-grp="exec">
       <button type="button" class="nav-leg" aria-expanded="false" aria-controls="nav-sub-exec">Executivo<span class="nav-car" aria-hidden="true"></span></button>
@@ -3668,13 +3673,13 @@ const NAV_LINKS = [...document.querySelectorAll('.menu [data-nav]:not(.brand)')]
 let navHere;
 setInterval(()=>{
   if (document.hidden) return;
-  const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey==='s:' ? 'sobre' : instKey && instKey.startsWith('b:') ? 'busca' : instKey) : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey;
+  const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey==='s:' ? 'sobre' : instKey && instKey.startsWith('b:') ? 'busca' : instKey) : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey || (landing.hidden ? 'plano' : null);
   if (here===navHere) return; navHere = here;
   NAV_LINKS.forEach(a=>{ if (a.dataset.nav===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   hdd.querySelectorAll('[data-k]').forEach(a=>{ if (a.dataset.k===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   mdr.querySelectorAll('[data-k]').forEach(a=>{ if (a.dataset.k===(here||'home')) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   document.querySelectorAll('.nav-sub [data-route]').forEach(a=>{ if (a.dataset.route===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
-  const grp = here==='senado'||here==='camara' ? 'leg' : here==='pres'||/^m:/.test(here||'') ? 'exec' : here==='stf'||/^t:/.test(here||'') ? 'jud' : '';
+  const grp = here==='senado'||here==='camara'||here==='plano' ? 'leg' : here==='pres'||/^m:/.test(here||'') ? 'exec' : here==='stf'||/^t:/.test(here||'') ? 'jud' : '';
   NAV_GRPS.forEach(g=>{ if (g.dataset.grp===grp) grpBtn(g).setAttribute('aria-current','page'); else grpBtn(g).removeAttribute('aria-current'); });
   document.querySelectorAll('.mpw [data-grp]').forEach(b=>{ if (b.dataset.grp===grp) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
 }, 200);
