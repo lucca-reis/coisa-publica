@@ -420,10 +420,11 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .mpw button:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
   .mpw button[aria-current]{background:var(--ink);color:var(--bg)}
   .menu-tools{grid-column:3!important}
+  .menu .ham{margin-right:-12px}
 }
 /* phone: no spheres; they stay in the page, invisible and tiny in the middle of the screen, so opening a power still grows from there */
 @media (max-width:700px){
-  .landing{padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 20px)}
+  .landing{padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 4px)}
   .landing > .lx-wrap{display:block;position:fixed;left:50%;top:50%;width:0;height:0;overflow:visible;opacity:0;pointer-events:none}
   .landing > .lx-wrap .lx{--u:.1px;position:absolute;left:0;top:0;width:60px;transform:translate(-50%,-50%);gap:0}
   .landing > .lx-wrap .lx-text{display:none}
@@ -882,7 +883,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .tl.feed{padding-right:8px}
 @media (max-width:560px){ .c-meta{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .card{padding:14px 16px 16px;border-radius:18px} }
 @media (max-width:700px){
-  .landing{--lx-gap:28px;padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-gap) + 24px)}
+  .landing{--lx-gap:28px;padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 12px)}
   /* phone: the circles as wide as the cards, one above the other */
   .landing .lx{--u:calc((min(100vw, 980px) - 32px) / 308);display:flex;flex-direction:column;align-items:stretch;gap:calc(34 * var(--u))}
   .landing .lx-shape svg{margin:0 calc(-6 * var(--u))}
@@ -2256,7 +2257,15 @@ document.querySelector('.mpw')?.addEventListener('click', e=>{
   e.stopPropagation(); if (!mdr.hidden) mdrOpen(false);
   const k = b.dataset.pw, home = !landing.hidden && !openView() && !openKey && inst.hidden && (!location.hash || location.hash==='#');
   if (home){ document.getElementById({stf:'lg-stf', pres:'lg-pres', cong:'mini'}[k]).dispatchEvent(new MouseEvent('click', {bubbles:true})); return; }
-  navTo({stf:'stf', pres:'pres', cong:'camara'}[k]);
+  // Legislativo goes to the chooser between Senado and Câmara, never straight into a house
+  if (k==='cong'){
+    resetLayers();
+    const cur = openView();
+    if (cur){ hideViewNow(VIEWS[cur]); landing.hidden = false; landing.classList.remove('leaving'); setTimeout(()=> enterPlan(), 30); return; }
+    if (landing.hidden){ if (openKey) close(); return; }
+    enterPlan(); return;
+  }
+  navTo({stf:'stf', pres:'pres'}[k]);
 });
 document.querySelector('.lx')?.addEventListener('click', e=>{
   const b = e.target.closest('[data-open]'); if (!b) return;
@@ -3010,7 +3019,8 @@ function renderToday(){
   const t = todayISO(), [y,m,d] = t.split('-').map(Number), wd = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'][new Date(y,m-1,d).getDay()];
   document.getElementById('today-date').textContent = `${wd}, ${d} ${MO[m-1]}`;
   // the week's cards, and one page more waiting behind "Ver mais"
-  const list = feedList(null), wk0 = weekStartISO();
+  // phones show the last seven days; larger screens, the calendar week from Sunday
+  const list = feedList(null), wk0 = matchMedia('(max-width:700px)').matches ? new Date(Date.parse(todayISO()+'T12:00:00Z') - 6*864e5).toISOString().slice(0,10) : weekStartISO();
   let wkN = list.filter(x=> x.L && x.L.date >= wk0).length;
   if (!wkN && list.length){ const d0 = list[0].L ? list[0].L.date : ''; wkN = list.filter(x=> (x.L ? x.L.date : '')===d0).length; }
   todayExtra = Math.max(0, list.length - wkN);
@@ -3018,7 +3028,7 @@ function renderToday(){
     <ol class="feed" aria-label="Propostas e julgamentos, do mais recente ao mais antigo">${feedHTML(null, null, wkN + FEED_PAGE, list)}</ol>`;
   // every day of the current week shows (Sunday to Saturday, like the calendar); earlier days wait behind "Ver mais".
   // A week with nothing yet shows its most recent day instead, so the page never starts empty.
-  const days = [...todayEl.querySelectorAll('.feed .fd')], wk = weekStartISO();
+  const days = [...todayEl.querySelectorAll('.feed .fd')], wk = wk0;
   let shown = days.filter(fd=> fd.dataset.d && fd.dataset.d >= wk);
   if (!shown.length) shown = days.slice(0, 1);
   days.forEach(fd=>{ if (!shown.includes(fd)){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
@@ -3047,6 +3057,7 @@ function renderToday(){
 // screen starts at the top as usual. After "Ver mais" the margin stays, so nothing jumps.
 function centerToday(){
   const L = document.getElementById('landing'); if (!L || L.hidden || feedMore) return;
+  if (matchMedia('(max-width:700px)').matches){ if (todayEl.style.marginTop) todayEl.style.marginTop = ''; return; }
   const cur = parseFloat(todayEl.style.marginTop) || 0, r = todayEl.getBoundingClientRect(); if (!r.height) return;
   const menuH = document.querySelector('.menu').getBoundingClientRect().bottom, view = L.clientHeight - menuH;
   const top0 = r.top + L.scrollTop - cur;                       // where the block starts without the margin
