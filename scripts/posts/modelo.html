@@ -1,5 +1,5 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
-:root{--ink:#121417;--bg:#F3F3F3;--muted:#6E6F73;--card:color-mix(in srgb,#121417 5%,#F3F3F3);--k:1}
+:root{--ink:#121417;--bg:#F3F3F3;--gray:color-mix(in srgb,#121417 14%,#F3F3F3);--muted:#6E6F73;--card:color-mix(in srgb,#121417 5%,#F3F3F3);--k:1}
 *{box-sizing:border-box}html,body{margin:0}
 body{width:1080px;min-height:1350px;background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;display:flex;flex-direction:column;padding:84px 84px 64px}
 .top{display:flex;justify-content:space-between;align-items:center;font-size:30px;color:var(--muted)}
@@ -36,7 +36,7 @@ body.cheio.p-exe{--pc:#009C3B;--pci:#F3F3F3}
 .nums{display:flex;justify-content:center;gap:64px;margin-top:-26px;text-align:center}
 .nums b{display:block;font-size:calc(124px * var(--k));font-weight:700;letter-spacing:-.04em;line-height:1}
 .nums span{font-size:26px;color:var(--muted)}
-.dat{display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center;width:100%}
+.dat{display:grid;grid-template-columns:auto auto;gap:60px;align-items:center;justify-content:center}
 .dat .circ{width:calc(380px * var(--k));height:calc(380px * var(--k));border-radius:50%;background:var(--pc);color:#F3F3F3;display:grid;place-items:center}
 .dat .mesa{width:calc(400px * var(--k))}
 .dat .circ svg{width:55%}
@@ -44,4 +44,10 @@ body.cheio.p-exe{--pc:#009C3B;--pci:#F3F3F3}
 .dat b{display:block;font-size:calc(150px * var(--k));font-weight:700;letter-spacing:-.045em;line-height:.95}
 .cheio .row{width:100%;align-items:center}
 .cheio .leg2{color:var(--muted)}
+.perg{flex:1;display:flex;align-items:center}
+.perg p{margin:0;font-size:calc(104px * var(--k));line-height:1.02;letter-spacing:-.04em;font-weight:700}
+.prod{display:flex;align-items:center;gap:36px;padding:34px 0 0;border-top:3px solid var(--gray)}
+.psym svg{width:150px;display:block}
+.prod small{display:block;font-size:30px;color:var(--muted)}
+.prod b{display:block;font-size:calc(74px * var(--k));font-weight:700;letter-spacing:-.03em;line-height:1.05}
 </style></head><body></body></html>
