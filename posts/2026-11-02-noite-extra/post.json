@@ -1,0 +1,24 @@
+{
+ "id": "2026-11-02-noite-extra",
+ "periodo": "noite",
+ "data": "2026-11-02",
+ "imagem": {
+  "titulo": "Como funciona a Coisa Pública",
+  "especial": "scripts/posts/especiais/como-funciona.js"
+ },
+ "alt": "Imagem da Coisa Pública: Como funciona a Coisa Pública. Três etapas: fontes oficiais (Câmara, Senado, Supremo, Planalto e Diário Oficial), atualizado automaticamente várias vezes ao dia, e um cartão por proposta em linguagem simples. Embaixo, um cartão de exemplo, da ADI 6336, contribuição de aposentados com doenças graves, julgada em 29/10/2026 com a regra validada por 7 a 3, com quatro partes numeradas: em que poder e em que fase, que tipo de proposta é, o que aconteceu por último e o placar, cadeira por cadeira.",
+ "textos": {
+  "bluesky": "Como funciona a Coisa Pública:\n\n1. Fontes oficiais: Câmara, Senado, Supremo, Planalto e Diário Oficial.\n2. Atualizado automaticamente, várias vezes ao dia.\n3. Um cartão por proposta, em linguagem simples: poder, fase, tipo, último passo e placar.\n\ncoisapublica.io",
+  "instagram": "Como funciona a Coisa Pública? 🔎\n\n1. Fontes oficiais. Tudo começa nos sites da Câmara, do Senado, do Supremo, do Planalto e do Diário Oficial. Cada informação leva de volta à fonte de onde veio.\n\n2. Atualizado automaticamente. Pautas, votações, sessões ao vivo, gastos e contatos são atualizados automaticamente, várias vezes ao dia, a partir dos dados abertos das instituições.\n\n3. Um cartão por proposta. Cada projeto, medida provisória ou ação no Supremo vira um cartão, em linguagem simples.\n\nComo ler um cartão (exemplo real, a ADI 6336, julgada pelo STF em 29/10):\n① Em que poder está e em que fase: proposto, em andamento, suspenso ou em vigor.\n② Que tipo de proposta é: projeto de lei, PEC, medida provisória, ação no Supremo...\n③ O que aconteceu por último.\n④ O placar, cadeira por cadeira, quando a fonte divulga os votos.\n\nTocando no cartão, você vê o resumo, a autoria, as etapas e os links oficiais.\n\nLink na bio.\n\n#CoisaPública #TrêsPoderes #Transparência #DadosAbertos #Política"
+ },
+ "fontes": [
+  {
+   "l": "Coisa Pública",
+   "u": "https://coisapublica.io/"
+  },
+  {
+   "l": "STF: regra sobre isenção de servidores incapacitados é validada (29/10)",
+   "u": "https://noticias.stf.jus.br/postsnoticias/stf-valida-regra-que-altera-isencao-de-contribuicao-previdenciaria-sobre-aposentadoria-de-servidores-incapacitados/"
+  }
+ ]
+}
