@@ -800,6 +800,23 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .lvc-links a,.lvc-links button{all:unset;cursor:pointer;font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
 .lvc-links a:hover,.lvc-links button:hover{text-decoration-color:currentColor}
 .lvc-links a:focus-visible,.lvc-links button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
+.lvs-row{display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:12px;align-items:stretch}
+.lvs-row > .lvc{container-type:inline-size;min-width:0}
+.lvc-av{margin-left:-2px}
+/* narrow cards (two or three side by side): tighter type, the links stay but smaller */
+@container (max-width:300px){
+  .lvc-t{font-size:15px}
+  .lvc-links{gap:6px 12px}.lvc-links a,.lvc-links button{font-size:12.5px}
+  .lvc-ph span{font-size:12px;padding:8px 12px;gap:8px}
+}
+@container (max-width:190px){
+  .lvc-since,.lvc-av{display:none}
+  .lvc-pill{font-size:11.5px;padding:5px 10px 5px 8px}
+  .lvc-t{font-size:13.5px}
+  .lvc-links a{display:none}
+  .lvc-ph span{font-size:0;padding:9px 10px 9px 13px;gap:0}
+}
+@media (max-width:560px){ .lvs-row{gap:8px} .lvs-row:not([style*="--n:1"]) > .lvc{padding:12px 12px 14px;border-radius:16px;gap:8px} }
 .today-h{margin:0;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .feed-live{display:block;width:100%}
 .feed-live .lv-tag{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin:0;font-size:12px;line-height:1;color:#E0242B;padding:6px 11px 6px 9px;border-radius:999px;background:color-mix(in srgb, #E0242B 10%, var(--bg))}
@@ -2270,13 +2287,14 @@ function liveSection(on){
       : `<div class="lv-video"><a class="lvc-ph" href="${go.u}" target="_blank" rel="noopener" aria-label="${esc(go.l)}"><span>Assistir na ${esc(L.name)}</span></a></div>`;
     const links = L.links.map(x=> `<a href="${x.u}" target="_blank" rel="noopener">${esc(x.l)} ↗</a>`).join('');
     return `<article class="lvc" aria-label="${esc(n)} ao vivo">
-      <div class="lvc-top"><span class="lvc-pill ${pwClass(k)}"><span class="lv-dot" aria-hidden="true"></span>${n} · ao vivo</span><span class="lvc-since">desde as ${h}</span></div>
+      <div class="lvc-top"><span class="lvc-pill ${pwClass(k)}"><span class="lv-dot" aria-hidden="true"></span>${n}<span class="lvc-av">· ao vivo</span></span><span class="lvc-since">desde as ${h}</span></div>
       <p class="lvc-t">${esc(String(st.day.kind||'Sessão').trim().replace(/^(SESS[ÃA]O)/, 'Sessão').toLowerCase().replace(/^./, c=> c.toUpperCase()))}</p>
       ${video}
       <div class="lvc-links"><button type="button" class="lv-tag" data-go="${k}">Ver a pauta no site</button>${links}</div>
     </article>`;
   }).join('');
-  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p>${cards}</section>`;
+  // two or three at once share the width, side by side
+  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p><div class="lvs-row" style="--n:${on.length}">${cards}</div></section>`;
 }
 function liveBox(key){
   const st = liveState(key), L = LIVE[key];
