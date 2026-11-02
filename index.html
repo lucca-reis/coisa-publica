@@ -292,7 +292,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 .nav-sub a:hover{background:color-mix(in srgb, var(--ink) 5%, var(--bg));color:var(--ink)}
 .nav-sub a[aria-current="page"]{background:color-mix(in srgb, var(--ink) 8%, var(--bg));color:var(--ink)}
 .nav-grp.open .nav-sub{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .18s, transform .18s}
-@media (hover:hover){ .nav-grp:hover .nav-sub{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .18s, transform .18s} .nav-grp:hover .nav-car{transform:translateY(1px) rotate(-135deg)} }
+@media (hover:hover){ .nav-grp:focus-within .nav-sub,.nav-grp:hover .nav-sub{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .18s, transform .18s} .nav-grp:hover .nav-car{transform:translateY(1px) rotate(-135deg)} }
 .menu nav > a{flex:1 1 0;text-align:center;padding:7px 10px;border-radius:999px;color:color-mix(in srgb, var(--ink) 72%, var(--bg));transition:background-color .2s, color .2s, box-shadow .2s}
 .menu nav a:hover{color:var(--ink)}
 .menu nav a:hover{background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
@@ -3701,7 +3701,10 @@ document.querySelectorAll('.menu [data-nav]').forEach(a=>a.addEventListener('cli
   e.preventDefault(); e.stopPropagation(); legOpen(false); a.blur(); navTo(a.dataset.nav);
 }));
 NAV_GRPS.forEach(g=>{
-  grpBtn(g).addEventListener('click', e=>{ e.stopPropagation(); const on = !g.classList.contains('open'); legOpen(false); grpOpen(g, on); });
+  // a click goes straight where the circle of the home page goes (the same as the dots of the phone menu);
+  // the list of the power still opens on hover and with the keyboard
+  grpBtn(g).addEventListener('click', e=>{ e.stopPropagation(); legOpen(false); grpBtn(g).blur(); document.querySelector(`.mpw [data-grp="${g.dataset.grp}"]`)?.click(); });
+  grpBtn(g).addEventListener('keydown', e=>{ if (e.key==='ArrowDown'){ e.preventDefault(); grpOpen(g, true); g.querySelector('.nav-sub a, .nav-sub button')?.focus(); } });
   g.addEventListener('mouseleave', ()=>{ if (matchMedia('(hover:hover) and (min-width:761px)').matches) grpOpen(g, false); });
   g.addEventListener('focusout', e=>{ if (e.relatedTarget && !g.contains(e.relatedTarget)) grpOpen(g, false); });
   g.addEventListener('keydown', e=>{ if (e.key==='Escape' && g.classList.contains('open')){ e.stopPropagation(); grpOpen(g, false); grpBtn(g).focus(); } });
@@ -4562,7 +4565,7 @@ function vgCadeiras(){
   const seats = [[345,450],[450,450],[240,450],[533,360],[157,360],[533,285],[157,285],[533,210],[157,210],[533,135],[157,135]];
   const by = {}; STF_MIN.forEach(m=>{ const k = m.vacant ? 'Vaga' : m.by; by[k] = (by[k]||0)+1; });
   const stf = `<div class="vc-h vc-stf"><h3>Supremo <span>11 cadeiras</span></h3><svg viewBox="80 25 530 530" aria-hidden="true"><circle cx="345" cy="290" r="265" fill="var(--bg)"/><g transform="translate(345 290) scale(.62) translate(-345 -283)"><path d="M195 96 L195 412 L495 412 L495 96 L449 96 L449 366 L241 366 L241 96 Z" fill="none" stroke="var(--rule)" stroke-width="3" stroke-linejoin="round"/>${seats.map(([x,y],i)=>{ const m = STF_MIN[i]; return `<circle cx="${x}" cy="${y}" r="19" fill="${m && !m.vacant ? (STF_BY_COLOR[m.by]||'var(--ink)') : 'var(--nc)'}"/>`; }).join('')}</g></svg><ul class="vc-leg">${Object.entries(by).sort((a,b)=> b[1]-a[1]).map(([k,n])=>`<li><i style="background:${STF_BY_COLOR[k]||'var(--nc)'}"></i>${k==='Vaga'?'vaga':esc(PRES_SHORT[k]||k)} <b>${n}</b></li>`).join('')}</ul></div>`;
-  return `<div class="vc">${house('camara', 9, 1.25, 'Câmara')}${house('senado', 4, 2.3, 'Senado')}${stf}</div><p class="vb-note">Deputados e senadores pintados por partido; ministros do Supremo pela cor do presidente que os indicou.</p>`;
+  return `<div class="vc">${house('senado', 4, 2.3, 'Senado')}${house('camara', 9, 1.25, 'Câmara')}${stf}</div><p class="vb-note">Deputados e senadores pintados por partido; ministros do Supremo pela cor do presidente que os indicou.</p>`;
 }
 function renderVg(keep){
   const top = vg.scrollTop, all = vgStates(), t = todayISO();
