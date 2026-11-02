@@ -400,6 +400,38 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 .bs-g{display:flex;flex-direction:column}
 .inst-w.bs{gap:28px}
 /* Quem somos */
+.qs{gap:40px}
+.qs .qs-sec{max-width:none}
+.qs .qs-sec ul.qs-src{padding:0}
+.qs .qs-who p{max-width:72ch}
+.qs-hero h1{margin:0}
+.qs-big{margin:14px 0 0;font-size:clamp(24px,3.4vw,38px);line-height:1.15;letter-spacing:-.025em;max-width:22ch;text-wrap:balance}
+.qs-pw{display:flex;gap:8px;margin-top:20px}.qs-pw i{width:14px;height:14px;border-radius:50%}
+.qs-nums{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.qs-nums li{background:color-mix(in srgb, var(--ink) 5%, var(--bg));border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.qs-nums b{font-size:30px;font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.qs-nums span{font-size:13px;line-height:1.35;color:var(--muted)}
+.qs-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.qs-card{background:color-mix(in srgb, var(--ink) 5%, var(--bg));border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.qs-card i{width:12px;height:12px;border-radius:50%}
+.qs-card b{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.qs .qs-card p{font-size:14px;line-height:1.5;color:color-mix(in srgb, var(--ink) 78%, var(--bg))}
+.qs-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;counter-reset:f}
+.qs-flow li{position:relative;border-radius:18px;padding:18px;box-shadow:inset 0 0 0 1px var(--rule);display:flex;flex-direction:column;gap:6px}
+.qs-flow svg{margin-bottom:6px}
+.qs-flow b{font-size:17px;font-weight:600}
+.qs-flow span{font-size:14px;line-height:1.5;color:color-mix(in srgb, var(--ink) 78%, var(--bg))}
+.qs-flow li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translate(50%,-50%);font-size:15px;color:var(--muted);background:var(--bg);line-height:1;padding:2px 0;z-index:1}
+.qs-tour{margin:4px 0 0}
+.qs-tour button{all:unset;cursor:pointer;font-size:14px;font-weight:600;padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.qs-tour button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.qs-src{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.qs-src a{display:inline-block;font-size:13.5px;padding:7px 13px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg));text-decoration:none}
+.qs-src a:hover{background:color-mix(in srgb, var(--ink) 10%, var(--bg))}
+.qs-more{max-width:72ch;font-size:15px;line-height:1.6}
+.qs-more summary{cursor:pointer;font-size:14px;color:var(--muted)}
+.qs-more p{margin:8px 0 0}.qs-more a{color:inherit}
+@media (max-width:640px){ .qs-cards,.qs-flow{grid-template-columns:minmax(0,1fr)} .qs-flow li:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-9px;transform:translate(50%,50%)} .qs-nums{grid-template-columns:repeat(2,minmax(0,1fr))} }
 .qs-sec{display:flex;flex-direction:column;gap:10px;max-width:72ch}
 .qs-sec h2{margin:0;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .qs-sec p{margin:0;font-size:16px;line-height:1.6}
@@ -5056,38 +5088,40 @@ inst.addEventListener('click', e=>{
 /* ---------- Quem somos (#quem-somos) ---------- */
 function aboutHTML(){
   const a = (u,t)=> `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
-  return `<div class="cw inst-w">
-    <header class="cw-head"><div><p class="inst-eye">Sobre o site</p><h1 id="inst-title">Quem somos</h1></div></header>
-    <p class="inst-lede">A Coisa Pública reúne num só lugar o que acontece nos Três Poderes: o que o Congresso vota, o que o Supremo julga, o que o presidente assina e quanto cada órgão gasta, em linguagem simples e sempre com a fonte oficial ao lado.</p>
-    <section class="qs-sec"><h2>A proposta</h2>
-      <p>Acompanhar a política em Brasília costuma exigir abrir dezenas de sites, ler textos técnicos e juntar as peças sozinho. A Coisa Pública faz esse trabalho de reunir e organizar: cada proposta vira um cartão que mostra por onde passou, quem votou e o que vem depois.</p>
-      <p>O site não dá opinião, não apoia partido nem candidato e não comenta se um gasto é alto ou baixo. Mostra os dados como os órgãos publicam, para que cada pessoa tire as próprias conclusões.</p></section>
-    <section class="qs-sec"><h2>Quem faz</h2>
-      <p>A Coisa Pública foi criada, desenhada e desenvolvida por <b>${esc(SITE_INFO.autor)}</b>, comunicador e designer formado em Mídia e Comunicação pela Unicamp. É um projeto independente, sem vínculo com governo, partido ou órgão público.</p></section>
-    <section class="qs-sec"><h2>De onde vêm os dados</h2>
-      <p>Só de fontes oficiais e públicas:</p>
-      <ul>
-        <li>${a('https://dadosabertos.camara.leg.br','Dados abertos da Câmara dos Deputados')}: deputados em exercício, sessões, votações nominais, propostas e cota parlamentar;</li>
-        <li>${a('https://www12.senado.leg.br/dados-abertos','Dados abertos do Senado Federal')}: senadores em exercício, sessões, votações, cota parlamentar e as enquetes do e-Cidadania;</li>
-        <li>${a('https://portal.stf.jus.br','Supremo Tribunal Federal')} e os sites dos tribunais superiores: julgamentos, composição e notícias;</li>
-        <li>${a('https://www.gov.br/planalto','Planalto')} e ${a('https://www.in.gov.br','Diário Oficial da União')}: medidas provisórias, sanções, vetos e ministérios;</li>
-        <li>${a('https://portaldatransparencia.gov.br','Portal da Transparência (CGU)')} e ${a('https://siconfi.tesouro.gov.br','Tesouro Nacional (SICONFI)')}: cartões de pagamento, orçamento e despesa com pessoal;</li>
-        <li>${a('https://dadosabertos.tse.jus.br','Dados abertos do TSE')}: resultados das eleições;</li>
-        <li>agências oficiais de notícias (Agência Câmara, Agência Senado, STF Notícias, Agência Brasil) para os textos de cada proposta.</li>
-      </ul>
-      <p>Toda informação tem a fonte a um toque, no ícone “i”. Quando a fonte não informa algo, o site escreve “não informado” em vez de estimar.</p><p><a href="#" data-tour>Ver o tour do site de novo ↗</a></p></section>
+  const ico = d=> `<svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+  const nCards = (typeof CARDS!=='undefined' ? CARDS.length : 0);
+  // the full list of automatic cards loads only now; the number updates when it arrives
+  needProjetos().then(()=>{ const el = document.getElementById('qs-n'); if (el && typeof CARDS!=='undefined') el.textContent = CARDS.length.toLocaleString('pt-BR'); });
+  const src = [['Câmara dos Deputados','https://dadosabertos.camara.leg.br'],['Senado Federal','https://www12.senado.leg.br/dados-abertos'],['Supremo Tribunal Federal','https://portal.stf.jus.br'],['Planalto','https://www.gov.br/planalto'],['Diário Oficial da União','https://www.in.gov.br'],['Portal da Transparência','https://portaldatransparencia.gov.br'],['Tesouro Nacional','https://siconfi.tesouro.gov.br'],['TSE','https://dadosabertos.tse.jus.br'],['Agência Câmara, Agência Senado, STF Notícias e Agência Brasil','https://agenciabrasil.ebc.com.br']];
+  return `<div class="cw inst-w qs">
+    <header class="qs-hero"><p class="inst-eye">Sobre o site</p><h1 id="inst-title">Quem somos</h1>
+      <p class="qs-big">Os Três Poderes, num só lugar, em linguagem simples e sempre com a fonte oficial ao lado.</p>
+      <div class="qs-pw" aria-hidden="true"><i style="background:#009C3B"></i><i style="background:#F2C200"></i><i style="background:#1F4FB5"></i></div></header>
+    <ul class="qs-nums" aria-label="Em números">
+      <li><b id="qs-n">${nCards ? nCards.toLocaleString('pt-BR') : '…'}</b><span>propostas e processos acompanhados</span></li>
+      <li><b>${typeof OCC!=='undefined' && OCC ? OCC.camara.length + OCC.senado.length : 594}</b><span>deputados e senadores, com votos, contatos e gastos</span></li>
+      <li><b>${src.length - 1}</b><span>fontes oficiais lidas direto</span></li>
+      <li><b>1 h</b><span>entre uma atualização automática e outra</span></li>
+    </ul>
+    <section class="qs-sec"><h2>Três princípios</h2>
+      <div class="qs-cards">
+        <div class="qs-card"><i style="background:#009C3B"></i><b>Fonte a um toque</b><p>Cada informação leva ao site oficial de onde veio, no ícone “i”. Quando a fonte não informa, o site escreve “não informado”.</p></div>
+        <div class="qs-card"><i style="background:#F2C200"></i><b>Sem opinião</b><p>Não apoia partido nem candidato e não diz se um gasto é alto ou baixo. Mostra os dados como os órgãos publicam.</p></div>
+        <div class="qs-card"><i style="background:#1F4FB5"></i><b>Linguagem simples</b><p>Cada proposta vira um cartão que conta por onde passou, quem votou e o que vem depois, sem juridiquês.</p></div>
+      </div></section>
     <section class="qs-sec"><h2>Como funciona</h2>
-      <p>Uma parte do site é atualizada automaticamente: pequenos programas buscam os dados oficiais em horários marcados e guardam o resultado em arquivos que o site lê.</p>
-      <ul>
-        <li>de hora em hora: sessões ao vivo da Câmara e do Senado, notícias dos tribunais e ministérios e as enquetes;</li>
-        <li>todo dia: quem ocupa cada cadeira do Congresso, votações nominais, leis aprovadas, cota parlamentar e cartões de pagamento;</li>
-        <li>toda semana: contatos dos parlamentares, orçamento, despesa com pessoal e as propostas de cada ministério.</li>
-      </ul>
-      <p>A outra parte, os resumos das propostas e a agenda da semana, é escrita à mão a partir das notícias oficiais, sempre com o link de onde veio.</p></section>
-    <section class="qs-sec"><h2>Como foi construído</h2>
-      <p>É um site estático: um único arquivo com o desenho e o funcionamento, publicado no GitHub Pages, sem anúncios, sem cadastro e sem rastrear quem visita. As atualizações automáticas rodam no GitHub Actions. O código é aberto e pode ser lido por qualquer pessoa ${a('https://github.com/lucca-reis/coisa-publica','no GitHub')}. O desenvolvimento contou com a ajuda do Claude, assistente de inteligência artificial da Anthropic.</p></section>
-    <section class="qs-sec"><h2>Limites</h2>
-      <p>Os dados oficiais às vezes atrasam ou mudam depois de publicados, e as atualizações automáticas dependem dos sites dos órgãos estarem no ar. Ministros, ministros do Supremo e presidentes de tribunais são conferidos à mão. Achou um erro? ${SITE_INFO.email ? `Escreva para <a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a> ou abra` : 'Abra'} um aviso ${a('https://github.com/lucca-reis/coisa-publica/issues','no GitHub')}.</p></section>
+      <ol class="qs-flow">
+        <li>${ico('<path d="M9 4h10l6 6v18H9z"/><path d="M19 4v6h6M13 16h8M13 21h8"/>')}<b>Publicado</b><span>Diário Oficial, pautas, votações e julgamentos saem nos sites oficiais.</span></li>
+        <li>${ico('<ellipse cx="16" cy="8" rx="9" ry="3.5"/><path d="M7 8v16c0 2 4 3.5 9 3.5s9-1.5 9-3.5V8M7 16c0 2 4 3.5 9 3.5s9-1.5 9-3.5"/>')}<b>Processado</b><span>Nosso sistema busca tudo automaticamente: de hora em hora, todo dia ou toda semana, conforme o dado.</span></li>
+        <li>${ico('<rect x="4" y="6" width="17" height="13" rx="2"/><path d="M9 24h7M12.5 19v5"/><rect x="21" y="11" width="8" height="15" rx="2"/>')}<b>Explicado</b><span>Vira cartão no site e post no ${SITE_INFO.instagram ? a('https://www.instagram.com/'+SITE_INFO.instagram+'/','Instagram') : 'Instagram'}. Resumos e agenda são escritos à mão, sempre com o link de onde vieram.</span></li>
+      </ol>
+      <p class="qs-tour"><button type="button" data-tour>Fazer o tour do site</button></p></section>
+    <section class="qs-sec"><h2>De onde vêm os dados</h2>
+      <ul class="qs-src">${src.map(([l,u])=>`<li>${a(u, l+' ↗')}</li>`).join('')}</ul></section>
+    <section class="qs-sec qs-who"><h2>Quem faz</h2>
+      <p><b>${esc(SITE_INFO.autor)}</b>, comunicador e designer formado em Mídia e Comunicação pela Unicamp, criou, desenhou e desenvolveu o site. Projeto independente, sem vínculo com governo, partido ou órgão público, sem anúncios, sem cadastro e sem rastrear quem visita. O código é aberto ${a('https://github.com/lucca-reis/coisa-publica','no GitHub')}, e o desenvolvimento contou com a ajuda do Claude, da Anthropic.</p></section>
+    <details class="qs-more"><summary>Limites e como avisar um erro</summary>
+      <p>Os dados oficiais às vezes atrasam ou mudam depois de publicados, e as atualizações automáticas dependem dos sites dos órgãos estarem no ar. Ministros, ministros do Supremo e presidentes de tribunais são conferidos à mão. Achou um erro? ${SITE_INFO.email ? `Escreva para <a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a> ou abra` : 'Abra'} um aviso ${a('https://github.com/lucca-reis/coisa-publica/issues','no GitHub')}.</p></details>
   </div>`;
 }
 // latest official news of each court and ministry, from data/instituicoes.json (robot, every hour)
