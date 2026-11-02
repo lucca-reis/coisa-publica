@@ -162,8 +162,10 @@ body{box-sizing:border-box;display:grid;place-items:center;
 .proj{position:fixed;inset:0;z-index:20;background:var(--bg);overflow:auto;font-family:var(--display);
   padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
   padding-block:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 72px) calc(env(safe-area-inset-bottom, 0px) + 48px);
-  opacity:0;transition:opacity .3s}
-.proj.show{opacity:1}
+  transform:translateY(100%);transition:transform .55s cubic-bezier(.22,.8,.26,1);box-shadow:0 -12px 40px rgba(0,0,0,.08)}
+/* the full page of a project rises from the bottom and fills the screen; closing sends it back down */
+.proj.show{transform:none}
+@media (prefers-reduced-motion:reduce){ .proj{transition:none} }
 .proj[hidden]{display:none!important}
 .pj{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
 .pj-card{display:flex;flex-direction:column;gap:clamp(24px,3.6vw,40px);padding:clamp(20px,3.6vw,44px);border-radius:clamp(22px,2.6vw,32px);background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
@@ -1161,7 +1163,7 @@ a.ag-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .card.open .c-head{padding-bottom:0;grid-template-rows:minmax(50px,1fr) auto minmax(18px,.4fr)}
 .c-main:has(.c-vline) .c-text{padding-right:88px}
 .c-main:has(.xm) .c-text{padding-right:118px}
-@media (max-width:560px){ .card{padding-top:0;padding-bottom:0} .card .c-head{grid-template-rows:minmax(44px,1fr) auto minmax(44px,1fr)} .card.open .c-head{grid-template-rows:minmax(44px,1fr) auto minmax(14px,.4fr)} .c-head .c-vline{right:14px;bottom:16px} .c-main:has(.c-vline) .c-text{padding-right:64px} .c-main:has(.xm) .c-text{padding-right:86px} }
+@media (max-width:560px){ .card{padding-top:0;padding-bottom:0} .card .c-head{grid-template-rows:minmax(54px,1fr) auto minmax(44px,1fr)} .card.open .c-head{grid-template-rows:minmax(54px,1fr) auto minmax(14px,.4fr)} .c-head .c-vline{right:14px;bottom:16px} .c-main:has(.c-vline) .c-text{padding-right:64px} .c-main:has(.xm) .c-text{padding-right:86px} }
 .c-vline .mv-leg{flex-direction:row;column-gap:8px}
 .c-vline .mv-leg em,.c-vline .mv-x{display:none}
 .mv-leg em{font-style:normal}
@@ -1461,7 +1463,7 @@ h1[tabindex="-1"]:focus{outline:none}
 /* phones: slightly smaller tags so both fit on one line; when they still wrap, the band under the text keeps its own height
    instead of growing to match the taller band of tags */
 @media (max-width:560px){
-  .card .c-top > .c-pill,.card .c-top > .c-type{font-size:11.5px;padding:5px 9px}
+  .card .c-top > .c-pill,.card .c-top > .c-type{font-size:11.5px;padding:5px 9px} .card .c-top{padding-top:17px;padding-bottom:12px}
   .card .c-head{grid-template-rows:minmax(44px,auto) auto minmax(44px,1fr)}
 }
 /* the kind of proposal, next to the power: its own colour (never the powers' green, yellow or blue); a click opens its category */
@@ -3100,7 +3102,20 @@ function cardClick(e){
   const h = e.target.closest('.c-head'); if (!h) return false;
   e.stopPropagation();
   const card = h.closest('.card'), body = card.querySelector('.c-body'), open = h.getAttribute('aria-expanded')!=='true';
-  h.setAttribute('aria-expanded', String(open)); body.hidden = !open; card.classList.toggle('open', open);
+  h.setAttribute('aria-expanded', String(open));
+  // the card grows (or shrinks) smoothly to its new height, and what appears fades in
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches || !card.animate;
+  if (card._anim){ card._anim.cancel(); card._anim = null; }
+  const h0 = card.getBoundingClientRect().height;
+  body.hidden = !open; card.classList.toggle('open', open);
+  if (still) return true;
+  const h1 = card.getBoundingClientRect().height;
+  if (!open){ body.hidden = false; }   // keep the text visible while the card closes
+  card.style.overflow = 'hidden';
+  const a = card._anim = card.animate([{height:h0+'px'},{height:h1+'px'}], {duration:open ? 380 : 300, easing:'cubic-bezier(.22,.8,.26,1)'});
+  if (open) body.animate([{opacity:0, transform:'translateY(-6px)'},{opacity:1, transform:'none'}], {duration:360, delay:60, easing:'ease-out', fill:'backwards'});
+  else body.animate([{opacity:1},{opacity:0}], {duration:180, fill:'forwards'});
+  a.onfinish = a.oncancel = ()=>{ card.style.overflow = ''; card._anim = null; if (!open){ body.hidden = true; body.getAnimations().forEach(x=> x.cancel()); } };
   return true;
 }
 function feedList(key, only){
@@ -5177,7 +5192,9 @@ function showRoute(){
     proj.querySelector('.pj-title').setAttribute('tabindex','-1');
     proj.querySelector('.pj-title').focus({preventScroll:true});
   } else if (!proj.hidden){
-    proj.classList.remove('show'); proj.hidden = true; proj.innerHTML = '';
+    proj.classList.remove('show');
+    const gone = ()=>{ if (!proj.classList.contains('show')){ proj.hidden = true; proj.innerHTML = ''; } };
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) gone(); else setTimeout(gone, 560);
     document.title = cal.hidden ? 'Coisa Pública' : 'Calendário · Coisa Pública';
     if (projFocus && projFocus.focus) projFocus.focus({preventScroll:true});
   }
