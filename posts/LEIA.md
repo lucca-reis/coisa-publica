@@ -11,13 +11,26 @@ Três posts por dia, cada um com imagem e texto, sempre aprovados pelo Lucca ant
 
 Segredos do GitHub (Settings > Secrets and variables > Actions): `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD`, `IG_USER_ID`, `IG_TOKEN`. Rede sem segredo é pulada e o post espera.
 
-## Assunto de cada horário
+## Calendário dos posts
 
-- **Manhã (sai por volta das 7h):** o que está marcado para hoje ou para a semana: sessões do Plenário da Câmara e do Senado, julgamentos e audiências do STF, prazos (sanção, MPs). Fonte: `AGENDA` e `PENDING` no `index.html`, `data/live.json`.
-- **Tarde (por volta das 12h):** a decisão ou votação mais importante dos últimos dias, com placar quando a fonte informar (`votes.tally` em `PROJECTS`; `data/votos.json`).
-- **Noite (por volta das 18h):** o que fica pendente ou mudou no dia: aguardando sanção, MPs perto de perder a validade, resultado do dia, enquetes do e-Cidadania em alta (`data/consultas.json`).
-- Se não houver nada novo para o horário, um post explicativo: o que é uma MP, uma PEC, uma ADI (as explicações de `CATS` no `index.html`), como funciona a sanção, quantos votos uma PEC precisa.
-- Não repetir um assunto já postado nos últimos 3 dias (olhar as pastas em `posts/` e as branches `post/*` abertas).
+Horário de Brasília. A tarefa agendada roda todo dia às 6h37, 11h37 e 17h37 e decide pelo calendário abaixo o que fazer; se o horário não tem post, ela para sem fazer nada.
+
+| Dia | Manhã (6h37) | Tarde (11h37) | Noite (17h37) |
+|---|---|---|---|
+| Segunda a quinta | Ordem do dia | Você sabia? | Projeto em tramitação |
+| Sexta | Ordem do dia | Você sabia? | Resumo da semana |
+| Sábado | — | — | — |
+| Domingo | — | Planos da semana | — |
+| Último dia útil do mês | (como no dia da semana) | + Planos do mês seguinte | + Resumo do mês |
+
+- **Ordem do dia (manhã, id `AAAA-MM-DD-manha`):** o que está marcado para hoje nos Três Poderes: sessões do Plenário da Câmara e do Senado, sessões do Congresso, julgamentos do STF, agenda do presidente, prazos de sanção e de MPs que vencem hoje. Se não há nada oficialmente marcado para o dia, o post diz isso ("Hoje não há sessões nem julgamentos marcados nos Três Poderes"), sem inventar assunto. Fonte: `AGENDA` e `PENDING` no `index.html`, `data/live.json`, `data/instituicoes.json`.
+- **Você sabia? (tarde, id `AAAA-MM-DD-tarde`):** post educativo, com o título começando por "Você sabia?". Assunto sorteado entre: o que faz um órgão (Câmara, Senado, Congresso, STF, STJ, TST, TSE, STM, TCU, MPU, DPU; `COURTS`, `aboutHTML`), o que faz um ministério (`EXEC_MIN`, `data/ministerios.json`), quem ocupa um cargo (presidente, vice, presidentes da Câmara e do Senado, ministros de Estado, ministros do STF, presidentes de tribunais; só cargo, partido, estado, desde quando e como chegou ao cargo, sem opinião nem vida pessoal), como funciona um tipo de proposta (as explicações de `CATS`) ou uma regra do processo (sanção e veto, quórum de PEC, prazo de MP, urgência, votação nominal e simbólica). Não repetir o mesmo assunto nos últimos 30 dias.
+- **Projeto em tramitação (noite de segunda a quinta, id `AAAA-MM-DD-noite`):** um projeto ou processo que está andando agora (Câmara, Senado, sanção ou STF), explicado em linguagem simples: o que muda, onde está, qual o próximo passo e o placar, se já houve votação. Prioridade para o que foi votado ou pautado nos últimos dias (`PROJECTS`, `data/projetos.json`, `data/votos.json`). Não repetir o mesmo projeto nos últimos 14 dias, a não ser que ele tenha andado.
+- **Resumo da semana (noite de sexta, id `AAAA-MM-DD-noite`):** o que aconteceu de segunda a sexta: votações com resultado, julgamentos concluídos, sanções e vetos, MPs editadas. Lista de até 3 itens na imagem e o resto na legenda.
+- **Planos da semana (domingo à tarde, id `AAAA-MM-DD-tarde`):** o que está marcado de segunda a sexta seguintes: pautas, julgamentos, prazos. Lista de até 3 itens na imagem, por dia.
+- **Último dia útil do mês:** além dos posts normais do dia, dois a mais. À tarde, **Planos do mês seguinte** (id `AAAA-MM-DD-tarde-mes`): datas já marcadas para o mês que vem (pautas, julgamentos, prazos de MPs e de sanção, recesso). À noite, **Resumo do mês** (id `AAAA-MM-DD-noite-mes`): o que aconteceu no mês, com números quando a fonte der (quantas leis sancionadas, MPs editadas, votações no Plenário). Se esse dia for uma sexta, a noite tem o resumo da semana e o resumo do mês. Cada post extra vai na sua própria branch `post/<id>`.
+- **Dia útil:** segunda a sexta, menos os feriados nacionais (1/1, Carnaval e Quarta-feira de Cinzas, Sexta-feira Santa, 21/4, 1/5, Corpus Christi, 7/9, 12/10, 2/11, 15/11, 20/11, 25/12). Nos feriados, a ordem do dia diz que não há sessões oficiais, se for o caso.
+- Se um horário não tiver nenhum dado novo para o assunto dele, use outro "Você sabia?" no lugar, nunca invente.
 
 ## Regras (as mesmas do site)
 

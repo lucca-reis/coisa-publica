@@ -65,7 +65,7 @@ def instagram(post, pid):
 
 redes = {'bluesky': (bool(BSKY_H and BSKY_P), bluesky), 'instagram': (bool(IG_ID and IG_TOKEN), instagram)}
 falhas = 0
-for d in sorted(p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\d{2}-\d{2}-(manha|tarde|noite|apresentacao-\d+)$', p.name)):
+for d in sorted(p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\d{2}-\d{2}-((manha|tarde|noite)(-mes)?|apresentacao-\d+)$', p.name)):
     post, img, feito_f = d / 'post.json', d / 'imagem.jpg', d / 'publicado.json'
     if not post.exists() or not img.exists(): continue
     P = json.loads(post.read_text(encoding='utf-8'))
