@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-02T03:02-03:00",
+ "atualizado": "2026-11-02T04:24-03:00",
  "camara": null,
  "senado": [
   {
@@ -64,6 +64,6 @@
   }
  ],
  "erros": [
-  "camara: HTTP Error 504: Gateway Timeout"
+  "camara: <urlopen error timed out>"
  ]
 }
