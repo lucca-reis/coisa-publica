@@ -43,7 +43,7 @@ const GLY = {
 };
 // a mesa do STF como no site: o U de cantos arredondados e as 11 cadeiras em volta
 const MESA = (()=>{ const seats = [[345,450],[450,450],[240,450],[533,360],[157,360],[533,285],[157,285],[533,210],[157,210],[533,135],[157,135]];
-  return `<svg class="mesa" viewBox="120 70 450 420"><g transform="translate(345 283) scale(1) translate(-345 -283)"><path d="M195 103 L195 392 Q195 412 215 412 L475 412 Q495 412 495 392 L495 103 Q495 96 488 96 L456 96 Q449 96 449 103 L449 354 Q449 366 437 366 L253 366 Q241 366 241 354 L241 103 Q241 96 234 96 L202 96 Q195 96 195 103 Z" fill="none" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>${seats.map(([x,y])=>`<circle cx="${x}" cy="${y}" r="22" fill="var(--ink)"/>`).join('')}</g></svg>`; })();
+  return `<svg class="mesa" viewBox="120 70 450 420"><g transform="translate(345 283) scale(1) translate(-345 -283)"><path d="M195 103 L195 392 Q195 412 215 412 L475 412 Q495 412 495 392 L495 103 Q495 96 488 96 L456 96 Q449 96 449 103 L449 354 Q449 366 437 366 L253 366 Q241 366 241 354 L241 103 Q241 96 234 96 L202 96 Q195 96 195 103 Z" fill="none" stroke="var(--gray)" stroke-width="5" stroke-linejoin="round"/>${seats.map(([x,y])=>`<circle cx="${x}" cy="${y}" r="22" fill="var(--gray)"/>`).join('')}</g></svg>`; })();
 // semicírculo grande (Câmara 513 ou Senado 81) com as primeiras `destaque` cadeiras na cor do texto
 function hemi(casa, destaque){
   const T = casa === 'senado' ? 81 : 513, rows = casa === 'senado' ? 5 : 11, R0 = 150, R1 = 330, cx = 360, cy = 360;
@@ -52,7 +52,7 @@ function hemi(casa, destaque){
   radii.forEach((r,i)=>{ const n = i===rows-1 ? T - seats.length : Math.round(T*r/sum); for (let k=0;k<n;k++){ const a = Math.PI*(1-(k+.5)/n); seats.push({x:cx + r*Math.cos(a), y:cy - r*Math.sin(a), a}); } });
   seats = seats.slice(0,T).sort((p,q)=> q.a-p.a);
   const r = casa === 'senado' ? 19 : 9.5;
-  return `<svg viewBox="0 0 720 380" width="760">${seats.map((p,i)=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${i < destaque ? 'var(--pc)' : 'color-mix(in srgb,var(--ink) 14%,var(--bg))'}"/>`).join('')}</svg>`;
+  return `<svg viewBox="0 0 720 380" width="760">${seats.map((p,i)=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${i < destaque ? 'var(--pc)' : 'var(--gray)'}"/>`).join('')}</svg>`;
 }
 function visual(V, poder){
   if (!V) return '';
