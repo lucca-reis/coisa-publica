@@ -1,0 +1,81 @@
+{
+ "id": "2026-11-03-manha",
+ "periodo": "manha",
+ "data": "2026-11-03",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "texto": "Terça, 3 de novembro, nos Três Poderes.",
+  "itens": [
+   {
+    "quando": "STF",
+    "dia": "10h",
+    "tags": [
+     {
+      "t": "STF · audiência",
+      "poder": "jud"
+     },
+     {
+      "cat": "acao",
+      "t": "ADI 8027"
+     }
+    ],
+    "titulo": "Audiência sobre a proibição das bets",
+    "texto": "O ministro Luiz Fux ouve 28 entidades sobre a MP que proíbe as apostas de quota fixa."
+   },
+   {
+    "quando": "Senado",
+    "dia": "16h",
+    "tags": [
+     {
+      "t": "Senado · Plenário",
+      "poder": "leg"
+     },
+     {
+      "cat": "pec",
+      "t": "PEC 18/2025"
+     }
+    ],
+    "titulo": "PEC da Segurança Pública",
+    "texto": "Votação marcada. Precisa de 49 votos em dois turnos."
+   },
+   {
+    "quando": "Senado",
+    "dia": "16h",
+    "tags": [
+     {
+      "t": "Senado · Plenário",
+      "poder": "leg"
+     },
+     {
+      "cat": "pdl",
+      "t": "PDS 240/2011"
+     }
+    ],
+    "titulo": "Acordo de defesa com a Guiana",
+    "texto": "Volta à pauta o acordo de cooperação assinado em 2009."
+   }
+  ],
+  "fonte": "Agência Senado e STF Notícias"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, terça, 3 de novembro. 10h, STF: o ministro Luiz Fux ouve 28 entidades em audiência pública sobre a MP que proíbe as bets (ADI 8027). 16h, Senado: votação da PEC da Segurança Pública, que precisa de 49 votos em dois turnos. 16h, Senado: o acordo de defesa entre Brasil e Guiana volta à pauta.",
+ "textos": {
+  "bluesky": "Hoje (3/11) nos Três Poderes:\n\n10h · STF ouve 28 entidades sobre a MP que proíbe as bets.\n16h · Senado vota a PEC da Segurança Pública (49 votos, dois turnos) e o acordo de defesa com a Guiana.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, terça (3/11), nos Três Poderes:\n\n10h · Supremo\nO ministro Luiz Fux ouve 28 entidades, entre clubes, CBF, COB, órgãos públicos e empresas do setor, em audiência pública sobre a medida provisória que proíbe as apostas de quota fixa, as bets (ADI 8027).\n\n16h · Senado\nNa pauta do Plenário, a PEC da Segurança Pública (PEC 18/2025). Por mudar a Constituição, precisa de 49 votos em dois turnos. Se o texto for alterado, volta para a Câmara.\n\nNa mesma sessão, volta à pauta o acordo de cooperação em defesa entre Brasil e Guiana, assinado em 2009 (PDS 240/2011).\n\nNa Câmara, a pauta da semana é definida pelos líderes partidários hoje.\n\nQuando a sessão estiver no ar, ela aparece no site em “Ao vivo agora”. Link na bio.\n\n#CoisaPública #Senado #STF #PEC #SegurançaPública #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Senado: Davi marca para terça votação da PEC da Segurança (30/10)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/10/30/davi-marca-para-terca-votacao-da-pec-da-seguranca"
+  },
+  {
+   "l": "STF: cronograma da audiência pública sobre as bets",
+   "u": "https://noticias.stf.jus.br/postsnoticias/stf-divulga-cronograma-de-audiencia-publica-sobre-proibicao-das-bets/"
+  },
+  {
+   "l": "Senado: PDS 240/2011",
+   "u": "https://www25.senado.leg.br/web/atividade/materias/-/materia/102633"
+  }
+ ]
+}
