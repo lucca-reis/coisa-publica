@@ -831,9 +831,9 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .sf-logo .brand-o{animation:none;background:var(--ink)}
 .sf-tag{margin:0;font-size:14px;line-height:1.4}
 .sf-about{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)}
-.sf-grid a.sf-social{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:color-mix(in srgb, var(--ink) 5%, var(--bg));color:color-mix(in srgb, var(--ink) 82%, var(--bg));transition:background-color .2s, color .2s}
-.sf-grid a.sf-social svg{width:17px;height:17px}
-.sf-grid a.sf-social:hover{background:color-mix(in srgb, var(--ink) 9%, var(--bg));color:var(--ink);text-decoration:none}
+/* the site's own links have no heading; they start level with the links of the other columns */
+.sf-site > ul{padding-top:29px}
+@media (max-width:760px){ .sf-site > ul{padding-top:0} }
 .sf-who{margin:18px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
 .sf-who b{font-weight:500;font-size:13.5px;color:var(--ink)}
 .sf-ver{position:absolute;right:0;bottom:12px;margin:0;font-size:11.5px;line-height:1.5;color:var(--muted)}
@@ -3169,10 +3169,9 @@ const FOOT_HTML = (()=>{
   const ext = (u, t)=> `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
   const own = [
     SITE_INFO.x && `<li>${ext('https://x.com/'+SITE_INFO.x, 'X (Twitter) · @'+esc(SITE_INFO.x))}</li>`,
-    // the site's Instagram, with a simple camera icon (a generic drawing, not the app's logo)
-    SITE_INFO.instagram && `<li><a class="sf-social" href="https://www.instagram.com/${esc(SITE_INFO.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram da Coisa Pública: @${esc(SITE_INFO.instagram)}" title="Instagram · @${esc(SITE_INFO.instagram)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3.5 8.5a2 2 0 0 1 2-2h2.3l1.4-2h5.6l1.4 2h2.3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/><circle cx="12" cy="12.8" r="3.6"/></svg></a></li>`,
-    SITE_INFO.email && `<li><a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a></li>`,
-    `<li>${ext('https://github.com/lucca-reis/coisa-publica', 'Código do site')}</li>`
+    `<li>${ext('https://github.com/lucca-reis/coisa-publica', 'Código do site')}</li>`,
+    SITE_INFO.instagram && `<li>${ext('https://www.instagram.com/'+SITE_INFO.instagram+'/', 'Instagram')}</li>`,
+    SITE_INFO.email && `<li><a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a></li>`
   ].filter(Boolean).join('');
   return `<footer class="site-foot"><div class="sf-grid">
   <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Coisa Pública, página inicial"><span aria-hidden="true">C<i class="brand-o"></i>isa Pública</span></a>
@@ -3194,7 +3193,7 @@ const FOOT_HTML = (()=>{
     <li><a href="#transparencia">Transparência</a></li>
     <li><a href="#visao-geral">Visão geral</a></li>
     <li><a href="#calendario">Calendário</a></li></ul></nav>
-  <div class="sf-site"><h2>O site</h2><ul>${own}</ul>
+  <div class="sf-site"><h2 class="sr-only">O site</h2><ul>${own}</ul>
     <p class="sf-who">Criação, design e desenvolvimento<br><b>${esc(SITE_INFO.autor)}</b></p></div>
 </div><p class="sf-legal">© ${new Date().getFullYear()} Coisa Pública · ${esc(SITE_INFO.autor)}. Site independente, sem vínculo com os órgãos citados. Os dados públicos pertencem às fontes oficiais.</p><p class="sf-ver">versão alfa 1.0</p></footer>`;
 })();
