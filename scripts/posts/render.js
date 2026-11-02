@@ -70,7 +70,8 @@ function html(P, id){
   if (!(I.itens && I.itens.length) && PODER[I.poder] && I.fundo !== 'claro'){
     const pl = I.placar;
     const mid = I.visual ? visual(I.visual, PODER[I.poder]) : pl ? `<div class="row"><div><div class="big">${esc(pl.texto || `${pl.sim} a ${pl.nao}`)}</div><div class="leg2"><span><i style="background:var(--ink)"></i>${esc((pl.rotulos||['sim'])[0])}</span><span><i style="background:#E24B4A"></i>${esc((pl.rotulos||[,'não'])[1])}</span></div></div>${plenario(pl)}</div>` : '';
-    return head + `<div class="vis">${mid}</div>` + (I.tags && I.tags.length ? `<div class="tags">${I.tags.map(tag).join('')}</div>` : '')
+    // poucos elementos: o tema, o título, o desenho, uma frase e a fonte (as etiquetas ficam na legenda)
+    return head + `<div class="vis">${mid}</div>`
       + (I.texto ? `<p class="txt">${esc(I.texto)}</p>` : '') + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>coisapublica.io</span></div>`;
   }
   if (I.itens && I.itens.length){
