@@ -66,3 +66,7 @@ Horário de Brasília. A tarefa agendada roda todo dia às 6h37, 11h37 e 17h37 e
 ## Posts de apresentação
 
 `posts/AAAA-MM-DD-apresentacao-1`, `-2` e `-3`: três posts que, lado a lado na grade do perfil, formam uma peça só (Executivo verde à esquerda, Legislativo amarelo no meio, Judiciário azul à direita, com os círculos na mesma altura). As imagens saem de `node scripts/posts/apresentacao.js`. Como o post mais novo aparece à esquerda, o `-1` (Judiciário, direita) sai primeiro e o `-3` (Executivo, esquerda) por último; o robô publica as pastas em ordem alfabética. Para a grade continuar alinhada depois, os posts do dia devem sair sempre de três em três.
+
+## Stories ao vivo
+
+Saem sozinhos, sem pedido de aprovação: quando começa uma transmissão oficial da Câmara, do Senado, do STF ou da Presidência, `.github/workflows/stories.yml` (a cada 10 minutos, das 9h às 23h) gera a arte com `scripts/posts/story-live.js` e publica um story por sessão. O que já saiu fica em `posts/stories/estado.json`. A API do Instagram não permite figurinha de link em story; a arte manda para coisapublica.io, onde a transmissão toca na seção "Ao vivo agora".
