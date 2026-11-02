@@ -1,0 +1,41 @@
+{
+ "id": "2026-11-03-noite",
+ "periodo": "noite",
+ "data": "2026-11-03",
+ "imagem": {
+  "poder": "jud",
+  "eyebrow": "Em tramitação",
+  "titulo": "Loterias municipais",
+  "tags": [
+   {
+    "t": "STF · em andamento",
+    "poder": "jud"
+   },
+   {
+    "cat": "acao",
+    "t": "ADPF 1212"
+   }
+  ],
+  "texto": "O STF julga nesta quarta (4/11) se os municípios podem criar e explorar loterias próprias. As leis municipais sobre o tema estão suspensas desde dezembro de 2025.",
+  "fonte": "STF Notícias e portal do STF"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação: Loterias municipais, ADPF 1212, no STF, em andamento. O STF julga nesta quarta, 4 de novembro, se os municípios podem criar e explorar loterias próprias. As leis municipais sobre o tema estão suspensas desde dezembro de 2025.",
+ "textos": {
+  "bluesky": "Amanhã (4/11) o STF julga se municípios podem criar e explorar loterias próprias (ADPF 1212). Desde dezembro de 2025, uma decisão do relator, Nunes Marques, suspende as leis municipais sobre o tema.\n\ncoisapublica.io",
+  "instagram": "Em tramitação ⚖️\n\nNesta quarta (4/11), o plenário do STF julga se os municípios podem criar e explorar suas próprias loterias e apostas (ADPF 1212).\n\nA ação foi proposta pelo Solidariedade. Em dezembro de 2025, o relator, ministro Nunes Marques, suspendeu em todo o país as leis e decretos municipais que criavam loterias, até o julgamento final.\n\nA análise começou no Plenário Virtual, mas um destaque do ministro Flávio Dino levou o caso ao plenário presencial.\n\nDe um lado, União, Ministério Público Federal, Caixa e seis estados defendem a suspensão. Do outro, associações de loterias municipais e a Frente Nacional de Prefeitas e Prefeitos defendem a autonomia dos municípios.\n\nO julgamento vem um dia depois da audiência pública sobre a MP que proíbe as bets.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #STF #Loterias #Municípios #Política"
+ },
+ "fontes": [
+  {
+   "l": "STF: partido entra com ação contra lotéricas municipais",
+   "u": "https://noticias.stf.jus.br/postsnoticias/partido-entra-com-acao-no-stf-contra-lotericas-municipais/"
+  },
+  {
+   "l": "ADPF 1212 no portal do STF",
+   "u": "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADPF&numeroProcesso=1212"
+  },
+  {
+   "l": "Yogonet: STF marca julgamento sobre loterias municipais para 4/11 (30/10)",
+   "u": "https://www.yogonet.com/brasil/noticias/2026/10/30/10730-stf-marca-julgamento-sobre-loterias-municipais-para-4-de-novembro"
+  }
+ ]
+}
