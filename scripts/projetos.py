@@ -150,7 +150,7 @@ IMPORTANTE = re.compile(r'(APROVAD[OA]|REJEITAD[OA]).{0,40}(PROPOSTA|PROJETO|MED
 FORA = re.compile(r'DESTAQUE|MANTIDO O TEXTO|REQUERIMENTO DE (RETIRADA|ADIAMENTO|ENCERRAMENTO|VOTACAO POR PARTES|QUEBRA)|PRORROGACAO|EMENDA N|EMENDAS? DE PLENARIO|EMENDAS? DO SENADO N|SUPRESSIV|ADITIV|MODIFICATIV|ENCERRAMENTO DA DISCUSSAO|PREFERENCIA')
 def peso(desc):
     n = norm(desc)
-    if FORA.search(n) and not re.search(r'PRIMEIRO TURNO|SEGUNDO TURNO|SUBSTITUTIVO', n): return 0
+    if FORA.search(n) and not re.search(r'PRIMEIRO TURNO|SEGUNDO TURNO|SUBSTITUTIVO|RESSALVAD', n): return 0
     if not IMPORTANTE.search(n): return 0
     if re.search(r'URGENCIA', n): return 1
     if re.search(r'REDACAO FINAL|PARECER', n): return 2
@@ -252,6 +252,8 @@ def novo(sl, **kw):
         for st in old['steps']:
             if st not in c['steps']: c['steps'].append(st)
         c['steps'].sort(key=lambda x: x[0])
+        fim = [st for st in c['steps'] if 'data do registro na Câmara' in st[1]]
+        if len(fim) > 1: c['steps'] = [st for st in c['steps'] if st not in fim[1:]]
         c['links'] += [l for l in old['links'] if l not in c['links']]; c['sources'] += [x for x in old['sources'] if x not in c['sources']]
         if old.get('votes') and (not c.get('votes') or old['votes'].get('_d', '') > c['votes'].get('_d', '')): c['votes'] = old['votes']
         if old['house'] == 'exec': c['house'] = 'exec'
@@ -300,12 +302,14 @@ for pid, p in props.items():
     votes = None
     if principais:
         # a última votação principal; se ela não tem placar e uma anterior do mesmo peso tem, mostra a que tem números
-        v = principais[-1]
-        com = [x for x in principais if any(placar(x)) and peso(x['desc']) >= 2]
-        if not any(placar(v)) and com and peso(v['desc']) <= 2: v = com[-1]
+        fortes = [x for x in principais if peso(x['desc']) == 3]
+        com = [x for x in fortes if any(placar(x))]
+        v = com[-1] if com else fortes[-1] if fortes else principais[-1]
         sim, nao = placar(v)
         dn = norm(v['desc'])
-        res = 'Rejeitado' if 'REJEITAD' in dn else 'Aprovado' if ('APROVAD' in dn or v['ap'] == '1') else 'Não informado'
+        res = re.split(r'\.\s*Sim:|\. Sim|\.\s*$', re.sub(r'\s+', ' ', v['desc']).strip(), flags=re.I)[0].strip()
+        if len(res) > 120: res = res[:120].rsplit(' ', 1)[0] + '…'
+        if not res: res = 'Rejeitado' if 'REJEITAD' in dn else 'Aprovado' if ('APROVAD' in dn or v['ap'] == '1') else 'Não informado'
         if not (sim or nao) and 'UNANIMIDADE' in dn: res += ' por unanimidade'
         votes = {'label': f'Câmara · Plenário, {br(v["d"])}', 'result': res, '_d': v['d']}
         if sim or nao: votes['tally'] = [['Votação', sim, nao]]
