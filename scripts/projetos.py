@@ -310,7 +310,7 @@ for pid, p in props.items():
         res = re.split(r'\.\s*Sim:|\. Sim|\.\s*$', re.sub(r'\s+', ' ', v['desc']).strip(), flags=re.I)[0].strip()
         if len(res) > 120: res = res[:120].rsplit(' ', 1)[0] + '…'
         if not res: res = 'Rejeitado' if 'REJEITAD' in dn else 'Aprovado' if ('APROVAD' in dn or v['ap'] == '1') else 'Não informado'
-        if not (sim or nao) and 'UNANIMIDADE' in dn: res += ' por unanimidade'
+        if not (sim or nao) and 'UNANIMIDADE' in dn and 'unanimidade' not in res.lower(): res += ' por unanimidade'
         votes = {'label': f'Câmara · Plenário, {br(v["d"])}', 'result': res, '_d': v['d']}
         if sim or nao: votes['tally'] = [['Votação', sim, nao]]
         else: votes['note'] = 'Placar não divulgado nos dados abertos (votação simbólica ou sem registro nominal).'
