@@ -831,6 +831,9 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .sf-logo .brand-o{animation:none;background:var(--ink)}
 .sf-tag{margin:0;font-size:14px;line-height:1.4}
 .sf-about{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)}
+/* the site's own links have no heading; they start level with the links of the other columns */
+.sf-site > ul{padding-top:29px}
+@media (max-width:760px){ .sf-site > ul{padding-top:0} }
 .sf-who{margin:18px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
 .sf-who b{font-weight:500;font-size:13.5px;color:var(--ink)}
 .sf-ver{position:absolute;right:0;bottom:12px;margin:0;font-size:11.5px;line-height:1.5;color:var(--muted)}
@@ -3161,14 +3164,14 @@ function weekStartISO(){
 let feedMore = false;
 // footer with useful links, placed at the end of the opening view and of every page; pages that redraw themselves get it back
 // the site's own channels; an empty one simply doesn't show in the footer
-const SITE_INFO = {autor:'Lucca Reis', x:'', instagram:'', email:''};
+const SITE_INFO = {autor:'Lucca Reis', x:'', instagram:'coisapublica.io', email:''};
 const FOOT_HTML = (()=>{
   const ext = (u, t)=> `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
   const own = [
     SITE_INFO.x && `<li>${ext('https://x.com/'+SITE_INFO.x, 'X (Twitter) · @'+esc(SITE_INFO.x))}</li>`,
-    SITE_INFO.instagram && `<li>${ext('https://www.instagram.com/'+SITE_INFO.instagram, 'Instagram · @'+esc(SITE_INFO.instagram))}</li>`,
-    SITE_INFO.email && `<li><a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a></li>`,
-    `<li>${ext('https://github.com/lucca-reis/coisa-publica', 'Código do site')}</li>`
+    `<li>${ext('https://github.com/lucca-reis/coisa-publica', 'Código do site')}</li>`,
+    SITE_INFO.instagram && `<li>${ext('https://www.instagram.com/'+SITE_INFO.instagram+'/', 'Instagram')}</li>`,
+    SITE_INFO.email && `<li><a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a></li>`
   ].filter(Boolean).join('');
   return `<footer class="site-foot"><div class="sf-grid">
   <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Coisa Pública, página inicial"><span aria-hidden="true">C<i class="brand-o"></i>isa Pública</span></a>
@@ -3190,7 +3193,7 @@ const FOOT_HTML = (()=>{
     <li><a href="#transparencia">Transparência</a></li>
     <li><a href="#visao-geral">Visão geral</a></li>
     <li><a href="#calendario">Calendário</a></li></ul></nav>
-  <div class="sf-site"><h2>O site</h2><ul>${own}</ul>
+  <div class="sf-site"><h2 class="sr-only">O site</h2><ul>${own}</ul>
     <p class="sf-who">Criação, design e desenvolvimento<br><b>${esc(SITE_INFO.autor)}</b></p></div>
 </div><p class="sf-legal">© ${new Date().getFullYear()} Coisa Pública · ${esc(SITE_INFO.autor)}. Site independente, sem vínculo com os órgãos citados. Os dados públicos pertencem às fontes oficiais.</p><p class="sf-ver">versão alfa 1.0</p></footer>`;
 })();
