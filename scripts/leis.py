@@ -15,7 +15,7 @@ HOJE = datetime.datetime.now(BR).date()
 INICIO = HOJE.replace(year=HOJE.year - 1)
 OUT = pathlib.Path(__file__).resolve().parent.parent / 'data'
 ARQ = 'https://dadosabertos.camara.leg.br/arquivos/'
-UA = {'User-Agent': 'quorum (github.com/lucca-reis/quorum)'}
+UA = {'User-Agent': 'coisa-publica (coisapublica.io)'}
 TIPOS = {'PL', 'PLP', 'PEC', 'MPV', 'PDL', 'PLV', 'PDC'}
 log = []
 

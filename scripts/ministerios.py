@@ -21,7 +21,7 @@ HOJE = datetime.datetime.now(BR).date()
 INICIO = HOJE - datetime.timedelta(days=365)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'data'
-UA = {'Accept': 'application/json', 'User-Agent': 'quorum (github.com/lucca-reis/quorum)'}
+UA = {'Accept': 'application/json', 'User-Agent': 'coisa-publica (coisapublica.io)'}
 TIPOS = ['MPV', 'PL', 'PLP', 'PEC', 'PLN']
 log, amostra = [], {'sem_pasta': [], 'sem_em': [], 'siglas_desconhecidas': {}}
 

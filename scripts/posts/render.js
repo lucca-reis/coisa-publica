@@ -49,7 +49,7 @@ function html(P, id){
     card = `<div class="card">${I.tags && I.tags.length ? `<div class="tags">${I.tags.map(tag).join('')}</div>` : ''}${I.texto ? `<p class="cs">${esc(I.texto)}</p>` : ''}
       ${pl ? `<div class="row"><div><div class="big">${esc(pl.texto || `${pl.sim} a ${pl.nao}`)}</div><div class="leg2"><span><i style="background:#121417"></i>${esc((pl.rotulos||['sim'])[0])}</span><span><i style="background:#E24B4A"></i>${esc((pl.rotulos||[,'não'])[1])}</span></div></div>${plenario(pl)}</div>` : ''}</div>`;
   }
-  return head + card + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>lucca-reis.github.io/quorum</span></div>`;
+  return head + card + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>coisapublica.io</span></div>`;
 }
 
 (async ()=>{

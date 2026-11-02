@@ -24,7 +24,7 @@ OUT = ROOT / 'data'
 ARQ = 'https://dadosabertos.camara.leg.br/arquivos/'
 API = 'https://dadosabertos.camara.leg.br/api/v2/'
 SEN = 'https://legis.senado.leg.br/dadosabertos/'
-UA = {'User-Agent': 'quorum (github.com/lucca-reis/quorum)', 'Accept': 'application/json'}
+UA = {'User-Agent': 'coisa-publica (coisapublica.io)', 'Accept': 'application/json'}
 TIPOS = {'PL', 'PLP', 'PEC', 'MPV', 'PDL'}
 NOME_TIPO = {'PL': 'Projeto de Lei', 'PLP': 'Projeto de Lei Complementar', 'PEC': 'Proposta de Emenda à Constituição',
              'MPV': 'Medida Provisória', 'PDL': 'Projeto de Decreto Legislativo'}

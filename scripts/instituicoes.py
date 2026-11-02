@@ -14,7 +14,7 @@ BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 AGORA = datetime.datetime.now(BR)
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'data' / 'instituicoes.json'
-UA = {'User-Agent': 'Mozilla/5.0 (compatible; quorum; +https://github.com/lucca-reis/quorum)'}
+UA = {'User-Agent': 'Mozilla/5.0 (compatible; coisa-publica; +https://coisapublica.io)'}
 MAX = 15
 log = []
 

@@ -13,7 +13,7 @@ OUT = pathlib.Path(__file__).resolve().parent.parent / 'data'
 ARQ = OUT / 'consultas.json'
 BASE = 'https://www12.senado.leg.br/ecidadania/'
 API = 'https://legis.senado.leg.br/dadosabertos/processo?tramitando=S'
-UA = {'User-Agent': 'quorum (github.com/lucca-reis/quorum)'}
+UA = {'User-Agent': 'coisa-publica (coisapublica.io)'}
 log = []
 
 def baixar(url, accept='text/html', tentativas=3):

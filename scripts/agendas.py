@@ -21,7 +21,7 @@ log, amostra = [], {}
 def get(path, **q):
     url = API + path + ('?' + urllib.parse.urlencode(q) if q else '')
     req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + TOKEN, 'Accept': 'application/json',
-                                               'User-Agent': 'quorum (github.com/lucca-reis/quorum)'})
+                                               'User-Agent': 'coisa-publica (coisapublica.io)'})
     try:
         time.sleep(0.3)
         with urllib.request.urlopen(req, timeout=30) as r:

@@ -10,8 +10,8 @@ import json, os, re, sys, time, datetime, pathlib, urllib.request, urllib.parse,
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 POSTS = ROOT / 'posts'
-SITE = 'https://lucca-reis.github.io/quorum/'
-UA = {'User-Agent': 'quorum (github.com/lucca-reis/quorum)'}
+SITE = 'https://coisapublica.io/'
+UA = {'User-Agent': 'coisa-publica (coisapublica.io)'}
 BSKY_H, BSKY_P = os.environ.get('BLUESKY_HANDLE', '').strip(), os.environ.get('BLUESKY_APP_PASSWORD', '').strip()
 IG_ID, IG_TOKEN = os.environ.get('IG_USER_ID', '').strip(), os.environ.get('IG_TOKEN', '').strip()
 GRAPH = 'https://graph.facebook.com/v21.0/'
@@ -36,7 +36,7 @@ def bluesky(post, img):
     text = post['textos']['bluesky']
     # links no texto viram links clicáveis (facets, com posições em bytes UTF-8)
     facets = []
-    for m in re.finditer(r'https?://[^\s]+|lucca-reis\.github\.io/quorum[^\s]*', text):
+    for m in re.finditer(r'https?://[^\s]+|coisapublica\.io[^\s]*', text):
         a, b = len(text[:m.start()].encode()), len(text[:m.end()].encode())
         uri = m.group(0) if m.group(0).startswith('http') else 'https://' + m.group(0)
         facets.append({'index': {'byteStart': a, 'byteEnd': b}, 'features': [{'$type': 'app.bsky.richtext.facet#link', 'uri': uri}]})

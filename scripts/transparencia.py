@@ -18,7 +18,7 @@ ANO = HOJE.year
 _m = HOJE.month - 11
 INICIO = datetime.date(ANO + (_m - 1) // 12, (_m - 1) % 12 + 1, 1)
 OUT = pathlib.Path(__file__).resolve().parent.parent / 'data' / 'transparencia'
-UA = {'User-Agent': 'quorum (github.com/lucca-reis/quorum)'}
+UA = {'User-Agent': 'coisa-publica (coisapublica.io)'}
 log = []
 
 def baixar(url):

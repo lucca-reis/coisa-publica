@@ -10,7 +10,7 @@ AGORA = datetime.datetime.now(BR)
 HOJE = AGORA.date()
 FIM = HOJE + datetime.timedelta(days=14)
 OUT = pathlib.Path(__file__).resolve().parent.parent / 'data'
-UA = {'Accept': 'application/json', 'User-Agent': 'quorum (github.com/lucca-reis/quorum)'}
+UA = {'Accept': 'application/json', 'User-Agent': 'coisa-publica (coisapublica.io)'}
 log = []
 
 def get(url):

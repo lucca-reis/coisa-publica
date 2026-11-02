@@ -1,7 +1,7 @@
-# Coisa Pública (repositório quorum)
+# Coisa Pública
 
-Site "Coisa Pública" (antes chamado Quorum; o repositório e o endereço seguem como quorum). Site estático (GitHub Pages) com dados sobre os Três Poderes: Câmara, Senado, STF e Presidência.
-Endereço: https://lucca-reis.github.io/quorum/
+Site "Coisa Pública" (antes chamado Quorum; repositório lucca-reis/coisa-publica). Site estático (GitHub Pages) com dados sobre os Três Poderes: Câmara, Senado, STF e Presidência.
+Endereço: https://coisapublica.io/ (domínio próprio no GitHub Pages; o endereço antigo lucca-reis.github.io/... redireciona para ele). Os dados em `data/` são lidos do próprio site; no preview (artifact) vêm de `TR_BASE` (coisapublica.io), com o endereço do GitHub Pages como reserva (`TR_BASE2`).
 
 ## Arquivos
 

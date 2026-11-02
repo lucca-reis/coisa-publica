@@ -27,7 +27,7 @@ def get(path, **q):
     for n in range(3):
         try:
             req = urllib.request.Request(url, headers={'chave-api-dados': KEY, 'Accept': 'application/json',
-                                                       'User-Agent': 'quorum (github.com/lucca-reis/quorum)'})
+                                                       'User-Agent': 'coisa-publica (coisapublica.io)'})
             time.sleep(0.5); chamadas += 1
             with urllib.request.urlopen(req, timeout=60) as r:
                 js = json.loads(r.read().decode('utf-8') or 'null')

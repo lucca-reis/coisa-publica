@@ -11,7 +11,7 @@ import json, re, time, datetime, zoneinfo, pathlib, unicodedata, urllib.request,
 BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'data'
-UA = {'Accept': 'application/json', 'User-Agent': 'quorum (github.com/lucca-reis/quorum)'}
+UA = {'Accept': 'application/json', 'User-Agent': 'coisa-publica (coisapublica.io)'}
 log, amostra = [], {}
 
 def get(url, chave=None):

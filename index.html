@@ -3108,7 +3108,7 @@ const FOOT_HTML = (()=>{
     SITE_INFO.x && `<li>${ext('https://x.com/'+SITE_INFO.x, 'X (Twitter) · @'+esc(SITE_INFO.x))}</li>`,
     SITE_INFO.instagram && `<li>${ext('https://www.instagram.com/'+SITE_INFO.instagram, 'Instagram · @'+esc(SITE_INFO.instagram))}</li>`,
     SITE_INFO.email && `<li><a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a></li>`,
-    `<li>${ext('https://github.com/lucca-reis/quorum', 'Código do site')}</li>`
+    `<li>${ext('https://github.com/lucca-reis/coisa-publica', 'Código do site')}</li>`
   ].filter(Boolean).join('');
   return `<footer class="site-foot"><div class="sf-grid">
   <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Coisa Pública, página inicial"><span aria-hidden="true">C<i class="brand-o"></i>isa Pública</span></a>
@@ -3988,7 +3988,7 @@ const fold = t => String(t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerC
 function loadCons(){
   if (consData || consLoading) return consLoading;
   const urls = /^https?:$/.test(location.protocol) && !FRAMED ? ['data/consultas.json'] : [];
-  urls.push('https://lucca-reis.github.io/quorum/data/consultas.json');
+  urls.push('https://coisapublica.io/data/consultas.json', 'https://lucca-reis.github.io/coisa-publica/data/consultas.json');
   const tryAt = i => i>=urls.length ? Promise.reject() : fetch(urls[i], {cache:'no-store'}).then(r=> r.ok ? r.json() : Promise.reject()).catch(()=> tryAt(i+1));
   consLoading = tryAt(0).then(js=>{
     js.itens.forEach(x=>{ x.t = x.y + x.n; });
@@ -4033,7 +4033,7 @@ function consDate(iso){
 }
 function consListHTML(){
   if (!consData) return consErr
-    ? `<p class="cs-empty">Não deu para carregar os números agora. Veja as consultas direto no <a href="${CONS_HOME}" target="_blank" rel="noopener">portal e-Cidadania</a>${FRAMED ? ' ou abra o <a href="https://lucca-reis.github.io/quorum/#consultas" target="_blank" rel="noopener">Coisa Pública no navegador</a>' : ''}.</p>`
+    ? `<p class="cs-empty">Não deu para carregar os números agora. Veja as consultas direto no <a href="${CONS_HOME}" target="_blank" rel="noopener">portal e-Cidadania</a>${FRAMED ? ' ou abra o <a href="https://coisapublica.io/#consultas" target="_blank" rel="noopener">Coisa Pública no navegador</a>' : ''}.</p>`
     : '<p class="cs-empty">Carregando as consultas abertas…</p>';
   const q = fold(consQ.trim()), words = q.split(/\s+/).filter(Boolean);
   let list = consData[consSort] || consData.rec;
@@ -4175,7 +4175,7 @@ document.getElementById('person').addEventListener('click', e=>{ if (e.target.cl
 /* ---------- transparency: parliamentary allowance (cota) ----------
    data/transparencia/ is written once a day by scripts/transparencia.py from the official files of the Câmara (CEAP)
    and the Senado (CEAPS): totals in resumo.json and one file per member with each expense, newest first. */
-const TR_BASE = 'https://lucca-reis.github.io/quorum/';
+const TR_BASE = 'https://coisapublica.io/', TR_BASE2 = 'https://lucca-reis.github.io/coisa-publica/';
 const TR_HOUSE = {camara:{name:'Câmara', src:'https://www.camara.leg.br/transparencia/gastos-parlamentares', doc:'https://www.camara.leg.br/cota-parlamentar/documentos/publ/'},
                   senado:{name:'Senado', src:'https://www12.senado.leg.br/transparencia/sen/verba-indenizatoria-ceaps', doc:''}};
 const MONEY = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
@@ -4183,7 +4183,7 @@ const MONEY0 = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',ma
 const moneyShort = v => v>=1e6 ? 'R$ '+FMT_PCT.format(Math.round(v/1e5)/10)+' mi' : v>=1e3 ? 'R$ '+FMT_NUM.format(Math.round(v/1e3))+' mil' : MONEY0.format(v);
 function slugName(t){ return String(t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
 function trFetch(path){
-  const urls = /^https?:$/.test(location.protocol) && !FRAMED ? [path, TR_BASE+path] : [TR_BASE+path];
+  const urls = /^https?:$/.test(location.protocol) && !FRAMED ? [path, TR_BASE+path, TR_BASE2+path] : [TR_BASE+path, TR_BASE2+path];
   const tryAt = i => i>=urls.length ? Promise.reject() : fetch(urls[i], {cache:'no-cache'}).then(r=> r.ok ? r.json() : Promise.reject()).catch(()=> tryAt(i+1));
   return tryAt(0);
 }
@@ -4965,9 +4965,9 @@ function aboutHTML(){
       </ul>
       <p>A outra parte, os resumos das propostas e a agenda da semana, é escrita à mão a partir das notícias oficiais, sempre com o link de onde veio.</p></section>
     <section class="qs-sec"><h2>Como foi construído</h2>
-      <p>É um site estático: um único arquivo com o desenho e o funcionamento, publicado no GitHub Pages, sem anúncios, sem cadastro e sem rastrear quem visita. Os robôs rodam no GitHub Actions. O código é aberto e pode ser lido por qualquer pessoa ${a('https://github.com/lucca-reis/quorum','no GitHub')}. O desenvolvimento contou com a ajuda do Claude, assistente de inteligência artificial da Anthropic.</p></section>
+      <p>É um site estático: um único arquivo com o desenho e o funcionamento, publicado no GitHub Pages, sem anúncios, sem cadastro e sem rastrear quem visita. Os robôs rodam no GitHub Actions. O código é aberto e pode ser lido por qualquer pessoa ${a('https://github.com/lucca-reis/coisa-publica','no GitHub')}. O desenvolvimento contou com a ajuda do Claude, assistente de inteligência artificial da Anthropic.</p></section>
     <section class="qs-sec"><h2>Limites</h2>
-      <p>Os dados oficiais às vezes atrasam ou mudam depois de publicados, e os robôs dependem dos sites dos órgãos estarem no ar. Ministros, ministros do Supremo e presidentes de tribunais são conferidos à mão. Achou um erro? ${SITE_INFO.email ? `Escreva para <a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a> ou abra` : 'Abra'} um aviso ${a('https://github.com/lucca-reis/quorum/issues','no GitHub')}.</p></section>
+      <p>Os dados oficiais às vezes atrasam ou mudam depois de publicados, e os robôs dependem dos sites dos órgãos estarem no ar. Ministros, ministros do Supremo e presidentes de tribunais são conferidos à mão. Achou um erro? ${SITE_INFO.email ? `Escreva para <a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a> ou abra` : 'Abra'} um aviso ${a('https://github.com/lucca-reis/coisa-publica/issues','no GitHub')}.</p></section>
   </div>`;
 }
 // latest official news of each court and ministry, from data/instituicoes.json (robot, every hour)

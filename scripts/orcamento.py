@@ -13,7 +13,7 @@ BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 HOJE = datetime.datetime.now(BR).date()
 ANO = HOJE.year
 OUT = pathlib.Path(__file__).resolve().parent.parent / 'data' / 'transparencia'
-UA = {'User-Agent': 'Mozilla/5.0 (compatible; quorum; +https://github.com/lucca-reis/quorum)'}
+UA = {'User-Agent': 'Mozilla/5.0 (compatible; coisa-publica; +https://coisapublica.io)'}
 log, amostra = [], {}
 
 def norm(t):

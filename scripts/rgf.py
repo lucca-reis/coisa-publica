@@ -13,7 +13,7 @@ API = 'https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf'
 BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 HOJE = datetime.datetime.now(BR).date()
 OUT = pathlib.Path(__file__).resolve().parent.parent / 'data' / 'transparencia'
-UA = {'User-Agent': 'quorum (github.com/lucca-reis/quorum)', 'Accept': 'application/json'}
+UA = {'User-Agent': 'coisa-publica (coisapublica.io)', 'Accept': 'application/json'}
 PODERES = {'L': 'leg', 'J': 'jud', 'M': 'mpu', 'D': 'mpu', 'E': 'exec'}
 log, amostra = [], {}
 

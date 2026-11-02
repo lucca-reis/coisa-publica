@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 OUT = pathlib.Path(__file__).resolve().parent.parent / 'data'
-UA = {'Accept': 'application/json', 'User-Agent': 'Mozilla/5.0 (compatible; quorum; +https://github.com/lucca-reis/quorum)'}
+UA = {'Accept': 'application/json', 'User-Agent': 'Mozilla/5.0 (compatible; coisa-publica; +https://coisapublica.io)'}
 log, amostra = [], {}
 UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO'.split()
 
