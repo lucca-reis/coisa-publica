@@ -1,4 +1,4 @@
-# Posts do Quorum nas redes (Instagram e Bluesky)
+# Posts da Coisa Pública nas redes (Instagram e Bluesky)
 
 Três posts por dia, cada um com imagem e texto, sempre aprovados pelo Lucca antes de sair.
 
@@ -23,7 +23,7 @@ Segredos do GitHub (Settings > Secrets and variables > Actions): `BLUESKY_HANDLE
 
 - Só fatos que estão nos dados do site, com fonte oficial. Nunca inventar números, votos, datas ou resultados. Se a fonte não informa, não dizer.
 - Linguagem simples e neutra. Sem opinião, sem adjetivos de julgamento ("polêmica", "vitória", "derrota do governo"), sem apoiar partido ou pessoa. Valores como publicados.
-- Não usar fotos de pessoas. A imagem é sempre o cartão do Quorum gerado por `render.js`.
+- Não usar fotos de pessoas. A imagem é sempre o cartão da Coisa Pública gerado por `render.js`.
 - Bluesky: até 300 caracteres no total, terminando com `lucca-reis.github.io/quorum`.
 - Instagram: até 2.200 caracteres, parágrafos curtos, no máximo um emoji no começo, termina com "link na bio" e no máximo 6 hashtags.
 - `alt`: descrição da imagem para quem não enxerga (o que está escrito e o desenho do placar).

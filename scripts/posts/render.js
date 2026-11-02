@@ -1,4 +1,4 @@
-/* Gera a imagem de um post (posts/<id>/imagem.jpg, 1080x1350) a partir de posts/<id>/post.json, no visual do Quorum.
+/* Gera a imagem de um post (posts/<id>/imagem.jpg, 1080x1350) a partir de posts/<id>/post.json, no visual do Coisa Pública.
    Uso: node scripts/posts/render.js posts/2026-11-01-manha
    O texto encolhe sozinho até caber na imagem. Precisa do Playwright (Chromium). */
 const {chromium} = require('playwright');
@@ -38,7 +38,7 @@ function plenario(P){
 function html(P, id){
   const I = P.imagem || {}, [y,m,d] = (P.data || id.slice(0,10)).split('-').map(Number);
   const dot = I.cor || DOT[PODER[I.poder]] || '#009C3B';
-  const head = `<div class="top"><span class="logo" style="--dot:${dot}">Qu<i></i>rum</span><span>${PER[P.periodo] || ''} · ${d} ${MES[m-1]} ${y}</span></div>
+  const head = `<div class="top"><span class="logo" style="--dot:${dot}">C<i></i>isa Pública</span><span>${PER[P.periodo] || ''} · ${d} ${MES[m-1]} ${y}</span></div>
     <p class="eye">${esc(I.eyebrow)}</p><h1>${esc(I.titulo)}</h1>${I.texto && I.itens ? `<p class="lede">${esc(I.texto)}</p>` : ''}`;
   let card;
   if (I.itens && I.itens.length){

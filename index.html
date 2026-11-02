@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Quorum: pautas, votações e composição do Congresso, do Supremo e da Presidência.">
+<meta name="description" content="Coisa Pública: pautas, votações e composição do Congresso, do Supremo e da Presidência.">
 <style>html,body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
-<title>Quorum</title>
+<title>Coisa Pública</title>
 <link rel="icon" id="favicon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23009C3B'/%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -272,7 +272,7 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 .menu a{color:var(--ink);text-decoration:none;white-space:nowrap}
 .brand-wrap{justify-self:start;display:flex;align-items:baseline;gap:10px;min-width:0}
 .menu .brand{font-size:22px;font-weight:400;letter-spacing:-.015em}
-/* the o of Quorum is a solid dot, the size of a lowercase letter */
+/* the o of Coisa Pública is a solid dot, the size of a lowercase letter */
 .brand-o{display:inline-block;width:.54em;height:.54em;margin:0 .045em;border-radius:50%;background:#009C3B;animation:brand-o 9s infinite;vertical-align:baseline}
 /* green, yellow and blue, three seconds each */
 @keyframes brand-o{0%,30%{background:#009C3B}33.3%,63.3%{background:#F2C200}66.6%,96.6%{background:#1F4FB5}100%{background:#009C3B}}
@@ -415,8 +415,8 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .menu{grid-template-columns:auto minmax(0,1fr) auto!important;column-gap:8px}
   .menu .today-date,.menu .menu-tools .srch-link{display:none!important}
   .mpw{display:flex;grid-column:2;grid-row:1;justify-self:center;align-items:center;gap:0;min-width:0;padding:2px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
-  .menu .brand{font-size:clamp(17px, 5vw, 20px)}
-  .mpw button{all:unset;box-sizing:border-box;cursor:pointer;padding:7px clamp(4px, 1.7vw, 12px);border-radius:999px;font-size:clamp(11px, 3.05vw, 14px);line-height:1.2;white-space:nowrap;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:background-color .2s, color .2s}
+  .menu .brand{font-size:clamp(15px, 4.4vw, 20px)}
+  .mpw button{all:unset;box-sizing:border-box;cursor:pointer;padding:7px clamp(3px, 1.2vw, 12px);border-radius:999px;font-size:clamp(10px, 2.85vw, 14px);line-height:1.2;white-space:nowrap;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:background-color .2s, color .2s}
   .mpw button:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
   .mpw button[aria-current]{background:var(--ink);color:var(--bg)}
   .menu-tools{grid-column:3!important}
@@ -1354,7 +1354,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .p-cards .card{--card:var(--bg)}
 .p-cards .card:hover{--card:color-mix(in srgb, var(--ink) 3%, var(--bg))}
 .p-cards .c-pill{background:color-mix(in srgb, var(--ink) 6%, var(--bg))}
-/* the power tag carries its colour: green Executivo, yellow Legislativo, blue Judiciário (the colours of the dot in Quorum) */
+/* the power tag carries its colour: green Executivo, yellow Legislativo, blue Judiciário (the colours of the dot in Coisa Pública) */
 .card .c-top{justify-content:flex-start;gap:6px;flex-wrap:wrap}
 /* the kind of proposal, next to the power: its own colour (never the powers' green, yellow or blue); a click opens its category */
 .c-type{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;line-height:1;cursor:pointer;
@@ -1409,7 +1409,7 @@ h1[tabindex="-1"]:focus{outline:none}
 
 <button class="back-arrow" id="back-arrow" type="button" aria-label="Voltar" title="Voltar" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <header class="menu">
-  <div class="brand-wrap"><a class="brand" href="#" data-nav="home" aria-label="Quorum"><span aria-hidden="true">Qu<i class="brand-o"></i>rum</span></a><span class="today-date" id="today-date"></span></div>
+  <div class="brand-wrap"><a class="brand" href="#" data-nav="home" aria-label="Coisa Pública"><span aria-hidden="true">C<i class="brand-o"></i>isa Pública</span></a><span class="today-date" id="today-date"></span></div>
   <div class="mpw" role="group" aria-label="Os três poderes"><button type="button" data-pw="pres" data-grp="exec">Executivo</button><button type="button" data-pw="cong" data-grp="leg">Legislativo</button><button type="button" data-pw="stf" data-grp="jud">Judiciário</button></div>
   <nav aria-label="Poderes">
     <div class="nav-grp nav-grp-exec" data-grp="exec">
@@ -1428,7 +1428,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <a href="#consultas" data-nav="consultas">Enquetes</a>
   </nav>
   <div class="nav-scrim" aria-hidden="true"></div>
-  <div class="menu-tools"><form class="srch" id="srch" role="search" hidden><label class="sr-only" for="srch-q">Pesquisar no Quorum</label><input type="search" id="srch-q" placeholder="Pesquisar" autocomplete="off" enterkeyhint="search"><button type="submit" class="srch-go">Pesquisar</button><button type="button" class="srch-x" aria-label="Fechar a pesquisa">×</button></form><button type="button" class="vg-link srch-link" id="srch-btn" aria-label="Pesquisar" title="Pesquisar" aria-expanded="false" aria-controls="srch"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a><a class="vg-link qs-link" href="#quem-somos" data-nav="sobre" aria-label="Quem somos" title="Quem somos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></svg></a><button type="button" class="ham" id="ham" aria-expanded="false" aria-controls="mdr" aria-label="Abrir o menu"><span aria-hidden="true"></span></button></div>
+  <div class="menu-tools"><form class="srch" id="srch" role="search" hidden><label class="sr-only" for="srch-q">Pesquisar na Coisa Pública</label><input type="search" id="srch-q" placeholder="Pesquisar" autocomplete="off" enterkeyhint="search"><button type="submit" class="srch-go">Pesquisar</button><button type="button" class="srch-x" aria-label="Fechar a pesquisa">×</button></form><button type="button" class="vg-link srch-link" id="srch-btn" aria-label="Pesquisar" title="Pesquisar" aria-expanded="false" aria-controls="srch"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a><a class="vg-link qs-link" href="#quem-somos" data-nav="sobre" aria-label="Quem somos" title="Quem somos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></svg></a><button type="button" class="ham" id="ham" aria-expanded="false" aria-controls="mdr" aria-label="Abrir o menu"><span aria-hidden="true"></span></button></div>
 </header>
 <div class="hdd" id="hdd" role="menu" aria-label="Páginas"><a href="#projetos" data-go="projetos" data-k="projetos" role="menuitem">Projetos</a><a href="#consultas" data-go="consultas" data-k="consultas" role="menuitem">Consultas públicas</a><a href="#transparencia" data-go="transp" data-k="transp" role="menuitem">Transparência</a><a href="#visao-geral" data-go="visao" data-k="visao" role="menuitem">Visão geral</a><a href="#calendario" data-go="calendario" data-k="calendario" role="menuitem">Calendário</a><a href="#quem-somos" data-go="sobre" data-k="sobre" role="menuitem">Quem somos</a></div>
 <div class="mdr" id="mdr" hidden role="dialog" aria-modal="true" aria-label="Menu"></div>
@@ -2434,7 +2434,7 @@ HOUSES.senado.open.s = HOUSES.camara.r * HOUSES.camara.open.s / HOUSES.senado.r;
 /* ---------- interaction ---------- */
 const stage = document.getElementById('stage'), panel = document.getElementById('panel');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-// the favicon is the dot of Quorum, green, yellow and blue, three seconds each, in step with the dot in the menu
+// the favicon is the dot of Coisa Pública, green, yellow and blue, three seconds each, in step with the dot in the menu
 (function(){
   const ic = document.getElementById('favicon'); if (!ic) return;
   const C = ['#009C3B', '#F2C200', '#1F4FB5'];
@@ -2624,8 +2624,8 @@ function openPerson(src, key, P){
         <section><h3>Mandato</h3><span class="big">${term}</span><p class="empty">${sup ? 'Suplente em exercício no lugar do titular.' : 'Em exercício.'}</p></section>
         <section><h3>Eleição de 2026</h3>${el
           ? `<span class="big">${el.v ? fmt(el.v) : 'eleito(a)'}</span><p class="empty">${el.v ? 'votos. ' : ''}${el.k==='cont' ? 'Mandato segue até 2031.' : `Eleito(a) para ${isSen ? '2027–2035' : '2027–2031'}; posse em 1º de fevereiro de 2027.`}</p>`
-          : '<p class="empty">Não aparece na lista de eleitos de 2026 usada pelo Quorum (nome de urna diferente ou não eleito).</p>'}</section>
-        <section><h3>Votações</h3><p class="empty">Os votos nas votações do Plenário que o Quorum acompanha aparecem em "Projetos e processos relacionados".</p></section>
+          : '<p class="empty">Não aparece na lista de eleitos de 2026 usada pela Coisa Pública (nome de urna diferente ou não eleito).</p>'}</section>
+        <section><h3>Votações</h3><p class="empty">Os votos nas votações do Plenário que a Coisa Pública acompanha aparecem em "Projetos e processos relacionados".</p></section>
       </div>
       <section class="p-ct" id="p-ct" aria-live="polite"><h3>Contato</h3><p class="tr-empty">Carregando…</p></section>
       ${relatedHTML(P.n, key)}
@@ -3111,7 +3111,7 @@ const FOOT_HTML = (()=>{
     `<li>${ext('https://github.com/lucca-reis/quorum', 'Código do site')}</li>`
   ].filter(Boolean).join('');
   return `<footer class="site-foot"><div class="sf-grid">
-  <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Quorum, página inicial"><span aria-hidden="true">Qu<i class="brand-o"></i>rum</span></a>
+  <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Coisa Pública, página inicial"><span aria-hidden="true">C<i class="brand-o"></i>isa Pública</span></a>
     <p class="sf-tag">Pautas, votações e gastos dos Três Poderes, num só lugar.</p>
     <p class="sf-about">Dados de fontes oficiais, atualizados por robôs ao longo do dia. Cada informação leva à sua fonte.</p></div>
   <nav aria-label="Fontes oficiais"><h2>Fontes</h2><ul>
@@ -3132,7 +3132,7 @@ const FOOT_HTML = (()=>{
     <li><a href="#calendario">Calendário</a></li></ul></nav>
   <div class="sf-site"><h2>O site</h2><ul>${own}</ul>
     <p class="sf-who">Criação, design e desenvolvimento<br><b>${esc(SITE_INFO.autor)}</b></p></div>
-</div><p class="sf-legal">© ${new Date().getFullYear()} Quorum · ${esc(SITE_INFO.autor)}. Site independente, sem vínculo com os órgãos citados. Os dados públicos pertencem às fontes oficiais.</p><p class="sf-ver">versão alfa 1.0</p></footer>`;
+</div><p class="sf-legal">© ${new Date().getFullYear()} Coisa Pública · ${esc(SITE_INFO.autor)}. Site independente, sem vínculo com os órgãos citados. Os dados públicos pertencem às fontes oficiais.</p><p class="sf-ver">versão alfa 1.0</p></footer>`;
 })();
 // the logo in the footer goes back to the opening view, at the top
 document.addEventListener('click', e=>{
@@ -3544,7 +3544,7 @@ const ham = document.getElementById('ham'), mdr = document.getElementById('mdr')
   const tile = (attrs, top, l, wide)=> `<li${wide ? ' class="mdr-wide"' : ''}><a ${attrs}>${top ? `<span class="mdr-t">${top}</span>` : ''}<span class="mdr-n">${l}</span></a></li>`;
   const tiles = (inner)=> `<ul class="mdr-tiles">${inner}</ul>`;
   mdr.innerHTML = `
-    <form class="mdr-srch" id="mdr-srch" role="search"><label class="sr-only" for="mdr-sq">Pesquisar no Quorum</label><input type="search" id="mdr-sq" placeholder="Pesquisar" autocomplete="off" enterkeyhint="search"></form>
+    <form class="mdr-srch" id="mdr-srch" role="search"><label class="sr-only" for="mdr-sq">Pesquisar na Coisa Pública</label><input type="search" id="mdr-sq" placeholder="Pesquisar" autocomplete="off" enterkeyhint="search"></form>
     <section class="mdr-sec">${tiles(tile('href="#" data-go="home" data-k="home"', '', 'Início', true))}</section>
     ${sec('Executivo', '#009C3B', tiles(tile('href="#" data-go="pres" data-k="pres"', GLYPHS.exec, 'Presidência da República')
       + `<li><button type="button" class="mdr-btn" aria-expanded="false" aria-controls="mdr-mins"><span class="mdr-t">${EXEC_MIN.length}</span><span class="mdr-n">Ministérios</span></button></li>`
@@ -3958,14 +3958,14 @@ function showCal(){
   if (!CAL_EXT.length) loadCalExt().then(()=>{ if (!cal.hidden) renderCal(true); });
   cal.scrollTop = 0;
   cal.hidden = false; requestAnimationFrame(()=>cal.classList.add('show'));
-  document.title = 'Calendário · Quorum';
+  document.title = 'Calendário · Coisa Pública';
   cal.querySelector('#cal-title').setAttribute('tabindex','-1');
   cal.querySelector('#cal-title').focus({preventScroll:true});
 }
 function hideCal(){
   if (cal.hidden) return;
   cal.classList.remove('show'); cal.hidden = true; cal.innerHTML = '';
-  document.title = 'Quorum';
+  document.title = 'Coisa Pública';
 }
 function leaveCal(){ location.hash = ''; }
 
@@ -4033,7 +4033,7 @@ function consDate(iso){
 }
 function consListHTML(){
   if (!consData) return consErr
-    ? `<p class="cs-empty">Não deu para carregar os números agora. Veja as consultas direto no <a href="${CONS_HOME}" target="_blank" rel="noopener">portal e-Cidadania</a>${FRAMED ? ' ou abra o <a href="https://lucca-reis.github.io/quorum/#consultas" target="_blank" rel="noopener">Quorum no navegador</a>' : ''}.</p>`
+    ? `<p class="cs-empty">Não deu para carregar os números agora. Veja as consultas direto no <a href="${CONS_HOME}" target="_blank" rel="noopener">portal e-Cidadania</a>${FRAMED ? ' ou abra o <a href="https://lucca-reis.github.io/quorum/#consultas" target="_blank" rel="noopener">Coisa Pública no navegador</a>' : ''}.</p>`
     : '<p class="cs-empty">Carregando as consultas abertas…</p>';
   const q = fold(consQ.trim()), words = q.split(/\s+/).filter(Boolean);
   let list = consData[consSort] || consData.rec;
@@ -4097,14 +4097,14 @@ function showCons(){
   renderCons(false); loadCons();
   cons.scrollTop = 0;
   cons.hidden = false; requestAnimationFrame(()=>cons.classList.add('show'));
-  document.title = 'Consultas públicas · Quorum';
+  document.title = 'Consultas públicas · Coisa Pública';
   cons.querySelector('#cons-title').setAttribute('tabindex','-1');
   cons.querySelector('#cons-title').focus({preventScroll:true});
 }
 function hideCons(){
   if (cons.hidden) return;
   cons.classList.remove('show'); cons.hidden = true; cons.innerHTML = '';
-  document.title = 'Quorum';
+  document.title = 'Coisa Pública';
 }
 // refresh the numbers when the page has been open for a while
 setInterval(()=>{ if (!cons.hidden && consData && Date.now() - Date.parse(consData.atualizado) > 70*60e3){ consData = null; loadCons(); } }, 10*60e3);
@@ -4481,14 +4481,14 @@ function showVg(){
   if (!trResumo) loadTr().then(()=>{ if (!vg.hidden) renderVg(true); }).catch(()=>{ const b = document.getElementById('vg-tr'); if (b) b.innerHTML = '<p class="vd-none">Não deu para carregar os gastos agora.</p>'; });
   vg.scrollTop = 0;
   vg.hidden = false; requestAnimationFrame(()=>vg.classList.add('show'));
-  document.title = 'Visão geral · Quorum';
+  document.title = 'Visão geral · Coisa Pública';
   vg.querySelector('#vg-title').setAttribute('tabindex','-1');
   vg.querySelector('#vg-title').focus({preventScroll:true});
 }
 function hideVg(){
   if (vg.hidden) return;
   vg.classList.remove('show'); vg.hidden = true; vg.innerHTML = '';
-  document.title = 'Quorum';
+  document.title = 'Coisa Pública';
 }
 
 /* ---------- transparency (#transparencia) ----------
@@ -4697,7 +4697,7 @@ function renderTp(keep){
   tp.innerHTML = `<div class="cw vg tpw">
     <header class="cw-head"><div><p class="inst-eye">Portal da Transparência, Tesouro Nacional e cota parlamentar</p><h1 id="tp-title">Transparência</h1>
       <p class="vg-sub">Gastos públicos dos últimos 12 meses${tpPeriod() ? ` (${tpPeriod()})` : ''}, por poder e por pessoa, como os órgãos publicam.</p></div>
-      ${infoBox(TP_SOURCES,'Fontes','Os robôs do Quorum baixam esses dados uma vez por dia.')}</header>
+      ${infoBox(TP_SOURCES,'Fontes','Os robôs da Coisa Pública baixam esses dados uma vez por dia.')}</header>
     <div class="tp-tabs" role="tablist" aria-label="Poder">${[['leg','Legislativo','pw-leg'],['exec','Executivo','pw-exec'],['jud','Judiciário','pw-jud'],['mpu','MP e Defensoria','pw-mp']].map(([k,l,c])=>{ const v = pes(k);
       return `<button type="button" role="tab" class="tp-tab ${c}" data-tab="${k}" aria-selected="${tpTab===k}"><span class="tp-tn">${l}</span><span class="tp-tv">${v==null ? (tot0[k]!=null ? moneyShort(tot0[k]) : 'carregando…') : moneyBig(v)}</span>${v!=null ? '<span class="tp-tu">com pessoal em 12 meses</span>' : ''}</button>`; }).join('')}</div>
     <div id="tp-body" role="tabpanel">${tpTab==='leg' ? tpLeg() : tpTab==='exec' ? tpExec() : tpTab==='jud' ? tpJud() : tpMp()}</div>
@@ -4731,14 +4731,14 @@ function showTp(){
   if (!trOrc) loadOrc().then(()=>{ if (!tp.hidden) renderTp(true); }).catch(()=>{ trOrc = {poderes:{}}; if (!tp.hidden) renderTp(true); });
   tp.scrollTop = 0;
   tp.hidden = false; requestAnimationFrame(()=>tp.classList.add('show'));
-  document.title = 'Transparência · Quorum';
+  document.title = 'Transparência · Coisa Pública';
   tp.querySelector('#tp-title').setAttribute('tabindex','-1');
   tp.querySelector('#tp-title').focus({preventScroll:true});
 }
 function hideTp(){
   if (tp.hidden) return;
   tp.classList.remove('show'); tp.hidden = true; tp.innerHTML = '';
-  document.title = 'Quorum';
+  document.title = 'Coisa Pública';
 }
 
 /* ---------- institution pages: superior courts (#tribunal-*) and ministries (#ministerio-*) ----------
@@ -4857,7 +4857,7 @@ function catHTML(id){
   const feed = feedHTML(null, C ? c=> catOf(c.P).k===C.k : null);
   return `<div class="cw inst-w">
     <header class="cw-head"><div><p class="inst-eye">Projetos${C ? ' · categoria' : ' · por tipo'}</p><h1 id="inst-title">${C ? esc(C.pl) : 'Projetos'}</h1></div>${infoBox([{l:'Constituição Federal, arts. 59 a 69 (processo legislativo) e 102 (Supremo)', u:CF},{l:'Câmara dos Deputados: tipos de proposição', u:'https://www2.camara.leg.br/atividade-legislativa/legislacao/proposicoes'}],'Fontes')}</header>
-    <p class="inst-lede">${C ? esc(C.d) : 'Todas as propostas e processos que o Quorum acompanha, separados pelo tipo. Toque numa categoria para ver só ela.'}</p>
+    <p class="inst-lede">${C ? esc(C.d) : 'Todas as propostas e processos que a Coisa Pública acompanha, separados pelo tipo. Toque numa categoria para ver só ela.'}</p>
     <nav class="cat-chips" aria-label="Categorias">${chips}</nav>
     ${feed ? `<ol class="feed cat-feed" aria-label="${C ? esc(C.pl) : 'Projetos'}, do mais recente ao mais antigo">${feed}</ol>` : '<p class="vd-none">Nenhum projeto desta categoria por enquanto.</p>'}
   </div>`;
@@ -4884,7 +4884,7 @@ function searchIndex(){
   Object.entries(COURTS).forEach(([k,C])=> add('Órgãos', C.nome, `Judiciário · ${C.sigla}`, `href:#tribunal-${k}`, C.sigla));
   CATS.forEach(C=> add('Tipos de proposta', C.pl, C.d, `href:#categoria-${C.k}`, C.l, C.c));
   [['Projetos','projetos','todas as propostas e processos'],['Enquetes','consultas','consultas públicas e-Cidadania'],['Transparência','transp','gastos cota parlamentar cartão orçamento'],
-   ['Visão geral','visao','painel resumo números'],['Calendário','calendario','agenda datas pauta'],['Quem somos','sobre','sobre o site fontes autor']].forEach(([l,k,x])=> add('Páginas do Quorum', l, x, `go:${k}`, x));
+   ['Visão geral','visao','painel resumo números'],['Calendário','calendario','agenda datas pauta'],['Quem somos','sobre','sobre o site fontes autor']].forEach(([l,k,x])=> add('Páginas da Coisa Pública', l, x, `go:${k}`, x));
   return SRCH = L;
 }
 function searchRun(q){
@@ -4897,11 +4897,11 @@ let bsAll = {};
 function searchHTML(q){
   const R = searchRun(q), G = {};
   R.forEach(x=> (G[x.g] = G[x.g] || []).push(x));
-  const order = ['Pessoas','Projetos e processos','Órgãos','Partidos','Tipos de proposta','Páginas do Quorum'];
+  const order = ['Pessoas','Projetos e processos','Órgãos','Partidos','Tipos de proposta','Páginas da Coisa Pública'];
   const item = x=> `<li><button type="button" data-act="${esc(x.act)}"${x.c ? ` style="--c:${x.c}"` : ''}><i aria-hidden="true"></i><span><b>${esc(x.label)}</b>${x.sub ? `<small>${esc(x.sub)}</small>` : ''}</span></button></li>`;
   return `<div class="cw inst-w bs">
     <header class="cw-head"><div><p class="inst-eye">Pesquisa</p><h1 id="inst-title">${q ? `“${esc(q)}”` : 'Pesquisar'}</h1></div></header>
-    <form class="bs-q" id="bs-form" role="search"><label class="sr-only" for="bs-in">Pesquisar no Quorum</label><input type="search" id="bs-in" value="${esc(q)}" placeholder="Pessoas, projetos, órgãos…" autocomplete="off" enterkeyhint="search"><button type="submit">Pesquisar</button></form>
+    <form class="bs-q" id="bs-form" role="search"><label class="sr-only" for="bs-in">Pesquisar na Coisa Pública</label><input type="search" id="bs-in" value="${esc(q)}" placeholder="Pessoas, projetos, órgãos…" autocomplete="off" enterkeyhint="search"><button type="submit">Pesquisar</button></form>
     <p class="bs-n">${!q ? 'Escreva o nome de uma pessoa, um projeto, um partido ou um órgão.' : R.length ? `${R.length} ${R.length===1?'resultado':'resultados'}` : 'Nenhum resultado. Tente outra palavra ou só parte do nome.'}</p>
     ${order.filter(g=> G[g]).map(g=>{ const L = G[g], all = bsAll[g] || L.length <= 12;
       return `<section class="bs-g" aria-label="${g}"><h2>${g} · ${L.length}</h2><ul class="bs-l">${(all ? L : L.slice(0,12)).map(item).join('')}</ul>${all ? '' : `<button type="button" class="bs-more" data-all="${esc(g)}">Mostrar todos · ${L.length}</button>`}</section>`; }).join('')}
@@ -4938,12 +4938,12 @@ function aboutHTML(){
   const a = (u,t)=> `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
   return `<div class="cw inst-w">
     <header class="cw-head"><div><p class="inst-eye">Sobre o site</p><h1 id="inst-title">Quem somos</h1></div></header>
-    <p class="inst-lede">O Quorum reúne num só lugar o que acontece nos Três Poderes: o que o Congresso vota, o que o Supremo julga, o que o presidente assina e quanto cada órgão gasta, em linguagem simples e sempre com a fonte oficial ao lado.</p>
+    <p class="inst-lede">A Coisa Pública reúne num só lugar o que acontece nos Três Poderes: o que o Congresso vota, o que o Supremo julga, o que o presidente assina e quanto cada órgão gasta, em linguagem simples e sempre com a fonte oficial ao lado.</p>
     <section class="qs-sec"><h2>A proposta</h2>
-      <p>Acompanhar a política em Brasília costuma exigir abrir dezenas de sites, ler textos técnicos e juntar as peças sozinho. O Quorum faz esse trabalho de reunir e organizar: cada proposta vira um cartão que mostra por onde passou, quem votou e o que vem depois.</p>
+      <p>Acompanhar a política em Brasília costuma exigir abrir dezenas de sites, ler textos técnicos e juntar as peças sozinho. A Coisa Pública faz esse trabalho de reunir e organizar: cada proposta vira um cartão que mostra por onde passou, quem votou e o que vem depois.</p>
       <p>O site não dá opinião, não apoia partido nem candidato e não comenta se um gasto é alto ou baixo. Mostra os dados como os órgãos publicam, para que cada pessoa tire as próprias conclusões.</p></section>
     <section class="qs-sec"><h2>Quem faz</h2>
-      <p>O Quorum foi criado, desenhado e desenvolvido por <b>${esc(SITE_INFO.autor)}</b>, comunicador e designer formado em Mídia e Comunicação pela Unicamp. É um projeto independente, sem vínculo com governo, partido ou órgão público.</p></section>
+      <p>A Coisa Pública foi criada, desenhada e desenvolvida por <b>${esc(SITE_INFO.autor)}</b>, comunicador e designer formado em Mídia e Comunicação pela Unicamp. É um projeto independente, sem vínculo com governo, partido ou órgão público.</p></section>
     <section class="qs-sec"><h2>De onde vêm os dados</h2>
       <p>Só de fontes oficiais e públicas:</p>
       <ul>
@@ -4991,7 +4991,7 @@ function showInst(kind, id){
   instKey = kind==='sobre' ? 's:' : (kind==='tribunal' ? 't:' : kind==='categoria' ? 'c:' : kind==='busca' ? 'b:' : 'm:') + id;
   inst.scrollTop = 0;
   if (inst.hidden){ inst.hidden = false; requestAnimationFrame(()=>inst.classList.add('show')); }
-  document.title = inst.querySelector('#inst-title').textContent + ' · Quorum';
+  document.title = inst.querySelector('#inst-title').textContent + ' · Coisa Pública';
   inst.querySelector('#inst-title').setAttribute('tabindex','-1');
   inst.querySelector('#inst-title').focus({preventScroll:true});
   if (kind==='tribunal' || kind==='ministerio') instNews(kind, id);
@@ -5001,7 +5001,7 @@ function showInst(kind, id){
 function hideInst(){
   if (inst.hidden) return;
   inst.classList.remove('show'); inst.hidden = true; inst.innerHTML = ''; instKey = null;
-  document.title = 'Quorum';
+  document.title = 'Coisa Pública';
 }
 inst.addEventListener('click', e=>{ if (cardClick(e)) return; const b = e.target.closest('[data-vnav]'); if (b){ e.preventDefault(); navTo(b.dataset.vnav); } });
 
@@ -5019,12 +5019,12 @@ function showRoute(){
   if (m && renderProject(m[1])){
     if (proj.hidden){ projFocus = document.activeElement; proj.hidden = false; requestAnimationFrame(()=>proj.classList.add('show')); }
     proj.scrollTop = 0;
-    document.title = PROJECTS[m[1]].code + ' · Quorum';
+    document.title = PROJECTS[m[1]].code + ' · Coisa Pública';
     proj.querySelector('.pj-title').setAttribute('tabindex','-1');
     proj.querySelector('.pj-title').focus({preventScroll:true});
   } else if (!proj.hidden){
     proj.classList.remove('show'); proj.hidden = true; proj.innerHTML = '';
-    document.title = cal.hidden ? 'Quorum' : 'Calendário · Quorum';
+    document.title = cal.hidden ? 'Coisa Pública' : 'Calendário · Coisa Pública';
     if (projFocus && projFocus.focus) projFocus.focus({preventScroll:true});
   }
 }
