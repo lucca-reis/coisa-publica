@@ -64,8 +64,16 @@ function html(P, id){
   const I = P.imagem || {}, [y,m,d] = (P.data || id.slice(0,10)).split('-').map(Number);
   const dot = I.cor || DOT[PODER[I.poder]] || '#009C3B';
   const head = `<div class="top"><span class="logo" style="--dot:${dot}">C<i></i>isa Pública</span><span>${PER[P.periodo] || ''} · ${d} ${MES[m-1]} ${y}</span></div>
-    <p class="eye">${esc(I.eyebrow)}</p><h1>${esc(I.titulo)}</h1>${I.texto && I.itens ? `<p class="lede">${esc(I.texto)}</p>` : ''}`;
+    <p class="eye">${esc(I.eyebrow)}${I.pergunta && I.titulo ? ' · ' + esc(I.titulo) : ''}</p><h1>${esc(I.titulo)}</h1>${I.texto && I.itens ? `<p class="lede">${esc(I.texto)}</p>` : ''}`;
   let card;
+  // pergunta em destaque: a pergunta do assunto é o título grande; embaixo, depois de um fio, o símbolo do poder e a data
+  if (!(I.itens && I.itens.length) && I.pergunta){
+    const pw = PODER[I.poder], sym = pw === 'jud' ? MESA.replace('stroke="var(--gray)"','stroke="var(--pc)"').replace(/fill="var\(--gray\)"/g,'fill="var(--pc)"') : (GLY[pw] || '');
+    const R = I.rodape || {};
+    return head.replace(`<h1>${esc(I.titulo)}</h1>`, '') + `<div class="perg"><p>${esc(I.pergunta)}</p></div>`
+      + ((R.valor || R.rotulo) ? `<div class="prod"><span class="psym" style="color:var(--pc)">${sym}</span><div>${R.rotulo ? `<small>${esc(R.rotulo)}</small>` : ''}<b>${esc(R.valor || '')}</b></div></div>` : '')
+      + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>coisapublica.io</span></div>`;
+  }
   // um assunto só, de um poder: fundo cheio na cor do poder, desenho grande no meio, sem caixa
   if (!(I.itens && I.itens.length) && PODER[I.poder] && I.fundo !== 'claro'){
     const pl = I.placar;
