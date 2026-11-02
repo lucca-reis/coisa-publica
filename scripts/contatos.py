@@ -1,11 +1,11 @@
-"""Contatos oficiais e redes sociais de deputados, senadores, presidente e vice, para o cartão "Contato" dos perfis.
+"""Contatos oficiais e redes sociais de deputados e senadores, para o cartão "Contato" dos perfis.
 
 Fontes (todas oficiais):
   - Câmara (dados abertos): /deputados e /deputados/{id} → e-mail, telefone e endereço do gabinete, redes sociais cadastradas
   - Senado (dados abertos): /senador/lista/atual → e-mail, telefones e página; a página de perfil no site do Senado
     lista as redes sociais do senador (lida quando o site responde)
-  - TSE (dados abertos, arquivos de candidatos de 2026 e 2022): sites e redes sociais que cada eleito declarou na candidatura;
-    cobre quem toma posse em 2027 e ainda não está no cargo, e os senadores eleitos em 2022
+  O TSE ficou de fora: as redes declaradas nas candidaturas misturam perfis de campanha, de apoiadores e de comitês
+  (no caso do presidente, nenhuma era a conta dele). Só entra rede social publicada pela própria Casa; na dúvida, nenhuma.
 Grava data/contatos.json, com uma entrada por pessoa, indexada pelo nome (vários nomes da mesma pessoa apontam para ela).
 Também grava data/contatos-amostra.json com exemplos das respostas, para conferir o formato. Só usa a biblioteca padrão."""
 import json, re, io, csv, time, zipfile, datetime, zoneinfo, pathlib, unicodedata, urllib.request, urllib.parse, traceback
@@ -60,7 +60,8 @@ def urls_em(o):
 REDES = [('x', r'(?:twitter|x)\.com'), ('instagram', r'instagram\.com'), ('facebook', r'facebook\.com|fb\.com'),
          ('youtube', r'youtube\.com|youtu\.be'), ('tiktok', r'tiktok\.com'), ('threads', r'threads\.(?:net|com)'), ('bluesky', r'bsky\.app')]
 NAO_PERFIL = {'share', 'sharer', 'intent', 'home', 'hashtag', 'search', 'p', 'reel', 'watch', 'plugins', 'dialog', 'tr', 'login', 'senadofederal',
-              'camaradeputados', 'agenciasenado', 'user', 'channel', 'c', 'pages', 'groups', 'profile.php', 'tvsenado', 'radiosenado', 'tvcamara', 'camaradosdeputados', 'senadofederaloficial', 'tsejus', 'tse'}
+              'camaradeputados', 'agenciasenado', 'user', 'channel', 'c', 'pages', 'groups', 'profile.php', 'tvsenado', 'radiosenado', 'tvcamara', 'camaradosdeputados', 'senadofederaloficial', 'tsejus', 'tse',
+              'playlist', 'results', 'embed', 'shorts', 'reels', 'stories', 'explore', 'about', 'videos', 'live', 'legal', 'privacy', 'help'}
 
 def rede(url):
     """('instagram', 'https://instagram.com/fulano', 'fulano') para um link de rede social; None se não for um perfil."""
@@ -138,7 +139,9 @@ def senado():
             tels = achar(p, 'Telefone') or []
             if isinstance(tels, dict): tels = [tels]
             nums = [t.get('NumeroTelefone') for t in tels if isinstance(t, dict) and t.get('NumeroTelefone')]
-            links = [u for u in (urls_em(html) if html else []) if rede(u)]
+            # a página do Senado também tem links da própria Casa e de outras páginas: só fica a conta que traz o nome do senador
+            partes = {x for n in (ide.get('NomeParlamentar'), ide.get('NomeCompletoParlamentar')) for x in slug(n).split('-') if len(x) >= 4}
+            links = [u for u in (urls_em(html) if html else []) if rede(u) and any(x in norm(rede(u)[2]).lower() for x in partes)]
             entrada(f'senado-{cod}', casa='senado', cargo='Senador(a)', nomes=[ide.get('NomeParlamentar'), ide.get('NomeCompletoParlamentar')],
                     emails=[ide.get('EmailParlamentar')], tels=[f'(61) {n}' if n and not str(n).startswith('(') else n for n in nums],
                     gabinete='Senado Federal, Brasília (DF)', pagina=ide.get('UrlPaginaParlamentar') or f'https://www25.senado.leg.br/web/senadores/senador/-/perfil/{cod}',
@@ -183,11 +186,11 @@ def tse():
                     fontes=[{'l': f'TSE · dados abertos (candidaturas {ano})', 'u': f'https://dadosabertos.tse.jus.br/dataset/candidatos-{ano}'}] if redes.get(sq) else [])
         log.append(f'tse {ano}: {len(cands)} candidaturas, {len(eleitos)} eleitos, {len(redes)} com redes')
 
-for etapa in (camara, senado, tse):
+for etapa in (camara, senado):   # tse() fica guardada, mas não roda (ver o começo do arquivo)
     try: etapa()
     except Exception: log.append(f'{etapa.__name__}: ' + traceback.format_exc()[-500:])
 
-# junta pela pessoa: o mesmo nome em fontes diferentes vira uma entrada só (dados da Casa primeiro, redes do TSE completam)
+# junta pela pessoa: o mesmo nome em fontes diferentes vira uma entrada só
 final, por_nome = {}, {}
 for pid, e in sorted(pessoas.items(), key=lambda kv: (kv[0].startswith('tse'), kv[0])):
     chaves = {slug(n) for n in e['nomes'] if n}
@@ -214,9 +217,16 @@ def melhor(nomes, contas):
         casado = sum(len(p) for p in partes if p in h) + (7 if 'oficial' in h else 0)
         return (min(casado, len(h)) / len(h) + (1 if any(j and j in h for j in junto) else 0), -len(h))
     return max(contas, key=nota) if contas else None
+def tem_nome(nomes, h):
+    # na dúvida, fica de fora: só conta cujo endereço traz parte do nome da pessoa (endereços quebrados, como "https" ou "Fl",
+    # e contas de terceiros não passam)
+    partes = {p for n in nomes for p in slug(n).split('-') if len(p) >= 4}
+    h = norm(h).lower()
+    return len(h) >= 4 and any(p in h for p in partes)
 for f in final.values():
     for r, contas in f.pop('cands', {}).items():
-        f['redes'][r] = melhor(f['nomes'], contas)
+        boas = [c for c in contas if tem_nome(f['nomes'], c['h'])]
+        if boas: f['redes'][r] = melhor(f['nomes'], boas)
 
 OUT.mkdir(exist_ok=True)
 res = {'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'), 'pessoas': final, 'nomes': por_nome, 'erros': log[:60]}

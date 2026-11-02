@@ -4339,7 +4339,7 @@ function execTr(which){
   }).catch(()=>{ const b = document.getElementById('p-tr'); if (b) b.innerHTML = '<h3>Transparência · cartão de pagamento</h3><p class="tr-empty">Não deu para carregar agora. <a href="https://portaldatransparencia.gov.br/cartoes" target="_blank" rel="noopener" style="color:inherit">Ver no Portal ↗</a></p>'; });
 }
 // contact card: official e-mail, phone, office and page, and the social networks (X and Instagram first), from data/contatos.json (robot:
-// Câmara, Senado and TSE). Ministers without their own entry get their ministry's official channels.
+// Câmara and Senado only; networks only as the house publishes them). Ministers without their own entry get their ministry's official channels.
 let ctData = null;
 const loadCt = ()=> ctData ? Promise.resolve(ctData) : trFetch('data/contatos.json').then(js=> (ctData = js));
 const CT_NET = [['x','X (Twitter)'],['instagram','Instagram'],['facebook','Facebook'],['youtube','YouTube'],['tiktok','TikTok'],['threads','Threads'],['bluesky','Bluesky']];
@@ -4356,11 +4356,9 @@ function ctSection(name, key, M){
     (C.extra||[]).forEach(r=> rows.push(r));
     const nets = CT_NET.filter(([k])=> C.redes && C.redes[k]).map(([k,l])=> `<a class="ct-net" href="${esc(C.redes[k].u)}" target="_blank" rel="noopener"><b>${l}</b>${k==='x'||k==='instagram'||k==='tiktok'||k==='threads' ? '@'+esc(C.redes[k].h) : esc(C.redes[k].h)}</a>`);
     const main = C.redes && (C.redes.x || C.redes.instagram);
-    const soTse = nets.length && (C.fontes||[]).some(f=> /TSE/.test(f.l)) && !(C.fontes||[]).some(f=> /Câmara|Senado/.test(f.l));
     b.innerHTML = `<h3>Contato</h3>
       ${rows.length ? `<dl class="ct-dl">${rows.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>` : `<p class="tr-empty">${esc(D || 'Os canais oficiais ainda não foram publicados.')}</p>`}
       ${nets.length ? `<div class="ct-nets" aria-label="Redes sociais">${nets.join('')}</div>` : ''}
-      ${soTse ? '<p class="ct-src">Redes declaradas pela candidatura ao TSE; podem incluir perfis da campanha.</p>' : ''}
       ${nets.length && !main ? '<p class="ct-src">Sem conta no X ou no Instagram nas fontes oficiais.</p>' : ''}
       ${!nets.length && C.fontes && C.fontes.length ? '<p class="ct-src">Nenhuma rede social informada nas fontes oficiais.</p>' : ''}
       ${C.fontes && C.fontes.length ? `<p class="ct-src">Fonte${C.fontes.length>1?'s':''}: ${C.fontes.map(f=>`<a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.l)}</a>`).join(' · ')}</p>` : ''}`;
@@ -4380,7 +4378,7 @@ function ctSection(name, key, M){
     if (C) return draw(C);
     if (key==='exec' && M && M.pasta) return ministry().then(x=> draw(x));
     if (key==='exec') return draw({extra:[['Presidência', '<a href="https://www.gov.br/planalto" target="_blank" rel="noopener">gov.br/planalto ↗</a>'], ['Fale com o governo', '<a href="https://falabr.cgu.gov.br" target="_blank" rel="noopener">Fala.BR ↗</a>']]});
-    draw({}, `Os canais oficiais de ${name} aparecem aqui depois que a ${key==='senado'?'Casa':'Câmara'} ou o TSE os publicam.`);
+    draw({}, `Os canais oficiais de ${name} aparecem aqui depois que a ${key==='senado'?'Casa':'Câmara'} os publica.`);
     const b = box(); if (b) b.insertAdjacentHTML('beforeend', `<p class="ct-src"><a href="${search}" target="_blank" rel="noopener">Procurar no site ${key==='senado'?'do Senado':'da Câmara'} ↗</a></p>`);
   }).catch(()=>{
     if (key==='exec' && M && M.pasta) return ministry().then(x=> draw(x));
@@ -5044,7 +5042,7 @@ function aboutHTML(){
         <li>${a('https://portal.stf.jus.br','Supremo Tribunal Federal')} e os sites dos tribunais superiores: julgamentos, composição e notícias;</li>
         <li>${a('https://www.gov.br/planalto','Planalto')} e ${a('https://www.in.gov.br','Diário Oficial da União')}: medidas provisórias, sanções, vetos e ministérios;</li>
         <li>${a('https://portaldatransparencia.gov.br','Portal da Transparência (CGU)')} e ${a('https://siconfi.tesouro.gov.br','Tesouro Nacional (SICONFI)')}: cartões de pagamento, orçamento e despesa com pessoal;</li>
-        <li>${a('https://dadosabertos.tse.jus.br','Dados abertos do TSE')}: resultados das eleições e redes declaradas pelos eleitos;</li>
+        <li>${a('https://dadosabertos.tse.jus.br','Dados abertos do TSE')}: resultados das eleições;</li>
         <li>agências oficiais de notícias (Agência Câmara, Agência Senado, STF Notícias, Agência Brasil) para os textos de cada proposta.</li>
       </ul>
       <p>Toda informação tem a fonte a um toque, no ícone “i”. Quando a fonte não informa algo, o site escreve “não informado” em vez de estimar.</p></section>
