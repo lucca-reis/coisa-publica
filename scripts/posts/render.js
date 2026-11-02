@@ -56,10 +56,10 @@ function hemi(casa, destaque){
 }
 function visual(V, poder){
   if (!V) return '';
-  // anel com a porcentagem no meio (ex.: três quintos = 60%)
+  // plenário em faixa única: o mesmo semicírculo do `plenario`, preenchido da esquerda até a porcentagem
   if (V.tipo === 'percentual'){
-    const pc = Math.max(0, Math.min(100, +V.valor || 0)), R = 150, C = 2*Math.PI*R;
-    return `<div style="text-align:center"><div style="position:relative;width:calc(400px * var(--k));margin:0 auto"><svg viewBox="0 0 400 400" width="100%"><circle cx="200" cy="200" r="${R}" fill="none" stroke="var(--gray)" stroke-width="56"/><circle cx="200" cy="200" r="${R}" fill="none" stroke="var(--pc)" stroke-width="56" stroke-dasharray="${(C*pc/100).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 200 200)"/></svg><div style="position:absolute;inset:0;display:grid;place-items:center;align-content:center"><b style="font-size:calc(110px * var(--k));font-weight:700;letter-spacing:-.04em;line-height:1">${pc}%</b>${V.rotulo ? `<small style="font-size:28px;color:var(--muted)">${esc(V.rotulo)}</small>` : ''}</div></div>${V.numeros ? `<div class="nums" style="margin-top:34px">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
+    const pc = Math.max(0, Math.min(100, +V.valor || 0)), r = 240, L = Math.PI*r, arc = `M${360-r} 360 A${r} ${r} 0 0 1 ${360+r} 360`;
+    return `<div><div style="position:relative;width:760px;max-width:100%;margin:0 auto"><svg viewBox="0 0 720 380" width="100%"><path d="${arc}" fill="none" stroke="var(--gray)" stroke-width="200"/><path d="${arc}" fill="none" stroke="var(--pc)" stroke-width="200" stroke-dasharray="${(L*pc/100).toFixed(1)} ${L.toFixed(1)}"/></svg><div style="position:absolute;left:0;right:0;bottom:calc(20px * 760 / 720);text-align:center;line-height:1"><b style="display:block;font-size:88px;font-weight:700;letter-spacing:-.04em">${pc}%</b></div></div>${V.numeros ? `<div class="nums" style="margin-top:30px">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   }
   if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   if (V.tipo === 'data') return `<div class="dat">${(V.simbolo || poder) === 'jud' ? MESA : `<div class="circ">${GLY[V.simbolo || poder] || ''}</div>`}<div>${V.rotulo ? `<small>${esc(V.rotulo)}</small>` : ''}<b>${esc(V.valor)}</b>${V.sub ? `<small style="margin-top:8px">${esc(V.sub)}</small>` : ''}</div></div>`;
