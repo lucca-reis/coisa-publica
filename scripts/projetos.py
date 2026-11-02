@@ -109,7 +109,11 @@ def titulo(ementa, sigla):
     else:
         m = re.match(r'^Disp(õe|oe) sobre\s+(.+)$', e, re.I)
         if m: e = m.group(2)
-    e = re.split(r';|\.\s|\.$|, e dá outras providências|, e dá outra providência', e)[0].strip()
+    e = re.split(r', e dá outras? providências?', e)[0]
+    # corta na primeira frase, sem cortar em abreviações (art., arts., nº, inc., Ltda.)
+    m = re.search(r'(?<!\bart)(?<!\barts)(?<!\binc)(?<!\bLtda)(?<!\bn)(?<!\bS\.A)(?<!\b[A-Z])(\.\s|\.$|;)', e)
+    if m: e = e[:m.start()]
+    e = e.strip().rstrip('.').strip()
     e = e[0].upper() + e[1:] if e else e
     if len(e) > 110:
         e = e[:110].rsplit(' ', 1)[0].rstrip(',;:') + '…'
@@ -126,12 +130,19 @@ SIT = [(r'TRANSFORMAD[OA] EM NORMA', 'Virou norma jurídica'), (r'TRANSFORMADO N
        (r'AGUARDANDO DESPACHO', 'Aguardando despacho na Câmara'), (r'AGUARDANDO VOTACAO', 'Aguarda votação na Câmara'),
        (r'RETIRAD[OA] PELO AUTOR', 'Retirado pelo autor'), (r'DEVOLVID', 'Devolvido ao autor'), (r'VETAD|VETO TOTAL', 'Vetado'),
        (r'AGUARDANDO APRECIACAO|AGUARDANDO DELIBERACAO|EM TRAMITACAO', 'Em tramitação na Câmara')]
+def capfix(t):
+    for a, b in [('câmara dos deputados', 'Câmara dos Deputados'), ('senado federal', 'Senado Federal'), ('congresso nacional', 'Congresso Nacional'),
+                 ('presidente da república', 'presidente da República'), ('senado', 'Senado'), ('câmara', 'Câmara')]:
+        t = re.sub(r'\b' + a + r'\b', b, t)
+    return t
+def frase(t):
+    t = (t or '').strip()
+    return capfix(t[:1].upper() + t[1:].lower()) if t else ''
 def situacao(t):
     n = norm(t)
     for re_, txt in SIT:
         if re.search(re_, n): return txt
-    t = (t or '').strip()
-    return t[:1].upper() + t[1:].lower() if t else 'Não informado'
+    return frase(t) or 'Não informado'
 
 # ---------- votações do Plenário da Câmara ----------
 IMPORTANTE = re.compile(r'(APROVAD[OA]|REJEITAD[OA]).{0,40}(PROPOSTA|PROJETO|MEDIDA PROVISORIA|SUBSTITUTIVO|PARECER|REDACAO FINAL|EMENDA AGLUTINATIVA|PRIMEIRO TURNO|SEGUNDO TURNO|URGENCIA)'
@@ -233,6 +244,8 @@ def novo(sl, **kw):
 for pid, p in props.items():
     s, n, a = p['s'], p['n'], p['a']
     if s not in TIPOS or not n or not a: continue
+    # outorgas de rádio e TV (centenas por ano, aprovadas sem votação em Plenário) ficam de fora
+    if s == 'PDL' and re.search(r'RADIODIFUS|RADIO COMUNIT|SERVICO DE RETRANSMISSAO|SONS E IMAGENS', norm(p['e'])) and not alvo.get(pid): continue
     aut = autoria(pid)
     exe = aut == 'Poder Executivo' or s == 'MPV'
     ficha = f'https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao={pid}'
@@ -271,6 +284,8 @@ for pid, p in props.items():
         v = principais[-1]
         sim, nao = int(v['sim'] or 0), int(v['nao'] or 0)
         dn = norm(v['desc'])
+        m = re.search(r'SIM:\s*(\d+)\D+NAO:\s*(\d+)', dn)
+        if not (sim or nao) and m: sim, nao = int(m.group(1)), int(m.group(2))
         res = 'Rejeitado' if 'REJEITAD' in dn else 'Aprovado' if ('APROVAD' in dn or v['ap'] == '1') else 'Não informado'
         if not (sim or nao) and 'UNANIMIDADE' in dn: res += ' por unanimidade'
         votes = {'label': f'Câmara · Plenário, {br(v["d"])}', 'result': res}
@@ -320,10 +335,14 @@ for v in sen_vot:
     res = norm(achar(v, 'resultadoVotacao', 'resultado', 'descricaoResultado') or '')
     res = 'Aprovado' if res.startswith('A') else 'Rejeitado' if res.startswith('R') else ('Aprovado' if sim > nao else 'Rejeitado' if nao > sim else 'Não informado')
     cod = achar(v, 'codigoMateria', 'CodigoMateria')
-    sen_info.setdefault((s, n, a), []).append({'d': data, 'desc': desc, 'sim': sim, 'nao': nao, 'res': res, 'cod': cod})
+    dn = norm(desc)
+    principal = not re.search(r'DESTACAD|DESTAQUE|REQUERIMENTO(?!.*URGENCIA)|ADIAMENTO|CALENDARIO ESPECIAL|EMENDA N\S*\s*\d+(?!.*SUBSTITUTIVO)|ART\. \d+ D|CAPITULO|DISPOSITIVO', dn)
+    sen_info.setdefault((s, n, a), []).append({'d': data, 'desc': desc, 'sim': sim, 'nao': nao, 'res': res, 'cod': cod, 'p': principal,
+                                               'e': str(v.get('ementa') or ''), 'ap': str(v.get('dataApresentacao') or '')[:10]})
 
-for (s, n, a), vs in sen_info.items():
-    vs.sort(key=lambda x: x['d'])
+for (s, n, a), todas in sen_info.items():
+    todas.sort(key=lambda x: x['d'])
+    vs = [x for x in todas if x['p']] or todas[-1:]
     sl = slug(s, n, a)
     cod = next((x['cod'] for x in vs if x['cod']), None)
     pag = f'https://www25.senado.leg.br/web/atividade/materias/-/materia/{cod}' if cod else 'https://www25.senado.leg.br/web/atividade/materias'
@@ -331,12 +350,12 @@ for (s, n, a), vs in sen_info.items():
     if not c:
         pr = get(f'{SEN}processo?' + urllib.parse.urlencode({'sigla': 'PL' if s == 'PL' else s, 'numero': n, 'ano': a}), 'senado-processo')
         info = next((x for x in (pr if isinstance(pr, list) else []) if norm(x.get('identificacao', '')).endswith(f'{n}/{a}')), None) or {}
-        e = info.get('ementa') or ''
-        ap = (info.get('dataApresentacao') or '')[:10]
+        e = info.get('ementa') or next((x['e'] for x in todas if x['e']), '')
+        ap = (info.get('dataApresentacao') or '')[:10] or next((x['ap'] for x in todas if x['ap']), '')
         c = novo(sl, house='senado', type=NOME_TIPO.get(s, s), code=f'{"MP" if s == "MPV" else s} {n}/{a}',
-                 title=(info.get('apelido') or '').strip().capitalize() or titulo(e, s) or f'{NOME_TIPO.get(s, s)} {n}/{a}',
+                 title=((info.get('apelido') or '').strip()[:1].upper() + (info.get('apelido') or '').strip()[1:]) or titulo(e, s) or f'{NOME_TIPO.get(s, s)} {n}/{a}',
                  summary=('Ementa oficial: ' + e) if e else 'Não informado', author=(info.get('autoria') or 'Não informado').strip()[:120],
-                 status=((info.get('situacaoAtual') or '').strip().capitalize() or 'Não informado'),
+                 status=frase(info.get('situacaoAtual')) or 'Não informado',
                  steps=[[ap, 'Apresentado no Senado']] if ap else [], links=[{'l': 'Matéria no Senado', 'u': pag}],
                  sources=[{'l': f'Dados abertos do Senado Federal: {s} {n}/{a}', 'u': pag}])
         if c['status'] == 'Não informado' and vs[-1]['res'] != 'Não informado': c['status'] = f'{vs[-1]["res"]} no Plenário do Senado'
@@ -353,6 +372,9 @@ for (s, n, a), vs in sen_info.items():
     if not c.get('votes') or last['d'] >= (re.search(r'(\d{2})/(\d{2})/(\d{4})', c['votes']['label']) and '-'.join(reversed(re.search(r'(\d{2})/(\d{2})/(\d{4})', c['votes']['label']).groups())) or ''):
         c['votes'] = {'label': f'Senado · Plenário, {br(last["d"])}', 'result': last['res']}
         if last['sim'] or last['nao']: c['votes']['tally'] = [['Votação', last['sim'], last['nao']]]
+for c in cards.values():
+    for k in ('rapporteur', 'author'):
+        if c.get(k) == 'Não informado': del c[k]
 print(f'Total: {len(cards)} cartões', flush=True)
 
 # ---------- grava ----------
