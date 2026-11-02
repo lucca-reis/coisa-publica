@@ -688,6 +688,8 @@ i.ph-0{opacity:.32}i.ph-1{opacity:.65}i.ph-2{background:color-mix(in srgb, var(-
 .lx-b{font-size:13px;line-height:1.35}
 .lx-s{font-size:13px;line-height:1.35;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
 .lx-s.on{color:#E0242B}
+/* on the opening view the "Ao vivo agora" section above the timeline says it; the line under the circle would overlap its title */
+.landing .lx-s{display:none!important}
 .lx-s .lv-dot{width:7px;height:7px}
 .lx-text:hover .lx-l{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .lg{cursor:pointer;outline:none;transform-box:fill-box;transform-origin:center;transition:transform .35s cubic-bezier(.3,.7,.3,1), opacity .4s}
@@ -771,10 +773,30 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 /* feed of cards on the opening view (right half) */
 .today{position:relative;width:100%;max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:12px;font-family:var(--display);color:var(--ink);transition:opacity .35s}
 .landing.leaving .today{opacity:0}
-.feed-h:not(:has(.lv-tag)){display:none}
-.feed-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-right:10px}
+.feed-h:not(:has(.lvs)){display:none}
+.feed-h{display:block}
+/* "Ao vivo agora": above the timeline, only while a session of a power is on air; the timeline moves down to make room */
+.lvs{display:flex;flex-direction:column;gap:12px;margin:0 0 22px}
+.lvs-h{margin:0 0 0 4px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#E0242B}
+.lvc{border-radius:20px;background:color-mix(in srgb, #E0242B 7%, var(--bg));padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;animation:fd-in .5s cubic-bezier(.2,.7,.3,1) both}
+@media (prefers-reduced-motion:reduce){ .lvc{animation:none} }
+.lvc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.lvc-pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px 5px 9px;border-radius:999px;background:var(--bg);font-size:12px;line-height:1;color:#E0242B;white-space:nowrap}
+.lvc-pill .lv-dot{width:7px;height:7px}
+.lvc-since{font-size:12px;color:var(--muted)}
+.lvc-t{margin:0;font-size:17px;line-height:1.3;letter-spacing:-.01em}
+.lvc .lv-video{margin:0;border-radius:12px;background:#121417}
+.lvc-ph{position:absolute;inset:0;display:grid;place-items:center;text-decoration:none;color:#FAFAF7}
+.lvc-ph span{display:inline-flex;align-items:center;gap:10px;font-size:14px;padding:10px 16px;border-radius:999px;background:rgba(250,250,247,.12)}
+.lvc-ph span::before{content:"";border-left:11px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.lvc-ph:hover span{background:rgba(250,250,247,.2)}
+.lvc-ph:focus-visible{outline:2px solid #FAFAF7;outline-offset:-4px;border-radius:12px}
+.lvc-links{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.lvc-links a,.lvc-links button{all:unset;cursor:pointer;font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
+.lvc-links a:hover,.lvc-links button:hover{text-decoration-color:currentColor}
+.lvc-links a:focus-visible,.lvc-links button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
 .today-h{margin:0;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.feed-live{display:flex;gap:8px;flex-wrap:wrap}
+.feed-live{display:block;width:100%}
 .feed-live .lv-tag{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin:0;font-size:12px;line-height:1;color:#E0242B;padding:6px 11px 6px 9px;border-radius:999px;background:color-mix(in srgb, #E0242B 10%, var(--bg))}
 .feed-live .lv-tag:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .today > .feed{padding:0}
@@ -2228,6 +2250,26 @@ function liveState(key){
   if (now < st) return {s:'soon', day, st};
   return null;
 }
+// the home section: one card per power on air, with the official broadcast playing when there is one to embed
+function liveSection(on){
+  const cards = on.map(([k,n], i)=>{
+    const st = liveState(k), L = LIVE[k];
+    const h = `${Math.floor(st.st/60)}h${st.st%60 ? String(st.st%60).padStart(2,'0') : ''}`;
+    const src = !FRAMED ? (ytEmbed(st.video) || (L.channel ? `https://www.youtube.com/embed/live_stream?channel=${L.channel}` : null)) : null;
+    const go = L.links[0];
+    const video = src
+      ? `<div class="lv-video"><iframe src="${src}${src.includes('?') ? '&' : '?'}mute=1${i===0 ? '&autoplay=1' : ''}" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+      : `<div class="lv-video"><a class="lvc-ph" href="${go.u}" target="_blank" rel="noopener" aria-label="${esc(go.l)}"><span>Assistir na ${esc(L.name)}</span></a></div>`;
+    const links = L.links.map(x=> `<a href="${x.u}" target="_blank" rel="noopener">${esc(x.l)} ↗</a>`).join('');
+    return `<article class="lvc" aria-label="${esc(n)} ao vivo">
+      <div class="lvc-top"><span class="lvc-pill ${pwClass(k)}"><span class="lv-dot" aria-hidden="true"></span>${n} · ao vivo</span><span class="lvc-since">desde as ${h}</span></div>
+      <p class="lvc-t">${esc(String(st.day.kind||'Sessão').trim().replace(/^(SESS[ÃA]O)/, 'Sessão').toLowerCase().replace(/^./, c=> c.toUpperCase()))}</p>
+      ${video}
+      <div class="lvc-links"><button type="button" class="lv-tag" data-go="${k}">Ver a pauta no site</button>${links}</div>
+    </article>`;
+  }).join('');
+  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p>${cards}</section>`;
+}
 function liveBox(key){
   const st = liveState(key), L = LIVE[key];
   if (!st) return `<div class="live-slot" data-k="${key}" hidden></div>`;
@@ -2288,8 +2330,10 @@ function refreshLive(){
   document.querySelectorAll('.live-slot').forEach(el=>{ const n = document.createElement('div'); n.innerHTML = liveBox(el.dataset.k); el.replaceWith(n.firstChild); });
   const fl = document.getElementById('feed-live');
   if (fl){
-    const on = [['stf','STF'],['exec','Presidência'],['camara','Câmara'],['senado','Senado']].filter(([k])=> liveState(k)?.s==='live');
-    fl.innerHTML = on.map(([k,n])=>`<button class="lv-tag" type="button" data-go="${k}"><span class="lv-dot" aria-hidden="true"></span>${n} ao vivo</button>`).join('');
+    const on = [['camara','Câmara'],['senado','Senado'],['stf','STF'],['exec','Presidência']].filter(([k])=> liveState(k)?.s==='live');
+    const keyNow = on.map(([k])=> k+':'+(liveState(k).video||'')).join('|');
+    // redraw only when what is on air changes, so a playing video is not restarted every minute
+    if (fl.dataset.on !== keyNow){ fl.dataset.on = keyNow; fl.innerHTML = on.length ? liveSection(on) : ''; if (typeof lxEnd==='function') requestAnimationFrame(lxEnd); }
   }
 }
 setInterval(refreshLive, 60000);
