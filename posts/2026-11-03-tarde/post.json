@@ -15,9 +15,9 @@
   "texto": "Três quintos dos votos, em dois turnos, em cada Casa.",
   "fonte": "Constituição Federal, art. 60",
   "visual": {
-   "tipo": "plenario",
-   "casa": "camara",
-   "destaque": 308,
+   "tipo": "percentual",
+   "valor": 60,
+   "rotulo": "três quintos",
    "numeros": [
     {
      "n": "308",
@@ -30,7 +30,7 @@
    ]
   }
  },
- "alt": "Imagem da Coisa Pública, Você sabia? Como se muda a Constituição. Desenho do plenário da Câmara com 308 das 513 cadeiras em amarelo e os números 308, dos 513 deputados, e 49, dos 81 senadores. Texto: três quintos dos votos, em dois turnos, em cada Casa. Fonte: Constituição Federal, artigo 60.",
+ "alt": "Imagem da Coisa Pública, Você sabia? Como se muda a Constituição. Gráfico em anel com 60% preenchido em amarelo e o texto 60%, três quintos, e os números 308, dos 513 deputados, e 49, dos 81 senadores. Texto: três quintos dos votos, em dois turnos, em cada Casa. Fonte: Constituição Federal, artigo 60.",
  "textos": {
   "bluesky": "Você sabia? Para mudar a Constituição, uma PEC precisa de 3/5 dos votos em dois turnos em cada Casa: 308 deputados e 49 senadores. Não vai à sanção: o próprio Congresso promulga. Algumas regras, as cláusulas pétreas, não podem ser abolidas.\n\ncoisapublica.io",
   "instagram": "Você sabia? 📜\n\nMudar a Constituição é mais difícil do que aprovar uma lei comum. A proposta de emenda à Constituição, a PEC, precisa de três quintos dos votos, em dois turnos, na Câmara e no Senado (art. 60).\n\nNa prática, são pelo menos 308 dos 513 deputados e 49 dos 81 senadores, duas vezes em cada Casa. Se uma Casa muda o texto, a outra precisa votar de novo.\n\nQuem pode propor: um terço dos deputados ou dos senadores, o presidente da República ou mais da metade das assembleias legislativas.\n\nA PEC não passa pela sanção do presidente: depois de aprovada, é promulgada pelas Mesas da Câmara e do Senado.\n\nE há limites. A Constituição não pode ser emendada durante intervenção federal, estado de defesa ou estado de sítio. E nenhuma PEC pode abolir as cláusulas pétreas: a federação, o voto direto, secreto, universal e periódico, a separação dos Poderes e os direitos e garantias individuais.\n\nHoje, o Senado vota a PEC da Segurança Pública. Acompanhe no site, link na bio.\n\n#CoisaPública #VocêSabia #Constituição #PEC #Congresso #Política"
