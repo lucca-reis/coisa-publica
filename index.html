@@ -1356,6 +1356,16 @@ h1[tabindex="-1"]:focus{outline:none}
 .p-cards .c-pill{background:color-mix(in srgb, var(--ink) 6%, var(--bg))}
 /* the power tag carries its colour: green Executivo, yellow Legislativo, blue Judiciário (the colours of the dot in Coisa Pública) */
 .card .c-top{justify-content:flex-start;gap:6px;flex-wrap:wrap}
+/* tags never break or get cut: each stays whole, they wrap as a group with even gaps, keep clear of the arrow on the right
+   and keep a margin above and below even when they take two lines */
+.card .c-top{row-gap:6px;padding:11px 26px 11px 0;box-sizing:border-box;min-width:0}
+.card .c-top > .c-pill,.card .c-top > .c-type{flex:none;white-space:nowrap;max-width:100%}
+/* phones: slightly smaller tags so both fit on one line; when they still wrap, the band under the text keeps its own height
+   instead of growing to match the taller band of tags */
+@media (max-width:560px){
+  .card .c-top > .c-pill,.card .c-top > .c-type{font-size:11.5px;padding:5px 9px}
+  .card .c-head{grid-template-rows:minmax(44px,auto) auto minmax(44px,1fr)}
+}
 /* the kind of proposal, next to the power: its own colour (never the powers' green, yellow or blue); a click opens its category */
 .c-type{display:inline-flex;align-items:center;padding:5px 11px;border-radius:999px;font-size:12px;line-height:1;cursor:pointer;
   background:color-mix(in srgb, var(--tc) 14%, var(--bg));color:color-mix(in srgb, var(--tc) 78%, var(--ink));transition:background-color .2s}
