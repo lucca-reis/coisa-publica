@@ -5206,7 +5206,7 @@ function tourStart(){
     const S = steps[i];
     tip.innerHTML = `${i ? `<p class="tt-n">${i} de ${steps.length-1}</p>` : ''}<h2>${S.t}</h2><p>${S.p}</p>
       <div class="tt-bar"><div class="tt-dots" aria-hidden="true">${steps.map((_,k)=>`<span class="${k===i?'on':''}"></span>`).join('')}</div>
-      <div>${S.last ? '' : '<button type="button" class="tt-skip">Pular</button>'}<button type="button" class="tt-next">${S.last ? 'Começar a usar' : i ? 'Próximo' : 'Fazer o tour'}</button></div></div>`;
+      <div>${S.last ? '' : '<button type="button" class="tt-skip" aria-label="Pular o tour e ir para o site">Pular tour</button>'}<button type="button" class="tt-next">${S.last ? 'Começar a usar' : i ? 'Próximo' : 'Fazer o tour'}</button></div></div>`;
     tip.querySelector('.tt-next').onclick = ()=> S.last ? done() : (i++, show());
     const sk = tip.querySelector('.tt-skip'); if (sk) sk.onclick = done;
     requestAnimationFrame(place); tip.querySelector('.tt-next').focus({preventScroll:true});
