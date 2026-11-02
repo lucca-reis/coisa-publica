@@ -13,12 +13,12 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 body{width:1080px;height:1350px;background:#F3F3F3;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;overflow:hidden;padding:84px}
 .logo{font-size:40px;letter-spacing:-.015em}.logo i{display:inline-block;width:.54em;height:.54em;border-radius:50%;background:#121417;margin:0 .045em}
 h1{margin:44px 0 0;font-size:84px;line-height:1.02;letter-spacing:-.035em;font-weight:700}
-.flow{margin-top:56px;display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:stretch;gap:10px}
-.step{background:color-mix(in srgb,#121417 5%,#F3F3F3);border-radius:26px;padding:22px 22px 24px;min-height:160px}
-.step b{display:block;font-size:30px;letter-spacing:-.02em;font-weight:600;margin-bottom:8px}
-.step span{font-size:23px;line-height:1.3;color:#55585D}
+.flow{margin-top:48px;display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:stretch;gap:10px}
+.step{background:color-mix(in srgb,#121417 5%,#F3F3F3);border-radius:26px;padding:24px 22px 26px}
+.step b{display:block;font-size:28px;line-height:1.12;letter-spacing:-.02em;font-weight:600;margin-bottom:10px}
+.step span{font-size:22px;line-height:1.32;color:#55585D}
 .arr{font-size:34px;color:#9A9DA1;text-align:center;align-self:center}
-.card{position:relative;margin-top:56px;background:color-mix(in srgb,#121417 5%,#F3F3F3);border-radius:34px;padding:34px 38px 36px}
+.card{position:relative;margin-top:44px;background:color-mix(in srgb,#121417 5%,#F3F3F3);border-radius:34px;padding:34px 38px 36px}
 .tags{display:flex;gap:12px;align-items:center}
 .pill{padding:10px 20px;border-radius:999px;font-size:23px}
 .jud{background:color-mix(in srgb,#1F4FB5 14%,#F3F3F3);color:color-mix(in srgb,#1F4FB5 66%,#121417)}
@@ -29,7 +29,7 @@ h1{margin:44px 0 0;font-size:84px;line-height:1.02;letter-spacing:-.035em;font-w
 .ux{display:flex;align-items:center;gap:12px}
 .leg{display:flex;gap:14px;justify-content:center;font-size:20px;color:#6E6F73;margin-top:6px}.leg i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px}
 .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#121417;color:#F3F3F3;font-style:normal;font-size:21px;font-weight:600;flex:none}
-.keys{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:26px 34px}
+.keys{margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:26px 34px}
 .keys div{display:flex;gap:14px;align-items:center;font-size:27px;line-height:1.3}
 .keys .n{width:34px;height:34px;font-size:19px}
 .foot{position:absolute;left:84px;right:84px;bottom:56px;display:flex;justify-content:space-between;font-size:22px;color:#8A8D91}
@@ -37,9 +37,9 @@ h1{margin:44px 0 0;font-size:84px;line-height:1.02;letter-spacing:-.035em;font-w
 <div class="logo">C<i></i>isa Pública</div>
 <h1>Como funciona<br>a Coisa Pública</h1>
 <div class="flow">
-  <div class="step"><b>Fontes oficiais</b><span>Câmara, Senado, Supremo, Planalto e Diário Oficial</span></div><div class="arr">→</div>
-  <div class="step"><b>Atualizado</b><span>automaticamente, várias vezes ao dia</span></div><div class="arr">→</div>
-  <div class="step"><b>Um cartão</b><span>por proposta, em linguagem simples</span></div>
+  <div class="step"><b>A informação é publicada</b><span>no Diário Oficial, na ordem do dia, no resultado de uma votação ou de uma eleição</span></div><div class="arr">→</div>
+  <div class="step"><b>A Coisa Pública processa</b><span>nosso sistema busca tudo automaticamente e organiza no banco de dados</span></div><div class="arr">→</div>
+  <div class="step"><b>Aparece no site e nas redes</b><span>em coisapublica.io e nas redes sociais, em linguagem simples</span></div>
 </div>
 <div class="card">
   <div class="tags"><span class="pill jud">STF · em vigor</span>${n(1)}<span class="pill typ">Ação no Supremo</span>${n(2)}</div>
