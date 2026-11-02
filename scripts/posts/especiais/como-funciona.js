@@ -10,25 +10,25 @@ const U = `<svg width="150" height="150" viewBox="0 0 12 12">${seats.map(([x,y],
 const n = k => `<i class="n">${k}</i>`;
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 *{box-sizing:border-box}html,body{margin:0}
-body{width:1080px;height:1350px;background:#FAFAF7;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;overflow:hidden;padding:84px}
+body{width:1080px;height:1350px;background:#F3F3F3;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;overflow:hidden;padding:84px}
 .logo{font-size:40px;letter-spacing:-.015em}.logo i{display:inline-block;width:.54em;height:.54em;border-radius:50%;background:#121417;margin:0 .045em}
 h1{margin:44px 0 0;font-size:84px;line-height:1.02;letter-spacing:-.035em;font-weight:700}
 .flow{margin-top:56px;display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;align-items:stretch;gap:10px}
-.step{background:color-mix(in srgb,#121417 5%,#FAFAF7);border-radius:26px;padding:22px 22px 24px;min-height:160px}
+.step{background:color-mix(in srgb,#121417 5%,#F3F3F3);border-radius:26px;padding:22px 22px 24px;min-height:160px}
 .step b{display:block;font-size:30px;letter-spacing:-.02em;font-weight:600;margin-bottom:8px}
 .step span{font-size:23px;line-height:1.3;color:#55585D}
 .arr{font-size:34px;color:#9A9DA1;text-align:center;align-self:center}
-.card{position:relative;margin-top:56px;background:color-mix(in srgb,#121417 5%,#FAFAF7);border-radius:34px;padding:34px 38px 36px}
+.card{position:relative;margin-top:56px;background:color-mix(in srgb,#121417 5%,#F3F3F3);border-radius:34px;padding:34px 38px 36px}
 .tags{display:flex;gap:12px;align-items:center}
 .pill{padding:10px 20px;border-radius:999px;font-size:23px}
-.jud{background:color-mix(in srgb,#1F4FB5 14%,#FAFAF7);color:color-mix(in srgb,#1F4FB5 66%,#121417)}
-.typ{background:color-mix(in srgb,#4B4F57 14%,#FAFAF7);color:color-mix(in srgb,#4B4F57 78%,#121417)}
+.jud{background:color-mix(in srgb,#1F4FB5 14%,#F3F3F3);color:color-mix(in srgb,#1F4FB5 66%,#121417)}
+.typ{background:color-mix(in srgb,#4B4F57 14%,#F3F3F3);color:color-mix(in srgb,#4B4F57 78%,#121417)}
 .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:24px}
 .t{font-size:38px;line-height:1.15;letter-spacing:-.02em;font-weight:500;margin:0}
 .s{font-size:26px;line-height:1.35;color:#55585D;margin:12px 0 0;display:flex;align-items:center;gap:12px}
 .ux{display:flex;align-items:center;gap:12px}
 .leg{display:flex;gap:14px;justify-content:center;font-size:20px;color:#6E6F73;margin-top:6px}.leg i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px}
-.n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#121417;color:#FAFAF7;font-style:normal;font-size:21px;font-weight:600;flex:none}
+.n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#121417;color:#F3F3F3;font-style:normal;font-size:21px;font-weight:600;flex:none}
 .keys{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:26px 34px}
 .keys div{display:flex;gap:14px;align-items:center;font-size:27px;line-height:1.3}
 .keys .n{width:34px;height:34px;font-size:19px}
