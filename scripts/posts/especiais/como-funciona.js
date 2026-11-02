@@ -35,7 +35,7 @@ h1{margin:44px 0 0;font-size:84px;line-height:1.02;letter-spacing:-.035em;font-w
 .foot{position:absolute;left:84px;right:84px;bottom:56px;display:flex;justify-content:space-between;font-size:22px;color:#8A8D91}
 </style></head><body>
 <div class="logo">C<i></i>isa Pública</div>
-<h1>Como funciona<br>a Coisa Pública</h1>
+<h1>Como funciona<br>nosso sistema</h1>
 <div class="flow">
   <div class="step"><svg viewBox="0 0 32 32" fill="none" stroke="#121417" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h10l6 6v18H9z"/><path d="M19 4v6h6M13 16h8M13 21h8"/></svg><b>Publicado</b><span>Diário Oficial, pautas, votações e eleições</span></div><div class="arr">→</div>
   <div class="step"><svg viewBox="0 0 32 32" fill="none" stroke="#121417" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="8" rx="9" ry="3.5"/><path d="M7 8v16c0 2 4 3.5 9 3.5s9-1.5 9-3.5V8M7 16c0 2 4 3.5 9 3.5s9-1.5 9-3.5"/></svg><b>Processado</b><span>automaticamente, no nosso banco de dados</span></div><div class="arr">→</div>
