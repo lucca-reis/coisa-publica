@@ -105,7 +105,7 @@ def titulo(ementa, sigla):
     e = re.sub(r'\s+', ' ', ementa or '').strip()
     if not e: return ''
     m = re.match(r'^(Altera|Acrescenta|Modifica|Revoga|Dá nova redação|Inclui|Insere)\b.*?\bpara\s+(.+)$', e, re.I)
-    if m and len(m.group(2)) > 15: e = m.group(2)
+    if m and len(m.group(2)) > 15 and not re.match(r'^\S+-(l[ao]s?|se|lhes?)\b', m.group(2)): e = m.group(2)
     else:
         m = re.match(r'^Disp(õe|oe) sobre\s+(.+)$', e, re.I)
         if m: e = m.group(2)
