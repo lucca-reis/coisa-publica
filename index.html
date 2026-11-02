@@ -751,6 +751,14 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .landing.leaving{background:transparent;pointer-events:none}
 .landing.leaving .lg{opacity:0}
 .landing.leaving .lg.mini,.landing.instant,.landing.instant .lg{transition:none}
+.ph-on circle[data-p]{transition:opacity .2s ease}
+.ph-on circle[data-p]:not(.ph){opacity:.18}
+.ph-tip{position:fixed;z-index:60;pointer-events:none;transform:translate(-50%,calc(-100% - 10px));display:inline-flex;align-items:center;gap:7px;padding:6px 11px 6px 9px;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--display);font-size:12.5px;line-height:1;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.18);opacity:0;transition:opacity .15s, left .2s ease, top .2s ease}
+.ph-tip.on{opacity:1}
+.ph-tip i{width:9px;height:9px;border-radius:50%;flex:none}
+.ph-tip b{font-weight:600}
+.ph-tip::after{content:"";position:absolute;left:50%;bottom:-4px;width:8px;height:8px;background:var(--ink);transform:translateX(-50%) rotate(45deg);border-radius:1px}
+@media (prefers-reduced-motion:reduce){ .ph-tip,.ph-on circle[data-p]{transition:none} }
 .seats{transition:opacity .45s}
 .stage.zooming #plan,.stfv.zooming svg{will-change:transform}
 .stage.zooming .seats{opacity:0}
@@ -4603,7 +4611,7 @@ function vgCadeiras(){
     const cnt = {}; ps.forEach(p=> cnt[p]=(cnt[p]||0)+1);
     const top = Object.entries(cnt).sort((a,b)=> b[1]-a[1]).slice(0,5);
     // the same circle and seat layout as the house's own section
-    const seats = HOUSES[key].seats.map(c=>`<circle cx="${c.getAttribute('cx')}" cy="${c.getAttribute('cy')}" r="${(+c.getAttribute('r')*.92).toFixed(4)}" fill="${PARTY[c.dataset.p]||'var(--nc)'}"/>`).join('');
+    const seats = HOUSES[key].seats.map(c=>`<circle cx="${c.getAttribute('cx')}" cy="${c.getAttribute('cy')}" r="${(+c.getAttribute('r')*.92).toFixed(4)}" fill="${PARTY[c.dataset.p]||'var(--nc)'}" data-p="${esc(c.dataset.p)}"/>`).join('');
     const g = HOUSES[key].g, arc = g.querySelector('.arc'), pr = g.querySelector('.pres');
     const draw = `<svg viewBox="-1.02 -1.02 2.04 2.04" aria-hidden="true"><circle r="1" fill="var(--bg)"/>${arc ? `<path d="${arc.getAttribute('d')}" fill="none" stroke="var(--rule)" stroke-width=".012"/>` : ''}${pr ? `<circle cx="${pr.getAttribute('cx')}" cy="0" r="${pr.getAttribute('r')}" fill="var(--ink)"/>` : ''}${seats}</svg>`;
     return `<div class="vc-h"><h3>${title} <span>${ps.length} cadeiras</span></h3>${draw}<ul class="vc-leg">${top.map(([p,n])=>`<li><i style="background:${PARTY[p]||'var(--nc)'}"></i>${esc(PARTY_NAME[p]||p)} <b>${n}</b></li>`).join('')}</ul></div>`;
@@ -5282,6 +5290,29 @@ addEventListener('load', ()=> setTimeout(()=>{
   let seen = true; try{ seen = localStorage.getItem(TOUR_KEY) === '1'; }catch(e){}
   if (!seen && (!location.hash || location.hash==='#') && !document.querySelector('.tour')) tourStart();
 }, 1400));
+// party highlight: with a mouse over the seats (the houses' plenaries and "Quem ocupa as cadeiras"), the seats of that party
+// stay lit, the others fade, and a small balloon over the group shows the party and how many seats it has
+(function(){
+  if (!matchMedia('(hover:hover)').matches) return;
+  const tip = document.createElement('div'); tip.className = 'ph-tip'; tip.setAttribute('aria-hidden','true'); document.body.appendChild(tip);
+  let root = null, cur = null;
+  const clear = ()=>{ if (!root) return; root.classList.remove('ph-on'); root.querySelectorAll('circle.ph').forEach(c=> c.classList.remove('ph')); tip.classList.remove('on'); root = cur = null; };
+  document.addEventListener('pointerover', e=>{
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    const s = e.target.closest && e.target.closest('circle[data-p]');
+    const r = s && (s.closest('.house.colored') || s.closest('.vc-h svg'));
+    if (!r){ if (root && !(e.target.closest && e.target.closest('.ph-on'))) clear(); return; }
+    const p = s.dataset.p; if (r===root && p===cur) return;
+    clear(); root = r; cur = p;
+    const all = [...r.querySelectorAll(`circle[data-p="${CSS.escape(p)}"]`)];
+    all.forEach(c=> c.classList.add('ph')); r.classList.add('ph-on');
+    let L=1e9, T=1e9, R=-1e9; all.forEach(c=>{ const b = c.getBoundingClientRect(); L=Math.min(L,b.left); T=Math.min(T,b.top); R=Math.max(R,b.right); });
+    tip.innerHTML = `<i style="background:${PARTY[p]||'var(--nc)'}"></i><b>${esc(PARTY_NAME[p]||p)}</b> ${all.length}`;
+    tip.style.left = Math.min(innerWidth-60, Math.max(60, (L+R)/2))+'px'; tip.style.top = Math.max(40, T)+'px';
+    tip.classList.add('on');
+  });
+  document.addEventListener('pointerleave', clear); addEventListener('scroll', clear, true);
+})();
 </script>
 
 </body>
