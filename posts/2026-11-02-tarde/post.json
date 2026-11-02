@@ -1,0 +1,101 @@
+{
+ "id": "2026-11-02-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-02",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Planos da semana",
+  "titulo": "O que vem por aí",
+  "texto": "De 3 a 6 de novembro nos Três Poderes.",
+  "itens": [
+   {
+    "quando": "Ter",
+    "dia": "3/11",
+    "tags": [
+     {
+      "t": "Senado",
+      "poder": "leg"
+     },
+     {
+      "cat": "pec",
+      "t": "PEC 18/2025"
+     }
+    ],
+    "titulo": "PEC da Segurança Pública",
+    "texto": "Na pauta do Plenário às 16h. Precisa de 49 votos em dois turnos."
+   },
+   {
+    "quando": "Ter",
+    "dia": "3/11",
+    "tags": [
+     {
+      "t": "STF",
+      "poder": "jud"
+     },
+     {
+      "cat": "acao",
+      "t": "ADI 8027"
+     }
+    ],
+    "titulo": "Audiência sobre a proibição das bets",
+    "texto": "O ministro Luiz Fux ouve 28 entidades, às 10h."
+   },
+   {
+    "quando": "Qua",
+    "dia": "4/11",
+    "tags": [
+     {
+      "t": "STF",
+      "poder": "jud"
+     },
+     {
+      "cat": "acao",
+      "t": "ADPF 1212"
+     }
+    ],
+    "titulo": "Loterias municipais",
+    "texto": "O Plenário julga se municípios podem criar loterias."
+   },
+   {
+    "quando": "Sex",
+    "dia": "6/11",
+    "tags": [
+     {
+      "t": "Presidência",
+      "poder": "exe"
+     },
+     {
+      "cat": "mp",
+      "t": "MP 1370/2026"
+     }
+    ],
+    "titulo": "Enamed obrigatório",
+    "texto": "Último dia para sanção ou veto."
+   }
+  ],
+  "fonte": "Agência Senado, STF Notícias e Congresso Nacional"
+ },
+ "alt": "Imagem da Coisa Pública, Planos da semana: O que vem por aí, de 3 a 6 de novembro. Terça, 3/11: o Senado vota a PEC da Segurança Pública às 16h, e o STF faz audiência pública sobre a proibição das bets às 10h. Quarta, 4/11: o STF julga as loterias municipais. Sexta, 6/11: último dia para sanção ou veto do Enamed obrigatório.",
+ "textos": {
+  "bluesky": "A semana nos Três Poderes:\n\nTer 3/11: Senado vota a PEC da Segurança Pública; STF ouve 28 entidades sobre a proibição das bets.\nQua 4/11: STF julga as loterias municipais.\nSex 6/11: prazo para sanção ou veto do Enamed.\n\ncoisapublica.io",
+  "instagram": "O que vem por aí 🗓️\n\nA semana nos Três Poderes, de 3 a 6 de novembro:\n\nTerça (3/11)\n• Senado: a PEC da Segurança Pública está na pauta do Plenário, às 16h. Por mudar a Constituição, precisa de 49 votos em dois turnos. Se o texto mudar, volta para a Câmara.\n• Supremo: o ministro Luiz Fux ouve 28 entidades, entre clubes, CBF, COB, órgãos públicos e empresas do setor, sobre a medida provisória que proíbe as apostas de quota fixa, as bets (ADI 8027).\n\nQuarta (4/11)\n• Supremo: o Plenário julga se municípios podem criar suas próprias loterias (ADPF 1212).\n\nSexta (6/11)\n• Presidência: último dia para o presidente sancionar ou vetar a lei que torna o Enamed obrigatório para exercer a medicina (MP 1370/2026).\n\nNa Câmara, a pauta da semana é definida pelos líderes na terça.\n\nLink na bio.\n\n#CoisaPública #TrêsPoderes #Senado #STF #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Senado: Davi marca para terça votação da PEC da Segurança (30/10)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/10/30/davi-marca-para-terca-votacao-da-pec-da-seguranca"
+  },
+  {
+   "l": "STF: cronograma da audiência pública sobre as bets",
+   "u": "https://noticias.stf.jus.br/postsnoticias/stf-divulga-cronograma-de-audiencia-publica-sobre-proibicao-das-bets/"
+  },
+  {
+   "l": "Yogonet: STF marca julgamento sobre loterias municipais para 4/11 (30/10)",
+   "u": "https://www.yogonet.com/brasil/noticias/2026/10/30/10730-stf-marca-julgamento-sobre-loterias-municipais-para-4-de-novembro"
+  },
+  {
+   "l": "Agência Senado: Enamed será obrigatório (15/10)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/10/15/enamed-sera-obrigatorio-para-exercicio-da-medicina-aprova-senado"
+  }
+ ]
+}
