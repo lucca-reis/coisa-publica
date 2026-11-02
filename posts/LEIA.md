@@ -22,6 +22,7 @@ Segredos do GitHub (Settings > Secrets and variables > Actions): `BLUESKY_HANDLE
 ## Regras (as mesmas do site)
 
 - Só fatos que estão nos dados do site, com fonte oficial. Nunca inventar números, votos, datas ou resultados. Se a fonte não informa, não dizer.
+- Não falar em "robô": os dados são "atualizados automaticamente".
 - Linguagem simples e neutra. Sem opinião, sem adjetivos de julgamento ("polêmica", "vitória", "derrota do governo"), sem apoiar partido ou pessoa. Valores como publicados.
 - Não usar fotos de pessoas. A imagem é sempre o cartão da Coisa Pública gerado por `render.js`.
 - Bluesky: até 300 caracteres no total, terminando com `coisapublica.io`.

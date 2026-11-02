@@ -3123,7 +3123,7 @@ const FOOT_HTML = (()=>{
   return `<footer class="site-foot"><div class="sf-grid">
   <div class="sf-brand"><a class="sf-logo" href="#" aria-label="Coisa Pública, página inicial"><span aria-hidden="true">C<i class="brand-o"></i>isa Pública</span></a>
     <p class="sf-tag">Pautas, votações e gastos dos Três Poderes, num só lugar.</p>
-    <p class="sf-about">Dados de fontes oficiais, atualizados por robôs ao longo do dia. Cada informação leva à sua fonte.</p></div>
+    <p class="sf-about">Dados de fontes oficiais, atualizados automaticamente ao longo do dia. Cada informação leva à sua fonte.</p></div>
   <nav aria-label="Fontes oficiais"><h2>Fontes</h2><ul>
     <li>${ext('https://dadosabertos.camara.leg.br', 'Câmara dos Deputados')}</li>
     <li>${ext('https://www12.senado.leg.br/dados-abertos', 'Senado Federal')}</li>
@@ -4316,7 +4316,7 @@ const LEIS_ALIAS = {'REPUBLIC':'Republicanos','PRB':'Republicanos','SOLIDARI':'S
 function vgLeis(){
   if (!trLeis) return '<p class="vd-none">Carregando…</p>';
   const L = trLeis, G = L.grupos || [];
-  if (!G.length) return `<p class="vd-none">${(L.erros||[]).length ? 'Os dados ainda estão sendo reunidos pelo robô; o gráfico aparece aqui na próxima atualização.' : 'Nenhuma norma encontrada no período.'}</p>`;
+  if (!G.length) return `<p class="vd-none">${(L.erros||[]).length ? 'Os dados ainda estão sendo reunidos; o gráfico aparece aqui na próxima atualização automática.' : 'Nenhuma norma encontrada no período.'}</p>`;
   const OUTROS = /^(Comissões e outros órgãos|não informado)$/;
   const cnt = {};
   G.forEach(([g,n])=>{ if (OUTROS.test(g)) return; const up = String(g).toUpperCase(), k = LEIS_ALIAS[up] || SIGLA_PARTY[up] || g; cnt[k] = (cnt[k]||0) + n; });
@@ -4649,7 +4649,7 @@ function tpExec(){
     <section class="vb w12" aria-label="Totais"><div class="tp-kpis">
       ${tpKpi('Presidência da República', P ? moneyShort(P.total) : '—', P ? `${FMT_NUM.format(P.transacoes)} transações · ${P.total ? FMT_PCT.format(Math.floor(P.sigiloso/P.total*1000)/10) : 0}% sigilosas` : 'não informado')}
       ${tpKpi('Vice-Presidência', V ? moneyShort(V.total) : '—', V ? `${FMT_NUM.format(V.transacoes)} transações` : 'não informado')}
-      ${tpKpi('Ministérios', comOrgao.length ? moneyShort(totM) : '—', comOrgao.length ? `${comOrgao.length} pastas com dados no Portal` : 'chegam na próxima atualização do robô')}
+      ${tpKpi('Ministérios', comOrgao.length ? moneyShort(totM) : '—', comOrgao.length ? `${comOrgao.length} pastas com dados no Portal` : 'chegam na próxima atualização automática')}
     </div></section>
     ${block('Presidência · cartão de pagamento', P, pres && `${pres.n} · gastos do órgão, não da pessoa`)}
     ${block('Vice-Presidência · cartão de pagamento', V, vice && `${vice.n} · gastos do órgão, não da pessoa`)}
@@ -4661,8 +4661,8 @@ function tpExec(){
           <span class="tp-rv">${MONEY0.format(m.total||0)}</span></button>
           ${open ? `<div class="tp-det">${m.transacoes ? cardBlock({...m, itens:m.itens||[]}, 10) : '<p class="vd-none">O Portal não traz gastos com cartão de pagamento desta pasta no período.</p>'}
             ${(m.estab||[]).length ? `<p class="vb-note">Onde mais se gastou (sem os gastos sigilosos)</p><ul class="vt-who">${m.estab.slice(0,6).map(([e,v])=>`<li><span>${esc(e)}</span><span>${MONEY0.format(v)}</span></li>`).join('')}</ul>` : ''}
-            <p class="vb-note">${esc(m.orgao.nome)} · <a href="${m.fonte}" target="_blank" rel="noopener">Ver no Portal da Transparência ↗</a>${m.completo===false ? ' · o robô lê até 120 transações por mês; meses com mais ficam incompletos aqui' : ''}</p></div>` : ''}</li>`; }).join('')}</ol>`
-        : '<p class="vd-none">Os gastos dos ministérios entram na próxima atualização diária do robô.</p>'}
+            <p class="vb-note">${esc(m.orgao.nome)} · <a href="${m.fonte}" target="_blank" rel="noopener">Ver no Portal da Transparência ↗</a>${m.completo===false ? ' · a atualização automática lê até 120 transações por mês; meses com mais ficam incompletos aqui' : ''}</p></div>` : ''}</li>`; }).join('')}</ol>`
+        : '<p class="vd-none">Os gastos dos ministérios entram na próxima atualização automática, que é diária.</p>'}
       ${semOrgao.length ? `<p class="vb-note">Sem órgão próprio no Portal (os gastos entram na Presidência ou não foram encontrados): ${semOrgao.map(m=> esc(m.pasta)).join(', ')}.</p>` : ''}
     </section>
     ${orcSection()}
@@ -4707,7 +4707,7 @@ function renderTp(keep){
   tp.innerHTML = `<div class="cw vg tpw">
     <header class="cw-head"><div><p class="inst-eye">Portal da Transparência, Tesouro Nacional e cota parlamentar</p><h1 id="tp-title">Transparência</h1>
       <p class="vg-sub">Gastos públicos dos últimos 12 meses${tpPeriod() ? ` (${tpPeriod()})` : ''}, por poder e por pessoa, como os órgãos publicam.</p></div>
-      ${infoBox(TP_SOURCES,'Fontes','Os robôs da Coisa Pública baixam esses dados uma vez por dia.')}</header>
+      ${infoBox(TP_SOURCES,'Fontes','Esses dados são atualizados automaticamente uma vez por dia.')}</header>
     <div class="tp-tabs" role="tablist" aria-label="Poder">${[['leg','Legislativo','pw-leg'],['exec','Executivo','pw-exec'],['jud','Judiciário','pw-jud'],['mpu','MP e Defensoria','pw-mp']].map(([k,l,c])=>{ const v = pes(k);
       return `<button type="button" role="tab" class="tp-tab ${c}" data-tab="${k}" aria-selected="${tpTab===k}"><span class="tp-tn">${l}</span><span class="tp-tv">${v==null ? (tot0[k]!=null ? moneyShort(tot0[k]) : 'carregando…') : moneyBig(v)}</span>${v!=null ? '<span class="tp-tu">com pessoal em 12 meses</span>' : ''}</button>`; }).join('')}</div>
     <div id="tp-body" role="tabpanel">${tpTab==='leg' ? tpLeg() : tpTab==='exec' ? tpExec() : tpTab==='jud' ? tpJud() : tpMp()}</div>
@@ -4847,7 +4847,7 @@ function minProps(id){
   loadMinData().then(M=>{
     const box = document.getElementById('min-props'); if (!box || instKey!=='m:'+id) return;
     const ids = ((M.pastas||{})[id]||{}).itens || [], L = ids.map(i=> M.props[i]).filter(Boolean);
-    if (!L.length){ box.innerHTML = `<p class="vd-none">Nenhuma proposta enviada ao Congresso pelo ministério nos últimos 12 meses, pelas Exposições de Motivos lidas pelo robô.</p>`; return; }
+    if (!L.length){ box.innerHTML = `<p class="vd-none">Nenhuma proposta enviada ao Congresso pelo ministério nos últimos 12 meses, pelas Exposições de Motivos oficiais.</p>`; return; }
     const when = x=> x.sit_data || x.data || '';
     L.sort((a,b)=> when(b).localeCompare(when(a)));
     const t = todayISO(), groups = [];
@@ -4856,7 +4856,7 @@ function minProps(id){
       const [y,m,dd] = g.d.split('-').map(Number), wd = ['dom','seg','ter','qua','qui','sex','sáb'][new Date(y,m-1,dd).getDay()];
       return `<li class="fd" data-d="${g.d}"><p class="fd-date">${g.d===t ? 'hoje' : `${wd}, ${dd} ${MO[m-1]}${y!==+t.slice(0,4)?' '+y:''}`}</p><ol class="fd-cards">${g.items.map(x=> minCard(x, M)).join('')}</ol></li>`; }).join('')}</ol>
       <p class="vb-note">Propostas de autoria do Poder Executivo na Câmara dos Deputados. O ministério vem da Exposição de Motivos que acompanha cada uma. Atualizado toda semana.</p>`;
-  }).catch(()=>{ const b = document.getElementById('min-props'); if (b) b.innerHTML = '<p class="vd-none">As propostas dos ministérios entram na próxima atualização do robô.</p>'; });
+  }).catch(()=>{ const b = document.getElementById('min-props'); if (b) b.innerHTML = '<p class="vd-none">As propostas dos ministérios entram na próxima atualização automática.</p>'; });
 }
 // #projetos and #categoria-<k>: every proposal and case the site follows, by kind
 function catHTML(id){
@@ -4967,7 +4967,7 @@ function aboutHTML(){
       </ul>
       <p>Toda informação tem a fonte a um toque, no ícone “i”. Quando a fonte não informa algo, o site escreve “não informado” em vez de estimar.</p></section>
     <section class="qs-sec"><h2>Como funciona</h2>
-      <p>Uma parte do site se atualiza sozinha: pequenos programas, os robôs, buscam os dados oficiais em horários marcados e guardam o resultado em arquivos que o site lê.</p>
+      <p>Uma parte do site é atualizada automaticamente: pequenos programas buscam os dados oficiais em horários marcados e guardam o resultado em arquivos que o site lê.</p>
       <ul>
         <li>de hora em hora: sessões ao vivo da Câmara e do Senado, notícias dos tribunais e ministérios e as enquetes;</li>
         <li>todo dia: quem ocupa cada cadeira do Congresso, votações nominais, leis aprovadas, cota parlamentar e cartões de pagamento;</li>
@@ -4975,9 +4975,9 @@ function aboutHTML(){
       </ul>
       <p>A outra parte, os resumos das propostas e a agenda da semana, é escrita à mão a partir das notícias oficiais, sempre com o link de onde veio.</p></section>
     <section class="qs-sec"><h2>Como foi construído</h2>
-      <p>É um site estático: um único arquivo com o desenho e o funcionamento, publicado no GitHub Pages, sem anúncios, sem cadastro e sem rastrear quem visita. Os robôs rodam no GitHub Actions. O código é aberto e pode ser lido por qualquer pessoa ${a('https://github.com/lucca-reis/coisa-publica','no GitHub')}. O desenvolvimento contou com a ajuda do Claude, assistente de inteligência artificial da Anthropic.</p></section>
+      <p>É um site estático: um único arquivo com o desenho e o funcionamento, publicado no GitHub Pages, sem anúncios, sem cadastro e sem rastrear quem visita. As atualizações automáticas rodam no GitHub Actions. O código é aberto e pode ser lido por qualquer pessoa ${a('https://github.com/lucca-reis/coisa-publica','no GitHub')}. O desenvolvimento contou com a ajuda do Claude, assistente de inteligência artificial da Anthropic.</p></section>
     <section class="qs-sec"><h2>Limites</h2>
-      <p>Os dados oficiais às vezes atrasam ou mudam depois de publicados, e os robôs dependem dos sites dos órgãos estarem no ar. Ministros, ministros do Supremo e presidentes de tribunais são conferidos à mão. Achou um erro? ${SITE_INFO.email ? `Escreva para <a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a> ou abra` : 'Abra'} um aviso ${a('https://github.com/lucca-reis/coisa-publica/issues','no GitHub')}.</p></section>
+      <p>Os dados oficiais às vezes atrasam ou mudam depois de publicados, e as atualizações automáticas dependem dos sites dos órgãos estarem no ar. Ministros, ministros do Supremo e presidentes de tribunais são conferidos à mão. Achou um erro? ${SITE_INFO.email ? `Escreva para <a href="mailto:${esc(SITE_INFO.email)}">${esc(SITE_INFO.email)}</a> ou abra` : 'Abra'} um aviso ${a('https://github.com/lucca-reis/coisa-publica/issues','no GitHub')}.</p></section>
   </div>`;
 }
 // latest official news of each court and ministry, from data/instituicoes.json (robot, every hour)
