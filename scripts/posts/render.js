@@ -35,12 +35,42 @@ function plenario(P){
   }
   return '';
 }
+// desenhos grandes dos posts de fundo cheio
+const GLY = {
+  jud:'<svg viewBox="0 0 12 12" fill="currentColor"><circle cx="1.3" cy="1.3" r="1.15"/><circle cx="1.3" cy="4.05" r="1.15"/><circle cx="1.3" cy="6.8" r="1.15"/><circle cx="1.3" cy="9.55" r="1.15"/><circle cx="10.7" cy="1.3" r="1.15"/><circle cx="10.7" cy="4.05" r="1.15"/><circle cx="10.7" cy="6.8" r="1.15"/><circle cx="10.7" cy="9.55" r="1.15"/><circle cx="3.65" cy="10.7" r="1.15"/><circle cx="6" cy="10.7" r="1.15"/><circle cx="8.35" cy="10.7" r="1.15"/></svg>',
+  leg:'<svg viewBox="0 0 20.2 11.6" fill="currentColor"><circle cx="1.5" cy="10.1" r="1.5"/><circle cx="2.65" cy="5.8" r="1.5"/><circle cx="5.8" cy="2.65" r="1.5"/><circle cx="10.1" cy="1.5" r="1.5"/><circle cx="14.4" cy="2.65" r="1.5"/><circle cx="17.55" cy="5.8" r="1.5"/><circle cx="18.7" cy="10.1" r="1.5"/><circle cx="5.9" cy="10.1" r="1.5"/><circle cx="8" cy="6.46" r="1.5"/><circle cx="12.2" cy="6.46" r="1.5"/><circle cx="14.3" cy="10.1" r="1.5"/></svg>',
+  exe:'<svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="3.7"/></svg>'
+};
+// semicírculo grande (Câmara 513 ou Senado 81) com as primeiras `destaque` cadeiras na cor do texto
+function hemi(casa, destaque){
+  const T = casa === 'senado' ? 81 : 513, rows = casa === 'senado' ? 5 : 11, R0 = 150, R1 = 330, cx = 360, cy = 360;
+  const radii = [...Array(rows)].map((_,i)=> R0 + (R1-R0)*i/(rows-1)), sum = radii.reduce((a,b)=>a+b,0);
+  let seats = [];
+  radii.forEach((r,i)=>{ const n = i===rows-1 ? T - seats.length : Math.round(T*r/sum); for (let k=0;k<n;k++){ const a = Math.PI*(1-(k+.5)/n); seats.push({x:cx + r*Math.cos(a), y:cy - r*Math.sin(a), a}); } });
+  seats = seats.slice(0,T).sort((p,q)=> q.a-p.a);
+  const r = casa === 'senado' ? 19 : 9.5;
+  return `<svg viewBox="0 0 720 380" width="760">${seats.map((p,i)=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${i < destaque ? 'var(--ink)' : 'color-mix(in srgb,var(--ink) 18%,var(--bg))'}"/>`).join('')}</svg>`;
+}
+function visual(V, poder){
+  if (!V) return '';
+  if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
+  if (V.tipo === 'data') return `<div class="dat"><div class="circ">${GLY[V.simbolo || poder] || ''}</div><div>${V.rotulo ? `<small>${esc(V.rotulo)}</small>` : ''}<b>${esc(V.valor)}</b>${V.sub ? `<small style="margin-top:8px">${esc(V.sub)}</small>` : ''}</div></div>`;
+  return '';
+}
 function html(P, id){
   const I = P.imagem || {}, [y,m,d] = (P.data || id.slice(0,10)).split('-').map(Number);
   const dot = I.cor || DOT[PODER[I.poder]] || '#009C3B';
-  const head = `<div class="top"><span class="logo" style="--dot:${dot}">C<i></i>isa Pública</span><span>${PER[P.periodo] || ''} · ${d} ${MES[m-1]} ${y}</span></div>
+  const cheio = !(I.itens && I.itens.length) && PODER[I.poder] && I.fundo !== 'claro';
+  const head = `<div class="top"><span class="logo" style="--dot:${cheio ? 'var(--ink)' : dot}">C<i></i>isa Pública</span><span>${PER[P.periodo] || ''} · ${d} ${MES[m-1]} ${y}</span></div>
     <p class="eye">${esc(I.eyebrow)}</p><h1>${esc(I.titulo)}</h1>${I.texto && I.itens ? `<p class="lede">${esc(I.texto)}</p>` : ''}`;
   let card;
+  // um assunto só, de um poder: fundo cheio na cor do poder, desenho grande no meio, sem caixa
+  if (!(I.itens && I.itens.length) && PODER[I.poder] && I.fundo !== 'claro'){
+    const pl = I.placar;
+    const mid = I.visual ? visual(I.visual, PODER[I.poder]) : pl ? `<div class="row"><div><div class="big">${esc(pl.texto || `${pl.sim} a ${pl.nao}`)}</div><div class="leg2"><span><i style="background:var(--ink)"></i>${esc((pl.rotulos||['sim'])[0])}</span><span><i style="background:#E24B4A"></i>${esc((pl.rotulos||[,'não'])[1])}</span></div></div>${plenario(pl)}</div>` : '';
+    return head + `<div class="vis">${mid}</div>` + (I.tags && I.tags.length ? `<div class="tags">${I.tags.map(tag).join('')}</div>` : '')
+      + (I.texto ? `<p class="txt">${esc(I.texto)}</p>` : '') + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>coisapublica.io</span></div>`;
+  }
   if (I.itens && I.itens.length){
     card = `<div class="card"><div class="list">${I.itens.map(x=>`<div class="it"><div class="d">${esc(x.quando||'')}<b>${esc(x.dia||'')}</b></div><div>
       ${x.tags && x.tags.length ? `<div class="tags">${x.tags.map(tag).join('')}</div>` : ''}<p class="ct">${esc(x.titulo)}</p>${x.texto ? `<p class="cs">${esc(x.texto)}</p>` : ''}</div></div>`).join('')}</div></div>`;
@@ -58,7 +88,8 @@ function html(P, id){
   const P = JSON.parse(fs.readFileSync(path.join(dir, 'post.json'), 'utf8'));
   const base = fs.readFileSync(path.join(__dirname, 'modelo.html'), 'utf8');
   const b = await chromium.launch(), p = await b.newPage({viewport:{width:1080, height:1350}});
-  await p.setContent(base.replace('<body></body>', '<body>' + html(P, id) + '</body>'));
+  const I0 = P.imagem || {}, cheio = !(I0.itens && I0.itens.length) && PODER[I0.poder] && I0.fundo !== 'claro';
+  await p.setContent(base.replace('<body></body>', `<body${cheio ? ` class="cheio p-${PODER[I0.poder]}"` : ''}>` + html(P, id) + '</body>'));
   // encolhe o texto até tudo caber em 1350px
   for (let k = 1; k <= 12; k++){
     const over = await p.evaluate(()=> document.body.scrollHeight > 1350);

@@ -6,7 +6,7 @@ Três posts por dia, cada um com imagem e texto, sempre aprovados pelo Lucca ant
 
 1. Uma tarefa agendada escreve o rascunho: `posts/AAAA-MM-DD-periodo/post.json` (periodo = `manha`, `tarde` ou `noite`) numa branch `post/AAAA-MM-DD-periodo`, gera a imagem com `node scripts/posts/render.js posts/AAAA-MM-DD-periodo` e envia a branch.
 2. O robô `.github/workflows/post-aprovacao.yml` abre o pedido de aprovação (pull request) com a imagem, os textos e as fontes.
-3. Todas as imagens usam o fundo #F3F3F3 (em `modelo.html`, `apresentacao.js` e nos scripts de `especiais/`).
+3. As imagens de lista usam o fundo #F3F3F3, e as de um assunto só usam a cor do poder (veja "Formato do post.json") (em `modelo.html`, `apresentacao.js` e nos scripts de `especiais/`).
 4. Horários fixos (Brasília): manhã 10h, tarde 13h, noite 18h (domingo, planos da semana, às 13h). Aprovado antes, o post espera a hora dele; aprovado depois, sai assim que é aprovado. Para mudar a hora de um post só, `"hora": "HH:MM"` no `post.json`. Os rascunhos chegam às 6h37, 11h37 e 15h37.
 5. Aprovar = **Merge** (pode ser pelo app do GitHub no celular). Descartar = **Close**. Para mudar o texto, editar o `post.json` na branch antes de aprovar (a imagem não muda sozinha; se mudar o texto da imagem, gerar de novo).
 6. Para refazer um post já publicado: apagar o `publicado.json` da pasta e pôr o id da mídia em `posts/apagar.json` (`[{"pasta":..., "instagram":...}]`) no mesmo commit. O `publicar.yml` apaga a versão antiga (`scripts/posts/apagar.py`, precisa da permissão `instagram_manage_contents`) e só então publica de novo; se a remoção falhar, nada é publicado.
@@ -61,6 +61,7 @@ Horário de Brasília. A tarefa agendada roda todo dia às 6h37, 11h37 e 17h37 e
 
 - `imagem.poder`: `leg`, `jud` ou `exe` (cor da bolinha do logo). Em `tags`, `poder` pinta a etiqueta com a cor do poder e `cat` usa a cor do tipo (`mp`, `pec`, `plp`, `pl`, `pdl`, `acao`, `re`).
 - Um assunto só: `tags`, `texto` e, se houver, `placar` (`desenho`: `stf`, `camara`, `senado` ou sem desenho). Lista de assuntos: `itens` (até 3), cada um com `quando`, `dia`, `tags`, `titulo` e `texto` opcional; o `texto` de fora vira uma linha embaixo do título.
+- Post de um assunto só com `imagem.poder` sai com **fundo cheio na cor do poder** (amarelo Legislativo com texto preto; azul Judiciário e verde Executivo com texto claro), o tema numa etiqueta, sem caixa, e um desenho grande no meio: `visual` `{"tipo":"plenario","casa":"camara"|"senado","destaque":308,"numeros":[{"n":"308","l":"dos 513 deputados"}]}` (semicírculo com as cadeiras destacadas) ou `{"tipo":"data","rotulo":"Julgamento","valor":"4/11","sub":"quarta-feira, no plenário"}` (o símbolo do poder num círculo e uma data ou número grande); sem `visual`, entra o `placar`. Texto curto (uma ou duas frases); o resto vai na legenda. Posts com lista (`itens`), como a ordem do dia e os resumos, ficam no fundo #F3F3F3. Para forçar o fundo claro num post de um assunto só: `"fundo":"claro"`.
 - Títulos curtos (até ~40 caracteres). Se `render.js` avisar que não coube, encurtar.
 - Exemplos completos em `posts/exemplos/`.
 
