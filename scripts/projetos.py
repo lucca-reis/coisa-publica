@@ -153,7 +153,13 @@ def peso(desc):
     if FORA.search(n) and not re.search(r'PRIMEIRO TURNO|SEGUNDO TURNO|SUBSTITUTIVO', n): return 0
     if not IMPORTANTE.search(n): return 0
     if re.search(r'URGENCIA', n): return 1
-    return 2
+    if re.search(r'REDACAO FINAL|PARECER', n): return 2
+    return 3
+def placar(v):
+    sim, nao = int(v['sim'] or 0), int(v['nao'] or 0)
+    m = re.search(r'SIM:\s*(\d+)\D+NAO:\s*(\d+)', norm(v['desc']))
+    if not (sim or nao) and m: sim, nao = int(m.group(1)), int(m.group(2))
+    return sim, nao
 
 anos_leg = list(range(ano0, HOJE.year + 1))
 votacoes = {}
@@ -239,7 +245,17 @@ cards = {}
 def novo(sl, **kw):
     c = {'house': 'camara', 'type': '', 'code': '', 'title': '', 'summary': '', 'author': 'Não informado', 'rapporteur': 'Não informado',
          'status': 'Não informado', 'steps': [], 'links': [], 'sources': [], 'auto': 1}
-    c.update(kw); cards[sl] = c; return c
+    old = cards.get(sl)
+    c.update(kw)
+    if old:
+        # o mesmo número nas duas Casas (PEC do Senado que chega à Câmara, por exemplo): junta as etapas, os links e a votação mais recente
+        for st in old['steps']:
+            if st not in c['steps']: c['steps'].append(st)
+        c['steps'].sort(key=lambda x: x[0])
+        c['links'] += [l for l in old['links'] if l not in c['links']]; c['sources'] += [x for x in old['sources'] if x not in c['sources']]
+        if old.get('votes') and (not c.get('votes') or old['votes'].get('_d', '') > c['votes'].get('_d', '')): c['votes'] = old['votes']
+        if old['house'] == 'exec': c['house'] = 'exec'
+    cards[sl] = c; return c
 
 for pid, p in props.items():
     s, n, a = p['s'], p['n'], p['a']
@@ -254,12 +270,14 @@ for pid, p in props.items():
     if p['ap']:
         if s == 'MPV': steps.append([p['ap'], 'Presidente edita a MP, publicada no Diário Oficial'])
         elif exe: steps.append([p['ap'], 'Projeto enviado pelo Governo à Câmara'])
+        elif norm(aut).startswith('SENADO'): steps.append([p['ap'], 'Chega à Câmara, vinda do Senado'])
         else: steps.append([p['ap'], 'Apresentado na Câmara'])
     vs = sorted((votacoes[v] for v in alvo.get(pid, []) if v in votacoes), key=lambda x: (x['d'], x['h']))
     por_dia = {}
     for v in vs:
         w = peso(v['desc'])
-        if w and (v['d'] not in por_dia or w >= por_dia[v['d']][0]): por_dia[v['d']] = (w, v)
+        k = (w, 1 if any(placar(v)) else 0)
+        if w and (v['d'] not in por_dia or k >= por_dia[v['d']][0]): por_dia[v['d']] = (k, v)
     principais = [v for _, v in sorted(por_dia.values(), key=lambda x: (x[1]['d'], x[1]['h']))]
     for v in principais:
         txt = re.sub(r'\s+', ' ', v['desc']).strip().rstrip('.')
@@ -268,9 +286,9 @@ for pid, p in props.items():
     sn = norm(p['st'])
     if p['std']:
         if 'NORMA JURIDICA' in sn:
-            if s == 'PEC': steps.append([p['std'], 'Congresso promulga a emenda constitucional'])
-            elif s == 'PDL': steps.append([p['std'], 'Congresso promulga o decreto legislativo'])
-            else: steps.append([p['std'], 'Presidente sanciona; vira lei'])
+            if s == 'PEC': steps.append([p['std'], 'Congresso promulga a emenda constitucional (data do registro na Câmara)'])
+            elif s == 'PDL': steps.append([p['std'], 'Congresso promulga o decreto legislativo (data do registro na Câmara)'])
+            else: steps.append([p['std'], 'Sancionado; vira lei (data do registro na Câmara)'])
             st = 'Emenda promulgada' if s == 'PEC' else 'Promulgado' if s == 'PDL' else 'Sancionado; virou lei'
         elif 'SANCAO' in sn: steps.append([p['std'], 'Câmara envia o texto à sanção do presidente'])
         elif 'SENADO' in sn and 'APRECIACAO' in sn: steps.append([p['std'], 'Câmara: segue ao Senado'])
@@ -281,14 +299,15 @@ for pid, p in props.items():
     steps.sort(key=lambda x: x[0])
     votes = None
     if principais:
+        # a última votação principal; se ela não tem placar e uma anterior do mesmo peso tem, mostra a que tem números
         v = principais[-1]
-        sim, nao = int(v['sim'] or 0), int(v['nao'] or 0)
+        com = [x for x in principais if any(placar(x)) and peso(x['desc']) >= 2]
+        if not any(placar(v)) and com and peso(v['desc']) <= 2: v = com[-1]
+        sim, nao = placar(v)
         dn = norm(v['desc'])
-        m = re.search(r'SIM:\s*(\d+)\D+NAO:\s*(\d+)', dn)
-        if not (sim or nao) and m: sim, nao = int(m.group(1)), int(m.group(2))
         res = 'Rejeitado' if 'REJEITAD' in dn else 'Aprovado' if ('APROVAD' in dn or v['ap'] == '1') else 'Não informado'
         if not (sim or nao) and 'UNANIMIDADE' in dn: res += ' por unanimidade'
-        votes = {'label': f'Câmara · Plenário, {br(v["d"])}', 'result': res}
+        votes = {'label': f'Câmara · Plenário, {br(v["d"])}', 'result': res, '_d': v['d']}
         if sim or nao: votes['tally'] = [['Votação', sim, nao]]
         else: votes['note'] = 'Placar não divulgado nos dados abertos (votação simbólica ou sem registro nominal).'
     links = [{'l': 'Ficha de tramitação na Câmara', 'u': ficha}]
@@ -342,7 +361,9 @@ for v in sen_vot:
 
 for (s, n, a), todas in sen_info.items():
     todas.sort(key=lambda x: x['d'])
-    vs = [x for x in todas if x['p']] or todas[-1:]
+    vs = [x for x in todas if x['p']]
+    if not vs:
+        x = dict(todas[-1]); x['desc'] = 'votação nominal de destaques ou requerimentos no Plenário'; x['res'] = 'ver a matéria'; x['nv'] = 1; vs = [x]
     sl = slug(s, n, a)
     cod = next((x['cod'] for x in vs if x['cod']), None)
     pag = f'https://www25.senado.leg.br/web/atividade/materias/-/materia/{cod}' if cod else 'https://www25.senado.leg.br/web/atividade/materias'
@@ -369,10 +390,12 @@ for (s, n, a), todas in sen_info.items():
             c['steps'].append([x['d'], f'Senado: {x["desc"][:200] or "votação no Plenário"} ({x["res"].lower()})'])
     c['steps'].sort(key=lambda x: x[0])
     last = vs[-1]
+    if last.get('nv'): continue
     if not c.get('votes') or last['d'] >= (re.search(r'(\d{2})/(\d{2})/(\d{4})', c['votes']['label']) and '-'.join(reversed(re.search(r'(\d{2})/(\d{2})/(\d{4})', c['votes']['label']).groups())) or ''):
-        c['votes'] = {'label': f'Senado · Plenário, {br(last["d"])}', 'result': last['res']}
+        c['votes'] = {'label': f'Senado · Plenário, {br(last["d"])}', 'result': last['res'], '_d': last['d']}
         if last['sim'] or last['nao']: c['votes']['tally'] = [['Votação', last['sim'], last['nao']]]
 for c in cards.values():
+    (c.get('votes') or {}).pop('_d', None)
     for k in ('rapporteur', 'author'):
         if c.get(k) == 'Não informado': del c[k]
 print(f'Total: {len(cards)} cartões', flush=True)

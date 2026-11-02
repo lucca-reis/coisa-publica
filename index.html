@@ -2963,38 +2963,69 @@ function cardClick(e){
   h.setAttribute('aria-expanded', String(open)); body.hidden = !open; card.classList.toggle('open', open);
   return true;
 }
-function feedHTML(key, only){
-  const list = CARDS.filter(c=> (!key || c.P.house===key || c.ev.some(e=> e.key===key)) && (!only || only(c)))
+function feedList(key, only){
+  return CARDS.filter(c=> (!key || c.P.house===key || c.ev.some(e=> e.key===key)) && (!only || only(c)))
     .map(c=> ({c, L: cardState(c, key).last}))
     .sort((a,b)=> (b.L ? b.L.date+String(evMin(b.L)+10).padStart(5,'0') : '0') .localeCompare(a.L ? a.L.date+String(evMin(a.L)+10).padStart(5,'0') : '0'));
+}
+/* long feeds come in pages: the first `lim` cards, then "Mostrar mais" adds the next ones (FEED_REST keeps what is left) */
+const FEED_PAGE = 40, FEED_REST = {};
+let feedSeq = 0;
+function feedHTML(key, only, lim, list, prevD){
+  list = list || feedList(key, only);
+  lim = lim || FEED_PAGE;
+  const rest = list.slice(lim);
+  list = list.slice(0, lim);
   // grouped by the day each item was last dealt with, like the calendar but quieter
   const t = todayISO(), groups = [];
   list.forEach(x=>{ const d = x.L ? x.L.date : ''; const g = groups[groups.length-1];
     if (g && g.d===d) g.items.push(x); else groups.push({d, items:[x]}); });
-  return groups.map(g=>{
+  let page = '';
+  if (rest.length){ const id = 'f'+(++feedSeq); FEED_REST[id] = {key, rest, last: list.length ? (list[list.length-1].L||{}).date || '' : ''};
+    page = `<li class="fd-page"><p class="fd-morewrap"><button type="button" class="fd-more fd-next" data-fid="${id}">Mostrar mais · ${FMT_NUM.format(rest.length)} ${rest.length===1?'projeto':'projetos'}</button></p></li>`; }
+  return groups.map((g, gi)=>{
+    if (gi===0 && prevD!=null && g.d===prevD) return `<li class="fd" data-d="${g.d}"><ol class="fd-cards">${g.items.map(x=> cardHTML(x.c, key)).join('')}</ol></li>`;
     let date = '';
     if (g.d){ const [y,m,dd] = g.d.split('-').map(Number), wd = ['dom','seg','ter','qua','qui','sex','sáb'][new Date(y,m-1,dd).getDay()];
       date = g.d===t ? 'hoje' : `${wd}, ${dd} ${MO[m-1]}${y!==+t.slice(0,4)?' '+y:''}`; }
     return `<li class="fd${g.d===t?' is-today':''}" data-d="${g.d}">${date ? `<p class="fd-date">${date}</p>` : ''}<ol class="fd-cards">${g.items.map(x=> cardHTML(x.c, key)).join('')}</ol></li>`;
-  }).join('');
+  }).join('') + page;
 }
+document.addEventListener('click', e=>{
+  const b = e.target.closest('.fd-next'); if (!b) return;
+  e.stopPropagation(); e.preventDefault();
+  const R = FEED_REST[b.dataset.fid], li = b.closest('.fd-page'); if (!R || !li) return;
+  delete FEED_REST[b.dataset.fid];
+  const box = document.createElement('ol'); box.innerHTML = feedHTML(R.key, null, FEED_PAGE, R.rest, R.last);
+  // on the opening view the added cards hide again with "Ver menos"
+  if (li.closest('#today')) box.querySelectorAll('.fd, .fd-cards > li, .fd-page').forEach(x=> x.classList.add('fd-x'));
+  li.replaceWith(...box.children);
+  if (li.closest && typeof lxEnd==='function') setTimeout(lxEnd, 60);
+}, true);
 
 /* the feed on the opening view */
 const todayEl = document.getElementById('today');
+let todayExtra = 0;
 function renderToday(){
   const t = todayISO(), [y,m,d] = t.split('-').map(Number), wd = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'][new Date(y,m-1,d).getDay()];
   document.getElementById('today-date').textContent = `${wd}, ${d} ${MO[m-1]}`;
+  // the week's cards, and one page more waiting behind "Ver mais"
+  const list = feedList(null), wk0 = weekStartISO();
+  let wkN = list.filter(x=> x.L && x.L.date >= wk0).length;
+  if (!wkN && list.length){ const d0 = list[0].L ? list[0].L.date : ''; wkN = list.filter(x=> (x.L ? x.L.date : '')===d0).length; }
+  todayExtra = Math.max(0, list.length - wkN);
   todayEl.innerHTML = `<div class="feed-h"><div class="feed-live" id="feed-live"></div></div>
-    <ol class="feed" aria-label="Propostas e julgamentos, do mais recente ao mais antigo">${feedHTML(null)}</ol>`;
+    <ol class="feed" aria-label="Propostas e julgamentos, do mais recente ao mais antigo">${feedHTML(null, null, wkN + FEED_PAGE, list)}</ol>`;
   // every day of the current week shows (Sunday to Saturday, like the calendar); earlier days wait behind "Ver mais".
   // A week with nothing yet shows its most recent day instead, so the page never starts empty.
   const days = [...todayEl.querySelectorAll('.feed .fd')], wk = weekStartISO();
   let shown = days.filter(fd=> fd.dataset.d && fd.dataset.d >= wk);
   if (!shown.length) shown = days.slice(0, 1);
   days.forEach(fd=>{ if (!shown.includes(fd)){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
-  const extra = todayEl.querySelectorAll('.fd-cards > li.fd-x').length;
+  todayEl.querySelector('.fd-page')?.classList.add('fd-x');
+  const extra = todayExtra;
   todayEl.classList.toggle('more', feedMore);
-  if (extra > 0) todayEl.insertAdjacentHTML('beforeend', `<p class="fd-morewrap"><button type="button" class="fd-more" aria-expanded="${feedMore}">${feedMore ? 'Ver menos' : `Ver mais · ${extra} ${extra===1?'projeto':'projetos'}`}</button></p>`);
+  if (extra > 0) todayEl.insertAdjacentHTML('beforeend', `<p class="fd-morewrap"><button type="button" class="fd-more" aria-expanded="${feedMore}">${feedMore ? 'Ver menos' : `Ver mais · ${FMT_NUM.format(extra)} ${extra===1?'projeto':'projetos'}`}</button></p>`);
 }
 // each power's name follows the bottom edge of its circle on the opening view
 (function(){
@@ -3113,11 +3144,11 @@ todayEl.addEventListener('animationend', ()=> requestAnimationFrame(lxEnd));   /
 let lxRaf = 0;
 document.getElementById('landing').addEventListener('scroll', ()=>{ if (!lxRaf) lxRaf = requestAnimationFrame(()=>{ lxRaf = 0; lxEnd(); }); }, {passive:true});
 todayEl.addEventListener('click', e=>{
-  const more = e.target.closest('.fd-more');
+  const more = e.target.closest('.fd-more:not(.fd-next)');
   if (more){ e.stopPropagation(); feedMore = !feedMore;
     todayEl.classList.toggle('more', feedMore); more.setAttribute('aria-expanded', String(feedMore));
-    const n = todayEl.querySelectorAll('.fd-cards > li.fd-x').length;
-    more.textContent = feedMore ? 'Ver menos' : `Ver mais · ${n} ${n===1?'projeto':'projetos'}`;
+    const n = todayExtra;
+    more.textContent = feedMore ? 'Ver menos' : `Ver mais · ${FMT_NUM.format(n)} ${n===1?'projeto':'projetos'}`;
     lxEnd(); setTimeout(lxEnd, 700); setTimeout(lxEnd, 1600);
     if (!feedMore) more.scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'});
     return; }
@@ -4071,6 +4102,27 @@ setInterval(()=>{ if (!cons.hidden && consData && Date.now() - Date.parse(consDa
    A card is related to a person when the name appears as author or rapporteur, in the vote, in the steps or in
    the summary; for deputies and senators, data/votos.json (robot) adds how each one voted in roll-call votes. */
 let VOTOS = null;
+/* cards made by the robot (data/projetos.json): everything dealt with in the current term in the Câmara, the Senado and by
+   the Executivo. A hand-written card with the same slug wins. They join PROJECTS and CARDS and the open views are drawn again. */
+let AUTO_N = 0;
+function addAuto(js){
+  const add = js && js.projetos; if (!add) return;
+  for (const slug in add){
+    if (PROJECTS[slug]) continue;
+    const P = add[slug]; if (!P || !P.steps) continue;
+    P.points = P.points || []; P.links = P.links || []; P.sources = P.sources || []; P.author = P.author || 'Não informado'; P.rapporteur = P.rapporteur || 'Não informado';
+    PROJECTS[slug] = P;
+    const c = {slug, P, ev:[]};
+    P.steps.forEach(([date,t])=>{ const k = stepPower(t, P); if (date && !c.ev.some(e=> e.date===date && e.key===k)) c.ev.push({date, time:'', key:k, kind:'', r:t}); });
+    c.ev.sort(byWhen); CARDS.push(c); AUTO_N++;
+  }
+  if (!AUTO_N) return;
+  SRCH = null;
+  try { renderToday(); refreshLive(); requestAnimationFrame(lxEnd); } catch(e){}
+  try { if (!inst.hidden && instKey && /^(c|b):/.test(instKey)){ const top = inst.scrollTop; showRoute(); inst.scrollTop = top; } } catch(e){}
+  try { if (/^#p-/.test(location.hash) && proj.hidden) showRoute(); } catch(e){}
+}
+setTimeout(()=> trFetch('data/projetos.json').then(addAuto).catch(()=>{}), 0);
 setTimeout(()=> trFetch('data/votos.json').then(js=>{ VOTOS = js; window.QV = js; try { const m = location.hash.match(/^#p-([a-z0-9-]+)$/); if (m && !proj.hidden){ const top = proj.scrollTop; renderProject(m[1]); proj.scrollTop = top; } } catch(e){} const box = document.querySelector('#person .p-cards[data-n]'); if (box) box.outerHTML = relatedHTML(box.dataset.n, box.dataset.k, box.dataset.r||''); }).catch(()=>{}), 0);
 const VOTE_TX = {'Sim':'votou Sim','Não':'votou Não','Nao':'votou Não','Abstenção':'absteve-se','Obstrução':'obstruiu','Artigo 17':'não vota (preside)','SIM':'votou Sim','NAO':'votou Não','NÃO':'votou Não','ABST':'absteve-se','P-NRV':'presente, sem voto','AP':'ausente','LS':'de licença','MIS':'em missão'};
 function nameRe(n){
