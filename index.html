@@ -780,6 +780,27 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .landing.leaving .today{opacity:0}
 .feed-h:not(:has(.lvs)){display:none}
 .feed-h{display:block}
+/* first-visit tour (tourStart): a dark veil with a hole around the part being explained and a small card beside it */
+.tour{position:fixed;inset:0;z-index:9000;font-family:var(--display)}
+.tour-hole{position:fixed;border-radius:22px;box-shadow:0 0 0 200vmax rgba(18,20,23,.58);transition:left .45s cubic-bezier(.2,.7,.3,1),top .45s cubic-bezier(.2,.7,.3,1),width .45s cubic-bezier(.2,.7,.3,1),height .45s cubic-bezier(.2,.7,.3,1),border-radius .45s;pointer-events:none}
+.tour-hole.none{width:0;height:0;left:50%;top:50%}
+.tour-tip{position:fixed;width:min(340px,calc(100vw - 32px));background:var(--bg);color:var(--ink);border-radius:20px;padding:18px 20px 16px;box-shadow:0 12px 40px rgba(0,0,0,.18);transition:left .45s cubic-bezier(.2,.7,.3,1),top .45s cubic-bezier(.2,.7,.3,1),opacity .3s;font-size:15px;line-height:1.45}
+.tour-tip .tt-n{margin:0 0 6px;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.tour-tip h2{margin:0 0 6px;font-size:19px;line-height:1.2;letter-spacing:-.015em;font-weight:600}
+.tour-tip p{margin:0}
+.tour-tip .tt-pw{display:flex;flex-direction:column;gap:5px;margin:8px 0 0;padding:0;list-style:none}
+.tour-tip .tt-pw li{display:flex;gap:9px;align-items:baseline}
+.tour-tip .tt-pw i{flex:none;width:10px;height:10px;border-radius:50%;transform:translateY(1px)}
+.tour-tip .tt-bar > div:last-child{display:flex;align-items:center;gap:10px}
+.tour-tip .tt-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.tour-tip .tt-dots{display:flex;gap:6px}
+.tour-tip .tt-dots span{width:6px;height:6px;border-radius:50%;background:color-mix(in srgb, var(--ink) 18%, var(--bg))}
+.tour-tip .tt-dots span.on{background:var(--ink)}
+.tour-tip button{all:unset;cursor:pointer;font-family:var(--display);font-size:14px;border-radius:999px;padding:8px 14px}
+.tour-tip .tt-skip{color:var(--muted);padding:8px 4px}
+.tour-tip .tt-next{background:var(--ink);color:var(--bg);font-weight:600}
+.tour-tip button:focus-visible{outline:2px solid color-mix(in srgb, var(--ink) 35%, transparent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){ .tour-hole,.tour-tip{transition:none} }
 /* "Ao vivo agora": above the timeline, only while a session of a power is on air; the timeline moves down to make room */
 .lvs{display:flex;flex-direction:column;gap:12px;margin:0 0 22px}
 .lvs-h{margin:0 0 0 4px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#E0242B}
@@ -5045,7 +5066,7 @@ function aboutHTML(){
         <li>${a('https://dadosabertos.tse.jus.br','Dados abertos do TSE')}: resultados das eleições;</li>
         <li>agências oficiais de notícias (Agência Câmara, Agência Senado, STF Notícias, Agência Brasil) para os textos de cada proposta.</li>
       </ul>
-      <p>Toda informação tem a fonte a um toque, no ícone “i”. Quando a fonte não informa algo, o site escreve “não informado” em vez de estimar.</p></section>
+      <p>Toda informação tem a fonte a um toque, no ícone “i”. Quando a fonte não informa algo, o site escreve “não informado” em vez de estimar.</p><p><a href="#" data-tour>Ver o tour do site de novo ↗</a></p></section>
     <section class="qs-sec"><h2>Como funciona</h2>
       <p>Uma parte do site é atualizada automaticamente: pequenos programas buscam os dados oficiais em horários marcados e guardam o resultado em arquivos que o site lê.</p>
       <ul>
@@ -5141,6 +5162,66 @@ document.addEventListener('click', e=>{
   close();
 });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ const o=document.querySelector('details.info[open]'); if(o){ o.open=false; o.querySelector('summary').focus(); return; } goBack(); } });
+// ---------- first-visit tour: explains the circles, the timeline, the search and the hidden menu ----------
+// A static site has no server to see the visitor's IP, so "first visit" is remembered in this browser (localStorage).
+const TOUR_KEY = 'cp-tour-v1';
+function tourSteps(){
+  const wideV = innerWidth > 760, circles = innerWidth > 700;
+  const dot = c=> `<i style="background:${c}"></i>`;
+  const pw = `<ul class="tt-pw"><li>${dot('#009C3B')}<span><b>Executivo</b>: a Presidência e os ministérios</span></li><li>${dot('#F2C200')}<span><b>Legislativo</b>: escolha entre o Senado e a Câmara</span></li><li>${dot('#1F4FB5')}<span><b>Judiciário</b>: o Supremo e os tribunais superiores</span></li></ul>`;
+  return [
+    {t:'Bem-vindo à Coisa Pública', p:'O que acontece nos Três Poderes, em linguagem simples e sempre com a fonte oficial. Um tour rápido de como usar o site.'},
+    circles ? {el:'.lx', t:'Os três círculos são os Três Poderes', p:'Toque num círculo para abrir o poder:' + pw}
+            : {el:'.mpw', t:'As três bolinhas são os Três Poderes', p:'Toque numa bolinha para abrir o poder. A do poder aberto fica maior.' + pw},
+    {el:'#today', maxH:.48, t:'A linha do tempo', p:'Cada cartão é uma proposta ou um processo. A etiqueta diz em que poder está e em que fase. Toque no cartão para ver o resumo, a votação e as fontes. No fim, “Ver mais” mostra o resto.', pad:6},
+    wideV ? {el:'#srch-btn', t:'Pesquisa', p:'Procure uma pessoa, um projeto, um partido ou um órgão.', round:true} : null,
+    {el:'#ham', t:'O menu', p: wideV ? 'Aqui ficam Projetos, Consultas públicas, Transparência (os gastos públicos), Visão geral, Calendário e Quem somos.' : 'Aqui ficam a pesquisa, todos os poderes e Projetos, Enquetes, Transparência (os gastos públicos), Visão geral e Calendário.', round:true},
+    {t:'Pronto', p:'Quando uma sessão estiver no ar, ela aparece no topo da página, em “Ao vivo agora”. Para ver este tour de novo, abra Quem somos.', last:true}
+  ].filter(Boolean);
+}
+function tourStart(){
+  if (document.querySelector('.tour')) return;
+  const steps = tourSteps(), box = document.createElement('div');
+  box.className = 'tour'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', 'Tour do site');
+  box.innerHTML = '<div class="tour-hole none"></div><div class="tour-tip" aria-live="polite"></div>';
+  document.body.appendChild(box);
+  const hole = box.querySelector('.tour-hole'), tip = box.querySelector('.tour-tip');
+  let i = 0;
+  const done = ()=>{ try{ localStorage.setItem(TOUR_KEY, '1'); }catch(e){} box.remove(); removeEventListener('resize', place); document.removeEventListener('keydown', key, true); };
+  function place(){
+    const S = steps[i], el = S.el && document.querySelector(S.el), r = el && el.getBoundingClientRect();
+    const tw = tip.offsetWidth, th = tip.offsetHeight, W = innerWidth, H = innerHeight, m = 16;
+    if (!r || !r.width){ hole.className = 'tour-hole none'; hole.style.cssText = ''; tip.style.left = (W-tw)/2+'px'; tip.style.top = Math.max(m,(H-th)/2)+'px'; return; }
+    const pad = S.pad ?? 10, x = r.left-pad, y = r.top-pad, w = r.width+2*pad, h = Math.min(r.height+2*pad, H - Math.max(0,y) - m, S.maxH && W <= 760 ? H*S.maxH : 1e9);
+    hole.className = 'tour-hole'; hole.style.cssText = `left:${x}px;top:${Math.max(0,y)}px;width:${w}px;height:${h}px;border-radius:${S.round ? '999px' : '22px'}`;
+    // the card goes beside the highlight when there is room, otherwise below or above it
+    let L, T;
+    if (x + w + m + tw <= W - m){ L = x + w + m; T = y + Math.min(h, 220)/2 - th/2; }
+    else if (x - m - tw >= m){ L = x - m - tw; T = y + Math.min(h, 220)/2 - th/2; }
+    else { L = Math.min(Math.max(m, x + w/2 - tw/2), W - tw - m); T = (y + h + m + th <= H - m) ? y + h + m : Math.max(m, y - m - th); }
+    if (T + th > H - m) T = H - m - th;
+    tip.style.left = L+'px'; tip.style.top = Math.max(m, T)+'px';
+  }
+  function show(){
+    const S = steps[i];
+    tip.innerHTML = `${i ? `<p class="tt-n">${i} de ${steps.length-1}</p>` : ''}<h2>${S.t}</h2><p>${S.p}</p>
+      <div class="tt-bar"><div class="tt-dots" aria-hidden="true">${steps.map((_,k)=>`<span class="${k===i?'on':''}"></span>`).join('')}</div>
+      <div>${S.last ? '' : '<button type="button" class="tt-skip" aria-label="Pular o tour e ir para o site">Pular tour</button>'}<button type="button" class="tt-next">${S.last ? 'Começar a usar' : i ? 'Próximo' : 'Fazer o tour'}</button></div></div>`;
+    tip.querySelector('.tt-next').onclick = ()=> S.last ? done() : (i++, show());
+    const sk = tip.querySelector('.tt-skip'); if (sk) sk.onclick = done;
+    requestAnimationFrame(place); tip.querySelector('.tt-next').focus({preventScroll:true});
+  }
+  const key = e=>{ if (e.key==='Escape'){ e.preventDefault(); e.stopPropagation(); done(); } else if (e.key==='ArrowRight' && !steps[i].last){ i++; show(); } else if (e.key==='ArrowLeft' && i){ i--; show(); } };
+  addEventListener('resize', place); document.addEventListener('keydown', key, true);
+  box.addEventListener('click', e=>{ if (e.target === box) done(); });
+  show();
+}
+document.addEventListener('click', e=>{ const b = e.target.closest('[data-tour]'); if (b){ e.preventDefault(); if (location.hash && location.hash!=='#'){ location.hash = ''; setTimeout(tourStart, 900); } else tourStart(); } });
+// first visit, home page only, once the circles and the timeline are in place
+addEventListener('load', ()=> setTimeout(()=>{
+  let seen = true; try{ seen = localStorage.getItem(TOUR_KEY) === '1'; }catch(e){}
+  if (!seen && (!location.hash || location.hash==='#') && !document.querySelector('.tour')) tourStart();
+}, 1400));
 </script>
 
 </body>
