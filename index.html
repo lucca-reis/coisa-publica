@@ -406,6 +406,28 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
 .qs-sec ul{margin:0;padding-left:1.1em;font-size:15px;line-height:1.6}
 .qs-sec a{color:inherit}
 .person.top,.party.top{z-index:23}
+.mpw{display:none}
+.mdr-srch{display:flex;margin:0 0 18px}
+.mdr-srch input{box-sizing:border-box;width:100%;font:inherit;font-size:16px;color:var(--ink);background:color-mix(in srgb, var(--ink) 5%, var(--bg));border:0;border-radius:999px;padding:12px 18px;outline:none}
+.mdr-srch input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+/* phone: logo, the three powers in the middle and the hamburger; no date, no magnifier (search is at the top of the menu) */
+@media (max-width:760px){
+  .menu{grid-template-columns:auto minmax(0,1fr) auto!important;column-gap:8px}
+  .menu .today-date,.menu .menu-tools .srch-link{display:none!important}
+  .mpw{display:flex;grid-column:2;grid-row:1;justify-self:center;align-items:center;gap:0;min-width:0;padding:2px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
+  .menu .brand{font-size:clamp(17px, 5vw, 20px)}
+  .mpw button{all:unset;box-sizing:border-box;cursor:pointer;padding:7px clamp(4px, 1.7vw, 12px);border-radius:999px;font-size:clamp(11px, 3.05vw, 14px);line-height:1.2;white-space:nowrap;color:var(--ink);-webkit-tap-highlight-color:transparent;transition:background-color .2s, color .2s}
+  .mpw button:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+  .mpw button[aria-current]{background:var(--ink);color:var(--bg)}
+  .menu-tools{grid-column:3!important}
+}
+/* phone: no spheres; they stay in the page, invisible and tiny in the middle of the screen, so opening a power still grows from there */
+@media (max-width:700px){
+  .landing{padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 20px)}
+  .landing > .lx-wrap{display:block;position:fixed;left:50%;top:50%;width:0;height:0;overflow:visible;opacity:0;pointer-events:none}
+  .landing > .lx-wrap .lx{--u:.1px;position:absolute;left:0;top:0;width:60px;transform:translate(-50%,-50%);gap:0}
+  .landing > .lx-wrap .lx-text{display:none}
+}
 .mdr[hidden]{display:none!important}
 @media (max-width:760px){
   .menu nav,.menu .nav-scrim{display:none!important}
@@ -783,6 +805,8 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .sf-about{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)}
 .sf-who{margin:18px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
 .sf-who b{font-weight:500;font-size:13.5px;color:var(--ink)}
+.sf-ver{position:absolute;right:0;bottom:12px;margin:0;font-size:11.5px;line-height:1.5;color:var(--muted)}
+@media (max-width:760px){ .sf-ver{position:static;text-align:center;margin-top:6px} }
 .sf-legal{text-align:center;margin:40px 0 0;padding-top:0;border-top:0;font-size:11.5px;line-height:1.5;color:var(--muted)}
 @media (max-width:900px){ .sf-grid{grid-template-columns:repeat(3,minmax(0,1fr))} .sf-brand{grid-column:1 / -1;max-width:520px} }
 @media (max-width:760px){ .sf-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .site-foot{margin-top:56px} .sf-site{grid-column:1 / -1} }
@@ -1323,6 +1347,9 @@ h1[tabindex="-1"]:focus{outline:none}
 .p-cards .rel-list > li{display:flex;flex-direction:column;gap:6px}
 .rel-tags{margin:0;display:flex;flex-wrap:wrap;gap:6px}
 .rel-tags span{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--bg);color:var(--ink)}
+.rel-tags .vt{display:inline-flex;align-items:center;gap:6px;padding-left:4px}
+.rel-tags .vt i{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;font-style:normal;font-size:11px;font-weight:700;line-height:1;color:#fff;background:#9A9A9A}
+.rel-tags .vt-s i{background:#1A9E4B}.rel-tags .vt-n i{background:#E24B4A}.rel-tags .vt-a i{background:#9A9A9A}
 .p-cards .card{--card:var(--bg)}
 .p-cards .card:hover{--card:color-mix(in srgb, var(--ink) 3%, var(--bg))}
 .p-cards .c-pill{background:color-mix(in srgb, var(--ink) 6%, var(--bg))}
@@ -1382,6 +1409,7 @@ h1[tabindex="-1"]:focus{outline:none}
 <button class="back-arrow" id="back-arrow" type="button" aria-label="Voltar" title="Voltar" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <header class="menu">
   <div class="brand-wrap"><a class="brand" href="#" data-nav="home" aria-label="Quorum"><span aria-hidden="true">Qu<i class="brand-o"></i>rum</span></a><span class="today-date" id="today-date"></span></div>
+  <div class="mpw" role="group" aria-label="Os três poderes"><button type="button" data-pw="pres" data-grp="exec">Executivo</button><button type="button" data-pw="cong" data-grp="leg">Legislativo</button><button type="button" data-pw="stf" data-grp="jud">Judiciário</button></div>
   <nav aria-label="Poderes">
     <div class="nav-grp nav-grp-exec" data-grp="exec">
       <button type="button" class="nav-leg" aria-expanded="false" aria-controls="nav-sub-exec">Executivo<span class="nav-car" aria-hidden="true"></span></button>
@@ -2223,6 +2251,13 @@ function renderIndex(){
     st.innerHTML = liveK ? `<span class="lv-dot" aria-hidden="true"></span>ao vivo agora${k==='cong' ? ' · '+POWER_NAME[liveK] : ''}` : '';
   }
 }
+document.querySelector('.mpw')?.addEventListener('click', e=>{
+  const b = e.target.closest('[data-pw]'); if (!b) return;
+  e.stopPropagation(); if (!mdr.hidden) mdrOpen(false);
+  const k = b.dataset.pw, home = !landing.hidden && !openView() && !openKey && inst.hidden && (!location.hash || location.hash==='#');
+  if (home){ document.getElementById({stf:'lg-stf', pres:'lg-pres', cong:'mini'}[k]).dispatchEvent(new MouseEvent('click', {bubbles:true})); return; }
+  navTo({stf:'stf', pres:'pres', cong:'camara'}[k]);
+});
 document.querySelector('.lx')?.addEventListener('click', e=>{
   const b = e.target.closest('[data-open]'); if (!b) return;
   e.stopPropagation();
@@ -2977,7 +3012,18 @@ function renderToday(){
   });
 })();
 // the circles on the left rise with the page once the bottom of the last card shown reaches the bottom of the lower circles
+// the cards of the current week (before "Ver mais") sit centred in the height below the menu; a list taller than the
+// screen starts at the top as usual. After "Ver mais" the margin stays, so nothing jumps.
+function centerToday(){
+  const L = document.getElementById('landing'); if (!L || L.hidden || feedMore) return;
+  const cur = parseFloat(todayEl.style.marginTop) || 0, r = todayEl.getBoundingClientRect(); if (!r.height) return;
+  const menuH = document.querySelector('.menu').getBoundingClientRect().bottom, view = L.clientHeight - menuH;
+  const top0 = r.top + L.scrollTop - cur;                       // where the block starts without the margin
+  const want = Math.max(0, Math.round(menuH + (view - r.height) / 2 - top0));
+  if (Math.abs(want - cur) > 1) todayEl.style.marginTop = want + 'px';
+}
 function lxEnd(){
+  centerToday();
   const cards = [...todayEl.querySelectorAll('.feed .card')].filter(c=> c.offsetParent);
   const last = cards[cards.length-1]; if (!last) return;
   // measured against the end of the wrapper's grid row (its bottom plus the trim already applied), so it holds after "Ver mais" too
@@ -3002,7 +3048,7 @@ function lxEnd(){
   // the lowest point of the bottom circles (not their titles) lines up with the last card
   const lx = document.querySelector('.lx'), low = Math.max(...[...document.querySelectorAll('.lx .sph')].map(c=> c.getBoundingClientRect().bottom));
   const below = lx && isFinite(low) ? lx.getBoundingClientRect().bottom - low : 0;
-  landing.style.setProperty('--lx-end', Math.round(gap - below) + 'px');
+  landing.style.setProperty('--lx-end', Math.min(0, Math.round(gap - below)) + 'px');
 }
 // the Sunday that opens the current week, as AAAA-MM-DD
 function weekStartISO(){
@@ -3044,7 +3090,7 @@ const FOOT_HTML = (()=>{
     <li><a href="#calendario">Calendário</a></li></ul></nav>
   <div class="sf-site"><h2>O site</h2><ul>${own}</ul>
     <p class="sf-who">Criação, design e desenvolvimento<br><b>${esc(SITE_INFO.autor)}</b></p></div>
-</div><p class="sf-legal">© ${new Date().getFullYear()} Quorum · ${esc(SITE_INFO.autor)}. Site independente, sem vínculo com os órgãos citados. Os dados públicos pertencem às fontes oficiais.</p></footer>`;
+</div><p class="sf-legal">© ${new Date().getFullYear()} Quorum · ${esc(SITE_INFO.autor)}. Site independente, sem vínculo com os órgãos citados. Os dados públicos pertencem às fontes oficiais.</p><p class="sf-ver">versão alfa 1.0</p></footer>`;
 })();
 // the logo in the footer goes back to the opening view, at the top
 document.addEventListener('click', e=>{
@@ -3456,6 +3502,7 @@ const ham = document.getElementById('ham'), mdr = document.getElementById('mdr')
   const tile = (attrs, top, l, wide)=> `<li${wide ? ' class="mdr-wide"' : ''}><a ${attrs}>${top ? `<span class="mdr-t">${top}</span>` : ''}<span class="mdr-n">${l}</span></a></li>`;
   const tiles = (inner)=> `<ul class="mdr-tiles">${inner}</ul>`;
   mdr.innerHTML = `
+    <form class="mdr-srch" id="mdr-srch" role="search"><label class="sr-only" for="mdr-sq">Pesquisar no Quorum</label><input type="search" id="mdr-sq" placeholder="Pesquisar" autocomplete="off" enterkeyhint="search"></form>
     <section class="mdr-sec">${tiles(tile('href="#" data-go="home" data-k="home"', '', 'Início', true))}</section>
     ${sec('Executivo', '#009C3B', tiles(tile('href="#" data-go="pres" data-k="pres"', GLYPHS.exec, 'Presidência da República')
       + `<li><button type="button" class="mdr-btn" aria-expanded="false" aria-controls="mdr-mins"><span class="mdr-t">${EXEC_MIN.length}</span><span class="mdr-n">Ministérios</span></button></li>`
@@ -3467,6 +3514,7 @@ const ham = document.getElementById('ham'), mdr = document.getElementById('mdr')
     ${sec('Explorar', '', tiles([['projetos','Projetos'],['consultas','Enquetes'],['transp','Transparência'],['visao','Visão geral'],['calendario','Calendário'],['sobre','Quem somos']].map(([k,l])=> tile(`href="#" data-go="${k}" data-k="${k}"`, ICON(k), l)).join('')))}`;
   const mb = mdr.querySelector('.mdr-btn'), mm = document.getElementById('mdr-mins');
   mb.addEventListener('click', e=>{ e.stopPropagation(); const on = mm.hidden; mm.hidden = !on; mb.setAttribute('aria-expanded', String(on)); if (on) document.getElementById('mdr-q').focus({preventScroll:true}); });
+  document.getElementById('mdr-srch').addEventListener('submit', e=>{ e.preventDefault(); const v = document.getElementById('mdr-sq').value.trim(); if (!v) return; document.getElementById('mdr-sq').value = ''; mdrOpen(false); bsAll = {}; resetLayers(); location.hash = '#busca?q=' + encodeURIComponent(v); });
   const q = document.getElementById('mdr-q');
   q.addEventListener('input', ()=>{ const f = minFold(q.value.trim()); mdr.querySelectorAll('#mdr-min > li').forEach(li=>{ li.hidden = !!f && !minFold(li.textContent).includes(f); }); });
 })();
@@ -3531,6 +3579,7 @@ setInterval(()=>{
   document.querySelectorAll('.nav-sub [data-route]').forEach(a=>{ if (a.dataset.route===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   const grp = here==='senado'||here==='camara' ? 'leg' : here==='pres'||/^m:/.test(here||'') ? 'exec' : here==='stf'||/^t:/.test(here||'') ? 'jud' : '';
   NAV_GRPS.forEach(g=>{ if (g.dataset.grp===grp) grpBtn(g).setAttribute('aria-current','page'); else grpBtn(g).removeAttribute('aria-current'); });
+  document.querySelectorAll('.mpw [data-grp]').forEach(b=>{ if (b.dataset.grp===grp) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
 }, 200);
 
 
@@ -4045,14 +4094,15 @@ function relatedHTML(name, key, role){
       const served = VOTOS.projetos && Object.values(VOTOS.projetos).some(vs=> vs.some(v=> v.casa===key && v.votos[sl]));
       inHouse.forEach(v=>{
         const x = v.votos[sl];
-        if (x) tags.push(`${VOTE_TX[x[2]] || 'voto: '+String(x[2]||'').toLowerCase()}${inHouse.length>1 && v.data ? ' ('+cardDate(v.data.slice(0,10))+')' : ''}`);
+        if (x){ const k = String(x[2]||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase(), vt = k==='SIM' ? 's' : k==='NAO' ? 'n' : /^ABST/.test(k) ? 'a' : '';
+          tags.push({t:`${VOTE_TX[x[2]] || 'voto: '+String(x[2]||'').toLowerCase()}${inHouse.length>1 && v.data ? ' ('+cardDate(v.data.slice(0,10))+')' : ''}`, vt}); }
         else if (served) tags.push(`sem voto registrado${inHouse.length>1 && v.data ? ' ('+cardDate(v.data.slice(0,10))+')' : ''}`);
       });
     }
     if (tags.length) rows.push({c, tags});
   });
   const body = rows.length
-    ? `<ul class="rel-list">${rows.map(r=>`<li><p class="rel-tags">${r.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</p>${cardHTML(r.c, null).replace(/^<li>|<\/li>$/g,'')}</li>`).join('')}</ul>`
+    ? `<ul class="rel-list">${rows.map(r=>`<li><p class="rel-tags">${r.tags.map(t=> typeof t==='string' ? `<span>${esc(t)}</span>` : `<span class="vt${t.vt ? ' vt-'+t.vt : ''}">${t.vt ? `<i aria-hidden="true">${{s:'✓',n:'×',a:'–'}[t.vt]}</i>` : ''}${esc(t.t)}</span>`).join('')}</p>${cardHTML(r.c, null).replace(/^<li>|<\/li>$/g,'')}</li>`).join('')}</ul>`
     : `<p class="tr-empty">Nenhum projeto ou processo acompanhado pelo site cita ${esc(name)}${(key==='camara'||key==='senado') ? ', e não há voto nominal dele(a) nas votações registradas' : ''}.</p>`;
   return `<section class="p-tr p-cards" data-n="${esc(name)}" data-k="${key}" data-r="${esc(role||'')}"><h3>Projetos e processos relacionados</h3>${body}
     ${(key==='camara'||key==='senado') ? `<p class="vb-note">Votos nominais registrados pela ${key==='camara'?'Câmara':'Senado'}. Votações simbólicas não têm voto individual.</p>` : ''}</section>`;
