@@ -46,3 +46,7 @@ Segredos do GitHub (Settings > Secrets and variables > Actions): `BLUESKY_HANDLE
 - Um assunto só: `tags`, `texto` e, se houver, `placar` (`desenho`: `stf`, `camara`, `senado` ou sem desenho). Lista de assuntos: `itens` (até 3), cada um com `quando`, `dia`, `tags`, `titulo` e `texto` opcional; o `texto` de fora vira uma linha embaixo do título.
 - Títulos curtos (até ~40 caracteres). Se `render.js` avisar que não coube, encurtar.
 - Exemplos completos em `posts/exemplos/`.
+
+## Posts de apresentação
+
+`posts/AAAA-MM-DD-apresentacao-1`, `-2` e `-3`: três posts que, lado a lado na grade do perfil, formam uma peça só (Executivo verde à esquerda, Legislativo amarelo no meio, Judiciário azul à direita, com os círculos na mesma altura e uma linha que atravessa as três). As imagens saem de `node scripts/posts/apresentacao.js`. Como o post mais novo aparece à esquerda, o `-1` (Judiciário, direita) sai primeiro e o `-3` (Executivo, esquerda) por último; o robô publica as pastas em ordem alfabética. Para a grade continuar alinhada depois, os posts do dia devem sair sempre de três em três.
