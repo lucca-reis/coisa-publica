@@ -217,9 +217,16 @@ def melhor(nomes, contas):
         casado = sum(len(p) for p in partes if p in h) + (7 if 'oficial' in h else 0)
         return (min(casado, len(h)) / len(h) + (1 if any(j and j in h for j in junto) else 0), -len(h))
     return max(contas, key=nota) if contas else None
+def tem_nome(nomes, h):
+    # na dúvida, fica de fora: só conta cujo endereço traz parte do nome da pessoa (endereços quebrados, como "https" ou "Fl",
+    # e contas de terceiros não passam)
+    partes = {p for n in nomes for p in slug(n).split('-') if len(p) >= 4}
+    h = norm(h).lower()
+    return len(h) >= 4 and any(p in h for p in partes)
 for f in final.values():
     for r, contas in f.pop('cands', {}).items():
-        f['redes'][r] = melhor(f['nomes'], contas)
+        boas = [c for c in contas if tem_nome(f['nomes'], c['h'])]
+        if boas: f['redes'][r] = melhor(f['nomes'], boas)
 
 OUT.mkdir(exist_ok=True)
 res = {'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'), 'pessoas': final, 'nomes': por_nome, 'erros': log[:60]}
