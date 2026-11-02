@@ -7,6 +7,7 @@
                                                 como story e anota em posts/stories/estado.json, para nunca repetir
    Câmara e Senado: APIs de dados abertos (sessão do Plenário em andamento). STF e Presidência: a AGENDA do index.html,
    com a mesma regra da seção "Ao vivo agora" do site (dia de hoje, sessão com horário, dentro da janela da transmissão).
+   Só sai story quando a transmissão está confirmada no canal oficial do YouTube (noAr).
    O Instagram não aceita link clicável (figurinha de link) em story publicado pela API: a arte manda para o site.
    Chaves só nos segredos do GitHub (IG_USER_ID, IG_TOKEN). */
 const fs = require('fs'), path = require('path'), crypto = require('crypto');
@@ -87,13 +88,34 @@ function agenda(hoje, agora){
   return out;
 }
 
+// a transmissão está mesmo no ar? Confere a página "/live" do canal oficial no YouTube: quando há transmissão,
+// ela aponta para um vídeo (watch?v=) marcado como ao vivo agora. Sem essa confirmação, não sai story (tenta de novo depois).
+const CANAL = {
+  camara:'https://www.youtube.com/channel/UC-ZkSRh-7UEuwXJQ9UMCFJA/live',
+  senado:'https://www.youtube.com/@TVSenadoOficial/live',
+  stf:'https://www.youtube.com/@STF_oficial/live',
+  exec:'https://www.youtube.com/@canalgov/live'
+};
+async function noAr(casa){
+  try {
+    const r = await fetch(CANAL[casa], {headers:{'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36', 'Accept-Language':'pt-BR,pt;q=0.9', 'Cookie':'CONSENT=YES+cb; SOCS=CAI'}});
+    const h = await r.text();
+    const video = (/<link rel="canonical" href="https:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})"/.exec(h) || [])[1];
+    return video && /"isLiveNow":\s*true/.test(h) ? video : null;
+  } catch (e) { console.error(`youtube ${casa}: ${e.message}`); return null; }
+}
+
 async function preparar(){
   const {data:hoje, min:agora} = agoraBR();
   const est = ler(EST, {}), achados = [];
   for (const [nome, fn] of [['camara', ()=> camara(hoje)], ['senado', ()=> senado(hoje)], ['agenda', async ()=> agenda(hoje, agora)]]){
     try { achados.push(...await fn()); } catch (e) { console.error(`${nome}: ${e.message}`); }
   }
-  const novos = achados.filter(x=> !est[x.chave]);
+  const novos = [];
+  for (const x of achados.filter(x=> !est[x.chave])){
+    const v = await noAr(x.casa);
+    if (v){ x.video = v; novos.push(x); } else console.log(`${x.chave}: marcada como ao vivo, mas a transmissão ainda não está no ar; sem story por enquanto`);
+  }
   console.log('ao vivo agora:', achados.map(x=> x.chave).join(', ') || 'nada', '| novos:', novos.length);
   if (novos.length){ fs.mkdirSync(DIR, {recursive:true}); fs.writeFileSync(PEND, JSON.stringify(novos, null, 1)); }
   else fs.rmSync(PEND, {force:true});              // o que ficou pendente e já saiu do ar não vira story
