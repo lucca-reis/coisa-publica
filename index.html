@@ -1247,17 +1247,15 @@ h1[tabindex="-1"]:focus{outline:none}
 .vm{display:flex;flex-direction:column;gap:22px}
 .vm-row{display:flex;flex-direction:column;gap:8px}
 .vm-name{font-size:12px;color:var(--muted)}
-.vm-line{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);align-items:end}
-.vm-line::before{content:"";position:absolute;left:0;right:0;bottom:30px;height:2px;border-radius:2px;background:var(--rule)}
-.vm-st{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
-.vm-dots{display:flex;flex-wrap:wrap-reverse;gap:4px;max-width:96px;min-height:12px}
-.vm-dots a{width:12px;height:12px;border-radius:50%;background:var(--ink);display:block}
-.vm-dots a:hover{transform:scale(1.25)}
-.vm-dots a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.vm-st.done .vm-dots a{background:color-mix(in srgb, var(--ink) 35%, var(--bg))}
-.vm-stop{width:12px;height:12px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--ink);position:relative;z-index:1}
-.vm-lab{font-size:12.5px;line-height:1.2;height:16px;white-space:nowrap}
-.vm-lab b{font-weight:500}
+.vm-bar{display:flex;gap:3px;height:14px}
+.vm-bar span{min-width:6px;border-radius:4px}
+.vm-legs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:12px}
+.vm-leg{display:flex;flex-direction:column;gap:2px;min-width:0}
+.vm-n{display:flex;align-items:center;gap:7px;font-size:24px;line-height:1.1;letter-spacing:-.02em}
+.vm-n i{width:10px;height:10px;border-radius:3px;flex:none}
+.vm-l{font-size:12.5px;color:var(--muted)}
+.vm-ex{font-size:12px;line-height:1.35;color:var(--ink);text-decoration:none;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vm-ex:hover{text-decoration:underline;text-underline-offset:2px}
 .vd{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
 .vd a{display:flex;flex-direction:column;gap:6px;color:var(--ink);text-decoration:none}
 .vd-t{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;line-height:1.3}
@@ -1297,7 +1295,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .vc-leg i{width:8px;height:8px;border-radius:50%;flex:none}
 .vc-leg b{font-weight:500;color:var(--ink)}
 @media (max-width:900px){ .vb,.vb.w7,.vb.w5{grid-column:span 12} .vc{grid-template-columns:1fr 1fr} .vc-h:first-child{grid-column:1 / -1} }
-@media (max-width:560px){ .vb{padding:16px;border-radius:18px} .vp{grid-template-columns:minmax(0,1fr)} .vp-i{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:10px} .vp-p{width:100%} .vp-n{font-size:44px} .vp-s{width:100%;margin-top:2px} .vv{grid-template-columns:repeat(2,minmax(0,1fr))} .vc{grid-template-columns:minmax(0,1fr)} .vm-lab{font-size:11.5px} }
+@media (max-width:560px){ .vb{padding:16px;border-radius:18px} .vp{grid-template-columns:minmax(0,1fr)} .vp-i{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:10px} .vp-p{width:100%} .vp-n{font-size:44px} .vp-s{width:100%;margin-top:2px} .vv{grid-template-columns:repeat(2,minmax(0,1fr))} .vc{grid-template-columns:minmax(0,1fr)} .vm-legs{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px} .vm-n{font-size:20px} }
 /* transparency: the parliamentary allowance (cota) of each member, from the official files of each house */
 .p-tr{width:100%;display:flex;flex-direction:column;gap:14px;padding:18px 20px 20px;border-radius:20px;background:color-mix(in srgb, var(--ink) 5%, var(--bg));box-sizing:border-box}
 .p-ct{width:100%;display:flex;flex-direction:column;gap:12px;padding:18px 20px 20px;border-radius:20px;background:color-mix(in srgb, var(--ink) 5%, var(--bg));box-sizing:border-box}
@@ -4495,8 +4493,16 @@ function vgMetro(all){
     {lab:'Suspenso', items: stf.filter(x=> ['suspenso','pedido de vista'].includes(ph(x)))},
     {lab:'Julgado', done:true, items: stf.filter(x=> ph(x)==='julgado')}
   ];
-  const row = (name, st) => `<div class="vm-row"><span class="vm-name">${name}</span><div class="vm-line">${st.map(x=>`<div class="vm-st${x.done?' done':''}"><div class="vm-dots">${x.items.map(dot).join('')}</div><span class="vm-stop" aria-hidden="true"></span><span class="vm-lab"><b>${x.items.length}</b> ${x.lab}</span></div>`).join('')}</div></div>`;
-  return `<div class="vm">${row('Projetos e medidas provisórias', legSt)}${row('Processos no Supremo', stfSt)}</div>`;
+  // one proportional bar per row (each stop a slice, wider the more items it has) and the counts underneath;
+  // with hundreds of automatic cards, one dot per item made this block too tall
+  const tone = [88, 62, 40, 40], recent = x => (x.S.last && x.S.last.date) || '';
+  const row = (name, st) => { const tot = st.reduce((a,x)=> a + x.items.length, 0) || 1;
+    const col = (x,i)=> `color-mix(in srgb, var(--ink) ${x.done ? 16 : tone[i]}%, var(--bg))`;
+    return `<div class="vm-row"><span class="vm-name">${name}</span>
+      <div class="vm-bar" role="img" aria-label="${esc(st.map(x=> x.items.length+' '+x.lab).join(', '))}">${st.filter(x=> x.items.length).map((x,i)=>`<span style="flex-grow:${x.items.length};background:${col(x, st.indexOf(x))}" title="${x.items.length} · ${esc(x.lab)}"></span>`).join('')}</div>
+      <div class="vm-legs">${st.map((x,i)=>{ const top = x.items.slice().sort((a,b)=> recent(b).localeCompare(recent(a)))[0];
+        return `<div class="vm-leg"><span class="vm-n"><i style="background:${col(x,i)}"></i>${x.items.length.toLocaleString('pt-BR')}</span><span class="vm-l">${esc(x.lab)}</span>${top ? `<a class="vm-ex" href="#p-${top.c.slug}" title="${esc(top.P.code+' · '+top.P.title)}">${esc(top.P.title)}</a>` : ''}</div>`; }).join('')}</div></div>`; };
+  return `<div class="vm">${row('Projetos e medidas provisórias', legSt)}${row('Processos no Supremo', stfSt)}</div><p class="vb-note">Embaixo de cada etapa, o item tratado mais recentemente. A lista completa fica em <a href="#projetos" style="color:inherit">Projetos</a>.</p>`;
 }
 function vgPrazos(all){
   const t = todayISO(), rows = [], loose = [];
