@@ -27,11 +27,12 @@ h1{margin:20px 0 0;font-size:calc(88px * var(--k));line-height:1.03;letter-spaci
 body.cheio.p-leg{--pc:#F2C200;--pci:#121417}
 body.cheio.p-jud{--pc:#1F4FB5;--pci:#F3F3F3}
 body.cheio.p-exe{--pc:#009C3B;--pci:#F3F3F3}
-.cheio .eye{align-self:flex-start;margin-top:calc(64px * var(--k));padding:12px 22px;border-radius:999px;background:var(--pc);color:var(--pci);font-size:26px;letter-spacing:.06em}
+.cheio .eye{display:flex;align-items:center;gap:14px;margin-top:calc(72px * var(--k));font-size:26px;letter-spacing:.08em;color:var(--muted)}
+.cheio .eye::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--pc)}
 .cheio h1{margin-top:26px;max-width:16ch}
 .cheio .vis{flex:1;display:grid;place-items:center;padding:calc(30px * var(--k)) 0}
 .cheio .tags{margin-top:auto}
-.cheio .txt{margin:22px 0 0;font-size:calc(36px * var(--k));line-height:1.35;max-width:30ch}
+.cheio .txt{margin:0;font-size:calc(36px * var(--k));line-height:1.35;max-width:28ch;color:color-mix(in srgb,var(--ink) 80%,var(--bg))}
 .nums{display:flex;justify-content:center;gap:64px;margin-top:-26px;text-align:center}
 .nums b{display:block;font-size:calc(124px * var(--k));font-weight:700;letter-spacing:-.04em;line-height:1}
 .nums span{font-size:26px;color:var(--muted)}
