@@ -1,10 +1,13 @@
 name: Publicar posts aprovados
 
-# Um post aprovado é um post que chegou à main (pelo "Merge" do pedido de aprovação).
+# Um post aprovado é um post que chegou à main (pelo "Merge" do pedido de aprovação). Ele sai na hora do seu
+# período (manhã 10h, tarde 13h, noite 18h); se for aprovado depois dessa hora, sai assim que chega à main.
 on:
   push:
     branches: [main]
     paths: ['posts/2*/**', 'posts/apagar.json']
+  schedule:
+    - cron: '50 12,15,20 * * *'   # 9h50, 12h50 e 17h50 em Brasília: publica os aprovados das 10h, 13h e 18h
   workflow_dispatch:
 
 permissions:

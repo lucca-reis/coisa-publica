@@ -6,7 +6,7 @@ Roda em .github/workflows/publicar.yml. As chaves ficam nos segredos do GitHub, 
   BLUESKY_HANDLE e BLUESKY_APP_PASSWORD  (senha de app criada nas configurações do Bluesky)
   IG_USER_ID e IG_TOKEN                  (conta profissional do Instagram, API da Meta)
 Rede sem chave configurada é pulada, e o post fica esperando até ela ser configurada. Só usa a biblioteca padrão."""
-import json, os, re, sys, time, datetime, hashlib, pathlib, urllib.request, urllib.parse, urllib.error
+import json, os, re, sys, time, datetime, zoneinfo, hashlib, pathlib, urllib.request, urllib.parse, urllib.error
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 POSTS = ROOT / 'posts'
@@ -74,6 +74,8 @@ redes = {'bluesky': (bool(BSKY_H and BSKY_P), bluesky), 'instagram': (bool(IG_ID
 falhas = 0
 # ordem de publicação: por data e, no mesmo dia, apresentação, manhã, tarde e noite (o mais novo fica no topo da grade)
 ORDEM = {'apresentacao': 0, 'manha': 1, 'tarde': 2, 'noite': 3}
+HORA = {'manha': '10:00', 'tarde': '13:00', 'noite': '18:00'}   # "hora" no post.json muda a de um post só
+BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 def chave(p): return (p.name[:10], ORDEM.get(p.name[11:].split('-')[0], 9), p.name)
 for d in sorted((p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\d{2}-\d{2}-((manha|tarde|noite)(-[a-z0-9]+)?|apresentacao-\d+)$', p.name)), key=chave):
     post, img, feito_f = d / 'post.json', d / 'imagem.jpg', d / 'publicado.json'
@@ -81,8 +83,18 @@ for d in sorted((p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\
     P = json.loads(post.read_text(encoding='utf-8'))
     # post velho (mais de 2 dias) não sai: as redes só recebem o que ainda é notícia
     try:
-        if (datetime.date.today() - datetime.date.fromisoformat(P.get('data') or d.name[:10])).days > 2: continue
+        if (datetime.datetime.now(BR).date() - datetime.date.fromisoformat(P.get('data') or d.name[:10])).days > 2: continue
     except ValueError: pass
+    # cada período tem hora fixa (Brasília): aprovado antes, o post espera; aprovado depois, sai na hora.
+    # Faltando até 15 minutos, espera aqui mesmo (o robô roda uns minutos antes de cada horário).
+    per = d.name[11:].split('-')[0]
+    hora = P.get('hora') or HORA.get(per)
+    if hora:
+        alvo = datetime.datetime.combine(datetime.date.fromisoformat(P.get('data') or d.name[:10]), datetime.time(*map(int, hora.split(':'))), BR)
+        falta = (alvo - datetime.datetime.now(BR)).total_seconds()
+        if falta > 15 * 60:
+            print(f'{d.name}: aprovado, sai às {hora}'); continue
+        if falta > 0: time.sleep(falta)
     feito = json.loads(feito_f.read_text(encoding='utf-8')) if feito_f.exists() else {}
     for nome, (ok, fn) in redes.items():
         if nome in feito or not ok or not (P.get('textos') or {}).get(nome): continue

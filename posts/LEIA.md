@@ -7,8 +7,9 @@ Três posts por dia, cada um com imagem e texto, sempre aprovados pelo Lucca ant
 1. Uma tarefa agendada escreve o rascunho: `posts/AAAA-MM-DD-periodo/post.json` (periodo = `manha`, `tarde` ou `noite`) numa branch `post/AAAA-MM-DD-periodo`, gera a imagem com `node scripts/posts/render.js posts/AAAA-MM-DD-periodo` e envia a branch.
 2. O robô `.github/workflows/post-aprovacao.yml` abre o pedido de aprovação (pull request) com a imagem, os textos e as fontes.
 3. Todas as imagens usam o fundo #F3F3F3 (em `modelo.html`, `apresentacao.js` e nos scripts de `especiais/`).
-4. Aprovar = **Merge** (pode ser pelo app do GitHub no celular). Descartar = **Close**. Para mudar o texto, editar o `post.json` na branch antes de aprovar (a imagem não muda sozinha; se mudar o texto da imagem, gerar de novo).
-5. Para refazer um post já publicado: apagar o `publicado.json` da pasta e pôr o id da mídia em `posts/apagar.json` (`[{"pasta":..., "instagram":...}]`) no mesmo commit. O `publicar.yml` apaga a versão antiga (`scripts/posts/apagar.py`, precisa da permissão `instagram_manage_contents`) e só então publica de novo; se a remoção falhar, nada é publicado.
+4. Horários fixos (Brasília): manhã 10h, tarde 13h, noite 18h (domingo, planos da semana, às 13h). Aprovado antes, o post espera a hora dele; aprovado depois, sai assim que é aprovado. Para mudar a hora de um post só, `"hora": "HH:MM"` no `post.json`. Os rascunhos chegam às 6h37, 11h37 e 15h37.
+5. Aprovar = **Merge** (pode ser pelo app do GitHub no celular). Descartar = **Close**. Para mudar o texto, editar o `post.json` na branch antes de aprovar (a imagem não muda sozinha; se mudar o texto da imagem, gerar de novo).
+6. Para refazer um post já publicado: apagar o `publicado.json` da pasta e pôr o id da mídia em `posts/apagar.json` (`[{"pasta":..., "instagram":...}]`) no mesmo commit. O `publicar.yml` apaga a versão antiga (`scripts/posts/apagar.py`, precisa da permissão `instagram_manage_contents`) e só então publica de novo; se a remoção falhar, nada é publicado.
 4. Ao chegar na `main`, `.github/workflows/publicar.yml` publica no Bluesky e no Instagram (`scripts/posts/publicar.py`) e grava `publicado.json` na pasta do post.
 
 Segredos do GitHub (Settings > Secrets and variables > Actions): `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD`, `IG_USER_ID`, `IG_TOKEN`. Rede sem segredo é pulada e o post espera.
