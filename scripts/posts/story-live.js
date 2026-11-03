@@ -40,7 +40,7 @@ body{width:1080px;height:1920px;background:#F3F3F3;color:#121417;font-family:"He
   ${o.descricao ? `<p class="d">${esc(o.descricao)}</p>` : ''}
   <div class="video"><span>${esc(o.canal || c.canal)}</span></div>
 </div>
-<div class="go"><b>Assista em coisapublica.io</b><span>a transmissão oficial toca no site,<br>com a pauta do dia · link na bio</span></div>
+<div class="go"><b>Assista em coisapublica.io</b><span>a transmissão oficial e a pauta do dia<br>estão no site · link na bio</span></div>
 </body></html>`;
 }
 module.exports = {html, CASA};

@@ -1,7 +1,9 @@
 name: Stories ao vivo
 
 # A cada 10 minutos, das 9h às 23h (Brasília): se a Câmara, o Senado, o STF ou a Presidência começou uma transmissão
-# oficial, publica um story no Instagram com a arte de scripts/posts/story-live.js (uma vez por sessão).
+# oficial, publica um story no Instagram com a arte de scripts/posts/story-live.js (uma vez por sessão; comissões, no
+# máximo uma por Casa a cada 3 horas). Também atualiza data/aovivo.json (Plenário e comissões abertos agora), que a
+# seção "Ao vivo agora" do site lê.
 on:
   schedule:
     - cron: '*/10 12-23 * * *'
@@ -26,6 +28,18 @@ jobs:
           node-version: '22'
       - name: O que está ao vivo agora
         run: node scripts/posts/stories.js preparar
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      - name: Atualizar o "Ao vivo agora" do site
+        if: hashFiles('posts/stories/pendentes.json') == ''
+        run: |
+          git config user.name "coisa-publica-robo"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/aovivo.json 2>/dev/null || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Ao vivo agora $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
+          git pull --rebase -X theirs origin main
+          git push
       - name: Gerar a arte
         if: hashFiles('posts/stories/pendentes.json') != ''
         run: |
@@ -37,7 +51,7 @@ jobs:
         run: |
           git config user.name "coisa-publica-robo"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add posts/stories/
+          git add posts/stories/ data/aovivo.json
           git commit -m "Story ao vivo $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
           git pull --rebase -X theirs origin main
           git push

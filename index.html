@@ -863,6 +863,18 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .lvc-links a,.lvc-links button{all:unset;cursor:pointer;font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
 .lvc-links a:hover,.lvc-links button:hover{text-decoration-color:currentColor}
 .lvc-links a:focus-visible,.lvc-links button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
+.lvk{border-radius:20px;background:color-mix(in srgb, #E0242B 7%, var(--bg));padding:14px 18px 6px;animation:fd-in .5s cubic-bezier(.2,.7,.3,1) both}
+.lvk-h{margin:0 0 4px;font-size:12px;color:var(--muted)}
+.lvk ul{list-style:none;margin:0;padding:0}
+.lvk li{display:grid;grid-template-columns:9.4em minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:11px 0;border-top:1px solid color-mix(in srgb, #E0242B 12%, var(--bg))}
+.lvk li:first-child{border-top:0}
+.lvk li > .lvc-pill{justify-self:start}
+.lvk-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.lvk-t b{font-weight:500;font-size:14.5px;line-height:1.3}
+.lvk-t span{font-size:13px;line-height:1.35;color:color-mix(in srgb, var(--ink) 72%, var(--bg))}
+.lvk-go{display:flex;flex-direction:column;align-items:flex-end;gap:3px;white-space:nowrap}
+.lvk-go a{font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
+@media (max-width:560px){ .lvk li{grid-template-columns:minmax(0,1fr) auto} .lvk li > .lvc-pill{grid-column:1 / -1;justify-self:start} }
 .lvs-row{display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:12px;align-items:stretch}
 .lvs-row > .lvc{container-type:inline-size;min-width:0}
 .lvc-av{margin-left:-2px}
@@ -2308,15 +2320,21 @@ function nowBR(){ try{ const f = FMT_HM.format(new Date()).split(':'); return (+
 function hm(t){ const m = /(\d{1,2})h(\d{2})?/.exec(t||''); return m ? (+m[1])*60 + (+(m[2]||0)) : null; }
 // state of today's session: 'live', 'soon' (later today) or null
 // data/live.json is written every hour by the robot in the GitHub repository (scripts/atualizar.py)
-let LIVE_DATA = null;
+let LIVE_DATA = null, AOVIVO = null;
 function loadLive(){
   if (!/^https?:$/.test(location.protocol)) return;
   fetch('data/live.json', {cache:'no-store'}).then(r=> r.ok ? r.json() : null).then(js=>{ if (js){ LIVE_DATA = js; refreshLive(); } }).catch(()=>{});
+  // what is open right now in the Câmara and the Senado, plenary and committees (robot every 10 minutes, scripts/posts/stories.js)
+  fetch('data/aovivo.json', {cache:'no-store'}).then(r=> r.ok ? r.json() : null).then(js=>{ if (js){ AOVIVO = js; refreshLive(); } }).catch(()=>{});
 }
+// the list of data/aovivo.json while it is fresh (the robot rewrites it at least every hour during the day)
+function aoVivo(){ return AOVIVO && Array.isArray(AOVIVO.itens) && Date.now() - Date.parse(AOVIVO.atualizado) < 75*60e3 ? AOVIVO.itens : null; }
 const FRAMED = (()=>{ try{ return window.self !== window.top; }catch(e){ return true; } })();
 function minutesOf(isoStr){ const m = /T(\d{2}):(\d{2})/.exec(isoStr||''); return m ? (+m[1])*60 + (+m[2]) : null; }
 // sessions reported by the official APIs; null when there is no fresh data for this house
 function apiState(key){
+  const av = aoVivo(), pl = av && av.find(x=> x.casa===key && x.plenario);
+  if (pl) return {s:'live', day:{kind: pl.tipo || 'Sessão'}, st: hm(pl.desde) ?? nowBR(), video: pl.video};
   const list = LIVE_DATA && LIVE_DATA[key];
   if (!Array.isArray(list) || !LIVE_DATA.atualizado) return null;
   if (Date.now() - new Date(LIVE_DATA.atualizado).getTime() > 3*3600e3) return null;
@@ -2362,8 +2380,14 @@ function liveSection(on){
       <div class="lvc-links"><button type="button" class="lv-tag" data-go="${k}">Ver a pauta no site</button>${links}</div>
     </article>`;
   }).join('');
+  // committees open now, in a short list under the plenary sessions (each with its official video)
+  const com = (aoVivo() || []).filter(x=> !x.plenario);
+  const list = com.length ? `<div class="lvk"><p class="lvk-h">${com.length===1 ? 'Comissão' : 'Comissões'} ao vivo</p><ul>${com.map(x=>`<li>
+      <span class="lvc-pill ${pwClass(x.casa)}"><span class="lv-dot" aria-hidden="true"></span>${x.casa==='senado' ? 'Senado' : 'Câmara'}${x.sigla ? ' · '+esc(x.sigla) : ''}</span>
+      <span class="lvk-t"><b>${esc(x.nome || x.tipo || 'Comissão')}</b>${x.descricao ? `<span>${esc(x.descricao)}</span>` : ''}</span>
+      <span class="lvk-go">${x.desde ? `<span class="lvc-since">desde as ${esc(x.desde)}</span>` : ''}${x.video ? `<a href="${esc(x.video)}" target="_blank" rel="noopener">Assistir ↗</a>` : ''}</span></li>`).join('')}</ul></div>` : '';
   // two or three at once share the width, side by side
-  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p><div class="lvs-row" style="--n:${on.length}">${cards}</div></section>`;
+  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p>${on.length ? `<div class="lvs-row" style="--n:${on.length}">${cards}</div>` : ''}${list}</section>`;
 }
 function liveBox(key){
   const st = liveState(key), L = LIVE[key];
@@ -2426,9 +2450,10 @@ function refreshLive(){
   const fl = document.getElementById('feed-live');
   if (fl){
     const on = [['camara','Câmara'],['senado','Senado'],['stf','STF'],['exec','Presidência']].filter(([k])=> liveState(k)?.s==='live');
-    const keyNow = on.map(([k])=> k+':'+(liveState(k).video||'')).join('|');
+    const com = (aoVivo() || []).filter(x=> !x.plenario);
+    const keyNow = on.map(([k])=> k+':'+(liveState(k).video||'')).join('|') + '#' + com.map(x=> x.casa+x.sigla+x.video).join('|');
     // redraw only when what is on air changes, so a playing video is not restarted every minute
-    if (fl.dataset.on !== keyNow){ fl.dataset.on = keyNow; fl.innerHTML = on.length ? liveSection(on) : ''; if (typeof lxEnd==='function') requestAnimationFrame(lxEnd); }
+    if (fl.dataset.on !== keyNow){ fl.dataset.on = keyNow; fl.innerHTML = on.length || com.length ? liveSection(on) : ''; if (typeof lxEnd==='function') requestAnimationFrame(lxEnd); }
   }
 }
 setInterval(refreshLive, 60000);
