@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-03T08:50-03:00",
+ "atualizado": "2026-11-03T09:58-03:00",
  "camara": [
   {
    "id": 83076,
@@ -68,6 +68,16 @@
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83141,
+   "inicio": "2026-11-03T13:55-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": null,
    "aoVivo": false
   }
