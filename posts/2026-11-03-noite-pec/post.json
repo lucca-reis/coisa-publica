@@ -1,0 +1,42 @@
+{
+ "id": "2026-11-03-noite-pec",
+ "periodo": "noite",
+ "data": "2026-11-03",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Aprovada no Senado",
+  "titulo": "PEC da Segurança Pública",
+  "visual": {
+   "tipo": "plenario",
+   "casa": "senado",
+   "destaque": 75,
+   "numeros": [
+    {
+     "n": "73",
+     "l": "votos no 1º turno"
+    },
+    {
+     "n": "75",
+     "l": "votos no 2º turno"
+    }
+   ]
+  },
+  "texto": "Aprovada sem votos contrários, sem a redução da maioridade penal. A emenda vai à promulgação.",
+  "fonte": "Agência Senado, 3/11/2026"
+ },
+ "alt": "Imagem da Coisa Pública, Aprovada no Senado: PEC da Segurança Pública. Desenho do plenário do Senado com 75 das 81 cadeiras destacadas em amarelo e os números 73 votos no 1º turno e 75 votos no 2º turno. Texto: aprovada sem votos contrários, sem a redução da maioridade penal; a emenda vai à promulgação. Fonte: Agência Senado, 3 de novembro de 2026.",
+ "textos": {
+  "bluesky": "O Senado aprovou hoje (3/11) a PEC da Segurança Pública, por unanimidade, em dois turnos: 73 e 75 votos. O Susp entra na Constituição e municípios poderão criar polícias. A redução da maioridade penal ficou para outra PEC. Vai à promulgação.\n\ncoisapublica.io",
+  "instagram": "Aprovada 🏛️\n\nO Senado aprovou nesta terça (3/11) a PEC da Segurança Pública (PEC 18/2025), por unanimidade e em dois turnos: 73 votos no primeiro e 75 no segundo. Como já tinha passado pela Câmara, a emenda vai agora à promulgação pelo Congresso.\n\nO que muda:\n\n· O Sistema Único de Segurança Pública (Susp) passa a estar na Constituição, com ações conjuntas e troca de informações entre União, estados, DF e municípios.\n· Os municípios poderão criar polícias municipais, seguindo critérios de formação, capacidade financeira e fiscalização.\n· A Polícia Rodoviária Federal passa a policiar também ferrovias e hidrovias federais.\n· Líderes de facções e milícias terão penas proporcionais à posição na organização, cumpridas em presídios de segurança máxima, e os bens ligados ao crime poderão ser confiscados.\n· Os fundos de segurança pública, penitenciário e da Polícia Federal ficam protegidos contra bloqueios, e 10% do superávit do Fundo Social vão para a segurança.\n· Vítimas e denunciantes ganham mais proteção e acesso à Justiça.\n\nA redução da maioridade penal, proposta em duas emendas, ficou fora do texto: por 38 votos a 36, o Plenário decidiu que ela vai tramitar como uma PEC separada.\n\nO relator foi o senador Rogério Carvalho (PT-SE).\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Senado #PEC #SegurançaPública #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Senado: Senado aprova PEC da Segurança Pública sem redução da maioridade penal (3/11/2026)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/03/senado-aprova-pec-da-seguranca-publica-sem-reducao-da-maioridade-penal"
+  },
+  {
+   "l": "Senado: PEC 18/2025",
+   "u": "https://www25.senado.leg.br/web/atividade/materias/-/materia/172997"
+  }
+ ]
+}
