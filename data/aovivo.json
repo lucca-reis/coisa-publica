@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-03T18:21Z",
+ "atualizado": "2026-11-03T18:27Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CICS",
+   "nome": "Comissão de Indústria, Comércio e Serviços",
+   "tipo": "Comissão de Indústria, Comércio e Serviços",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "15h21",
+   "video": "https://www.youtube.com/watch?v=UJCfjv9slU0"
+  },
   {
    "casa": "camara",
    "plenario": false,
