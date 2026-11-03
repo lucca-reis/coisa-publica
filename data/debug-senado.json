@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "03/11/2026 05:11:19",
+   "Versao": "03/11/2026 06:00:00",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
