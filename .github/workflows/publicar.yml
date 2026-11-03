@@ -11,6 +11,10 @@ on:
   # schedule:
   #   - cron: '50 10,15,20 * * *'   # 7h50, 12h50 e 17h50 em Brasília: publica os aprovados das 8h, 13h e 18h
   workflow_dispatch:
+    inputs:
+      post:
+        description: 'Publicar só este post (id da pasta, ex.: 2026-11-03-noite-pec)'
+        required: false
 
 permissions:
   contents: write
@@ -35,6 +39,7 @@ jobs:
       - name: Publicar no Bluesky e no Instagram
         run: python scripts/posts/publicar.py
         env:
+          SO_POST: ${{ github.event.inputs.post }}
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
