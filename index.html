@@ -952,6 +952,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .fd{display:flex;flex-direction:column;gap:10px}
 .fd-date{margin:0;align-self:flex-start;padding:2px 4px 0;font-size:12px;line-height:1.2;color:var(--muted)}
 .fd.is-today .fd-date{color:var(--ink);font-weight:500}
+.fd-up.fd-next-day{padding:22px 0 0;border-bottom:0;border-top:1px solid color-mix(in srgb, var(--ink) 12%, var(--bg))}
 .fd-up{display:flex;flex-direction:column;gap:12px;padding-bottom:22px;border-bottom:1px solid color-mix(in srgb, var(--ink) 12%, var(--bg))}
 .fd-uph{margin:0;padding:0 4px;font-size:12px;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--ink)}
 .fd-upl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
@@ -3302,15 +3303,15 @@ function pastTodayAgenda(){
   });
   return out.sort((a,b)=> evMin(b) - evMin(a));
 }
-function upcomingHTML(ups){
+function upcomingHTML(ups, head, cls){
   if (!ups.length) return '';
   const t = todayISO(), tm = new Date(Date.parse(t+'T12:00:00Z') + 864e5).toISOString().slice(0,10), groups = [];
   ups.forEach(u=>{ const g = groups[groups.length-1], k = u.week ? 'w' : u.date; if (g && g.k===k) g.items.push(u); else groups.push({k, d:u.date, items:[u]}); });
-  return `<li class="fd-up"><p class="fd-uph">${groups.some(g=> g.d > t) ? 'Ainda hoje e amanhã' : 'Ainda hoje'}</p><ol class="fd-upl">${groups.map(g=>{
+  return `<li class="fd-up${cls ? ' '+cls : ''}"><p class="fd-uph">${head || 'Ainda hoje'}</p><ol class="fd-upl">${groups.map(g=>{
     let lab;
     if (g.k==='w') lab = 'sem dia marcado';
     else if (g.d===t) lab = 'hoje, mais tarde';
-    else if (g.d===tm) lab = 'amanhã';
+    else if (g.d===tm && !head) lab = 'amanhã';
     else { const [y,m,dd] = g.d.split('-').map(Number); lab = `${['dom','seg','ter','qua','qui','sex','sáb'][new Date(y,m-1,dd).getDay()]}, ${dd} ${MO[m-1]}`; }
     return `<li class="fd" data-d="${g.d}"><p class="fd-date">${lab}</p><ol class="fd-cards">${g.items.map(upCardHTML).join('')}</ol></li>`;
   }).join('')}</ol></li>`;
@@ -3335,7 +3336,7 @@ function renderToday(){
   if (!wkN && !ups.length && list.length){ const d0 = list[0].L ? list[0].L.date : ''; wkN = list.filter(x=> (x.L ? x.L.date : '')===d0).length; }
   todayExtra = Math.max(0, list.length - wkN);
   todayEl.innerHTML = `<div class="feed-h"><div class="feed-live" id="feed-live"></div></div>
-    <ol class="feed" aria-label="Propostas e julgamentos: o que ainda vem hoje e, depois, do mais recente ao mais antigo">${upcomingHTML(ups)}${feedHTML(null, null, wkN + FEED_PAGE, list)}</ol>`;
+    <ol class="feed" aria-label="Propostas e julgamentos: o que ainda vem hoje e, depois, do mais recente ao mais antigo">${upcomingHTML(ups.filter(u=> u.date===t))}${feedHTML(null, null, wkN + FEED_PAGE, list)}</ol>`;
   // today shows; earlier days wait behind "Ver mais". A day with nothing yet (and nothing still to come) shows the
   // most recent day instead, so the page never starts empty.
   const days = [...todayEl.querySelectorAll('.feed > .fd')], wk = wk0;
@@ -3354,6 +3355,13 @@ function renderToday(){
       g = todayEl.querySelector('.feed > .fd.is-today');
     }
     g.querySelector('.fd-cards').insertAdjacentHTML('beforeend', past.map(upCardHTML).join(''));
+  }
+  // from 18h, tomorrow's agenda comes after everything of today (what is still to come, then what already happened)
+  const nextDay = ups.filter(u=> u.date > t);
+  if (nextDay.length){
+    const g = todayEl.querySelector('.feed > .fd.is-today:not(.fd-x)') || todayEl.querySelector('.feed > .fd-up');
+    const html = upcomingHTML(nextDay, 'Amanhã', 'fd-next-day');
+    if (g) g.insertAdjacentHTML('afterend', html); else todayEl.querySelector('.feed').insertAdjacentHTML('afterbegin', html);
   }
   const extra = todayExtra;
   todayEl.classList.toggle('more', feedMore);
