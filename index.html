@@ -2344,20 +2344,23 @@ function loadLive(){
   // what is open right now in the Câmara and the Senado, plenary and committees (robot every 10 minutes, scripts/posts/stories.js)
   fetch('data/aovivo.json', {cache:'no-store'}).then(r=> r.ok ? r.json() : null).then(js=>{ if (js){ AOVIVO = js; refreshLive(); } }).catch(()=>{});
 }
-// the list of data/aovivo.json while it is fresh (the robot rewrites it at least every hour during the day)
-function aoVivo(){ return AOVIVO && Array.isArray(AOVIVO.itens) && Date.now() - Date.parse(AOVIVO.atualizado) < 75*60e3 ? AOVIVO.itens : null; }
+// the list of data/aovivo.json while it is fresh (the robot checks every 5 minutes during the day and rewrites it when
+// something starts or ends, or at least every 25 minutes). While fresh it decides what is on air: a broadcast that
+// left the list has ended, even if the agenda or the hourly live.json still say otherwise.
+function aoVivo(){ return AOVIVO && Array.isArray(AOVIVO.itens) && Date.now() - Date.parse(AOVIVO.atualizado) < 40*60e3 ? AOVIVO.itens : null; }
 const FRAMED = (()=>{ try{ return window.self !== window.top; }catch(e){ return true; } })();
 function minutesOf(isoStr){ const m = /T(\d{2}):(\d{2})/.exec(isoStr||''); return m ? (+m[1])*60 + (+m[2]) : null; }
 // sessions reported by the official APIs; null when there is no fresh data for this house
 function apiState(key){
   const av = (key==='camara' || key==='senado') && aoVivo(), pl = av && av.find(x=> x.casa===key && x.plenario);
   if (pl) return {s:'live', day:{kind: pl.tipo || 'Sessão'}, st: hm(pl.desde) ?? nowBR(), video: pl.video};
+  const ended = !!av;                                  // fresh list without this house's plenary: not on air now
   const list = LIVE_DATA && LIVE_DATA[key];
   if (!Array.isArray(list) || !LIVE_DATA.atualizado) return null;
   if (Date.now() - new Date(LIVE_DATA.atualizado).getTime() > 3*3600e3) return null;
   const t = todayISO(), now = nowBR();
   const today = list.filter(x=> (x.inicio||'').slice(0,10)===t && !/cancel|adiad|não realizada/i.test(x.situacao||''));
-  const on = today.find(x=> x.aoVivo || (!/encerr/i.test(x.situacao||'') && minutesOf(x.inicio)!=null && minutesOf(x.inicio) <= now && (minutesOf(x.fim)==null || minutesOf(x.fim) > now)));
+  const on = !ended && today.find(x=> x.aoVivo || (!/encerr/i.test(x.situacao||'') && minutesOf(x.inicio)!=null && minutesOf(x.inicio) <= now && (minutesOf(x.fim)==null || minutesOf(x.fim) > now)));
   if (on) return {s:'live', day:{kind: on.tipo || 'Sessão'}, st: minutesOf(on.inicio) ?? now, video: on.video};
   const next = today.filter(x=> minutesOf(x.inicio) > now).sort((a,b)=> a.inicio.localeCompare(b.inicio))[0];
   if (next) return {s:'soon', day:{kind: next.tipo || 'Sessão'}, st: minutesOf(next.inicio)};
@@ -2376,8 +2379,8 @@ function liveState(key){
   const st = hm(day.time || L.start); if (st==null) return null;
   const en = day.end ? hm(day.end) : st + L.hours*60, now = nowBR();
   // the robot finds the video of the STF and Presidência broadcasts in the official channels (data/aovivo.json)
-  const av = (aoVivo() || []).find(x=> x.casa===key && x.plenario);
-  if (now >= st && now < en) return {s:'live', day, st, video: av && av.video};
+  const list = aoVivo(), av = (list || []).find(x=> x.casa===key && x.plenario);
+  if (now >= st && now < en && (av || !list)) return {s:'live', day, st, video: av && av.video};
   if (now < st) return {s:'soon', day, st};
   return null;
 }

@@ -175,7 +175,7 @@ const AOVIVO = path.join(ROOT, 'data', 'aovivo.json');
 function gravarAoVivo(lista){
   const itens = lista.map(({casa, plenario, sigla, nome, tipo, descricao, desde, video})=> ({casa, plenario:!!plenario, sigla, nome, tipo, descricao, desde, video: video || null}));
   const velho = ler(AOVIVO, null), mesmo = velho && JSON.stringify(velho.itens) === JSON.stringify(itens);
-  if (mesmo && Date.now() - Date.parse(velho.atualizado) < 50*60e3) return;
+  if (mesmo && Date.now() - Date.parse(velho.atualizado) < 25*60e3) return;
   fs.writeFileSync(AOVIVO, JSON.stringify({atualizado: new Date().toISOString().slice(0,16) + 'Z', itens}, null, 1));
 }
 
@@ -186,6 +186,15 @@ async function preparar(){
     try { achados.push(...await fn()); } catch (e) { console.error(`${nome}: ${e.message}`); }
   }
   for (const x of achados){ try { const v = await videoDe(x, hoje); x.video = v ? `https://www.youtube.com/watch?v=${v}` : null; } catch (e) { x.video = null; } }
+  // STF e Presidência vêm da janela da AGENDA, que não sabe quando a transmissão acaba: com a chave do YouTube,
+  // sai da lista o que não está mais ao vivo (o vídeo da manhã que terminou, por exemplo)
+  if (YTKEY){
+    for (const x of achados.filter(x=> x.casa==='stf' || x.casa==='exec')){
+      try { const v = vid(x.video), j = v ? await ytApi(`videos?part=snippet&id=${v}`) : null;
+        if (!j || (j.items||[])[0]?.snippet?.liveBroadcastContent !== 'live') x.fora = true; } catch (e) {}
+    }
+    for (let i = achados.length - 1; i >= 0; i--) if (achados[i].fora) achados.splice(i, 1);
+  }
   try { gravarAoVivo(achados); } catch (e) { console.error(`aovivo.json: ${e.message}`); }
   // comissões: só uma por Casa a cada 3 horas, e nunca com o Plenário daquela Casa aberto
   const recente = casa => Object.entries(est).some(([k, v])=> v.comissao && v.casa===casa && Date.now() - Date.parse(v.quando) < 3*3600e3);
