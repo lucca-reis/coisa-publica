@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "03/11/2026 15:42:47",
+   "Versao": "03/11/2026 16:45:22",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -23,8 +23,8 @@
      "Casa": "SF",
      "SessaoLegislativa": "4",
      "Legislatura": "57",
-     "CodigoSituacaoSessao": "38",
-     "SituacaoSessao": "Suspensa",
+     "CodigoSituacaoSessao": "37",
+     "SituacaoSessao": "Em andamento",
      "Realizada": {
       "Status": "Sim"
      },
@@ -102,6 +102,11 @@
            "Ordem": "13",
            "Parlamentar": "Senador Jayme Campos",
            "IndicadorCancelado": "N"
+          },
+          {
+           "Ordem": "14",
+           "Parlamentar": "Senador Izalci Lucas",
+           "IndicadorCancelado": "N"
           }
          ]
         }
@@ -142,7 +147,7 @@
         "Ementa": "Altera a Lei nº 14.826, de 20 de março de 2024, para incluir entre as ações destinadas à promoção da parentalidade positiva a realização de cursos, de campanhas e de palestras embasados em evidências científicas.",
         "Parecer": "Pareceres favoráveis da Relatora: Senadora Damares Alves:\n- nº 63, de 2026, da Comissão de Direitos Humanos e Legislação Participativa; e\n- nº 79, de 2026, da Comissão de Assuntos Sociais.\n",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Lei nº 186, de 2025, da Deputada Laura Carneiro, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Lei nº 186, de 2025, da Deputada Laura Carneiro, que",
         "EmentaPapeleta": "altera a Lei nº 14.826, de 20 de março de 2024, para incluir entre as ações destinadas à promoção da parentalidade positiva a realização de cursos, de campanhas e de palestras embasados em evidências científicas.",
         "NomeAutor": "Laura Carneiro",
         "TipoPauta": "O",
@@ -161,7 +166,7 @@
         "Ementa": "Institui a campanha Setembro em Flor, destinada à conscientização sobre os tumores ginecológicos.",
         "Parecer": "Parecer nº 61, de 2026, da Comissão de Direitos Humanos e Legislação Participativa, Relatora: Senadora Ivete da Silveira, Relatora \"ad hoc\": Senadora Damares Alves, favorável ao projeto, com a Emenda nº 1, de redação, que apresenta.",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Lei nº 5.782, de 2023, da Deputada Renilce Nicodemos, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Lei nº 5.782, de 2023, da Deputada Renilce Nicodemos, que",
         "EmentaPapeleta": "institui a campanha Setembro em Flor, destinada à conscientização sobre os tumores ginecológicos.",
         "NomeAutor": "Renilce Nicodemos",
         "TipoPauta": "O",
@@ -178,9 +183,9 @@
         "DescricaoIdentificacaoMateria": "PDS 240/2011",
         "SiglaCasaIniciadora": "CD",
         "Ementa": "Aprova o texto do Acordo entre o Governo da República Federativa do Brasil e o Governo da República da Guiana sobre Cooperação em Matéria de Defesa, assinado em Bonfim-RR, em 14 de setembro de 2009.",
-        "Parecer": "Parecer favorável nº 35, de 2026, da Comissão de Relações Exteriores e de Defesa Nacional, Relator: Senador Chico Rodrigues, Relator \"ad hoc\": Senador Hamilton Mourão. ",
+        "Parecer": "Parecer favorável nº 35, de 2026, da Comissão de Relações Exteriores e de Defesa Nacional, Relator: Senador Chico Rodrigues, Relator \"ad hoc\": Senador Hamilton Mourão.",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 240, de 2011, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 240, de 2011, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que",
         "EmentaPapeleta": "aprova o texto do Acordo entre o Governo da República Federativa do Brasil e o Governo da República da Guiana sobre Cooperação em Matéria de Defesa, assinado em Bonfim-RR, em 14 de setembro de 2009.",
         "NomeAutor": "Comissão de Relações Exteriores e de Defesa Nacional",
         "TipoPauta": "O",
@@ -199,7 +204,7 @@
         "Ementa": "Aprova o texto do Acordo-Quadro de Cooperação em Ciência e Tecnologia Espacial entre o Governo da República Federativa do Brasil e o Governo da República Bolivariana da Venezuela, assinado em Caracas, em 27 de junho de 2008.",
         "Parecer": "Parecer favorável nº 33, de 2026, da Comissão de Relações Exteriores e Defesa Nacional, Relator: Senador Hamilton Mourão.",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 575, de 2026, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 575, de 2026, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que",
         "EmentaPapeleta": "aprova o texto do Acordo-Quadro de Cooperação em Ciência e Tecnologia Espacial entre o Governo da República Federativa do Brasil e o Governo da República Bolivariana da Venezuela, assinado em Caracas, em 27 de junho de 2008.",
         "NomeAutor": "Comissão de Relações Exteriores e de Defesa Nacional",
         "TipoPauta": "O",
