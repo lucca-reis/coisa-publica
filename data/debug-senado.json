@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "03/11/2026 18:40:23",
+   "Versao": "03/11/2026 19:35:14",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -189,6 +189,24 @@
         "SequenciaOrdem": "2"
        },
        {
+        "CodigoMateria": "176157",
+        "Identificacao": "REQ 373/2026 - CDIR\n",
+        "SiglaMateria": "REQ",
+        "NumeroMateria": "00373",
+        "AnoMateria": "2026",
+        "SiglaComissaoRequerimento": "CDIR",
+        "DescricaoIdentificacaoMateria": "REQ 373/2026 - CDIR",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 373, de 2026, do Senador Humberto Costa, que \n",
+        "EmentaPapeleta": "solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "NomeAutor": "Humberto Costa",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "3"
+       },
+       {
         "CodigoMateria": "171335",
         "Identificacao": "PROJETO DE LEI Nº 5.782, DE 2023\n\n",
         "SiglaMateria": "PL",
@@ -206,6 +224,24 @@
         "TipoPauta": "O",
         "DescricaoTipoPauta": "Pauta",
         "SequenciaOrdem": "3"
+       },
+       {
+        "CodigoMateria": "176163",
+        "Identificacao": "REQ 374/2026 - CDIR\n",
+        "SiglaMateria": "REQ",
+        "NumeroMateria": "00374",
+        "AnoMateria": "2026",
+        "SiglaComissaoRequerimento": "CDIR",
+        "DescricaoIdentificacaoMateria": "REQ 374/2026 - CDIR",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 374, de 2026, do Senador Fabiano Contarato, que \n",
+        "EmentaPapeleta": "solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "NomeAutor": "Fabiano Contarato",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "4"
        },
        {
         "CodigoMateria": "102633",
@@ -227,6 +263,24 @@
         "SequenciaOrdem": "4"
        },
        {
+        "CodigoMateria": "176154",
+        "Identificacao": "REQ 372/2026 - CDIR\n",
+        "SiglaMateria": "REQ",
+        "NumeroMateria": "00372",
+        "AnoMateria": "2026",
+        "SiglaComissaoRequerimento": "CDIR",
+        "DescricaoIdentificacaoMateria": "REQ 372/2026 - CDIR",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 372, de 2026, da Senadora Soraya Thronicke, que \n",
+        "EmentaPapeleta": "solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "NomeAutor": "Soraya Thronicke",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "5"
+       },
+       {
         "CodigoMateria": "174513",
         "Identificacao": "PROJETO DE DECRETO LEGISLATIVO Nº 575, DE 2026\n\n",
         "SiglaMateria": "PDL",
@@ -244,6 +298,24 @@
         "TipoPauta": "O",
         "DescricaoTipoPauta": "Pauta",
         "SequenciaOrdem": "5"
+       },
+       {
+        "CodigoMateria": "176172",
+        "Identificacao": "REQ 375/2026 - CDIR\n",
+        "SiglaMateria": "REQ",
+        "NumeroMateria": "00375",
+        "AnoMateria": "2026",
+        "SiglaComissaoRequerimento": "CDIR",
+        "DescricaoIdentificacaoMateria": "REQ 375/2026 - CDIR",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 375, de 2026, do Senador Veneziano Vital do Rêgo, que \n",
+        "EmentaPapeleta": "solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos da autorização da Presidência do Senado Federal.",
+        "NomeAutor": "Veneziano Vital do Rêgo",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "6"
        }
       ]
      }
