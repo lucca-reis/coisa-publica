@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-02T23:52-03:00",
+ "atualizado": "2026-11-03T00:52-03:00",
  "camara": [
   {
    "id": 83076,
@@ -58,6 +58,16 @@
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)\r\n Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83102,
+   "inicio": "2026-11-17T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
    "video": null,
    "aoVivo": false
   }
@@ -119,6 +129,26 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO NÃO DELIBERATIVA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "588622",
+   "inicio": "2026-11-10T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594172",
+   "inicio": "2026-11-10T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
    "aoVivo": false
