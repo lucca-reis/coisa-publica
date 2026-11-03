@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "03/11/2026 00:51:21",
+   "Versao": "03/11/2026 01:46:14",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -70,6 +70,11 @@
           {
            "Ordem": "7",
            "Parlamentar": "Senador Zequinha Marinho",
+           "IndicadorCancelado": "N"
+          },
+          {
+           "Ordem": "8",
+           "Parlamentar": "Senadora Damares Alves",
            "IndicadorCancelado": "N"
           }
          ]
