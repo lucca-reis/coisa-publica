@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "03/11/2026 19:45:22",
+   "Versao": "03/11/2026 20:39:17",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -23,8 +23,8 @@
      "Casa": "SF",
      "SessaoLegislativa": "4",
      "Legislatura": "57",
-     "CodigoSituacaoSessao": "37",
-     "SituacaoSessao": "Em andamento",
+     "CodigoSituacaoSessao": "40",
+     "SituacaoSessao": "Encerrada",
      "Realizada": {
       "Status": "Sim"
      },
@@ -142,7 +142,7 @@
         "DescricaoIdentificacaoMateria": "PEC 18/2025",
         "SiglaCasaIniciadora": "CD",
         "Ementa": "Altera os arts. 5º, 15, 22, 23, 24, 40, 49, 84, 103-B, 130-A e 144 da Constituição Federal e o art.76 do Ato das Disposições Constitucionais Transitórias; acrescenta os arts. 144-A e 144-B à Constituição Federal e os arts. 139, 140 e 141 ao Ato das Disposições Constitucionais Transitórias; e dá outras providências.",
-        "Parecer": "Pareceres:\n- nº 61, de 2026, da Comissão de Constituição, Justiça e Cidadania, Relator: Senador Rogério Carvalho, favorável à proposta e às Emendas nºs 22, 39, 55 e 64, pelo acolhimento parcial das Emendas nºs 58 e 63, com as Emendas nºs 82 e 83, de redação, que apresenta, e pela rejeição das demais emendas;\n- nº 212, de 2026, de Plenário, Relator: Senador Rogério Carvalho, contrário às Emendas nºs 85, 86, 88 e 89, com a apresentação da Emenda nº 91, de redação, e de requerimentos de destaque das Emendas nºs 84 e 87 para constituição de proposições em separado.\n\n(Aprovado o Requerimento nº 713, de 2026, de calendário especial para a matéria, na Sessão Plenária de 14/10/2026).",
+        "Parecer": "Pareceres:\n- nº 61, de 2026, da Comissão de Constituição, Justiça e Cidadania, Relator: Senador Rogério Carvalho, favorável à proposta e às Emendas nºs 22, 39, 55 e 64, pelo acolhimento parcial das Emendas nºs 58 e 63, com as Emendas nºs 82 e 83, de redação, que apresenta, e pela rejeição das demais emendas; e\n- nº 212, de 2026, de Plenário, Relator: Senador Rogério Carvalho, contrário às Emendas nºs 85, 86, 88, 89 e 90, com a apresentação da Emenda nº 91, de redação, e de requerimentos de destaque das Emendas nºs 84 e 87 para constituição de proposições em separado;\n- nº 213, de 2026, de Plenário, Relator: Senador Rogério Carvalho, contrário à emenda nº 90.\n\n(Aprovado o Requerimento nº 713, de 2026, de calendário especial para a matéria, na Sessão Plenária de 14/10/2026).",
         "Apreciacao": "Primeira sessão de discussão, em primeiro turno",
         "ApreciacaoPapeleta": "Primeira sessão de discussão, em primeiro turno, da Proposta de Emenda à Constituição nº 18, de 2025, da Presidência da República, que",
         "EmentaPapeleta": "altera os arts. 5º, 15, 22, 23, 24, 40, 49, 84, 103-B, 130-A e 144 da Constituição Federal e o art.76 do Ato das Disposições Constitucionais Transitórias; acrescenta os arts. 144-A e 144-B à Constituição Federal e os arts. 139, 140 e 141 ao Ato das Disposições Constitucionais Transitórias; e dá outras providências.",

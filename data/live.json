@@ -1,11 +1,11 @@
 {
- "atualizado": "2026-11-03T19:48-03:00",
+ "atualizado": "2026-11-03T20:41-03:00",
  "camara": [
   {
    "id": 83076,
    "inicio": "2026-11-04T09:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.\r\n Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
    "video": null,
@@ -15,7 +15,7 @@
    "id": 83078,
    "inicio": "2026-11-04T11:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem a Roberto Santos, Waldir Pires, Milton Santos e Luís Henrique Dias Tavares\r\n Homenagem ao centenário do geógrafo Milton Santos",
    "video": null,
@@ -80,6 +80,16 @@
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": "https://www.youtube.com/watch?v=2DuQ7sdIe8s",
    "aoVivo": false
+  },
+  {
+   "id": 83159,
+   "inicio": "2026-11-04T13:55-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
@@ -87,11 +97,11 @@
    "id": "594169",
    "inicio": "2026-11-03T14:00-03:00",
    "fim": null,
-   "situacao": "Em andamento",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": "594170",
