@@ -8,12 +8,14 @@
    Câmara e Senado: APIs de dados abertos (sessão do Plenário e reuniões de comissão em andamento). STF e Presidência: a
    AGENDA do index.html, com a mesma regra da seção "Ao vivo agora" do site (dia de hoje, sessão com horário, dentro da
    janela da transmissão).
-   `preparar` também grava data/aovivo.json (o que está aberto agora na Câmara e no Senado, Plenário e comissões), que a
+   `preparar` também grava data/aovivo.json (o que está no ar agora: Plenário e comissões da Câmara e do Senado, STF e
+   Presidência, com o vídeo de cada um), que a
    seção "Ao vivo agora" do site lê; só reescreve quando a lista muda ou a cada ~50 minutos, para não encher o histórico.
-   Confirmação antes do story (confirmar): Câmara e Senado, a própria Casa diz que a reunião está aberta e dá o vídeo
-   oficial, que precisa existir no YouTube (oEmbed); com a chave YOUTUBE_API_KEY (segredo), o YouTube ainda confirma
-   que o vídeo está ao vivo. STF e Presidência só com a chave (busca a transmissão ao vivo do canal oficial). A página
-   /live do YouTube não serve: vista dos servidores do GitHub, pede login e não mostra o vídeo.
+   Confirmação antes do story (confirmar): Câmara e Senado, a própria Casa diz que a reunião está aberta; STF e
+   Presidência, a AGENDA diz que é a hora da transmissão. Nos quatro, é preciso achar o vídeo oficial (videoDe: o que a
+   Casa informa, ou o vídeo de hoje no feed RSS do canal oficial no YouTube), e ele precisa existir (oEmbed); o story
+   sai sempre com a imagem dessa transmissão. Com a chave YOUTUBE_API_KEY (segredo), o YouTube ainda confirma que o
+   vídeo está ao vivo. A página /live do YouTube não serve: vista dos servidores do GitHub, pede login.
    Comissões: no máximo um story de comissão por Casa a cada 3 horas, e nunca com o Plenário daquela Casa aberto
    (é o que costuma estar na TV Senado e na TV Câmara).
    O Instagram não aceita link clicável (figurinha de link) em story publicado pela API: a arte manda para o site.
@@ -117,43 +119,61 @@ function agenda(hoje, agora){
     if (agora < st || agora >= en) continue;
     const it = (day.items||[])[0] || {}, pr = it.ref && P[it.ref];
     const desc = pr ? `${pr.title}${pr.code ? ` (${pr.code})` : ''}` : (it.id || '');
-    out.push({chave:`${k}-${hoje}-${st}`, casa:k, desde:hTxt(st), tipo:tipoBonito(day.kind), descricao: limpa(desc).slice(0, 180)});
+    out.push({chave:`${k}-${hoje}-${st}`, casa:k, plenario:true, sigla:'', nome: k==='stf' ? 'STF' : 'Presidência', desde:hTxt(st), tipo:tipoBonito(day.kind), descricao: limpa(desc).slice(0, 180)});
   }
   return out;
 }
 
-// a transmissão está mesmo no ar? Sem confirmação, não sai story (tenta de novo na rodada seguinte).
-const YTKEY = (process.env.YOUTUBE_API_KEY||'').trim();
-// canais oficiais no YouTube (o identificador de cada um é pedido à API pelo nome do canal)
-const CANAL = {camara:'@camaradosdeputados', senado:'@tvsenado', stf:'@STF_oficial', exec:'@canalgov'}, CANAL_ID = {camara:'UC-ZkSRh-7UEuwXJQ9UMCFJA'};
-async function canalId(casa){
-  if (!CANAL_ID[casa]) CANAL_ID[casa] = (((await ytApi(`channels?part=id&forHandle=${encodeURIComponent(CANAL[casa])}`)).items||[])[0]||{}).id || null;
-  return CANAL_ID[casa];
+// o vídeo de cada transmissão (para o story sair sempre com a imagem dela e o site tocar a live)
+// 1) Câmara e Senado dão o vídeo das comissões (e a Câmara, às vezes, o do Plenário);
+// 2) sem isso, o feed RSS do canal oficial no YouTube (responde aos servidores do GitHub, ao contrário da página /live):
+//    o vídeo de hoje com o assunto certo no título; para o Plenário do Senado, a transmissão contínua "Ao vivo - TV Senado".
+// Os identificadores dos canais foram lidos das páginas oficiais de cada um no YouTube.
+const CANAL_ID = {camara:'UC-ZkSRh-7UEuwXJQ9UMCFJA', senado:'UCLgti7NuK0RuW9wty-fxPjQ', stf:'UCsW4QSB1USsu9ouuFUWe4Iw', exec:'UCjaWLFTNqLkq3ZY2BJ4NYRg'};
+const vid = u => /^[\w-]{11}$/.test(u||'') ? u : (/(?:v=|youtu\.be\/|\/live\/|\/embed\/)([\w-]{11})/.exec(u||'') || [])[1] || null;
+const RSS = {};
+async function rss(casa){
+  if (!RSS[casa]){
+    RSS[casa] = (async ()=>{
+      const r = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${CANAL_ID[casa]}`, {headers: UA}); if (!r.ok) return [];
+      const x = await r.text(), un = t => t.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+      return [...x.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map(m=> ({id:(/<yt:videoId>([^<]+)</.exec(m[1])||[])[1], titulo:un((/<title>([^<]*)</.exec(m[1])||[])[1]||''), quando:(/<published>([^<]+)</.exec(m[1])||[])[1]||''}));
+    })().catch(()=> []);
+  }
+  return RSS[casa];
 }
-const vid = u => (/(?:v=|youtu\.be\/|\/live\/|\/embed\/)([\w-]{11})/.exec(u||'') || [])[1] || null;
+const TIPO_RE = {camara:/sess[aã]o|plen[aá]rio/i, senado:/sess[aã]o|plen[aá]rio/i, stf:/audi[eê]ncia|sess[aã]o|plen[aá]rio|julgamento/i, exec:/presidente|lula|pronunciamento|cerim[oô]nia|lan[cç]amento/i};
+async function videoDoCanal(x, hoje){
+  if (!CANAL_ID[x.casa]) return null;
+  const [y, m, d] = hoje.split('-').map(Number), lista = await rss(x.casa);
+  const data = new RegExp(`(^|[^\\d])0?${d}/0?${m}(?!\\d)`), deHoje = e => data.test(e.titulo) || e.quando.slice(0,10) === hoje;
+  const tipo = TIPO_RE[x.casa], assunto = x.sigla && !x.plenario ? new RegExp(`\\b${x.sigla}\\b`) : null;
+  const e = lista.find(e=> deHoje(e) && (assunto ? assunto.test(e.titulo) : tipo.test(e.titulo)))
+    || (x.casa==='senado' && x.plenario ? lista.find(e=> /^ao vivo\s*[-–]\s*tv senado/i.test(e.titulo)) : null);
+  return e ? e.id : null;
+}
+async function videoDe(x, hoje){
+  return vid(x.video) || await videoDoCanal(x, hoje);
+}
+// a transmissão está mesmo no ar? Sem confirmação, não sai story (tenta de novo na rodada seguinte).
+// Câmara e Senado: a própria Casa diz que a reunião está aberta; STF e Presidência: a AGENDA diz que é a hora da
+// transmissão e o canal oficial tem o vídeo de hoje. Em todos, o vídeo precisa existir no YouTube (oEmbed).
+// Com a chave YOUTUBE_API_KEY (segredo), o YouTube ainda confirma que o vídeo está ao vivo.
+const YTKEY = (process.env.YOUTUBE_API_KEY||'').trim();
 async function ytApi(q){ const r = await fetch(`https://www.googleapis.com/youtube/v3/${q}&key=${encodeURIComponent(YTKEY)}`); if (!r.ok) throw new Error(`YouTube API: HTTP ${r.status}`); return r.json(); }
 async function confirmar(x){
   try {
-    const v = vid(x.video);
-    if (YTKEY){
-      if (v){ const j = await ytApi(`videos?part=snippet&id=${v}`); return (j.items||[])[0]?.snippet?.liveBroadcastContent === 'live' ? v : null; }
-      const ch = (x.casa==='stf' || x.casa==='exec' || x.plenario) ? await canalId(x.casa) : null;
-      if (ch){
-        const j = await ytApi(`search?part=id&channelId=${ch}&eventType=live&type=video&maxResults=1`);
-        return (j.items||[])[0]?.id?.videoId || null;
-      }
-      return null;
-    }
-    // sem a chave: Câmara e Senado valem pela própria Casa (reunião aberta) e, quando ela dá o vídeo, ele precisa existir
-    if (x.casa==='camara' || x.casa==='senado'){ if (!v) return 'sem-video'; return (await oembed(x.video)) ? v : null; }
-    return null;                                     // STF e Presidência: sem a chave, não há como confirmar
+    const v = vid(x.video); if (!v) return null;          // sem o vídeo não há imagem: o story espera
+    if (YTKEY){ const j = await ytApi(`videos?part=snippet&id=${v}`); return (j.items||[])[0]?.snippet?.liveBroadcastContent === 'live' ? v : null; }
+    return (await oembed(`https://www.youtube.com/watch?v=${v}`)) ? v : null;
   } catch (e) { console.error(`confirmar ${x.chave}: ${e.message}`); return null; }
 }
 
-// data/aovivo.json: o que está aberto agora na Câmara e no Senado, para o site
+// data/aovivo.json: o que está no ar agora (Câmara e Senado: Plenário e comissões; STF e Presidência: a sessão da AGENDA),
+// com o vídeo de cada um, para o site
 const AOVIVO = path.join(ROOT, 'data', 'aovivo.json');
 function gravarAoVivo(lista){
-  const itens = lista.filter(x=> x.casa==='camara' || x.casa==='senado').map(({casa, plenario, sigla, nome, tipo, descricao, desde, video})=> ({casa, plenario:!!plenario, sigla, nome, tipo, descricao, desde, video: video || null}));
+  const itens = lista.map(({casa, plenario, sigla, nome, tipo, descricao, desde, video})=> ({casa, plenario:!!plenario, sigla, nome, tipo, descricao, desde, video: video || null}));
   const velho = ler(AOVIVO, null), mesmo = velho && JSON.stringify(velho.itens) === JSON.stringify(itens);
   if (mesmo && Date.now() - Date.parse(velho.atualizado) < 50*60e3) return;
   fs.writeFileSync(AOVIVO, JSON.stringify({atualizado: new Date().toISOString().slice(0,16) + 'Z', itens}, null, 1));
@@ -165,6 +185,7 @@ async function preparar(){
   for (const [nome, fn] of [['camara', ()=> camara(hoje)], ['senado', ()=> senado(hoje)], ['senado-comissoes', ()=> senadoComissoes(hoje)], ['agenda', async ()=> agenda(hoje, agora)]]){
     try { achados.push(...await fn()); } catch (e) { console.error(`${nome}: ${e.message}`); }
   }
+  for (const x of achados){ try { const v = await videoDe(x, hoje); x.video = v ? `https://www.youtube.com/watch?v=${v}` : null; } catch (e) { x.video = null; } }
   try { gravarAoVivo(achados); } catch (e) { console.error(`aovivo.json: ${e.message}`); }
   // comissões: só uma por Casa a cada 3 horas, e nunca com o Plenário daquela Casa aberto
   const recente = casa => Object.entries(est).some(([k, v])=> v.comissao && v.casa===casa && Date.now() - Date.parse(v.quando) < 3*3600e3);
@@ -174,7 +195,7 @@ async function preparar(){
       if (achados.some(y=> y.casa===x.casa && y.plenario) || recente(x.casa) || vez.has(x.casa)) continue;
     }
     const v = await confirmar(x);
-    if (v){ if (v !== 'sem-video') x.video = v; if (x.plenario === false) vez.add(x.casa); novos.push(x); }
+    if (v){ x.video = v; if (x.plenario === false) vez.add(x.casa); novos.push(x); }
     else console.log(`${x.chave}: marcada como ao vivo, mas a transmissão ainda não foi confirmada; sem story por enquanto`);
   }
   console.log('ao vivo agora:', achados.map(x=> x.chave).join(', ') || 'nada', '| novos:', novos.map(x=> x.chave).join(', ') || 'nenhum');
