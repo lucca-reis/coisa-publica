@@ -5332,7 +5332,7 @@ if (location.hostname === 'coisapublica.io'){
   let gcLast = null;
   const gcCount = ()=>{ const p = gcPath(); if (p === gcLast || !window.goatcounter.count) return; gcLast = p; window.goatcounter.count({path: p}); };
   const gs = document.createElement('script'); gs.async = true; gs.src = 'https://gc.zgo.at/count.js';
-  gs.dataset.goatcounter = 'https://luccareis.goatcounter.com/count';
+  gs.dataset.goatcounter = 'https://coisapublica.goatcounter.com/count';
   gs.onload = gcCount; document.head.appendChild(gs);
   addEventListener('hashchange', gcCount);
 }
