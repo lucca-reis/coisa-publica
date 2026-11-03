@@ -1,0 +1,21 @@
+name: Teste API comissoes
+on:
+  push:
+    branches: [teste-api-comissoes]
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          npm i --no-save --no-package-lock playwright@1.48.2 && npx playwright install --with-deps chromium
+          mkdir -p out
+          (python3 -m http.server 8765 >/dev/null 2>&1 &) ; sleep 2
+          node scripts/av-teste.js out
+          git config user.name t; git config user.email t@t
+          git add -f out && git commit -qm "saida do teste" && git push origin HEAD:teste-api-comissoes
