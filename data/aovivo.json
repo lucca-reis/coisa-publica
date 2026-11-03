@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-03T14:05Z",
+ "atualizado": "2026-11-03T14:09Z",
  "itens": [
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CAE",
+   "nome": "Comissão de Assuntos Econômicos",
+   "tipo": "Comissão de Assuntos Econômicos",
+   "descricao": "CAE vota permissão para contribuição previdenciária de estudante bolsista",
+   "desde": "10h",
+   "video": "https://www.youtube.com/watch?v=eSNhv3THZFQ"
+  },
   {
    "casa": "senado",
    "plenario": false,
