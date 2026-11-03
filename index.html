@@ -867,23 +867,26 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 /* the open broadcast takes exactly half the width; the others share the other half */
 .lvs-row.acc > .lvc{box-sizing:border-box;min-width:0;position:relative;transition:flex-basis .45s cubic-bezier(.22,.8,.26,1),flex-grow .45s cubic-bezier(.22,.8,.26,1),background-color .2s}
 .lvs-row.acc > .lvc.on{flex:0 0 calc(50% - 5px)}
-.lvs-row.acc > .lvc:not(.on){flex:1 1 0%;cursor:pointer;overflow:hidden;justify-content:flex-end;gap:6px;padding:14px 14px 16px;color:#FAFAF7;
-  background:linear-gradient(180deg, rgba(18,20,23,.05) 0%, rgba(18,20,23,.45) 45%, rgba(18,20,23,.9) 100%), var(--th, linear-gradient(160deg, #2A2E35, #15171B)) center/cover no-repeat, #1B1E23}
-.lvs-row.acc > .lvc:not(.on)::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(250,250,247,.06);transition:background-color .2s}
-.lvs-row.acc > .lvc:not(.on):hover::after{background:rgba(250,250,247,.06)}
+.lvs-row.acc > .lvc:not(.on){flex:1 1 0%;cursor:pointer;overflow:hidden;gap:8px;padding:16px 14px 16px}
+.lvs-row.acc > .lvc:not(.on)::after{content:"";position:absolute;inset:0;border-radius:inherit;transition:background-color .2s}
+.lvs-row.acc > .lvc:not(.on):hover::after{background:color-mix(in srgb, #E0242B 5%, transparent)}
 .lvs-row.acc > .lvc:not(.on):focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .lvs-row.acc > .lvc:not(.on) .lv-video,.lvs-row.acc > .lvc:not(.on) .lvc-d,.lvs-row.acc > .lvc:not(.on) .lvc-links,.lvs-row.acc > .lvc:not(.on) .lvc-since,.lvs-row.acc > .lvc:not(.on) .lvc-av{display:none}
-.lvs-row.acc > .lvc:not(.on) .lvc-top{margin-top:auto}
-.lvs-row.acc > .lvc:not(.on) .lvc-pill{background:none;padding:0;color:rgba(250,250,247,.78);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:block}
-.lvs-row.acc > .lvc:not(.on) .lvc-pill .lv-dot{display:inline-block;vertical-align:1px;margin-right:6px;background:#FF4D4F}
-.lvs-row.acc > .lvc:not(.on) .lvc-t{font-size:14px;line-height:1.25;font-weight:500;letter-spacing:-.005em;color:#FAFAF7;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.lvs-row.acc > .lvc:not(.on) .lvc-pill{background:none;padding:0;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:block}
+.lvs-row.acc > .lvc:not(.on) .lvc-pill .lv-dot{display:none}
+.lvs-row.acc > .lvc:not(.on) .lvc-t{font-size:14px;line-height:1.25;font-weight:500;letter-spacing:-.005em;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+/* the vertical "ao vivo" mark at the bottom of a squeezed card, read from bottom to top */
+.lvc-vv{display:none}
+.lvs-row.acc > .lvc:not(.on) .lvc-vv{display:inline-flex;align-items:center;gap:8px;position:absolute;left:12px;bottom:16px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#E0242B;white-space:nowrap}
+.lvs-row.acc > .lvc:not(.on) .lvc-vv .lv-dot{width:7px;height:7px}
 @media (prefers-reduced-motion:reduce){ .lvs-row.acc > .lvc{transition:none} }
 /* phones: the open one takes the whole first line and the others share the line below, as short tabs */
 @media (max-width:560px){
   .lvs-row.acc{flex-wrap:wrap;gap:8px}
   .lvs-row.acc > .lvc.on{flex:1 1 100%;order:-1}
-  .lvs-row.acc > .lvc:not(.on){min-height:96px;padding:10px 11px 12px}
-  .lvs-row.acc > .lvc:not(.on) .lvc-t{-webkit-line-clamp:2;font-size:12.5px}
+  .lvs-row.acc > .lvc:not(.on){min-height:104px;padding:10px 26px 12px 11px}
+  .lvs-row.acc > .lvc:not(.on) .lvc-t{-webkit-line-clamp:3;font-size:12.5px}
+  .lvs-row.acc > .lvc:not(.on) .lvc-vv{left:auto;right:7px;bottom:10px;font-size:9.5px;letter-spacing:.1em}
 }
 .lvc-d{margin:-6px 0 0;font-size:13px;line-height:1.35;color:color-mix(in srgb, var(--ink) 72%, var(--bg));display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lvc-th{background:#121417 center/cover no-repeat}
@@ -2425,7 +2428,8 @@ function liveSection(on){
   const open = cards.some(c=> c.lk===LIVE_TAB) ? LIVE_TAB : (cards[0] ? cards[0].lk : '');
   const html = cards.map(c=>{
     let h = c.html.replace('__AUTO__', c.lk===open ? '&autoplay=1' : '');
-    if (acc) h = h.replace('<article class="lvc"', `<article class="lvc${c.lk===open ? ' on' : ''}"${c.lk===open ? '' : ' tabindex="0" role="button" aria-expanded="false"'}`);
+    if (acc) h = h.replace('<article class="lvc"', `<article class="lvc${c.lk===open ? ' on' : ''}"${c.lk===open ? '' : ' tabindex="0" role="button" aria-expanded="false"'}`)
+      .replace(/<\/article>\s*$/, '<span class="lvc-vv" aria-hidden="true"><i class="lv-dot"></i>Ao vivo</span></article>');
     return h;
   }).join('');
   return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p><div class="lvs-row${acc ? ' acc' : ''}" style="--n:${Math.min(n, 3)};--k:${n - 1}" data-n="${n}">${html}</div></section>`;
