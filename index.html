@@ -866,15 +866,17 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .lvk{border-radius:20px;background:color-mix(in srgb, #E0242B 7%, var(--bg));padding:14px 18px 6px;animation:fd-in .5s cubic-bezier(.2,.7,.3,1) both}
 .lvk-h{margin:0 0 4px;font-size:12px;color:var(--muted)}
 .lvk ul{list-style:none;margin:0;padding:0}
-.lvk li{display:grid;grid-template-columns:9.4em minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:11px 0;border-top:1px solid color-mix(in srgb, #E0242B 12%, var(--bg))}
+.lvk li{display:grid;grid-template-columns:132px minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:11px 0;border-top:1px solid color-mix(in srgb, #E0242B 12%, var(--bg))}
 .lvk li:first-child{border-top:0}
-.lvk li > .lvc-pill{justify-self:start}
+.lvk-t .lvc-pill{align-self:flex-start;margin-bottom:5px}
+.lvk-th{display:block;aspect-ratio:16/9;border-radius:10px;background:#121417 center/cover no-repeat;position:relative}
+.lvk-th::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-35%,-50%);border-left:12px solid #FAFAF7;border-top:7px solid transparent;border-bottom:7px solid transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
 .lvk-t{display:flex;flex-direction:column;gap:2px;min-width:0}
 .lvk-t b{font-weight:500;font-size:14.5px;line-height:1.3}
 .lvk-t span{font-size:13px;line-height:1.35;color:color-mix(in srgb, var(--ink) 72%, var(--bg))}
 .lvk-go{display:flex;flex-direction:column;align-items:flex-end;gap:3px;white-space:nowrap}
 .lvk-go a{font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
-@media (max-width:560px){ .lvk li{grid-template-columns:minmax(0,1fr) auto} .lvk li > .lvc-pill{grid-column:1 / -1;justify-self:start} }
+@media (max-width:560px){ .lvk li{grid-template-columns:104px minmax(0,1fr);align-items:start} .lvk-go{grid-column:2;flex-direction:row;align-items:center;gap:12px;justify-content:flex-start} }
 .lvs-row{display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:12px;align-items:stretch}
 .lvs-row > .lvc{container-type:inline-size;min-width:0}
 .lvc-av{margin-left:-2px}
@@ -2382,9 +2384,11 @@ function liveSection(on){
   }).join('');
   // committees open now, in a short list under the plenary sessions (each with its official video)
   const com = (aoVivo() || []).filter(x=> !x.plenario);
+  // each row shows a frame of its own broadcast (the YouTube thumbnail, refreshed while it is live)
+  const thumb = x=>{ const m = /(?:v=|youtu\.be\/|\/live\/|\/embed\/)([\w-]{11})/.exec(x.video||''); return m ? `<a class="lvk-th" href="${esc(x.video)}" target="_blank" rel="noopener" aria-label="Assistir: ${esc(x.nome || 'comissão')}" style="background-image:url(https://i.ytimg.com/vi/${m[1]}/mqdefault_live.jpg)"></a>` : '<span class="lvk-th" aria-hidden="true"></span>'; };
   const list = com.length ? `<div class="lvk"><p class="lvk-h">${com.length===1 ? 'Comissão' : 'Comissões'} ao vivo</p><ul>${com.map(x=>`<li>
-      <span class="lvc-pill ${pwClass(x.casa)}"><span class="lv-dot" aria-hidden="true"></span>${x.casa==='senado' ? 'Senado' : 'Câmara'}${x.sigla ? ' · '+esc(x.sigla) : ''}</span>
-      <span class="lvk-t"><b>${esc(x.nome || x.tipo || 'Comissão')}</b>${x.descricao ? `<span>${esc(x.descricao)}</span>` : ''}</span>
+      ${thumb(x)}
+      <span class="lvk-t"><span class="lvc-pill ${pwClass(x.casa)}"><span class="lv-dot" aria-hidden="true"></span>${x.casa==='senado' ? 'Senado' : 'Câmara'}${x.sigla ? ' · '+esc(x.sigla) : ''}</span><b>${esc(x.nome || x.tipo || 'Comissão')}</b>${x.descricao ? `<span>${esc(x.descricao)}</span>` : ''}</span>
       <span class="lvk-go">${x.desde ? `<span class="lvc-since">desde as ${esc(x.desde)}</span>` : ''}${x.video ? `<a href="${esc(x.video)}" target="_blank" rel="noopener">Assistir ↗</a>` : ''}</span></li>`).join('')}</ul></div>` : '';
   // two or three at once share the width, side by side
   return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p>${on.length ? `<div class="lvs-row" style="--n:${on.length}">${cards}</div>` : ''}${list}</section>`;

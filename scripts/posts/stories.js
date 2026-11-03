@@ -186,7 +186,7 @@ async function arte(){
   const pend = ler(PEND, []); if (!pend.length) return;
   const {chromium} = require('playwright'), {html} = require('./story-live.js');
   const b = await chromium.launch(), p = await b.newPage({viewport:{width:1080, height:1920}});
-  for (const x of pend){ await p.setContent(html(x)); await p.screenshot({path: path.join(DIR, `${x.chave}.jpg`), type:'jpeg', quality:90}); }
+  for (const x of pend){ await p.setContent(html(x), {waitUntil:'networkidle'}); await p.screenshot({path: path.join(DIR, `${x.chave}.jpg`), type:'jpeg', quality:90}); }
   await b.close();
 }
 

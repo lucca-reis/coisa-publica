@@ -12,6 +12,9 @@ const CASA = {
 };
 function html(o){
   const c = CASA[o.casa] || CASA.camara;
+  // a imagem da própria transmissão (miniatura do YouTube, atualizada durante a live), quando há o vídeo
+  const id = /^[\w-]{11}$/.test(o.video||'') ? o.video : null;
+  const th = id ? ` th" style="background-image:url(https://i.ytimg.com/vi/${id}/maxresdefault_live.jpg),url(https://i.ytimg.com/vi/${id}/hqdefault_live.jpg)` : '';
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 *{box-sizing:border-box}html,body{margin:0}
 body{width:1080px;height:1920px;background:#F3F3F3;color:#121417;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:56px;padding:260px 64px 300px}
@@ -25,7 +28,9 @@ body{width:1080px;height:1920px;background:#F3F3F3;color:#121417;font-family:"He
 .since{font-size:36px;color:#6E6F73;white-space:nowrap}
 .t{margin:0;font-size:64px;line-height:1.1;letter-spacing:-.025em;font-weight:600}
 .d{margin:-14px 0 0;font-size:36px;line-height:1.35;color:#55585D;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.video{position:relative;aspect-ratio:16/9;border-radius:34px;background:#121417;display:grid;place-items:center}
+.video{position:relative;aspect-ratio:16/9;border-radius:34px;background:#121417 center/cover no-repeat;display:grid;place-items:center;overflow:hidden}
+.video.th::before{content:"";position:absolute;inset:0;background:rgba(18,20,23,.32)}
+.video span{position:relative}
 .video span{display:inline-flex;align-items:center;gap:24px;font-size:38px;padding:24px 40px;border-radius:999px;background:rgba(243,243,243,.12);color:#F3F3F3}
 .video span::before{content:"";border-left:28px solid currentColor;border-top:17px solid transparent;border-bottom:17px solid transparent}
 .go{text-align:center;margin-top:8px}
@@ -38,7 +43,7 @@ body{width:1080px;height:1920px;background:#F3F3F3;color:#121417;font-family:"He
   <div class="top"><span class="pill"><span class="dot"></span>${esc(c.n)} · ao vivo</span>${o.desde ? `<span class="since">desde as ${esc(o.desde)}</span>` : ''}</div>
   <p class="t">${esc(o.tipo || 'Sessão')}</p>
   ${o.descricao ? `<p class="d">${esc(o.descricao)}</p>` : ''}
-  <div class="video"><span>${esc(o.canal || c.canal)}</span></div>
+  <div class="video${th}"><span>${esc(o.canal || c.canal)}</span></div>
 </div>
 <div class="go"><b>Assista em coisapublica.io</b><span>a transmissão oficial e a pauta do dia<br>estão no site · link na bio</span></div>
 </body></html>`;
@@ -47,7 +52,7 @@ module.exports = {html, CASA};
 if (require.main === module) (async ()=>{
   const [out, js] = process.argv.slice(2);
   const b = await chromium.launch(), p = await b.newPage({viewport:{width:1080, height:1920}});
-  await p.setContent(html(JSON.parse(js || '{}')));
+  await p.setContent(html(JSON.parse(js || '{}')), {waitUntil:'networkidle'});
   await p.screenshot({path: out, type:'jpeg', quality:92});
   await b.close(); console.log('ok', out);
 })();
