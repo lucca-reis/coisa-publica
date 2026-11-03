@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-03T13:40Z",
+ "atualizado": "2026-11-03T14:05Z",
  "itens": [
   {
    "casa": "senado",
@@ -10,6 +10,16 @@
    "descricao": "CE analisa criação de piso salarial para profissionais da educação básica",
    "desde": "9h30",
    "video": "https://www.youtube.com/watch?v=benusxlHUpc"
+  },
+  {
+   "casa": "stf",
+   "plenario": true,
+   "sigla": "",
+   "nome": "STF",
+   "tipo": "Audiência pública",
+   "descricao": "Audiência pública sobre a MP que proíbe as apostas de quota fixa",
+   "desde": "10h",
+   "video": "https://www.youtube.com/watch?v=JoyPHsA_u_0"
   }
  ]
 }
