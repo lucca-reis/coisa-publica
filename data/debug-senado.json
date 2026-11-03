@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "03/11/2026 13:48:50",
+   "Versao": "03/11/2026 14:40:47",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -16,16 +16,17 @@
      "Mes": "Novembro",
      "Horario": "14 horas ",
      "Hora": "14:00",
+     "NumeroSessao": "139ª SESSÃO ",
      "TipoSessao": "SESSÃO DELIBERATIVA ORDINÁRIA ",
      "LocalSessao": "Plenário do Senado Federal",
      "CodigoSessao": "594169",
      "Casa": "SF",
      "SessaoLegislativa": "4",
      "Legislatura": "57",
-     "CodigoSituacaoSessao": "30",
-     "SituacaoSessao": "Agendada",
+     "CodigoSituacaoSessao": "37",
+     "SituacaoSessao": "Em andamento",
      "Realizada": {
-      "Status": "Não"
+      "Status": "Sim"
      },
      "PautaConfirmada": "Sim",
      "TipoPresenca": "S",
@@ -95,6 +96,11 @@
           {
            "Ordem": "12",
            "Parlamentar": "Senador Confúcio Moura",
+           "IndicadorCancelado": "N"
+          },
+          {
+           "Ordem": "13",
+           "Parlamentar": "Senador Jayme Campos",
            "IndicadorCancelado": "N"
           }
          ]
