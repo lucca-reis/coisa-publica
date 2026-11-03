@@ -5,9 +5,17 @@
      node scripts/posts/stories.js arte       -> gera a arte de cada pendente em posts/stories/<chave>.jpg (Playwright)
      node scripts/posts/stories.js publicar   -> (depois do commit, quando o site já serve a imagem) publica cada pendente
                                                 como story e anota em posts/stories/estado.json, para nunca repetir
-   Câmara e Senado: APIs de dados abertos (sessão do Plenário em andamento). STF e Presidência: a AGENDA do index.html,
-   com a mesma regra da seção "Ao vivo agora" do site (dia de hoje, sessão com horário, dentro da janela da transmissão).
-   Só sai story quando a transmissão está confirmada no canal oficial do YouTube (noAr).
+   Câmara e Senado: APIs de dados abertos (sessão do Plenário e reuniões de comissão em andamento). STF e Presidência: a
+   AGENDA do index.html, com a mesma regra da seção "Ao vivo agora" do site (dia de hoje, sessão com horário, dentro da
+   janela da transmissão).
+   `preparar` também grava data/aovivo.json (o que está aberto agora na Câmara e no Senado, Plenário e comissões), que a
+   seção "Ao vivo agora" do site lê; só reescreve quando a lista muda ou a cada ~50 minutos, para não encher o histórico.
+   Confirmação antes do story (confirmar): Câmara e Senado, a própria Casa diz que a reunião está aberta e dá o vídeo
+   oficial, que precisa existir no YouTube (oEmbed); com a chave YOUTUBE_API_KEY (segredo), o YouTube ainda confirma
+   que o vídeo está ao vivo. STF e Presidência só com a chave (busca a transmissão ao vivo do canal oficial). A página
+   /live do YouTube não serve: vista dos servidores do GitHub, pede login e não mostra o vídeo.
+   Comissões: no máximo um story de comissão por Casa a cada 3 horas, e nunca com o Plenário daquela Casa aberto
+   (é o que costuma estar na TV Senado e na TV Câmara).
    O Instagram não aceita link clicável (figurinha de link) em story publicado pela API: a arte manda para o site.
    Chaves só nos segredos do GitHub (IG_USER_ID, IG_TOKEN). */
 const fs = require('fs'), path = require('path'), crypto = require('crypto');
@@ -30,25 +38,51 @@ const tipoBonito = s => limpa(s).toLowerCase().replace(/^./, c=> c.toUpperCase()
 
 async function get(url){ const r = await fetch(url, {headers: UA}); if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`); return r.json(); }
 
-// ---------- Câmara: evento do Plenário (órgão 180) em andamento ----------
+// ---------- Câmara: Plenário e comissões em andamento (todos os eventos do dia) ----------
 async function camara(hoje){
-  const js = await get(`https://dadosabertos.camara.leg.br/api/v2/eventos?idOrgao=180&dataInicio=${hoje}&dataFim=${hoje}&ordem=ASC&ordenarPor=dataHoraInicio&itens=50`);
-  return (js.dados||[]).filter(e=> /andamento/i.test(e.situacao||'')).map(e=> ({
-    chave:`camara-${e.id}`, casa:'camara', desde: minIso(e.dataHoraInicio)!=null ? hTxt(minIso(e.dataHoraInicio)) : '',
-    tipo: tipoBonito(e.descricaoTipo), descricao: limpa((e.descricao||'').split(/\r?\n/)[0]).slice(0, 180)}));
+  const js = await get(`https://dadosabertos.camara.leg.br/api/v2/eventos?dataInicio=${hoje}&dataFim=${hoje}&ordem=ASC&ordenarPor=dataHoraInicio&itens=100`);
+  return (js.dados||[]).filter(e=> /andamento/i.test(e.situacao||'')).map(e=>{
+    const o = (e.orgaos||[])[0] || {}, plen = (e.orgaos||[]).some(x=> x.sigla==='PLEN' || x.id===180);
+    const desc = limpa((e.descricao||'').split(/\r?\n/)[0]).slice(0, 180);
+    return {chave:`camara-${e.id}`, casa:'camara', plenario:plen, sigla: plen ? 'Plenário' : (o.sigla||''), nome: plen ? 'Plenário da Câmara' : (o.nome||o.nomePublicacao||''),
+      desde: minIso(e.dataHoraInicio)!=null ? hTxt(minIso(e.dataHoraInicio)) : '', video: e.urlRegistro || null,
+      tipo: plen ? tipoBonito(e.descricaoTipo) : (o.nome || tipoBonito(e.descricaoTipo)),
+      descricao: plen ? desc : [tipoBonito(e.descricaoTipo), desc].filter(Boolean).join(': ').slice(0, 180)};
+  });
 }
 // ---------- Senado: sessão do Plenário de hoje aberta ou em andamento ----------
 function achar(o, k){ if (Array.isArray(o)) { for (const v of o){ const r = achar(v, k); if (r.length) return r; } return []; }
   if (o && typeof o === 'object'){ for (const [kk, v] of Object.entries(o)){ if (kk.toLowerCase()===k.toLowerCase()) return Array.isArray(v) ? v : [v]; const r = achar(v, k); if (r.length) return r; } } return []; }
+const ABERTA = /andamento|aberta|iniciada/i;
 async function senado(hoje){
   const js = await get(`https://legis.senado.leg.br/dadosabertos/plenario/agenda/dia/${hoje.replace(/-/g,'')}.json`);
   return achar(js, 'Sessao').filter(s=> s && typeof s === 'object').map(s=>{
     let sit = s.SituacaoSessao || s.Situacao || ''; if (typeof sit === 'object') sit = sit.Descricao || sit.DescricaoSituacao || '';
     let tipo = s.TipoSessao || s.DescricaoTipoSessao || ''; if (typeof tipo === 'object') tipo = tipo.Descricao || '';
     const hora = s.HoraInicioSessao || s.HoraInicio || s.Hora || '';
-    return {sit: String(sit), x: {chave:`senado-${s.CodigoSessao || hoje}`, casa:'senado', desde: hora ? hTxt(hm(hora.slice(0,5).replace(':','h'))) : '',
+    return {sit: String(sit), x: {chave:`senado-${s.CodigoSessao || hoje}`, casa:'senado', plenario:true, sigla:'Plenário', nome:'Plenário do Senado',
+      desde: hora ? hTxt(hm(hora.slice(0,5).replace(':','h'))) : '', video:null,
       tipo: tipoBonito(tipo), descricao: limpa(s.NomeSessao || s.DescricaoSessao || '').slice(0, 180)}};
-  }).filter(o=> /andamento|aberta|iniciada/i.test(o.sit)).map(o=> o.x);
+  }).filter(o=> ABERTA.test(o.sit)).map(o=> o.x);
+}
+// ---------- Senado: reuniões de comissão abertas (agenda das comissões, com o vídeo oficial de cada uma) ----------
+async function senadoComissoes(hoje){
+  const js = await get(`https://legis.senado.leg.br/dadosabertos/comissao/agenda/${hoje.replace(/-/g,'')}.json`);
+  const out = [];
+  for (const r of achar(js, 'reuniao').filter(r=> r && typeof r === 'object' && ABERTA.test(r.situacao || r.status || ''))){
+    const c = r.colegiadoCriador || r.colegiados || {}, vs = [].concat(r.videos || []).filter(Boolean), video = (vs[0] || {}).url || null;
+    const yt = video ? await oembed(video) : null;
+    const partes = [].concat(r.partes || []).map(p=> p && p.descricaoTipo).filter(Boolean);
+    out.push({chave:`senado-com-${r.codigo}`, casa:'senado', plenario:false, sigla: c.sigla || '', nome: c.nome || '',
+      desde: minIso(r.dataInicio)!=null ? hTxt(minIso(r.dataInicio)) : '', video,
+      tipo: c.nome || 'Reunião de comissão', descricao: limpa(yt && yt.title ? yt.title.replace(/^ao vivo:\s*/i, '').replace(/\s*[–-]\s*\d{1,2}\/\d{1,2}\/\d{2,4}\s*$/, '') : (partes[0] ? `Reunião ${partes[0].toLowerCase()}` : r.titulo || '')).slice(0, 180)});
+  }
+  return out;
+}
+// o vídeo existe e é público no YouTube? (oEmbed responde mesmo para os servidores do GitHub)
+async function oembed(url){
+  try { const r = await fetch(`https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(url)}`, {headers: UA}); return r.ok ? await r.json() : null; }
+  catch (e) { return null; }
 }
 // ---------- STF e Presidência: AGENDA escrita à mão no index.html ----------
 const VAZIO = Object.assign(()=> '', {toString:()=> '', valueOf:()=> ''});
@@ -88,35 +122,62 @@ function agenda(hoje, agora){
   return out;
 }
 
-// a transmissão está mesmo no ar? Confere a página "/live" do canal oficial no YouTube: quando há transmissão,
-// ela aponta para um vídeo (watch?v=) marcado como ao vivo agora. Sem essa confirmação, não sai story (tenta de novo depois).
-const CANAL = {
-  camara:'https://www.youtube.com/channel/UC-ZkSRh-7UEuwXJQ9UMCFJA/live',
-  senado:'https://www.youtube.com/@TVSenadoOficial/live',
-  stf:'https://www.youtube.com/@STF_oficial/live',
-  exec:'https://www.youtube.com/@canalgov/live'
-};
-async function noAr(casa){
+// a transmissão está mesmo no ar? Sem confirmação, não sai story (tenta de novo na rodada seguinte).
+const YTKEY = (process.env.YOUTUBE_API_KEY||'').trim();
+// canais oficiais no YouTube (o identificador de cada um é pedido à API pelo nome do canal)
+const CANAL = {camara:'@camaradosdeputados', senado:'@tvsenado', stf:'@STF_oficial', exec:'@canalgov'}, CANAL_ID = {camara:'UC-ZkSRh-7UEuwXJQ9UMCFJA'};
+async function canalId(casa){
+  if (!CANAL_ID[casa]) CANAL_ID[casa] = (((await ytApi(`channels?part=id&forHandle=${encodeURIComponent(CANAL[casa])}`)).items||[])[0]||{}).id || null;
+  return CANAL_ID[casa];
+}
+const vid = u => (/(?:v=|youtu\.be\/|\/live\/|\/embed\/)([\w-]{11})/.exec(u||'') || [])[1] || null;
+async function ytApi(q){ const r = await fetch(`https://www.googleapis.com/youtube/v3/${q}&key=${encodeURIComponent(YTKEY)}`); if (!r.ok) throw new Error(`YouTube API: HTTP ${r.status}`); return r.json(); }
+async function confirmar(x){
   try {
-    const r = await fetch(CANAL[casa], {headers:{'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36', 'Accept-Language':'pt-BR,pt;q=0.9', 'Cookie':'CONSENT=YES+cb; SOCS=CAI'}});
-    const h = await r.text();
-    const video = (/<link rel="canonical" href="https:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})"/.exec(h) || [])[1];
-    return video && /"isLiveNow":\s*true/.test(h) ? video : null;
-  } catch (e) { console.error(`youtube ${casa}: ${e.message}`); return null; }
+    const v = vid(x.video);
+    if (YTKEY){
+      if (v){ const j = await ytApi(`videos?part=snippet&id=${v}`); return (j.items||[])[0]?.snippet?.liveBroadcastContent === 'live' ? v : null; }
+      const ch = (x.casa==='stf' || x.casa==='exec' || x.plenario) ? await canalId(x.casa) : null;
+      if (ch){
+        const j = await ytApi(`search?part=id&channelId=${ch}&eventType=live&type=video&maxResults=1`);
+        return (j.items||[])[0]?.id?.videoId || null;
+      }
+      return null;
+    }
+    // sem a chave: Câmara e Senado valem pela própria Casa (reunião aberta) e, quando ela dá o vídeo, ele precisa existir
+    if (x.casa==='camara' || x.casa==='senado'){ if (!v) return 'sem-video'; return (await oembed(x.video)) ? v : null; }
+    return null;                                     // STF e Presidência: sem a chave, não há como confirmar
+  } catch (e) { console.error(`confirmar ${x.chave}: ${e.message}`); return null; }
+}
+
+// data/aovivo.json: o que está aberto agora na Câmara e no Senado, para o site
+const AOVIVO = path.join(ROOT, 'data', 'aovivo.json');
+function gravarAoVivo(lista){
+  const itens = lista.filter(x=> x.casa==='camara' || x.casa==='senado').map(({casa, plenario, sigla, nome, tipo, descricao, desde, video})=> ({casa, plenario:!!plenario, sigla, nome, tipo, descricao, desde, video: video || null}));
+  const velho = ler(AOVIVO, null), mesmo = velho && JSON.stringify(velho.itens) === JSON.stringify(itens);
+  if (mesmo && Date.now() - Date.parse(velho.atualizado) < 50*60e3) return;
+  fs.writeFileSync(AOVIVO, JSON.stringify({atualizado: new Date().toISOString().slice(0,16) + 'Z', itens}, null, 1));
 }
 
 async function preparar(){
   const {data:hoje, min:agora} = agoraBR();
   const est = ler(EST, {}), achados = [];
-  for (const [nome, fn] of [['camara', ()=> camara(hoje)], ['senado', ()=> senado(hoje)], ['agenda', async ()=> agenda(hoje, agora)]]){
+  for (const [nome, fn] of [['camara', ()=> camara(hoje)], ['senado', ()=> senado(hoje)], ['senado-comissoes', ()=> senadoComissoes(hoje)], ['agenda', async ()=> agenda(hoje, agora)]]){
     try { achados.push(...await fn()); } catch (e) { console.error(`${nome}: ${e.message}`); }
   }
-  const novos = [];
+  try { gravarAoVivo(achados); } catch (e) { console.error(`aovivo.json: ${e.message}`); }
+  // comissões: só uma por Casa a cada 3 horas, e nunca com o Plenário daquela Casa aberto
+  const recente = casa => Object.entries(est).some(([k, v])=> v.comissao && v.casa===casa && Date.now() - Date.parse(v.quando) < 3*3600e3);
+  const vez = new Set(), novos = [];
   for (const x of achados.filter(x=> !est[x.chave])){
-    const v = await noAr(x.casa);
-    if (v){ x.video = v; novos.push(x); } else console.log(`${x.chave}: marcada como ao vivo, mas a transmissão ainda não está no ar; sem story por enquanto`);
+    if (x.plenario === false){
+      if (achados.some(y=> y.casa===x.casa && y.plenario) || recente(x.casa) || vez.has(x.casa)) continue;
+    }
+    const v = await confirmar(x);
+    if (v){ if (v !== 'sem-video') x.video = v; if (x.plenario === false) vez.add(x.casa); novos.push(x); }
+    else console.log(`${x.chave}: marcada como ao vivo, mas a transmissão ainda não foi confirmada; sem story por enquanto`);
   }
-  console.log('ao vivo agora:', achados.map(x=> x.chave).join(', ') || 'nada', '| novos:', novos.length);
+  console.log('ao vivo agora:', achados.map(x=> x.chave).join(', ') || 'nada', '| novos:', novos.map(x=> x.chave).join(', ') || 'nenhum');
   if (novos.length){ fs.mkdirSync(DIR, {recursive:true}); fs.writeFileSync(PEND, JSON.stringify(novos, null, 1)); }
   else fs.rmSync(PEND, {force:true});              // o que ficou pendente e já saiu do ar não vira story
 }
@@ -125,7 +186,7 @@ async function arte(){
   const pend = ler(PEND, []); if (!pend.length) return;
   const {chromium} = require('playwright'), {html} = require('./story-live.js');
   const b = await chromium.launch(), p = await b.newPage({viewport:{width:1080, height:1920}});
-  for (const x of pend){ await p.setContent(html(x)); await p.screenshot({path: path.join(DIR, `${x.chave}.jpg`), type:'jpeg', quality:90}); }
+  for (const x of pend){ await p.setContent(html(x), {waitUntil:'networkidle'}); await p.screenshot({path: path.join(DIR, `${x.chave}.jpg`), type:'jpeg', quality:90}); }
   await b.close();
 }
 
@@ -152,7 +213,7 @@ async function publicar(){
         await sleep(5000);
       }
       const m = (await post(`${ID}/media_publish`, {creation_id:c})).id;
-      est[x.chave] = {ref:m, quando:new Date().toISOString().slice(0,16) + 'Z'};
+      est[x.chave] = {ref:m, quando:new Date().toISOString().slice(0,16) + 'Z', casa:x.casa, comissao: x.plenario === false};
       console.log(`${x.chave}: story publicado (${m})`);
     } catch (e) { console.error(`${x.chave}: erro: ${e.message}`); resta.push(x); }
   }
