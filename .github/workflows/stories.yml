@@ -30,6 +30,7 @@ jobs:
           node-version: '22'
       - name: Conferir a cada 5 minutos
         env:
+          STORIES: 'pausado'
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
@@ -47,6 +48,8 @@ jobs:
           for rodada in $(seq 1 10); do
             git pull -q --rebase origin main || true
             node scripts/posts/stories.js preparar || true
+            # stories PAUSADOS a pedido do Lucca (3/11/2026): só o "Ao vivo agora" do site continua; para voltar, STORIES=on
+            if [ "$STORIES" != "on" ]; then rm -f posts/stories/pendentes.json; git rm -q --cached posts/stories/pendentes.json 2>/dev/null || true; fi
             if [ -f posts/stories/pendentes.json ]; then
               if [ "$PW" = 0 ]; then npm i --no-save --no-package-lock playwright@1.48.2 >/dev/null && npx playwright install --with-deps chromium >/dev/null && PW=1; fi
               node scripts/posts/stories.js arte || true
@@ -56,5 +59,5 @@ jobs:
             else
               enviar "Ao vivo agora"
             fi
-            [ "$rodada" -lt 10 ] && sleep 300
+            if [ "$rodada" -lt 10 ]; then sleep 300; fi
           done
