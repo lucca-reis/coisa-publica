@@ -118,7 +118,7 @@ function agenda(hoje, agora){
     const en = day.end ? hm(day.end) : st + JANELA[k].hours*60;
     if (agora < st || agora >= en) continue;
     const it = (day.items||[])[0] || {}, pr = it.ref && P[it.ref];
-    const desc = pr ? `${pr.title}${pr.code ? ` (${pr.code})` : ''}` : (it.id || '');
+    const desc = pr ? `${pr.title}${pr.code ? ` (${pr.code})` : ''}` : (it.short || it.id || '');
     out.push({chave:`${k}-${hoje}-${st}`, casa:k, plenario:true, sigla:'', nome: k==='stf' ? 'STF' : 'Presidência', desde:hTxt(st), tipo:tipoBonito(day.kind), descricao: limpa(desc).slice(0, 180)});
   }
   return out;
