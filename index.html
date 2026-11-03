@@ -863,6 +863,28 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .lvc-links a,.lvc-links button{all:unset;cursor:pointer;font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
 .lvc-links a:hover,.lvc-links button:hover{text-decoration-color:currentColor}
 .lvc-links a:focus-visible,.lvc-links button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
+.lvs-row.acc{display:flex;gap:10px;align-items:stretch}
+/* the open broadcast takes exactly half the width; the others share the other half */
+.lvs-row.acc > .lvc{box-sizing:border-box;min-width:0;position:relative;transition:flex-basis .45s cubic-bezier(.22,.8,.26,1),flex-grow .45s cubic-bezier(.22,.8,.26,1),background-color .2s}
+.lvs-row.acc > .lvc.on{flex:0 0 calc(50% - 5px)}
+.lvs-row.acc > .lvc:not(.on){flex:1 1 0%;cursor:pointer;overflow:hidden;justify-content:flex-end;gap:6px;padding:14px 14px 16px;color:#FAFAF7;
+  background:linear-gradient(180deg, rgba(18,20,23,.05) 0%, rgba(18,20,23,.45) 45%, rgba(18,20,23,.9) 100%), var(--th, linear-gradient(160deg, #2A2E35, #15171B)) center/cover no-repeat, #1B1E23}
+.lvs-row.acc > .lvc:not(.on)::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(250,250,247,.06);transition:background-color .2s}
+.lvs-row.acc > .lvc:not(.on):hover::after{background:rgba(250,250,247,.06)}
+.lvs-row.acc > .lvc:not(.on):focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.lvs-row.acc > .lvc:not(.on) .lv-video,.lvs-row.acc > .lvc:not(.on) .lvc-d,.lvs-row.acc > .lvc:not(.on) .lvc-links,.lvs-row.acc > .lvc:not(.on) .lvc-since,.lvs-row.acc > .lvc:not(.on) .lvc-av{display:none}
+.lvs-row.acc > .lvc:not(.on) .lvc-top{margin-top:auto}
+.lvs-row.acc > .lvc:not(.on) .lvc-pill{background:none;padding:0;color:rgba(250,250,247,.78);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:block}
+.lvs-row.acc > .lvc:not(.on) .lvc-pill .lv-dot{display:inline-block;vertical-align:1px;margin-right:6px;background:#FF4D4F}
+.lvs-row.acc > .lvc:not(.on) .lvc-t{font-size:14px;line-height:1.25;font-weight:500;letter-spacing:-.005em;color:#FAFAF7;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+@media (prefers-reduced-motion:reduce){ .lvs-row.acc > .lvc{transition:none} }
+/* phones: the open one takes the whole first line and the others share the line below, as short tabs */
+@media (max-width:560px){
+  .lvs-row.acc{flex-wrap:wrap;gap:8px}
+  .lvs-row.acc > .lvc.on{flex:1 1 100%;order:-1}
+  .lvs-row.acc > .lvc:not(.on){min-height:96px;padding:10px 11px 12px}
+  .lvs-row.acc > .lvc:not(.on) .lvc-t{-webkit-line-clamp:2;font-size:12.5px}
+}
 .lvc-d{margin:-6px 0 0;font-size:13px;line-height:1.35;color:color-mix(in srgb, var(--ink) 72%, var(--bg));display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lvc-th{background:#121417 center/cover no-repeat}
 .lvc-th::before{content:"";position:absolute;inset:0;background:rgba(18,20,23,.28);border-radius:inherit}
@@ -2372,30 +2394,52 @@ function liveSection(on){
     const src = !FRAMED ? (ytEmbed(st.video) || (L.channel ? `https://www.youtube.com/embed/live_stream?channel=${L.channel}` : null)) : null;
     const go = L.links[0];
     const video = src
-      ? `<div class="lv-video"><iframe src="${src}${src.includes('?') ? '&' : '?'}mute=1${i===0 ? '&autoplay=1' : ''}" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+      ? `<div class="lv-video"><iframe src="${src}${src.includes('?') ? '&' : '?'}mute=1__AUTO__" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
       : `<div class="lv-video"><a class="lvc-ph" href="${go.u}" target="_blank" rel="noopener" aria-label="${esc(go.l)}"><span>Assistir na ${esc(L.name)}</span></a></div>`;
     const links = L.links.map(x=> `<a href="${x.u}" target="_blank" rel="noopener">${esc(x.l)} ↗</a>`).join('');
     const av = (aoVivo() || []).find(x=> x.casa===k && x.plenario), it = (st.day.items || [])[0];
     const desc = (av && av.descricao) || (it && (it.short || it.id)) || '';
-    return `<article class="lvc" aria-label="${esc(n)} ao vivo">
+    const th = ytId(st.video) ? ` style="--th:url(https://i.ytimg.com/vi/${ytId(st.video)}/mqdefault_live.jpg)"` : '';
+    return {lk:k, st:st.st, html:`<article class="lvc" data-lk="${k}"${th} aria-label="${esc(n)} ao vivo">
       <div class="lvc-top"><span class="lvc-pill ${pwClass(k)}"><span class="lv-dot" aria-hidden="true"></span>${n}<span class="lvc-av">· ao vivo</span></span><span class="lvc-since">desde as ${h}</span></div>
       <p class="lvc-t">${esc(cap(st.day.kind))}</p>${desc ? `<p class="lvc-d">${esc(desc)}</p>` : ''}
       ${video}
       <div class="lvc-links"><button type="button" class="lv-tag" data-go="${k}">Ver a pauta no site</button>${links}</div>
-    </article>`;
+    </article>`};
   });
   (aoVivo() || []).filter(x=> !x.plenario && (x.casa==='camara' || x.casa==='senado')).forEach(x=>{
     const id = ytId(x.video), casa = x.casa==='senado' ? 'Senado' : 'Câmara';
-    cards.push(`<article class="lvc" aria-label="${esc(x.nome || 'Comissão')} ao vivo">
+    const lk = 'c-'+x.casa+'-'+(x.sigla||x.nome||'');
+    cards.push({lk, st: hm(x.desde) ?? 0, html:`<article class="lvc" data-lk="${esc(lk)}"${id ? ` style="--th:url(https://i.ytimg.com/vi/${id}/mqdefault_live.jpg)"` : ''} aria-label="${esc(x.nome || 'Comissão')} ao vivo">
       <div class="lvc-top"><span class="lvc-pill ${pwClass(x.casa)}"><span class="lv-dot" aria-hidden="true"></span>${casa}${x.sigla ? ' · '+esc(x.sigla) : ''}<span class="lvc-av">· ao vivo</span></span>${x.desde ? `<span class="lvc-since">desde as ${esc(x.desde)}</span>` : ''}</div>
       <p class="lvc-t">${esc(x.nome || x.tipo || 'Comissão')}</p>${x.descricao ? `<p class="lvc-d">${esc(x.descricao)}</p>` : ''}
       <div class="lv-video">${id ? `<a class="lvc-ph lvc-th" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener" aria-label="Assistir no YouTube: ${esc(x.nome || 'comissão')}" style="background-image:url(https://i.ytimg.com/vi/${id}/mqdefault_live.jpg)"><span>Assistir</span></a>` : `<span class="lvc-ph"><span>Transmissão da comissão</span></span>`}</div>
       <div class="lvc-links">${id ? `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Assistir no YouTube ↗</a>` : ''}</div>
-    </article>`);
+    </article>`});
   });
-  const n = cards.length;
-  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p><div class="lvs-row" style="--n:${Math.min(n, 3)}" data-n="${n}">${cards.join('')}</div></section>`;
+  // the most recent broadcast comes first. With more than two at once they become tabs: the open one takes half the
+  // width on the left and the others are squeezed to the right; tapping a squeezed one opens it (liveTab)
+  cards.sort((a,b)=> b.st - a.st);
+  const n = cards.length, acc = n > 2;
+  // the open one is the most recent, unless the reader opened another that is still on air
+  const open = cards.some(c=> c.lk===LIVE_TAB) ? LIVE_TAB : (cards[0] ? cards[0].lk : '');
+  const html = cards.map(c=>{
+    let h = c.html.replace('__AUTO__', c.lk===open ? '&autoplay=1' : '');
+    if (acc) h = h.replace('<article class="lvc"', `<article class="lvc${c.lk===open ? ' on' : ''}"${c.lk===open ? '' : ' tabindex="0" role="button" aria-expanded="false"'}`);
+    return h;
+  }).join('');
+  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p><div class="lvs-row${acc ? ' acc' : ''}" style="--n:${Math.min(n, 3)};--k:${n - 1}" data-n="${n}">${html}</div></section>`;
 }
+let LIVE_TAB = '';
+// a squeezed live card opens (takes half the width) and the open one is squeezed with the others
+function liveTab(card){
+  const row = card.closest('.lvs-row.acc'); if (!row || card.classList.contains('on')) return;
+  row.querySelectorAll(':scope > .lvc').forEach(c=>{ const on = c===card; c.classList.toggle('on', on);
+    if (on){ c.removeAttribute('tabindex'); c.removeAttribute('role'); c.removeAttribute('aria-expanded'); } else { c.tabIndex = 0; c.setAttribute('role','button'); c.setAttribute('aria-expanded','false'); } });
+  LIVE_TAB = card.dataset.lk || '';
+}
+document.addEventListener('click', e=>{ const c = e.target.closest('.lvs-row.acc > .lvc:not(.on)'); if (!c) return; e.preventDefault(); e.stopPropagation(); liveTab(c); }, true);
+document.addEventListener('keydown', e=>{ if (e.key!=='Enter' && e.key!==' ') return; const c = e.target.closest && e.target.closest('.lvs-row.acc > .lvc:not(.on)'); if (!c || e.target!==c) return; e.preventDefault(); liveTab(c); });
 function liveBox(key){
   const st = liveState(key), L = LIVE[key];
   if (!st) return `<div class="live-slot" data-k="${key}" hidden></div>`;
