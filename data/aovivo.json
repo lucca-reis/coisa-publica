@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-03T20:07Z",
+ "atualizado": "2026-11-03T20:23Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,6 +10,16 @@
    "descricao": "Seminário: Implementação da Política Nacional de Minerais Críticos e Estratégicos (Lei 15.506/2026)",
    "desde": "14h12",
    "video": "https://www.youtube.com/watch?v=HmAjROeKGmg"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CPOVOS",
+   "nome": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
+   "tipo": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "14h43",
+   "video": "https://www.youtube.com/watch?v=Ni88qr2rkRs"
   },
   {
    "casa": "camara",
