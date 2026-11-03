@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-03T18:27Z",
+ "atualizado": "2026-11-03T18:33Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,6 +20,16 @@
    "descricao": "Seminário: Implementação da Política Nacional de Minerais Críticos e Estratégicos (Lei 15.506/2026)",
    "desde": "14h12",
    "video": "https://www.youtube.com/watch?v=HmAjROeKGmg"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CCJC",
+   "nome": "Comissão de Constituição e Justiça e de Cidadania",
+   "tipo": "Comissão de Constituição e Justiça e de Cidadania",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "15h27",
+   "video": "https://www.youtube.com/watch?v=-X0oq3wwccc"
   },
   {
    "casa": "camara",
