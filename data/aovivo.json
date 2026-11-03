@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-03T18:16Z",
+ "atualizado": "2026-11-03T18:21Z",
  "itens": [
   {
    "casa": "camara",
@@ -30,16 +30,6 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "15h05",
    "video": "https://www.youtube.com/watch?v=2WavxIvPF1w"
-  },
-  {
-   "casa": "senado",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário do Senado",
-   "tipo": "Sessão deliberativa ordinária",
-   "descricao": "",
-   "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=Sf1DigZAvpA"
   }
  ]
 }
