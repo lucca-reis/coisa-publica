@@ -74,7 +74,7 @@ redes = {'bluesky': (bool(BSKY_H and BSKY_P), bluesky), 'instagram': (bool(IG_ID
 falhas = 0
 # ordem de publicação: por data e, no mesmo dia, apresentação, manhã, tarde e noite (o mais novo fica no topo da grade)
 ORDEM = {'apresentacao': 0, 'manha': 1, 'tarde': 2, 'noite': 3}
-HORA = {'manha': '10:00', 'tarde': '13:00', 'noite': '18:00'}   # "hora" no post.json muda a de um post só
+HORA = {'manha': '08:00', 'tarde': '13:00', 'noite': '18:00'}   # "hora" no post.json muda a de um post só
 BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 def chave(p): return (p.name[:10], ORDEM.get(p.name[11:].split('-')[0], 9), p.name)
 for d in sorted((p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\d{2}-\d{2}-((manha|tarde|noite)(-[a-z0-9]+)?|apresentacao-\d+)$', p.name)), key=chave):
