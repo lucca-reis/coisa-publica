@@ -3207,15 +3207,16 @@ document.addEventListener('click', e=>{
   if (li.closest && typeof lxEnd==='function') setTimeout(lxEnd, 60);
 }, true);
 
-/* what is still to come this week (from now to Saturday), from the hand-written AGENDA: cards with a page, and the
+/* what is still to come today, from the hand-written AGENDA (from 18h on, tomorrow too): cards with a page, and the
    other items of the agenda as simple cards that open in place */
-function weekEndISO(){ return new Date(Date.parse(weekStartISO()+'T12:00:00Z') + 6*864e5).toISOString().slice(0,10); }
+const UP_EVENING = 18*60;
+function upEndISO(){ const t = todayISO(); return nowBR() >= UP_EVENING ? new Date(Date.parse(t+'T12:00:00Z') + 864e5).toISOString().slice(0,10) : t; }
 function upcomingWeek(){
-  const t = todayISO(), now = nowBR(), w0 = weekStartISO(), w1 = weekEndISO(), out = [], seen = new Set();
+  const t = todayISO(), now = nowBR(), w1 = upEndISO(), out = [], seen = new Set();
   const later = d => d.date > t || (d.date===t && hm(d.time)!=null && hm(d.time) > now);
   for (const key in AGENDA) AGENDA[key].days.forEach(d=>{
     const wk = !!d.label;
-    if (d.date > w1 || (wk ? d.date < w0 : !later(d))) return;
+    if (wk || d.date > w1 || !later(d)) return;
     d.items.forEach(it=>{
       if (/não realizad|cancelad|adiad/i.test(it.r||'')) return;
       const c = it.ref ? CARDS.find(x=> x.slug===it.ref) : null;
@@ -3249,7 +3250,7 @@ function upcomingHTML(ups){
   if (!ups.length) return '';
   const t = todayISO(), tm = new Date(Date.parse(t+'T12:00:00Z') + 864e5).toISOString().slice(0,10), groups = [];
   ups.forEach(u=>{ const g = groups[groups.length-1], k = u.week ? 'w' : u.date; if (g && g.k===k) g.items.push(u); else groups.push({k, d:u.date, items:[u]}); });
-  return `<li class="fd-up"><p class="fd-uph">Ainda nesta semana</p><ol class="fd-upl">${groups.map(g=>{
+  return `<li class="fd-up"><p class="fd-uph">${groups.some(g=> g.d > t) ? 'Ainda hoje e amanhã' : 'Ainda hoje'}</p><ol class="fd-upl">${groups.map(g=>{
     let lab;
     if (g.k==='w') lab = 'sem dia marcado';
     else if (g.d===t) lab = 'hoje, mais tarde';
@@ -3270,20 +3271,20 @@ let todayExtra = 0;
 function renderToday(){
   const t = todayISO(), [y,m,d] = t.split('-').map(Number), wd = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'][new Date(y,m-1,d).getDay()];
   document.getElementById('today-date').textContent = `${wd}, ${d} ${MO[m-1]}`;
-  // the week's cards, and one page more waiting behind "Ver mais"
-  // phones show the last seven days; larger screens, the calendar week from Sunday
+  // only the cards of today (what is still to come today, and from 18h tomorrow's too, then what happened today);
+  // everything else waits behind "Ver mais"
   const ups = upcomingWeek(), upSlugs = new Set(ups.filter(u=> u.c).map(u=> u.c.slug));
-  const list = feedList(null).filter(x=> !upSlugs.has(x.c.slug)), wk0 = matchMedia('(max-width:700px)').matches ? new Date(Date.parse(todayISO()+'T12:00:00Z') - 6*864e5).toISOString().slice(0,10) : weekStartISO();
+  const list = feedList(null).filter(x=> !upSlugs.has(x.c.slug)), wk0 = t;
   let wkN = list.filter(x=> x.L && x.L.date >= wk0).length;
-  if (!wkN && list.length){ const d0 = list[0].L ? list[0].L.date : ''; wkN = list.filter(x=> (x.L ? x.L.date : '')===d0).length; }
+  if (!wkN && !ups.length && list.length){ const d0 = list[0].L ? list[0].L.date : ''; wkN = list.filter(x=> (x.L ? x.L.date : '')===d0).length; }
   todayExtra = Math.max(0, list.length - wkN);
   todayEl.innerHTML = `<div class="feed-h"><div class="feed-live" id="feed-live"></div></div>
-    <ol class="feed" aria-label="Propostas e julgamentos: o que vem nesta semana e, depois, do mais recente ao mais antigo">${upcomingHTML(ups)}${feedHTML(null, null, wkN + FEED_PAGE, list)}</ol>`;
-  // every day of the current week shows (Sunday to Saturday, like the calendar); earlier days wait behind "Ver mais".
-  // A week with nothing yet shows its most recent day instead, so the page never starts empty.
+    <ol class="feed" aria-label="Propostas e julgamentos: o que ainda vem hoje e, depois, do mais recente ao mais antigo">${upcomingHTML(ups)}${feedHTML(null, null, wkN + FEED_PAGE, list)}</ol>`;
+  // today shows; earlier days wait behind "Ver mais". A day with nothing yet (and nothing still to come) shows the
+  // most recent day instead, so the page never starts empty.
   const days = [...todayEl.querySelectorAll('.feed > .fd')], wk = wk0;
   let shown = days.filter(fd=> fd.dataset.d && fd.dataset.d >= wk);
-  if (!shown.length) shown = days.slice(0, 1);
+  if (!shown.length && !ups.length) shown = days.slice(0, 1);
   days.forEach(fd=>{ if (!shown.includes(fd)){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
   todayEl.querySelector('.fd-page')?.classList.add('fd-x');
   const extra = todayExtra;
@@ -3402,6 +3403,15 @@ function addFoot(el){ if (el && !(el.lastElementChild && el.lastElementChild.cla
 });
 function placeToday(){ /* the feed sits in the landing grid, beside the drawing */ }
 renderToday(); refreshLive();
+// the opening timeline changes at 18h (tomorrow's agenda comes in), at midnight and when an item's time passes:
+// redraw it then, unless a card is open or "Ver mais" was used
+let todayKey = '';
+setInterval(()=>{
+  const k = todayISO() + (nowBR() >= UP_EVENING ? 'n' : 'd') + upcomingWeek().length;
+  if (!todayKey){ todayKey = k; return; }
+  if (k === todayKey || feedMore || todayEl.querySelector('.c-head[aria-expanded="true"]')) return;
+  todayKey = k; try { renderToday(); refreshLive(); requestAnimationFrame(lxEnd); } catch(e){}
+}, 60000);
 requestAnimationFrame(lxEnd); addEventListener('resize', ()=> requestAnimationFrame(lxEnd)); setTimeout(lxEnd, 1500);
 todayEl.addEventListener('animationend', ()=> requestAnimationFrame(lxEnd));   // cards that fade in after "Ver mais" settle in place
 // cards off screen are laid out with an estimated height (content-visibility) until they come into view, so measure again while scrolling
