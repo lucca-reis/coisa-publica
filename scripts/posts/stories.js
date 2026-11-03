@@ -110,7 +110,7 @@ function agenda(hoje, agora){
   let P = {}; try { P = objeto(src, 'PROJECTS') || {}; } catch (e) { console.error('PROJECTS:', e.message); }
   const out = [];
   for (const k of ['stf', 'exec']){
-    const day = (A[k]?.days||[]).find(d=> d.date===hoje && !d.label && (d.live || (k!=='exec' && /sess|live/i.test(d.kind||''))));
+    const day = (A[k]?.days||[]).find(d=> d.date===hoje && !d.label && (d.live || (k!=='exec' && /sess|live|audi[eê]ncia p[uú]blica/i.test(d.kind||''))));
     if (!day) continue;
     const st = hm(day.time || JANELA[k].start); if (st == null) continue;
     const en = day.end ? hm(day.end) : st + JANELA[k].hours*60;

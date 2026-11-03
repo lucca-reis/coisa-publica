@@ -2321,7 +2321,7 @@ const LIVE = {
   stf:{name:'TV Justiça', start:'14h', hours:5, links:[{l:'Assistir no YouTube do STF', u:'https://www.youtube.com/c/STF_oficial/live'}]},
   exec:{name:'Canal Gov', start:'', hours:3, links:[{l:'Assistir no Canal Gov', u:'https://canalgov.ebc.com.br/'}]}
 };
-const LIVE_RE = /sess|live/i;
+const LIVE_RE = /sess|live|audi[eê]ncia p[uú]blica/i;   // audiências públicas do STF também são transmitidas
 function nowBR(){ try{ const f = FMT_HM.format(new Date()).split(':'); return (+f[0])*60 + (+f[1]); }catch(e){ const d=new Date(); return d.getHours()*60+d.getMinutes(); } }
 function hm(t){ const m = /(\d{1,2})h(\d{2})?/.exec(t||''); return m ? (+m[1])*60 + (+(m[2]||0)) : null; }
 // state of today's session: 'live', 'soon' (later today) or null
