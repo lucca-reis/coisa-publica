@@ -1,13 +1,13 @@
 [
  {
-  "chave": "camara-82787",
+  "chave": "camara-83141",
   "casa": "camara",
-  "plenario": false,
-  "sigla": "CICS",
-  "nome": "Comissão de Indústria, Comércio e Serviços",
-  "desde": "15h21",
-  "video": "UJCfjv9slU0",
-  "tipo": "Comissão de Indústria, Comércio e Serviços",
-  "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas"
+  "plenario": true,
+  "sigla": "Plenário",
+  "nome": "Plenário da Câmara",
+  "desde": "15h39",
+  "video": "2DuQ7sdIe8s",
+  "tipo": "Sessão deliberativa",
+  "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)"
  }
 ]
