@@ -1,0 +1,76 @@
+{
+ "id": "2026-11-04-manha",
+ "periodo": "manha",
+ "data": "2026-11-04",
+ "imagem": {
+  "poder": "jud",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "STF",
+    "dia": "14h",
+    "tags": [
+     {
+      "t": "STF · Plenário",
+      "poder": "jud"
+     },
+     {
+      "cat": "acao",
+      "t": "ADPF 1212"
+     }
+    ],
+    "titulo": "Loterias municipais",
+    "texto": "O Plenário julga se os municípios podem criar e explorar loterias próprias."
+   },
+   {
+    "quando": "STF",
+    "dia": "14h",
+    "tags": [
+     {
+      "t": "STF · Plenário",
+      "poder": "jud"
+     },
+     {
+      "cat": "re",
+      "t": "RE 1093553"
+     }
+    ],
+    "titulo": "Crime de ato obsceno",
+    "texto": "Vale o crime se a lei não define o que é \"ato obsceno\"? Tem repercussão geral."
+   },
+   {
+    "quando": "Senado",
+    "dia": "14h",
+    "tags": [
+     {
+      "t": "Senado · Plenário",
+      "poder": "leg"
+     }
+    ],
+    "titulo": "Sessão deliberativa",
+    "texto": "Sessão do Plenário do Senado, com votações."
+   }
+  ],
+  "fonte": "STF e Senado Federal"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 4 de novembro. 14h, STF: o Plenário julga se os municípios podem criar loterias próprias (ADPF 1212). 14h, STF: o Plenário discute se vale o crime de ato obsceno, já que a lei não define o termo (RE 1093553, com repercussão geral). 14h, Senado: sessão deliberativa do Plenário.",
+ "textos": {
+  "bluesky": "Hoje (4/11) nos Três Poderes:\n\n14h · STF julga se municípios podem ter loterias próprias (ADPF 1212) e o crime de ato obsceno (RE 1093553).\n14h · Sessão deliberativa no Senado.\n9h e 11h · Sessões solenes na Câmara.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, quarta (4/11), nos Três Poderes:\n\n14h · Supremo\nO Plenário julga se os municípios podem criar e explorar suas próprias loterias e apostas (ADPF 1212). As leis e decretos municipais sobre o tema estão suspensos desde dezembro de 2025, por decisão do relator, Nunes Marques.\n\nNa mesma sessão, o Plenário discute se o crime de ato obsceno em lugar público (art. 233 do Código Penal) é válido, já que a lei não define o que é \"ato obsceno\" (RE 1093553). O caso tem repercussão geral: a decisão vale para casos iguais em todo o país.\n\nTambém está na pauta o recurso do ex-deputado Washington Reis contra a sua condenação (AP 618).\n\n14h · Senado\nSessão deliberativa do Plenário.\n\n9h e 11h · Câmara\nSessões solenes: homenagem aos 40 anos da Confebras e ao centenário do geógrafo Milton Santos, entre outros.\n\nQuando a sessão estiver no ar, ela aparece no site em “Ao vivo agora”. Link na bio.\n\n#CoisaPública #STF #Senado #Câmara #Loterias #Política"
+ },
+ "fontes": [
+  {
+   "l": "Portal do STF: ADPF 1212",
+   "u": "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADPF&numeroProcesso=1212"
+  },
+  {
+   "l": "Senado Federal: agenda do Plenário (dados abertos)",
+   "u": "https://legis.senado.leg.br/dadosabertos/plenario/agenda/dia/20261104"
+  },
+  {
+   "l": "Câmara dos Deputados: agenda do Plenário (dados abertos)",
+   "u": "https://dadosabertos.camara.leg.br/api/v2/eventos?idOrgao=180&dataInicio=2026-11-04&dataFim=2026-11-04"
+  }
+ ]
+}
