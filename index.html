@@ -863,20 +863,10 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .lvc-links a,.lvc-links button{all:unset;cursor:pointer;font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
 .lvc-links a:hover,.lvc-links button:hover{text-decoration-color:currentColor}
 .lvc-links a:focus-visible,.lvc-links button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
-.lvk{border-radius:20px;background:color-mix(in srgb, #E0242B 7%, var(--bg));padding:14px 18px 6px;animation:fd-in .5s cubic-bezier(.2,.7,.3,1) both}
-.lvk-h{margin:0 0 4px;font-size:12px;color:var(--muted)}
-.lvk ul{list-style:none;margin:0;padding:0}
-.lvk li{display:grid;grid-template-columns:132px minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:11px 0;border-top:1px solid color-mix(in srgb, #E0242B 12%, var(--bg))}
-.lvk li:first-child{border-top:0}
-.lvk-t .lvc-pill{align-self:flex-start;margin-bottom:5px}
-.lvk-th{display:block;aspect-ratio:16/9;border-radius:10px;background:#121417 center/cover no-repeat;position:relative}
-.lvk-th::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-35%,-50%);border-left:12px solid #FAFAF7;border-top:7px solid transparent;border-bottom:7px solid transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
-.lvk-t{display:flex;flex-direction:column;gap:2px;min-width:0}
-.lvk-t b{font-weight:500;font-size:14.5px;line-height:1.3}
-.lvk-t span{font-size:13px;line-height:1.35;color:color-mix(in srgb, var(--ink) 72%, var(--bg))}
-.lvk-go{display:flex;flex-direction:column;align-items:flex-end;gap:3px;white-space:nowrap}
-.lvk-go a{font-size:13.5px;color:var(--ink);text-decoration:underline;text-decoration-color:color-mix(in srgb, var(--ink) 30%, transparent);text-underline-offset:3px}
-@media (max-width:560px){ .lvk li{grid-template-columns:104px minmax(0,1fr);align-items:start} .lvk-go{grid-column:2;flex-direction:row;align-items:center;gap:12px;justify-content:flex-start} }
+.lvc-d{margin:-6px 0 0;font-size:13px;line-height:1.35;color:color-mix(in srgb, var(--ink) 72%, var(--bg));display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lvc-th{background:#121417 center/cover no-repeat}
+.lvc-th::before{content:"";position:absolute;inset:0;background:rgba(18,20,23,.28);border-radius:inherit}
+.lvc-th span{position:relative}
 .lvs-row{display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:12px;align-items:stretch}
 .lvs-row > .lvc{container-type:inline-size;min-width:0}
 .lvc-av{margin-left:-2px}
@@ -893,7 +883,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
   .lvc-links a{display:none}
   .lvc-ph span{font-size:0;padding:9px 10px 9px 13px;gap:0}
 }
-@media (max-width:560px){ .lvs-row{gap:8px} .lvs-row:not([style*="--n:1"]) > .lvc{padding:12px 12px 14px;border-radius:16px;gap:8px} }
+@media (max-width:560px){ .lvs-row[data-n]:not([data-n="1"]){grid-template-columns:repeat(2,minmax(0,1fr))} .lvs-row{gap:8px} .lvs-row:not([style*="--n:1"]) > .lvc{padding:12px 12px 14px;border-radius:16px;gap:8px} }
 .today-h{margin:0;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .feed-live{display:block;width:100%}
 .feed-live .lv-tag{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin:0;font-size:12px;line-height:1;color:#E0242B;padding:6px 11px 6px 9px;border-radius:999px;background:color-mix(in srgb, #E0242B 10%, var(--bg))}
@@ -2339,7 +2329,7 @@ const FRAMED = (()=>{ try{ return window.self !== window.top; }catch(e){ return 
 function minutesOf(isoStr){ const m = /T(\d{2}):(\d{2})/.exec(isoStr||''); return m ? (+m[1])*60 + (+m[2]) : null; }
 // sessions reported by the official APIs; null when there is no fresh data for this house
 function apiState(key){
-  const av = aoVivo(), pl = av && av.find(x=> x.casa===key && x.plenario);
+  const av = (key==='camara' || key==='senado') && aoVivo(), pl = av && av.find(x=> x.casa===key && x.plenario);
   if (pl) return {s:'live', day:{kind: pl.tipo || 'Sessão'}, st: hm(pl.desde) ?? nowBR(), video: pl.video};
   const list = LIVE_DATA && LIVE_DATA[key];
   if (!Array.isArray(list) || !LIVE_DATA.atualizado) return null;
@@ -2364,12 +2354,18 @@ function liveState(key){
   if (!day) return null;
   const st = hm(day.time || L.start); if (st==null) return null;
   const en = day.end ? hm(day.end) : st + L.hours*60, now = nowBR();
-  if (now >= st && now < en) return {s:'live', day, st};
+  // the robot finds the video of the STF and Presidência broadcasts in the official channels (data/aovivo.json)
+  const av = (aoVivo() || []).find(x=> x.casa===key && x.plenario);
+  if (now >= st && now < en) return {s:'live', day, st, video: av && av.video};
   if (now < st) return {s:'soon', day, st};
   return null;
 }
-// the home section: one card per power on air, with the official broadcast playing when there is one to embed
+// the home section: every broadcast on air side by side (up to three per row on computers): the plenary sessions,
+// STF and Presidência with the official video playing when there is one, then the committees open now, each with a
+// frame of its own broadcast (the YouTube thumbnail, refreshed while it is live) that opens the video
+const ytId = u => (/(?:v=|youtu\.be\/|\/live\/|\/embed\/)([\w-]{11})/.exec(u||'') || [])[1] || null;
 function liveSection(on){
+  const cap = s => String(s||'Sessão').trim().replace(/^(SESS[ÃA]O)/, 'Sessão').toLowerCase().replace(/^./, c=> c.toUpperCase());
   const cards = on.map(([k,n], i)=>{
     const st = liveState(k), L = LIVE[k];
     const h = `${Math.floor(st.st/60)}h${st.st%60 ? String(st.st%60).padStart(2,'0') : ''}`;
@@ -2379,23 +2375,26 @@ function liveSection(on){
       ? `<div class="lv-video"><iframe src="${src}${src.includes('?') ? '&' : '?'}mute=1${i===0 ? '&autoplay=1' : ''}" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
       : `<div class="lv-video"><a class="lvc-ph" href="${go.u}" target="_blank" rel="noopener" aria-label="${esc(go.l)}"><span>Assistir na ${esc(L.name)}</span></a></div>`;
     const links = L.links.map(x=> `<a href="${x.u}" target="_blank" rel="noopener">${esc(x.l)} ↗</a>`).join('');
+    const av = (aoVivo() || []).find(x=> x.casa===k && x.plenario), it = (st.day.items || [])[0];
+    const desc = (av && av.descricao) || (it && (it.short || it.id)) || '';
     return `<article class="lvc" aria-label="${esc(n)} ao vivo">
       <div class="lvc-top"><span class="lvc-pill ${pwClass(k)}"><span class="lv-dot" aria-hidden="true"></span>${n}<span class="lvc-av">· ao vivo</span></span><span class="lvc-since">desde as ${h}</span></div>
-      <p class="lvc-t">${esc(String(st.day.kind||'Sessão').trim().replace(/^(SESS[ÃA]O)/, 'Sessão').toLowerCase().replace(/^./, c=> c.toUpperCase()))}</p>
+      <p class="lvc-t">${esc(cap(st.day.kind))}</p>${desc ? `<p class="lvc-d">${esc(desc)}</p>` : ''}
       ${video}
       <div class="lvc-links"><button type="button" class="lv-tag" data-go="${k}">Ver a pauta no site</button>${links}</div>
     </article>`;
-  }).join('');
-  // committees open now, in a short list under the plenary sessions (each with its official video)
-  const com = (aoVivo() || []).filter(x=> !x.plenario);
-  // each row shows a frame of its own broadcast (the YouTube thumbnail, refreshed while it is live)
-  const thumb = x=>{ const m = /(?:v=|youtu\.be\/|\/live\/|\/embed\/)([\w-]{11})/.exec(x.video||''); return m ? `<a class="lvk-th" href="${esc(x.video)}" target="_blank" rel="noopener" aria-label="Assistir: ${esc(x.nome || 'comissão')}" style="background-image:url(https://i.ytimg.com/vi/${m[1]}/mqdefault_live.jpg)"></a>` : '<span class="lvk-th" aria-hidden="true"></span>'; };
-  const list = com.length ? `<div class="lvk"><p class="lvk-h">${com.length===1 ? 'Comissão' : 'Comissões'} ao vivo</p><ul>${com.map(x=>`<li>
-      ${thumb(x)}
-      <span class="lvk-t"><span class="lvc-pill ${pwClass(x.casa)}"><span class="lv-dot" aria-hidden="true"></span>${x.casa==='senado' ? 'Senado' : 'Câmara'}${x.sigla ? ' · '+esc(x.sigla) : ''}</span><b>${esc(x.nome || x.tipo || 'Comissão')}</b>${x.descricao ? `<span>${esc(x.descricao)}</span>` : ''}</span>
-      <span class="lvk-go">${x.desde ? `<span class="lvc-since">desde as ${esc(x.desde)}</span>` : ''}${x.video ? `<a href="${esc(x.video)}" target="_blank" rel="noopener">Assistir ↗</a>` : ''}</span></li>`).join('')}</ul></div>` : '';
-  // two or three at once share the width, side by side
-  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p>${on.length ? `<div class="lvs-row" style="--n:${on.length}">${cards}</div>` : ''}${list}</section>`;
+  });
+  (aoVivo() || []).filter(x=> !x.plenario && (x.casa==='camara' || x.casa==='senado')).forEach(x=>{
+    const id = ytId(x.video), casa = x.casa==='senado' ? 'Senado' : 'Câmara';
+    cards.push(`<article class="lvc" aria-label="${esc(x.nome || 'Comissão')} ao vivo">
+      <div class="lvc-top"><span class="lvc-pill ${pwClass(x.casa)}"><span class="lv-dot" aria-hidden="true"></span>${casa}${x.sigla ? ' · '+esc(x.sigla) : ''}<span class="lvc-av">· ao vivo</span></span>${x.desde ? `<span class="lvc-since">desde as ${esc(x.desde)}</span>` : ''}</div>
+      <p class="lvc-t">${esc(x.nome || x.tipo || 'Comissão')}</p>${x.descricao ? `<p class="lvc-d">${esc(x.descricao)}</p>` : ''}
+      <div class="lv-video">${id ? `<a class="lvc-ph lvc-th" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener" aria-label="Assistir no YouTube: ${esc(x.nome || 'comissão')}" style="background-image:url(https://i.ytimg.com/vi/${id}/mqdefault_live.jpg)"><span>Assistir</span></a>` : `<span class="lvc-ph"><span>Transmissão da comissão</span></span>`}</div>
+      <div class="lvc-links">${id ? `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Assistir no YouTube ↗</a>` : ''}</div>
+    </article>`);
+  });
+  const n = cards.length;
+  return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p><div class="lvs-row" style="--n:${Math.min(n, 3)}" data-n="${n}">${cards.join('')}</div></section>`;
 }
 function liveBox(key){
   const st = liveState(key), L = LIVE[key];
