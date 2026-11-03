@@ -2287,7 +2287,7 @@ const AGENDA = {
     {date:'2026-10-30', kind:'Sessão virtual', items:[
       {id:'Plenário Virtual', short:'Oito ações em julgamento até 10/11', t:'Começa às 11h a sessão virtual que vai até 10/11, às 23h59 (por causa do feriado, o prazo conta a partir de 3/11). Entre os temas: nacionalidade de crianças estrangeiras adotadas por brasileiros no exterior (RE 1163774), regras para cotas raciais em concursos na Paraíba (ADI 7880), cursos de saúde pagos criados por prefeituras fora do município (ADPF 1247) e a lei do Rio que proíbe registrar dados pessoais de investigados e testemunhas em inquéritos (ADI 4188).', r:'Em julgamento até 10/11'}]},
     {date:'2026-11-03', kind:'Audiência pública', time:'10h', items:[
-      {id:'Proibição das bets', short:'Audiência pública sobre a MP que proíbe as apostas de quota fixa', t:'O ministro Luiz Fux ouve 28 entidades, entre clubes de futebol, CBF, COB, órgãos públicos e empresas do setor, sobre a MP 1.394/2026, que proíbe as apostas de quota fixa. A audiência faz parte da ADI 8027 e de outras ações sobre o tema.', r:'Marcada'}]},
+      {id:'Proibição das bets', short:'Audiência pública sobre a MP que proíbe as apostas de quota fixa', t:'O ministro Luiz Fux ouve 28 entidades, entre clubes de futebol, CBF, COB, órgãos públicos e empresas do setor, sobre a MP 1.394/2026, que proíbe as apostas de quota fixa. A audiência faz parte da ADI 8027 e de outras ações sobre o tema.', r:'Realizada'}]},
     {date:'2026-11-04', kind:'Sessão plenária', items:[
       {ref:'adpf-1212', r:'Na pauta de 4/11'},
       {id:'RE 1093553', short:'Crime de ato obsceno', t:'O Plenário discute se o crime de ato obsceno em local público (art. 233 do Código Penal) é válido, já que a lei não define o que é "ato obsceno". Relator: Luiz Fux. Tem repercussão geral (Tema 989).', r:'Na pauta de 4/11'},
@@ -3282,7 +3282,7 @@ function upCardHTML(u){
   const id = 'cx-up-'+(++upSeq), C = it.id && /\d/.test(it.id) ? catOf({code: it.id}) : null;
   return `<li><article class="card c-ag">
     <button type="button" class="c-head" aria-expanded="false" aria-controls="${id}">
-      <span class="c-top"><span class="c-pill ${pwClass(u.key)}">${POWER_NAME[u.key]} · na agenda</span>${C && C!==CAT_OTHER ? catTag(C) : ''}</span>
+      <span class="c-top"><span class="c-pill ${pwClass(u.key)}">${POWER_NAME[u.key]} · ${u.past ? 'hoje' : 'na agenda'}</span>${C && C!==CAT_OTHER ? catTag(C) : ''}</span>
       <span class="c-main"><span class="c-text">${when ? `<span class="c-when">${esc(when)}</span>` : ''}<span class="c-title">${esc(it.short || it.id || 'Na pauta')}</span>
       ${it.r ? `<span class="c-phase">${esc(it.r)}</span>` : ''}</span></span>
       <span class="c-more" aria-hidden="true"></span>
@@ -3291,6 +3291,16 @@ function upCardHTML(u){
       ${it.t ? `<p class="c-desc">${esc(it.t)}</p>` : ''}
       <a class="c-full c-go" href="#" data-go="${UP_GO[u.key]}">Ver a agenda ${u.key==='exec' ? 'da Presidência' : u.key==='stf' ? 'do STF' : u.key==='senado' ? 'do Senado' : 'da Câmara'} <span aria-hidden="true">→</span></a>
     </div></article></li>`;
+}
+// what the AGENDA had for today and already happened, for items without a page of their own (an audiência, a
+// session item): they stay in today's group of the timeline after their time, instead of vanishing
+function pastTodayAgenda(){
+  const t = todayISO(), now = nowBR(), out = [];
+  for (const key in AGENDA) AGENDA[key].days.forEach(d=>{
+    if (d.label || d.date !== t || (hm(d.time)!=null && hm(d.time) > now)) return;
+    d.items.forEach(it=>{ if (!it.ref && !/cancelad/i.test(it.r||'')) out.push({date:d.date, time:d.time||'', key, kind:d.kind||'', it, past:true}); });
+  });
+  return out.sort((a,b)=> evMin(b) - evMin(a));
 }
 function upcomingHTML(ups){
   if (!ups.length) return '';
@@ -3333,6 +3343,18 @@ function renderToday(){
   if (!shown.length && !ups.length) shown = days.slice(0, 1);
   days.forEach(fd=>{ if (!shown.includes(fd)){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
   todayEl.querySelector('.fd-page')?.classList.add('fd-x');
+  // today's agenda items without a page that already happened go into today's group (made here if there is none yet)
+  const past = pastTodayAgenda();
+  if (past.length){
+    let g = todayEl.querySelector('.feed > .fd.is-today:not(.fd-x)');
+    if (!g){
+      todayEl.querySelectorAll('.feed > .fd:not(.fd-x)').forEach(fd=>{ if (!ups.length && fd.dataset.d !== t){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
+      const up = todayEl.querySelector('.feed > .fd-up');
+      (up || todayEl.querySelector('.feed')).insertAdjacentHTML(up ? 'afterend' : 'afterbegin', `<li class="fd is-today" data-d="${t}"><p class="fd-date">hoje</p><ol class="fd-cards"></ol></li>`);
+      g = todayEl.querySelector('.feed > .fd.is-today');
+    }
+    g.querySelector('.fd-cards').insertAdjacentHTML('beforeend', past.map(upCardHTML).join(''));
+  }
   const extra = todayExtra;
   todayEl.classList.toggle('more', feedMore);
   if (extra > 0) todayEl.insertAdjacentHTML('beforeend', `<p class="fd-morewrap"><button type="button" class="fd-more" aria-expanded="${feedMore}">${feedMore ? 'Ver menos' : `Ver mais · ${FMT_NUM.format(extra)} ${extra===1?'projeto':'projetos'}`}</button></p>`);
