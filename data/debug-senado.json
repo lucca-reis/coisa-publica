@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "03/11/2026 16:45:22",
+   "Versao": "03/11/2026 17:39:35",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -116,6 +116,23 @@
      "Materias": {
       "Materia": [
        {
+        "CodigoMateria": "176119",
+        "Identificacao": "REQUERIMENTO Nº 729, DE 2026\n\n",
+        "SiglaMateria": "RQS",
+        "NumeroMateria": "00729",
+        "AnoMateria": "2026",
+        "DescricaoIdentificacaoMateria": "RQS 729/2026",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita a realização de Sessão Especial destinada a celebrar o Dia do Síndico.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 729, de 2026, do Senador Izalci Lucas e outros Senadores, que\n\n",
+        "EmentaPapeleta": "solicita a realização de Sessão Especial destinada a celebrar o Dia do Síndico.",
+        "NomeAutor": "Izalci Lucas",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "1"
+       },
+       {
         "CodigoMateria": "172997",
         "Identificacao": "PROPOSTA DE EMENDA À CONSTITUIÇÃO Nº 18, DE 2025\n\n",
         "SiglaMateria": "PEC",
@@ -125,15 +142,32 @@
         "DescricaoIdentificacaoMateria": "PEC 18/2025",
         "SiglaCasaIniciadora": "CD",
         "Ementa": "Altera os arts. 5º, 15, 22, 23, 24, 40, 49, 84, 103-B, 130-A e 144 da Constituição Federal e o art.76 do Ato das Disposições Constitucionais Transitórias; acrescenta os arts. 144-A e 144-B à Constituição Federal e os arts. 139, 140 e 141 ao Ato das Disposições Constitucionais Transitórias; e dá outras providências.",
-        "Parecer": "Parecer nº 61, de 2026, da Comissão de Constituição, Justiça e Cidadania, Relator: Senador Rogério Carvalho, favorável à proposta e às Emendas nºs 22, 39, 55 e 64, pelo acolhimento parcial das Emendas nºs 58 e 63, com as Emendas nºs 82 e 83, de redação, que apresenta, e pela rejeição das demais emendas.\n\nPendente de parecer sobre as emendas de Plenário.\n(Aprovado o Requerimento nº 713, de 2026, de calendário especial para a matéria, na Sessão Plenária de 14/10/2026).",
+        "Parecer": "Pareceres:\n- nº 61, de 2026, da Comissão de Constituição, Justiça e Cidadania, Relator: Senador Rogério Carvalho, favorável à proposta e às Emendas nºs 22, 39, 55 e 64, pelo acolhimento parcial das Emendas nºs 58 e 63, com as Emendas nºs 82 e 83, de redação, que apresenta, e pela rejeição das demais emendas;\n- nº 212, de 2026, de Plenário, Relator: Senador Rogério Carvalho, contrário às Emendas nºs 85, 86, 88 e 89, com a apresentação da Emenda nº 91, de redação, e de requerimentos de destaque das Emendas nºs 84 e 87 para constituição de proposições em separado.\n\n(Aprovado o Requerimento nº 713, de 2026, de calendário especial para a matéria, na Sessão Plenária de 14/10/2026).",
         "Apreciacao": "Primeira sessão de discussão, em primeiro turno",
-        "ApreciacaoPapeleta": "Primeira sessão de discussão, em primeiro turno, da Proposta de Emenda À Constituição nº 18, de 2025, da Presidência da República, que ",
+        "ApreciacaoPapeleta": "Primeira sessão de discussão, em primeiro turno, da Proposta de Emenda à Constituição nº 18, de 2025, da Presidência da República, que",
         "EmentaPapeleta": "altera os arts. 5º, 15, 22, 23, 24, 40, 49, 84, 103-B, 130-A e 144 da Constituição Federal e o art.76 do Ato das Disposições Constitucionais Transitórias; acrescenta os arts. 144-A e 144-B à Constituição Federal e os arts. 139, 140 e 141 ao Ato das Disposições Constitucionais Transitórias; e dá outras providências.",
         "Cabecalho": "PEC da Segurança Pública",
         "NomeAutor": "Presidência da República",
         "TipoPauta": "O",
         "DescricaoTipoPauta": "Pauta",
         "SequenciaOrdem": "1"
+       },
+       {
+        "CodigoMateria": "176153",
+        "Identificacao": "REQUERIMENTO Nº 735, DE 2026\n\n",
+        "SiglaMateria": "RQS",
+        "NumeroMateria": "00735",
+        "AnoMateria": "2026",
+        "DescricaoIdentificacaoMateria": "RQS 735/2026",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita a realização de Sessão Especial destinada a celebrar o Dia do Biomédico.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 735, de 2026, do Senador Izalci Lucas e outros Senadores, que\n\n",
+        "EmentaPapeleta": "solicita a realização de Sessão Especial destinada a celebrar o Dia do Biomédico.",
+        "NomeAutor": "Izalci Lucas",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "2"
        },
        {
         "CodigoMateria": "173226",
