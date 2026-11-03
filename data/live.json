@@ -1,87 +1,6 @@
 {
- "atualizado": "2026-11-03T11:14-03:00",
- "camara": [
-  {
-   "id": 83076,
-   "inicio": "2026-11-04T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.\r\n Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83078,
-   "inicio": "2026-11-04T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem a Roberto Santos, Waldir Pires, Milton Santos e Luís Henrique Dias Tavares\r\n Homenagem ao centenário do geógrafo Milton Santos",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83083,
-   "inicio": "2026-11-10T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers\r\n Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83084,
-   "inicio": "2026-11-10T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ\r\n Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83085,
-   "inicio": "2026-11-11T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem ao Dia Nacional da Consciência Negra\r\n Homenagem ao Dia Nacional da Consciência Negra",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83086,
-   "inicio": "2026-11-11T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)\r\n Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83102,
-   "inicio": "2026-11-17T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83141,
-   "inicio": "2026-11-03T13:55-03:00",
-   "fim": null,
-   "situacao": "Convocada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": null,
-   "aoVivo": false
-  }
- ],
+ "atualizado": "2026-11-03T12:53-03:00",
+ "camara": null,
  "senado": [
   {
    "id": "594169",
@@ -164,5 +83,7 @@
    "aoVivo": false
   }
  ],
- "erros": []
+ "erros": [
+  "camara: <urlopen error timed out>"
+ ]
 }
