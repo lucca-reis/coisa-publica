@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-03T18:00Z",
+ "atualizado": "2026-11-03T18:16Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,6 +20,16 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "14h43",
    "video": "https://www.youtube.com/watch?v=Ni88qr2rkRs"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMO",
+   "nome": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "tipo": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "15h05",
+   "video": "https://www.youtube.com/watch?v=2WavxIvPF1w"
   },
   {
    "casa": "senado",
