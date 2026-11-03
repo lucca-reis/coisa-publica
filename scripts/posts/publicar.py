@@ -86,13 +86,13 @@ for d in sorted((p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\
         if (datetime.datetime.now(BR).date() - datetime.date.fromisoformat(P.get('data') or d.name[:10])).days > 2: continue
     except ValueError: pass
     # cada período tem hora fixa (Brasília): aprovado antes, o post espera; aprovado depois, sai na hora.
-    # Faltando até 15 minutos, espera aqui mesmo (o robô roda uns minutos antes de cada horário).
+    # Faltando até 55 minutos, espera aqui mesmo (o robô roda na hora anterior a cada horário, porque o GitHub atrasa).
     per = d.name[11:].split('-')[0]
     hora = P.get('hora') or HORA.get(per)
     if hora:
         alvo = datetime.datetime.combine(datetime.date.fromisoformat(P.get('data') or d.name[:10]), datetime.time(*map(int, hora.split(':'))), BR)
         falta = (alvo - datetime.datetime.now(BR)).total_seconds()
-        if falta > 15 * 60:
+        if falta > 55 * 60:
             print(f'{d.name}: aprovado, sai às {hora}'); continue
         if falta > 0: time.sleep(falta)
     feito = json.loads(feito_f.read_text(encoding='utf-8')) if feito_f.exists() else {}

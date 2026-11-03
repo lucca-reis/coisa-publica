@@ -45,7 +45,7 @@ jobs:
           }
           PW=0
           for rodada in $(seq 1 10); do
-            git pull -q --rebase origin main || true
+            git pull -q --rebase -X theirs origin main || git rebase --abort 2>/dev/null || true
             node scripts/posts/stories.js preparar || true
             if [ -f posts/stories/pendentes.json ]; then
               if [ "$PW" = 0 ]; then npm i --no-save --no-package-lock playwright@1.48.2 >/dev/null && npx playwright install --with-deps chromium >/dev/null && PW=1; fi
@@ -56,5 +56,5 @@ jobs:
             else
               enviar "Ao vivo agora"
             fi
-            [ "$rodada" -lt 10 ] && sleep 300
+            if [ "$rodada" -lt 10 ]; then sleep 300; fi
           done

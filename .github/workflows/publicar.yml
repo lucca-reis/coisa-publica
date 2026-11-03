@@ -7,7 +7,9 @@ on:
     branches: [main]
     paths: ['posts/2*/**', 'posts/apagar.json']
   schedule:
-    - cron: '50 10,15,20 * * *'   # 7h50, 12h50 e 17h50 em Brasília: publica os aprovados das 8h, 13h e 18h
+    # o GitHub costuma atrasar os agendamentos (às vezes 30 a 45 minutos): três tentativas na hora anterior a cada
+    # horário (7h10, 7h25, 7h40; 12h10…; 17h10…); a primeira que rodar espera até a hora certa e publica
+    - cron: '10,25,40 10,15,20 * * *'
   workflow_dispatch:
 
 permissions:
@@ -20,7 +22,7 @@ concurrency:
 jobs:
   publicar:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -45,5 +47,4 @@ jobs:
           git add posts/
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Posts publicados $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
-          git pull --rebase origin main
-          git push
+          for t in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; git rebase --abort 2>/dev/null; sleep $((t*7)); done; exit 1
