@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-03T18:49Z",
+ "atualizado": "2026-11-03T18:55Z",
  "itens": [
   {
    "casa": "camara",
@@ -30,16 +30,6 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "15h27",
    "video": "https://www.youtube.com/watch?v=-X0oq3wwccc"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CPOVOS",
-   "nome": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
-   "tipo": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "14h43",
-   "video": "https://www.youtube.com/watch?v=Ni88qr2rkRs"
   },
   {
    "casa": "camara",
