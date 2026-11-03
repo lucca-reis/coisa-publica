@@ -4,5 +4,11 @@
   "quando": "2026-11-03T13:41Z",
   "casa": "senado",
   "comissao": true
+ },
+ "stf-2026-11-03-600": {
+  "ref": "18440027035183037",
+  "quando": "2026-11-03T14:07Z",
+  "casa": "stf",
+  "comissao": false
  }
 }
