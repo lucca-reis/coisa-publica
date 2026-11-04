@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T20:22Z",
+ "atualizado": "2026-11-04T20:52Z",
  "itens": [
   {
    "casa": "camara",
@@ -32,16 +32,6 @@
    "video": null
   },
   {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CTFC",
-   "nome": "Comissão de Transparência, Governança, Fiscalização e Controle e Defesa do Consumidor",
-   "tipo": "Comissão de Transparência, Governança, Fiscalização e Controle e Defesa do Consumidor",
-   "descricao": "Comissão de Transparência discute fraudes em organizações de saúde",
-   "desde": "15h",
-   "video": "https://www.youtube.com/watch?v=5qRj52ToRtY"
-  },
-  {
    "casa": "stf",
    "plenario": true,
    "sigla": "",
@@ -49,7 +39,7 @@
    "tipo": "Sessão plenária",
    "descricao": "Loterias municipais (ADPF 1212)",
    "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=Yy9xLCIzNAg"
+   "video": "https://www.youtube.com/watch?v=PlCoI1xLMnw"
   }
  ]
 }
