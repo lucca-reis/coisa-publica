@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T14:51Z",
+ "atualizado": "2026-11-04T15:54Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,36 +10,6 @@
    "descricao": "Homenagem a Roberto Santos, Waldir Pires, Milton Santos e Luís Henrique Dias Tavares",
    "desde": "11h37",
    "video": "https://www.youtube.com/watch?v=M1FcU5upl-E"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CMADS",
-   "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
-   "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
-   "descricao": "Audiência pública: Contribuições do Brasil à 31ª Conferência das Partes da Convenção-Quadro das Nações Unidas sobre Mudança do Clima (COP-31), em Antalya, Turquia",
-   "desde": "10h46",
-   "video": "https://www.youtube.com/watch?v=g8ne-LK4qI4"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CDH",
-   "nome": "Comissão de Direitos Humanos e Legislação Participativa",
-   "tipo": "Comissão de Direitos Humanos e Legislação Participativa",
-   "descricao": "Reunião deliberativa da Comissão de Direitos Humanos",
-   "desde": "11h",
-   "video": "https://www.youtube.com/watch?v=EG69r1ZYSbU"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CAE",
-   "nome": "Comissão de Assuntos Econômicos",
-   "tipo": "Comissão de Assuntos Econômicos",
-   "descricao": "Comissão de Assuntos Econômicos avalia projetos",
-   "desde": "10h",
-   "video": "https://www.youtube.com/watch?v=2BP9NGobGSg"
   }
  ]
 }
