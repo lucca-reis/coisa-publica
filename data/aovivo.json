@@ -1,6 +1,26 @@
 {
- "atualizado": "2026-11-04T12:53Z",
+ "atualizado": "2026-11-04T13:13Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CFFC",
+   "nome": "Comissão de Fiscalização Financeira e Controle",
+   "tipo": "Comissão de Fiscalização Financeira e Controle",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h09",
+   "video": "https://www.youtube.com/watch?v=YERVmdiichA"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CE",
+   "nome": "Comissão de Educação",
+   "tipo": "Comissão de Educação",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h05",
+   "video": "https://www.youtube.com/watch?v=wCY53AZ3_DI"
+  },
   {
    "casa": "camara",
    "plenario": true,
@@ -24,11 +44,41 @@
   {
    "casa": "camara",
    "plenario": false,
+   "sigla": "CMADS",
+   "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
+   "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h08",
+   "video": "https://www.youtube.com/watch?v=UyYef-fGi2w"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CVT",
+   "nome": "Comissão de Viação e Transportes",
+   "tipo": "Comissão de Viação e Transportes",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h04",
+   "video": "https://www.youtube.com/watch?v=FN2g2yR5n_U"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
    "sigla": "CAPADR",
    "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
    "tipo": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
    "descricao": "Mesa redonda: Reunião de articulação política, discussão da pauta e assuntos de interesse da Comissão",
    "desde": "9h30",
+   "video": null
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CDE",
+   "nome": "Comissão de Desenvolvimento Econômico",
+   "tipo": "Comissão de Desenvolvimento Econômico",
+   "descricao": "Mesa redonda: Discussão de pauta e assuntos internos da CDE",
+   "desde": "9h",
    "video": null
   }
  ]
