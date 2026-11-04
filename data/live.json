@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T11:18-03:00",
+ "atualizado": "2026-11-04T12:56-03:00",
  "camara": [
   {
    "id": 83076,
@@ -13,13 +13,13 @@
   },
   {
    "id": 83078,
-   "inicio": "2026-11-04T11:00-03:00",
+   "inicio": "2026-11-04T11:37-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem a Roberto Santos, Waldir Pires, Milton Santos e Luís Henrique Dias Tavares\r\n Homenagem ao centenário do geógrafo Milton Santos",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=M1FcU5upl-E",
+   "aoVivo": true
   },
   {
    "id": 83083,
