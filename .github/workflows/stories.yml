@@ -33,8 +33,8 @@ jobs:
         env:
           STORIES: 'pausado'
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          # Instagram DESLIGADO a pedido do Lucca (4/11/2026): sem as chaves, nenhum story sai. Para voltar, repor
+          # IG_USER_ID e IG_TOKEN aqui (dos segredos) e STORIES: 'on'.
         run: |
           git config user.name "coisa-publica-robo"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
