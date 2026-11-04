@@ -1,15 +1,15 @@
 {
- "atualizado": "2026-11-04T18:38Z",
+ "atualizado": "2026-11-04T18:54Z",
  "itens": [
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CMULHER",
-   "nome": "Comissão de Defesa dos Direitos da Mulher",
-   "tipo": "Comissão de Defesa dos Direitos da Mulher",
+   "sigla": "CLP",
+   "nome": "Comissão de Legislação Participativa",
+   "tipo": "Comissão de Legislação Participativa",
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "15h",
-   "video": "https://www.youtube.com/watch?v=s-4B-rtdsMc"
+   "desde": "15h39",
+   "video": "https://www.youtube.com/watch?v=Spgd1DoHpLw"
   },
   {
    "casa": "camara",
@@ -30,16 +30,6 @@
    "descricao": "Audiência pública: Debate sobre o PL 5802/25, que institui instrumentos transitórios para a desconcentração da oferta no mercado brasileiro de gás natural, estabelece o GEGÁS e aut",
    "desde": "14h10",
    "video": "https://www.youtube.com/watch?v=qXHHB_PhheQ"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CEXEXPLO",
-   "nome": "Comissão Externa de Prevenção e Enfrentamento da Violência Sexual Infantojuvenil",
-   "tipo": "Comissão Externa de Prevenção e Enfrentamento da Violência Sexual Infantojuvenil",
-   "descricao": "Audiência pública e deliberação: Audiência pública e votação de requerimentos",
-   "desde": "14h42",
-   "video": "https://www.youtube.com/watch?v=6g5A6-lmJQQ"
   },
   {
    "casa": "camara",
