@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "04/11/2026 15:55:27",
+   "Versao": "04/11/2026 16:50:26",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -23,8 +23,8 @@
      "Casa": "SF",
      "SessaoLegislativa": "4",
      "Legislatura": "57",
-     "CodigoSituacaoSessao": "38",
-     "SituacaoSessao": "Suspensa",
+     "CodigoSituacaoSessao": "37",
+     "SituacaoSessao": "Em andamento",
      "Realizada": {
       "Status": "Sim"
      },
@@ -117,6 +117,11 @@
            "Ordem": "16",
            "Parlamentar": "Senador Fernando Dueire",
            "IndicadorCancelado": "N"
+          },
+          {
+           "Ordem": "17",
+           "Parlamentar": "Senador Magno Malta",
+           "IndicadorCancelado": "N"
           }
          ]
         }
@@ -158,7 +163,7 @@
         "Ementa": "Altera a Lei nº 8.069, de 13 de julho de 1990 (Estatuto da Criança e do Adolescente), para adequar a obrigatoriedade à educação básica à forma disposta na Constituição Federal.",
         "Parecer": "Pareceres:\n- n° 36, de 2026, da Comissão de Direitos Humanos e Legislação Participativa, Relatora: Senadora Damares Alves, favorável ao projeto, com a Emenda n° 1, de redação, que apresenta; e\n- n° 50, de 2026, da Comissão de Educação e Cultura, Relator: Senador Flávio Arns, Relator \"ad hoc\": Senador Esperidião Amin, favorável ao projeto e à Emenda nº 1, de redação.\n",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Lei nº 2.234, de 2024, da Deputada Laura Carneiro, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Lei nº 2.234, de 2024, da Deputada Laura Carneiro, que",
         "EmentaPapeleta": "altera a Lei nº 8.069, de 13 de julho de 1990 (Estatuto da Criança e do Adolescente), para adequar a obrigatoriedade à educação básica à forma disposta na Constituição Federal.",
         "NomeAutor": "Laura Carneiro",
         "TipoPauta": "O",
@@ -177,7 +182,7 @@
         "Ementa": "Aprova o texto do Acordo entre o Governo da República Federativa do Brasil e o Governo da República da Croácia sobre Cooperação na Área de Educação, assinado em Zagreb, em 14 de fevereiro de 2023.",
         "Parecer": "Parecer favorável nº 27, de 2026, da Comissão de Relações Exteriores e Defesa Nacional, Relator: Senador Carlos Viana.",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 344, de 2024, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 344, de 2024, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que",
         "EmentaPapeleta": "aprova o texto do Acordo entre o Governo da República Federativa do Brasil e o Governo da República da Croácia sobre Cooperação na Área de Educação, assinado em Zagreb, em 14 de fevereiro de 2023.",
         "NomeAutor": "Comissão de Relações Exteriores e de Defesa Nacional",
         "TipoPauta": "O",
@@ -196,7 +201,7 @@
         "Ementa": "Aprova o texto do Protocolo, de 30 de novembro de 1972, para Alterar a Convenção Assinada em Paris em 22 de novembro de 1928 sobre Exposições Internacionais, alterado pelas Emendas de 24 de junho de 1982 e de 31 de maio de 1988.",
         "Parecer": "Parecer favorável nº 31, de 2026, da Comissão de Relações Exteriores e Defesa Nacional, Relatora: Senadora Dra. Eudócia, Relator \"ad hoc\": Senador Esperidião Amin.",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 359, de 2024, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 359, de 2024, da Comissão de Relações Exteriores e Defesa Nacional da Câmara dos Deputados, que",
         "EmentaPapeleta": "aprova o texto do Protocolo, de 30 de novembro de 1972, para Alterar a Convenção Assinada em Paris em 22 de novembro de 1928 sobre Exposições Internacionais, alterado pelas Emendas de 24 de junho de 1982 e de 31 de maio de 1988.",
         "NomeAutor": "Comissão de Relações Exteriores e de Defesa Nacional",
         "TipoPauta": "O",
@@ -215,7 +220,7 @@
         "Ementa": "Aprova o texto do Protocolo de Montevidéu sobre Compromisso com a Democracia no Mercosul (Ushuaia II), assinado em Montevidéu, em 20 de dezembro de 2011, durante a XLII Reunião Ordinária do Conselho do Mercado Comum.",
         "Parecer": "Parecer favorável nº 34, de 2026, da Comissão de Relações Exteriores e Defesa Nacional, Relator: Senador Nelsinho Trad.",
         "Apreciacao": "Discussão, em turno único",
-        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 618, de 2026 (nº 1.290/2013, na Casa de origem), da Representação Brasileira no Parlamento do Mercosul, que ",
+        "ApreciacaoPapeleta": "Discussão, em turno único, do Projeto de Decreto Legislativo nº 618, de 2026 (nº 1.290/2013, na Casa de origem), da Representação Brasileira no Parlamento do Mercosul, que",
         "EmentaPapeleta": "aprova o texto do Protocolo de Montevidéu sobre Compromisso com a Democracia no Mercosul (Ushuaia II), assinado em Montevidéu, em 20 de dezembro de 2011, durante a XLII Reunião Ordinária do Conselho do Mercado Comum.",
         "NomeAutor": "Representação Brasileira no Parlamento do Mercosul",
         "TipoPauta": "O",
