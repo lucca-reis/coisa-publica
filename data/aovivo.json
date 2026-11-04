@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T13:13Z",
+ "atualizado": "2026-11-04T13:23Z",
  "itens": [
   {
    "casa": "camara",
@@ -23,13 +23,33 @@
   },
   {
    "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão não deliberativa solene",
-   "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
-   "desde": "9h34",
-   "video": "https://www.youtube.com/watch?v=5rh7pIswP78"
+   "plenario": false,
+   "sigla": "CAPADR",
+   "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+   "tipo": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h15",
+   "video": "https://www.youtube.com/watch?v=zFvmLIuOSQw"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CDU",
+   "nome": "Comissão de Desenvolvimento Urbano",
+   "tipo": "Comissão de Desenvolvimento Urbano",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h11",
+   "video": "https://www.youtube.com/watch?v=sNIl-8vD3VE"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CFT",
+   "nome": "Comissão de Finanças e Tributação",
+   "tipo": "Comissão de Finanças e Tributação",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h11",
+   "video": "https://www.youtube.com/watch?v=hiYB_MlAgPc"
   },
   {
    "casa": "camara",
@@ -44,6 +64,16 @@
   {
    "casa": "camara",
    "plenario": false,
+   "sigla": "CDE",
+   "nome": "Comissão de Desenvolvimento Econômico",
+   "tipo": "Comissão de Desenvolvimento Econômico",
+   "descricao": "Audiência pública: Debate sobre o Projeto de Lei nº 5.960, de 2025, que institui o Marco de Fomento à Economia Digital no Brasil.",
+   "desde": "10h11",
+   "video": "https://www.youtube.com/watch?v=61pD5p16diI"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
    "sigla": "CMADS",
    "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
    "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
@@ -54,22 +84,22 @@
   {
    "casa": "camara",
    "plenario": false,
+   "sigla": "CCTI",
+   "nome": "Comissão de Ciência, Tecnologia e Inovação",
+   "tipo": "Comissão de Ciência, Tecnologia e Inovação",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h13",
+   "video": "https://www.youtube.com/watch?v=7WrosOd7pNM"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
    "sigla": "CVT",
    "nome": "Comissão de Viação e Transportes",
    "tipo": "Comissão de Viação e Transportes",
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h04",
    "video": "https://www.youtube.com/watch?v=FN2g2yR5n_U"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CAPADR",
-   "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
-   "tipo": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
-   "descricao": "Mesa redonda: Reunião de articulação política, discussão da pauta e assuntos de interesse da Comissão",
-   "desde": "9h30",
-   "video": null
   },
   {
    "casa": "camara",
