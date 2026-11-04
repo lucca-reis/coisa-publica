@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T12:48Z",
+ "atualizado": "2026-11-04T12:53Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,6 +10,16 @@
    "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
    "desde": "9h34",
    "video": "https://www.youtube.com/watch?v=5rh7pIswP78"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSAUDE",
+   "nome": "Comissão de Saúde",
+   "tipo": "Comissão de Saúde",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "9h46",
+   "video": "https://www.youtube.com/watch?v=t8MZWZftE2Q"
   },
   {
    "casa": "camara",
