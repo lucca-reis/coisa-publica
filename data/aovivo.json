@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T13:44Z",
+ "atualizado": "2026-11-04T13:54Z",
  "itens": [
   {
    "casa": "camara",
@@ -34,6 +34,16 @@
   {
    "casa": "camara",
    "plenario": false,
+   "sigla": "CCJC",
+   "nome": "Comissão de Constituição e Justiça e de Cidadania",
+   "tipo": "Comissão de Constituição e Justiça e de Cidadania",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h51",
+   "video": "https://www.youtube.com/watch?v=gMWEHGdwaIU"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
    "sigla": "CFT",
    "nome": "Comissão de Finanças e Tributação",
    "tipo": "Comissão de Finanças e Tributação",
@@ -54,16 +64,6 @@
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CME",
-   "nome": "Comissão de Minas e Energia",
-   "tipo": "Comissão de Minas e Energia",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h24",
-   "video": "https://www.youtube.com/watch?v=l67EOYovCeE"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
    "sigla": "CDE",
    "nome": "Comissão de Desenvolvimento Econômico",
    "tipo": "Comissão de Desenvolvimento Econômico",
@@ -80,6 +80,16 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h13",
    "video": "https://www.youtube.com/watch?v=7WrosOd7pNM"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMADS",
+   "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
+   "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
+   "descricao": "Audiência pública: Contribuições do Brasil à 31ª Conferência das Partes da Convenção-Quadro das Nações Unidas sobre Mudança do Clima (COP-31), em Antalya, Turquia",
+   "desde": "10h46",
+   "video": "https://www.youtube.com/watch?v=g8ne-LK4qI4"
   },
   {
    "casa": "camara",
