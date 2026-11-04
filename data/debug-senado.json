@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "04/11/2026 13:46:16",
+   "Versao": "04/11/2026 14:51:23",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -16,16 +16,17 @@
      "Mes": "Novembro",
      "Horario": "14 horas ",
      "Hora": "14:00",
+     "NumeroSessao": "140ª SESSÃO ",
      "TipoSessao": "SESSÃO DELIBERATIVA ORDINÁRIA ",
      "LocalSessao": "Plenário do Senado Federal",
      "CodigoSessao": "594170",
      "Casa": "SF",
      "SessaoLegislativa": "4",
      "Legislatura": "57",
-     "CodigoSituacaoSessao": "30",
-     "SituacaoSessao": "Agendada",
+     "CodigoSituacaoSessao": "38",
+     "SituacaoSessao": "Suspensa",
      "Realizada": {
-      "Status": "Não"
+      "Status": "Sim"
      },
      "PautaConfirmada": "Sim",
      "TipoPresenca": "S",
