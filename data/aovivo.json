@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T13:54Z",
+ "atualizado": "2026-11-04T14:04Z",
  "itens": [
   {
    "casa": "camara",
@@ -50,16 +50,6 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h11",
    "video": "https://www.youtube.com/watch?v=hiYB_MlAgPc"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CSAUDE",
-   "nome": "Comissão de Saúde",
-   "tipo": "Comissão de Saúde",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "9h46",
-   "video": "https://www.youtube.com/watch?v=t8MZWZftE2Q"
   },
   {
    "casa": "camara",
