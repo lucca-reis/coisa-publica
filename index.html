@@ -865,7 +865,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .lvc-links a:focus-visible,.lvc-links button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
 .lvs-row.acc{display:flex;gap:10px;align-items:stretch}
 /* the open broadcast takes the width the squeezed ones leave */
-.lvs-row.acc > .lvc{box-sizing:border-box;min-width:0;position:relative;transition:flex-basis .45s cubic-bezier(.22,.8,.26,1),flex-grow .45s cubic-bezier(.22,.8,.26,1),background-color .2s}
+.lvs-row.acc > .lvc{box-sizing:border-box;min-width:0;position:relative;transition:background-color .2s}
 .lvs-row.acc > .lvc.on{flex:1 1 0%}
 /* squeezed cards are only as wide as their tag plus 10px on each side; the open one takes all the rest */
 .lvs-row.acc > .lvc:not(.on){flex:0 0 auto;container-type:normal;cursor:pointer;overflow:hidden;padding:16px 10px;align-items:center;justify-content:flex-end}
@@ -2445,9 +2445,30 @@ let LIVE_TAB = '';
 // a squeezed live card opens (takes half the width) and the open one is squeezed with the others
 function liveTab(card){
   const row = card.closest('.lvs-row.acc'); if (!row || card.classList.contains('on')) return;
-  row.querySelectorAll(':scope > .lvc').forEach(c=>{ const on = c===card; c.classList.toggle('on', on);
+  const cards = [...row.querySelectorAll(':scope > .lvc')];
+  // the change is animated from where each card was to where it ends (measured before and after the switch):
+  // width on computers, height and place on phones, where the open one moves to the top; the opened card's content fades in
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches || !card.animate;
+  cards.forEach(c=> c.getAnimations().forEach(a=> a.cancel()));
+  const before = cards.map(c=> c.getBoundingClientRect()), h0 = row.getBoundingClientRect().height;
+  cards.forEach(c=>{ const on = c===card; c.classList.toggle('on', on);
     if (on){ c.removeAttribute('tabindex'); c.removeAttribute('role'); c.removeAttribute('aria-expanded'); } else { c.tabIndex = 0; c.setAttribute('role','button'); c.setAttribute('aria-expanded','false'); } });
   LIVE_TAB = card.dataset.lk || '';
+  if (still) return;
+  const after = cards.map(c=> c.getBoundingClientRect()), h1 = row.getBoundingClientRect().height;
+  const ease = 'cubic-bezier(.22,.8,.26,1)', dur = 520, column = getComputedStyle(row).flexDirection === 'column';
+  if (column){
+    // phones: each card slides from its old place and its height grows or shrinks; the row keeps its height meanwhile
+    row.animate([{height:h0+'px'},{height:h1+'px'}], {duration:dur, easing:ease});
+    cards.forEach((c, i)=>{ const a = before[i], b = after[i];
+      c.animate([{transform:`translateY(${a.top - b.top}px)`, height:a.height+'px', overflow:'hidden'}, {transform:'none', height:b.height+'px', overflow:'hidden'}], {duration:dur, easing:ease}); });
+  } else {
+    // the row keeps its height while the widths change, so nothing below jumps
+    row.animate([{height:h0+'px', overflow:'hidden'},{height:h1+'px', overflow:'hidden'}], {duration:dur, easing:ease});
+    cards.forEach((c, i)=>{ const a = before[i], b = after[i];
+      c.animate([{flexBasis:a.width+'px', flexGrow:0, flexShrink:0}, {flexBasis:b.width+'px', flexGrow:0, flexShrink:0}], {duration:dur, easing:ease}); });
+  }
+  [...card.children].forEach(el=> el.animate([{opacity:0}, {opacity:1}], {duration:360, delay:dur*.35, easing:'ease-out', fill:'backwards'}));
 }
 document.addEventListener('click', e=>{ const c = e.target.closest('.lvs-row.acc > .lvc:not(.on)'); if (!c) return; e.preventDefault(); e.stopPropagation(); liveTab(c); }, true);
 document.addEventListener('keydown', e=>{ if (e.key!=='Enter' && e.key!==' ') return; const c = e.target.closest && e.target.closest('.lvs-row.acc > .lvc:not(.on)'); if (!c || e.target!==c) return; e.preventDefault(); liveTab(c); });
