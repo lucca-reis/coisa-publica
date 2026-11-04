@@ -1,35 +1,15 @@
 {
- "atualizado": "2026-11-04T14:46Z",
+ "atualizado": "2026-11-04T14:51Z",
  "itens": [
   {
    "casa": "camara",
-   "plenario": false,
-   "sigla": "CE",
-   "nome": "Comissão de Educação",
-   "tipo": "Comissão de Educação",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h05",
-   "video": "https://www.youtube.com/watch?v=wCY53AZ3_DI"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CREDN",
-   "nome": "Comissão de Relações Exteriores e de Defesa Nacional",
-   "tipo": "Comissão de Relações Exteriores e de Defesa Nacional",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h32",
-   "video": "https://www.youtube.com/watch?v=iURuF2BuntQ"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CDE",
-   "nome": "Comissão de Desenvolvimento Econômico",
-   "tipo": "Comissão de Desenvolvimento Econômico",
-   "descricao": "Audiência pública: Debate sobre o Projeto de Lei nº 5.960, de 2025, que institui o Marco de Fomento à Economia Digital no Brasil.",
-   "desde": "10h11",
-   "video": "https://www.youtube.com/watch?v=61pD5p16diI"
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão não deliberativa solene",
+   "descricao": "Homenagem a Roberto Santos, Waldir Pires, Milton Santos e Luís Henrique Dias Tavares",
+   "desde": "11h37",
+   "video": "https://www.youtube.com/watch?v=M1FcU5upl-E"
   },
   {
    "casa": "camara",
