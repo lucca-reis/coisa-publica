@@ -1,4 +1,25 @@
 {
- "atualizado": "2026-11-04T02:22Z",
- "itens": []
+ "atualizado": "2026-11-04T12:48Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão não deliberativa solene",
+   "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
+   "desde": "9h34",
+   "video": "https://www.youtube.com/watch?v=5rh7pIswP78"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CAPADR",
+   "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+   "tipo": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+   "descricao": "Mesa redonda: Reunião de articulação política, discussão da pauta e assuntos de interesse da Comissão",
+   "desde": "9h30",
+   "video": null
+  }
+ ]
 }
