@@ -1,15 +1,15 @@
 {
- "atualizado": "2026-11-04T08:32-03:00",
+ "atualizado": "2026-11-04T09:54-03:00",
  "camara": [
   {
    "id": 83076,
-   "inicio": "2026-11-04T09:00-03:00",
+   "inicio": "2026-11-04T09:34-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.\r\n Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=5rh7pIswP78",
+   "aoVivo": true
   },
   {
    "id": 83078,
