@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T19:57Z",
+ "atualizado": "2026-11-04T20:12Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,16 +20,6 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "15h39",
    "video": "https://www.youtube.com/watch?v=Spgd1DoHpLw"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CME",
-   "nome": "Comissão de Minas e Energia",
-   "tipo": "Comissão de Minas e Energia",
-   "descricao": "Audiência pública: Debate sobre o PL 5802/25, que institui instrumentos transitórios para a desconcentração da oferta no mercado brasileiro de gás natural, estabelece o GEGÁS e aut",
-   "desde": "14h10",
-   "video": "https://www.youtube.com/watch?v=qXHHB_PhheQ"
   },
   {
    "casa": "camara",
