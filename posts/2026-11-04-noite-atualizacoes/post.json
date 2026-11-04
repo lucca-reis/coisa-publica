@@ -1,0 +1,76 @@
+{
+ "id": "2026-11-04-noite-atualizacoes",
+ "periodo": "noite",
+ "data": "2026-11-04",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Atualizações",
+  "titulo": "O que ficou decidido hoje",
+  "itens": [
+   {
+    "quando": "Senado",
+    "dia": "CDH",
+    "tags": [
+     {
+      "t": "Senado · comissão",
+      "poder": "leg"
+     },
+     {
+      "cat": "pl",
+      "t": "PL 4.767/2020"
+     }
+    ],
+    "titulo": "Síndrome de Tourette",
+    "texto": "Pessoas com Tourette poderão ser consideradas pessoas com deficiência. Vai à sanção."
+   },
+   {
+    "quando": "Senado",
+    "dia": "CAE",
+    "tags": [
+     {
+      "t": "Senado · comissão",
+      "poder": "leg"
+     }
+    ],
+    "titulo": "Dívidas no fim do mandato",
+    "texto": "Estados e municípios poderão renegociar dívidas nos últimos 120 dias de mandato (PRS 50/2026). Vai ao Plenário."
+   },
+   {
+    "quando": "Câmara",
+    "dia": "Comissão",
+    "tags": [
+     {
+      "t": "Câmara · comissão",
+      "poder": "leg"
+     },
+     {
+      "cat": "pl",
+      "t": "PL 4.000/2024"
+     }
+    ],
+    "titulo": "Crimes ambientais",
+    "texto": "Penas maiores para desmatamento e incêndios florestais. Segue para outras comissões."
+   }
+  ],
+  "fonte": "Agência Senado e Agência Câmara, 4/11"
+ },
+ "alt": "Imagem da Coisa Pública, Atualizações: o que ficou decidido hoje, 4 de novembro. Senado, CDH: pessoas com síndrome de Tourette poderão ser consideradas pessoas com deficiência; o texto vai à sanção (PL 4.767/2020). Senado, CAE: estados e municípios poderão renegociar dívidas nos últimos 120 dias de mandato; vai ao Plenário (PRS 50/2026). Câmara, comissão: penas maiores para desmatamento e incêndios florestais; segue para outras comissões (PL 4.000/2024).",
+ "textos": {
+  "bluesky": "O que ficou decidido hoje (4/11) nas comissões:\n\n· Senado manda à sanção projeto que reconhece Tourette como deficiência.\n· CAE aprova renegociação de dívidas no fim de mandatos.\n· Comissão da Câmara aprova penas maiores para crimes ambientais.\n\ncoisapublica.io",
+  "instagram": "Atualizações 📋\n\nO que ficou decidido hoje, quarta (4/11), nas comissões do Congresso:\n\nSenado · Comissão de Direitos Humanos\nPessoas com síndrome de Tourette poderão ser consideradas pessoas com deficiência, com acesso a direitos como vagas reservadas em concursos, enquanto os instrumentos de avaliação da deficiência não são regulamentados. A comissão rejeitou as mudanças da Câmara e manteve o texto do Senado (PL 4.767/2020). O projeto vai à sanção.\n\nSenado · Comissão de Assuntos Econômicos\nEstados e municípios poderão renegociar dívidas nos últimos 120 dias do mandato de governadores e prefeitos, com juros menores e novos prazos, sem aumentar a dívida (PRS 50/2026). Agora vai ao Plenário do Senado.\n\nCâmara · Comissão da Amazônia e dos Povos Originários\nAprovado o projeto do governo que aumenta penas para crimes ambientais. Destruir floresta de preservação permanente passa a dar 2 a 5 anos de reclusão, e incêndio florestal, 3 a 6 anos (PL 4.000/2024). O texto ainda passa por outras duas comissões e pelo Plenário.\n\nNo Plenário do STF, do Senado e da Câmara, as sessões de hoje ainda estavam em andamento no fechamento deste post. Os resultados entram no site assim que forem divulgados.\n\nLink na bio.\n\n#CoisaPública #Senado #Câmara #Congresso #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Senado: CDH rejeita mudanças da Câmara e texto sobre síndrome de Tourette vai à sanção (4/11)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/04/cdh-rejeita-mudancas-da-camara-e-texto-sobre-sindrome-de-tourette-vai-a-sancao"
+  },
+  {
+   "l": "Agência Senado: CAE, governadores poderão renegociar dívidas no fim do mandato (4/11)",
+   "u": "https://www12.senado.leg.br/noticias/audios/2026/11/cae-governadores-poderao-renegociar-dividas-no-fim-do-mandato"
+  },
+  {
+   "l": "Agência Câmara: Comissão aprova projeto que aumenta punição para crimes ambientais (4/11)",
+   "u": "https://www.camara.leg.br/noticias/1315928-comissao-aprova-projeto-que-aumenta-punicao-para-crimes-ambientais"
+  }
+ ]
+}

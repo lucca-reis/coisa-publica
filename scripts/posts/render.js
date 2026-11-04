@@ -88,7 +88,7 @@ function html(P, id){
       + (I.texto ? `<p class="txt">${esc(I.texto)}</p>` : '') + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>coisapublica.io</span></div>`;
   }
   if (I.itens && I.itens.length){
-    card = `<div class="card"><div class="list">${I.itens.map(x=>`<div class="it"><div class="d">${esc(x.quando||'')}<b>${esc(x.dia||'')}</b></div><div>
+    card = `<div class="card"><div class="list">${I.itens.map(x=>`<div class="it"><div class="d">${esc(x.quando||'')}<b${String(x.dia||'').length > 5 ? ' class="lg"' : ''}>${esc(x.dia||'')}</b></div><div>
       ${x.tags && x.tags.length ? `<div class="tags">${x.tags.map(tag).join('')}</div>` : ''}<p class="ct">${esc(x.titulo)}</p>${x.texto ? `<p class="cs">${esc(x.texto)}</p>` : ''}</div></div>`).join('')}</div></div>`;
   } else {
     const pl = I.placar;
