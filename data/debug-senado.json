@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "04/11/2026 17:42:55",
+   "Versao": "04/11/2026 18:48:39",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -131,6 +131,24 @@
      "Materias": {
       "Materia": [
        {
+        "CodigoMateria": "176182",
+        "Identificacao": "REQ 376/2026 - CDIR\n",
+        "SiglaMateria": "REQ",
+        "NumeroMateria": "00376",
+        "AnoMateria": "2026",
+        "SiglaComissaoRequerimento": "CDIR",
+        "DescricaoIdentificacaoMateria": "REQ 376/2026 - CDIR",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos das autorizações da Presidência do Senado Federal.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 376, de 2026, do Senador Irajá, que \n",
+        "EmentaPapeleta": "solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos das autorizações da Presidência do Senado Federal.",
+        "NomeAutor": "Irajá",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "1"
+       },
+       {
         "CodigoMateria": "174061",
         "Identificacao": "PROJETO DE LEI Nº 6.461, DE 2019\n\n",
         "SiglaMateria": "PL",
@@ -171,6 +189,24 @@
         "SequenciaOrdem": "2"
        },
        {
+        "CodigoMateria": "176185",
+        "Identificacao": "REQ 377/2026 - CDIR\n",
+        "SiglaMateria": "REQ",
+        "NumeroMateria": "00377",
+        "AnoMateria": "2026",
+        "SiglaComissaoRequerimento": "CDIR",
+        "DescricaoIdentificacaoMateria": "REQ 377/2026 - CDIR",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos das autorizações da Presidência do Senado Federal. \n",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 377, de 2026, da Senadora Dra. Eudócia, que\n",
+        "EmentaPapeleta": "solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos das autorizações da Presidência do Senado Federal. \n",
+        "NomeAutor": "Dra. Eudócia",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
+        "SequenciaOrdem": "2"
+       },
+       {
         "CodigoMateria": "168799",
         "Identificacao": "PROJETO DE DECRETO LEGISLATIVO Nº 344, DE 2024\n\n",
         "SiglaMateria": "PDL",
@@ -187,6 +223,24 @@
         "NomeAutor": "Comissão de Relações Exteriores e de Defesa Nacional",
         "TipoPauta": "O",
         "DescricaoTipoPauta": "Pauta",
+        "SequenciaOrdem": "3"
+       },
+       {
+        "CodigoMateria": "176203",
+        "Identificacao": "REQ 381/2026 - CDIR",
+        "SiglaMateria": "REQ",
+        "NumeroMateria": "00381",
+        "AnoMateria": "2026",
+        "SiglaComissaoRequerimento": "CDIR",
+        "DescricaoIdentificacaoMateria": "REQ 381/2026 - CDIR",
+        "SiglaCasaIniciadora": "SF",
+        "Ementa": "Solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos das autorizações da Presidência do Senado Federal.",
+        "Apreciacao": "Votação, em turno único",
+        "ApreciacaoPapeleta": "Votação, em turno único, do Requerimento nº 381, de 2026, da Senadora Leany Lemos, que",
+        "EmentaPapeleta": "solicita, com fundamento no art. 40 do Regimento Interno, licença dos trabalhos da Casa para participar de missão oficial, nos termos das autorizações da Presidência do Senado Federal.",
+        "NomeAutor": "Leany Lemos",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
         "SequenciaOrdem": "3"
        },
        {
