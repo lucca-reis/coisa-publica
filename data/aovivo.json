@@ -1,6 +1,26 @@
 {
- "atualizado": "2026-11-04T17:15Z",
+ "atualizado": "2026-11-04T17:20Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CPASF",
+   "nome": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
+   "tipo": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "14h20",
+   "video": "https://www.youtube.com/watch?v=XBkdgL67jRU"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CDHMIR",
+   "nome": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "tipo": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "14h13",
+   "video": "https://www.youtube.com/watch?v=OGUitrN3Lp0"
+  },
   {
    "casa": "camara",
    "plenario": false,
