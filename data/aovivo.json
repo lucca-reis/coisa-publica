@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T14:25Z",
+ "atualizado": "2026-11-04T14:30Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,16 +10,6 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h05",
    "video": "https://www.youtube.com/watch?v=wCY53AZ3_DI"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CAPADR",
-   "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
-   "tipo": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h15",
-   "video": "https://www.youtube.com/watch?v=zFvmLIuOSQw"
   },
   {
    "casa": "camara",
@@ -50,16 +40,6 @@
    "descricao": "Audiência pública: Contribuições do Brasil à 31ª Conferência das Partes da Convenção-Quadro das Nações Unidas sobre Mudança do Clima (COP-31), em Antalya, Turquia",
    "desde": "10h46",
    "video": "https://www.youtube.com/watch?v=g8ne-LK4qI4"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CDE",
-   "nome": "Comissão de Desenvolvimento Econômico",
-   "tipo": "Comissão de Desenvolvimento Econômico",
-   "descricao": "Mesa redonda: Discussão de pauta e assuntos internos da CDE",
-   "desde": "9h",
-   "video": null
   },
   {
    "casa": "senado",
