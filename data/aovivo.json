@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T14:04Z",
+ "atualizado": "2026-11-04T14:20Z",
  "itens": [
   {
    "casa": "camara",
@@ -34,42 +34,12 @@
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CCJC",
-   "nome": "Comissão de Constituição e Justiça e de Cidadania",
-   "tipo": "Comissão de Constituição e Justiça e de Cidadania",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h51",
-   "video": "https://www.youtube.com/watch?v=gMWEHGdwaIU"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CFT",
-   "nome": "Comissão de Finanças e Tributação",
-   "tipo": "Comissão de Finanças e Tributação",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h11",
-   "video": "https://www.youtube.com/watch?v=hiYB_MlAgPc"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
    "sigla": "CDE",
    "nome": "Comissão de Desenvolvimento Econômico",
    "tipo": "Comissão de Desenvolvimento Econômico",
    "descricao": "Audiência pública: Debate sobre o Projeto de Lei nº 5.960, de 2025, que institui o Marco de Fomento à Economia Digital no Brasil.",
    "desde": "10h11",
    "video": "https://www.youtube.com/watch?v=61pD5p16diI"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CCTI",
-   "nome": "Comissão de Ciência, Tecnologia e Inovação",
-   "tipo": "Comissão de Ciência, Tecnologia e Inovação",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h13",
-   "video": "https://www.youtube.com/watch?v=7WrosOd7pNM"
   },
   {
    "casa": "camara",
