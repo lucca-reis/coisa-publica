@@ -1275,6 +1275,8 @@ h1[tabindex="-1"]:focus{outline:none}
 .tp-rk{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 .tp-rn{display:flex;flex-direction:column;font-size:14.5px;line-height:1.3;min-width:0}
 .tp-rn small{font-size:12px;color:var(--muted)}
+.tp-pt{white-space:nowrap;margin-left:6px;font-size:12px;color:var(--muted)}
+.tp-pt i{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 4px 1px 0;vertical-align:middle}
 .tp-rbar{height:8px;border-radius:4px;background:color-mix(in srgb, var(--ink) 7%, var(--bg));overflow:hidden}
 .tp-rbar i{display:block;height:100%;border-radius:4px;background:color-mix(in srgb, #F2C200 80%, var(--ink))}
 .tp-rbar i.senado{background:color-mix(in srgb, #F2C200 55%, var(--ink))}
@@ -4860,7 +4862,24 @@ const TP_SOURCES = [
   {l:'Portal da Transparência (CGU): orçamento da despesa do governo federal', u:'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'},
   {l:'Tesouro Nacional (SICONFI): Relatório de Gestão Fiscal de cada órgão federal, despesa com pessoal', u:RGF_SRC_URL}
 ];
-const tpPeople = ()=> !trResumo ? [] : ['camara','senado'].flatMap(c=> Object.entries((trResumo[c]||{}).pessoas||{}).map(([s,p])=> ({...p, s, casa:c})));
+// party and state of each name in the cota list: from the current occupants (same name, or one name inside the other,
+// when only one fits); for someone no longer in office, the party of their latest expense in the Câmara file
+const P_ALIAS = {'UNIÃO':'União','UNIAO':'União','PODE':'Podemos','PODEMOS':'Podemos','REPUBLICANOS':'Republicanos','SOLIDARIEDADE':'Solidariedade','AVANTE':'Avante','NOVO':'Novo','REDE':'Rede','CIDADANIA':'Cidadania','MISSÃO':'Missão','PCDOB':'PCdoB','S.PART.':'NC','S/PARTIDO':'NC'};
+const partyKey = p => { const u = String(p||'').trim(); return u ? (P_ALIAS[u.toUpperCase()] || u) : ''; };
+const TP_STOP = new Set(['de','da','do','das','dos','e']);
+let tpOccIx = null;
+function tpOcc(casa, s){
+  if (!OCC) return null;
+  if (!tpOccIx){ tpOccIx = {}; ['camara','senado'].forEach(c=>{ tpOccIx[c] = (OCC[c]||[]).map(x=>{ const k = slugName(x.n); return {k, w:k.split('-').filter(w=> !TP_STOP.has(w)), p:x.p, uf:x.uf}; }); }); }
+  const L = tpOccIx[casa] || [], w = s.split('-').filter(x=> !TP_STOP.has(x));
+  let m = L.find(x=> x.k===s);
+  if (!m){ const c = L.filter(x=> x.w.every(a=> w.includes(a)) || w.every(a=> x.w.includes(a))); if (c.length===1) m = c[0]; }
+  return m;
+}
+const tpPeople = ()=> !trResumo ? [] : ['camara','senado'].flatMap(c=> Object.entries((trResumo[c]||{}).pessoas||{}).map(([s,p])=>{
+  const o = tpOcc(c, s);
+  return {...p, s, casa:c, pt: partyKey(o ? o.p : p.p), uf: (o && o.uf) || p.uf || ''};
+}));
 function tpPeriod(){
   const P = (trResumo && trResumo.periodo) || (trExec && trExec.periodo); if (!P) return '';
   const f = iso=>{ const [y,m,d] = iso.split('-'); return `${+d} ${MO[+m-1]} ${y}`; };
@@ -4882,7 +4901,7 @@ function tpLeg(){
       ${tpMonths(H.meses)}${trCats(H.cats, 8)}</section>`; }).join('')}
     <section class="vb w12" aria-labelledby="tp-pp"><div class="vb-h"><h2 id="tp-pp">Por parlamentar</h2><span class="vb-note">Toque num nome para ver os gastos, com as notas fiscais quando a Casa publica</span></div>
       <div class="tp-ctl">
-        <label class="tp-q"><span class="sr-only">Buscar parlamentar</span><input type="search" id="tp-q" placeholder="Buscar parlamentar" value="${esc(tpQ)}" autocomplete="off"></label>
+        <label class="tp-q"><span class="sr-only">Buscar parlamentar ou partido</span><input type="search" id="tp-q" placeholder="Buscar nome ou partido" value="${esc(tpQ)}" autocomplete="off"></label>
         <div class="tp-seg" role="group" aria-label="Casa">${[['todas','Todas'],['camara','Câmara'],['senado','Senado']].map(([k,l])=>`<button type="button" data-casa="${k}" aria-pressed="${tpCasa===k}">${l}</button>`).join('')}</div>
         <div class="tp-seg" role="group" aria-label="Ordem">${[['total','Maior gasto'],['nome','Nome'],['docs','Mais documentos']].map(([k,l])=>`<button type="button" data-sort="${k}" aria-pressed="${tpSort===k}">${l}</button>`).join('')}</div>
       </div>
@@ -4894,7 +4913,7 @@ function tpLeg(){
 }
 function tpList(){
   const all = tpPeople(), q = slugName(tpQ);
-  let L = all.filter(p=> (tpCasa==='todas' || p.casa===tpCasa) && (!q || p.s.includes(q)));
+  let L = all.filter(p=> (tpCasa==='todas' || p.casa===tpCasa) && (!q || p.s.includes(q) || slugName(p.pt)===q || slugName(PARTY_NAME[p.pt]||'')===q));
   L.sort(tpSort==='nome' ? (a,b)=> a.n.localeCompare(b.n,'pt') : tpSort==='docs' ? (a,b)=> b.q-a.q : (a,b)=> b.t-a.t);
   const max = Math.max(1, ...all.map(p=> p.t));
   if (!L.length) return '<p class="vd-none">Nenhum parlamentar com esse nome nos arquivos da cota.</p>';
@@ -4902,7 +4921,7 @@ function tpList(){
   return `<ol class="tp-rows">${L.slice(0, tpShown).map(p=>{ const id = p.casa+'-'+p.s, open = tpOpen===id;
     return `<li class="tp-r${open?' open':''}"><button type="button" class="tp-rb" data-p="${id}" aria-expanded="${open}">
       <span class="tp-rk">${rank.get(p.casa+p.s)}</span>
-      <span class="tp-rn">${esc(p.n)}<small>${p.casa==='camara'?'Deputado(a)':'Senador(a)'} · ${FMT_NUM.format(p.q)} documentos</small></span>
+      <span class="tp-rn"><span class="tp-nm">${esc(p.n)}${p.pt ? ` <span class="tp-pt"><i style="background:${PARTY[p.pt]||'var(--nc)'}" aria-hidden="true"></i>${esc(p.pt==='NC' ? 'sem partido' : (PARTY_NAME[p.pt]||p.pt))}${p.uf ? '-'+esc(p.uf) : ''}</span>` : ''}</span><small>${p.casa==='camara'?'Deputado(a)':'Senador(a)'} · ${FMT_NUM.format(p.q)} documentos</small></span>
       <span class="tp-rbar" aria-hidden="true"><i class="${p.casa}" style="width:${(p.t/max*100).toFixed(1)}%"></i></span>
       <span class="tp-rv">${MONEY0.format(p.t)}</span></button>
       ${open ? `<div class="tp-det" id="tp-det">Carregando…</div>` : ''}</li>`; }).join('')}</ol>

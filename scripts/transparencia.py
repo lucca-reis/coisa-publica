@@ -126,6 +126,7 @@ def resumir(linhas, casa, fonte):
         por_cat[x['c']] = por_cat.get(x['c'], 0) + x['v']
         k = slug(x['nome'])
         p = pessoas.setdefault(k, {'n': x['nome'], 'p': x['p'], 'uf': x['uf'], 't': 0.0, 'q': 0, 'u': '', 'itens': [], 'cats': {}, 'meses': {m: 0.0 for m in MESES}})
+        if x['p'] and x['d'] >= p['u']: p['p'], p['uf'] = x['p'], x['uf']   # partido e estado do gasto mais recente
         p['t'] += x['v']; p['q'] += 1; p['u'] = max(p['u'], x['d'])
         p['cats'][x['c']] = p['cats'].get(x['c'], 0) + x['v']
         if x['m'] in p['meses']: p['meses'][x['m']] += x['v']
@@ -145,7 +146,7 @@ def resumir(linhas, casa, fonte):
     return {'total': total, 'parlamentares': len(pessoas), 'documentos': len(linhas),
             'meses': [[m, round(v, 2)] for m, v in por_mes.items()],
             'cats': sorted([[c, round(v, 2)] for c, v in por_cat.items()], key=lambda c: -c[1]),
-            'pessoas': {k: {'n': p['n'], 't': round(p['t'], 2), 'q': p['q'], 'u': p['u']} for k, p in pessoas.items()},
+            'pessoas': {k: {'n': p['n'], 't': round(p['t'], 2), 'q': p['q'], 'u': p['u'], **({'p': p['p']} if p['p'] else {}), **({'uf': p['uf']} if p['uf'] else {})} for k, p in pessoas.items()},
             'fonte': fonte}, feitos
 
 resultado = {'atualizado': datetime.datetime.now(BR).isoformat(timespec='minutes'), 'periodo': [INICIO.isoformat(), HOJE.isoformat()], 'erros': log}
