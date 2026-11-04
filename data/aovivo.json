@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-04T16:55Z",
- "itens": []
+ "atualizado": "2026-11-04T17:00Z",
+ "itens": [
+  {
+   "casa": "stf",
+   "plenario": true,
+   "sigla": "",
+   "nome": "STF",
+   "tipo": "Sessão plenária",
+   "descricao": "Loterias municipais (ADPF 1212)",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=Yy9xLCIzNAg"
+  }
+ ]
 }
