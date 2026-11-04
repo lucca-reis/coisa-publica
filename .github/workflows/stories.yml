@@ -8,6 +8,7 @@ name: Stories ao vivo
 #   arte de scripts/posts/story-live.js (uma vez por sessão; comissões, no máximo uma por Casa a cada 3 horas).
 on:
   schedule:
+    - cron: '33 11 * * *'   # 8h33: a primeira rodada do dia já está no ar quando as sessões das 9h começam
     - cron: '3 12-23 * * *'
     - cron: '3 0-1 * * *'
   workflow_dispatch:
