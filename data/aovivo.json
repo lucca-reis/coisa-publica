@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-04T18:07Z",
+ "atualizado": "2026-11-04T18:12Z",
  "itens": [
   {
    "casa": "camara",
@@ -64,22 +64,22 @@
   {
    "casa": "senado",
    "plenario": false,
+   "sigla": "CTFC",
+   "nome": "Comissão de Transparência, Governança, Fiscalização e Controle e Defesa do Consumidor",
+   "tipo": "Comissão de Transparência, Governança, Fiscalização e Controle e Defesa do Consumidor",
+   "descricao": "Comissão de Transparência analisa propostas e requerimentos",
+   "desde": "15h",
+   "video": "https://www.youtube.com/watch?v=RjcaBjg3Ynk"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
    "sigla": "CRA",
    "nome": "Comissão de Agricultura e Reforma Agrária",
    "tipo": "Comissão de Agricultura e Reforma Agrária",
    "descricao": "Comissão de Agricultura e Reforma Agrária avalia projetos",
    "desde": "14h",
    "video": "https://www.youtube.com/watch?v=QHdPtgfbHKA"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CTFC",
-   "nome": "Comissão de Transparência, Governança, Fiscalização e Controle e Defesa do Consumidor",
-   "tipo": "Comissão de Transparência, Governança, Fiscalização e Controle e Defesa do Consumidor",
-   "descricao": "Comissão de Transparência analisa propostas e requerimentos",
-   "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=RjcaBjg3Ynk"
   },
   {
    "casa": "stf",
