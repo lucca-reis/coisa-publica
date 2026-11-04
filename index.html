@@ -2399,7 +2399,9 @@ function liveSection(on){
   const cards = on.map(([k,n], i)=>{
     const st = liveState(k), L = LIVE[k];
     const h = `${Math.floor(st.st/60)}h${st.st%60 ? String(st.st%60).padStart(2,'0') : ''}`;
-    const src = !FRAMED ? (ytEmbed(st.video) || (L.channel ? `https://www.youtube.com/embed/live_stream?channel=${L.channel}` : null)) : null;
+    // only a known video plays here; the channel's generic "live_stream" player showed YouTube's error screen when the
+    // channel had no live (or several at once), so without the video the card shows the button to the official channel
+    const src = !FRAMED ? ytEmbed(st.video) : null;
     const go = L.links[0];
     const video = src
       ? `<div class="lv-video"><iframe src="${src}${src.includes('?') ? '&' : '?'}mute=1__AUTO__" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
@@ -2452,7 +2454,7 @@ function liveBox(key){
   const st = liveState(key), L = LIVE[key];
   if (!st) return `<div class="live-slot" data-k="${key}" hidden></div>`;
   // on the published site (not inside another page) the session plays right here
-  const src = st.s==='live' && !FRAMED ? (ytEmbed(st.video) || (L.channel ? `https://www.youtube.com/embed/live_stream?channel=${L.channel}&autoplay=1&mute=1` : null)) : null;
+  const src = st.s==='live' && !FRAMED ? ytEmbed(st.video) : null;
   const player = src ? `<div class="lv-video"><iframe src="${src}" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>` : '';
   const h = `${Math.floor(st.st/60)}h${st.st%60 ? String(st.st%60).padStart(2,'0') : ''}`;
   const links = L.links.map((x,i)=>`<a class="${i?'lv-alt':'lv-go'}" href="${x.u}" target="_blank" rel="noopener">${esc(x.l)}${i?'':' ↗'}</a>`).join('');
