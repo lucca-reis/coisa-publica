@@ -2,7 +2,7 @@
  "AgendaPlenario": {
   "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/AgendaPlenariov2.xsd",
   "Metadados": {
-   "Versao": "04/11/2026 18:48:39",
+   "Versao": "04/11/2026 19:41:08",
    "VersaoServico": "2",
    "DataVersaoServico": "2019-10-15",
    "DescricaoDataSet": "Retorna a Agenda do dia nos Plenários do Senado e Congresso."
@@ -23,8 +23,8 @@
      "Casa": "SF",
      "SessaoLegislativa": "4",
      "Legislatura": "57",
-     "CodigoSituacaoSessao": "37",
-     "SituacaoSessao": "Em andamento",
+     "CodigoSituacaoSessao": "40",
+     "SituacaoSessao": "Encerrada",
      "Realizada": {
       "Status": "Sim"
      },
@@ -260,6 +260,24 @@
         "NomeAutor": "Comissão de Relações Exteriores e de Defesa Nacional",
         "TipoPauta": "O",
         "DescricaoTipoPauta": "Pauta",
+        "SequenciaOrdem": "4"
+       },
+       {
+        "CodigoMateria": "175606",
+        "Identificacao": "PROJETO DE RESOLUÇÃO DO SENADO Nº 50, DE 2026\n",
+        "SiglaMateria": "PRS",
+        "NumeroMateria": "00050",
+        "AnoMateria": "2026",
+        "DescricaoIdentificacaoMateria": "PRS 50/2026",
+        "SiglaCasaIniciadora": "CN",
+        "Ementa": "Altera a Resolução do Senado Federal nº 43, de 2001, para excepcionar da vedação à contratação de operações de crédito nos 120 dias anteriores ao término do mandato do Chefe do Poder Executivo as operações de reestruturação e recomposição do principal de dívidas dos Estados, do Distrito Federal e dos Municípios.\n",
+        "Parecer": "Parecer nº 59, da Comissão Assuntos Econômicos, Relator: Senador Eduardo Braga, favorável ao projeto com a Emenda nº 2, que apresenta.",
+        "Apreciacao": "-",
+        "ApreciacaoPapeleta": "Projeto de Resolução nº 50, de 2026, do Senador Renan Filho, que\n",
+        "EmentaPapeleta": "altera a Resolução do Senado Federal nº 43, de 2001, para excepcionar da vedação à contratação de operações de crédito nos 120 dias anteriores ao término do mandato do Chefe do Poder Executivo as operações de reestruturação e recomposição do principal de dívidas dos Estados, do Distrito Federal e dos Municípios.\n",
+        "NomeAutor": "Renan Filho",
+        "TipoPauta": "E",
+        "DescricaoTipoPauta": "Extrapauta",
         "SequenciaOrdem": "4"
        },
        {
