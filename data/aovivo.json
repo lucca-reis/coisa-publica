@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-04T17:40Z",
+ "atualizado": "2026-11-04T17:52Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CPASF",
-   "nome": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
-   "tipo": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "14h20",
-   "video": "https://www.youtube.com/watch?v=XBkdgL67jRU"
-  },
   {
    "casa": "camara",
    "plenario": false,
@@ -24,22 +14,32 @@
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CCULT",
-   "nome": "Comissão de Cultura",
-   "tipo": "Comissão de Cultura",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "14h10",
-   "video": "https://www.youtube.com/watch?v=b1par61-quc"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
    "sigla": "CME",
    "nome": "Comissão de Minas e Energia",
    "tipo": "Comissão de Minas e Energia",
    "descricao": "Audiência pública: Debate sobre o PL 5802/25, que institui instrumentos transitórios para a desconcentração da oferta no mercado brasileiro de gás natural, estabelece o GEGÁS e aut",
    "desde": "14h10",
    "video": "https://www.youtube.com/watch?v=qXHHB_PhheQ"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CEXEXPLO",
+   "nome": "Comissão Externa de Prevenção e Enfrentamento da Violência Sexual Infantojuvenil",
+   "tipo": "Comissão Externa de Prevenção e Enfrentamento da Violência Sexual Infantojuvenil",
+   "descricao": "Audiência pública e deliberação: Audiência pública e votação de requerimentos",
+   "desde": "14h42",
+   "video": "https://www.youtube.com/watch?v=6g5A6-lmJQQ"
+  },
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "desde": "14h44",
+   "video": "https://www.youtube.com/watch?v=AmljjQupEwk"
   },
   {
    "casa": "senado",
