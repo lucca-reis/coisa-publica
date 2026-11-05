@@ -129,7 +129,9 @@ function agenda(hoje, agora){
 // 2) sem isso, o feed RSS do canal oficial no YouTube (responde aos servidores do GitHub, ao contrário da página /live):
 //    o vídeo de hoje com o assunto certo no título; para o Plenário do Senado, a transmissão contínua "Ao vivo - TV Senado".
 // Os identificadores dos canais foram lidos das páginas oficiais de cada um no YouTube.
-const CANAL_ID = {camara:'UC-ZkSRh-7UEuwXJQ9UMCFJA', senado:'UCLgti7NuK0RuW9wty-fxPjQ', stf:'UCsW4QSB1USsu9ouuFUWe4Iw', exec:'UCjaWLFTNqLkq3ZY2BJ4NYRg'};
+// lula: o canal @LulaOficial, só para os atos oficiais do presidente transmitidos ao vivo (reuniões, cerimônias...);
+// o que é de partido ou de campanha fica de fora (EXCLUI)
+const CANAL_ID = {camara:'UC-ZkSRh-7UEuwXJQ9UMCFJA', senado:'UCLgti7NuK0RuW9wty-fxPjQ', stf:'UCsW4QSB1USsu9ouuFUWe4Iw', exec:'UCjaWLFTNqLkq3ZY2BJ4NYRg', lula:'UCvO2BExvkAbGMsTGnEnI_Ng'};
 const vid = u => /^[\w-]{11}$/.test(u||'') ? u : (/(?:v=|youtu\.be\/|\/live\/|\/embed\/)([\w-]{11})/.exec(u||'') || [])[1] || null;
 const RSS = {};
 async function rss(casa){
@@ -151,6 +153,28 @@ async function videoDoCanal(x, hoje){
   const e = lista.find(e=> deHoje(e) && (assunto ? assunto.test(e.titulo) : tipo.test(e.titulo)))
     || (x.casa==='senado' && x.plenario ? lista.find(e=> /^ao vivo\s*[-–]\s*tv senado/i.test(e.titulo)) : null);
   return e ? e.id : null;
+}
+// está ao vivo agora? A página do vídeo responde aos servidores do GitHub e traz "isLiveNow" (a página /live do canal,
+// não). true ou false; null se a página não respondeu (aí nada muda)
+async function noAr(v){
+  try {
+    const r = await fetch(`https://www.youtube.com/watch?v=${v}`, {headers:{...UA, 'Accept-Language':'pt-BR'}}); if (!r.ok) return null;
+    const m = /"isLiveNow":(true|false)/.exec(await r.text()); return m ? m[1] === 'true' : false;
+  } catch (e) { return null; }
+}
+// atos oficiais do presidente ao vivo no canal @LulaOficial (não precisam estar na AGENDA)
+const OFICIAL = /reuni[aã]o|conselho|cerim[oô]nia|san[cç][aã]o|assinatura|lan[cç]amento|inaugura|pronunciamento|entrevista|coletiva|c[uú]pula|visita|posse|an[uú]ncio|cadeia nacional|declara[cç][aã]o/i;
+const EXCLUI = /milit[aâ]ncia|campanha|com[ií]cio|\bPT\b|partido|vit[oó]ria|elei[cç]|candidat|caminhada|carreata|apoiador|anivers[aá]rio/i;
+async function lulaAoVivo(){
+  const lista = await rss('lula'), out = [];
+  for (const e of lista.filter(e=> e.id && Date.now() - Date.parse(e.quando) < 14*3600e3 && OFICIAL.test(e.titulo) && !EXCLUI.test(e.titulo))){
+    if (await noAr(e.id) !== true) continue;
+    const t = new Date(Date.parse(e.quando) - 3*3600e3), desde = hTxt(t.getUTCHours()*60 + t.getUTCMinutes());
+    const tipo = /reuni[aã]o/i.test(e.titulo) ? 'Reunião' : /cerim[oô]nia|posse/i.test(e.titulo) ? 'Cerimônia' : /pronunciamento|cadeia/i.test(e.titulo) ? 'Pronunciamento' : /entrevista|coletiva/i.test(e.titulo) ? 'Entrevista' : 'Agenda oficial';
+    const desc = e.titulo.replace(/^presidente lula\s+(participa|faz|realiza|preside|conduz|concede)\s+(d[aoe]s?\s+)?/i, '').replace(/^./, c=> c.toUpperCase());
+    out.push({chave:`exec-lula-${e.id}`, casa:'exec', plenario:true, sigla:'', nome:'Presidência', desde, tipo, descricao: limpa(desc).slice(0, 180), video:`https://www.youtube.com/watch?v=${e.id}`});
+  }
+  return out;
 }
 async function videoDe(x, hoje){
   return vid(x.video) || await videoDoCanal(x, hoje);
@@ -175,17 +199,29 @@ const AOVIVO = path.join(ROOT, 'data', 'aovivo.json');
 function gravarAoVivo(lista){
   const itens = lista.map(({casa, plenario, sigla, nome, tipo, descricao, desde, video})=> ({casa, plenario:!!plenario, sigla, nome, tipo, descricao, desde, video: video || null}));
   const velho = ler(AOVIVO, null), mesmo = velho && JSON.stringify(velho.itens) === JSON.stringify(itens);
-  if (mesmo && Date.now() - Date.parse(velho.atualizado) < 50*60e3) return;
+  if (mesmo && Date.now() - Date.parse(velho.atualizado) < 25*60e3) return;
   fs.writeFileSync(AOVIVO, JSON.stringify({atualizado: new Date().toISOString().slice(0,16) + 'Z', itens}, null, 1));
 }
 
 async function preparar(){
   const {data:hoje, min:agora} = agoraBR();
   const est = ler(EST, {}), achados = [];
-  for (const [nome, fn] of [['camara', ()=> camara(hoje)], ['senado', ()=> senado(hoje)], ['senado-comissoes', ()=> senadoComissoes(hoje)], ['agenda', async ()=> agenda(hoje, agora)]]){
+  for (const [nome, fn] of [['camara', ()=> camara(hoje)], ['senado', ()=> senado(hoje)], ['senado-comissoes', ()=> senadoComissoes(hoje)], ['agenda', async ()=> agenda(hoje, agora)], ['lula', lulaAoVivo]]){
     try { achados.push(...await fn()); } catch (e) { console.error(`${nome}: ${e.message}`); }
   }
   for (const x of achados){ try { const v = await videoDe(x, hoje); x.video = v ? `https://www.youtube.com/watch?v=${v}` : null; } catch (e) { x.video = null; } }
+  // STF e Presidência vêm da janela da AGENDA, que não sabe quando a transmissão acaba: com a chave do YouTube,
+  // sai da lista o que não está mais ao vivo (o vídeo da manhã que terminou, por exemplo)
+  // (sem a chave, a própria página do vídeo diz se ainda está ao vivo)
+  for (const x of achados.filter(x=> (x.casa==='stf' || x.casa==='exec') && !/^exec-lula-/.test(x.chave))){
+    try { const v = vid(x.video);
+      if (YTKEY){ const j = v ? await ytApi(`videos?part=snippet&id=${v}`) : null;
+        if (!j || (j.items||[])[0]?.snippet?.liveBroadcastContent !== 'live') x.fora = true; }
+      else if (v && await noAr(v) === false) x.fora = true; } catch (e) {}
+  }
+  // com uma transmissão oficial achada no canal do presidente, a janela da AGENDA da Presidência sem vídeo não entra
+  if (achados.some(x=> /^exec-lula-/.test(x.chave))) achados.forEach(x=>{ if (x.casa==='exec' && !/^exec-lula-/.test(x.chave) && !x.video) x.fora = true; });
+  for (let i = achados.length - 1; i >= 0; i--) if (achados[i].fora) achados.splice(i, 1);
   try { gravarAoVivo(achados); } catch (e) { console.error(`aovivo.json: ${e.message}`); }
   // comissões: só uma por Casa a cada 3 horas, e nunca com o Plenário daquela Casa aberto
   const recente = casa => Object.entries(est).some(([k, v])=> v.comissao && v.casa===casa && Date.now() - Date.parse(v.quando) < 3*3600e3);

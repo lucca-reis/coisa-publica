@@ -864,26 +864,26 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .lvc-links a:hover,.lvc-links button:hover{text-decoration-color:currentColor}
 .lvc-links a:focus-visible,.lvc-links button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
 .lvs-row.acc{display:flex;gap:10px;align-items:stretch}
-/* the open broadcast takes exactly half the width; the others share the other half */
+/* the open broadcast takes the width the squeezed ones leave */
 .lvs-row.acc > .lvc{box-sizing:border-box;min-width:0;position:relative;transition:flex-basis .45s cubic-bezier(.22,.8,.26,1),flex-grow .45s cubic-bezier(.22,.8,.26,1),background-color .2s}
-.lvs-row.acc > .lvc.on{flex:0 0 calc(50% - 5px)}
-.lvs-row.acc > .lvc:not(.on){flex:1 1 0%;cursor:pointer;overflow:hidden;justify-content:flex-end;gap:6px;padding:14px 14px 16px;color:#FAFAF7;
-  background:linear-gradient(180deg, rgba(18,20,23,.05) 0%, rgba(18,20,23,.45) 45%, rgba(18,20,23,.9) 100%), var(--th, linear-gradient(160deg, #2A2E35, #15171B)) center/cover no-repeat, #1B1E23}
-.lvs-row.acc > .lvc:not(.on)::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(250,250,247,.06);transition:background-color .2s}
-.lvs-row.acc > .lvc:not(.on):hover::after{background:rgba(250,250,247,.06)}
+.lvs-row.acc > .lvc.on{flex:1 1 0%}
+/* squeezed cards are only as wide as their tag plus 10px on each side; the open one takes all the rest */
+.lvs-row.acc > .lvc:not(.on){flex:0 0 auto;container-type:normal;cursor:pointer;overflow:hidden;padding:16px 10px;align-items:center;justify-content:flex-end}
+.lvs-row.acc > .lvc:not(.on)::after{content:"";position:absolute;inset:0;border-radius:inherit;transition:background-color .2s}
+.lvs-row.acc > .lvc:not(.on):hover::after{background:color-mix(in srgb, #E0242B 5%, transparent)}
 .lvs-row.acc > .lvc:not(.on):focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.lvs-row.acc > .lvc:not(.on) .lv-video,.lvs-row.acc > .lvc:not(.on) .lvc-d,.lvs-row.acc > .lvc:not(.on) .lvc-links,.lvs-row.acc > .lvc:not(.on) .lvc-since,.lvs-row.acc > .lvc:not(.on) .lvc-av{display:none}
-.lvs-row.acc > .lvc:not(.on) .lvc-top{margin-top:auto}
-.lvs-row.acc > .lvc:not(.on) .lvc-pill{background:none;padding:0;color:rgba(250,250,247,.78);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:block}
-.lvs-row.acc > .lvc:not(.on) .lvc-pill .lv-dot{display:inline-block;vertical-align:1px;margin-right:6px;background:#FF4D4F}
-.lvs-row.acc > .lvc:not(.on) .lvc-t{font-size:14px;line-height:1.25;font-weight:500;letter-spacing:-.005em;color:#FAFAF7;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+/* a squeezed card keeps only its "ao vivo" tag, the same as the open card's, standing up at the bottom (read from bottom to top) */
+.lvs-row.acc > .lvc:not(.on) > :not(.lvc-top),.lvs-row.acc > .lvc:not(.on) .lvc-since{display:none}
+.lvs-row.acc > .lvc:not(.on) .lvc-top{display:flex;writing-mode:vertical-rl;transform:rotate(180deg)}
+.lvs-row.acc > .lvc:not(.on) .lvc-pill{padding:11px 5px 9px}
+.lvs-row.acc > .lvc:not(.on) .lvc-av{display:inline !important;margin:-2px 0 0}
 @media (prefers-reduced-motion:reduce){ .lvs-row.acc > .lvc{transition:none} }
-/* phones: the open one takes the whole first line and the others share the line below, as short tabs */
+/* phones: the open one on top, the others stacked below it as full-width strips, each with its "ao vivo" tag lying down */
 @media (max-width:560px){
-  .lvs-row.acc{flex-wrap:wrap;gap:8px}
-  .lvs-row.acc > .lvc.on{flex:1 1 100%;order:-1}
-  .lvs-row.acc > .lvc:not(.on){min-height:96px;padding:10px 11px 12px}
-  .lvs-row.acc > .lvc:not(.on) .lvc-t{-webkit-line-clamp:2;font-size:12.5px}
+  .lvs-row.acc{flex-direction:column;gap:8px}
+  .lvs-row.acc > .lvc.on{flex:none;order:-1}
+  .lvs-row.acc > .lvc:not(.on){flex:none;width:100%;padding:10px 12px;align-items:flex-start;justify-content:center}
+  .lvs-row.acc > .lvc:not(.on) .lvc-top{writing-mode:horizontal-tb;transform:none}
 }
 .lvc-d{margin:-6px 0 0;font-size:13px;line-height:1.35;color:color-mix(in srgb, var(--ink) 72%, var(--bg));display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .lvc-th{background:#121417 center/cover no-repeat}
@@ -1276,6 +1276,8 @@ h1[tabindex="-1"]:focus{outline:none}
 .tp-rk{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 .tp-rn{display:flex;flex-direction:column;font-size:14.5px;line-height:1.3;min-width:0}
 .tp-rn small{font-size:12px;color:var(--muted)}
+.tp-pt{white-space:nowrap;margin-left:6px;font-size:12px;color:var(--muted)}
+.tp-pt i{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 4px 1px 0;vertical-align:middle}
 .tp-rbar{height:8px;border-radius:4px;background:color-mix(in srgb, var(--ink) 7%, var(--bg));overflow:hidden}
 .tp-rbar i{display:block;height:100%;border-radius:4px;background:color-mix(in srgb, #F2C200 80%, var(--ink))}
 .tp-rbar i.senado{background:color-mix(in srgb, #F2C200 55%, var(--ink))}
@@ -1779,18 +1781,18 @@ const PROJECTS = {
     steps:[['2026-10-28','Câmara aprova a urgência por unanimidade']],
     votes:{label:'Urgência · Plenário da Câmara, 28/10/2026', result:'Aprovada por unanimidade', note:'Placar numérico não informado nas fontes consultadas.'},
     links:[{l:'Buscar o projeto no portal da Câmara',u:CAM_SEARCH('PL 5542/2026')}],
-    sources:[PAUTA_28,EVENTO_28] },
+    sources:[PAUTA_28,EVENTO_28,{l:'Agência Câmara: projeto na pauta de 3/11',u:AG_CAM+'1315214-camara-analisa-projetos-sobre-sobre-protecao-as-mulheres-saude-e-maus-tratos-a-animais'},{l:'Diário Goianiense (Agência Câmara): na pauta de 5/11',u:'https://www.diariogoianiense.com.br/noticia/camara-dos-deputados-vota-novas-medidas-de-seguranca-e-protecao-animal-nesta-quinta'}] },
 
   'pl-5902-2023':{ house:'camara', type:'Projeto de Lei', code:'PL 5902/2023',
     title:'Drones no espaço aéreo de presídios',
     summary:'Torna crime o sobrevoo não autorizado de drones sobre presídios, com pena de reclusão de um a cinco anos e multa, maior se houver risco à segurança do presídio ou do público.',
     points:['O texto original punia só a entrega de objetos a presos por drone. O relator ampliou para qualquer sobrevoo não autorizado.','Se a invasão for erro de navegação comprovado, sem risco ou dano significativo, o juiz pode trocar a prisão por prestação de serviços à comunidade.'],
     author:'Dep. Kim Kataguiri (Missão-SP)', rapporteur:'Dep. Nikolas Ferreira (PL-MG)',
-    status:'Esteve na pauta de 28/10, mas não foi votado; aguarda nova sessão',
-    steps:[['2025-12-04','Parecer do relator pela aprovação, com substitutivo'],['2026-04-08','Comissão de Constituição e Justiça aprova o parecer'],['2026-10-28','Câmara não vota: a Ordem do Dia foi encerrada antes']],
-    votes:{label:'Comissão de Constituição e Justiça, 08/04/2026', result:'Parecer aprovado', note:'Placar não informado nas fontes consultadas.'},
+    status:'Aprovado pela Câmara em 4/11; segue ao Senado',
+    steps:[['2025-12-04','Câmara: parecer do relator pela aprovação, com substitutivo'],['2026-04-08','Câmara: Comissão de Constituição e Justiça aprova o parecer'],['2026-10-28','Câmara não vota: a Ordem do Dia foi encerrada antes'],['2026-11-04','Câmara aprova em votação simbólica, por unanimidade; segue ao Senado']],
+    votes:{label:'Plenário da Câmara, 04/11/2026', result:'Aprovado por unanimidade, em votação simbólica', note:'Sem placar numérico.'},
     links:[{l:'Ficha de tramitação na Câmara',u:CAM+'2410357'}],
-    sources:[PAUTA_28,EVENTO_28,{l:'Agência Câmara: comissão aprova projeto que pune sobrevoo de drones',u:AG_CAM+'1261210-comissao-aprova-projeto-que-pune-sobrevoo-de-drones-em-presidios/'}] },
+    sources:[{l:'CNN Brasil: Câmara proíbe uso de drones em presídios (4/11)',u:'https://www.cnnbrasil.com.br/politica/camara-proibe-uso-de-drones-em-presidios-sob-pena-de-ate-5-anos-de-prisao/'},PAUTA_28,EVENTO_28,{l:'Agência Câmara: comissão aprova projeto que pune sobrevoo de drones',u:AG_CAM+'1261210-comissao-aprova-projeto-que-pune-sobrevoo-de-drones-em-presidios/'}] },
 
   'pl-4553-2025':{ house:'camara', type:'Projeto de Lei', code:'PL 4553/2025',
     title:'Infoclima-Terra-Brasil, portal de dados climáticos',
@@ -1818,13 +1820,13 @@ const PROJECTS = {
   'pec-18-2025':{ house:'senado', type:'Proposta de Emenda à Constituição', code:'PEC 18/2025',
     title:'PEC da Segurança Pública',
     summary:'Reorganiza a segurança pública na Constituição: inclui o Sistema Único de Segurança Pública (Susp), endurece o tratamento de facções e milícias e cria novas fontes de financiamento.',
-    points:['Permite que uma lei futura restrinja a progressão de regime e benefícios penais para integrantes de facções e milícias.','Autoriza a criação de polícias municipais e amplia a atuação da Polícia Rodoviária Federal para ferrovias e hidrovias.','Na CCJ, a retirada da regra sobre recursos das bets foi aprovada. Trechos alterados em relação à Câmara terão de voltar aos deputados.','Governadores resistem por preocupação com a autonomia das polícias estaduais.','Precisa de ao menos 49 votos em dois turnos no Plenário.','A oposição apresentou emenda para reduzir a maioridade penal, e o governo é contra. Se o texto for aprovado com essa mudança, volta à Câmara.'],
+    points:['Permite que uma lei futura restrinja a progressão de regime e benefícios penais para integrantes de facções e milícias.','Autoriza a criação de polícias municipais e amplia a atuação da Polícia Rodoviária Federal para ferrovias e hidrovias.','Na CCJ, foi retirada a regra que destinava recursos das bets aos fundos de segurança. Ficou a destinação de 10% do superávit do Fundo Soberano do Pré-Sal.','Governadores resistem por preocupação com a autonomia das polícias estaduais.','Precisa de ao menos 49 votos em dois turnos no Plenário.','As emendas para reduzir a maioridade penal (de Rogério Marinho e de Camilo Santana) foram separadas da PEC por 38 a 36 e seguem como propostas próprias.'],
     author:'Presidência da República (aprovada na Câmara em março de 2026)', rapporteur:'Sen. Rogério Carvalho (PT-SE)',
-    status:'Na pauta do Plenário do Senado de terça-feira, 3/11/2026',
-    steps:[['2026-03-10','Chega ao Senado vinda da Câmara'],['2026-09-02','CCJ aprova o texto-base'],['2026-10-14','CCJ conclui a votação e envia ao Plenário; Plenário aprova calendário especial'],['2026-10-15','Retirada da pauta do Plenário pelo presidente do Senado'],['2026-10-30','Presidente do Senado marca a votação no Plenário para 3/11'],['2026-11-03','Votação marcada no Plenário do Senado']],
-    votes:{label:'Requerimento de calendário especial · Plenário, 14/10/2026', result:'Aprovado em votação simbólica', note:'A PEC em si ainda não foi votada no Plenário do Senado.'},
+    status:'Aprovada pelo Senado em 3/11/2026; vai à promulgação, em data a definir',
+    steps:[['2026-03-10','Chega ao Senado vinda da Câmara'],['2026-09-02','CCJ aprova o texto-base'],['2026-10-14','CCJ conclui a votação e envia ao Plenário; Plenário aprova calendário especial'],['2026-10-15','Retirada da pauta do Plenário pelo presidente do Senado'],['2026-10-30','Presidente do Senado marca a votação no Plenário para 3/11'],['2026-11-03','Senado aprova a PEC em dois turnos, sem redução da maioridade penal; vai à promulgação']],
+    votes:{label:'Plenário do Senado, 3/11/2026', result:'Aprovada em dois turnos', tally:[['1º turno',73,0],['2º turno',75,0]], note:'Eram necessários 49 votos em cada turno. O requerimento que separou as emendas sobre maioridade penal foi aprovado por 38 a 36.'},
     links:[{l:'PEC 18/2025 no Senado',u:SEN+'172997'}],
-    sources:[{l:'Congresso em Foco: CCJ conclui votação da PEC',u:'https://www.congressoemfoco.com.br/noticia/123231/ccj-conclui-votacao-da-pec-da-seguranca-e-envia-texto-ao-plenario'},{l:'Agência Brasil: Alcolumbre retira a PEC da pauta',u:'https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-retira-pec-da-seguranca-publica-da-pauta-do-senado'},{l:'SBT News: PEC deve ser votada na semana que vem',u:'https://sbtnews.sbt.com.br/noticia/politica/governo-quer-tratar-da-pec-da-seguranca-o-quanto-antes'},{l:'CNN Brasil: Alcolumbre pauta a PEC para terça (3/11)',u:'https://www.cnnbrasil.com.br/politica/alcolumbre-pauta-pec-da-seguranca-para-sessao-de-terca-feira-3-no-senado/'},{l:'O Tempo: votação marcada para 3/11',u:'https://www.otempo.com.br/politica/2026/10/30/alcolumbre-marca-votacao-da-pec-da-seguranca-publica-para-terca-feira-3-11'},{l:'Senado: PEC 18/2025',u:SEN+'172997'}] },
+    sources:[{l:'Congresso em Foco: CCJ conclui votação da PEC',u:'https://www.congressoemfoco.com.br/noticia/123231/ccj-conclui-votacao-da-pec-da-seguranca-e-envia-texto-ao-plenario'},{l:'Agência Brasil: Alcolumbre retira a PEC da pauta',u:'https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-retira-pec-da-seguranca-publica-da-pauta-do-senado'},{l:'SBT News: PEC deve ser votada na semana que vem',u:'https://sbtnews.sbt.com.br/noticia/politica/governo-quer-tratar-da-pec-da-seguranca-o-quanto-antes'},{l:'CNN Brasil: Alcolumbre pauta a PEC para terça (3/11)',u:'https://www.cnnbrasil.com.br/politica/alcolumbre-pauta-pec-da-seguranca-para-sessao-de-terca-feira-3-no-senado/'},{l:'O Tempo: votação marcada para 3/11',u:'https://www.otempo.com.br/politica/2026/10/30/alcolumbre-marca-votacao-da-pec-da-seguranca-publica-para-terca-feira-3-11'},{l:'Senado: PEC 18/2025',u:SEN+'172997'},{l:'Metrópoles: Senado aprova a PEC por 73 a 0 e separa a maioridade (3/11)',u:'https://www.metropoles.com/brasil/senado-pec-da-seguranca-maioridade'},{l:'Diario de Pernambuco: 2º turno por 75 a 0; vai à promulgação (3/11)',u:'https://www.diariodepernambuco.com.br/politica/2026/11/11728278-senado-aprova-em-2-turno-pec-da-seguranca-por-75-a-0.html'},{l:'O Tempo: mudanças no texto e emendas rejeitadas (3/11)',u:'https://www.otempo.com.br/politica/congresso/2026/11/3/pec-da-seguranca-publica-e-aprovada-no-senado-sem-reducao-da-maioridade-penal'}] },
 
   'mpv-1370-2026':{ house:'senado', type:'Medida Provisória', code:'MP 1370/2026',
     title:'Enamed obrigatório para exercer a medicina',
@@ -1853,11 +1855,11 @@ const PROJECTS = {
     summary:'Aprova o acordo de cooperação em defesa entre Brasil e Guiana, assinado em Bonfim (RR) em 2009.',
     points:['O projeto ficou parado de 2012 a 2026 por dúvidas sobre a compatibilidade do acordo com a Lei de Acesso à Informação, já que ele prevê informações classificadas como confidenciais.','Em agosto de 2026, o Itamaraty enviou ofício sobre o tema e a matéria voltou a andar.'],
     author:'Câmara dos Deputados (PDC 57/2011)', rapporteur:'Sen. Chico Rodrigues, na Comissão de Relações Exteriores',
-    status:'De volta à pauta do Plenário em 3/11/2026',
-    steps:[['2011-10-03','Chega ao Senado'],['2026-08-07','Volta à Comissão de Relações Exteriores'],['2026-09-02','Comissão aprova parecer favorável'],['2026-10-15','Retirado da pauta do Plenário'],['2026-10-30','Senado inclui o projeto na pauta de 3/11']],
-    votes:null,
+    status:'Aprovado pelo Senado em 3/11/2026; vai à promulgação',
+    steps:[['2011-10-03','Chega ao Senado'],['2026-08-07','Volta à Comissão de Relações Exteriores'],['2026-09-02','Comissão aprova parecer favorável'],['2026-10-15','Retirado da pauta do Plenário'],['2026-10-30','Senado inclui o projeto na pauta de 3/11'],['2026-11-03','Senado aprova em votação simbólica; vai à promulgação']],
+    votes:{label:'Plenário do Senado, 3/11/2026', result:'Aprovado em votação simbólica', note:'Relator: sen. Chico Rodrigues (PSB-RR).'},
     links:[{l:'PDS 240/2011 no Senado',u:SEN+'102633'}],
-    sources:[{l:'Senado: PDS 240/2011',u:SEN+'102633'},{l:'Agência Senado: Davi marca para terça votação da PEC da Segurança (30/10)',u:'https://www12.senado.leg.br/noticias/materias/2026/10/30/davi-marca-para-terca-votacao-da-pec-da-seguranca'},{l:'TV Senado: Senado vota acordos internacionais (15/10)',u:'https://www12.senado.leg.br/tv/plenario-e-comissoes/plenario/2026/10/senado-vota-acordos-internacionais-de-defesa-e-educacao'}] },
+    sources:[{l:'Senado: PDS 240/2011',u:SEN+'102633'},{l:'Agência Senado: Davi marca para terça votação da PEC da Segurança (30/10)',u:'https://www12.senado.leg.br/noticias/materias/2026/10/30/davi-marca-para-terca-votacao-da-pec-da-seguranca'},{l:'TV Senado: Senado vota acordos internacionais (15/10)',u:'https://www12.senado.leg.br/tv/plenario-e-comissoes/plenario/2026/10/senado-vota-acordos-internacionais-de-defesa-e-educacao'},{l:'Agência Senado: acordo com a Guiana vai à promulgação (3/11)',u:'https://www12.senado.leg.br/noticias/materias/2026/11/03/acordo-de-cooperacao-militar-entre-brasil-e-guiana-vai-a-promulgacao'}] },
 
   'pdl-344-2024':{ house:'senado', type:'Projeto de Decreto Legislativo', code:'PDL 344/2024',
     title:'Acordo de educação entre Brasil e Croácia',
@@ -1873,13 +1875,13 @@ const PROJECTS = {
   'pdl-359-2024':{ house:'senado', type:'Projeto de Decreto Legislativo', code:'PDL 359/2024',
     title:'Convenção sobre Exposições Internacionais',
     summary:'Aprova o protocolo de 1972 que altera a Convenção sobre Exposições Internacionais, assinada em Paris em 1928, com as emendas de 1982 e 1988. A convenção rege as exposições mundiais, como as Expos.',
-    points:['A Comissão de Relações Exteriores aprovou parecer favorável em agosto de 2026.'],
+    points:['A Comissão de Relações Exteriores aprovou parecer favorável em agosto de 2026.','Com a aprovação, o Brasil pode pagar o que deve ao Bureau Internacional de Exposições, recuperar o direito de voto, suspenso desde 2015, e voltar a candidatar cidades para sediar Expos.'],
     author:'Câmara dos Deputados (Mensagem 723/2023 da Presidência)', rapporteur:'Sen. Dra. Eudócia (PSDB-AL); relator ad hoc sen. Esperidião Amin',
-    status:'Retirado de pauta em 15/10; aguarda nova inclusão na Ordem do Dia',
-    steps:[['2026-08-11','Comissão de Relações Exteriores aprova parecer favorável'],['2026-10-15','Retirado da pauta do Plenário']],
-    votes:null,
+    status:'Aprovado pelo Senado em 4/11; vai à promulgação',
+    steps:[['2026-08-11','Senado: Comissão de Relações Exteriores aprova parecer favorável'],['2026-10-15','Senado retira da pauta do Plenário'],['2026-11-04','Senado aprova; vai à promulgação']],
+    votes:{label:'Plenário do Senado, 04/11/2026', result:'Aprovado', note:'Placar não informado nas fontes consultadas.'},
     links:[{l:'PDL 359/2024 no Senado',u:SEN+'171234'}],
-    sources:[{l:'Senado: PDL 359/2024',u:SEN+'171234'},{l:'TV Senado: Senado vota acordos internacionais (15/10)',u:'https://www12.senado.leg.br/tv/plenario-e-comissoes/plenario/2026/10/senado-vota-acordos-internacionais-de-defesa-e-educacao'}] },
+    sources:[{l:'Senado: PDL 359/2024',u:SEN+'171234'},{l:'Agência Senado (via Tribuna do Sertão): protocolo permitirá ao Brasil sediar exposições mundiais (4/11)',u:'https://www.tribunadosertao.com.br/politica/2026/11/04/1013711-aprovacao-de-protocolo-pelo-senado-permitira-ao-brasil-sediar-exposicoes-mundiais'},{l:'TV Senado: Senado vota acordos internacionais (15/10)',u:'https://www12.senado.leg.br/tv/plenario-e-comissoes/plenario/2026/10/senado-vota-acordos-internacionais-de-defesa-e-educacao'}] },
 
   /* ---------------- Presidência ---------------- */
   'mpv-1395-2026':{ house:'exec', type:'Medida Provisória', code:'MP 1395/2026',
@@ -2007,13 +2009,13 @@ const PROJECTS = {
   'adpf-1212':{ house:'stf', type:'Arguição de Descumprimento de Preceito Fundamental', code:'ADPF 1212',
     title:'Loterias municipais',
     summary:'O Solidariedade pede que o STF diga se os municípios podem criar e explorar loterias e apostas próprias.',
-    points:['Em dezembro de 2025, o relator, ministro Nunes Marques, suspendeu em todo o país as leis e decretos municipais que criavam loterias, até o julgamento final.','A análise da liminar começou no Plenário Virtual. Um destaque do ministro Flávio Dino levou o caso ao plenário presencial.','União, Ministério Público Federal, Caixa e seis estados defendem a suspensão. Associações de loterias municipais e a Frente Nacional de Prefeitas e Prefeitos defendem a autonomia dos municípios.','O julgamento está marcado para 4/11, um dia depois da audiência pública sobre a MP que proíbe as bets.'],
+    points:['Em 4/11, o STF ouviu as partes e suspendeu o julgamento sem data. Por proposta de Flávio Dino, a ADPF será julgada junto com as ações sobre a Lei das Apostas (Lei 14.790/2023) e a MP 1.394/2026, relatadas por Luiz Fux, e com o RE 966177, sobre a proibição dos jogos de azar. Fux disse que precisa de tempo para preparar o voto. A liminar de dezembro de 2025 segue valendo.','Em dezembro de 2025, o relator, ministro Nunes Marques, suspendeu em todo o país as leis e decretos municipais que criavam loterias, até o julgamento final.','A análise da liminar começou no Plenário Virtual. Um destaque do ministro Flávio Dino levou o caso ao plenário presencial.','União, Ministério Público Federal, Caixa e seis estados defendem a suspensão. Associações de loterias municipais e a Frente Nacional de Prefeitas e Prefeitos defendem a autonomia dos municípios.','O julgamento está marcado para 4/11, um dia depois da audiência pública sobre a MP que proíbe as bets.'],
     author:'Solidariedade', rapporteur:'Nunes Marques',
-    status:'Na pauta do plenário de 4/11/2026',
-    steps:[['2025-03-14','Ação apresentada ao STF pelo Solidariedade (divulgada pelo STF Notícias nesta data)'],['2026-10-30','STF marca o julgamento para 4/11']],
+    status:'Julgamento suspenso em 4/11/2026, sem data para voltar; será julgado junto com as ações sobre bets e jogos de azar',
+    steps:[['2025-03-14','Ação apresentada ao STF pelo Solidariedade (divulgada pelo STF Notícias nesta data)'],['2026-10-30','STF marca o julgamento para 4/11'],['2026-11-04','STF ouve as partes e suspende o julgamento; ADPF será julgada junto com as ações sobre a Lei das Apostas, a MP 1.394/2026 e o RE 966177 (jogos de azar), sem data']],
     votes:null,
     links:[{l:'ADPF 1212 no portal do STF',u:'https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADPF&numeroProcesso=1212'},{l:'STF: partido entra com ação contra lotéricas municipais',u:'https://noticias.stf.jus.br/postsnoticias/partido-entra-com-acao-no-stf-contra-lotericas-municipais/'}],
-    sources:[{l:'Yogonet: STF marca julgamento sobre loterias municipais para 4/11 (30/10)',u:'https://www.yogonet.com/brasil/noticias/2026/10/30/10730-stf-marca-julgamento-sobre-loterias-municipais-para-4-de-novembro'},{l:'Focus Gaming News: loterias municipais, STF marca julgamento (30/10)',u:'https://focusgn.com/brasil/loterias-municipais-stf-adpf'},{l:'STF: partido entra com ação contra lotéricas municipais',u:'https://noticias.stf.jus.br/postsnoticias/partido-entra-com-acao-no-stf-contra-lotericas-municipais/'}] },
+    sources:[{l:'Focus Gaming News: STF suspende o julgamento (5/11)',u:'https://focusgn.com/brasil/stf-loterias-municipais-adpf-1212-2'},{l:'Yogonet: julgamento conjunto de bets, loterias e jogos de azar (5/11)',u:'https://www.yogonet.com/brasil/noticias/2026/11/05/10779-stf-vai-julgar-em-conjunto-acoes-sobre-bets-loterias-municipais-e-jogos-de-azar'},{l:'Yogonet: STF marca julgamento sobre loterias municipais para 4/11 (30/10)',u:'https://www.yogonet.com/brasil/noticias/2026/10/30/10730-stf-marca-julgamento-sobre-loterias-municipais-para-4-de-novembro'},{l:'Focus Gaming News: loterias municipais, STF marca julgamento (30/10)',u:'https://focusgn.com/brasil/loterias-municipais-stf-adpf'},{l:'STF: partido entra com ação contra lotéricas municipais',u:'https://noticias.stf.jus.br/postsnoticias/partido-entra-com-acao-no-stf-contra-lotericas-municipais/'}] },
 
   're-1506410':{ house:'stf', type:'Recurso Extraordinário', code:'RE 1506410',
     title:'Caso Buser: fretamento de ônibus por aplicativo',
@@ -2151,6 +2153,8 @@ const EXEC_MIN = [
   ['Controladoria-Geral da União','Vinícius Marques de Carvalho','NC']
 ].map(([pasta,n,p,since,prev])=>({pasta,n,p,since,prev,role:'Ministro(a)'}));
 const EXEC_SOURCES = [
+  {l:'A Crítica: agenda de Lula em 5/11',u:'https://acritica.net/politica/lula-agenda-quinta-5-minerais-estrategicos-live-janones/'},
+  {l:'Plantão Brasil (ICL Notícias): conversas com economistas e pronunciamento de 8/11',u:'https://www.plantaobrasil.net/noticias/161936-lula-inicia-rodada-de-dialogos-com-economistas-para-definir-rumos-da-politica-fiscal'},
   {l:'Bahia Notícias: a agenda dos três poderes na semana (2/11)',u:'https://www.bahianoticias.com.br/noticia/323261-semana-tem-pronunciamento-de-lula-pec-da-seguranca-publica-bets-no-stf-e-decisao-sobre-juros'},
   {l:'Istoé: os 17 ministros que deixaram o governo e seus sucessores',u:'https://istoe.com.br/ministros-lula-exonerados-eleicoes-2026'},
   {l:'Congresso em Foco: perfis dos novos ministros',u:'https://www.congressoemfoco.com.br/noticia/117742/lula-define-14-novos-ministros-veja-o-perfil-de-cada-um'},
@@ -2180,6 +2184,10 @@ const STF_MIN = [
   {n:null, role:'Cadeira vaga', vacant:true, note:'Vaga desde a aposentadoria de Luís Roberto Barroso, em outubro de 2025. O Senado rejeitou a indicação de Jorge Messias em 29 de abril de 2026, por 42 votos a 34. Ainda não há novo nome.'}
 ];
 const STF_SOURCES = [
+  {l:'Focus Gaming News: loterias municipais, STF suspende o julgamento (5/11)',u:'https://focusgn.com/brasil/stf-loterias-municipais-adpf-1212-2'},
+  {l:'Yogonet: STF vai julgar em conjunto bets, loterias municipais e jogos de azar (5/11)',u:'https://www.yogonet.com/brasil/noticias/2026/11/05/10779-stf-vai-julgar-em-conjunto-acoes-sobre-bets-loterias-municipais-e-jogos-de-azar'},
+  {l:'Migalhas: STF tem cinco votos pela validade do crime de ato obsceno (4/11)',u:'https://www.migalhas.com.br/quentes/467878/stf-tem-cinco-votos-pela-constitucionalidade-do-crime-de-ato-obsceno'},
+  {l:'Brasil em Folhas: pauta do STF de 4/11',u:'https://brasilemfolhas.com.br/2026/11/stf-decide-se-municipios-podem-criar-loterias-e-apostas-esportivas/'},
   {l:'Bahia Notícias: a agenda dos três poderes na semana (2/11)',u:'https://www.bahianoticias.com.br/noticia/323261-semana-tem-pronunciamento-de-lula-pec-da-seguranca-publica-bets-no-stf-e-decisao-sobre-juros'},
   {l:'Avelar Advogados: pauta do STF da semana (2/11)',u:'https://www.avelaradv.com.br/post/stf-pauta-da-semana-02-11-2026'},
   {l:'STF: andamento do RE 1093553 (Tema 989)',u:'https://portal.stf.jus.br/jurisprudenciaRepercussao/verAndamentoProcesso.asp?incidente=5311709&numeroProcesso=1093553&classeProcesso=RE&numeroTema=989'},
@@ -2217,11 +2225,19 @@ const AGENDA = {
       {ref:'pl-5649-2026', r:'Aprovado em votação simbólica, vai à sanção'},
       {ref:'mpv-1375-2026', r:'Aprovada, vai à sanção'}]},
     {date:'2026-11-03', time:'16h', kind:'Sessão deliberativa', items:[
-      {ref:'pec-18-2025', t:'Em 30/10, o presidente do Senado incluiu a PEC na pauta da sessão de terça-feira (3/11), às 16h. Até 30/10 havia cinco emendas de Plenário, duas delas para reduzir a maioridade penal (Camilo Santana e Rogério Marinho). Se o texto mudar nesse ponto, volta à Câmara.', r:'Na pauta de 3/11'},
-      {ref:'pds-240-2011', r:'Na pauta de 3/11'},
-      {id:'PDL 575/2026', short:'Acordo espacial entre Brasil e Venezuela', t:'Aprova acordo de cooperação em ciência e tecnologia espaciais entre Brasil e Venezuela.', r:'Na pauta de 3/11'},
-      {id:'PL 5.782/2023', short:'Campanha Setembro em Flor', t:'Cria a campanha Setembro em Flor, sobre tumores ginecológicos.', r:'Na pauta de 3/11'},
-      {id:'PL 186/2025', short:'Parentalidade positiva', t:'Prevê cursos, campanhas e palestras sobre parentalidade positiva.', r:'Na pauta de 3/11'}]}
+      {ref:'pec-18-2025', t:'Aprovada em dois turnos, por 73 a 0 e 75 a 0, sem a redução da maioridade penal. Por 38 a 36, os senadores separaram as emendas sobre maioridade, que seguem como propostas próprias.', r:'Aprovada em dois turnos; vai à promulgação'},
+      {ref:'pds-240-2011', r:'Aprovado em votação simbólica; vai à promulgação'},
+      {id:'PDL 575/2026', short:'Acordo espacial entre Brasil e Venezuela', t:'Aprova acordo de cooperação em ciência e tecnologia espaciais entre Brasil e Venezuela, com missões técnicas, pesquisa conjunta e troca de imagens de satélite. Relator: Hamilton Mourão.', r:'Aprovado em votação simbólica; vai à promulgação'},
+      {id:'PL 5.782/2023', short:'Campanha Setembro em Flor', t:'Cria a campanha Setembro em Flor, sobre tumores ginecológicos. Autoria da dep. Renilce Nicodemos (MDB-PA); relatora na CDH, sen. Ivete da Silveira (MDB-SC).', r:'Aprovado; segue à sanção'},
+      {id:'PL 186/2025', short:'Parentalidade positiva', t:'Prevê cursos, campanhas e palestras sobre parentalidade positiva. Autoria da dep. Laura Carneiro (PSD-RJ); relatora, sen. Damares Alves (Republicanos-DF).', r:'Aprovado; segue à sanção'}]},
+    {date:'2026-11-04', kind:'Sessão deliberativa', items:[
+      {id:'PL 2.234/2024', short:'ECA adaptado à educação básica dos 4 aos 17 anos', t:'Atualiza o Estatuto da Criança e do Adolescente para seguir a regra da educação básica obrigatória e gratuita dos 4 aos 17 anos. Autoria da dep. Laura Carneiro (PSD-RJ); relatores nas comissões, sen. Flávio Arns (PSB-PR) e sen. Damares Alves (Republicanos-DF).', r:'Aprovado; segue à sanção'},
+      {id:'PDL 618/2026', short:'Protocolo de Ushuaia II, defesa da democracia no Mercosul', t:'Aprova o protocolo de 2011 que amplia os mecanismos do Mercosul para prevenir rupturas da ordem democrática. Relator: sen. Nelsinho Trad (PSD-MS). Só entra em vigor depois de ratificado por quatro países do bloco.', r:'Aprovado; vai à promulgação'},
+      {ref:'pdl-359-2024', r:'Aprovado; vai à promulgação'},
+      {id:'PL 6.461/2019', short:'Estatuto do Aprendiz', t:'Na pauta de 4/11: cria o Estatuto do Aprendiz, com cota de 5% a 15% de aprendizes em médias e grandes empresas. Projeto da Câmara; relator no Senado, sen. Veneziano Vital do Rêgo (MDB-PB).', r:'Retirado de pauta; votação adiada'},
+      {id:'PECs 19 e 20/2026', short:'Redução da maioridade penal', t:'Davi Alcolumbre tirou o tema da pauta a pedido de Hugo Motta e vai esperar a Câmara votar. A PEC 19/2026 (Rogério Marinho, PL-RN) fixa 16 anos como regra e 14 para crimes hediondos, tortura, tráfico, terrorismo e organização criminosa; a PEC 20/2026 (Camilo Santana, PT-CE) fixa 16 anos só para crimes hediondos. Na Câmara, a comissão especial deve votar o parecer entre o fim de novembro e o início de dezembro.', r:'Retirado de pauta; aguarda a Câmara'}]},
+    {date:'2026-11-05', kind:'Sessão especial', items:[
+      {id:'Frente Parlamentar pela Paz Mundial', short:'Sessão especial pela criação da Frente Parlamentar pela Paz Mundial', t:'Sessão de homenagem pela criação da Frente Parlamentar pela Paz Mundial, marcada pelo requerimento RQS 559/2026. Não há votações.', r:'Sessão especial'}]}
   ]},
   exec:{ title:'Presidência da República', days:[
     {date:'2026-04-03', kind:'Reforma ministerial', items:[
@@ -2250,8 +2266,12 @@ const AGENDA = {
       {id:'Palácio da Alvorada', short:'Dia no Alvorada, com reuniões com Mauro Vieira e Miriam Belchior', t:'Reuniões com o chanceler Mauro Vieira, às 9h30, e com a ministra da Casa Civil, Miriam Belchior, às 10h30. Às 15h, despacho com o chefe do Gabinete Pessoal. Na mesa, dois textos aprovados ontem aguardam sanção.'}]},
     {date:'2026-11-02', kind:'Agenda do presidente', items:[
       {id:'Finados', short:'Feriado, sem compromissos na agenda', t:'Feriado de Finados. A agenda do presidente não tinha compromissos marcados. Para a semana, estão previstos um pronunciamento à nação, ainda sem data, e conversas com líderes do governo sobre a PEC da Segurança Pública.'}]},
+    {date:'2026-11-05', kind:'Agenda do presidente', items:[
+      {id:'Palácio do Planalto', short:'Conselho de minerais críticos, conversa com economistas e live', t:'Às 9h, reunião com Sidônio Palmeira (Secom). No dia, começa uma rodada de conversas com economistas sobre a política fiscal, com Geraldo Alckmin, Fernando Haddad, Aloizio Mercadante, Bruno Moretti, Esther Dweck, Luciano Coutinho e Guido Mantega. Às 15h30, primeira reunião do Conselho Nacional para Industrialização de Minerais Críticos e Estratégicos. Às 17h, despachos com Miriam Belchior (Casa Civil) e Wellington César Lima e Silva (Justiça). Às 19h, live no canal oficial do presidente com o dep. André Janones.'}]},
     {date:'2026-11-06', kind:'Prazo de sanção', items:[
       {ref:'mpv-1370-2026', t:'Último dia para sancionar ou vetar a lei do Enamed.', r:'Prazo'}]},
+    {date:'2026-11-08', kind:'Pronunciamento', items:[
+      {id:'Pronunciamento à nação', short:'Pronunciamento previsto sobre estabilidade e responsabilidade fiscal', t:'Previsto para domingo, segundo a imprensa: pronunciamento oficial do presidente sobre estabilidade e responsabilidade fiscal. Horário não informado.', r:'Previsto'}]},
     {date:'2027-01-05', kind:'Posse', items:[
       {id:'Novo mandato', t:'Lula e Alckmin tomam posse. É a primeira posse presidencial em 5 de janeiro, data criada pela Emenda Constitucional 111.', r:'Início do mandato 2027–2030'}]}
   ]},
@@ -2288,11 +2308,11 @@ const AGENDA = {
     {date:'2026-10-30', kind:'Sessão virtual', items:[
       {id:'Plenário Virtual', short:'Oito ações em julgamento até 10/11', t:'Começa às 11h a sessão virtual que vai até 10/11, às 23h59 (por causa do feriado, o prazo conta a partir de 3/11). Entre os temas: nacionalidade de crianças estrangeiras adotadas por brasileiros no exterior (RE 1163774), regras para cotas raciais em concursos na Paraíba (ADI 7880), cursos de saúde pagos criados por prefeituras fora do município (ADPF 1247) e a lei do Rio que proíbe registrar dados pessoais de investigados e testemunhas em inquéritos (ADI 4188).', r:'Em julgamento até 10/11'}]},
     {date:'2026-11-03', kind:'Audiência pública', time:'10h', items:[
-      {id:'Proibição das bets', short:'Audiência pública sobre a MP que proíbe as apostas de quota fixa', t:'O ministro Luiz Fux ouve 28 entidades, entre clubes de futebol, CBF, COB, órgãos públicos e empresas do setor, sobre a MP 1.394/2026, que proíbe as apostas de quota fixa. A audiência faz parte da ADI 8027 e de outras ações sobre o tema.', r:'Marcada'}]},
+      {id:'Proibição das bets', short:'Audiência pública sobre a MP que proíbe as apostas de quota fixa', t:'O ministro Luiz Fux ouve 28 entidades, entre clubes de futebol, CBF, COB, órgãos públicos e empresas do setor, sobre a MP 1.394/2026, que proíbe as apostas de quota fixa. A audiência faz parte da ADI 8027 e de outras ações sobre o tema.', r:'Realizada'}]},
     {date:'2026-11-04', kind:'Sessão plenária', items:[
-      {ref:'adpf-1212', r:'Na pauta de 4/11'},
-      {id:'RE 1093553', short:'Crime de ato obsceno', t:'O Plenário discute se o crime de ato obsceno em local público (art. 233 do Código Penal) é válido, já que a lei não define o que é "ato obsceno". Relator: Luiz Fux. Tem repercussão geral (Tema 989).', r:'Na pauta de 4/11'},
-      {id:'AP 618', short:'Recurso do ex-deputado Washington Reis', t:'Recurso (embargos infringentes) do ex-deputado Washington Reis contra a condenação por dano a unidade de conservação e parcelamento irregular do solo. Relator: Flávio Dino. Há 4 votos contra o recurso e 1 a favor; o julgamento volta com o voto-vista de Luiz Fux.', r:'Na pauta de 4/11'}]}
+      {ref:'adpf-1212', r:'Sustentações orais; julgamento suspenso, sem data'},
+      {id:'RE 1093553', short:'Crime de ato obsceno', t:'O Plenário discute se o crime de ato obsceno em local público (art. 233 do Código Penal) é válido, já que a lei não define o que é "ato obsceno". Relator: Luiz Fux. Tem repercussão geral (Tema 989). Votaram pela validade Fux, Flávio Dino, Cristiano Zanin, André Mendonça e Nunes Marques; a tese ainda está em discussão.', r:'5 votos pela validade; julgamento suspenso, sem data para voltar'},
+      {id:'AP 618', short:'Recurso do ex-deputado Washington Reis', t:'Recurso (embargos infringentes) do ex-deputado Washington Reis contra a condenação por dano a unidade de conservação e parcelamento irregular do solo. Relator: Flávio Dino. Há 4 votos contra o recurso e 1 a favor; o julgamento volta com o voto-vista de Luiz Fux.', r:'Resultado não localizado nas fontes consultadas'}]}
   ]},
   camara:{ title:'Congresso Brasileiro', days:[
     {date:'2026-10-13', kind:'Sessão deliberativa', items:[
@@ -2310,8 +2330,25 @@ const AGENDA = {
       {ref:'pl-5542-2026', t:'Pedido de urgência para a tornozeleira como medida protetiva da Lei Maria da Penha.', r:'Urgência aprovada por unanimidade'},
       {ref:'pl-5902-2023', r:'Não votado; Ordem do Dia encerrada'},
       {ref:'pl-4553-2025', r:'Não votado; Ordem do Dia encerrada'}]},
-    {date:'2026-11-03', label:'Semana de 3 nov', kind:'Sessões deliberativas', items:[
-      {id:'Pauta da semana', t:'O presidente da Câmara, Hugo Motta, deve reunir os líderes partidários na terça-feira (3) para definir a pauta. Até 2/11, não havia sessão deliberativa do Plenário marcada para a semana.', r:'A definir'}]}
+    {date:'2026-11-03', time:'13h55', kind:'Sessão deliberativa', items:[
+      {id:'PL 4674/2024', short:'Ultrassonografias morfológicas no pré-natal do SUS', t:'Inclui pelo menos dois exames de ultrassonografia morfológica no atendimento às gestantes no SUS e permite campanhas sobre a importância deles. Autor: dep. Beto Preto (PSD-PR); aprovado o substitutivo da relatora, dep. Laura Carneiro (PSD-RJ).', r:'Aprovado, segue ao Senado'},
+      {ref:'pl-5542-2026', t:'Na pauta de 3/11: garantias mínimas para a tornozeleira como medida protetiva, com alertas sonoros e luminosos.', r:'Voltou à pauta em 4/11 e 5/11'},
+      {id:'PL 2475/2025', short:'Maus-tratos a animais com morte como crime hediondo', t:'Torna hediondo o crime de maus-tratos a animais quando a conduta causa a morte do animal.', r:'Voltou à pauta em 4/11 e 5/11'},
+      {id:'PL 1932/2021', short:'Sistema integrado para estoques de remédios', t:'Projeto do Senado: o abastecimento de medicamentos em estados e municípios passa a ser controlado por sistema integrado, com consumo e estoques acompanhados em tempo real.', r:'Resultado ainda não divulgado'},
+      {id:'PL 2879/2011', short:'Sinalização de travessias de pedestres', t:'Regras para a sinalização vertical das travessias de pedestres. Autor: dep. Luis Tibé (Avante-MG).', r:'Voltou à pauta em 5/11'}]},
+    {date:'2026-11-04', kind:'Sessão deliberativa', items:[
+      {ref:'pl-5902-2023', r:'Aprovado em votação simbólica, por unanimidade; segue ao Senado'},
+      {id:'PL 3.220/2019', short:'Postes compartilhados entre energia e telecomunicações', t:'A Aneel poderá mandar transferir a terceiros, por chamada pública, a exploração comercial dos postes quando a distribuidora de energia gerir mal o espaço ou tiver no mesmo grupo uma empresa de telecomunicações. Aneel e Anatel terão até 30 meses para definir juntas o preço máximo. Relator: dep. Juscelino Filho (União-MA). Emenda que tornava a transferência opcional foi rejeitada.', r:'Aprovado; volta ao Senado'}]},
+    {date:'2026-11-05', time:'10h', kind:'Sessão deliberativa', items:[
+      {ref:'pl-5542-2026', t:'Na pauta de 5/11: alertas sonoros e luminosos e contenção remota do agressor com medida protetiva.', r:'Na pauta'},
+      {id:'PL 2475/2025', short:'Maus-tratos a animais com morte como crime hediondo', t:'Torna hediondo o crime de maus-tratos a animais quando a conduta causa a morte do animal.', r:'Na pauta'},
+      {id:'PL 2374/2023', short:'Merenda paga direto às escolas comunitárias', t:'Repasse direto dos recursos da alimentação escolar às escolas comunitárias.', r:'Na pauta'},
+      {id:'PL 79/2020', short:'Destino das contribuições do Sest/Senat', t:'Muda o destino das contribuições sociais do Sest e do Senat, no setor de transportes.', r:'Na pauta'},
+      {id:'PL 565/2020', short:'Educação em saúde no SUS, com foco na família', t:'As equipes de Saúde da Família, na atenção básica do SUS, passam a ter de fazer ações de educação em saúde voltadas à família. Muda a Lei Orgânica da Saúde. Autoria da antiga Comissão de Seguridade Social e Família.', r:'Aprovado, segue ao Senado'},
+      {id:'PL 5974/2023', short:'Obras em Linguagem Simples para pessoas com deficiência', t:'Permite reproduzir obras adaptadas em Linguagem Simples para pessoas com deficiência, sobretudo intelectual, sem fins comerciais e sem ferir a Lei de Direitos Autorais. Autoria da Comissão de Legislação Participativa.', r:'Aprovado, segue ao Senado'},
+      {id:'PL 3507/2026', short:'Artesanato do Maranhão como cultura nacional', t:'Reconhece o artesanato tradicional do Maranhão como manifestação da cultura nacional e autoriza o governo a apoiar e preservar a atividade. Autor: dep. Pedro Lucas Fernandes (União-MA); relator: dep. Hildo Rocha (MDB-MA).', r:'Aprovado, segue ao Senado'},
+      {id:'PL 2994/2020', short:'Turismo colaborativo', t:'Regras para o turismo colaborativo (emendas do Senado).', r:'Na pauta'},
+      {id:'PL 2726/2022', short:'Política de economia solidária', t:'Cria política de economia solidária.', r:'Na pauta'}]}
   ]}
 };
 const WD=['dom','seg','ter','qua','qui','sex','sáb'], MO=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
@@ -2345,20 +2382,23 @@ function loadLive(){
   // what is open right now in the Câmara and the Senado, plenary and committees (robot every 10 minutes, scripts/posts/stories.js)
   fetch('data/aovivo.json', {cache:'no-store'}).then(r=> r.ok ? r.json() : null).then(js=>{ if (js){ AOVIVO = js; refreshLive(); } }).catch(()=>{});
 }
-// the list of data/aovivo.json while it is fresh (the robot rewrites it at least every hour during the day)
-function aoVivo(){ return AOVIVO && Array.isArray(AOVIVO.itens) && Date.now() - Date.parse(AOVIVO.atualizado) < 75*60e3 ? AOVIVO.itens : null; }
+// the list of data/aovivo.json while it is fresh (the robot checks every 5 minutes during the day and rewrites it when
+// something starts or ends, or at least every 25 minutes). While fresh it decides what is on air: a broadcast that
+// left the list has ended, even if the agenda or the hourly live.json still say otherwise.
+function aoVivo(){ return AOVIVO && Array.isArray(AOVIVO.itens) && Date.now() - Date.parse(AOVIVO.atualizado) < 40*60e3 ? AOVIVO.itens : null; }
 const FRAMED = (()=>{ try{ return window.self !== window.top; }catch(e){ return true; } })();
 function minutesOf(isoStr){ const m = /T(\d{2}):(\d{2})/.exec(isoStr||''); return m ? (+m[1])*60 + (+m[2]) : null; }
 // sessions reported by the official APIs; null when there is no fresh data for this house
 function apiState(key){
   const av = (key==='camara' || key==='senado') && aoVivo(), pl = av && av.find(x=> x.casa===key && x.plenario);
   if (pl) return {s:'live', day:{kind: pl.tipo || 'Sessão'}, st: hm(pl.desde) ?? nowBR(), video: pl.video};
+  const ended = !!av;                                  // fresh list without this house's plenary: not on air now
   const list = LIVE_DATA && LIVE_DATA[key];
   if (!Array.isArray(list) || !LIVE_DATA.atualizado) return null;
   if (Date.now() - new Date(LIVE_DATA.atualizado).getTime() > 3*3600e3) return null;
   const t = todayISO(), now = nowBR();
   const today = list.filter(x=> (x.inicio||'').slice(0,10)===t && !/cancel|adiad|não realizada/i.test(x.situacao||''));
-  const on = today.find(x=> x.aoVivo || (!/encerr/i.test(x.situacao||'') && minutesOf(x.inicio)!=null && minutesOf(x.inicio) <= now && (minutesOf(x.fim)==null || minutesOf(x.fim) > now)));
+  const on = !ended && today.find(x=> x.aoVivo || (!/encerr/i.test(x.situacao||'') && minutesOf(x.inicio)!=null && minutesOf(x.inicio) <= now && (minutesOf(x.fim)==null || minutesOf(x.fim) > now)));
   if (on) return {s:'live', day:{kind: on.tipo || 'Sessão'}, st: minutesOf(on.inicio) ?? now, video: on.video};
   const next = today.filter(x=> minutesOf(x.inicio) > now).sort((a,b)=> a.inicio.localeCompare(b.inicio))[0];
   if (next) return {s:'soon', day:{kind: next.tipo || 'Sessão'}, st: minutesOf(next.inicio)};
@@ -2373,12 +2413,16 @@ function liveState(key){
   if (api) return api.s ? api : null;
   const L = LIVE[key], t = todayISO();
   const day = (AGENDA[key]?.days||[]).find(d=> d.date===t && !d.label && (d.live || (key!=='exec' && LIVE_RE.test(d.kind||''))));
-  if (!day) return null;
+  // a transmissão que o robô achou no canal oficial (como um ato do presidente fora da AGENDA) também entra
+  if (!day){
+    const av = (aoVivo() || []).find(x=> x.casa===key && x.plenario && x.video), st = av && hm(av.desde);
+    return av && st != null ? {s:'live', day:{kind:av.tipo, items:[]}, st, video: av.video} : null;
+  }
   const st = hm(day.time || L.start); if (st==null) return null;
   const en = day.end ? hm(day.end) : st + L.hours*60, now = nowBR();
   // the robot finds the video of the STF and Presidência broadcasts in the official channels (data/aovivo.json)
-  const av = (aoVivo() || []).find(x=> x.casa===key && x.plenario);
-  if (now >= st && now < en) return {s:'live', day, st, video: av && av.video};
+  const list = aoVivo(), av = (list || []).find(x=> x.casa===key && x.plenario);
+  if (now >= st && now < en && (av || !list)) return {s:'live', day, st, video: av && av.video};
   if (now < st) return {s:'soon', day, st};
   return null;
 }
@@ -2391,7 +2435,9 @@ function liveSection(on){
   const cards = on.map(([k,n], i)=>{
     const st = liveState(k), L = LIVE[k];
     const h = `${Math.floor(st.st/60)}h${st.st%60 ? String(st.st%60).padStart(2,'0') : ''}`;
-    const src = !FRAMED ? (ytEmbed(st.video) || (L.channel ? `https://www.youtube.com/embed/live_stream?channel=${L.channel}` : null)) : null;
+    // only a known video plays here; the channel's generic "live_stream" player showed YouTube's error screen when the
+    // channel had no live (or several at once), so without the video the card shows the button to the official channel
+    const src = !FRAMED ? ytEmbed(st.video) : null;
     const go = L.links[0];
     const video = src
       ? `<div class="lv-video"><iframe src="${src}${src.includes('?') ? '&' : '?'}mute=1__AUTO__" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
@@ -2444,7 +2490,7 @@ function liveBox(key){
   const st = liveState(key), L = LIVE[key];
   if (!st) return `<div class="live-slot" data-k="${key}" hidden></div>`;
   // on the published site (not inside another page) the session plays right here
-  const src = st.s==='live' && !FRAMED ? (ytEmbed(st.video) || (L.channel ? `https://www.youtube.com/embed/live_stream?channel=${L.channel}&autoplay=1&mute=1` : null)) : null;
+  const src = st.s==='live' && !FRAMED ? ytEmbed(st.video) : null;
   const player = src ? `<div class="lv-video"><iframe src="${src}" title="Transmissão ao vivo: ${esc(L.name)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>` : '';
   const h = `${Math.floor(st.st/60)}h${st.st%60 ? String(st.st%60).padStart(2,'0') : ''}`;
   const links = L.links.map((x,i)=>`<a class="${i?'lv-alt':'lv-go'}" href="${x.u}" target="_blank" rel="noopener">${esc(x.l)}${i?'':' ↗'}</a>`).join('');
@@ -2514,8 +2560,8 @@ function infoBox(items, label, note){
   return `<details class="info"><summary aria-label="${esc(label)}" title="${esc(label)}">i</summary><div class="info-pop" role="note"><p class="info-h">${esc(label)}</p>${note?`<p class="info-note">${esc(note)}</p>`:''}<ol>${items.map(l=>`<li><a href="${l.u}" target="_blank" rel="noopener">${esc(l.l)}</a></li>`).join('')}</ol></div></details>`;
 }
 const PANEL_SOURCES = {
-  camara:[{l:'Bahia Notícias: a agenda dos três poderes na semana (2/11)',u:'https://www.bahianoticias.com.br/noticia/323261-semana-tem-pronunciamento-de-lula-pec-da-seguranca-publica-bets-no-stf-e-decisao-sobre-juros'},{l:'Agência Câmara: pauta do Plenário de 28/10',u:'https://www.camara.leg.br/noticias/1314437-camara-pode-votar-hoje-projetos-sobre-protecao-as-mulheres-seguranca-em-presidios-e-clima'},{l:'Câmara: sessão do Plenário de 28/10',u:'https://www.camara.leg.br/evento-legislativo/83108'},{l:'Agência Câmara: urgência para oito projetos (13/10)',u:'https://www.camara.leg.br/noticias/1310978-camara-aprova-regime-de-urgencia-para-oito-projetos-de-lei-acompanhe'},{l:'Câmara dos Deputados: deputados em exercício (dados abertos, atualizado todo dia)',u:'https://dadosabertos.camara.leg.br/api/v2/deputados'}],
-  senado:[{l:'Senado Federal: senadores em exercício (dados abertos, atualizado todo dia)',u:'https://legis.senado.leg.br/dadosabertos/senador/lista/atual'},{l:'Senado Agora',u:'https://www12.senado.leg.br/noticias/senado-agora'},{l:'Agência Brasil: PEC da Segurança retirada de pauta',u:'https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-retira-pec-da-seguranca-publica-da-pauta-do-senado'},{l:'O Brasilianista: pauta após o segundo turno',u:'https://obrasilianista.com.br/2026/10/27/politica/alcolumbre-pode-acelerar-pauta-travada-do-segundo-turno'},{l:'SBT News: PEC da Segurança na semana que vem',u:'https://sbtnews.sbt.com.br/noticia/politica/governo-quer-tratar-da-pec-da-seguranca-o-quanto-antes'},{l:'CNN Brasil: Alcolumbre pauta a PEC para terça (3/11)',u:'https://www.cnnbrasil.com.br/politica/alcolumbre-pauta-pec-da-seguranca-para-sessao-de-terca-feira-3-no-senado/'},{l:'Hub Político: senadores eleitos em 2026',u:'https://hubpolitico.com.br/eleicoes/2026/apuracao/senado'},{l:'Senado Federal: senadores em exercício',u:'https://www25.senado.leg.br/en_US/web/senadores'}]
+  camara:[{l:'Agência Câmara: educação em saúde no SUS aprovada (5/11)',u:'https://www.camara.leg.br/noticias/1316367-camara-aprova-acoes-de-educacao-em-saude-no-sus-com-foco-na-familia'},{l:'Agência Câmara: artesanato do Maranhão aprovado (5/11)',u:'https://www.camara.leg.br/noticias/1316407-camara-aprova-projeto-que-reconhece-artesanato-do-maranhao-como-cultura-nacional'},{l:'Agência Câmara: obras em Linguagem Simples aprovadas (5/11)',u:'https://www.panoramainconfidentes.com.br/noticia/deputados-aprovam-projeto-que-permite-adaptar-obras-em-linguagem-simples-para-pessoas-com-deficiencia'},{l:'Diário Goianiense (Agência Câmara): pauta do Plenário de 5/11',u:'https://www.diariogoianiense.com.br/noticia/camara-dos-deputados-vota-novas-medidas-de-seguranca-e-protecao-animal-nesta-quinta'},{l:'CNN Brasil: Câmara proíbe uso de drones em presídios (4/11)',u:'https://www.cnnbrasil.com.br/politica/camara-proibe-uso-de-drones-em-presidios-sob-pena-de-ate-5-anos-de-prisao/'},{l:'Diário do Grande ABC (Estadão Conteúdo): Câmara aprova partilha de postes (4/11)',u:'https://www.dgabc.com.br/Noticia/4366890/camara-aprova-texto-para-partilha-de-postes-entre-empresas-de-energia-e-telecomunicacoes'},{l:'Agência Câmara: pauta do Plenário de 3/11',u:'https://www.camara.leg.br/noticias/1315214-camara-analisa-projetos-sobre-sobre-protecao-as-mulheres-saude-e-maus-tratos-a-animais'},{l:'Agência Câmara: aprovadas ultrassonografias morfológicas no pré-natal (3/11)',u:'https://www.camara.leg.br/noticias/1315411-camara-aprova-inclusao-de-ultrassonografias-morfologicas-no-pre-natal-do-sus'},{l:'Bahia Notícias: a agenda dos três poderes na semana (2/11)',u:'https://www.bahianoticias.com.br/noticia/323261-semana-tem-pronunciamento-de-lula-pec-da-seguranca-publica-bets-no-stf-e-decisao-sobre-juros'},{l:'Agência Câmara: pauta do Plenário de 28/10',u:'https://www.camara.leg.br/noticias/1314437-camara-pode-votar-hoje-projetos-sobre-protecao-as-mulheres-seguranca-em-presidios-e-clima'},{l:'Câmara: sessão do Plenário de 28/10',u:'https://www.camara.leg.br/evento-legislativo/83108'},{l:'Agência Câmara: urgência para oito projetos (13/10)',u:'https://www.camara.leg.br/noticias/1310978-camara-aprova-regime-de-urgencia-para-oito-projetos-de-lei-acompanhe'},{l:'Câmara dos Deputados: deputados em exercício (dados abertos, atualizado todo dia)',u:'https://dadosabertos.camara.leg.br/api/v2/deputados'}],
+  senado:[{l:'Portal da Capital: Estatuto do Aprendiz retirado de pauta (5/11)',u:'https://www.portaldacapital.com/2026/11/05/analise-do-estatuto-do-aprendiz-e-retirada-da-pauta-do-senado-e-tem-votacao-adiada/'},{l:'Rádio Senado: sessão especial pela Frente Parlamentar pela Paz Mundial em 5/11',u:'https://www12.senado.leg.br/radio/1/noticia/2026/08/14/frente-parlamentar-pela-paz-mundial-ganha-sessao-especial-para-5-de-novembro-1'},{l:'Senado: RQS 559/2026',u:'https://www25.senado.leg.br/web/atividade/materias/-/materia/175333'},{l:'Piranot: Alcolumbre tira a maioridade penal da pauta (5/11)',u:'https://www.piranot.com.br/2026/11/05/noticias/politica/senado-adia-reducao-maioridade-penal/'},{l:'Agência Senado: atualização do ECA aprovada (4/11)',u:'https://www12.senado.leg.br/noticias/materias/2026/11/04/senado-aprova-atualizacao-do-estatuto-da-crianca-e-do-adolescente'},{l:'Agência Senado: protocolo de Ushuaia II aprovado (4/11)',u:'https://www12.senado.leg.br/noticias/materias/2026/11/04/senado-aprova-protocolo-que-amplia-defesa-da-democracia-no-mercosul'},{l:'TV Senado: pauta de 4/11, Estatuto do Aprendiz',u:'https://www12.senado.leg.br/tv/plenario-e-comissoes/plenario/2026/11/senadores-analisam-estatuto-do-aprendiz-e-outras-medidas'},{l:'Senado Federal: senadores em exercício (dados abertos, atualizado todo dia)',u:'https://legis.senado.leg.br/dadosabertos/senador/lista/atual'},{l:'Agência Senado: acordo espacial com a Venezuela vai à promulgação (3/11)',u:'https://www12.senado.leg.br/noticias/materias/2026/11/03/vai-a-promulgacao-acordo-de-cooperacao-espacial-entre-brasil-e-venezuela'},{l:'Agência Senado (via Agência Tocantins): Setembro em Flor aprovado (3/11)',u:'https://www.agenciatocantins.com.br/noticia/112315/senado-aprova-setembro-em-flor-campanha-contra-o-cancer-ginecologico'},{l:'Brasil em Folhas: parentalidade positiva aprovada (3/11)',u:'https://brasilemfolhas.com.br/2026/11/senado-aprova-projeto-sobre-campanhas-de-parentalidade-positiva'},{l:'Senado Agora',u:'https://www12.senado.leg.br/noticias/senado-agora'},{l:'Agência Brasil: PEC da Segurança retirada de pauta',u:'https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-retira-pec-da-seguranca-publica-da-pauta-do-senado'},{l:'O Brasilianista: pauta após o segundo turno',u:'https://obrasilianista.com.br/2026/10/27/politica/alcolumbre-pode-acelerar-pauta-travada-do-segundo-turno'},{l:'SBT News: PEC da Segurança na semana que vem',u:'https://sbtnews.sbt.com.br/noticia/politica/governo-quer-tratar-da-pec-da-seguranca-o-quanto-antes'},{l:'CNN Brasil: Alcolumbre pauta a PEC para terça (3/11)',u:'https://www.cnnbrasil.com.br/politica/alcolumbre-pauta-pec-da-seguranca-para-sessao-de-terca-feira-3-no-senado/'},{l:'Hub Político: senadores eleitos em 2026',u:'https://hubpolitico.com.br/eleicoes/2026/apuracao/senado'},{l:'Senado Federal: senadores em exercício',u:'https://www25.senado.leg.br/en_US/web/senadores'}]
 };
 function timelineHTML(key){
   const A = AGENDA[key], today = todayISO();
@@ -2535,7 +2581,7 @@ function timelineHTML(key){
 }
 function renderPanel(key){
   const A = AGENDA[key];
-  panel.innerHTML = `<div class="panel-head"><h2>${A.title}</h2>${infoBox(PANEL_SOURCES[key],'Fontes',`Pautas atualizadas em 28 out 2026. Composição de hoje${OCC ? ', dos dados abertos de '+(key==='senado'?'Senado':'Câmara') : ''}.`)}</div>${liveBox(key)}<ol class="tl feed" aria-label="Propostas que passaram por aqui, da mais recente à mais antiga">${feedHTML(key)}</ol>`;
+  panel.innerHTML = `<div class="panel-head"><h2>${A.title}</h2>${infoBox(PANEL_SOURCES[key],'Fontes',`Pautas atualizadas em 3 nov 2026. Composição de hoje${OCC ? ', dos dados abertos de '+(key==='senado'?'Senado':'Câmara') : ''}.`)}</div>${liveBox(key)}<ol class="tl feed" aria-label="Propostas que passaram por aqui, da mais recente à mais antiga">${feedHTML(key)}</ol>`;
 }
 
 /* ---------- geometry (units of the circle radius, u points away from the president) ---------- */
@@ -3280,7 +3326,7 @@ function upCardHTML(u){
   const id = 'cx-up-'+(++upSeq), C = it.id && /\d/.test(it.id) ? catOf({code: it.id}) : null;
   return `<li><article class="card c-ag">
     <button type="button" class="c-head" aria-expanded="false" aria-controls="${id}">
-      <span class="c-top"><span class="c-pill ${pwClass(u.key)}">${POWER_NAME[u.key]} · na agenda</span>${C && C!==CAT_OTHER ? catTag(C) : ''}</span>
+      <span class="c-top"><span class="c-pill ${pwClass(u.key)}">${POWER_NAME[u.key]} · ${u.past ? 'hoje' : 'na agenda'}</span>${C && C!==CAT_OTHER ? catTag(C) : ''}</span>
       <span class="c-main"><span class="c-text">${when ? `<span class="c-when">${esc(when)}</span>` : ''}<span class="c-title">${esc(it.short || it.id || 'Na pauta')}</span>
       ${it.r ? `<span class="c-phase">${esc(it.r)}</span>` : ''}</span></span>
       <span class="c-more" aria-hidden="true"></span>
@@ -3289,6 +3335,16 @@ function upCardHTML(u){
       ${it.t ? `<p class="c-desc">${esc(it.t)}</p>` : ''}
       <a class="c-full c-go" href="#" data-go="${UP_GO[u.key]}">Ver a agenda ${u.key==='exec' ? 'da Presidência' : u.key==='stf' ? 'do STF' : u.key==='senado' ? 'do Senado' : 'da Câmara'} <span aria-hidden="true">→</span></a>
     </div></article></li>`;
+}
+// what the AGENDA had for today and already happened, for items without a page of their own (an audiência, a
+// session item): they stay in today's group of the timeline after their time, instead of vanishing
+function pastTodayAgenda(){
+  const t = todayISO(), now = nowBR(), out = [];
+  for (const key in AGENDA) AGENDA[key].days.forEach(d=>{
+    if (d.label || d.date !== t || (hm(d.time)!=null && hm(d.time) > now)) return;
+    d.items.forEach(it=>{ if (!it.ref && !/cancelad/i.test(it.r||'')) out.push({date:d.date, time:d.time||'', key, kind:d.kind||'', it, past:true}); });
+  });
+  return out.sort((a,b)=> evMin(b) - evMin(a));
 }
 function upcomingHTML(ups){
   if (!ups.length) return '';
@@ -3331,6 +3387,18 @@ function renderToday(){
   if (!shown.length && !ups.length) shown = days.slice(0, 1);
   days.forEach(fd=>{ if (!shown.includes(fd)){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
   todayEl.querySelector('.fd-page')?.classList.add('fd-x');
+  // today's agenda items without a page that already happened go into today's group (made here if there is none yet)
+  const past = pastTodayAgenda();
+  if (past.length){
+    let g = todayEl.querySelector('.feed > .fd.is-today:not(.fd-x)');
+    if (!g){
+      todayEl.querySelectorAll('.feed > .fd:not(.fd-x)').forEach(fd=>{ if (!ups.length && fd.dataset.d !== t){ fd.classList.add('fd-x'); fd.querySelectorAll('.fd-cards > li').forEach(li=> li.classList.add('fd-x')); } });
+      const up = todayEl.querySelector('.feed > .fd-up');
+      (up || todayEl.querySelector('.feed')).insertAdjacentHTML(up ? 'afterend' : 'afterbegin', `<li class="fd is-today" data-d="${t}"><p class="fd-date">hoje</p><ol class="fd-cards"></ol></li>`);
+      g = todayEl.querySelector('.feed > .fd.is-today');
+    }
+    g.querySelector('.fd-cards').insertAdjacentHTML('beforeend', past.map(upCardHTML).join(''));
+  }
   const extra = todayExtra;
   todayEl.classList.toggle('more', feedMore);
   if (extra > 0) todayEl.insertAdjacentHTML('beforeend', `<p class="fd-morewrap"><button type="button" class="fd-more" aria-expanded="${feedMore}">${feedMore ? 'Ver menos' : `Ver mais · ${FMT_NUM.format(extra)} ${extra===1?'projeto':'projetos'}`}</button></p>`);
@@ -4049,7 +4117,7 @@ const EV_DATES = Object.keys(EV_BY_DATE).sort();
 const PENDING = [
   {where:'camara', title:'Na Câmara', items:[
     ['pl-68-2025','Na pauta de 28/10. O resultado ainda não foi divulgado.'],
-    ['pl-5902-2023','Na pauta de 28/10. O resultado ainda não foi divulgado.'],
+    ['pl-5902-2023','Aprovado pela Câmara em 4/11. Segue ao Senado.'],
     ['pl-4553-2025','Na pauta de 28/10. Já entrou em pauta outras vezes sem ser votado.'],
     ['pl-5542-2026','O pedido de urgência estava na pauta de 28/10. O resultado ainda não foi divulgado.'],
     ['pl-888-2025','Urgência aprovada em 13/10. Sem data no Plenário.'],
@@ -4062,7 +4130,7 @@ const PENDING = [
     ['pl-5239-2025','Aprovado pela Câmara em 27/10. Chega agora ao Senado.'],
     ['pds-240-2011','Volta à pauta do Plenário em 3/11.','Na pauta','2026-11-03'],
     ['pdl-344-2024','Retirado de pauta em 15/10. Aguarda nova data.'],
-    ['pdl-359-2024','Retirado de pauta em 15/10. Aguarda nova data.']]},
+    ['pdl-359-2024','Aprovado em 4/11. Vai à promulgação.']]},
   {where:'congresso', title:'No Congresso', items:[
     ['mpv-1395-2026','MP em vigor. O Congresso tem 120 dias para votá-la.'],
     ['mpv-1396-2026','MP em vigor. O Congresso tem 120 dias para votá-la.'],
@@ -4070,7 +4138,7 @@ const PENDING = [
     ['mpv-1398-2026','MP em vigor. O Congresso tem 120 dias para votá-la.'],
     ['pec-tarifa-zero','Enviada pelo governo em 21/10. Começa a tramitar pela Câmara.']]},
   {where:'stf', title:'No Supremo', items:[
-    ['adpf-1212','Liminar suspendeu as loterias municipais. Julgamento no plenário.','Na pauta','2026-11-04'],
+    ['adpf-1212','Liminar suspendeu as loterias municipais. Esteve na pauta de 4/11; resultado não localizado.'],
     ['re-1506410','Suspenso por pedido de vista de Dias Toffoli em 28/10.'],
     ['adpf-165','Na pauta de 28/10. O resultado ainda não foi divulgado.'],
     ['re-1415115','Os processos sobre o tema estão suspensos até a decisão.','Na pauta','2026-10-29'],
@@ -4832,7 +4900,24 @@ const TP_SOURCES = [
   {l:'Portal da Transparência (CGU): orçamento da despesa do governo federal', u:'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'},
   {l:'Tesouro Nacional (SICONFI): Relatório de Gestão Fiscal de cada órgão federal, despesa com pessoal', u:RGF_SRC_URL}
 ];
-const tpPeople = ()=> !trResumo ? [] : ['camara','senado'].flatMap(c=> Object.entries((trResumo[c]||{}).pessoas||{}).map(([s,p])=> ({...p, s, casa:c})));
+// party and state of each name in the cota list: from the current occupants (same name, or one name inside the other,
+// when only one fits); for someone no longer in office, the party of their latest expense in the Câmara file
+const P_ALIAS = {'UNIÃO':'União','UNIAO':'União','PODE':'Podemos','PODEMOS':'Podemos','REPUBLICANOS':'Republicanos','SOLIDARIEDADE':'Solidariedade','AVANTE':'Avante','NOVO':'Novo','REDE':'Rede','CIDADANIA':'Cidadania','MISSÃO':'Missão','PCDOB':'PCdoB','S.PART.':'NC','S/PARTIDO':'NC'};
+const partyKey = p => { const u = String(p||'').trim(); return u ? (P_ALIAS[u.toUpperCase()] || u) : ''; };
+const TP_STOP = new Set(['de','da','do','das','dos','e']);
+let tpOccIx = null;
+function tpOcc(casa, s){
+  if (!OCC) return null;
+  if (!tpOccIx){ tpOccIx = {}; ['camara','senado'].forEach(c=>{ tpOccIx[c] = (OCC[c]||[]).map(x=>{ const k = slugName(x.n); return {k, w:k.split('-').filter(w=> !TP_STOP.has(w)), p:x.p, uf:x.uf}; }); }); }
+  const L = tpOccIx[casa] || [], w = s.split('-').filter(x=> !TP_STOP.has(x));
+  let m = L.find(x=> x.k===s);
+  if (!m){ const c = L.filter(x=> x.w.every(a=> w.includes(a)) || w.every(a=> x.w.includes(a))); if (c.length===1) m = c[0]; }
+  return m;
+}
+const tpPeople = ()=> !trResumo ? [] : ['camara','senado'].flatMap(c=> Object.entries((trResumo[c]||{}).pessoas||{}).map(([s,p])=>{
+  const o = tpOcc(c, s);
+  return {...p, s, casa:c, pt: partyKey(o ? o.p : p.p), uf: (o && o.uf) || p.uf || ''};
+}));
 function tpPeriod(){
   const P = (trResumo && trResumo.periodo) || (trExec && trExec.periodo); if (!P) return '';
   const f = iso=>{ const [y,m,d] = iso.split('-'); return `${+d} ${MO[+m-1]} ${y}`; };
@@ -4854,7 +4939,7 @@ function tpLeg(){
       ${tpMonths(H.meses)}${trCats(H.cats, 8)}</section>`; }).join('')}
     <section class="vb w12" aria-labelledby="tp-pp"><div class="vb-h"><h2 id="tp-pp">Por parlamentar</h2><span class="vb-note">Toque num nome para ver os gastos, com as notas fiscais quando a Casa publica</span></div>
       <div class="tp-ctl">
-        <label class="tp-q"><span class="sr-only">Buscar parlamentar</span><input type="search" id="tp-q" placeholder="Buscar parlamentar" value="${esc(tpQ)}" autocomplete="off"></label>
+        <label class="tp-q"><span class="sr-only">Buscar parlamentar ou partido</span><input type="search" id="tp-q" placeholder="Buscar nome ou partido" value="${esc(tpQ)}" autocomplete="off"></label>
         <div class="tp-seg" role="group" aria-label="Casa">${[['todas','Todas'],['camara','Câmara'],['senado','Senado']].map(([k,l])=>`<button type="button" data-casa="${k}" aria-pressed="${tpCasa===k}">${l}</button>`).join('')}</div>
         <div class="tp-seg" role="group" aria-label="Ordem">${[['total','Maior gasto'],['nome','Nome'],['docs','Mais documentos']].map(([k,l])=>`<button type="button" data-sort="${k}" aria-pressed="${tpSort===k}">${l}</button>`).join('')}</div>
       </div>
@@ -4866,7 +4951,7 @@ function tpLeg(){
 }
 function tpList(){
   const all = tpPeople(), q = slugName(tpQ);
-  let L = all.filter(p=> (tpCasa==='todas' || p.casa===tpCasa) && (!q || p.s.includes(q)));
+  let L = all.filter(p=> (tpCasa==='todas' || p.casa===tpCasa) && (!q || p.s.includes(q) || slugName(p.pt)===q || slugName(PARTY_NAME[p.pt]||'')===q));
   L.sort(tpSort==='nome' ? (a,b)=> a.n.localeCompare(b.n,'pt') : tpSort==='docs' ? (a,b)=> b.q-a.q : (a,b)=> b.t-a.t);
   const max = Math.max(1, ...all.map(p=> p.t));
   if (!L.length) return '<p class="vd-none">Nenhum parlamentar com esse nome nos arquivos da cota.</p>';
@@ -4874,7 +4959,7 @@ function tpList(){
   return `<ol class="tp-rows">${L.slice(0, tpShown).map(p=>{ const id = p.casa+'-'+p.s, open = tpOpen===id;
     return `<li class="tp-r${open?' open':''}"><button type="button" class="tp-rb" data-p="${id}" aria-expanded="${open}">
       <span class="tp-rk">${rank.get(p.casa+p.s)}</span>
-      <span class="tp-rn">${esc(p.n)}<small>${p.casa==='camara'?'Deputado(a)':'Senador(a)'} · ${FMT_NUM.format(p.q)} documentos</small></span>
+      <span class="tp-rn"><span class="tp-nm">${esc(p.n)}${p.pt ? ` <span class="tp-pt"><i style="background:${PARTY[p.pt]||'var(--nc)'}" aria-hidden="true"></i>${esc(p.pt==='NC' ? 'sem partido' : (PARTY_NAME[p.pt]||p.pt))}${p.uf ? '-'+esc(p.uf) : ''}</span>` : ''}</span><small>${p.casa==='camara'?'Deputado(a)':'Senador(a)'} · ${FMT_NUM.format(p.q)} documentos</small></span>
       <span class="tp-rbar" aria-hidden="true"><i class="${p.casa}" style="width:${(p.t/max*100).toFixed(1)}%"></i></span>
       <span class="tp-rv">${MONEY0.format(p.t)}</span></button>
       ${open ? `<div class="tp-det" id="tp-det">Carregando…</div>` : ''}</li>`; }).join('')}</ol>
