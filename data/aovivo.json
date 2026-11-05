@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T20:18Z",
+ "atualizado": "2026-11-05T20:38Z",
  "itens": [
   {
    "casa": "senado",
@@ -10,6 +10,16 @@
    "descricao": "",
    "desde": "15h",
    "video": null
+  },
+  {
+   "casa": "exec",
+   "plenario": true,
+   "sigla": "",
+   "nome": "Presidência",
+   "tipo": "Reunião",
+   "descricao": "1ª reunião do Conselho para Industrialização de Minerais Críticos",
+   "desde": "12h56",
+   "video": "https://www.youtube.com/watch?v=_pbeeL46AGA"
   }
  ]
 }
