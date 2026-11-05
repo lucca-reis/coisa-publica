@@ -74,8 +74,6 @@ def senado():
         except Exception as ex:
             log.append(f'senado {d}: {ex}')
             d += datetime.timedelta(days=1); continue
-        if d == HOJE:
-            (OUT / 'debug-senado.json').write_text(json.dumps(js, ensure_ascii=False, indent=1)[:20000], encoding='utf-8')
         for s in find_list(js, 'Sessao'):
             if not isinstance(s, dict): continue
             data = s.get('DataSessao') or s.get('Data') or str(d)
