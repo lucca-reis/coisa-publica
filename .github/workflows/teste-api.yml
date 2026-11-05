@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
       - run: |
-          npm i --no-save --no-package-lock playwright@1.48.2 && npx playwright install --with-deps chromium
           mkdir -p out
-          (python3 -m http.server 8765 >/dev/null 2>&1 &) ; sleep 2
-          node scripts/av-teste.js out
+          B=https://dadosabertos.camara.leg.br/api/v2
+          curl -s --retry 4 -H accept:application/json "$B/votacoes?dataInicio=2026-11-05&dataFim=2026-11-05&itens=200" > out/vot.json || true
+          curl -s --retry 4 -H accept:application/json "$B/proposicoes?siglaTipo=PL&numero=5542&ano=2026" > out/prop.json || true
+          ID=$(python3 -c "import json;print(json.load(open('out/prop.json'))['dados'][0]['id'])" || echo 0)
+          curl -s --retry 4 -H accept:application/json "$B/proposicoes/$ID/tramitacoes?dataInicio=2026-10-01" > out/tram.json || true
+          curl -s --retry 4 -H accept:application/json "$B/proposicoes/$ID" > out/det.json || true
+          curl -s --retry 4 -H accept:application/json "$B/proposicoes/$ID/votacoes" > out/pvot.json || true
           git config user.name t; git config user.email t@t
           git add -f out && git commit -qm "saida do teste" && git push origin HEAD:teste-api-comissoes
