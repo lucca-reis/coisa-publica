@@ -2413,7 +2413,11 @@ function liveState(key){
   if (api) return api.s ? api : null;
   const L = LIVE[key], t = todayISO();
   const day = (AGENDA[key]?.days||[]).find(d=> d.date===t && !d.label && (d.live || (key!=='exec' && LIVE_RE.test(d.kind||''))));
-  if (!day) return null;
+  // a transmissão que o robô achou no canal oficial (como um ato do presidente fora da AGENDA) também entra
+  if (!day){
+    const av = (aoVivo() || []).find(x=> x.casa===key && x.plenario && x.video), st = av && hm(av.desde);
+    return av && st != null ? {s:'live', day:{kind:av.tipo, items:[]}, st, video: av.video} : null;
+  }
   const st = hm(day.time || L.start); if (st==null) return null;
   const en = day.end ? hm(day.end) : st + L.hours*60, now = nowBR();
   // the robot finds the video of the STF and Presidência broadcasts in the official channels (data/aovivo.json)
