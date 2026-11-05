@@ -1,0 +1,33 @@
+{
+ "id": "2026-11-05-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-05",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Você sabia?",
+  "titulo": "A posse não é mais em 1º de janeiro",
+  "visual": {
+   "tipo": "data",
+   "rotulo": "Posse do presidente",
+   "valor": "5/1",
+   "sub": "e dos governadores, 6/1"
+  },
+  "texto": "Uma emenda de 2021 mudou a data. A primeira posse nas regras novas será em 5 de janeiro de 2027.",
+  "fonte": "Constituição Federal, arts. 28 e 82 (EC 111/2021)"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? A posse não é mais em 1º de janeiro. Desenho do símbolo do Executivo e a data 5/1, posse do presidente; a dos governadores é em 6/1. Texto: uma emenda de 2021 mudou a data; a primeira posse nas regras novas será em 5 de janeiro de 2027. Fonte: Constituição Federal, artigos 28 e 82, Emenda Constitucional 111 de 2021.",
+ "textos": {
+  "bluesky": "Você sabia? Desde a Emenda Constitucional 111/2021, o presidente toma posse em 5 de janeiro, e os governadores em 6 de janeiro. A primeira vez será em 2027. Por isso, os mandatos atuais duram 4 anos e alguns dias.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 🗓️\n\nDesde 1995, os presidentes tomavam posse em 1º de janeiro. Isso mudou.\n\nA Emenda Constitucional 111, de 2021, mudou a Constituição:\n• o presidente e o vice tomam posse em 5 de janeiro (art. 82);\n• os governadores e vices, em 6 de janeiro (art. 28).\n\nA regra vale a partir dos eleitos em 2026. A primeira posse presidencial nas novas datas será em 5 de janeiro de 2027.\n\nPor que mudar? A ideia foi separar a posse do feriado de Ano-Novo, o que facilita a organização da cerimônia e a presença de autoridades do Brasil e de outros países.\n\nUm efeito curioso: para fazer a transição, os mandatos que começaram em 1º de janeiro de 2023 vão até 5 de janeiro de 2027 (presidente) e 6 de janeiro de 2027 (governadores). Ou seja, duram 4 anos e alguns dias.\n\nOs prefeitos continuam tomando posse em 1º de janeiro (art. 29).\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Constituição #Posse #Política"
+ },
+ "fontes": [
+  {
+   "l": "Emenda Constitucional 111/2021 (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc111.htm"
+  },
+  {
+   "l": "TNH1: fim da posse em 1º de janeiro",
+   "u": "https://www.tnh1.com.br/noticia/nid/fim-da-posse-em-1-de-janeiro-veja-o-que-muda-para-os-eleitos-em-2026/"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "id": "2026-11-05-manha",
+ "periodo": "manha",
+ "data": "2026-11-05",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {"quando": "Câmara", "dia": "10h", "tags": [{"t": "Câmara · Plenário", "poder": "leg"}, {"cat": "pl", "t": "PL 2475/2025"}],
+    "titulo": "Maus-tratos a animais", "texto": "Na pauta: tornar hediondo o crime que causa a morte do animal. São 15 itens."},
+   {"quando": "TSE", "dia": "10h", "tags": [{"t": "TSE · sessão", "poder": "jud"}],
+    "titulo": "Cota de gênero no Amapá", "texto": "Recursos pedem a cassação de uma deputada estadual eleita em 2022."},
+   {"quando": "Senado", "dia": "15h", "tags": [{"t": "Senado · sessão especial", "poder": "leg"}],
+    "titulo": "Frente pela Paz Mundial", "texto": "Sessão especial pela criação da frente parlamentar, sem votações."}
+  ],
+  "fonte": "Câmara, TSE e Senado Federal"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 5 de novembro. 10h, Câmara: o Plenário tem 15 itens na pauta, entre eles o projeto que torna hediondo o crime de maus-tratos que causa a morte do animal (PL 2475/2025). 10h, TSE: recursos pedem a cassação de uma deputada estadual do Amapá eleita em 2022, por suposta fraude à cota de gênero. 15h, Senado: sessão especial pela criação da Frente Parlamentar pela Paz Mundial, sem votações.",
+ "textos": {
+  "bluesky": "Hoje (5/11) nos Três Poderes:\n\n10h · Câmara vota maus-tratos a animais como crime hediondo e mais 14 itens.\n10h · TSE julga recursos sobre cota de gênero no Amapá.\n15h · Senado: sessão especial pela Paz Mundial.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, quinta (5/11), nos Três Poderes:\n\n10h · Câmara\nSessão do Plenário com 15 itens na pauta. Entre eles:\n• tornar hediondo o crime de maus-tratos a animais quando causa a morte do animal (PL 2475/2025);\n• garantias mínimas para a tornozeleira eletrônica usada como medida protetiva da Lei Maria da Penha (PL 5542/2026);\n• um sistema integrado para acompanhar em tempo real os estoques de remédios no SUS (PL 1932/2021).\n\n10h · TSE\nO tribunal julga recursos que acusam o Podemos de fraude à cota de gênero na eleição para deputado estadual de 2022 no Amapá. Os recursos pedem a cassação do mandato da única deputada eleita pelo partido. Relator: André Mendonça.\n\n15h · Senado\nSessão especial pela criação da Frente Parlamentar pela Paz Mundial, presidida pelo senador Paulo Paim (PT-RS). Não há votações.\n\nE amanhã (6/11) é o último dia para o presidente sancionar ou vetar a lei do Enamed.\n\nQuando a sessão estiver no ar, ela aparece no site em “Ao vivo agora”. Link na bio.\n\n#CoisaPública #Câmara #Senado #TSE #Política"
+ },
+ "fontes": [
+  {"l": "Câmara dos Deputados, pauta do Plenário de 5/11", "u": "https://www.camara.leg.br/evento-legislativo/83188"},
+  {"l": "TSE, pauta de 5/11", "u": "https://www.tse.jus.br/comunicacao/noticias/2026/Novembro/confira-a-pauta-de-julgamentos-do-tse-desta-quinta-feira-5"},
+  {"l": "Rádio Senado, 14/8/2026", "u": "https://www12.senado.leg.br/radio/1/noticia/2026/08/14/frente-parlamentar-pela-paz-mundial-ganha-sessao-especial-para-5-de-novembro"}
+ ]
+}
