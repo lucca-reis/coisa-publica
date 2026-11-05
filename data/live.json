@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T07:02-03:00",
+ "atualizado": "2026-11-05T08:04-03:00",
  "camara": null,
  "senado": [
   {
@@ -43,6 +43,26 @@
    "aoVivo": false
   },
   {
+   "id": "588622",
+   "inicio": "2026-11-10T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594172",
+   "inicio": "2026-11-10T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
    "id": "549939",
    "inicio": "2026-11-11T10:00-03:00",
    "fim": null,
@@ -74,7 +94,6 @@
   }
  ],
  "erros": [
-  "camara: <urlopen error timed out>",
-  "senado 2026-11-10: The read operation timed out"
+  "camara: HTTP Error 504: Gateway Timeout"
  ]
 }
