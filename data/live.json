@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T01:58-03:00",
+ "atualizado": "2026-11-05T03:00-03:00",
  "camara": [
   {
    "id": 83076,
@@ -174,46 +174,6 @@
    "aoVivo": false
   },
   {
-   "id": "588622",
-   "inicio": "2026-11-10T10:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594172",
-   "inicio": "2026-11-10T14:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "549939",
-   "inicio": "2026-11-11T10:00-03:00",
-   "fim": null,
-   "situacao": "Convocada",
-   "tipo": "SESSÃO SOLENE ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594175",
-   "inicio": "2026-11-11T14:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
    "id": "552104",
    "inicio": "2026-11-12T14:00-03:00",
    "fim": null,
@@ -224,5 +184,8 @@
    "aoVivo": false
   }
  ],
- "erros": []
+ "erros": [
+  "senado 2026-11-10: HTTP Error 503: Service Unavailable",
+  "senado 2026-11-11: HTTP Error 503: Service Unavailable"
+ ]
 }
