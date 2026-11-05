@@ -1,0 +1,29 @@
+{
+ "id": "2026-11-06-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-06",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Você sabia?",
+  "titulo": "O silêncio do presidente vira sanção",
+  "visual": {
+   "tipo": "data",
+   "rotulo": "Prazo para sancionar",
+   "valor": "15",
+   "sub": "dias úteis"
+  },
+  "texto": "Se o presidente não sanciona nem veta nesse prazo, o projeto é sancionado do mesmo jeito.",
+  "fonte": "Constituição Federal, art. 66"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? O silêncio do presidente vira sanção. Desenho do símbolo do Executivo e o número 15, com o texto: prazo para sancionar, dias úteis. Embaixo: se o presidente não sanciona nem veta nesse prazo, o projeto é sancionado do mesmo jeito. Fonte: Constituição Federal, artigo 66.",
+ "textos": {
+  "bluesky": "Você sabia? O presidente tem 15 dias úteis para sancionar ou vetar um projeto aprovado. Se não fizer nada, o silêncio vale como sanção. O veto volta ao Congresso, que pode derrubá-lo com a maioria absoluta das duas Casas.\n\ncoisapublica.io",
+  "instagram": "Você sabia? ✍️\n\nQuando o Congresso aprova um projeto de lei, ele vai para o presidente da República, que tem 15 dias úteis para decidir (art. 66 da Constituição).\n\nAs opções:\n• sancionar: o projeto vira lei;\n• vetar tudo ou só uma parte, se achar que é contra a Constituição ou contra o interesse público. O veto parcial precisa cair sobre um artigo, parágrafo, inciso ou alínea inteiros.\n\nE se o prazo acabar sem resposta? O silêncio vale como sanção. É a chamada sanção tácita.\n\nO veto não é a palavra final. Em até 30 dias, o Congresso analisa o veto em sessão conjunta. Para derrubá-lo, é preciso a maioria absoluta de deputados e de senadores: 257 dos 513 deputados e 41 dos 81 senadores.\n\nDepois de sancionada, a lei é promulgada e publicada no Diário Oficial. Se o presidente não promulgar em 48 horas, o presidente do Senado promulga.\n\nHoje (6/11) termina o prazo da lei do Enamed, que exige uma prova para novos médicos.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Constituição #Sanção #Veto #Política"
+ },
+ "fontes": [
+  {
+   "l": "Constituição Federal, art. 66 (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "id": "2026-11-06-manha",
+ "periodo": "manha",
+ "data": "2026-11-06",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {"quando": "Presidente", "dia": "prazo", "tags": [{"t": "Presidência · prazo de sanção", "poder": "exe"}, {"cat": "mp", "t": "MP 1370/2026"}],
+    "titulo": "Último dia para a lei do Enamed", "texto": "Termina o prazo para sancionar ou vetar a prova obrigatória para novos médicos."},
+   {"quando": "Senado", "dia": "10h", "tags": [{"t": "Senado · sessão não deliberativa", "poder": "leg"}],
+    "titulo": "Sessão sem votações", "texto": "O Plenário se reúne, mas não há projetos para votar."},
+   {"quando": "STF", "dia": "até 10/11", "tags": [{"t": "STF · Plenário Virtual", "poder": "jud"}],
+    "titulo": "Julgamento virtual segue", "texto": "Oito ações, entre elas cotas raciais em concursos na Paraíba."}
+  ],
+  "fonte": "Congresso Nacional, Senado Federal e STF"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 6 de novembro. Presidente: termina o prazo para sancionar ou vetar a lei do Enamed, a prova obrigatória para novos médicos (MP 1370/2026). 10h, Senado: sessão não deliberativa, sem projetos para votar. STF, até 10/11: segue o julgamento no Plenário Virtual, com oito ações, entre elas cotas raciais em concursos na Paraíba.",
+ "textos": {
+  "bluesky": "Hoje (6/11) nos Três Poderes:\n\nPresidente · último dia para sancionar ou vetar a lei do Enamed.\n10h · Senado: sessão sem votações.\nSTF · Plenário Virtual segue até 10/11, com oito ações.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, sexta (6/11), nos Três Poderes:\n\nPresidência\nÉ o último dia para o presidente sancionar ou vetar, no todo ou em parte, a lei que exige aprovação no Enamed para o registro de novos médicos no CRM (MP 1370/2026, aprovada pelo Congresso em 15/10).\n\n10h · Senado\nSessão não deliberativa: o Plenário se reúne para discursos, sem projetos para votar.\n\nCâmara\nNão há sessão do Plenário marcada para hoje.\n\nSTF\nSegue o julgamento no Plenário Virtual, aberto em 30/10 e com fim em 10/11. Entre os temas: nacionalidade de crianças estrangeiras adotadas por brasileiros no exterior, regras para cotas raciais em concursos na Paraíba e cursos de saúde pagos criados por prefeituras fora do município.\n\nA agenda do presidente para hoje ainda não tinha sido divulgada quando este post foi preparado.\n\nTudo com fonte no site, link na bio.\n\n#CoisaPública #Senado #STF #Enamed #Política"
+ },
+ "fontes": [
+  {"l": "Congresso Nacional: MPV 1370/2026 (prazo de sanção)", "u": "https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/174819"},
+  {"l": "CNN Brasil, 2/11: Lula sanciona até sexta (6) a lei do Enamed", "u": "https://www.cnnbrasil.com.br/politica/lula-sanciona-esta-semana-lei-que-institui-a-oab-da-medicina/"},
+  {"l": "Senado Federal, dados abertos: agenda do Plenário de 6/11", "u": "https://legis.senado.leg.br/dadosabertos/plenario/agenda/dia/20261106.json"},
+  {"l": "STF Notícias: destaques do Plenário Virtual de 30/10 a 10/11", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-do-plenario-virtual-desta-semana-6/"}
+ ]
+}

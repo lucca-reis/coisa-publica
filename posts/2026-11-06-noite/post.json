@@ -1,0 +1,132 @@
+{
+ "id": "2026-11-06-noite",
+ "periodo": "noite",
+ "data": "2026-11-06",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Resumo da semana",
+  "titulo": "Os destaques da semana",
+  "itens": [
+   {
+    "quando": "Senado",
+    "dia": "3/11",
+    "tags": [
+     {
+      "t": "Senado · vai à promulgação",
+      "poder": "leg"
+     },
+     {
+      "cat": "pec",
+      "t": "PEC 18/2025"
+     }
+    ],
+    "titulo": "PEC da Segurança aprovada",
+    "texto": "73 a 0 e 75 a 0 nos dois turnos, sem a redução da maioridade penal."
+   },
+   {
+    "quando": "Câmara",
+    "dia": "4/11",
+    "tags": [
+     {
+      "t": "Câmara · volta ao Senado",
+      "poder": "leg"
+     },
+     {
+      "cat": "pl",
+      "t": "PL 3220/2019"
+     }
+    ],
+    "titulo": "Postes de energia e internet",
+    "texto": "Aneel poderá transferir a terceiros a exploração dos postes mal geridos."
+   },
+   {
+    "quando": "STF",
+    "dia": "5/11",
+    "tags": [
+     {
+      "t": "STF · julgado",
+      "poder": "jud"
+     },
+     {
+      "t": "AP 618",
+      "poder": "jud"
+     }
+    ],
+    "titulo": "Condenação mantida",
+    "texto": "Por 6 a 3, o STF rejeitou o recurso do ex-deputado Washington Reis."
+   }
+  ],
+  "fonte": "Agência Senado, Agência Câmara e Migalhas"
+ },
+ "alt": "Imagem da Coisa Pública, Resumo da semana: os destaques da semana de 2 a 6 de novembro. 3/11, Senado: PEC da Segurança Pública aprovada por 73 a 0 e 75 a 0 nos dois turnos, sem a redução da maioridade penal; vai à promulgação. 4/11, Câmara: aprovado o projeto que permite à Aneel transferir a terceiros a exploração dos postes mal geridos (PL 3220/2019); volta ao Senado. 5/11, STF: por 6 a 3, rejeitado o recurso do ex-deputado Washington Reis; a condenação foi mantida.",
+ "textos": {
+  "bluesky": "A semana nos Três Poderes:\n\n3/11 · Senado aprova PEC da Segurança, 73 a 0 e 75 a 0.\n4/11 · Câmara aprova regras para postes de energia e internet.\n5/11 · STF mantém, por 6 a 3, condenação de Washington Reis.\n\ncoisapublica.io",
+  "instagram": "Resumo da semana 🗂️\n\nO que aconteceu nos Três Poderes de 2 a 6 de novembro:\n\nSenado\n• 3/11: aprovada a PEC da Segurança Pública (PEC 18/2025), por 73 a 0 no 1º turno e 75 a 0 no 2º, sem a redução da maioridade penal. Vai à promulgação. Por 38 a 36, as emendas sobre maioridade foram separadas e seguem como propostas próprias.\n• 3/11: aprovadas a campanha Setembro em Flor, sobre tumores ginecológicos, e ações de parentalidade positiva (seguem à sanção), e um acordo espacial com a Venezuela (vai à promulgação).\n• 4/11: aprovados a atualização do ECA para a educação obrigatória dos 4 aos 17 anos (segue à sanção) e o Protocolo de Ushuaia II, de defesa da democracia no Mercosul (vai à promulgação). O Estatuto do Aprendiz saiu da pauta.\n\nCâmara\n• 3/11: ultrassonografias morfológicas no pré-natal do SUS (segue ao Senado).\n• 4/11: crime de sobrevoo de drones em presídios (segue ao Senado) e regras para os postes compartilhados por energia e telecomunicações (volta ao Senado).\n• 5/11: educação em saúde com foco na família no SUS, obras em Linguagem Simples para pessoas com deficiência e artesanato do Maranhão como cultura nacional (seguem ao Senado). Na comissão mista, aprovada a MP do Brasil Soberano 3, que perde a validade em 18/11.\n\nSTF\n• 5/11: por 6 a 3, mantida a condenação do ex-deputado Washington Reis por crimes ambientais. Também derrubada a regra que deixava o procurador-geral do MP gaúcho mandar fazer investigações sumárias (ADI 2039).\n• Seguem suspensos: o crime de ato obsceno (5 votos pela validade) e os acordos no TCU (4 a 2, com pedido de vista).\n\nPresidência\n• 6/11: terminou o prazo para sanção ou veto da lei do Enamed.\n\nTudo com fonte no site, link na bio.\n\n#CoisaPública #ResumoDaSemana #Senado #Câmara #STF #Política"
+ },
+ "fontes": [
+  {
+   "l": "Diario de Pernambuco: Senado aprova em 2º turno PEC da Segurança por 75 a 0",
+   "u": "https://www.diariodepernambuco.com.br/politica/2026/11/11728278-senado-aprova-em-2-turno-pec-da-seguranca-por-75-a-0.html"
+  },
+  {
+   "l": "O Tempo: PEC da Segurança aprovada sem redução da maioridade penal",
+   "u": "https://www.otempo.com.br/politica/congresso/2026/11/3/pec-da-seguranca-publica-e-aprovada-no-senado-sem-reducao-da-maioridade-penal"
+  },
+  {
+   "l": "Agência Senado: acordo espacial Brasil-Venezuela vai à promulgação (3/11)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/03/vai-a-promulgacao-acordo-de-cooperacao-espacial-entre-brasil-e-venezuela"
+  },
+  {
+   "l": "Agência Senado: atualização do ECA (4/11)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/04/senado-aprova-atualizacao-do-estatuto-da-crianca-e-do-adolescente"
+  },
+  {
+   "l": "Agência Senado: Protocolo de Ushuaia II (4/11)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/04/senado-aprova-protocolo-que-amplia-defesa-da-democracia-no-mercosul"
+  },
+  {
+   "l": "Agência Câmara: ultrassonografias no pré-natal (3/11)",
+   "u": "https://www.camara.leg.br/noticias/1315411-camara-aprova-inclusao-de-ultrassonografias-morfologicas-no-pre-natal-do-sus"
+  },
+  {
+   "l": "CNN Brasil: drones em presídios (4/11)",
+   "u": "https://www.cnnbrasil.com.br/politica/camara-proibe-uso-de-drones-em-presidios-sob-pena-de-ate-5-anos-de-prisao/"
+  },
+  {
+   "l": "DGABC: partilha de postes (4/11)",
+   "u": "https://www.dgabc.com.br/Noticia/4366890/camara-aprova-texto-para-partilha-de-postes-entre-empresas-de-energia-e-telecomunicacoes"
+  },
+  {
+   "l": "Agência Câmara: educação em saúde no SUS (5/11)",
+   "u": "https://www.camara.leg.br/noticias/1316367-camara-aprova-acoes-de-educacao-em-saude-no-sus-com-foco-na-familia"
+  },
+  {
+   "l": "Agência Câmara: artesanato do Maranhão (5/11)",
+   "u": "https://www.camara.leg.br/noticias/1316407-camara-aprova-projeto-que-reconhece-artesanato-do-maranhao-como-cultura-nacional"
+  },
+  {
+   "l": "Panorama Inconfidentes: obras em Linguagem Simples (5/11)",
+   "u": "https://www.panoramainconfidentes.com.br/noticia/deputados-aprovam-projeto-que-permite-adaptar-obras-em-linguagem-simples-para-pessoas-com-deficiencia"
+  },
+  {
+   "l": "O Povo: comissão aprova MP do Brasil Soberano 3 (5/11)",
+   "u": "https://www.opovo.com.br/noticias/economia/2026/11/05/comissao-especial-aprova-mp-do-brasil-soberano-3-para-empresas-afetadas-por-tarifaco.html"
+  },
+  {
+   "l": "Migalhas: STF mantém condenação de Washington Reis (5/11)",
+   "u": "https://www.migalhas.com.br/quentes/467960/stf-mantem-condenacao-de-ex-deputado-washington-reis-por-crimes-ambientais"
+  },
+  {
+   "l": "Migalhas: ADI 2039 (5/11)",
+   "u": "https://www.migalhas.com.br/quentes/467938/stf-julga-poder-de-procurador-geral-para-avocar-inqueritos"
+  },
+  {
+   "l": "Migalhas: ato obsceno (4/11)",
+   "u": "https://www.migalhas.com.br/quentes/467878/stf-tem-cinco-votos-pela-constitucionalidade-do-crime-de-ato-obsceno"
+  },
+  {
+   "l": "Migalhas: acordos no TCU (5/11)",
+   "u": "https://www.migalhas.com.br/quentes/467962/stf-tem-quatro-votos-para-limitar-acordos-no-tcu-toffoli-pede-vista"
+  }
+ ]
+}
