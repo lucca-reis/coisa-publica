@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-05T20:38Z",
+ "atualizado": "2026-11-05T20:59Z",
  "itens": [
-  {
-   "casa": "senado",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário do Senado",
-   "tipo": "Sessão especial",
-   "descricao": "",
-   "desde": "15h",
-   "video": null
-  },
   {
    "casa": "exec",
    "plenario": true,
