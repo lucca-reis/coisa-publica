@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T03:00-03:00",
+ "atualizado": "2026-11-05T04:17-03:00",
  "camara": [
   {
    "id": 83076,
@@ -134,26 +134,6 @@
  ],
  "senado": [
   {
-   "id": "586337",
-   "inicio": "2026-11-05T15:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594171",
-   "inicio": "2026-11-06T10:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "SESSÃO NÃO DELIBERATIVA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
    "id": "562781",
    "inicio": "2026-11-09T10:00-03:00",
    "fim": null,
@@ -174,6 +154,46 @@
    "aoVivo": false
   },
   {
+   "id": "588622",
+   "inicio": "2026-11-10T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594172",
+   "inicio": "2026-11-10T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "549939",
+   "inicio": "2026-11-11T10:00-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "SESSÃO SOLENE ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594175",
+   "inicio": "2026-11-11T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
    "id": "552104",
    "inicio": "2026-11-12T14:00-03:00",
    "fim": null,
@@ -185,7 +205,7 @@
   }
  ],
  "erros": [
-  "senado 2026-11-10: HTTP Error 503: Service Unavailable",
-  "senado 2026-11-11: HTTP Error 503: Service Unavailable"
+  "senado 2026-11-05: HTTP Error 503: Service Unavailable",
+  "senado 2026-11-06: HTTP Error 503: Service Unavailable"
  ]
 }
