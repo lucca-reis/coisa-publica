@@ -59,10 +59,13 @@ def baixar():
     return None, None
 
 def no(nome, cod=''):
-    return {'n': nome, 'k': cod, 'v': [0.0, 0.0, 0.0, 0.0], 'c': {}}
+    return {'n': nome, 'k': cod, 'v': [0.0, 0.0, 0.0, 0.0], 'r': [0.0, 0.0, 0.0, 0.0], 'c': {}}
 
-def soma(nd, v):
-    for i in range(4): nd['v'][i] += v[i]
+def soma(nd, v, rol=False):
+    # r: a parte que é rolagem da dívida (refinanciamento), para a página poder mostrar tudo sem ela
+    for i in range(4):
+        nd['v'][i] += v[i]
+        if rol: nd['r'][i] += v[i]
 
 def filho(nd, cod, nome):
     c = nd['c'].get(cod)
@@ -77,7 +80,9 @@ def fecha(nd, lim, prof=0):
     if lim_aqui and len(L) > lim_aqui:
         resto = L[lim_aqui:]; L = L[:lim_aqui]
         o = no(f'Outros ({len(resto)})', 'outros')
-        for x in resto: soma(o, x['v'])
+        for x in resto:
+            soma(o, x['v'])
+            for i in range(4): o['r'][i] += x['r'][i]
         o['outros'] = len(resto)
         L.append(o)
     for x in L:
@@ -85,6 +90,8 @@ def fecha(nd, lim, prof=0):
         else: x.pop('c', None)
     nd['c'] = L
     nd['v'] = [round(v, 2) for v in nd['v']]
+    if any(abs(x) >= 0.5 for x in nd['r']): nd['r'] = [round(v, 2) for v in nd['r']]
+    else: nd.pop('r', None)
     if not L: nd.pop('c', None)
     return nd
 
@@ -119,27 +126,25 @@ if z:
                     if not any(v): continue
                     linhas += 1
                     for i in range(4): total[i] += v[i]
+                    # dívida: juros (grupo 2), amortização (grupo 6) e, dentro dela, a rolagem (refinanciamento)
+                    sub = norm(g(r, 'nsub')); gr = g(r, 'gr')
+                    rol = 'REFINANCIAMENTO' in sub
+                    k = 'rolagem' if rol else 'juros' if gr == '2' else 'amortizacao' if gr == '6' else None
+                    if k:
+                        for i in range(4): divida[k][i] += v[i]
                     # por área
                     a1 = filho(areas, g(r, 'fun'), bonito(g(r, 'nfun')))
                     a2 = filho(a1, g(r, 'sub'), bonito(g(r, 'nsub')))
                     a3 = filho(a2, g(r, 'acao'), bonito(g(r, 'nacao')))
-                    for x in (areas, a1, a2, a3): soma(x, v)
+                    for x in (areas, a1, a2, a3): soma(x, v, rol)
                     # por órgão
                     o1 = filho(orgaos, g(r, 'sup'), bonito(g(r, 'nsup')))
                     o2 = filho(o1, g(r, 'uo'), bonito(g(r, 'nuo')))
-                    for x in (orgaos, o1, o2): soma(x, v)
+                    for x in (orgaos, o1, o2): soma(x, v, rol)
                     # por tipo de despesa
                     t1 = filho(tipos, g(r, 'gr'), bonito(g(r, 'ngr')))
                     t2 = filho(t1, g(r, 'el'), bonito(g(r, 'nel')))
-                    for x in (tipos, t1, t2): soma(x, v)
-                    # dívida: juros (grupo 2), amortização (grupo 6) e, dentro dela, a rolagem (refinanciamento)
-                    sub = norm(g(r, 'nsub')); gr = g(r, 'gr')
-                    if 'REFINANCIAMENTO' in sub: k = 'rolagem'
-                    elif gr == '2': k = 'juros'
-                    elif gr == '6': k = 'amortizacao'
-                    else: k = None
-                    if k:
-                        for i in range(4): divida[k][i] += v[i]
+                    for x in (tipos, t1, t2): soma(x, v, rol)
         log.append(f'{linhas} linhas lidas')
     except Exception:
         log.append(traceback.format_exc()[-600:])
