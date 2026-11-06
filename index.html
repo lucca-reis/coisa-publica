@@ -1241,6 +1241,66 @@ h1[tabindex="-1"]:focus{outline:none}
 @media (max-width:420px){ .c-dl{grid-template-columns:minmax(0,1fr)} }
 /* overview page (#visao-geral): a dashboard built from the same data as the rest of the site */
 .cw.vg{max-width:1180px;gap:clamp(20px,3vw,32px)}
+/* federal budget page (#orcamento): one big treemap you can open level by level */
+.ob-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ob-k{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border-radius:20px;background:color-mix(in srgb, var(--ink) 4%, var(--bg));min-width:0}
+.ob-k .l{font-size:13px;color:var(--muted)}
+.ob-k b{font-size:clamp(26px,3vw,38px);font-weight:500;letter-spacing:-.035em;line-height:1.05;font-variant-numeric:tabular-nums}
+.ob-k .s{font-size:12.5px;color:var(--muted);line-height:1.35}
+.ob-k.debt{background:color-mix(in srgb, #C23B2B 10%, var(--bg))}
+.ob-k.debt b{color:color-mix(in srgb, #C23B2B 85%, var(--ink))}
+.ob-bar{height:6px;border-radius:3px;background:color-mix(in srgb, var(--ink) 10%, var(--bg));overflow:hidden;margin-top:2px}
+.ob-bar i{display:block;height:100%;background:var(--ink);border-radius:3px}
+.ob-ctl{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.ob-seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
+.ob-seg button{all:unset;cursor:pointer;padding:8px 14px;border-radius:999px;font-size:14px;white-space:nowrap}
+.ob-seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.ob-seg button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ob-chk{display:inline-flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.ob-chk input{accent-color:var(--ink);width:16px;height:16px}
+.ob-crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px;min-height:30px}
+.ob-crumbs button{all:unset;cursor:pointer;padding:5px 12px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
+.ob-crumbs button:hover{background:color-mix(in srgb, var(--ink) 10%, var(--bg))}
+.ob-crumbs span.cur{padding:5px 2px;font-weight:600}
+.ob-crumbs i{font-style:normal;color:var(--muted)}
+.ob-map{position:relative;height:min(68vh,680px);min-height:380px;border-radius:22px;overflow:hidden;background:color-mix(in srgb, var(--ink) 4%, var(--bg));touch-action:manipulation}
+.ob-t{position:absolute;box-sizing:border-box;border:2px solid var(--bg);border-radius:12px;padding:10px 12px;color:#fff;overflow:hidden;cursor:pointer;
+  transition:left .45s cubic-bezier(.2,.7,.2,1),top .45s cubic-bezier(.2,.7,.2,1),width .45s cubic-bezier(.2,.7,.2,1),height .45s cubic-bezier(.2,.7,.2,1),filter .15s;display:flex;flex-direction:column;gap:2px}
+.ob-t:hover,.ob-t:focus-visible{filter:brightness(1.08) saturate(1.05);outline:none}
+.ob-t:focus-visible{box-shadow:inset 0 0 0 3px #fff}
+.ob-t .n{flex:none;font-size:var(--ns,14px);font-weight:600;line-height:1.15;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ob-t .v{flex:none;white-space:nowrap;font-size:var(--vs,24px);font-weight:500;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.ob-t .p{font-size:12px;opacity:.85}
+.ob-t.lt{color:#121417}
+.ob-t.sm{padding:7px 8px}.ob-t.sm .p{display:none}.ob-t.nv .v{display:none}.ob-t.nv .n{-webkit-line-clamp:3;font-size:11px}
+.obp .cw-head h1{padding-bottom:6px}
+.ob-t.xs{padding:0}.ob-t.xs>*{display:none}
+.ob-t.leaf{cursor:default}
+.ob-tip{position:absolute;z-index:5;pointer-events:none;max-width:280px;padding:12px 14px;border-radius:14px;background:var(--ink);color:var(--bg);font-size:13px;line-height:1.4;box-shadow:0 10px 30px rgba(0,0,0,.18);opacity:0;transition:opacity .12s}
+.ob-tip.on{opacity:1}
+.ob-tip b{display:block;font-size:14px;margin-bottom:4px}
+.ob-tip .m{font-size:20px;font-weight:500;letter-spacing:-.02em}
+.ob-list{display:flex;flex-direction:column}
+.ob-row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:12px 4px;border-top:1px solid var(--rule);cursor:pointer}
+.ob-row.leaf{cursor:default}
+.ob-row:hover .ob-rn{text-decoration:underline}
+.ob-row:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:6px}
+.ob-row i{width:12px;height:12px;border-radius:4px}
+.ob-rn{font-size:15px;min-width:0}
+.ob-rn small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.ob-rv{font-size:15px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.ob-rv small{display:block;font-size:12px;color:var(--muted)}
+.ob-rb{grid-column:2/-1;height:4px;border-radius:2px;background:color-mix(in srgb, var(--ink) 8%, var(--bg));overflow:hidden}
+.ob-rb span{display:block;height:100%;border-radius:2px}
+.ob-exp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ob-exp div{padding:18px 20px;border-radius:20px;background:color-mix(in srgb, var(--ink) 4%, var(--bg));font-size:14px;line-height:1.5}
+.ob-exp h3{margin:0 0 6px;font-size:15px}
+.ob-note{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0}
+.ob-sec{display:flex;flex-direction:column;gap:14px}
+.ob-h2{margin:0;font-size:20px;letter-spacing:-.02em}
+@media (max-width:900px){ .ob-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .ob-exp{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:560px){ .ob-map{height:62vh;min-height:340px;border-radius:16px} .ob-t{border-radius:8px;padding:7px 8px} .ob-ctl{flex-direction:column;align-items:stretch} .ob-seg{justify-content:space-between} .ob-seg button{padding:8px 10px;font-size:13px} }
+@media (prefers-reduced-motion:reduce){ .ob-t{transition:none} }
 /* transparency page (#transparencia): spending by power and, inside each power, by person or office */
 .tp-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .tp-tu{font-size:12px;color:var(--muted)}
@@ -1578,9 +1638,9 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <a href="#consultas" data-nav="consultas">Enquetes</a>
   </nav>
   <div class="nav-scrim" aria-hidden="true"></div>
-  <div class="menu-tools"><form class="srch" id="srch" role="search" hidden><label class="sr-only" for="srch-q">Pesquisar na Coisa Pública</label><input type="search" id="srch-q" placeholder="Pesquisar" autocomplete="off" enterkeyhint="search"><button type="submit" class="srch-go">Pesquisar</button><button type="button" class="srch-x" aria-label="Fechar a pesquisa">×</button></form><button type="button" class="vg-link srch-link" id="srch-btn" aria-label="Pesquisar" title="Pesquisar" aria-expanded="false" aria-controls="srch"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a><a class="vg-link qs-link" href="#quem-somos" data-nav="sobre" aria-label="Quem somos" title="Quem somos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></svg></a><button type="button" class="ham" id="ham" aria-expanded="false" aria-controls="mdr" aria-label="Abrir o menu"><span aria-hidden="true"></span></button></div>
+  <div class="menu-tools"><form class="srch" id="srch" role="search" hidden><label class="sr-only" for="srch-q">Pesquisar na Coisa Pública</label><input type="search" id="srch-q" placeholder="Pesquisar" autocomplete="off" enterkeyhint="search"><button type="submit" class="srch-go">Pesquisar</button><button type="button" class="srch-x" aria-label="Fechar a pesquisa">×</button></form><button type="button" class="vg-link srch-link" id="srch-btn" aria-label="Pesquisar" title="Pesquisar" aria-expanded="false" aria-controls="srch"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></button><a class="vg-link cs-link" href="#consultas" data-nav="consultas" aria-label="Enquetes" title="Enquetes"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12.5h16v7.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8.5 12.5V4.5h7v8"/><path d="m10.3 8.6 1.3 1.3 2.3-2.6"/><path d="M7 16h10"/></svg></a><a class="vg-link pj-link" href="#projetos" data-nav="projetos" aria-label="Projetos" title="Projetos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 3.5h8.5l3 3V18a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M16.5 3.5v3h3"/><path d="M4.5 7v12.5a1 1 0 0 0 1 1H15"/><path d="M10 10.5h6M10 13.5h6"/></svg></a><a class="vg-link tp-link" href="#transparencia" data-nav="transp" aria-label="Transparência" title="Transparência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3.5" width="14" height="15" rx="1"/><path d="M12 3.5v15M5 11h14M3.5 20.5h17"/></svg></a><a class="vg-link ob-link" href="#orcamento" data-nav="orc" aria-label="Orçamento federal" title="Orçamento federal"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M11 3.5v17M11 12h9.5M16 12v8.5"/></svg></a><a class="vg-link" href="#visao-geral" data-nav="visao" aria-label="Visão geral" title="Visão geral"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.25" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/><circle cx="8.3" cy="15.7" r="1.25" fill="currentColor" stroke="none"/><circle cx="15.7" cy="15.7" r="1.25" fill="currentColor" stroke="none"/></svg></a><a class="cal-link" href="#calendario" data-nav="calendario" aria-label="Calendário" title="Calendário"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="8.5" cy="14.5" r=".6" fill="currentColor"/><circle cx="12" cy="14.5" r=".6" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".6" fill="currentColor"/></svg></a><a class="vg-link qs-link" href="#quem-somos" data-nav="sobre" aria-label="Quem somos" title="Quem somos"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/></svg></a><button type="button" class="ham" id="ham" aria-expanded="false" aria-controls="mdr" aria-label="Abrir o menu"><span aria-hidden="true"></span></button></div>
 </header>
-<div class="hdd" id="hdd" role="menu" aria-label="Páginas"><a href="#projetos" data-go="projetos" data-k="projetos" role="menuitem">Projetos</a><a href="#consultas" data-go="consultas" data-k="consultas" role="menuitem">Consultas públicas</a><a href="#transparencia" data-go="transp" data-k="transp" role="menuitem">Transparência</a><a href="#visao-geral" data-go="visao" data-k="visao" role="menuitem">Visão geral</a><a href="#calendario" data-go="calendario" data-k="calendario" role="menuitem">Calendário</a><a href="#quem-somos" data-go="sobre" data-k="sobre" role="menuitem">Quem somos</a></div>
+<div class="hdd" id="hdd" role="menu" aria-label="Páginas"><a href="#projetos" data-go="projetos" data-k="projetos" role="menuitem">Projetos</a><a href="#consultas" data-go="consultas" data-k="consultas" role="menuitem">Consultas públicas</a><a href="#transparencia" data-go="transp" data-k="transp" role="menuitem">Transparência</a><a href="#orcamento" data-go="orc" data-k="orc" role="menuitem">Orçamento federal</a><a href="#visao-geral" data-go="visao" data-k="visao" role="menuitem">Visão geral</a><a href="#calendario" data-go="calendario" data-k="calendario" role="menuitem">Calendário</a><a href="#quem-somos" data-go="sobre" data-k="sobre" role="menuitem">Quem somos</a></div>
 <div class="mdr" id="mdr" hidden role="dialog" aria-modal="true" aria-label="Menu"></div>
 <section class="landing" id="landing" aria-label="Praça dos Três Poderes">
   <div class="lx-wrap"><div class="lx" aria-label="Os três poderes">
@@ -1634,6 +1694,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
 <article class="proj cal cons" id="cons" hidden aria-labelledby="cons-title"></article>
 <article class="proj cal vgp" id="vg" hidden aria-labelledby="vg-title"></article>
 <article class="proj cal vgp tpp" id="tp" hidden aria-labelledby="tp-title"></article>
+<article class="proj cal vgp obp" id="ob" hidden aria-labelledby="ob-title"></article>
 <article class="proj cal inst" id="inst" hidden aria-labelledby="inst-title"></article>
 
 <script src="data/ocupantes.js"></script>
@@ -3535,6 +3596,7 @@ const FOOT_HTML = (()=>{
     <li>${ext('https://www12.senado.leg.br/ecidadania', 'e-Cidadania do Senado')}</li>
     <li>${ext('https://falabr.cgu.gov.br', 'Fala.BR, ouvidoria do governo')}</li>
     <li><a href="#transparencia">Transparência</a></li>
+    <li><a href="#orcamento">Orçamento federal</a></li>
     <li><a href="#visao-geral">Visão geral</a></li>
     <li><a href="#calendario">Calendário</a></li></ul></nav>
   <div class="sf-site"><h2 class="sr-only">O site</h2><ul>${own}</ul>
@@ -3549,7 +3611,7 @@ document.addEventListener('click', e=>{
   setTimeout(()=>{ const L = document.getElementById('landing'); if (L) L.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'}); }, 50);
 }, true);   // capture: the opening view stops clicks from bubbling
 function addFoot(el){ if (el && !(el.lastElementChild && el.lastElementChild.classList.contains('site-foot'))) el.insertAdjacentHTML('beforeend', FOOT_HTML); }
-['landing','stfv','presv','proj','cal','cons','vg','tp','inst'].forEach(id=>{
+['landing','stfv','presv','proj','cal','cons','vg','tp','ob','inst'].forEach(id=>{
   const el = document.getElementById(id); if (!el) return;
   addFoot(el);
   new MutationObserver(()=> addFoot(el)).observe(el, {childList:true});
@@ -3923,6 +3985,7 @@ function navTo(key){
   if (key==='calendario' || key==='consultas'){ location.hash = '#'+key; return; }
   if (key==='visao'){ location.hash = '#visao-geral'; return; }
   if (key==='transp'){ location.hash = '#transparencia'; return; }
+  if (key==='orc'){ location.hash = '#orcamento'; return; }
   if (key==='projetos'){ location.hash = '#projetos'; return; }
   if (key==='sobre'){ location.hash = '#quem-somos'; return; }
   if (VIEWS[key]){
@@ -3969,7 +4032,7 @@ const ham = document.getElementById('ham'), mdr = document.getElementById('mdr')
     ${sec('Legislativo', '#F2C200', tiles(tile('href="#" data-go="senado" data-k="senado"', GLYPHS.leg, 'Senado Federal') + tile('href="#" data-go="camara" data-k="camara"', GLYPHS.leg, 'Câmara dos Deputados')))}
     ${sec('Judiciário', '#1F4FB5', tiles(tile('href="#" data-go="stf" data-k="stf"', 'STF', 'Supremo Tribunal Federal')
       + [['stj','Superior Tribunal de Justiça'],['tst','Tribunal Superior do Trabalho'],['tse','Tribunal Superior Eleitoral'],['stm','Superior Tribunal Militar']].map(([k,l])=> tile(`href="#tribunal-${k}" data-k="t:${k}"`, k.toUpperCase(), l)).join('')))}
-    ${sec('Explorar', '', tiles([['projetos','Projetos'],['consultas','Enquetes'],['transp','Transparência'],['visao','Visão geral'],['calendario','Calendário'],['sobre','Quem somos']].map(([k,l])=> tile(`href="#" data-go="${k}" data-k="${k}"`, ICON(k), l)).join('')))}`;
+    ${sec('Explorar', '', tiles([['projetos','Projetos'],['consultas','Enquetes'],['transp','Transparência'],['orc','Orçamento'],['visao','Visão geral'],['calendario','Calendário'],['sobre','Quem somos']].map(([k,l])=> tile(`href="#" data-go="${k}" data-k="${k}"`, ICON(k), l)).join('')))}`;
   const mb = mdr.querySelector('.mdr-btn'), mm = document.getElementById('mdr-mins');
   mb.addEventListener('click', e=>{ e.stopPropagation(); const on = mm.hidden; mm.hidden = !on; mb.setAttribute('aria-expanded', String(on)); if (on) document.getElementById('mdr-q').focus({preventScroll:true}); });
   document.getElementById('mdr-srch').addEventListener('submit', e=>{ e.preventDefault(); const v = document.getElementById('mdr-sq').value.trim(); if (!v) return; document.getElementById('mdr-sq').value = ''; mdrOpen(false); bsAll = {}; resetLayers(); location.hash = '#busca?q=' + encodeURIComponent(v); });
@@ -4032,7 +4095,7 @@ const NAV_LINKS = [...document.querySelectorAll('.menu [data-nav]:not(.brand)')]
 let navHere;
 setInterval(()=>{
   if (document.hidden) return;
-  const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey==='s:' ? 'sobre' : instKey && instKey.startsWith('b:') ? 'busca' : instKey) : !tp.hidden ? 'transp' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey || (landing.hidden ? 'plano' : null);
+  const here = !inst.hidden ? (instKey && instKey.startsWith('c:') ? 'projetos' : instKey==='s:' ? 'sobre' : instKey && instKey.startsWith('b:') ? 'busca' : instKey) : !tp.hidden ? 'transp' : !ob.hidden ? 'orc' : !vg.hidden ? 'visao' : !cons.hidden ? 'consultas' : !cal.hidden ? 'calendario' : openView() || openKey || (landing.hidden ? 'plano' : null);
   if (here===navHere) return; navHere = here;
   NAV_LINKS.forEach(a=>{ if (a.dataset.nav===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   hdd.querySelectorAll('[data-k]').forEach(a=>{ if (a.dataset.k===here) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
@@ -4056,6 +4119,7 @@ function goBack(){
   else if (!cons.hidden) leaveCal();
   else if (!vg.hidden) leaveCal();
   else if (!tp.hidden) leaveCal();
+  else if (!ob.hidden) leaveCal();
   else if (!inst.hidden) leaveCal();
   else if (personState) closePerson();
   else if (partyState) closeParty();
@@ -5192,6 +5256,200 @@ function hideTp(){
   document.title = 'Coisa Pública';
 }
 
+/* ---------- federal budget (#orcamento) ----------
+   data/orcamento-federal.json is written every Sunday by the robot (scripts/orcamento_federal.py) from the
+   Portal da Transparência's yearly "Orçamento da despesa" file. Three trees (area, agency, kind of spending),
+   each value as [initial, updated, committed, paid]. The page is one big treemap: tap a block to open it. */
+const ob = document.getElementById('ob');
+let obData = null, obView = 'areas', obVal = 1, obRoll = true, obPath = [];
+const OB_PAL = ['#2A9D8F','#7E57C2','#3D7DD8','#F4A261','#D64F7F','#5FA052','#C9A227','#4AA6C9','#9C6644','#43AA8B','#B565A7','#577590','#F8961E','#6D6875','#8AB17D','#E9C46A'];
+const OB_DEBT = '#B3261E';
+// plain-language names and notes for the budget "functions" and other technical labels
+const OB_DESC = {
+  'Encargos especiais':'dívida pública, repasses a estados e municípios e outras despesas sem área definida',
+  'Previdência social':'aposentadorias e pensões do INSS e dos servidores',
+  'Assistência social':'Bolsa Família, BPC e outros programas de proteção social',
+  'Trabalho':'seguro-desemprego, abono salarial e emprego',
+  'Reserva de contingência':'dinheiro guardado para imprevistos e para emendas',
+  'Refinanciamento da dívida interna':'rolagem: o governo emite títulos novos para pagar os que vencem',
+  'Refinanciamento da dívida externa':'rolagem da dívida em moeda estrangeira',
+  'Serviço da dívida interna':'juros e parte do principal pagos com dinheiro do orçamento',
+  'Serviço da dívida externa':'juros e principal da dívida em moeda estrangeira',
+  'Outras transferências':'repasses obrigatórios a estados e municípios, como os fundos de participação (FPE e FPM)',
+  'Amortização/Refinanciamento da Dívida':'pagamento do principal da dívida, incluindo a rolagem',
+  'Juros e Encargos da Dívida':'juros da dívida pública',
+  'Outras Despesas Correntes':'benefícios, custeio da máquina e transferências',
+  'Pessoal e Encargos Sociais':'salários de servidores ativos, aposentados e pensionistas',
+  'Inversões Financeiras':'empréstimos e participação em empresas e fundos',
+  'Investimentos':'obras e compra de equipamentos'
+};
+// friendlier names for the biggest technical labels (the official name stays in the tooltip)
+const OB_NAME = {'Refinanciamento da dívida interna':'Rolagem da dívida','Refinanciamento da dívida externa':'Rolagem da dívida externa',
+  'Serviço da dívida interna':'Dívida: juros e amortização','Serviço da dívida externa':'Dívida externa: juros e amortização',
+  'Outras transferências':'Repasses a estados e municípios','Transferências para a educação básica':'Repasses para a educação básica'};
+const obName = n=> OB_NAME[n.n] || n.n;
+const OB_DEBTS = ['#B3261E','#D04A35','#8E1B14','#E06A55','#A33A2C'];
+// "Encargos especiais" is not an area like health or education: its parts (debt, transfers) go straight to the first level
+function obPrep(d){ const r = d.areas, i = (r.c||[]).findIndex(x=> x.n==='Encargos especiais');
+  if (i >= 0){ const e = r.c[i]; r.c.splice(i, 1, ...(e.c||[]).map(c=> ({...c, enc:1}))); r.c.sort((a,b)=> b.v[1]-a.v[1]); } return d; }
+const obIsRoll = n=> /refinanciamento/i.test(n.n);
+const obIsDebt = n=> /d[ií]vida/i.test(n.n);
+function obV(n){ // the value shown, optionally without the debt rollover (n.r: the rollover part, from the robot)
+  const v = (n.v[obVal] || 0) - (!obRoll && n.r ? n.r[obVal] : 0);
+  return Math.max(0, v);
+}
+function obNode(){ let n = obData[obView]; for (const k of obPath){ const c = (n.c||[]).find(x=> obKey(x)===k); if (!c) break; n = c; } return n; }
+const obKey = n=> n.k+'|'+n.n;
+let obDebtI = 0, obPalI = 0;
+function obColor(n, i, depth){
+  if (obIsRoll(n) || (obView==='tipos' && obIsDebt(n)) || /^Serviço da dívida/i.test(n.n) || /^Juros/i.test(n.n)) return depth===0 ? OB_DEBTS[obDebtI++ % OB_DEBTS.length] : OB_DEBT;
+  if (depth===0) return OB_PAL[obPalI++ % OB_PAL.length];
+  return obBase ? obShade(obBase, i) : OB_PAL[i % OB_PAL.length];
+}
+let obBase = null;
+function obShade(hex, i){ // vary lightness around the parent color
+  const f = [0, .18, -.14, .32, -.24, .44, .1, -.06, .26, -.18][i % 10];
+  const c = parseInt(hex.slice(1),16), r = c>>16, g = c>>8&255, b = c&255;
+  const m = x=> Math.round(f>=0 ? x + (255-x)*f : x*(1+f));
+  return '#'+[m(r),m(g),m(b)].map(x=> x.toString(16).padStart(2,'0')).join('');
+}
+const obLight = hex=>{ const c = parseInt(hex.slice(1),16); return (0.299*(c>>16) + 0.587*(c>>8&255) + 0.114*(c&255)) > 170; };
+// squarified treemap
+function obSquarify(items, x, y, w, h){
+  const out = [], tot = items.reduce((a,b)=> a+b.val, 0); if (!tot || w<=0 || h<=0) return out;
+  const scale = w*h/tot; let rest = items.map(it=> ({...it, a: it.val*scale})).filter(it=> it.a>0);
+  const worst = (row, side)=>{ const s = row.reduce((a,b)=> a+b.a,0), mx = Math.max(...row.map(r=>r.a)), mn = Math.min(...row.map(r=>r.a)); return Math.max(side*side*mx/(s*s), s*s/(side*side*mn)); };
+  while (rest.length){
+    const side = Math.min(w, h); let row = [rest[0]], i = 1;
+    while (i < rest.length && worst(row.concat(rest[i]), side) <= worst(row, side)){ row.push(rest[i]); i++; }
+    const s = row.reduce((a,b)=> a+b.a, 0);
+    if (w >= h){ const cw = s/h; let cy = y; row.forEach(r=>{ const rh = r.a/cw; out.push({...r, x, y:cy, w:cw, h:rh}); cy += rh; }); x += cw; w -= cw; }
+    else { const ch = s/w; let cx = x; row.forEach(r=>{ const rw = r.a/ch; out.push({...r, x:cx, y, w:rw, h:ch}); cx += rw; }); y += ch; h -= ch; }
+    rest = rest.slice(i);
+  }
+  return out;
+}
+const obPct = (a,b)=> b ? (a/b*100) : 0;
+const obPctTxt = p=> p>=10 ? Math.round(p)+'%' : p>=1 ? FMT_PCT.format(Math.round(p*10)/10)+'%' : p>0 ? 'menos de 1%' : '0%';
+function obTotal(){ return obV(obData[obView]); }
+function obKids(n){ return (n.c||[]).map((c,i)=> ({node:c, i, val: obV(c)})).filter(x=> x.val>0).sort((a,b)=> b.val-a.val); }
+function obDraw(){
+  const map = document.getElementById('ob-map'); if (!map || !obData) return;
+  const n = obNode(), kids = obKids(n), tot = obTotal(), parent = obV(n);
+  const W = map.clientWidth, H = map.clientHeight;
+  const rects = obSquarify(kids.map(k=> ({...k})), 0, 0, W, H);
+  const depth = obPath.length;
+  obDebtI = 0; obPalI = 0;
+  const old = new Map([...map.querySelectorAll('.ob-t')].map(e=> [e.dataset.k, e]));
+  const seen = new Set();
+  rects.forEach((r, j)=>{
+    const c = r.node, key = obKey(c), col = depth===0 ? obColor(c, j, 0) : obColor(c, j, depth);
+    let e = old.get(key);
+    if (!e){ e = document.createElement('div'); e.className = 'ob-t'; e.dataset.k = key; e.tabIndex = 0; e.setAttribute('role','button');
+      Object.assign(e.style, {left:(r.x+r.w/2)+'px', top:(r.y+r.h/2)+'px', width:'0px', height:'0px'}); map.appendChild(e); }
+    seen.add(key);
+    const leaf = !(c.c && c.c.length) || c.outros;
+    e.classList.toggle('leaf', !!leaf); e.classList.toggle('lt', obLight(col));
+    e.classList.toggle('sm', r.w < 150 || r.h < 90); e.classList.toggle('nv', r.w < 96 || r.h < 56); e.classList.toggle('xs', r.w < 56 || r.h < 34);
+    e.style.background = col; e.dataset.col = col; e.style.borderRadius = Math.max(3, Math.min(12, r.w/5, r.h/5))+'px';
+    // type follows the block size, so a value never breaks in two lines
+    e.style.setProperty('--vs', Math.max(13, Math.min(30, r.w/7.5, r.h/3.2))+'px'); e.style.setProperty('--ns', Math.max(11, Math.min(16, r.w/11))+'px');
+    e.setAttribute('aria-label', `${obName(c)}: ${moneyBig(r.val)}, ${obPctTxt(obPct(r.val, tot))} do total${leaf ? '' : '. Abrir'}`);
+    e.innerHTML = `<span class="n">${esc(obName(c))}</span><span class="v">${moneyBig(r.val)}</span><span class="p">${obPctTxt(obPct(r.val, tot))} do total</span>`;
+    requestAnimationFrame(()=> Object.assign(e.style, {left:r.x+'px', top:r.y+'px', width:r.w+'px', height:r.h+'px'}));
+  });
+  old.forEach((e,k)=>{ if (!seen.has(k)) e.remove(); });
+  // list under the map (also the accessible version)
+  const L = document.getElementById('ob-list');
+  if (L) L.innerHTML = kids.map((k, j)=>{ const c = k.node, col = (map.querySelector(`.ob-t[data-k="${CSS.escape(obKey(c))}"]`)||{}).dataset?.col || OB_PAL[j%OB_PAL.length];
+    const leaf = !(c.c && c.c.length) || c.outros, d = OB_DESC[c.n], paid = c.v[3], plan = c.v[1];
+    return `<button type="button" class="ob-row${leaf?' leaf':''}" data-k="${esc(obKey(c))}"${leaf?' aria-disabled="true"':''}><i style="background:${col}"></i>
+      <span class="ob-rn">${esc(obName(c))}${d ? `<small>${esc(d)}</small>` : ''}</span>
+      <span class="ob-rv">${moneyBig(k.val)}<small>${obPctTxt(obPct(k.val, tot))} do total${plan>0 && obVal===1 && !obIsRoll(c) ? ` · ${Math.min(100,Math.round(paid/plan*100))}% já pago` : ''}</small></span>
+      <span class="ob-rb"><span style="width:${Math.max(.5, obPct(k.val, kids[0].val))}%;background:${col}"></span></span></button>`; }).join('');
+  const cr = document.getElementById('ob-crumbs');
+  if (cr){ const names = []; let x = obData[obView]; obPath.forEach(k=>{ const c = (x.c||[]).find(y=> obKey(y)===k); if (c){ names.push(obName(c)); x = c; } });
+    cr.innerHTML = (obPath.length ? `<button type="button" data-crumb="0">Tudo</button>` : `<span class="cur">Tudo</span>`) + names.map((nm,i)=> `<i>›</i>` + (i < names.length-1 ? `<button type="button" data-crumb="${i+1}">${esc(nm)}</button>` : `<span class="cur">${esc(nm)}</span>`)).join('')
+      + `<i style="margin-left:auto">${moneyBig(parent)}${obPath.length ? ` · ${obPctTxt(obPct(parent, tot))} do total` : ''}</i>`; }
+}
+function obOpen(key){
+  const n = obNode(), c = (n.c||[]).find(x=> obKey(x)===key); if (!c || !(c.c && c.c.length) || c.outros) return;
+  if (!obPath.length){ const j = obKids(n).findIndex(k=> obKey(k.node)===key); obBase = obIsRoll(c) ? OB_DEBT : OB_PAL[j % OB_PAL.length]; }
+  const map = document.getElementById('ob-map'); if (map) map.innerHTML = '<div class="ob-tip" id="ob-tip" role="tooltip"></div>';
+  obPath.push(key); obDraw();
+}
+function renderOb(){
+  const D = obData;
+  if (!D){ ob.innerHTML = `<div class="cw vg"><header class="cw-head"><div><p class="inst-eye">Portal da Transparência</p><h1 id="ob-title">Orçamento federal</h1><p class="vg-sub">Carregando…</p></div></header></div>`; return; }
+  const t = D.total, roll = D.divida.rolagem, juros = D.divida.juros, amort = D.divida.amortizacao;
+  const debt = roll[1] + juros[1] + amort[1];
+  const when = D.atualizado ? new Date(D.atualizado).toLocaleDateString('pt-BR', {day:'numeric', month:'long'}) : '';
+  ob.innerHTML = `<div class="cw vg">
+    <header class="cw-head"><div><p class="inst-eye">Portal da Transparência · atualizado aos domingos${when ? ` · último: ${when}` : ''}</p><h1 id="ob-title">Orçamento federal ${D.ano}</h1>
+      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Toque num bloco para abrir.</p></div>
+      ${infoBox([{l:'Portal da Transparência (CGU): orçamento da despesa', u:'https://portaldatransparencia.gov.br/orcamento'}, {l:'Arquivo de dados usado ('+D.ano+')', u: D.fonte || 'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'}], 'Fonte', 'Os valores são atualizados automaticamente todo domingo, como o Portal publica.')}</header>
+    <div class="ob-kpis">
+      <div class="ob-k"><span class="l">Orçamento do ano</span><b>${moneyBig(t[1])}</b><span class="s">previsto, com as mudanças feitas ao longo do ano (na lei: ${moneyBig(t[0])})</span></div>
+      <div class="ob-k"><span class="l">Já pago</span><b>${moneyBig(t[3])}</b><div class="ob-bar"><i style="width:${Math.min(100, obPct(t[3], t[1]))}%"></i></div><span class="s">${obPctTxt(obPct(t[3], t[1]))} do previsto</span></div>
+      <div class="ob-k debt"><span class="l">Dívida pública</span><b>${moneyBig(debt)}</b><span class="s">${obPctTxt(obPct(debt, t[1]))} do orçamento: juros ${moneyBig(juros[1])}, principal ${moneyBig(amort[1])} e rolagem ${moneyBig(roll[1])}</span></div>
+      <div class="ob-k"><span class="l">Sem a rolagem da dívida</span><b>${moneyBig(t[1]-roll[1])}</b><span class="s">a rolagem troca títulos que vencem por novos; muita gente deixa de fora para comparar</span></div>
+    </div>
+    <section class="ob-sec">
+      <div class="ob-ctl">
+        <div class="ob-seg" role="group" aria-label="Ver por">${[['areas','Por área'],['orgaos','Por órgão'],['tipos','Por tipo de gasto']].map(([k,l])=> `<button type="button" data-view="${k}" aria-pressed="${obView===k}">${l}</button>`).join('')}</div>
+        <div class="ob-seg" role="group" aria-label="Valor">${[[1,'Previsto'],[3,'Já pago']].map(([k,l])=> `<button type="button" data-val="${k}" aria-pressed="${obVal===k}">${l}</button>`).join('')}</div>
+        <label class="ob-chk"><input type="checkbox" id="ob-roll"${obRoll?' checked':''}> Incluir a rolagem da dívida</label>
+      </div>
+      <nav class="ob-crumbs" id="ob-crumbs" aria-label="Onde você está"></nav>
+      <div class="ob-map" id="ob-map"><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
+      <div class="ob-list" id="ob-list"></div>
+    </section>
+    <section class="ob-sec"><h2 class="ob-h2">Para entender</h2><div class="ob-exp">
+      <div><h3>Previsto e pago</h3>O orçamento é o limite que a lei autoriza. O governo primeiro reserva o dinheiro (empenho) e só depois paga. Por isso o "já pago" cresce ao longo do ano.</div>
+      <div><h3>Rolagem da dívida</h3>Quando um título público vence, o governo costuma emitir outro para pagá-lo. Isso entra no orçamento como "refinanciamento", mas não é dinheiro novo gasto com serviços.</div>
+      <div><h3>Encargos especiais</h3>No orçamento, a dívida e os repasses obrigatórios a estados e municípios ficam numa área chamada "encargos especiais". Aqui ela aparece aberta, nas partes que a formam.</div>
+    </div>
+    <p class="ob-note">Os números são os do arquivo "Orçamento da despesa" do Portal da Transparência, que traz o orçamento do Poder Executivo federal. Os orçamentos da Câmara, do Senado, dos tribunais e do Ministério Público ficam fora dele (veja a página Transparência). Nos detalhes, os itens menores de cada grupo aparecem juntos em "Outros".</p></section>
+  </div>`;
+  obDraw();
+}
+ob.addEventListener('click', e=>{
+  const v = e.target.closest('[data-view]'); if (v){ obView = v.dataset.view; obPath = []; obBase = null; renderOb(); return; }
+  const w = e.target.closest('[data-val]'); if (w){ obVal = +w.dataset.val; ob.querySelectorAll('[data-val]').forEach(b=> b.setAttribute('aria-pressed', String(b===w))); obDraw(); return; }
+  const c = e.target.closest('[data-crumb]'); if (c){ obPath = obPath.slice(0, +c.dataset.crumb); if (!obPath.length) obBase = null; const m = document.getElementById('ob-map'); if (m) m.innerHTML = '<div class="ob-tip" id="ob-tip" role="tooltip"></div>'; obDraw(); return; }
+  const t = e.target.closest('.ob-t, .ob-row'); if (t && !t.classList.contains('leaf')){ obOpen(t.dataset.k); if (t.classList.contains('ob-row')) document.getElementById('ob-crumbs')?.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+});
+ob.addEventListener('change', e=>{ if (e.target.id==='ob-roll'){ obRoll = e.target.checked; obDraw(); } });
+ob.addEventListener('keydown', e=>{ const t = e.target.closest('.ob-t'); if (t && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); obOpen(t.dataset.k); document.querySelector('#ob-map .ob-t')?.focus(); } });
+ob.addEventListener('mousemove', e=>{
+  const tip = document.getElementById('ob-tip'), map = document.getElementById('ob-map'); if (!tip || !map) return;
+  const t = e.target.closest('.ob-t'); if (!t){ tip.classList.remove('on'); return; }
+  const n = obNode(), c = (n.c||[]).find(x=> obKey(x)===t.dataset.k); if (!c) return;
+  const tot = obTotal(), d = OB_DESC[c.n], val = obV(c);
+  tip.innerHTML = `<b>${esc(obName(c))}</b>${d ? `<span style="opacity:.75">${esc(d)}</span><br>` : ''}${OB_NAME[c.n] ? `<span style="opacity:.6">No orçamento: ${esc(c.n)}</span><br>` : ''}<span class="m">${moneyBig(val)}</span><br>${obPctTxt(obPct(val, tot))} do total${obPath.length ? ` · ${obPctTxt(obPct(val, obV(n)))} de ${esc(obName(n))}` : ''}<br>Previsto ${moneyBig(c.v[1])} · pago ${moneyBig(c.v[3])}${c.outros ? `<br>${c.outros} itens menores juntos` : (c.c && c.c.length ? '<br><span style="opacity:.75">Clique para abrir</span>' : '')}`;
+  const R = map.getBoundingClientRect(); let x = e.clientX - R.left + 14, y = e.clientY - R.top + 14;
+  if (x + 290 > R.width) x = e.clientX - R.left - 294; if (y + tip.offsetHeight + 10 > R.height) y = e.clientY - R.top - tip.offsetHeight - 14;
+  tip.style.left = Math.max(6, x)+'px'; tip.style.top = Math.max(6, y)+'px'; tip.classList.add('on');
+});
+ob.addEventListener('mouseleave', ()=> document.getElementById('ob-tip')?.classList.remove('on'));
+let obRz; window.addEventListener('resize', ()=>{ if (ob.hidden) return; clearTimeout(obRz); obRz = setTimeout(obDraw, 120); });
+function showOb(){
+  if (!ob.hidden) return;
+  renderOb();
+  if (!obData) trFetch('data/orcamento-federal.json').then(d=>{ obData = obPrep(d); if (!ob.hidden) renderOb(); })
+    .catch(()=>{ if (!ob.hidden){ const s = ob.querySelector('.vg-sub'); if (s) s.textContent = 'Não deu para carregar o orçamento agora.'; } });
+  ob.scrollTop = 0;
+  ob.hidden = false; requestAnimationFrame(()=>{ ob.classList.add('show'); obDraw(); });
+  document.title = 'Orçamento federal · Coisa Pública';
+  ob.querySelector('#ob-title').setAttribute('tabindex','-1');
+  ob.querySelector('#ob-title').focus({preventScroll:true});
+}
+function hideOb(){
+  if (ob.hidden) return;
+  ob.classList.remove('show'); ob.hidden = true; ob.innerHTML = ''; obPath = []; obBase = null;
+  if (document.title.startsWith('Orçamento')) document.title = 'Coisa Pública';
+}
+
 /* ---------- institution pages: superior courts (#tribunal-*) and ministries (#ministerio-*) ----------
    Text only for now. Court data comes from the Constitution (composition) and from news of each court's
    current leadership; ministries come from EXEC_MIN, the same list the Presidência view uses. */
@@ -5336,7 +5594,7 @@ function searchIndex(){
   add('Órgãos', 'Supremo Tribunal Federal', 'Judiciário · STF', 'go:stf', 'STF');
   Object.entries(COURTS).forEach(([k,C])=> add('Órgãos', C.nome, `Judiciário · ${C.sigla}`, `href:#tribunal-${k}`, C.sigla));
   CATS.forEach(C=> add('Tipos de proposta', C.pl, C.d, `href:#categoria-${C.k}`, C.l, C.c));
-  [['Projetos','projetos','todas as propostas e processos'],['Enquetes','consultas','consultas públicas e-Cidadania'],['Transparência','transp','gastos cota parlamentar cartão orçamento'],
+  [['Projetos','projetos','todas as propostas e processos'],['Enquetes','consultas','consultas públicas e-Cidadania'],['Transparência','transp','gastos cota parlamentar cartão orçamento'],['Orçamento federal','orc','orçamento união dívida juros gastos governo saúde educação previdência'],
    ['Visão geral','visao','painel resumo números'],['Calendário','calendario','agenda datas pauta'],['Quem somos','sobre','sobre o site fontes autor']].forEach(([l,k,x])=> add('Páginas da Coisa Pública', l, x, `go:${k}`, x));
   return SRCH = L;
 }
@@ -5467,6 +5725,7 @@ function showRoute(){
   if (location.hash === '#consultas') showCons(); else hideCons();
   if (location.hash === '#visao-geral') showVg(); else if (!/^#p-/.test(location.hash)) hideVg();
   if (location.hash === '#transparencia') showTp(); else if (!/^#p-/.test(location.hash)) hideTp();
+  if (location.hash === '#orcamento') showOb(); else hideOb();
   const bq = location.hash.match(/^#busca(?:\?q=(.*))?$/);
   const im = location.hash==='#projetos' ? [0,'categoria','todas'] : location.hash==='#quem-somos' ? [0,'sobre','-'] : bq ? [0,'busca', bq[1] ? decodeURIComponent(bq[1].replace(/\+/g,' ')) : ''] : location.hash.match(/^#(tribunal|ministerio|categoria)-([a-z0-9-]+)$/);
   if (im && showInst(im[1], im[2])) {} else if (!/^#p-/.test(location.hash)) hideInst();
