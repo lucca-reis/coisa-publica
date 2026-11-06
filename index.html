@@ -1266,22 +1266,32 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-top{display:flex;align-items:flex-end;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;margin-top:6px}
 .ob-big{display:flex;flex-direction:column;gap:2px}.ob-big b{font-size:clamp(34px,4.6vw,60px);font-weight:500;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}.ob-big span{font-size:13px;color:var(--muted)}
 .ob-map{position:relative;padding-bottom:4px}
-.ob-bar2{position:relative;height:clamp(64px,9vw,112px);border-radius:999px;overflow:hidden;background:color-mix(in srgb, var(--ink) 6%, var(--bg));isolation:isolate}
-.ob-t{position:absolute;top:0;bottom:0;box-sizing:border-box;border-right:3px solid var(--bg);color:#fff;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;
-  transition:left .5s cubic-bezier(.3,.7,.2,1),width .5s cubic-bezier(.3,.7,.2,1),opacity .3s,filter .15s}
-.ob-t.last{border-right:0}
-.ob-t .p{font-size:clamp(13px,1.5vw,18px);font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.ob-t.lt{color:#121417}
-.ob-bar2:hover .ob-t:not(:hover){filter:saturate(.6) brightness(1.08);opacity:.7}
-.ob-t:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--ink)}
-.ob-t.leaf{cursor:default}
-.ob-labs{position:relative;height:64px;margin-top:10px}
-.ob-lb{position:absolute;top:0;box-sizing:border-box;padding:0 10px 0 2px;display:flex;flex-direction:column;gap:2px;min-width:0}
-.ob-lb i{width:22px;height:3px;border-radius:2px;margin-bottom:5px}
-.ob-lb .n{font-size:13px;line-height:1.2;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ob-lb b{font-size:clamp(15px,1.6vw,20px);font-weight:500;letter-spacing:-.02em;white-space:nowrap}
+.ob-mesa{position:relative;height:clamp(460px,62vh,640px);margin-top:8px}
+.ob-t{position:absolute;box-sizing:border-box;cursor:pointer;perspective:1200px;outline:none;
+  transition:left .55s cubic-bezier(.3,.7,.2,1),top .55s cubic-bezier(.3,.7,.2,1),width .55s cubic-bezier(.3,.7,.2,1),height .55s cubic-bezier(.3,.7,.2,1),opacity .35s,transform .35s}
+.ob-ci{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,.7,.2,1),translate .2s}
+.ob-t:hover .ob-ci{translate:0 -3px}
+.ob-t.flip .ob-ci{transform:rotateY(180deg)}
+.ob-f,.ob-b{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;display:flex;flex-direction:column;gap:3px;padding:16px 18px}
+.ob-f{background:var(--oc);color:#fff}
+.ob-t.lt .ob-f{color:#121417}
+.ob-b{transform:rotateY(180deg);background:color-mix(in srgb, var(--oc) 14%, #fff);color:#121417;gap:8px}
+.ob-f .n{font-size:clamp(13px,1.3vw,16px);font-weight:600;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ob-f .v{font-size:clamp(20px,2.6vw,34px);font-weight:500;letter-spacing:-.03em;line-height:1.05;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ob-f .p{font-size:12.5px;opacity:.85;margin-top:auto}
+.ob-t.md .ob-f{padding:12px 13px;border-radius:14px}.ob-t.md .ob-f .n{-webkit-line-clamp:2}.ob-t.md .ob-f .v{font-size:18px}.ob-t.md .ob-f .n{font-size:12.5px}
+.ob-t.sm .ob-f{padding:8px 9px;border-radius:10px}.ob-t.sm .ob-f .n{font-size:11px;-webkit-line-clamp:1}.ob-t.sm .ob-f .v{font-size:12.5px}.ob-t.sm .ob-f .p{display:none}
+.ob-t.xs .ob-f{border-radius:6px;padding:0}.ob-t.xs .ob-f>*{display:none}
+.ob-b .n{font-size:16px;font-weight:600}
+.ob-b p{margin:0;font-size:13.5px;line-height:1.45;overflow:hidden;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical}
+.ob-b .pg{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.ob-b .pg i{height:5px;border-radius:3px;background:color-mix(in srgb, var(--oc) 20%, #fff)}.ob-b .pg b{display:block;height:100%;border-radius:3px;background:var(--oc)}
+.ob-b .bt{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+.ob-b button{all:unset;cursor:pointer;font-size:13px;font-weight:500;padding:7px 12px;border-radius:999px;background:#121417;color:#fff}
+.ob-b button[data-more]{background:transparent;color:#121417;padding-left:4px}
+.ob-t.sel:not(.turn) .ob-f{filter:brightness(1.1) saturate(1.1)}
+.ob-t:focus-visible .ob-f,.ob-t:focus-visible .ob-b{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--ink)}
 .ob-h{margin:0 0 6px;font-size:clamp(18px,2vw,24px);font-weight:600;letter-spacing:-.02em}
-.ob-t.sel{box-shadow:inset 0 0 0 3px rgba(255,255,255,.9),inset 0 -6px 0 0 rgba(0,0,0,.18)}
 .ob-det{--oc:#888;margin-top:4px;padding:22px 24px;border-radius:24px;background:color-mix(in srgb, var(--oc) 9%, var(--bg));display:flex;flex-direction:column;gap:14px}
 .ob-det:empty{display:none}
 .ob-dh{display:flex;gap:12px;align-items:flex-start}
@@ -1323,8 +1333,8 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-sec{display:flex;flex-direction:column;gap:14px}
 .ob-h2{margin:0;font-size:20px;letter-spacing:-.02em}
 @media (max-width:900px){ .ob-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .ob-exp{grid-template-columns:minmax(0,1fr)} }
-@media (max-width:560px){ .ob-labs{height:58px} .ob-lb .n{font-size:12px} .ob-ctl{flex-direction:column;align-items:stretch} .ob-seg{justify-content:space-between} .ob-seg button{padding:8px 10px;font-size:13px} }
-@media (prefers-reduced-motion:reduce){ .ob-t{transition:none} }
+@media (max-width:560px){ .ob-mesa{height:min(78vh,620px)} .ob-f,.ob-b{border-radius:14px;padding:12px 13px} .ob-ctl{flex-direction:column;align-items:stretch} .ob-seg{justify-content:space-between} .ob-seg button{padding:8px 10px;font-size:13px} }
+@media (prefers-reduced-motion:reduce){ .ob-t,.ob-ci{transition:none} }
 /* transparency page (#transparencia): spending by power and, inside each power, by person or office */
 .tp-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .tp-tu{font-size:12px;color:var(--muted)}
@@ -5385,35 +5395,53 @@ const obPctTxt = p=> p>=10 ? Math.round(p)+'%' : p>=1 ? FMT_PCT.format(Math.roun
 function obTotal(){ return obV(obData[obView]); }
 function obKids(n){ return (n.c||[]).map((c,i)=> ({node:c, i, val: obV(c)})).filter(x=> x.val>0).sort((a,b)=> b.val-a.val); }
 // one long pill-shaped bar, sliced in proportion; tiny slices (under 0,6% of the level) go together into one gray slice
+// squarified layout: the cards' areas follow the values, as close to card proportions as possible
+function obSquarify(items, x, y, w, h){
+  const out = [], tot = items.reduce((a,b)=> a+b.val, 0); if (!tot || w<=0 || h<=0) return out;
+  const scale = w*h/tot; let rest = items.map(it=> ({...it, a: it.val*scale})).filter(it=> it.a>0);
+  const worst = (row, side)=>{ const s = row.reduce((a,b)=> a+b.a,0), mx = Math.max(...row.map(r=>r.a)), mn = Math.min(...row.map(r=>r.a)); return Math.max(side*side*mx/(s*s), s*s/(side*side*mn)); };
+  while (rest.length){
+    const side = Math.min(w, h); let row = [rest[0]], i = 1;
+    while (i < rest.length && worst(row.concat(rest[i]), side) <= worst(row, side)){ row.push(rest[i]); i++; }
+    const s = row.reduce((a,b)=> a+b.a, 0);
+    if (w >= h){ const cw = s/h; let cy = y; row.forEach(r=>{ const rh = r.a/cw; out.push({...r, x, y:cy, w:cw, h:rh}); cy += rh; }); x += cw; w -= cw; }
+    else { const ch = s/w; let cx = x; row.forEach(r=>{ const rw = r.a/ch; out.push({...r, x:cx, y, w:rw, h:ch}); cx += rw; }); y += ch; h -= ch; }
+    rest = rest.slice(i);
+  }
+  return out;
+}
+// the mesa: one card per item, sized by value; tapping a big card turns it over (what the money does), small ones are just chosen
 function obDraw(from){
-  const map = document.getElementById('ob-map'), bar = document.getElementById('ob-bar'), lab = document.getElementById('ob-lab'); if (!map || !bar || !obData) return;
+  const map = document.getElementById('ob-map'), bar = document.getElementById('ob-bar'); if (!map || !bar || !obData) return;
   const n = obNode(), kids = obKids(n), tot = obTotal(), parent = obV(n) || kids.reduce((a,b)=> a+b.val, 0);
-  const depth = obPath.length, W = bar.clientWidth;
+  const depth = obPath.length, W = bar.clientWidth, H = bar.clientHeight, GAP = W < 560 ? 6 : 10;
   obDebtI = 0; obPalI = 0;
   const big = kids.filter(k=> k.val/parent >= .006), small = kids.filter(k=> k.val/parent < .006);
   const cols = new Map(kids.map((k,j)=> [obKey(k.node), obColor(k.node, j, depth)]));
   const segs = big.map(k=> ({k: obKey(k.node), node: k.node, val: k.val, col: cols.get(obKey(k.node))}));
   if (small.length) segs.push({k:'__demais', node:{n:`Demais (${small.length})`, v:[0,0,0,0], demais: small}, val: small.reduce((a,b)=> a+b.val, 0), col:'#B9BBC0'});
+  const rects = obSquarify(segs, 0, 0, W + GAP, H + GAP);
   const old = new Map([...bar.querySelectorAll('.ob-t')].map(e=> [e.dataset.k, e])), seen = new Set();
-  let x = 0; const labs = [];
-  segs.forEach((g, j)=>{
-    const w = g.val/parent*100, c = g.node, leaf = !!(c.demais || !(c.c && c.c.length) || c.outros);
+  rects.forEach((r, j)=>{
+    const g = r, c = g.node, leaf = !!(c.demais || !(c.c && c.c.length) || c.outros);
+    const w = Math.max(0, r.w - GAP), h = Math.max(0, r.h - GAP);
     let e = old.get(g.k);
     if (!e){ e = document.createElement('div'); e.className = 'ob-t'; e.dataset.k = g.k; e.tabIndex = 0; e.setAttribute('role','button');
-      Object.assign(e.style, from==='full' ? {left:'0%', width:'100%'} : {left:(x+w/2)+'%', width:'0%'}); bar.appendChild(e); }
+      const f = from && from.w ? from : {x:r.x + w/2, y:r.y + h/2, w:0, h:0};
+      Object.assign(e.style, {left:f.x+'px', top:f.y+'px', width:f.w+'px', height:f.h+'px', opacity:'0'}); bar.appendChild(e); }
     seen.add(g.k);
-    e.classList.toggle('leaf', leaf); e.classList.toggle('lt', obLight(g.col)); e.classList.toggle('last', j===segs.length-1);
-    e.style.background = g.col; e.dataset.col = g.col;
-    const px = W*w/100;
-    e.setAttribute('aria-label', `${obName(c)}: ${moneyBig(g.val)}, ${obPctTxt(obPct(g.val, tot))} do total${leaf ? '' : '. Abrir'}`);
-    e.innerHTML = px >= 74 ? `<span class="p">${obPctTxt(obPct(g.val, parent))}</span>` : '';
-    const L = x, Wd = w; requestAnimationFrame(()=> requestAnimationFrame(()=> Object.assign(e.style, {left:L+'%', width:Wd+'%'})));
-    if (px >= 96) labs.push({x:L, w:Wd, g, c});
-    x += w;
+    const turn = !c.demais && w >= 150 && h >= 150, sz = w >= 200 && h >= 120 ? 'lg' : w >= 110 && h >= 70 ? 'md' : w >= 60 && h >= 38 ? 'sm' : 'xs';
+    e.className = `ob-t ${sz}${leaf ? ' leaf' : ''}${turn ? ' turn' : ''}${obLight(g.col) ? ' lt' : ''}${e.classList.contains('flip') && turn ? ' flip' : ''}${obSel===g.k ? ' sel' : ''}`;
+    e.style.setProperty('--oc', g.col); e.dataset.col = g.col;
+    e.setAttribute('aria-label', `${obName(c)}: ${moneyBig(g.val)}, ${obPctTxt(obPct(g.val, tot))} do total`);
+    const plan = c.v[1], paid = c.v[3], txt = OB_INFO[c.n] || OB_DESC[c.n] || '';
+    const first = txt.split(/(?<=\.)\s/)[0];
+    e.innerHTML = `<div class="ob-ci"><div class="ob-f"><span class="n">${esc(obName(c))}</span><span class="v">${moneyBig(g.val)}</span><span class="p">${obPctTxt(obPct(g.val, parent))}${depth ? ` de ${esc(obName(n))}` : ' do orçamento'}</span></div>
+      ${turn ? `<div class="ob-b"><span class="n">${esc(obName(c))}</span>${first ? `<p>${esc(first)}</p>` : ''}${plan > 0 && !obIsRoll(c) ? `<span class="pg">${Math.min(100, Math.round(paid/plan*100))}% já pago<i><b style="width:${Math.min(100, paid/plan*100)}%"></b></i></span>` : ''}
+        <span class="bt">${leaf ? '' : `<button type="button" data-open="${esc(g.k)}">Abrir →</button>`}<button type="button" data-more>Mais detalhes ↓</button></span></div>` : ''}</div>`;
+    const X = r.x, Y = r.y; requestAnimationFrame(()=> requestAnimationFrame(()=> Object.assign(e.style, {left:X+'px', top:Y+'px', width:w+'px', height:h+'px', opacity:'1'})));
   });
-  old.forEach((e,k)=>{ if (!seen.has(k)){ e.style.width = '0%'; e.style.opacity = '0'; setTimeout(()=> e.remove(), 500); } });
-  // names under the bar, for the slices wide enough to hold them
-  if (lab) lab.innerHTML = labs.map(({x, w, g, c})=> `<div class="ob-lb" style="left:${x}%;width:${w}%"><i style="background:${g.col}"></i><span class="n">${esc(obName(c))}</span><b>${moneyBig(g.val)}</b></div>`).join('');
+  old.forEach((e,k)=>{ if (!seen.has(k)){ e.style.opacity = '0'; e.style.transform = 'scale(.9)'; setTimeout(()=> e.remove(), 450); } });
   // list under the bar (all items, also the accessible version)
   const L = document.getElementById('ob-list');
   if (L) L.innerHTML = kids.map((k, j)=>{ const c = k.node, col = cols.get(obKey(c));
@@ -5455,12 +5483,14 @@ function obOpen(key){
   const n = obNode(), c = (n.c||[]).find(x=> obKey(x)===key); if (!c || !(c.c && c.c.length) || c.outros) return;
   if (!obPath.length){ obDebtI = 0; obPalI = 0; let col; obKids(n).forEach((k,j)=>{ const cc = obColor(k.node, j, 0); if (obKey(k.node)===key) col = cc; }); obBase = col; }
   const bar = document.getElementById('ob-bar'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const card = bar && [...bar.querySelectorAll('.ob-t')].find(e=> e.dataset.k===key);
+  const from = card ? {x: card.offsetLeft, y: card.offsetTop, w: card.offsetWidth, h: card.offsetHeight} : null;
   obPath.push(key); obSel = null;
-  if (!bar || reduce){ if (bar) bar.innerHTML = ''; obDraw(); return; }
-  // the chosen slice grows to fill the bar, then splits into its parts
-  bar.querySelectorAll('.ob-t').forEach(e=>{ if (e.dataset.k===key) Object.assign(e.style, {left:'0%', width:'100%'}); else Object.assign(e.style, {width:'0%', opacity:'0'}); });
-  document.getElementById('ob-lab').innerHTML = '';
-  setTimeout(()=>{ bar.innerHTML = ''; obDraw('full'); }, 420);
+  if (!bar || reduce || !card){ if (bar) bar.innerHTML = ''; obDraw(); return; }
+  // the chosen card grows to fill the table, then deals out its parts
+  bar.querySelectorAll('.ob-t').forEach(e=>{ if (e!==card){ e.style.opacity = '0'; e.style.transform = 'scale(.92)'; } });
+  card.classList.remove('flip'); Object.assign(card.style, {left:'0px', top:'0px', width:bar.clientWidth+'px', height:bar.clientHeight+'px'});
+  setTimeout(()=>{ bar.innerHTML = ''; obDraw({x:0, y:0, w:bar.clientWidth, h:bar.clientHeight}); }, 460);
 }
 function renderOb(){
   const D = obData;
@@ -5470,7 +5500,7 @@ function renderOb(){
   const when = D.atualizado ? new Date(D.atualizado).toLocaleDateString('pt-BR', {day:'numeric', month:'long'}) : '';
   ob.innerHTML = `<div class="cw vg">
     <header class="cw-head"><div><p class="inst-eye">Portal da Transparência · atualizado aos domingos${when ? ` · último: ${when}` : ''}</p><h1 id="ob-title">Orçamento federal ${D.ano}</h1>
-      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Toque numa fatia da barra para ver o que esse dinheiro faz.</p></div>
+      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Cada carta tem o tamanho do que custa. Toque numa carta para virar e ver o que esse dinheiro faz.</p></div>
       ${infoBox([{l:'Portal da Transparência (CGU): orçamento da despesa', u:'https://portaldatransparencia.gov.br/orcamento'}, {l:'Arquivo de dados usado ('+D.ano+')', u: D.fonte || 'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'}], 'Fonte', 'Os valores são atualizados automaticamente todo domingo, como o Portal publica.')}</header>
     <div class="ob-kpis">
       <div class="ob-k"><span class="l">Orçamento do ano</span><b>${moneyBig(t[1])}</b><span class="s">previsto, com as mudanças feitas ao longo do ano (na lei: ${moneyBig(t[0])})</span></div>
@@ -5485,7 +5515,7 @@ function renderOb(){
         <label class="ob-chk"><input type="checkbox" id="ob-roll"${obRoll?' checked':''}> Incluir a rolagem da dívida</label>
       </div>
       <div class="ob-top"><div class="ob-big" id="ob-big"></div><nav class="ob-crumbs" id="ob-crumbs" aria-label="Onde você está"></nav></div>
-      <div class="ob-map" id="ob-map"><div class="ob-bar2" id="ob-bar"></div><div class="ob-labs" id="ob-lab" aria-hidden="true"></div><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
+      <div class="ob-map" id="ob-map"><div class="ob-mesa" id="ob-bar"></div><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
       <div class="ob-det" id="ob-det" aria-live="polite"></div>
       <div class="ob-list" id="ob-list"></div>
     </section>
@@ -5503,23 +5533,27 @@ ob.addEventListener('click', e=>{
   const w = e.target.closest('[data-val]'); if (w){ obVal = +w.dataset.val; ob.querySelectorAll('[data-val]').forEach(b=> b.setAttribute('aria-pressed', String(b===w))); obDraw(); return; }
   const c = e.target.closest('[data-crumb]'); if (c){ obPath = obPath.slice(0, +c.dataset.crumb); obSel = null; if (!obPath.length) obBase = null; const b = document.getElementById('ob-bar'); if (b) b.innerHTML = ''; obDraw(); return; }
   const g = e.target.closest('[data-open]'); if (g){ obOpen(g.dataset.open); document.getElementById('ob-map')?.scrollIntoView({block:'nearest', behavior:'smooth'}); return; }
+  const mo = e.target.closest('[data-more]'); if (mo){ document.getElementById('ob-det')?.scrollIntoView({block:'start', behavior:'smooth'}); return; }
   const t = e.target.closest('.ob-t, .ob-row'); if (t && t.dataset.k!=='__demais'){ document.getElementById('ob-tip')?.classList.remove('on');
-    if (t.classList.contains('ob-t') && obSel===t.dataset.k && !t.classList.contains('leaf')){ obOpen(t.dataset.k); return; }   // a second tap on the chosen slice opens it
+    if (t.classList.contains('ob-t')){
+      if (t.classList.contains('turn')){ const was = t.classList.contains('flip'); document.querySelectorAll('#ob-bar .ob-t.flip').forEach(x=> x.classList.remove('flip')); if (!was) t.classList.add('flip'); }
+      else if (obSel===t.dataset.k && !t.classList.contains('leaf')){ obOpen(t.dataset.k); return; }   // small cards: a second tap opens them
+    }
     obSel = t.dataset.k; obDetail();
     if (t.classList.contains('ob-row')) document.getElementById('ob-map')?.scrollIntoView({block:'center', behavior:'smooth'}); }
 });
 ob.addEventListener('change', e=>{ if (e.target.id==='ob-roll'){ obRoll = e.target.checked; obDraw(); } });
-ob.addEventListener('keydown', e=>{ const t = e.target.closest('.ob-t'); if (t && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); if (obSel===t.dataset.k && !t.classList.contains('leaf')){ obOpen(t.dataset.k); setTimeout(()=> document.querySelector('#ob-bar .ob-t')?.focus(), 500); } else { obSel = t.dataset.k; obDetail(); } } });
+ob.addEventListener('keydown', e=>{ const t = e.target.closest('.ob-t'); if (t && e.target===t && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); t.click(); } });
 ob.addEventListener('mousemove', e=>{
   const tip = document.getElementById('ob-tip'), map = document.getElementById('ob-map'); if (!tip || !map) return;
-  const t = e.target.closest('.ob-t'); if (!t || e.sourceCapabilities?.firesTouchEvents){ tip.classList.remove('on'); return; }
+  const t = e.target.closest('.ob-t'); if (!t || t.dataset.k!=='__demais' || e.sourceCapabilities?.firesTouchEvents){ tip.classList.remove('on'); return; }
   const n = obNode(), tot = obTotal();
   if (t.dataset.k==='__demais'){ const sm = obKids(n).filter(k=> k.val/(obV(n)||1) < .006); tip.innerHTML = `<b>${sm.length} itens menores</b><span class="m">${moneyBig(sm.reduce((a,b)=> a+b.val,0))}</span><br>${sm.slice(0,6).map(k=> esc(obName(k.node))).join(', ')}${sm.length>6?'…':''}<br><span style="opacity:.75">Todos estão na lista abaixo</span>`; }
   else { const c = (n.c||[]).find(x=> obKey(x)===t.dataset.k); if (!c) return;
   const d = OB_DESC[c.n], val = obV(c);
   tip.innerHTML = `<b>${esc(obName(c))}</b>${d ? `<span style="opacity:.75">${esc(d)}</span><br>` : ''}${OB_NAME[c.n] ? `<span style="opacity:.6">No orçamento: ${esc(c.n)}</span><br>` : ''}<span class="m">${moneyBig(val)}</span><br>${obPctTxt(obPct(val, tot))} do total${obPath.length ? ` · ${obPctTxt(obPct(val, obV(n)))} de ${esc(obName(n))}` : ''}<br>Previsto ${moneyBig(c.v[1])} · pago ${moneyBig(c.v[3])}${c.outros ? `<br>${c.outros} itens menores juntos` : (c.c && c.c.length ? '<br><span style="opacity:.75">Clique para ver o que paga</span>' : '')}`; }
   const R = map.getBoundingClientRect(); let x = e.clientX - R.left + 14, y = e.clientY - R.top + 14;
-  if (x + 290 > R.width) x = e.clientX - R.left - 294; y = -tip.offsetHeight - 12;
+  if (x + 290 > R.width) x = e.clientX - R.left - 294; if (y + tip.offsetHeight > R.height) y = e.clientY - R.top - tip.offsetHeight - 14;
   tip.style.left = Math.max(0, x)+'px'; tip.style.top = y+'px'; tip.classList.add('on');
 });
 ob.addEventListener('mouseleave', ()=> document.getElementById('ob-tip')?.classList.remove('on'));
