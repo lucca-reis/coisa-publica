@@ -1252,6 +1252,27 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-bar{height:6px;border-radius:3px;background:color-mix(in srgb, var(--ink) 10%, var(--bg));overflow:hidden;margin-top:2px}
 .ob-bar i{display:block;height:100%;background:var(--ink);border-radius:3px}
 .ob-ctl{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+/* sticky counts from the layer's content box, which starts 72px under the menu */
+.ob-tb{position:sticky;z-index:6;top:-72px;margin:0 -12px;padding:10px 12px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
+.ob-tb.stuck{box-shadow:0 1px 0 var(--rule)}
+.ob-where{display:flex;align-items:center;justify-content:space-between;gap:6px 16px;flex-wrap:wrap}
+.ob-sum{font-size:14px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}.ob-sum b{color:var(--ink);font-weight:600}
+.ob-lead{margin:0;font-size:clamp(18px,2vw,22px);line-height:1.4;letter-spacing:-.01em;max-width:860px}
+.ob-lead b{font-weight:600}
+.ob-q{position:relative;display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;margin-left:4px;font-size:11px;font-weight:600;line-height:1;vertical-align:1px;background:color-mix(in srgb, var(--ink) 10%, var(--bg));color:var(--ink);cursor:help;outline:none}
+.ob-q:focus-visible{box-shadow:0 0 0 2px var(--ink)}
+.ob-qt{position:absolute;z-index:8;top:calc(100% + 8px);left:50%;translate:-50% 0;width:260px;padding:12px 14px;border-radius:14px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:400;line-height:1.45;text-align:left;opacity:0;pointer-events:none;transition:opacity .12s}
+.ob-qt b{display:block;margin-bottom:3px}
+.ob-q:hover .ob-qt,.ob-q:focus .ob-qt{opacity:1}
+.ob-k:first-child .ob-qt{left:0;translate:0 0}.ob-k:last-child .ob-qt{left:auto;right:0;translate:0 0}
+.ob-stage{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
+@media (min-width:1100px){ .ob-stage{grid-template-columns:minmax(0,1fr) 340px} .ob-stage .ob-det{position:sticky;top:44px;margin-top:8px;max-height:clamp(460px,62vh,640px);overflow:auto;box-sizing:border-box;padding:20px} .ob-stage .ob-dn{gap:12px 24px} .ob-stage .ob-dp{min-width:0;flex-basis:100%} }
+.ob-hint{display:flex;flex-direction:column;gap:10px;align-items:flex-start;justify-content:center;color:var(--muted);font-size:15px;line-height:1.5}
+.ob-det.ob-empty{background:color-mix(in srgb, var(--ink) 4%, var(--bg))}
+.ob-hint svg{width:34px;height:34px;opacity:.6}
+.ob-row.x{display:none}.ob-list.all .ob-row.x{display:grid}
+.ob-more{all:unset;cursor:pointer;align-self:flex-start;margin-top:10px;padding:9px 16px;border-radius:999px;background:color-mix(in srgb, var(--ink) 6%, var(--bg));font-size:14px;font-weight:500}
+.ob-more:hover{background:color-mix(in srgb, var(--ink) 11%, var(--bg))}.ob-more:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .ob-seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
 .ob-seg button{all:unset;cursor:pointer;padding:8px 14px;border-radius:999px;font-size:14px;white-space:nowrap}
 .ob-seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
@@ -1259,6 +1280,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-chk{display:inline-flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
 .ob-chk input{accent-color:var(--ink);width:16px;height:16px}
 .ob-crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px;min-height:30px}
+.ob-crumbs .root{padding:5px 2px;font-weight:600}
 .ob-crumbs button{all:unset;cursor:pointer;padding:5px 12px;border-radius:999px;background:color-mix(in srgb, var(--ink) 5%, var(--bg))}
 .ob-crumbs button:hover{background:color-mix(in srgb, var(--ink) 10%, var(--bg))}
 .ob-crumbs span.cur{padding:5px 2px;font-weight:600}
@@ -1332,8 +1354,8 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-note{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0}
 .ob-sec{display:flex;flex-direction:column;gap:14px}
 .ob-h2{margin:0;font-size:20px;letter-spacing:-.02em}
-@media (max-width:900px){ .ob-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .ob-exp{grid-template-columns:minmax(0,1fr)} }
-@media (max-width:560px){ .ob-mesa{height:min(78vh,620px)} .ob-f,.ob-b{border-radius:14px;padding:12px 13px} .ob-ctl{flex-direction:column;align-items:stretch} .ob-seg{justify-content:space-between} .ob-seg button{padding:8px 10px;font-size:13px} }
+@media (max-width:900px){ .ob-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .ob-exp{grid-template-columns:minmax(0,1fr)} .ob-k:nth-child(2) .ob-qt{left:auto;right:0;translate:0 0} .ob-k:nth-child(3) .ob-qt{left:0;translate:0 0} }
+@media (max-width:560px){ .ob-mesa{height:min(78vh,620px)} .ob-f,.ob-b{border-radius:14px;padding:12px 13px} .ob-ctl{flex-direction:column;align-items:stretch;gap:8px} .ob-tb{position:static;margin:0;padding:0} .ob-qt{width:220px} .ob-seg{justify-content:space-between} .ob-seg button{padding:8px 10px;font-size:13px} }
 @media (prefers-reduced-motion:reduce){ .ob-t,.ob-ci{transition:none} }
 /* transparency page (#transparencia): spending by power and, inside each power, by person or office */
 .tp-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -5444,17 +5466,20 @@ function obDraw(from){
   old.forEach((e,k)=>{ if (!seen.has(k)){ e.style.opacity = '0'; e.style.transform = 'scale(.9)'; setTimeout(()=> e.remove(), 450); } });
   // list under the bar (all items, also the accessible version)
   const L = document.getElementById('ob-list');
-  if (L) L.innerHTML = kids.map((k, j)=>{ const c = k.node, col = cols.get(obKey(c));
+  const LIM = 10;
+  if (L) L.classList.remove('all');
+  if (L) L.innerHTML = `<h2 class="ob-h2" style="margin-bottom:8px">${obPath.length ? 'Tudo em ' + esc(obName(n)) : 'Os itens do orçamento'}</h2>` + kids.map((k, j)=>{ const c = k.node, col = cols.get(obKey(c));
     const leaf = !(c.c && c.c.length) || c.outros, d = OB_DESC[c.n], paid = c.v[3], plan = c.v[1];
-    return `<button type="button" class="ob-row${leaf?' leaf':''}" data-k="${esc(obKey(c))}"${leaf?' aria-disabled="true"':''}><i style="background:${col}"></i>
+    return `<button type="button" class="ob-row${leaf?' leaf':''}${j>=LIM?' x':''}" data-k="${esc(obKey(c))}"${leaf?' aria-disabled="true"':''}><i style="background:${col}"></i>
       <span class="ob-rn">${esc(obName(c))}${d ? `<small>${esc(d)}</small>` : ''}</span>
       <span class="ob-rv">${moneyBig(k.val)}<small>${obPctTxt(obPct(k.val, tot))} do total${plan>0 && obVal===1 && !obIsRoll(c) ? ` · ${Math.min(100,Math.round(paid/plan*100))}% já pago` : ''}</small></span>
-      <span class="ob-rb"><span style="width:${Math.max(.5, obPct(k.val, kids[0].val))}%;background:${col}"></span></span></button>`; }).join('');
+      <span class="ob-rb"><span style="width:${Math.max(.5, obPct(k.val, kids[0].val))}%;background:${col}"></span></span></button>`; }).join('')
+    + (kids.length > LIM ? `<button type="button" class="ob-more" data-all aria-expanded="false">Ver todos os ${kids.length} itens</button>` : '');
   const cr = document.getElementById('ob-crumbs'), names = []; { let y = obData[obView]; obPath.forEach(k=>{ const c = (y.c||[]).find(z=> obKey(z)===k); if (c){ names.push(obName(c)); y = c; } }); }
   if (cr){
-    cr.innerHTML = (obPath.length ? `<button type="button" data-crumb="0">‹ Tudo</button>` : '') + names.map((nm,i)=> (i ? `<i>›</i>` : '') + (i < names.length-1 ? `<button type="button" data-crumb="${i+1}">${esc(nm)}</button>` : `<span class="cur">${esc(nm)}</span>`)).join(''); }
+    cr.innerHTML = (obPath.length ? `<button type="button" data-crumb="0">‹ Orçamento federal</button>` : `<span class="root">Orçamento federal</span>`) + names.map((nm,i)=> (i ? `<i>›</i>` : '') + (i < names.length-1 ? `<button type="button" data-crumb="${i+1}">${esc(nm)}</button>` : `<span class="cur">${esc(nm)}</span>`)).join(''); }
   const big2 = document.getElementById('ob-big');
-  if (big2) big2.innerHTML = `<h2 class="ob-h">${obPath.length ? esc(names[names.length-1]) : 'Orçamento federal'}</h2><b>${moneyBig(parent)}</b><span>${obPath.length ? `${obPctTxt(obPct(parent, tot))} do orçamento` : (obVal===3 ? 'já pago no ano' : 'previsto para o ano')}${!obRoll ? ' · sem a rolagem da dívida' : ''}</span>`;
+  if (big2) big2.innerHTML = `<b>${moneyBig(parent)}</b> ${obVal===3 ? 'já pago' : 'previsto'}${obPath.length ? ` · ${obPctTxt(obPct(parent, tot))} do orçamento` : ' no ano'}${!obRoll ? ' · sem a rolagem' : ''}`;
   obDetail();
 }
 let obSel = null;
@@ -5463,7 +5488,10 @@ const obShort = t=> { t = String(t||''); return t.length > 92 ? t.slice(0, 90).r
 function obDetail(){
   const box = document.getElementById('ob-det'); if (!box || !obData) return;
   const n = obNode(), kids = obKids(n), parent = obV(n) || 1, tot = obTotal();
-  const k = kids.find(x=> obKey(x.node)===obSel) || kids[0]; if (!k){ box.innerHTML = ''; return; }
+  const k = kids.find(x=> obKey(x.node)===obSel);
+  box.classList.toggle('ob-empty', !k);
+  if (!k){ obSel = null; document.querySelectorAll('#ob-bar .ob-t.sel').forEach(e=> e.classList.remove('sel')); box.style.removeProperty('--oc');
+    box.innerHTML = kids.length ? `<div class="ob-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="11" height="14" rx="2"/><rect x="10" y="7" width="11" height="14" rx="2" fill="var(--bg)"/></svg>Toque numa carta para ver o que esse dinheiro faz, quanto já foi pago e para onde ele vai.</div>` : ''; return; }
   obSel = obKey(k.node);
   const c = k.node, col = (document.querySelector(`#ob-bar .ob-t[data-k="${CSS.escape(obSel)}"]`)||{}).dataset?.col || '#888';
   const open = c.c && c.c.length && !c.outros;
@@ -5492,6 +5520,16 @@ function obOpen(key){
   card.classList.remove('flip'); Object.assign(card.style, {left:'0px', top:'0px', width:bar.clientWidth+'px', height:bar.clientHeight+'px'});
   setTimeout(()=>{ bar.innerHTML = ''; obDraw({x:0, y:0, w:bar.clientWidth, h:bar.clientHeight}); }, 460);
 }
+const obQ = (t, x)=> `<span class="ob-q" tabindex="0" role="note" aria-label="${esc(t)}: ${esc(x)}">?<span class="ob-qt" aria-hidden="true"><b>${esc(t)}</b>${esc(x)}</span></span>`;
+// one plain sentence: of every R$ 100, how much goes to the two biggest items
+function obLead(D){
+  const A = D.areas, tot = A && A.v ? A.v[1] : 0; if (!tot) return '';
+  const top = (A.c||[]).map(c=> ({c, v:c.v[1]})).sort((a,b)=> b.v-a.v).slice(0, 2);
+  if (top.length < 2) return '';
+  const r = x=> Math.round(x/tot*100), lc = s=> s.charAt(0).toLowerCase() + s.slice(1);
+  const say = c=> obIsRoll(c) ? 'só trocam dívida velha por nova (a rolagem)' : `vão para ${lc(obName(c))}`;
+  return `<p class="ob-lead">De cada <b>R$ 100</b> do orçamento deste ano, <b>R$ ${r(top[0].v)}</b> ${say(top[0].c)} e <b>R$ ${r(top[1].v)}</b> ${say(top[1].c)}.</p>`;
+}
 function renderOb(){
   const D = obData;
   if (!D){ ob.innerHTML = `<div class="cw vg"><header class="cw-head"><div><p class="inst-eye">Portal da Transparência</p><h1 id="ob-title">Orçamento federal</h1><p class="vg-sub">Carregando…</p></div></header></div>`; return; }
@@ -5500,31 +5538,31 @@ function renderOb(){
   const when = D.atualizado ? new Date(D.atualizado).toLocaleDateString('pt-BR', {day:'numeric', month:'long'}) : '';
   ob.innerHTML = `<div class="cw vg">
     <header class="cw-head"><div><p class="inst-eye">Portal da Transparência · atualizado aos domingos${when ? ` · último: ${when}` : ''}</p><h1 id="ob-title">Orçamento federal ${D.ano}</h1>
-      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Cada carta tem o tamanho do que custa. Toque numa carta para virar e ver o que esse dinheiro faz.</p></div>
+      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Cada carta tem o tamanho do que custa.</p></div>
       ${infoBox([{l:'Portal da Transparência (CGU): orçamento da despesa', u:'https://portaldatransparencia.gov.br/orcamento'}, {l:'Arquivo de dados usado ('+D.ano+')', u: D.fonte || 'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'}], 'Fonte', 'Os valores são atualizados automaticamente todo domingo, como o Portal publica.')}</header>
+    ${obLead(D)}
     <div class="ob-kpis">
-      <div class="ob-k"><span class="l">Orçamento do ano</span><b>${moneyBig(t[1])}</b><span class="s">previsto, com as mudanças feitas ao longo do ano (na lei: ${moneyBig(t[0])})</span></div>
-      <div class="ob-k"><span class="l">Já pago</span><b>${moneyBig(t[3])}</b><div class="ob-bar"><i style="width:${Math.min(100, obPct(t[3], t[1]))}%"></i></div><span class="s">${obPctTxt(obPct(t[3], t[1]))} do previsto</span></div>
-      <div class="ob-k debt"><span class="l">Dívida pública</span><b>${moneyBig(debt)}</b><span class="s">${obPctTxt(obPct(debt, t[1]))} do orçamento: juros ${moneyBig(juros[1])}, principal ${moneyBig(amort[1])} e rolagem ${moneyBig(roll[1])}</span></div>
-      <div class="ob-k"><span class="l">Sem a rolagem da dívida</span><b>${moneyBig(t[1]-roll[1])}</b><span class="s">a rolagem troca títulos que vencem por novos; muita gente deixa de fora para comparar</span></div>
+      <div class="ob-k"><span class="l">Orçamento do ano${obQ('Previsto e pago', 'O orçamento é o limite que a lei autoriza, com as mudanças feitas ao longo do ano. O governo primeiro reserva o dinheiro (empenho) e só depois paga.')}</span><b>${moneyBig(t[1])}</b><span class="s">previsto, com as mudanças feitas ao longo do ano (na lei: ${moneyBig(t[0])})</span></div>
+      <div class="ob-k"><span class="l">Já pago${obQ('Já pago', 'O que já saiu dos cofres neste ano. Cresce mês a mês, por isso fica abaixo do previsto até dezembro.')}</span><b>${moneyBig(t[3])}</b><div class="ob-bar"><i style="width:${Math.min(100, obPct(t[3], t[1]))}%"></i></div><span class="s">${obPctTxt(obPct(t[3], t[1]))} do previsto</span></div>
+      <div class="ob-k debt"><span class="l">Dívida pública${obQ('Dívida pública', 'Juros e parte do principal pagos com dinheiro do orçamento, mais a rolagem: títulos que vencem e são pagos com títulos novos.')}</span><b>${moneyBig(debt)}</b><span class="s">${obPctTxt(obPct(debt, t[1]))} do orçamento: juros ${moneyBig(juros[1])}, principal ${moneyBig(amort[1])} e rolagem ${moneyBig(roll[1])}</span></div>
+      <div class="ob-k"><span class="l">Sem a rolagem da dívida${obQ('Rolagem da dívida', 'Quando um título público vence, o governo costuma emitir outro para pagá-lo. Isso entra no orçamento como "refinanciamento", mas não é dinheiro novo gasto com serviços.')}</span><b>${moneyBig(t[1]-roll[1])}</b><span class="s">a rolagem troca títulos que vencem por novos; muita gente deixa de fora para comparar</span></div>
     </div>
     <section class="ob-sec">
-      <div class="ob-ctl">
-        <div class="ob-seg" role="group" aria-label="Ver por">${[['areas','Por área'],['orgaos','Por órgão'],['tipos','Por tipo de gasto']].map(([k,l])=> `<button type="button" data-view="${k}" aria-pressed="${obView===k}">${l}</button>`).join('')}</div>
-        <div class="ob-seg" role="group" aria-label="Valor">${[[1,'Previsto'],[3,'Já pago']].map(([k,l])=> `<button type="button" data-val="${k}" aria-pressed="${obVal===k}">${l}</button>`).join('')}</div>
-        <label class="ob-chk"><input type="checkbox" id="ob-roll"${obRoll?' checked':''}> Incluir a rolagem da dívida</label>
+      <div class="ob-tb" id="ob-tb">
+        <div class="ob-ctl">
+          <div class="ob-seg" role="group" aria-label="Ver por">${[['areas','Por área'],['orgaos','Por órgão'],['tipos','Por tipo de gasto']].map(([k,l])=> `<button type="button" data-view="${k}" aria-pressed="${obView===k}">${l}</button>`).join('')}</div>
+          <div class="ob-seg" role="group" aria-label="Valor">${[[1,'Previsto'],[3,'Já pago']].map(([k,l])=> `<button type="button" data-val="${k}" aria-pressed="${obVal===k}">${l}</button>`).join('')}</div>
+          <label class="ob-chk"><input type="checkbox" id="ob-roll"${obRoll?' checked':''}> Incluir a rolagem da dívida</label>
+        </div>
+        <div class="ob-where"><nav class="ob-crumbs" id="ob-crumbs" aria-label="Onde você está"></nav><span class="ob-sum" id="ob-big"></span></div>
       </div>
-      <div class="ob-top"><div class="ob-big" id="ob-big"></div><nav class="ob-crumbs" id="ob-crumbs" aria-label="Onde você está"></nav></div>
-      <div class="ob-map" id="ob-map"><div class="ob-mesa" id="ob-bar"></div><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
-      <div class="ob-det" id="ob-det" aria-live="polite"></div>
+      <div class="ob-stage">
+        <div class="ob-map" id="ob-map"><div class="ob-mesa" id="ob-bar"></div><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
+        <div class="ob-det" id="ob-det" aria-live="polite"></div>
+      </div>
       <div class="ob-list" id="ob-list"></div>
+      <p class="ob-note">Os números são os do arquivo "Orçamento da despesa" do Portal da Transparência, que traz o orçamento do Poder Executivo federal. Os orçamentos da Câmara, do Senado, dos tribunais e do Ministério Público ficam fora dele (veja a página Transparência). No orçamento oficial, a dívida e os repasses obrigatórios a estados e municípios ficam numa área chamada "encargos especiais"; aqui ela aparece aberta, nas partes que a formam. Nos detalhes, os itens menores de cada grupo aparecem juntos em "Outros".</p>
     </section>
-    <section class="ob-sec"><h2 class="ob-h2">Para entender</h2><div class="ob-exp">
-      <div><h3>Previsto e pago</h3>O orçamento é o limite que a lei autoriza. O governo primeiro reserva o dinheiro (empenho) e só depois paga. Por isso o "já pago" cresce ao longo do ano.</div>
-      <div><h3>Rolagem da dívida</h3>Quando um título público vence, o governo costuma emitir outro para pagá-lo. Isso entra no orçamento como "refinanciamento", mas não é dinheiro novo gasto com serviços.</div>
-      <div><h3>Encargos especiais</h3>No orçamento, a dívida e os repasses obrigatórios a estados e municípios ficam numa área chamada "encargos especiais". Aqui ela aparece aberta, nas partes que a formam.</div>
-    </div>
-    <p class="ob-note">Os números são os do arquivo "Orçamento da despesa" do Portal da Transparência, que traz o orçamento do Poder Executivo federal. Os orçamentos da Câmara, do Senado, dos tribunais e do Ministério Público ficam fora dele (veja a página Transparência). Nos detalhes, os itens menores de cada grupo aparecem juntos em "Outros".</p></section>
   </div>`;
   obDraw();
 }
@@ -5533,6 +5571,7 @@ ob.addEventListener('click', e=>{
   const w = e.target.closest('[data-val]'); if (w){ obVal = +w.dataset.val; ob.querySelectorAll('[data-val]').forEach(b=> b.setAttribute('aria-pressed', String(b===w))); obDraw(); return; }
   const c = e.target.closest('[data-crumb]'); if (c){ obPath = obPath.slice(0, +c.dataset.crumb); obSel = null; if (!obPath.length) obBase = null; const b = document.getElementById('ob-bar'); if (b) b.innerHTML = ''; obDraw(); return; }
   const g = e.target.closest('[data-open]'); if (g){ obOpen(g.dataset.open); document.getElementById('ob-map')?.scrollIntoView({block:'nearest', behavior:'smooth'}); return; }
+  const al = e.target.closest('[data-all]'); if (al){ const L = document.getElementById('ob-list'), on = !L.classList.contains('all'); L.classList.toggle('all', on); al.setAttribute('aria-expanded', String(on)); al.textContent = on ? 'Mostrar menos' : `Ver todos os ${L.querySelectorAll('.ob-row').length} itens`; if (!on) L.scrollIntoView({block:'start', behavior:'smooth'}); return; }
   const mo = e.target.closest('[data-more]'); if (mo){ document.getElementById('ob-det')?.scrollIntoView({block:'start', behavior:'smooth'}); return; }
   const t = e.target.closest('.ob-t, .ob-row'); if (t && t.dataset.k!=='__demais'){ document.getElementById('ob-tip')?.classList.remove('on');
     if (t.classList.contains('ob-t')){
