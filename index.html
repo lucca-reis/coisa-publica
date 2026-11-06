@@ -1280,6 +1280,26 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-lb i{width:22px;height:3px;border-radius:2px;margin-bottom:5px}
 .ob-lb .n{font-size:13px;line-height:1.2;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ob-lb b{font-size:clamp(15px,1.6vw,20px);font-weight:500;letter-spacing:-.02em;white-space:nowrap}
+.ob-h{margin:0 0 6px;font-size:clamp(18px,2vw,24px);font-weight:600;letter-spacing:-.02em}
+.ob-t.sel{box-shadow:inset 0 0 0 3px rgba(255,255,255,.9),inset 0 -6px 0 0 rgba(0,0,0,.18)}
+.ob-det{--oc:#888;margin-top:4px;padding:22px 24px;border-radius:24px;background:color-mix(in srgb, var(--oc) 9%, var(--bg));display:flex;flex-direction:column;gap:14px}
+.ob-det:empty{display:none}
+.ob-dh{display:flex;gap:12px;align-items:flex-start}
+.ob-dc{flex:none;width:14px;height:14px;border-radius:50%;background:var(--oc);margin-top:8px}
+.ob-dh h3{margin:0;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.025em;line-height:1.1}
+.ob-do{margin:4px 0 0;font-size:12.5px;color:var(--muted)}
+.ob-dn{display:flex;flex-wrap:wrap;gap:12px 40px;align-items:flex-end}
+.ob-dn b{display:block;font-size:clamp(28px,3.4vw,42px);font-weight:500;letter-spacing:-.035em;line-height:1}
+.ob-dn span{font-size:13px;color:var(--muted)}
+.ob-dp{flex:1;min-width:220px;max-width:420px;display:flex;flex-direction:column;gap:6px}
+.ob-dt{margin:0;font-size:16px;line-height:1.55;max-width:760px}
+.ob-det h4{margin:4px 0 0;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.ob-dl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ob-dl li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;font-size:14px;align-items:baseline}
+.ob-dl li b{font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ob-dl li i{grid-column:1/-1;height:4px;border-radius:2px;background:var(--oc)}
+.ob-go{all:unset;cursor:pointer;align-self:flex-start;padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:500}
+.ob-go:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .ob-tip{position:absolute;z-index:5;width:280px;pointer-events:none;max-width:280px;padding:12px 14px;border-radius:14px;background:var(--ink);color:var(--bg);font-size:13px;line-height:1.4;box-shadow:0 10px 30px rgba(0,0,0,.18);opacity:0;transition:opacity .12s}
 .ob-tip.on{opacity:1}
 .ob-tip b{display:block;font-size:14px;margin-bottom:4px}
@@ -5287,6 +5307,48 @@ const OB_DESC = {
   'Inversões Financeiras':'empréstimos e participação em empresas e fundos',
   'Investimentos':'obras e compra de equipamentos'
 };
+// what each slice pays for, in plain words (by the official name); slices without a text here get one built from the data
+const OB_INFO = {
+  'Refinanciamento da dívida interna':'Quando os títulos da dívida pública vencem, o Tesouro vende títulos novos e usa esse dinheiro para pagar os antigos. É a troca de uma dívida velha por uma nova: não paga nenhum serviço, mas aparece no orçamento porque o dinheiro passa pelo caixa da União.',
+  'Refinanciamento da dívida externa':'A mesma troca de títulos que vencem por títulos novos, na dívida em moeda estrangeira.',
+  'Serviço da dívida interna':'Juros e parte do principal da dívida pública pagos com dinheiro do próprio orçamento, como impostos e outras receitas, e não com títulos novos. O valor depende do tamanho da dívida e dos juros, como a taxa Selic.',
+  'Serviço da dívida externa':'Juros e amortização da dívida em moeda estrangeira: títulos vendidos no exterior e empréstimos de bancos e organismos internacionais.',
+  'Outras transferências':'Dinheiro que a Constituição manda repassar a estados e municípios, como o Fundo de Participação dos Municípios (FPM) e o dos Estados (FPE), formados com parte do Imposto de Renda e do IPI, e os royalties do petróleo e do gás. Quem decide como gastar são os governos locais.',
+  'Outros encargos especiais':'Despesas que não pertencem a uma área só: pagamento de sentenças judiciais contra a União (precatórios e requisições de pequeno valor), financiamentos de programas como o Minha Casa, Minha Vida, a contribuição da União para a previdência dos servidores, entre outras.',
+  'Transferências para a educação básica':'Repasses a estados e municípios para as escolas públicas, como a parte do Fundeb e as cotas do salário-educação.',
+  'Previdência social':'Aposentadorias, pensões e auxílios pagos pelo INSS a quem contribuiu (o regime geral) e as aposentadorias e pensões dos servidores civis da União. É o maior pagamento feito diretamente a pessoas.',
+  'Assistência social':'Benefícios para quem está em situação de pobreza ou vulnerabilidade, sem exigir contribuição: o Bolsa Família, o Benefício de Prestação Continuada (BPC), de um salário mínimo para idosos e pessoas com deficiência de baixa renda, o Auxílio Gás e os serviços da assistência social, como os CRAS.',
+  'Saúde':'O dinheiro federal do SUS: consultas, exames, cirurgias e internações, a atenção básica nos postos de saúde, remédios de graça, vacinas e vigilância de doenças. Boa parte é repassada a estados e municípios, que cuidam dos serviços.',
+  'Educação':'Universidades e institutos federais (com os salários de professores e servidores), a complementação da União ao Fundeb para as escolas de estados e municípios, bolsas de estudo, merenda e livros didáticos.',
+  'Trabalho':'Seguro-desemprego e abono salarial pagos aos trabalhadores, e dinheiro do Fundo de Amparo ao Trabalhador (FAT) emprestado ao BNDES para financiar empresas e projetos.',
+  'Defesa nacional':'Salários e aposentadorias dos militares, a manutenção e a operação das Forças Armadas, o controle do espaço aéreo e projetos como caças, submarinos, blindados e o monitoramento das fronteiras.',
+  'Gestão ambiental':'Preservação ambiental, fiscalização e combate a incêndios, unidades de conservação, obras de recursos hídricos e financiamentos para projetos ligados à mudança do clima.',
+  'Reserva de contingência':'Dinheiro separado no orçamento para imprevistos e para despesas que aparecem ao longo do ano. Durante o ano, parte dele é transferida para outras áreas.',
+  'Administração':'O funcionamento da máquina pública: salários de servidores de órgãos centrais, sistemas como os da Receita Federal, prédios, contratos e comunicação do governo.',
+  'Agricultura':'Apoio à produção no campo: juros mais baixos no crédito rural, seguro rural, defesa sanitária de animais e plantas e pesquisa agropecuária, como a da Embrapa.',
+  'Ciência e Tecnologia':'Pesquisa científica e inovação: bolsas, institutos de pesquisa, o fundo que financia projetos de universidades e empresas (FNDCT) e o programa espacial.',
+  'Segurança pública':'Polícia Federal, Polícia Rodoviária Federal, Força Nacional e o Fundo Nacional de Segurança Pública, que repassa dinheiro aos estados.',
+  'Transporte':'Construção e manutenção de rodovias, ferrovias, hidrovias, portos e aeroportos federais.',
+  'Urbanismo':'Obras nas cidades: pavimentação, mobilidade, transporte coletivo, urbanização de favelas e projetos de desenvolvimento local.',
+  'Comércio e serviços':'Incentivo às exportações, turismo e apoio a micro e pequenas empresas.',
+  'Organização agrária':'Reforma agrária, assentamentos, regularização de terras e apoio à agricultura familiar.',
+  'Relações exteriores':'Embaixadas e consulados, a política externa e as contribuições do Brasil a organismos internacionais.',
+  'Essencial à justiça':'A Advocacia-Geral da União, que defende a União na Justiça, entre outros órgãos.',
+  'Comunicações':'Telecomunicações e acesso à internet, os Correios e a comunicação pública, como a TV Brasil.',
+  'Habitação':'Programas de moradia, como o Minha Casa, Minha Vida.',
+  'Cultura':'Incentivo à cultura, patrimônio histórico, museus e bibliotecas, e repasses a estados e municípios para projetos culturais.',
+  'Indústria':'Política industrial, inovação nas empresas, normas técnicas e metrologia (Inmetro) e propriedade industrial (INPI).',
+  'Direitos da cidadania':'Políticas para povos indígenas, direitos humanos, mulheres e igualdade racial.',
+  'Desporto e lazer':'Esporte de alto rendimento e esporte nas comunidades, como o Bolsa Atleta.',
+  'Energia':'Políticas de energia elétrica, petróleo, gás e mineração, e programas como o Luz para Todos.',
+  'Saneamento':'Água tratada, esgoto e drenagem nas cidades e no campo.',
+  'Outras Despesas Correntes':'Tudo o que é gasto do dia a dia e não é salário nem juros: benefícios pagos às pessoas (aposentadorias do INSS, Bolsa Família, BPC), repasses a estados e municípios e o custeio da máquina, como contas e contratos.',
+  'Pessoal e Encargos Sociais':'Salários de servidores civis e militares, aposentadorias e pensões dos servidores e as contribuições que a União paga como empregadora.',
+  'Juros e Encargos da Dívida':'Juros pagos sobre a dívida pública.',
+  'Amortização/Refinanciamento da Dívida':'Pagamento do principal da dívida, incluindo a rolagem (títulos novos para pagar os que vencem).',
+  'Inversões Financeiras':'Dinheiro que o governo empresta ou aplica e que pode voltar: financiamentos, participação em empresas e aportes em fundos.',
+  'Investimentos':'Obras e compra de equipamentos: estradas, prédios, hospitais, máquinas.'
+};
 // friendlier names for the biggest technical labels (the official name stays in the tooltip)
 const OB_NAME = {'Refinanciamento da dívida interna':'Rolagem da dívida','Refinanciamento da dívida externa':'Rolagem da dívida externa',
   'Serviço da dívida interna':'Dívida: juros e amortização','Serviço da dívida externa':'Dívida externa: juros e amortização',
@@ -5360,17 +5422,40 @@ function obDraw(from){
       <span class="ob-rn">${esc(obName(c))}${d ? `<small>${esc(d)}</small>` : ''}</span>
       <span class="ob-rv">${moneyBig(k.val)}<small>${obPctTxt(obPct(k.val, tot))} do total${plan>0 && obVal===1 && !obIsRoll(c) ? ` · ${Math.min(100,Math.round(paid/plan*100))}% já pago` : ''}</small></span>
       <span class="ob-rb"><span style="width:${Math.max(.5, obPct(k.val, kids[0].val))}%;background:${col}"></span></span></button>`; }).join('');
-  const cr = document.getElementById('ob-crumbs');
-  if (cr){ const names = []; let y = obData[obView]; obPath.forEach(k=>{ const c = (y.c||[]).find(z=> obKey(z)===k); if (c){ names.push(obName(c)); y = c; } });
+  const cr = document.getElementById('ob-crumbs'), names = []; { let y = obData[obView]; obPath.forEach(k=>{ const c = (y.c||[]).find(z=> obKey(z)===k); if (c){ names.push(obName(c)); y = c; } }); }
+  if (cr){
     cr.innerHTML = (obPath.length ? `<button type="button" data-crumb="0">‹ Tudo</button>` : '') + names.map((nm,i)=> (i ? `<i>›</i>` : '') + (i < names.length-1 ? `<button type="button" data-crumb="${i+1}">${esc(nm)}</button>` : `<span class="cur">${esc(nm)}</span>`)).join(''); }
   const big2 = document.getElementById('ob-big');
-  if (big2) big2.innerHTML = `<b>${moneyBig(parent)}</b><span>${obPath.length ? `${obPctTxt(obPct(parent, tot))} do orçamento` : (obVal===3 ? 'já pago no ano' : 'previsto para o ano')}${!obRoll ? ' · sem a rolagem da dívida' : ''}</span>`;
+  if (big2) big2.innerHTML = `<h2 class="ob-h">${obPath.length ? esc(names[names.length-1]) : 'Orçamento federal'}</h2><b>${moneyBig(parent)}</b><span>${obPath.length ? `${obPctTxt(obPct(parent, tot))} do orçamento` : (obVal===3 ? 'já pago no ano' : 'previsto para o ano')}${!obRoll ? ' · sem a rolagem da dívida' : ''}</span>`;
+  obDetail();
+}
+let obSel = null;
+function obLeaves(n, out){ (n.c||[]).forEach(c=>{ if (c.outros) return; if (c.c && c.c.length) obLeaves(c, out); else out.push(c); }); return out; }
+const obShort = t=> { t = String(t||''); return t.length > 92 ? t.slice(0, 90).replace(/\s+\S*$/,'')+'…' : t; };
+function obDetail(){
+  const box = document.getElementById('ob-det'); if (!box || !obData) return;
+  const n = obNode(), kids = obKids(n), parent = obV(n) || 1, tot = obTotal();
+  const k = kids.find(x=> obKey(x.node)===obSel) || kids[0]; if (!k){ box.innerHTML = ''; return; }
+  obSel = obKey(k.node);
+  const c = k.node, col = (document.querySelector(`#ob-bar .ob-t[data-k="${CSS.escape(obSel)}"]`)||{}).dataset?.col || '#888';
+  const open = c.c && c.c.length && !c.outros;
+  const L = obLeaves(c, []).map(x=> ({x, v: obV(x)})).filter(x=> x.v > 0).sort((a,b)=> b.v-a.v).slice(0, 5);
+  const nL = obLeaves(c, []).length, txt = OB_INFO[c.n] || (!open ? 'Uma ação do orçamento federal, a menor parte em que o orçamento é dividido.' : nL===1 ? `Todo esse dinheiro vai para uma ação só, listada abaixo.` : `${obName(c)} reúne ${nL} ações do orçamento. As maiores estão abaixo.`);
+  const plan = c.v[1], paid = c.v[3];
+  document.querySelectorAll('#ob-bar .ob-t').forEach(e=> e.classList.toggle('sel', e.dataset.k===obSel));
+  box.style.setProperty('--oc', col);
+  box.innerHTML = `<div class="ob-dh"><span class="ob-dc"></span><div><h3>${esc(obName(c))}</h3>${OB_NAME[c.n] ? `<p class="ob-do">No orçamento: ${esc(c.n)}</p>` : ''}</div></div>
+    <div class="ob-dn"><div><b>${moneyBig(k.val)}</b><span>${obPctTxt(obPct(k.val, tot))} do orçamento${obPath.length ? ` · ${obPctTxt(obPct(k.val, parent))} de ${esc(obName(n))}` : ''}</span></div>
+      ${plan > 0 && !obIsRoll(c) ? `<div class="ob-dp"><span>Já pago: ${moneyBig(paid)} (${Math.min(100, Math.round(paid/plan*100))}% do previsto)</span><div class="ob-bar"><i style="width:${Math.min(100, paid/plan*100)}%;background:var(--oc)"></i></div></div>` : ''}</div>
+    <p class="ob-dt">${esc(txt)}</p>
+    ${L.length > 1 || (L.length && L[0].x !== c) ? `<h4>Para onde vai esse dinheiro</h4><ul class="ob-dl">${L.map(({x, v})=> `<li><span>${esc(obShort(obName(x)))}</span><b>${moneyBig(v)}</b><i style="width:${Math.max(1, v/L[0].v*100)}%"></i></li>`).join('')}</ul>` : ''}
+    ${open ? `<button type="button" class="ob-go" data-open="${esc(obSel)}">Abrir ${esc(obName(c))} <span aria-hidden="true">→</span></button>` : ''}`;
 }
 function obOpen(key){
   const n = obNode(), c = (n.c||[]).find(x=> obKey(x)===key); if (!c || !(c.c && c.c.length) || c.outros) return;
   if (!obPath.length){ obDebtI = 0; obPalI = 0; let col; obKids(n).forEach((k,j)=>{ const cc = obColor(k.node, j, 0); if (obKey(k.node)===key) col = cc; }); obBase = col; }
   const bar = document.getElementById('ob-bar'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  obPath.push(key);
+  obPath.push(key); obSel = null;
   if (!bar || reduce){ if (bar) bar.innerHTML = ''; obDraw(); return; }
   // the chosen slice grows to fill the bar, then splits into its parts
   bar.querySelectorAll('.ob-t').forEach(e=>{ if (e.dataset.k===key) Object.assign(e.style, {left:'0%', width:'100%'}); else Object.assign(e.style, {width:'0%', opacity:'0'}); });
@@ -5385,7 +5470,7 @@ function renderOb(){
   const when = D.atualizado ? new Date(D.atualizado).toLocaleDateString('pt-BR', {day:'numeric', month:'long'}) : '';
   ob.innerHTML = `<div class="cw vg">
     <header class="cw-head"><div><p class="inst-eye">Portal da Transparência · atualizado aos domingos${when ? ` · último: ${when}` : ''}</p><h1 id="ob-title">Orçamento federal ${D.ano}</h1>
-      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Toque numa fatia da barra para abrir.</p></div>
+      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Toque numa fatia da barra para ver o que esse dinheiro faz.</p></div>
       ${infoBox([{l:'Portal da Transparência (CGU): orçamento da despesa', u:'https://portaldatransparencia.gov.br/orcamento'}, {l:'Arquivo de dados usado ('+D.ano+')', u: D.fonte || 'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'}], 'Fonte', 'Os valores são atualizados automaticamente todo domingo, como o Portal publica.')}</header>
     <div class="ob-kpis">
       <div class="ob-k"><span class="l">Orçamento do ano</span><b>${moneyBig(t[1])}</b><span class="s">previsto, com as mudanças feitas ao longo do ano (na lei: ${moneyBig(t[0])})</span></div>
@@ -5401,6 +5486,7 @@ function renderOb(){
       </div>
       <div class="ob-top"><div class="ob-big" id="ob-big"></div><nav class="ob-crumbs" id="ob-crumbs" aria-label="Onde você está"></nav></div>
       <div class="ob-map" id="ob-map"><div class="ob-bar2" id="ob-bar"></div><div class="ob-labs" id="ob-lab" aria-hidden="true"></div><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
+      <div class="ob-det" id="ob-det" aria-live="polite"></div>
       <div class="ob-list" id="ob-list"></div>
     </section>
     <section class="ob-sec"><h2 class="ob-h2">Para entender</h2><div class="ob-exp">
@@ -5413,13 +5499,17 @@ function renderOb(){
   obDraw();
 }
 ob.addEventListener('click', e=>{
-  const v = e.target.closest('[data-view]'); if (v){ obView = v.dataset.view; obPath = []; obBase = null; renderOb(); return; }
+  const v = e.target.closest('[data-view]'); if (v){ obView = v.dataset.view; obPath = []; obSel = null; obBase = null; renderOb(); return; }
   const w = e.target.closest('[data-val]'); if (w){ obVal = +w.dataset.val; ob.querySelectorAll('[data-val]').forEach(b=> b.setAttribute('aria-pressed', String(b===w))); obDraw(); return; }
-  const c = e.target.closest('[data-crumb]'); if (c){ obPath = obPath.slice(0, +c.dataset.crumb); if (!obPath.length) obBase = null; const b = document.getElementById('ob-bar'); if (b) b.innerHTML = ''; obDraw(); return; }
-  const t = e.target.closest('.ob-t, .ob-row'); if (t && !t.classList.contains('leaf')){ document.getElementById('ob-tip')?.classList.remove('on'); obOpen(t.dataset.k); if (t.classList.contains('ob-row')) document.getElementById('ob-crumbs')?.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+  const c = e.target.closest('[data-crumb]'); if (c){ obPath = obPath.slice(0, +c.dataset.crumb); obSel = null; if (!obPath.length) obBase = null; const b = document.getElementById('ob-bar'); if (b) b.innerHTML = ''; obDraw(); return; }
+  const g = e.target.closest('[data-open]'); if (g){ obOpen(g.dataset.open); document.getElementById('ob-map')?.scrollIntoView({block:'nearest', behavior:'smooth'}); return; }
+  const t = e.target.closest('.ob-t, .ob-row'); if (t && t.dataset.k!=='__demais'){ document.getElementById('ob-tip')?.classList.remove('on');
+    if (t.classList.contains('ob-t') && obSel===t.dataset.k && !t.classList.contains('leaf')){ obOpen(t.dataset.k); return; }   // a second tap on the chosen slice opens it
+    obSel = t.dataset.k; obDetail();
+    if (t.classList.contains('ob-row')) document.getElementById('ob-map')?.scrollIntoView({block:'center', behavior:'smooth'}); }
 });
 ob.addEventListener('change', e=>{ if (e.target.id==='ob-roll'){ obRoll = e.target.checked; obDraw(); } });
-ob.addEventListener('keydown', e=>{ const t = e.target.closest('.ob-t'); if (t && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); obOpen(t.dataset.k); setTimeout(()=> document.querySelector('#ob-bar .ob-t')?.focus(), 500); } });
+ob.addEventListener('keydown', e=>{ const t = e.target.closest('.ob-t'); if (t && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); if (obSel===t.dataset.k && !t.classList.contains('leaf')){ obOpen(t.dataset.k); setTimeout(()=> document.querySelector('#ob-bar .ob-t')?.focus(), 500); } else { obSel = t.dataset.k; obDetail(); } } });
 ob.addEventListener('mousemove', e=>{
   const tip = document.getElementById('ob-tip'), map = document.getElementById('ob-map'); if (!tip || !map) return;
   const t = e.target.closest('.ob-t'); if (!t || e.sourceCapabilities?.firesTouchEvents){ tip.classList.remove('on'); return; }
@@ -5427,7 +5517,7 @@ ob.addEventListener('mousemove', e=>{
   if (t.dataset.k==='__demais'){ const sm = obKids(n).filter(k=> k.val/(obV(n)||1) < .006); tip.innerHTML = `<b>${sm.length} itens menores</b><span class="m">${moneyBig(sm.reduce((a,b)=> a+b.val,0))}</span><br>${sm.slice(0,6).map(k=> esc(obName(k.node))).join(', ')}${sm.length>6?'…':''}<br><span style="opacity:.75">Todos estão na lista abaixo</span>`; }
   else { const c = (n.c||[]).find(x=> obKey(x)===t.dataset.k); if (!c) return;
   const d = OB_DESC[c.n], val = obV(c);
-  tip.innerHTML = `<b>${esc(obName(c))}</b>${d ? `<span style="opacity:.75">${esc(d)}</span><br>` : ''}${OB_NAME[c.n] ? `<span style="opacity:.6">No orçamento: ${esc(c.n)}</span><br>` : ''}<span class="m">${moneyBig(val)}</span><br>${obPctTxt(obPct(val, tot))} do total${obPath.length ? ` · ${obPctTxt(obPct(val, obV(n)))} de ${esc(obName(n))}` : ''}<br>Previsto ${moneyBig(c.v[1])} · pago ${moneyBig(c.v[3])}${c.outros ? `<br>${c.outros} itens menores juntos` : (c.c && c.c.length ? '<br><span style="opacity:.75">Clique para abrir</span>' : '')}`; }
+  tip.innerHTML = `<b>${esc(obName(c))}</b>${d ? `<span style="opacity:.75">${esc(d)}</span><br>` : ''}${OB_NAME[c.n] ? `<span style="opacity:.6">No orçamento: ${esc(c.n)}</span><br>` : ''}<span class="m">${moneyBig(val)}</span><br>${obPctTxt(obPct(val, tot))} do total${obPath.length ? ` · ${obPctTxt(obPct(val, obV(n)))} de ${esc(obName(n))}` : ''}<br>Previsto ${moneyBig(c.v[1])} · pago ${moneyBig(c.v[3])}${c.outros ? `<br>${c.outros} itens menores juntos` : (c.c && c.c.length ? '<br><span style="opacity:.75">Clique para ver o que paga</span>' : '')}`; }
   const R = map.getBoundingClientRect(); let x = e.clientX - R.left + 14, y = e.clientY - R.top + 14;
   if (x + 290 > R.width) x = e.clientX - R.left - 294; y = -tip.offsetHeight - 12;
   tip.style.left = Math.max(0, x)+'px'; tip.style.top = y+'px'; tip.classList.add('on');

@@ -36,16 +36,39 @@ def coluna(cab, *partes, sem=()):
 # nomes em letra normal (o arquivo traz ações e programas em maiúsculas)
 MIN = {'de','da','do','das','dos','e','a','o','as','os','em','no','na','nos','nas','para','por','com','ao','aos','à','às','sem','sob'}
 SIGLAS = {'SUS','INSS','FGTS','FIES','PIS','PASEP','BPC','LOAS','FUNDEB','FNDE','RGPS','FAT','FCO','FNE','FNO','PAC','ANP','ANEEL','IBGE','IPEA','STF','STJ','TSE','TST','STM','CNJ','TCU','MPU','DPU','PF','PRF','ONU','BNDES','CAPES','CNPQ','EBSERH','SIAFI','ENEM','PNAE','PDDE','MEI','ICMS','IPI','IR','CIDE','FPE','FPM','DF','RJ','SP','UF','TV','TI','EBC','SUAS','CRAS','CREAS','RMV'}
+# acentos que o arquivo perde ao vir em maiúsculas sem acento (só as palavras mais comuns nos nomes de ações)
+ACENTO = {w.lower().translate(str.maketrans('áàâãéêíóôõúçÁÉÍÓÚÂÊÔÃÕÇ', 'aaaaeeiooouc' + 'aeiouaeoaoc')): w for w in """
+Transferência Transferências Benefício Benefícios Prestação Deficiência Vitalícia Auxílio Gás Serviço Serviços Gestão Único Assistência
+Segurança Dívida Pública Público Públicas Públicos Mobiliária Previdência Previdenciários Previdenciária Saúde Atenção Média Educação Básica
+Manutenção Valorização União Pensões Operações Operação Crédito Sentenças Precatórios Família Famílias Beneficiárias Beneficiários Água
+Elétrica Ciência Inovação Formação Promoção Implantação Implementação Ampliação Construção Recuperação Adequação Concessão Aquisição
+Distribuição Produção Participação Participações Contribuição Contribuições Assunção Novação Compensação Variações Salário Salarial
+Médicos Médica Odontológica Farmacêutica Estratégicos Estratégica Prevenção Imunização Vigilância Epidemiológica Conservação Fiscalização
+Regularização Fundiária Agrária Equalização Subvenção Econômica Econômico Exportações Integração Hídrica Rodoviária Ferroviária
+Ferroviário Aéreo Aeroportuária Inativos Administração Comunicação Tecnológica Científica Instituições Primária Comunitários
+Cooperação Espaço Indígenas Proteção Habitação Básico Trânsito Tributária Arrecadação Orçamento Orçamentária Patrimônio Histórico
+Nação Municípios Petróleo Mudança Adaptação Mitigação Reembolsável Amortização Interna Execução Políticas Política Tecnologia
+Instituição Pós-Graduação Graduação Território Territorial Agropecuária Agrícola Pecuária Veículos Órgãos Órgão Gratuidade Atuação
+Avaliação Informação Informações Inclusão Erradicação Alimentação Escolar Bolsa Rurais Saneamento Fomento Indenizações Indenização
+Emergência Calamidade Calamidades Hospitais Universitários Acadêmica Pesquisas Inteligência Polícia Penitenciário Prisional
+Estruturação Ressarcimento Compensações Exercício Exercícios Contratuais Federativos Federativo Consórcios Tecnológico Científico Econômicos
+""".split()}
+def acentua(w):
+    k = w.lower()
+    if k not in ACENTO: return w
+    r = ACENTO[k]; return (r[:1].lower() if w[:1].islower() else r[:1].upper()) + r[1:]
 def bonito(t):
     t = re.sub(r'\s+', ' ', str(t or '')).strip()
     if not t: return 'Não informado'
-    if t != t.upper(): return t
+    if t != t.upper(): return ' '.join(acentua(w) if re.fullmatch(r'[A-Za-z]+', w) else w for w in t.split(' '))
     out = []
     for i, w in enumerate(t.split(' ')):
         base = re.sub(r'[^\wÀ-ÿ]', '', w)
         if base.upper() in SIGLAS: out.append(w)
         elif i and w.lower() in MIN: out.append(w.lower())
-        else: out.append(w[:1].upper() + w[1:].lower())
+        else:
+            x = w[:1].upper() + w[1:].lower(); m = re.match(r'^([\wÀ-ÿ-]+)(.*)$', x)
+            out.append(acentua(m.group(1)) + m.group(2) if m else x)
     return ' '.join(out)
 
 def baixar():
