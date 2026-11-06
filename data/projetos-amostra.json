@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2651093",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2651093",
-   "idDeputadoAutor": "",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2009",
-   "codTipoAutor": "2",
-   "tipoAutor": "COMISSÃO PERMANENTE",
-   "nomeAutor": "Comissão de Educação",
-   "siglaPartidoAutor": "",
-   "uriPartidoAutor": "",
-   "siglaUFAutor": "",
+   "idProposicao": "2651254",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2651254",
+   "idDeputadoAutor": "220611",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/220611",
+   "codTipoAutor": "10000",
+   "tipoAutor": "Deputado(a)",
+   "nomeAutor": "General Pazuello",
+   "siglaPartidoAutor": "PL",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUFAutor": "RJ",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
@@ -988,11 +988,5 @@
   "url": "https://legis.senado.leg.br/dadosabertos/processo?sigla=PL&numero=332&ano=2018",
   "resposta": []
  },
- "_erros": [
-  "https://legis.senado.leg.br/dadosabertos/votacao?dataInicio=2024-06-01&dataFim=2024-06-30: HTTP Error 503: Service Unavailable",
-  "https://legis.senado.leg.br/dadosabertos/votacao?dataInicio=2024-07-01&dataFim=2024-07-31: HTTP Error 503: Service Unavailable",
-  "https://legis.senado.leg.br/dadosabertos/processo?sigla=PLP&numero=168&ano=2025: HTTP Error 503: Service Unavailable",
-  "https://legis.senado.leg.br/dadosabertos/processo?sigla=PLP&numero=185&ano=2024: HTTP Error 503: Service Unavailable",
-  "https://legis.senado.leg.br/dadosabertos/processo?sigla=PEC&numero=48&ano=2023: HTTP Error 503: Service Unavailable"
- ]
+ "_erros": []
 }
