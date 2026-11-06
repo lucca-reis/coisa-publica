@@ -1,26 +1,6 @@
 {
- "atualizado": "2026-11-05T23:15-03:00",
+ "atualizado": "2026-11-06T00:54-03:00",
  "camara": [
-  {
-   "id": 83076,
-   "inicio": "2026-11-04T09:34-03:00",
-   "fim": "2026-11-04T10:18-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.\r\n Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
-   "video": "https://www.youtube.com/watch?v=5rh7pIswP78",
-   "aoVivo": false
-  },
-  {
-   "id": 83078,
-   "inicio": "2026-11-04T11:37-03:00",
-   "fim": "2026-11-04T13:20-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem a Roberto Santos, Waldir Pires, Milton Santos e Luís Henrique Dias Tavares\r\n Homenagem ao centenário do geógrafo Milton Santos",
-   "video": "https://www.youtube.com/watch?v=M1FcU5upl-E",
-   "aoVivo": false
-  },
   {
    "id": 83083,
    "inicio": "2026-11-10T09:00-03:00",
@@ -102,16 +82,6 @@
    "aoVivo": false
   },
   {
-   "id": 83159,
-   "inicio": "2026-11-04T14:44-03:00",
-   "fim": "2026-11-04T20:28-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": "https://www.youtube.com/watch?v=AmljjQupEwk",
-   "aoVivo": false
-  },
-  {
    "id": 83188,
    "inicio": "2026-11-05T11:07-03:00",
    "fim": "2026-11-05T12:55-03:00",
@@ -133,16 +103,6 @@
   }
  ],
  "senado": [
-  {
-   "id": "586337",
-   "inicio": "2026-11-05T15:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "594171",
    "inicio": "2026-11-06T10:00-03:00",
@@ -219,6 +179,16 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594176",
+   "inicio": "2026-11-13T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO NÃO DELIBERATIVA ",
    "descricao": "",
    "video": null,
    "aoVivo": false
