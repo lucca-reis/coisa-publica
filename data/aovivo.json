@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-06T16:51Z",
- "itens": []
+ "atualizado": "2026-11-06T17:01Z",
+ "itens": [
+  {
+   "casa": "stf",
+   "plenario": true,
+   "sigla": "",
+   "nome": "STF",
+   "tipo": "Sessão virtual",
+   "descricao": "Nova sessão virtual, até 13/11",
+   "desde": "14h",
+   "video": null
+  }
+ ]
 }
