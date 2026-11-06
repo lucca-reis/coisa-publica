@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: '22'
+          python-version: '3.12'
       - run: |
           mkdir -p out
-          node scripts/posts/stories.js preparar > out/log.txt 2>&1 || true
-          cp data/aovivo.json out/ || true
+          python scripts/orcamento_federal.py > out/log.txt 2>&1 || true
+          cp data/orcamento-federal.json out/ || true
           git config user.name t; git config user.email t@t
           git add -f out && git commit -qm "saida do teste" && git push origin HEAD:teste-api-comissoes
