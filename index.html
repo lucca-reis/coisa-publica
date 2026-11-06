@@ -1263,20 +1263,24 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-crumbs button:hover{background:color-mix(in srgb, var(--ink) 10%, var(--bg))}
 .ob-crumbs span.cur{padding:5px 2px;font-weight:600}
 .ob-crumbs i{font-style:normal;color:var(--muted)}
-.ob-map{position:relative;height:min(68vh,680px);min-height:380px;border-radius:22px;overflow:hidden;background:color-mix(in srgb, var(--ink) 4%, var(--bg));touch-action:manipulation}
-.ob-t{position:absolute;box-sizing:border-box;border:2px solid var(--bg);border-radius:12px;padding:10px 12px;color:#fff;overflow:hidden;cursor:pointer;
-  transition:left .45s cubic-bezier(.2,.7,.2,1),top .45s cubic-bezier(.2,.7,.2,1),width .45s cubic-bezier(.2,.7,.2,1),height .45s cubic-bezier(.2,.7,.2,1),filter .15s;display:flex;flex-direction:column;gap:2px}
-.ob-t:hover,.ob-t:focus-visible{filter:brightness(1.08) saturate(1.05);outline:none}
-.ob-t:focus-visible{box-shadow:inset 0 0 0 3px #fff}
-.ob-t .n{flex:none;font-size:var(--ns,14px);font-weight:600;line-height:1.15;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.ob-t .v{flex:none;white-space:nowrap;font-size:var(--vs,24px);font-weight:500;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
-.ob-t .p{font-size:12px;opacity:.85}
+.ob-top{display:flex;align-items:flex-end;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;margin-top:6px}
+.ob-big{display:flex;flex-direction:column;gap:2px}.ob-big b{font-size:clamp(34px,4.6vw,60px);font-weight:500;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}.ob-big span{font-size:13px;color:var(--muted)}
+.ob-map{position:relative;padding-bottom:4px}
+.ob-bar2{position:relative;height:clamp(64px,9vw,112px);border-radius:999px;overflow:hidden;background:color-mix(in srgb, var(--ink) 6%, var(--bg));isolation:isolate}
+.ob-t{position:absolute;top:0;bottom:0;box-sizing:border-box;border-right:3px solid var(--bg);color:#fff;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  transition:left .5s cubic-bezier(.3,.7,.2,1),width .5s cubic-bezier(.3,.7,.2,1),opacity .3s,filter .15s}
+.ob-t.last{border-right:0}
+.ob-t .p{font-size:clamp(13px,1.5vw,18px);font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}
 .ob-t.lt{color:#121417}
-.ob-t.sm{padding:7px 8px}.ob-t.sm .p{display:none}.ob-t.nv .v{display:none}.ob-t.nv .n{-webkit-line-clamp:3;font-size:11px}
-.obp .cw-head h1{padding-bottom:6px}
-.ob-t.xs{padding:0}.ob-t.xs>*{display:none}
+.ob-bar2:hover .ob-t:not(:hover){filter:saturate(.6) brightness(1.08);opacity:.7}
+.ob-t:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--ink)}
 .ob-t.leaf{cursor:default}
-.ob-tip{position:absolute;z-index:5;pointer-events:none;max-width:280px;padding:12px 14px;border-radius:14px;background:var(--ink);color:var(--bg);font-size:13px;line-height:1.4;box-shadow:0 10px 30px rgba(0,0,0,.18);opacity:0;transition:opacity .12s}
+.ob-labs{position:relative;height:64px;margin-top:10px}
+.ob-lb{position:absolute;top:0;box-sizing:border-box;padding:0 10px 0 2px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.ob-lb i{width:22px;height:3px;border-radius:2px;margin-bottom:5px}
+.ob-lb .n{font-size:13px;line-height:1.2;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ob-lb b{font-size:clamp(15px,1.6vw,20px);font-weight:500;letter-spacing:-.02em;white-space:nowrap}
+.ob-tip{position:absolute;z-index:5;width:280px;pointer-events:none;max-width:280px;padding:12px 14px;border-radius:14px;background:var(--ink);color:var(--bg);font-size:13px;line-height:1.4;box-shadow:0 10px 30px rgba(0,0,0,.18);opacity:0;transition:opacity .12s}
 .ob-tip.on{opacity:1}
 .ob-tip b{display:block;font-size:14px;margin-bottom:4px}
 .ob-tip .m{font-size:20px;font-weight:500;letter-spacing:-.02em}
@@ -1299,7 +1303,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .ob-sec{display:flex;flex-direction:column;gap:14px}
 .ob-h2{margin:0;font-size:20px;letter-spacing:-.02em}
 @media (max-width:900px){ .ob-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .ob-exp{grid-template-columns:minmax(0,1fr)} }
-@media (max-width:560px){ .ob-map{height:62vh;min-height:340px;border-radius:16px} .ob-t{border-radius:8px;padding:7px 8px} .ob-ctl{flex-direction:column;align-items:stretch} .ob-seg{justify-content:space-between} .ob-seg button{padding:8px 10px;font-size:13px} }
+@media (max-width:560px){ .ob-labs{height:58px} .ob-lb .n{font-size:12px} .ob-ctl{flex-direction:column;align-items:stretch} .ob-seg{justify-content:space-between} .ob-seg button{padding:8px 10px;font-size:13px} }
 @media (prefers-reduced-motion:reduce){ .ob-t{transition:none} }
 /* transparency page (#transparencia): spending by power and, inside each power, by person or office */
 .tp-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -5314,69 +5318,64 @@ function obShade(hex, i){ // vary lightness around the parent color
   return '#'+[m(r),m(g),m(b)].map(x=> x.toString(16).padStart(2,'0')).join('');
 }
 const obLight = hex=>{ const c = parseInt(hex.slice(1),16); return (0.299*(c>>16) + 0.587*(c>>8&255) + 0.114*(c&255)) > 170; };
-// squarified treemap
-function obSquarify(items, x, y, w, h){
-  const out = [], tot = items.reduce((a,b)=> a+b.val, 0); if (!tot || w<=0 || h<=0) return out;
-  const scale = w*h/tot; let rest = items.map(it=> ({...it, a: it.val*scale})).filter(it=> it.a>0);
-  const worst = (row, side)=>{ const s = row.reduce((a,b)=> a+b.a,0), mx = Math.max(...row.map(r=>r.a)), mn = Math.min(...row.map(r=>r.a)); return Math.max(side*side*mx/(s*s), s*s/(side*side*mn)); };
-  while (rest.length){
-    const side = Math.min(w, h); let row = [rest[0]], i = 1;
-    while (i < rest.length && worst(row.concat(rest[i]), side) <= worst(row, side)){ row.push(rest[i]); i++; }
-    const s = row.reduce((a,b)=> a+b.a, 0);
-    if (w >= h){ const cw = s/h; let cy = y; row.forEach(r=>{ const rh = r.a/cw; out.push({...r, x, y:cy, w:cw, h:rh}); cy += rh; }); x += cw; w -= cw; }
-    else { const ch = s/w; let cx = x; row.forEach(r=>{ const rw = r.a/ch; out.push({...r, x:cx, y, w:rw, h:ch}); cx += rw; }); y += ch; h -= ch; }
-    rest = rest.slice(i);
-  }
-  return out;
-}
 const obPct = (a,b)=> b ? (a/b*100) : 0;
 const obPctTxt = p=> p>=10 ? Math.round(p)+'%' : p>=1 ? FMT_PCT.format(Math.round(p*10)/10)+'%' : p>0 ? 'menos de 1%' : '0%';
 function obTotal(){ return obV(obData[obView]); }
 function obKids(n){ return (n.c||[]).map((c,i)=> ({node:c, i, val: obV(c)})).filter(x=> x.val>0).sort((a,b)=> b.val-a.val); }
-function obDraw(){
-  const map = document.getElementById('ob-map'); if (!map || !obData) return;
-  const n = obNode(), kids = obKids(n), tot = obTotal(), parent = obV(n);
-  const W = map.clientWidth, H = map.clientHeight;
-  const rects = obSquarify(kids.map(k=> ({...k})), 0, 0, W, H);
-  const depth = obPath.length;
+// one long pill-shaped bar, sliced in proportion; tiny slices (under 0,6% of the level) go together into one gray slice
+function obDraw(from){
+  const map = document.getElementById('ob-map'), bar = document.getElementById('ob-bar'), lab = document.getElementById('ob-lab'); if (!map || !bar || !obData) return;
+  const n = obNode(), kids = obKids(n), tot = obTotal(), parent = obV(n) || kids.reduce((a,b)=> a+b.val, 0);
+  const depth = obPath.length, W = bar.clientWidth;
   obDebtI = 0; obPalI = 0;
-  const old = new Map([...map.querySelectorAll('.ob-t')].map(e=> [e.dataset.k, e]));
-  const seen = new Set();
-  rects.forEach((r, j)=>{
-    const c = r.node, key = obKey(c), col = depth===0 ? obColor(c, j, 0) : obColor(c, j, depth);
-    let e = old.get(key);
-    if (!e){ e = document.createElement('div'); e.className = 'ob-t'; e.dataset.k = key; e.tabIndex = 0; e.setAttribute('role','button');
-      Object.assign(e.style, {left:(r.x+r.w/2)+'px', top:(r.y+r.h/2)+'px', width:'0px', height:'0px'}); map.appendChild(e); }
-    seen.add(key);
-    const leaf = !(c.c && c.c.length) || c.outros;
-    e.classList.toggle('leaf', !!leaf); e.classList.toggle('lt', obLight(col));
-    e.classList.toggle('sm', r.w < 150 || r.h < 90); e.classList.toggle('nv', r.w < 96 || r.h < 56); e.classList.toggle('xs', r.w < 56 || r.h < 34);
-    e.style.background = col; e.dataset.col = col; e.style.borderRadius = Math.max(3, Math.min(12, r.w/5, r.h/5))+'px';
-    // type follows the block size, so a value never breaks in two lines
-    e.style.setProperty('--vs', Math.max(13, Math.min(30, r.w/7.5, r.h/3.2))+'px'); e.style.setProperty('--ns', Math.max(11, Math.min(16, r.w/11))+'px');
-    e.setAttribute('aria-label', `${obName(c)}: ${moneyBig(r.val)}, ${obPctTxt(obPct(r.val, tot))} do total${leaf ? '' : '. Abrir'}`);
-    e.innerHTML = `<span class="n">${esc(obName(c))}</span><span class="v">${moneyBig(r.val)}</span><span class="p">${obPctTxt(obPct(r.val, tot))} do total</span>`;
-    requestAnimationFrame(()=> Object.assign(e.style, {left:r.x+'px', top:r.y+'px', width:r.w+'px', height:r.h+'px'}));
+  const big = kids.filter(k=> k.val/parent >= .006), small = kids.filter(k=> k.val/parent < .006);
+  const cols = new Map(kids.map((k,j)=> [obKey(k.node), obColor(k.node, j, depth)]));
+  const segs = big.map(k=> ({k: obKey(k.node), node: k.node, val: k.val, col: cols.get(obKey(k.node))}));
+  if (small.length) segs.push({k:'__demais', node:{n:`Demais (${small.length})`, v:[0,0,0,0], demais: small}, val: small.reduce((a,b)=> a+b.val, 0), col:'#B9BBC0'});
+  const old = new Map([...bar.querySelectorAll('.ob-t')].map(e=> [e.dataset.k, e])), seen = new Set();
+  let x = 0; const labs = [];
+  segs.forEach((g, j)=>{
+    const w = g.val/parent*100, c = g.node, leaf = !!(c.demais || !(c.c && c.c.length) || c.outros);
+    let e = old.get(g.k);
+    if (!e){ e = document.createElement('div'); e.className = 'ob-t'; e.dataset.k = g.k; e.tabIndex = 0; e.setAttribute('role','button');
+      Object.assign(e.style, from==='full' ? {left:'0%', width:'100%'} : {left:(x+w/2)+'%', width:'0%'}); bar.appendChild(e); }
+    seen.add(g.k);
+    e.classList.toggle('leaf', leaf); e.classList.toggle('lt', obLight(g.col)); e.classList.toggle('last', j===segs.length-1);
+    e.style.background = g.col; e.dataset.col = g.col;
+    const px = W*w/100;
+    e.setAttribute('aria-label', `${obName(c)}: ${moneyBig(g.val)}, ${obPctTxt(obPct(g.val, tot))} do total${leaf ? '' : '. Abrir'}`);
+    e.innerHTML = px >= 74 ? `<span class="p">${obPctTxt(obPct(g.val, parent))}</span>` : '';
+    const L = x, Wd = w; requestAnimationFrame(()=> requestAnimationFrame(()=> Object.assign(e.style, {left:L+'%', width:Wd+'%'})));
+    if (px >= 96) labs.push({x:L, w:Wd, g, c});
+    x += w;
   });
-  old.forEach((e,k)=>{ if (!seen.has(k)) e.remove(); });
-  // list under the map (also the accessible version)
+  old.forEach((e,k)=>{ if (!seen.has(k)){ e.style.width = '0%'; e.style.opacity = '0'; setTimeout(()=> e.remove(), 500); } });
+  // names under the bar, for the slices wide enough to hold them
+  if (lab) lab.innerHTML = labs.map(({x, w, g, c})=> `<div class="ob-lb" style="left:${x}%;width:${w}%"><i style="background:${g.col}"></i><span class="n">${esc(obName(c))}</span><b>${moneyBig(g.val)}</b></div>`).join('');
+  // list under the bar (all items, also the accessible version)
   const L = document.getElementById('ob-list');
-  if (L) L.innerHTML = kids.map((k, j)=>{ const c = k.node, col = (map.querySelector(`.ob-t[data-k="${CSS.escape(obKey(c))}"]`)||{}).dataset?.col || OB_PAL[j%OB_PAL.length];
+  if (L) L.innerHTML = kids.map((k, j)=>{ const c = k.node, col = cols.get(obKey(c));
     const leaf = !(c.c && c.c.length) || c.outros, d = OB_DESC[c.n], paid = c.v[3], plan = c.v[1];
     return `<button type="button" class="ob-row${leaf?' leaf':''}" data-k="${esc(obKey(c))}"${leaf?' aria-disabled="true"':''}><i style="background:${col}"></i>
       <span class="ob-rn">${esc(obName(c))}${d ? `<small>${esc(d)}</small>` : ''}</span>
       <span class="ob-rv">${moneyBig(k.val)}<small>${obPctTxt(obPct(k.val, tot))} do total${plan>0 && obVal===1 && !obIsRoll(c) ? ` · ${Math.min(100,Math.round(paid/plan*100))}% já pago` : ''}</small></span>
       <span class="ob-rb"><span style="width:${Math.max(.5, obPct(k.val, kids[0].val))}%;background:${col}"></span></span></button>`; }).join('');
   const cr = document.getElementById('ob-crumbs');
-  if (cr){ const names = []; let x = obData[obView]; obPath.forEach(k=>{ const c = (x.c||[]).find(y=> obKey(y)===k); if (c){ names.push(obName(c)); x = c; } });
-    cr.innerHTML = (obPath.length ? `<button type="button" data-crumb="0">Tudo</button>` : `<span class="cur">Tudo</span>`) + names.map((nm,i)=> `<i>›</i>` + (i < names.length-1 ? `<button type="button" data-crumb="${i+1}">${esc(nm)}</button>` : `<span class="cur">${esc(nm)}</span>`)).join('')
-      + `<i style="margin-left:auto">${moneyBig(parent)}${obPath.length ? ` · ${obPctTxt(obPct(parent, tot))} do total` : ''}</i>`; }
+  if (cr){ const names = []; let y = obData[obView]; obPath.forEach(k=>{ const c = (y.c||[]).find(z=> obKey(z)===k); if (c){ names.push(obName(c)); y = c; } });
+    cr.innerHTML = (obPath.length ? `<button type="button" data-crumb="0">‹ Tudo</button>` : '') + names.map((nm,i)=> (i ? `<i>›</i>` : '') + (i < names.length-1 ? `<button type="button" data-crumb="${i+1}">${esc(nm)}</button>` : `<span class="cur">${esc(nm)}</span>`)).join(''); }
+  const big2 = document.getElementById('ob-big');
+  if (big2) big2.innerHTML = `<b>${moneyBig(parent)}</b><span>${obPath.length ? `${obPctTxt(obPct(parent, tot))} do orçamento` : (obVal===3 ? 'já pago no ano' : 'previsto para o ano')}${!obRoll ? ' · sem a rolagem da dívida' : ''}</span>`;
 }
 function obOpen(key){
   const n = obNode(), c = (n.c||[]).find(x=> obKey(x)===key); if (!c || !(c.c && c.c.length) || c.outros) return;
-  if (!obPath.length){ const j = obKids(n).findIndex(k=> obKey(k.node)===key); obBase = obIsRoll(c) ? OB_DEBT : OB_PAL[j % OB_PAL.length]; }
-  const map = document.getElementById('ob-map'); if (map) map.innerHTML = '<div class="ob-tip" id="ob-tip" role="tooltip"></div>';
-  obPath.push(key); obDraw();
+  if (!obPath.length){ obDebtI = 0; obPalI = 0; let col; obKids(n).forEach((k,j)=>{ const cc = obColor(k.node, j, 0); if (obKey(k.node)===key) col = cc; }); obBase = col; }
+  const bar = document.getElementById('ob-bar'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  obPath.push(key);
+  if (!bar || reduce){ if (bar) bar.innerHTML = ''; obDraw(); return; }
+  // the chosen slice grows to fill the bar, then splits into its parts
+  bar.querySelectorAll('.ob-t').forEach(e=>{ if (e.dataset.k===key) Object.assign(e.style, {left:'0%', width:'100%'}); else Object.assign(e.style, {width:'0%', opacity:'0'}); });
+  document.getElementById('ob-lab').innerHTML = '';
+  setTimeout(()=>{ bar.innerHTML = ''; obDraw('full'); }, 420);
 }
 function renderOb(){
   const D = obData;
@@ -5386,7 +5385,7 @@ function renderOb(){
   const when = D.atualizado ? new Date(D.atualizado).toLocaleDateString('pt-BR', {day:'numeric', month:'long'}) : '';
   ob.innerHTML = `<div class="cw vg">
     <header class="cw-head"><div><p class="inst-eye">Portal da Transparência · atualizado aos domingos${when ? ` · último: ${when}` : ''}</p><h1 id="ob-title">Orçamento federal ${D.ano}</h1>
-      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Toque num bloco para abrir.</p></div>
+      <p class="vg-sub">Quanto o governo federal pode gastar no ano, em quê, e quanto já pagou. Toque numa fatia da barra para abrir.</p></div>
       ${infoBox([{l:'Portal da Transparência (CGU): orçamento da despesa', u:'https://portaldatransparencia.gov.br/orcamento'}, {l:'Arquivo de dados usado ('+D.ano+')', u: D.fonte || 'https://portaldatransparencia.gov.br/download-de-dados/orcamento-despesa'}], 'Fonte', 'Os valores são atualizados automaticamente todo domingo, como o Portal publica.')}</header>
     <div class="ob-kpis">
       <div class="ob-k"><span class="l">Orçamento do ano</span><b>${moneyBig(t[1])}</b><span class="s">previsto, com as mudanças feitas ao longo do ano (na lei: ${moneyBig(t[0])})</span></div>
@@ -5400,8 +5399,8 @@ function renderOb(){
         <div class="ob-seg" role="group" aria-label="Valor">${[[1,'Previsto'],[3,'Já pago']].map(([k,l])=> `<button type="button" data-val="${k}" aria-pressed="${obVal===k}">${l}</button>`).join('')}</div>
         <label class="ob-chk"><input type="checkbox" id="ob-roll"${obRoll?' checked':''}> Incluir a rolagem da dívida</label>
       </div>
-      <nav class="ob-crumbs" id="ob-crumbs" aria-label="Onde você está"></nav>
-      <div class="ob-map" id="ob-map"><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
+      <div class="ob-top"><div class="ob-big" id="ob-big"></div><nav class="ob-crumbs" id="ob-crumbs" aria-label="Onde você está"></nav></div>
+      <div class="ob-map" id="ob-map"><div class="ob-bar2" id="ob-bar"></div><div class="ob-labs" id="ob-lab" aria-hidden="true"></div><div class="ob-tip" id="ob-tip" role="tooltip"></div></div>
       <div class="ob-list" id="ob-list"></div>
     </section>
     <section class="ob-sec"><h2 class="ob-h2">Para entender</h2><div class="ob-exp">
@@ -5416,20 +5415,22 @@ function renderOb(){
 ob.addEventListener('click', e=>{
   const v = e.target.closest('[data-view]'); if (v){ obView = v.dataset.view; obPath = []; obBase = null; renderOb(); return; }
   const w = e.target.closest('[data-val]'); if (w){ obVal = +w.dataset.val; ob.querySelectorAll('[data-val]').forEach(b=> b.setAttribute('aria-pressed', String(b===w))); obDraw(); return; }
-  const c = e.target.closest('[data-crumb]'); if (c){ obPath = obPath.slice(0, +c.dataset.crumb); if (!obPath.length) obBase = null; const m = document.getElementById('ob-map'); if (m) m.innerHTML = '<div class="ob-tip" id="ob-tip" role="tooltip"></div>'; obDraw(); return; }
-  const t = e.target.closest('.ob-t, .ob-row'); if (t && !t.classList.contains('leaf')){ obOpen(t.dataset.k); if (t.classList.contains('ob-row')) document.getElementById('ob-crumbs')?.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+  const c = e.target.closest('[data-crumb]'); if (c){ obPath = obPath.slice(0, +c.dataset.crumb); if (!obPath.length) obBase = null; const b = document.getElementById('ob-bar'); if (b) b.innerHTML = ''; obDraw(); return; }
+  const t = e.target.closest('.ob-t, .ob-row'); if (t && !t.classList.contains('leaf')){ document.getElementById('ob-tip')?.classList.remove('on'); obOpen(t.dataset.k); if (t.classList.contains('ob-row')) document.getElementById('ob-crumbs')?.scrollIntoView({block:'nearest', behavior:'smooth'}); }
 });
 ob.addEventListener('change', e=>{ if (e.target.id==='ob-roll'){ obRoll = e.target.checked; obDraw(); } });
-ob.addEventListener('keydown', e=>{ const t = e.target.closest('.ob-t'); if (t && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); obOpen(t.dataset.k); document.querySelector('#ob-map .ob-t')?.focus(); } });
+ob.addEventListener('keydown', e=>{ const t = e.target.closest('.ob-t'); if (t && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); obOpen(t.dataset.k); setTimeout(()=> document.querySelector('#ob-bar .ob-t')?.focus(), 500); } });
 ob.addEventListener('mousemove', e=>{
   const tip = document.getElementById('ob-tip'), map = document.getElementById('ob-map'); if (!tip || !map) return;
-  const t = e.target.closest('.ob-t'); if (!t){ tip.classList.remove('on'); return; }
-  const n = obNode(), c = (n.c||[]).find(x=> obKey(x)===t.dataset.k); if (!c) return;
-  const tot = obTotal(), d = OB_DESC[c.n], val = obV(c);
-  tip.innerHTML = `<b>${esc(obName(c))}</b>${d ? `<span style="opacity:.75">${esc(d)}</span><br>` : ''}${OB_NAME[c.n] ? `<span style="opacity:.6">No orçamento: ${esc(c.n)}</span><br>` : ''}<span class="m">${moneyBig(val)}</span><br>${obPctTxt(obPct(val, tot))} do total${obPath.length ? ` · ${obPctTxt(obPct(val, obV(n)))} de ${esc(obName(n))}` : ''}<br>Previsto ${moneyBig(c.v[1])} · pago ${moneyBig(c.v[3])}${c.outros ? `<br>${c.outros} itens menores juntos` : (c.c && c.c.length ? '<br><span style="opacity:.75">Clique para abrir</span>' : '')}`;
+  const t = e.target.closest('.ob-t'); if (!t || e.sourceCapabilities?.firesTouchEvents){ tip.classList.remove('on'); return; }
+  const n = obNode(), tot = obTotal();
+  if (t.dataset.k==='__demais'){ const sm = obKids(n).filter(k=> k.val/(obV(n)||1) < .006); tip.innerHTML = `<b>${sm.length} itens menores</b><span class="m">${moneyBig(sm.reduce((a,b)=> a+b.val,0))}</span><br>${sm.slice(0,6).map(k=> esc(obName(k.node))).join(', ')}${sm.length>6?'…':''}<br><span style="opacity:.75">Todos estão na lista abaixo</span>`; }
+  else { const c = (n.c||[]).find(x=> obKey(x)===t.dataset.k); if (!c) return;
+  const d = OB_DESC[c.n], val = obV(c);
+  tip.innerHTML = `<b>${esc(obName(c))}</b>${d ? `<span style="opacity:.75">${esc(d)}</span><br>` : ''}${OB_NAME[c.n] ? `<span style="opacity:.6">No orçamento: ${esc(c.n)}</span><br>` : ''}<span class="m">${moneyBig(val)}</span><br>${obPctTxt(obPct(val, tot))} do total${obPath.length ? ` · ${obPctTxt(obPct(val, obV(n)))} de ${esc(obName(n))}` : ''}<br>Previsto ${moneyBig(c.v[1])} · pago ${moneyBig(c.v[3])}${c.outros ? `<br>${c.outros} itens menores juntos` : (c.c && c.c.length ? '<br><span style="opacity:.75">Clique para abrir</span>' : '')}`; }
   const R = map.getBoundingClientRect(); let x = e.clientX - R.left + 14, y = e.clientY - R.top + 14;
-  if (x + 290 > R.width) x = e.clientX - R.left - 294; if (y + tip.offsetHeight + 10 > R.height) y = e.clientY - R.top - tip.offsetHeight - 14;
-  tip.style.left = Math.max(6, x)+'px'; tip.style.top = Math.max(6, y)+'px'; tip.classList.add('on');
+  if (x + 290 > R.width) x = e.clientX - R.left - 294; y = -tip.offsetHeight - 12;
+  tip.style.left = Math.max(0, x)+'px'; tip.style.top = y+'px'; tip.classList.add('on');
 });
 ob.addEventListener('mouseleave', ()=> document.getElementById('ob-tip')?.classList.remove('on'));
 let obRz; window.addEventListener('resize', ()=>{ if (ob.hidden) return; clearTimeout(obRz); obRz = setTimeout(obDraw, 120); });
