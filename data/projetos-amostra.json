@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2651254",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2651254",
-   "idDeputadoAutor": "220611",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/220611",
+   "idProposicao": "2651337",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2651337",
+   "idDeputadoAutor": "204494",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204494",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "General Pazuello",
-   "siglaPartidoAutor": "PL",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
-   "siglaUFAutor": "RJ",
+   "nomeAutor": "Fred Costa",
+   "siglaPartidoAutor": "PRD",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/38010",
+   "siglaUFAutor": "MG",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
