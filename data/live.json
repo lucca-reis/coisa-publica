@@ -1,11 +1,11 @@
 {
- "atualizado": "2026-11-09T16:56-03:00",
+ "atualizado": "2026-11-09T17:53-03:00",
  "camara": [
   {
    "id": 83083,
    "inicio": "2026-11-10T09:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers\r\n Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers",
    "video": null,
@@ -15,7 +15,7 @@
    "id": 83084,
    "inicio": "2026-11-10T11:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ\r\n Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ",
    "video": null,
