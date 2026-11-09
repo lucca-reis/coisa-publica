@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-09T17:12Z",
+ "atualizado": "2026-11-09T17:17Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMO",
+   "nome": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "tipo": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "descricao": "Reunião técnica: Sistema LEXOR",
+   "desde": "14h06",
+   "video": "https://www.youtube.com/watch?v=FTJ-Czo_3HU"
+  },
   {
    "casa": "senado",
    "plenario": true,
