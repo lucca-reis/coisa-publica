@@ -2660,8 +2660,7 @@ function liveSection(on){
     const links = L.links.map(x=> `<a href="${x.u}" target="_blank" rel="noopener">${esc(x.l)} ↗</a>`).join('');
     const av = (aoVivo() || []).find(x=> x.casa===k && x.plenario), it = (st.day.items || [])[0];
     const desc = (av && av.descricao) || (it && (it.short || it.id)) || '';
-    const th = ytId(st.video) ? ` style="--th:url(https://i.ytimg.com/vi/${ytId(st.video)}/mqdefault_live.jpg)"` : '';
-    return {lk:k, st:st.st, html:`<article class="lvc" data-lk="${k}"${th} aria-label="${esc(n)} ao vivo">
+    return {lk:k, st:st.st, html:`<article class="lvc" data-lk="${k}" aria-label="${esc(n)} ao vivo">
       <div class="lvc-top"><span class="lvc-pill ${pwClass(k)}"><span class="lv-dot" aria-hidden="true"></span>${n}<span class="lvc-av">· ao vivo</span></span><span class="lvc-since">desde as ${h}</span></div>
       <p class="lvc-t">${esc(cap(st.day.kind))}</p>${desc ? `<p class="lvc-d">${esc(desc)}</p>` : ''}
       ${video}
@@ -2671,10 +2670,10 @@ function liveSection(on){
   (aoVivo() || []).filter(x=> !x.plenario && (x.casa==='camara' || x.casa==='senado')).forEach(x=>{
     const id = ytId(x.video), casa = x.casa==='senado' ? 'Senado' : 'Câmara';
     const lk = 'c-'+x.casa+'-'+(x.sigla||x.nome||'');
-    cards.push({lk, st: hm(x.desde) ?? 0, html:`<article class="lvc" data-lk="${esc(lk)}"${id ? ` style="--th:url(https://i.ytimg.com/vi/${id}/mqdefault_live.jpg)"` : ''} aria-label="${esc(x.nome || 'Comissão')} ao vivo">
+    cards.push({lk, st: hm(x.desde) ?? 0, html:`<article class="lvc" data-lk="${esc(lk)}" aria-label="${esc(x.nome || 'Comissão')} ao vivo">
       <div class="lvc-top"><span class="lvc-pill ${pwClass(x.casa)}"><span class="lv-dot" aria-hidden="true"></span>${casa}${x.sigla ? ' · '+esc(x.sigla) : ''}<span class="lvc-av">· ao vivo</span></span>${x.desde ? `<span class="lvc-since">desde as ${esc(x.desde)}</span>` : ''}</div>
       <p class="lvc-t">${esc(x.nome || x.tipo || 'Comissão')}</p>${x.descricao ? `<p class="lvc-d">${esc(x.descricao)}</p>` : ''}
-      <div class="lv-video">${id ? `<a class="lvc-ph lvc-th" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener" aria-label="Assistir no YouTube: ${esc(x.nome || 'comissão')}" style="background-image:url(https://i.ytimg.com/vi/${id}/mqdefault_live.jpg)"><span>Assistir</span></a>` : `<span class="lvc-ph"><span>Transmissão da comissão</span></span>`}</div>
+      <div class="lv-video">${id ? `<a class="lvc-ph lvc-th" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener" aria-label="Assistir no YouTube: ${esc(x.nome || 'comissão')}" data-yt="${id}"><span>Assistir</span></a>` : `<span class="lvc-ph"><span>Transmissão da comissão</span></span>`}</div>
       <div class="lvc-links">${id ? `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Assistir no YouTube ↗</a>` : ''}</div>
     </article>`});
   });
@@ -2692,6 +2691,22 @@ function liveSection(on){
   return `<section class="lvs" aria-label="Ao vivo agora"><p class="lvs-h"><span class="lv-dot" aria-hidden="true"></span>Ao vivo agora</p><div class="lvs-row${acc ? ' acc' : ''}" style="--n:${Math.min(n, 3)};--k:${n - 1}" data-n="${n}">${html}</div></section>`;
 }
 let LIVE_TAB = '';
+// the frame of a live broadcast: YouTube only has the "_live" picture while the video is on air (and not yet in its first
+// minutes, nor once it ends), and a missing one comes back as a 120x90 gray placeholder, which left the card blank.
+// So try the live frame first (with a 3-minute stamp, so it follows the broadcast), then the video's own cover, and keep
+// the dark card with "Assistir" when none has a real picture
+function ytThumbs(root){
+  const t = Math.floor(Date.now() / 18e4);
+  (root || document).querySelectorAll('[data-yt]').forEach(el=>{
+    const id = el.dataset.yt, tries = [`mqdefault_live.jpg?t=${t}`, `hqdefault_live.jpg?t=${t}`, 'hqdefault.jpg', 'mqdefault.jpg'];
+    const next = i=>{ if (i >= tries.length) return; const im = new Image();
+      im.onload = ()=> im.naturalWidth > 120 ? (el.style.backgroundImage = `url("${im.src}")`) : next(i+1);
+      im.onerror = ()=> next(i+1);
+      im.src = `https://i.ytimg.com/vi/${id}/${tries[i]}`; };
+    next(0);
+  });
+}
+setInterval(()=>{ const fl = document.getElementById('feed-live'); if (fl && fl.querySelector('[data-yt]') && !document.hidden) ytThumbs(fl); }, 18e4);
 // a squeezed live card opens (takes half the width) and the open one is squeezed with the others
 function liveTab(card){
   const row = card.closest('.lvs-row.acc'); if (!row || card.classList.contains('on')) return;
@@ -2765,7 +2780,7 @@ function refreshLive(){
     const com = (aoVivo() || []).filter(x=> !x.plenario);
     const keyNow = on.map(([k])=> k+':'+(liveState(k).video||'')).join('|') + '#' + com.map(x=> x.casa+x.sigla+x.video).join('|');
     // redraw only when what is on air changes, so a playing video is not restarted every minute
-    if (fl.dataset.on !== keyNow){ fl.dataset.on = keyNow; fl.innerHTML = on.length || com.length ? liveSection(on) : ''; if (typeof lxEnd==='function') requestAnimationFrame(lxEnd); }
+    if (fl.dataset.on !== keyNow){ fl.dataset.on = keyNow; fl.innerHTML = on.length || com.length ? liveSection(on) : ''; ytThumbs(fl); if (typeof lxEnd==='function') requestAnimationFrame(lxEnd); }
   }
 }
 setInterval(refreshLive, 60000);
