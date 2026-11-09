@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-09T17:17Z",
+ "atualizado": "2026-11-09T17:22Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,6 +20,16 @@
    "descricao": "",
    "desde": "14h",
    "video": "https://www.youtube.com/watch?v=1jrZazOoLxk"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CCS",
+   "nome": "Conselho de Comunicação Social",
+   "tipo": "Conselho de Comunicação Social",
+   "descricao": "CCS debate PL 3.283/2025, sobre retirada de conteúdos na internet",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=4Idxjiz0K3g"
   }
  ]
 }
