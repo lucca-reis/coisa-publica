@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-09T12:54Z",
- "itens": []
+ "atualizado": "2026-11-09T13:14Z",
+ "itens": [
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CCS",
+   "nome": "Conselho de Comunicação Social",
+   "tipo": "Conselho de Comunicação Social",
+   "descricao": "Reunião audiência pública interativa",
+   "desde": "9h30",
+   "video": "https://www.youtube.com/watch?v=pfmelwYUTmw"
+  }
+ ]
 }
