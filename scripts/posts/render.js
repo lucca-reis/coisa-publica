@@ -61,6 +61,12 @@ function visual(V, poder){
     const pc = Math.max(0, Math.min(100, +V.valor || 0)), r = 240, L = Math.PI*r, arc = `M${360-r} 360 A${r} ${r} 0 0 1 ${360+r} 360`;
     return `<div><div style="position:relative;width:760px;max-width:100%;margin:0 auto"><svg viewBox="0 0 720 380" width="100%"><path d="${arc}" fill="none" stroke="var(--gray)" stroke-width="200"/><path d="${arc}" fill="none" stroke="var(--pc)" stroke-width="200" stroke-dasharray="${(L*pc/100).toFixed(1)} ${L.toFixed(1)}"/></svg><div style="position:absolute;left:0;right:0;bottom:calc(20px * 760 / 720);text-align:center;line-height:1"><b style="display:block;font-size:88px;font-weight:700;letter-spacing:-.04em">${pc}%</b></div></div>${V.numeros ? `<div class="nums" style="margin-top:30px">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   }
+  // degraus: uma coluna por valor, em escada; cada degrau traz o número publicado (a base não começa do zero)
+  if (V.tipo === 'degraus'){
+    const P = V.pontos || [], W = 912, H = 430, w = W / P.length, lo = Math.min(...P), hi = Math.max(...P), h = v => 130 + (hi > lo ? (v-lo)/(hi-lo)*200 : 0);
+    const bars = P.map((v,i)=>`<rect x="${(i*w).toFixed(1)}" y="${H-h(v)}" width="${(w+.6).toFixed(1)}" height="${h(v)}" fill="var(--pc)"/><text x="${((i+.5)*w).toFixed(1)}" y="${H-h(v)+46}" text-anchor="middle" fill="#F3F3F3" font-size="30" font-weight="600" letter-spacing="-.5">${String(v).replace('.',',')}</text>`).join('');
+    return `<svg viewBox="0 0 ${W} ${H}" width="${W}" style="max-width:100%;font-family:inherit">${bars}<text x="${W}" y="104" text-anchor="end" font-size="136" font-weight="700" letter-spacing="-6" fill="var(--ink)">${esc(V.valor||'')}</text><text x="${W}" y="178" text-anchor="end" font-size="30" fill="var(--muted)">${esc(V.sub||'')}</text></svg>`;
+  }
   if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   if (V.tipo === 'data') return `<div class="dat">${(V.simbolo || poder) === 'jud' ? MESA : `<div class="circ">${GLY[V.simbolo || poder] || ''}</div>`}<div>${V.rotulo ? `<small>${esc(V.rotulo)}</small>` : ''}<b>${esc(V.valor)}</b>${V.sub ? `<small style="margin-top:8px">${esc(V.sub)}</small>` : ''}</div></div>`;
   return '';

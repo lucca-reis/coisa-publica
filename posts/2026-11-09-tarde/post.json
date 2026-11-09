@@ -7,15 +7,23 @@
   "eyebrow": "Você sabia?",
   "titulo": "Quem decide a taxa Selic",
   "visual": {
-   "tipo": "data",
-   "rotulo": "Selic hoje",
-   "valor": "13,75",
-   "sub": "% ao ano, decisão de 4/11"
+   "tipo": "degraus",
+   "pontos": [
+    15,
+    14.75,
+    14.5,
+    14.25,
+    14,
+    13.75,
+    13.75
+   ],
+   "valor": "13,75%",
+   "sub": "ao ano, mantida em 4/11"
   },
   "texto": "Quem decide é o Banco Central, que desde 2021 não é subordinado a nenhum ministério.",
   "fonte": "Lei Complementar 179/2021 e Suno, 4/11/2026"
  },
- "alt": "Imagem da Coisa Pública, Você sabia? Quem decide a taxa Selic. Desenho do símbolo do Executivo e o número 13,75, com o texto: Selic hoje, por cento ao ano, decisão de 4 de novembro. Embaixo: quem decide é o Banco Central, que desde 2021 não é subordinado a nenhum ministério. Fonte: Lei Complementar 179/2021 e Suno, 4 de novembro de 2026.",
+ "alt": "Imagem da Coisa Pública, Você sabia? Quem decide a taxa Selic. Desenho de uma escada verde que desce em cinco degraus, com os valores 15; 14,75; 14,5; 14,25; 14 e 13,75, e um último degrau igual, também 13,75. Em destaque: 13,75% ao ano, mantida em 4 de novembro. Embaixo: quem decide é o Banco Central, que desde 2021 não é subordinado a nenhum ministério. Fonte: Lei Complementar 179/2021 e Suno, 4 de novembro de 2026.",
  "textos": {
   "bluesky": "Você sabia? A Selic, hoje em 13,75% ao ano, é decidida pelo Banco Central. Desde 2021, o BC não é subordinado a nenhum ministério, e seu presidente tem mandato de 4 anos que não coincide com o do presidente da República.\n\ncoisapublica.io",
   "instagram": "Você sabia? 🏦\n\nA Selic é a taxa básica de juros do país. Quem decide o valor dela é o Copom, o comitê do Banco Central. Em 4/11, o Copom manteve a taxa em 13,75% ao ano, por unanimidade, depois de cinco cortes seguidos.\n\nDesde 2021, a Lei Complementar 179 dá autonomia ao Banco Central:\n• ele não tem vínculo nem subordinação a nenhum ministério (art. 6º);\n• o presidente e os oito diretores têm mandato de quatro anos (art. 4º);\n• o mandato do presidente do BC começa em 1º de janeiro do terceiro ano do mandato do presidente da República.\n\nAutonomia não quer dizer sem regras. O presidente da República indica os nomes, e o Senado precisa aprovar. É o Conselho Monetário Nacional que define a meta de inflação, e o BC persegue essa meta: hoje, 3%, com tolerância de 1,5 ponto para mais ou para menos.\n\nA troca durante o mandato só pode ocorrer em casos previstos na lei: renúncia, doença incapacitante, condenação ou desempenho insuficiente. Neste último caso, é preciso aprovação da maioria absoluta do Senado (art. 5º).\n\nEm agosto de 2021, o STF confirmou a lei por 8 votos a 2.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Selic #BancoCentral #Política"
