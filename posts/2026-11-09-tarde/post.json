@@ -5,29 +5,45 @@
  "imagem": {
   "poder": "exe",
   "eyebrow": "Você sabia?",
-  "titulo": "Quem assume quando o presidente sai",
+  "titulo": "Quem decide a taxa Selic",
   "visual": {
    "tipo": "data",
-   "rotulo": "Linha de substituição",
-   "valor": "4",
-   "sub": "cargos, nesta ordem"
+   "rotulo": "Selic hoje",
+   "valor": "13,75",
+   "sub": "% ao ano, decisão de 4/11"
   },
-  "texto": "Vice-presidente, presidente da Câmara, presidente do Senado e presidente do STF.",
-  "fonte": "Constituição Federal, arts. 79, 80 e 83"
+  "texto": "Quem decide é o Banco Central, que desde 2021 não é subordinado a nenhum ministério.",
+  "fonte": "Lei Complementar 179/2021 e Suno, 4/11/2026"
  },
- "alt": "Imagem da Coisa Pública, Você sabia? Quem assume quando o presidente sai. Desenho do símbolo do Executivo e o número 4, com o texto: linha de substituição, cargos, nesta ordem. Embaixo: vice-presidente, presidente da Câmara, presidente do Senado e presidente do STF. Fonte: Constituição Federal, artigos 79, 80 e 83.",
+ "alt": "Imagem da Coisa Pública, Você sabia? Quem decide a taxa Selic. Desenho do símbolo do Executivo e o número 13,75, com o texto: Selic hoje, por cento ao ano, decisão de 4 de novembro. Embaixo: quem decide é o Banco Central, que desde 2021 não é subordinado a nenhum ministério. Fonte: Lei Complementar 179/2021 e Suno, 4 de novembro de 2026.",
  "textos": {
-  "bluesky": "Você sabia? Quando o presidente não pode exercer o cargo, a Constituição define a ordem: vice, presidente da Câmara, presidente do Senado e presidente do STF. Para ficar mais de 15 dias fora do país, precisa de licença do Congresso.\n\ncoisapublica.io",
-  "instagram": "Você sabia? 🏛️\n\nA Constituição diz quem ocupa a Presidência quando o presidente da República está impedido ou o cargo fica vago.\n\nA ordem é esta:\n1. vice-presidente (art. 79);\n2. presidente da Câmara dos Deputados;\n3. presidente do Senado Federal;\n4. presidente do Supremo Tribunal Federal (art. 80).\n\nOs três últimos só assumem de forma temporária, se o vice também não puder.\n\nE as viagens? O presidente e o vice não podem sair do país por mais de 15 dias sem licença do Congresso Nacional. Se saírem sem ela, podem perder o cargo (art. 83).\n\nSe os dois cargos ficarem vagos de vez, há nova eleição: em 90 dias, com voto direto, ou, nos dois últimos anos do mandato, em 30 dias, com escolha pelo Congresso (art. 81).\n\nHoje (9/11), Lula embarca para a Turquia e as Filipinas, com volta prevista para 16/11.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Constituição #Presidência #Política"
+  "bluesky": "Você sabia? A Selic, hoje em 13,75% ao ano, é decidida pelo Banco Central. Desde 2021, o BC não é subordinado a nenhum ministério, e seu presidente tem mandato de 4 anos que não coincide com o do presidente da República.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 🏦\n\nA Selic é a taxa básica de juros do país. Quem decide o valor dela é o Copom, o comitê do Banco Central. Em 4/11, o Copom manteve a taxa em 13,75% ao ano, por unanimidade, depois de cinco cortes seguidos.\n\nDesde 2021, a Lei Complementar 179 dá autonomia ao Banco Central:\n• ele não tem vínculo nem subordinação a nenhum ministério (art. 6º);\n• o presidente e os oito diretores têm mandato de quatro anos (art. 4º);\n• o mandato do presidente do BC começa em 1º de janeiro do terceiro ano do mandato do presidente da República.\n\nAutonomia não quer dizer sem regras. O presidente da República indica os nomes, e o Senado precisa aprovar. É o Conselho Monetário Nacional que define a meta de inflação, e o BC persegue essa meta: hoje, 3%, com tolerância de 1,5 ponto para mais ou para menos.\n\nA troca durante o mandato só pode ocorrer em casos previstos na lei: renúncia, doença incapacitante, condenação ou desempenho insuficiente. Neste último caso, é preciso aprovação da maioria absoluta do Senado (art. 5º).\n\nEm agosto de 2021, o STF confirmou a lei por 8 votos a 2.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Selic #BancoCentral #Política"
  },
  "fontes": [
   {
-   "l": "Constituição Federal, arts. 79 a 83 (Planalto)",
-   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+   "l": "Lei Complementar 179/2021 (tradução oficial do Banco Central, PDF)",
+   "u": "https://www.bcb.gov.br/content/about/legislation_norms_docs/complementary_law_179_24february2021.pdf"
   },
   {
-   "l": "CNN Brasil, 9/11: datas da viagem do presidente",
-   "u": "https://www.cnnbrasil.com.br/politica/lula-embarca-hoje-para-turquia-e-retoma-agenda-internacional-apos-reeleicao/"
+   "l": "Lei Complementar 179/2021 (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm"
+  },
+  {
+   "l": "Agência Senado, 25/2/2021: lei da autonomia do BC entra em vigor",
+   "u": "https://www12.senado.leg.br/noticias/materias/2021/02/25/lei-da-autonomia-do-banco-central-entra-em-vigor"
+  },
+  {
+   "l": "Agência Brasil, 26/8/2021: STF confirma autonomia do Banco Central",
+   "u": "https://agenciabrasil.ebc.com.br/justica/noticia/2021-08/stf-confirma-autonomia-do-banco-central"
+  },
+  {
+   "l": "Suno, 4/11/2026: Copom mantém Selic em 13,75%",
+   "u": "https://www.suno.com.br/noticias/copom-mantem-selic-1375-novembro-2026-go/"
+  },
+  {
+   "l": "Sou Brasília, 4/11/2026: Copom mantém a Selic por unanimidade",
+   "u": "https://soubrasilia.com/copom-mantem-selic-13-75-unanimidade-4-novembro-2026/"
   }
  ]
 }
