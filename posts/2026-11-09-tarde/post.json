@@ -1,0 +1,33 @@
+{
+ "id": "2026-11-09-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-09",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Você sabia?",
+  "titulo": "Quem assume quando o presidente sai",
+  "visual": {
+   "tipo": "data",
+   "rotulo": "Linha de substituição",
+   "valor": "4",
+   "sub": "cargos, nesta ordem"
+  },
+  "texto": "Vice-presidente, presidente da Câmara, presidente do Senado e presidente do STF.",
+  "fonte": "Constituição Federal, arts. 79, 80 e 83"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? Quem assume quando o presidente sai. Desenho do símbolo do Executivo e o número 4, com o texto: linha de substituição, cargos, nesta ordem. Embaixo: vice-presidente, presidente da Câmara, presidente do Senado e presidente do STF. Fonte: Constituição Federal, artigos 79, 80 e 83.",
+ "textos": {
+  "bluesky": "Você sabia? Quando o presidente não pode exercer o cargo, a Constituição define a ordem: vice, presidente da Câmara, presidente do Senado e presidente do STF. Para ficar mais de 15 dias fora do país, precisa de licença do Congresso.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 🏛️\n\nA Constituição diz quem ocupa a Presidência quando o presidente da República está impedido ou o cargo fica vago.\n\nA ordem é esta:\n1. vice-presidente (art. 79);\n2. presidente da Câmara dos Deputados;\n3. presidente do Senado Federal;\n4. presidente do Supremo Tribunal Federal (art. 80).\n\nOs três últimos só assumem de forma temporária, se o vice também não puder.\n\nE as viagens? O presidente e o vice não podem sair do país por mais de 15 dias sem licença do Congresso Nacional. Se saírem sem ela, podem perder o cargo (art. 83).\n\nSe os dois cargos ficarem vagos de vez, há nova eleição: em 90 dias, com voto direto, ou, nos dois últimos anos do mandato, em 30 dias, com escolha pelo Congresso (art. 81).\n\nHoje (9/11), Lula embarca para a Turquia e as Filipinas, com volta prevista para 16/11.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Constituição #Presidência #Política"
+ },
+ "fontes": [
+  {
+   "l": "Constituição Federal, arts. 79 a 83 (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  },
+  {
+   "l": "CNN Brasil, 9/11: datas da viagem do presidente",
+   "u": "https://www.cnnbrasil.com.br/politica/lula-embarca-hoje-para-turquia-e-retoma-agenda-internacional-apos-reeleicao/"
+  }
+ ]
+}

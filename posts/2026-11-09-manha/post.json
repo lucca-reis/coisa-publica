@@ -1,0 +1,76 @@
+{
+ "id": "2026-11-09-manha",
+ "periodo": "manha",
+ "data": "2026-11-09",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Presidente",
+    "dia": "hoje",
+    "tags": [
+     {
+      "t": "Presidência · viagem",
+      "poder": "exe"
+     }
+    ],
+    "titulo": "Lula embarca para a Turquia",
+    "texto": "Vai à COP31, a conferência do clima da ONU, em 11 e 12/11."
+   },
+   {
+    "quando": "Senado",
+    "dia": "10h e 14h",
+    "tags": [
+     {
+      "t": "Senado · sem votações",
+      "poder": "leg"
+     }
+    ],
+    "titulo": "Sessão especial e sessão de debates",
+    "texto": "O Plenário se reúne, mas não há projetos para votar."
+   },
+   {
+    "quando": "Governo",
+    "dia": "previsto",
+    "tags": [
+     {
+      "t": "Presidência · decreto",
+      "poder": "exe"
+     }
+    ],
+    "titulo": "Decreto do fim da escala 6x1",
+    "texto": "O ministro do Trabalho disse que pretende publicar hoje; depende da Casa Civil."
+   }
+  ],
+  "fonte": "Senado Federal, CNN Brasil e Ministério do Trabalho"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 9 de novembro. Presidente: Lula embarca para a Turquia, para a COP31, a conferência do clima da ONU, em 11 e 12 de novembro. Senado, 10h e 14h: sessão especial e sessão de debates, sem projetos para votar. Governo, previsto: decreto do fim da escala 6x1; o ministro do Trabalho disse que pretende publicar hoje, e a decisão depende da Casa Civil.",
+ "textos": {
+  "bluesky": "Hoje (9/11) nos Três Poderes:\n\nPresidente · Lula embarca para a COP31, na Turquia.\n10h e 14h · Senado: sessões sem votações.\nPrevisto · decreto que regulamenta o fim da escala 6x1, segundo o ministro do Trabalho.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, segunda (9/11), nos Três Poderes:\n\nPresidência\nLula embarca para Antália, na Turquia, onde participa da COP31, a conferência do clima da ONU, nos dias 11 e 12. Depois segue para as Filipinas e volta a Brasília em 16/11, segundo a CNN Brasil.\n\nGoverno\nO ministro do Trabalho, Luiz Marinho, disse em 4/11 que pretende publicar hoje o decreto que regulamenta o fim da escala 6x1 (Emenda Constitucional 141). A decisão final depende da Casa Civil. Até a preparação deste post, a publicação não tinha sido confirmada.\n\n10h e 14h · Senado\nSessão especial pela manhã e sessão não deliberativa à tarde: o Plenário se reúne, sem projetos para votar.\n\nCâmara\nNão há sessão do Plenário marcada para hoje.\n\nSTF\nSeguem as sessões do Plenário Virtual: uma termina em 10/11, e a outra, em 13/11.\n\nA pauta completa do dia pode mudar. Tudo com fonte no site, link na bio.\n\n#CoisaPública #Senado #STF #COP31 #Escala6x1 #Política"
+ },
+ "fontes": [
+  {
+   "l": "CNN Brasil, 9/11: Lula embarca hoje para a Turquia",
+   "u": "https://www.cnnbrasil.com.br/politica/lula-embarca-hoje-para-turquia-e-retoma-agenda-internacional-apos-reeleicao/"
+  },
+  {
+   "l": "Fetransul, 6/11: MTE prevê decreto sobre fim da 6x1 em 9/11",
+   "u": "https://www.fetransul.com.br/2026/11/06/mte-preve-publicar-decreto-sobre-fim-da-escala-6x1-na-proxima-segunda-feira-9-11/"
+  },
+  {
+   "l": "Senado Federal: sessões plenárias",
+   "u": "https://www25.senado.leg.br/web/atividade/sessao-plenaria"
+  },
+  {
+   "l": "Câmara dos Deputados: agenda do Plenário",
+   "u": "https://www2.camara.leg.br/atividade-legislativa/plenario"
+  },
+  {
+   "l": "STF Notícias: destaques do Plenário Virtual de 30/10 a 10/11",
+   "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-do-plenario-virtual-desta-semana-6/"
+  }
+ ]
+}

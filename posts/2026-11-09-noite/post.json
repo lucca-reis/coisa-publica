@@ -1,0 +1,49 @@
+{
+ "id": "2026-11-09-noite",
+ "periodo": "noite",
+ "data": "2026-11-09",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Em tramitação",
+  "titulo": "PEC 32/2015 · maioridade penal",
+  "tags": [
+   {
+    "t": "Câmara · em andamento",
+    "poder": "leg"
+   },
+   {
+    "cat": "pec",
+    "t": "PEC 32/2015"
+   }
+  ],
+  "fonte": "Agência Câmara e Agência Brasil",
+  "pergunta": "A maioridade penal pode cair de 18 para 16 anos?",
+  "rodape": {
+   "rotulo": "Comissão ouve convidados em",
+   "valor": "10 e 11 de novembro"
+  }
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, PEC 32/2015, maioridade penal. Em letras grandes: A maioridade penal pode cair de 18 para 16 anos? Embaixo, o símbolo do Legislativo e o texto: comissão ouve convidados em 10 e 11 de novembro. Fonte: Agência Câmara e Agência Brasil.",
+ "textos": {
+  "bluesky": "A PEC 32/2015, que reduz a maioridade penal de 18 para 16 anos, está em comissão especial na Câmara. Audiências em 10 e 11/11. O relator prevê o parecer para o fim do mês. No Plenário, são 308 votos em dois turnos.\n\ncoisapublica.io",
+  "instagram": "Em tramitação ⚖️\n\nA PEC 32/2015 reduz a maioridade penal de 18 para 16 anos. Hoje, a Constituição diz que menores de 18 anos não respondem criminalmente como adultos.\n\nOnde está: na comissão especial da Câmara, que analisa o conteúdo da proposta. O relator é o deputado Mendonça Filho (PL-PE). Em 10/6, a CCJ da Câmara aprovou a admissibilidade por 44 votos a 18.\n\nO que vem agora: audiências públicas às 14h30 de terça (10/11), sobre segurança e Justiça criminal, e de quarta (11/11), sobre Judiciário, Ministério Público, garantias e sistema socioeducativo. O relator disse que apresenta o parecer no fim de novembro.\n\nDepois da comissão, o texto vai ao Plenário da Câmara: são necessários 308 dos 513 votos, em dois turnos. Se aprovado, segue ao Senado, com o mesmo rito.\n\nNo Senado, Davi Alcolumbre retirou o tema da pauta em 4/11 e disse que vai esperar a Câmara.\n\nO texto ainda pode mudar. Acompanhe no site, link na bio.\n\n#CoisaPública #Câmara #PEC #MaioridadePenal #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Câmara, 6/11: comissão debate a redução em duas audiências",
+   "u": "https://www.camara.leg.br/noticias/1316864-comissao-debate-reducao-da-maioridade-penal-em-duas-audiencias-publicas"
+  },
+  {
+   "l": "Agência Câmara, 4/11: relator deve apresentar parecer no fim do mês",
+   "u": "https://www.camara.leg.br/noticias/1316048-relator-da-pec-da-maioridade-penal-deve-apresentar-parecer-no-final-do-mes"
+  },
+  {
+   "l": "Agência Brasil, 4/11: Alcolumbre retira maioridade penal da pauta",
+   "u": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/alcolumbre-retira-maioridade-penal-da-pauta-e-vai-aguardar-camara"
+  },
+  {
+   "l": "Agência Brasil, 10/6: próximos passos do projeto",
+   "u": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-06/entenda-os-proximos-passos-do-projeto-para-reduzir-maioridade-penal"
+  }
+ ]
+}
