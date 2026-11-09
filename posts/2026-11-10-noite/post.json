@@ -1,0 +1,25 @@
+{
+ "id": "2026-11-10-noite",
+ "periodo": "noite",
+ "data": "2026-11-10",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Em tramitação",
+  "titulo": "PLP 230/2025 · recursos do Fust",
+  "tags": [{"t": "Senado · em andamento", "poder": "leg"}, {"cat": "plp", "t": "PLP 230/2025"}],
+  "pergunta": "O fundo da internet nas escolas pode ficar livre de bloqueios?",
+  "rodape": {"rotulo": "O Senado vota em", "valor": "11 de novembro"},
+  "fonte": "Agência Senado"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, PLP 230/2025, recursos do Fust. Em letras grandes: O fundo da internet nas escolas pode ficar livre de bloqueios? Embaixo, o símbolo do Legislativo e o texto: o Senado vota em 11 de novembro. Fonte: Agência Senado.",
+ "textos": {
+  "bluesky": "O PLP 230/2025 proíbe bloquear o dinheiro do Fust, fundo das telecomunicações usado para levar internet a escolas públicas. Já passou pela Câmara e está na pauta do Senado de quarta (11/11), às 14h. Precisa de 41 votos.\n\ncoisapublica.io",
+  "instagram": "Em tramitação 📡\n\nO Fust é o Fundo de Universalização dos Serviços de Telecomunicações. O dinheiro dele serve, entre outras coisas, para levar internet às escolas públicas, sobretudo nas áreas rurais. A previsão de receitas para 2026 é de R$ 465 milhões, segundo a Agência Senado.\n\nO que muda com o PLP 230/2025:\n• o governo não pode contingenciar (bloquear) as despesas do fundo;\n• o dinheiro não pode ficar guardado para emergências financeiras;\n• pelo menos metade das receitas de cada ano vai para financiamentos que precisam ser devolvidos;\n• as operadoras que investirem em programas aprovados pelo conselho do fundo continuam podendo reduzir em até 50% a contribuição ao Fust por mais cinco anos. Hoje, esse benefício acaba em dezembro de 2026.\n\nOnde está: o projeto é do deputado Juscelino Filho (MA) e foi aprovado pela Câmara em agosto. No Senado, será relatado direto no Plenário.\n\nO que vem agora: votação no Plenário do Senado na quarta (11/11), às 14h. Por ser lei complementar, precisa da maioria absoluta: 41 dos 81 senadores. Se for aprovado sem mudanças, vai à sanção; se mudar, volta à Câmara.\n\nA pauta pode mudar. Acompanhe no site, link na bio.\n\n#CoisaPública #Senado #Fust #Internet #Educação #Política"
+ },
+ "fontes": [
+  {"l": "Agência Senado, 9/11: Plenário vota projeto que protege recursos para internet em escolas públicas", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/09/plenario-vota-projeto-que-protege-recursos-para-internet-em-escolas-publicas"},
+  {"l": "Agência Senado, 6/11: proibição de bloqueio de recursos do Fust na pauta de quarta", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/06/proibicao-de-bloqueio-de-recursos-do-fust-esta-na-pauta-do-plenario-de-quarta"},
+  {"l": "Senado Federal: ficha do PLP 230/2025", "u": "https://www25.senado.leg.br/web/atividade/materias/-/materia/175647"},
+  {"l": "Constituição Federal, art. 69 (maioria absoluta para lei complementar)", "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"}
+ ]
+}

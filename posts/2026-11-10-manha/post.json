@@ -1,0 +1,49 @@
+{
+ "id": "2026-11-10-manha",
+ "periodo": "manha",
+ "data": "2026-11-10",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "STF",
+    "dia": "14h",
+    "tags": [{"t": "STF · conciliação", "poder": "jud"}],
+    "titulo": "6x1: audiência com Flávio Dino",
+    "texto": "CNC e CNI pedem para adiar a redução da jornada, prevista para 15/12."
+   },
+   {
+    "quando": "Senado",
+    "dia": "14h",
+    "tags": [{"t": "Senado · Plenário", "poder": "leg"}],
+    "titulo": "Combustíveis, Selo Rosa e Escazú",
+    "texto": "Três propostas na pauta da sessão de votações."
+   },
+   {
+    "quando": "Câmara",
+    "dia": "hoje",
+    "tags": [{"t": "Câmara · pauta", "poder": "leg"}],
+    "titulo": "Líderes definem o que vai a voto",
+    "texto": "Às 14h30, audiência sobre a maioridade penal."
+   }
+  ],
+  "fonte": "STF, Agência Senado e Câmara dos Deputados"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 10 de novembro. STF, 14h: audiência de conciliação com o ministro Flávio Dino sobre a escala 6x1; a CNC e a CNI pedem para adiar a redução da jornada, prevista para 15 de dezembro. Senado, 14h: sessão de votações com três propostas na pauta, sobre combustíveis, o Selo Rosa e o Acordo de Escazú. Câmara, hoje: reunião de líderes para definir o que vai a voto; às 14h30, audiência pública sobre a maioridade penal. Fonte: STF, Agência Senado e Câmara dos Deputados.",
+ "textos": {
+  "bluesky": "Hoje (10/11) nos Três Poderes:\n\n14h · STF: conciliação sobre o prazo do fim da escala 6x1.\n14h · Senado vota dados fiscais para a ANP, Selo Rosa e Acordo de Escazú.\nCâmara: líderes definem a pauta; audiência sobre maioridade penal.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, terça (10/11), nos Três Poderes:\n\n14h · STF\nO ministro Flávio Dino faz audiência de conciliação sobre as ações da CNC (ADI 8041) e da CNI (ADI 8042) contra o prazo da Emenda Constitucional 141, que acaba com a escala 6x1. As confederações querem adiar a redução da jornada, que vale a partir de 15/12. Dino já negou o pedido de suspensão imediata. Representantes de empregadores e de trabalhadores foram chamados.\n\n14h · Senado\nSessão de votações. Na pauta:\n• PLP 109/2025: a ANP passa a ter acesso às notas fiscais eletrônicas das empresas de combustíveis, com os dados sob sigilo fiscal;\n• PL 5.608/2023: cria o Programa Empresa Rosa e o Selo Rosa, voltados a mulheres com câncer de mama;\n• PDL 934/2025: aprova a adesão do Brasil ao Acordo de Escazú, sobre acesso à informação e participação em temas ambientais.\nÀs 10h, sessão especial pelos 80 anos da Secretaria-Geral da Mesa, sem votações.\n\nCâmara\nO presidente Hugo Motta reúne os líderes partidários para definir o que vai a voto no Plenário. Às 14h30, a comissão especial da PEC da maioridade penal (PEC 32/2015) faz audiência pública. Pela manhã, sessões solenes, sem votações.\n\nSTF · Plenário Virtual\nTermina às 23h59 a sessão virtual iniciada em 30/10, que inclui cotas raciais em concursos da Paraíba (ADI 7880).\n\nPresidência\nLula está na Turquia para a COP31, a conferência do clima da ONU. A cúpula de líderes é em 11 e 12/11.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #STF #Senado #Câmara #Escala6x1 #Política"
+ },
+ "fontes": [
+  {"l": "Conjur, 5/11: Dino marca conciliação no STF sobre o fim da escala 6x1", "u": "https://conjur.com.br/2026-nov-05/dino-marca-conciliacao-no-stf-sobre-implementacao-do-fim-da-escala-6x1/"},
+  {"l": "STF Notícias: relator inclui representantes da indústria na audiência de conciliação", "u": "https://noticias.stf.jus.br/postsnoticias/relator-inclui-representantes-da-industria-em-audiencia-de-conciliacao-sobre-nova-jornada-de-trabalho/"},
+  {"l": "Agência Senado, 9/11: pauta do Plenário de 10/11", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/09/pauta-tem-inclusao-de-mulheres-com-cancer-de-mama-no-mercado-de-trabalho"},
+  {"l": "Agência Senado, 6/11: fiscalização do setor de combustíveis na pauta", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/06/fiscalizacao-do-setor-de-combustiveis-esta-na-pauta-do-plenario"},
+  {"l": "Agência Senado, 6/11: sessão pelos 80 anos da Secretaria-Geral da Mesa", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/06/plenario-celebra-80-anos-da-secretaria-geral-da-mesa-na-proxima-terca"},
+  {"l": "Câmara: audiência da comissão especial da maioridade penal (10/11)", "u": "https://www.camara.leg.br/evento-legislativo/83183"},
+  {"l": "ND Mais, 9/11: o que movimenta o Congresso na semana", "u": "https://ndmais.com.br/politica/maioridade-penal-congresso-debate-reducao-nesta-semana/"},
+  {"l": "STF Notícias: destaques do Plenário Virtual de 30/10 a 10/11", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-do-plenario-virtual-desta-semana-6/"}
+ ]
+}

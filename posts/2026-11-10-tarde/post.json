@@ -1,0 +1,33 @@
+{
+ "id": "2026-11-10-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-10",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Você sabia?",
+  "titulo": "A medida provisória tem prazo de validade",
+  "visual": {
+   "tipo": "data",
+   "rotulo": "Validade máxima",
+   "valor": "120",
+   "sub": "dias, sem contar o recesso"
+  },
+  "texto": "A MP vale como lei desde que sai. Se o Congresso não aprovar a tempo, perde o efeito.",
+  "fonte": "Constituição Federal, art. 62"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? A medida provisória tem prazo de validade. Ao lado do símbolo do Executivo, um ponto verde num círculo: validade máxima, 120 dias, sem contar o recesso. Embaixo: a MP vale como lei desde que sai; se o Congresso não aprovar a tempo, perde o efeito. Fonte: Constituição Federal, artigo 62.",
+ "textos": {
+  "bluesky": "Você sabia? Uma medida provisória vale como lei desde a publicação, mas por no máximo 120 dias (60 + 60, sem contar o recesso). Se o Congresso não a aprovar nesse prazo, ela perde o efeito. Depois de 45 dias, tranca a pauta da Casa onde estiver.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 📜\n\nA medida provisória (MP) é editada pelo presidente da República em caso de relevância e urgência. Ela vale como lei a partir do dia em que é publicada no Diário Oficial, mas não para sempre.\n\nOs prazos estão no artigo 62 da Constituição:\n• a MP vale por 60 dias, prorrogáveis uma vez por mais 60;\n• o prazo para durante o recesso do Congresso;\n• depois de 45 dias sem votação, ela passa a trancar a pauta da Casa onde estiver: as outras votações do Plenário ficam para depois;\n• antes dos Plenários, uma comissão mista de deputados e senadores dá parecer.\n\nSe a Câmara e o Senado não aprovarem a MP no prazo, ela perde o efeito desde o começo. O Congresso então tem 60 dias para regular, por decreto legislativo, o que aconteceu enquanto ela valeu. E uma MP rejeitada ou que perdeu o efeito não pode ser reeditada no mesmo ano legislativo.\n\nHá temas proibidos para MP, como direito penal, eleições, partidos e nacionalidade.\n\nExemplo desta semana: a MP 1.400/2026, publicada em 9/11, prorroga o programa Gás do Povo até 2031. Agora, o Congresso analisa o texto.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #MedidaProvisória #Congresso #Política"
+ },
+ "fontes": [
+  {
+   "l": "Constituição Federal, art. 62 (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  },
+  {
+   "l": "ABC Repórter (Secom), 9/11: MP 1.400 prorroga o Gás do Povo até 2031",
+   "u": "https://abcreporter.com.br/2026/11/09/governo-federal-prorroga-vigencia-do-gas-do-povo-ate-novembro-de-2031/"
+  }
+ ]
+}
