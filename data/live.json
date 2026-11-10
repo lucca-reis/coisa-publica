@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-10T19:43-03:00",
+ "atualizado": "2026-11-10T20:37-03:00",
  "camara": [
   {
    "id": 83083,
@@ -25,7 +25,7 @@
    "id": 83085,
    "inicio": "2026-11-11T11:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia Nacional da Consciência Negra\r\n Homenagem ao Dia Nacional da Consciência Negra",
    "video": null,
@@ -35,7 +35,7 @@
    "id": 83086,
    "inicio": "2026-11-11T08:30-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)\r\n Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
    "video": null,
@@ -95,7 +95,7 @@
    "id": 83190,
    "inicio": "2026-11-11T09:30-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor\r\n Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
    "video": null,
@@ -114,12 +114,22 @@
   {
    "id": 83243,
    "inicio": "2026-11-10T14:03-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-10T20:19-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Deliberativa",
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": "https://www.youtube.com/watch?v=uYaSA0ANr-g",
-   "aoVivo": true
+   "aoVivo": false
+  },
+  {
+   "id": 83266,
+   "inicio": "2026-11-11T13:55-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
