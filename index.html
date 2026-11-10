@@ -751,9 +751,11 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .landing.leaving{background:transparent;pointer-events:none}
 .landing.leaving .lg{opacity:0}
 .landing.leaving .lg.mini,.landing.instant,.landing.instant .lg{transition:none}
-.ph-on circle[data-p]{transition:opacity .2s ease}
+/* keep the seats' own fill and scale transitions (the old rule dropped them, so the hovered seat snapped) and ignore the
+   opening stagger delays */
+.ph-on circle[data-p]{transition:fill .35s ease, transform .18s ease, opacity .2s ease;transition-delay:0s !important}
 .ph-on circle[data-p]:not(.ph){opacity:.18}
-.ph-tip{position:fixed;z-index:60;pointer-events:none;transform:translate(-50%,calc(-100% - 10px));display:inline-flex;align-items:center;gap:7px;padding:6px 11px 6px 9px;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--display);font-size:12.5px;line-height:1;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.18);opacity:0;transition:opacity .15s, left .2s ease, top .2s ease}
+.ph-tip{position:fixed;z-index:60;pointer-events:none;transform:translate(-50%,calc(-100% - 10px));display:inline-flex;align-items:center;gap:7px;padding:6px 11px 6px 9px;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--display);font-size:12.5px;line-height:1;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.18);opacity:0;transition:opacity .15s}
 .ph-tip.on{opacity:1}
 .ph-tip i{width:9px;height:9px;border-radius:50%;flex:none}
 .ph-tip b{font-weight:600}
@@ -6082,20 +6084,26 @@ addEventListener('load', ()=> setTimeout(()=>{
   const tip = document.createElement('div'); tip.className = 'ph-tip'; tip.setAttribute('aria-hidden','true'); document.body.appendChild(tip);
   let root = null, cur = null;
   const clear = ()=>{ if (!root) return; root.classList.remove('ph-on'); root.querySelectorAll('circle.ph').forEach(c=> c.classList.remove('ph')); tip.classList.remove('on'); root = cur = null; };
+  // the balloon sits right above the seat under the mouse (it used to slide to the middle of the whole party, which for
+  // parties spread over several rows meant jumping across the drawing on every move)
+  const place = s=>{ const b = s.getBoundingClientRect();
+    tip.style.left = Math.min(innerWidth-60, Math.max(60, b.left + b.width/2))+'px'; tip.style.top = Math.max(40, b.top - 4)+'px'; };
   document.addEventListener('pointerover', e=>{
     if (e.pointerType && e.pointerType !== 'mouse') return;
     const s = e.target.closest && e.target.closest('circle[data-p]');
     const r = s && (s.closest('.house.colored') || s.closest('.vc-h svg'));
+    // between seats (the gray disc behind them) the party stays lit; anywhere else it clears
     if (!r){ if (root && !(e.target.closest && e.target.closest('.ph-on'))) clear(); return; }
-    const p = s.dataset.p; if (r===root && p===cur) return;
+    const p = s.dataset.p;
+    if (r===root && p===cur){ place(s); return; }
     clear(); root = r; cur = p;
     const all = [...r.querySelectorAll(`circle[data-p="${CSS.escape(p)}"]`)];
     all.forEach(c=> c.classList.add('ph')); r.classList.add('ph-on');
-    let L=1e9, T=1e9, R=-1e9; all.forEach(c=>{ const b = c.getBoundingClientRect(); L=Math.min(L,b.left); T=Math.min(T,b.top); R=Math.max(R,b.right); });
     tip.innerHTML = `<i style="background:${PARTY[p]||'var(--nc)'}"></i><b>${esc(PARTY_NAME[p]||p)}</b> ${all.length}`;
-    tip.style.left = Math.min(innerWidth-60, Math.max(60, (L+R)/2))+'px'; tip.style.top = Math.max(40, T)+'px';
-    tip.classList.add('on');
+    place(s); tip.classList.add('on');
   });
+  // leaving the drawing (or the window) always clears, even when the mouse goes out through a gap
+  document.addEventListener('pointerout', e=>{ if (root && (!e.relatedTarget || !root.contains(e.relatedTarget) && !(e.relatedTarget.closest && e.relatedTarget.closest('.ph-on')))) clear(); });
   document.addEventListener('pointerleave', clear); addEventListener('scroll', clear, true);
 })();
 </script>
