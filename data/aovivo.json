@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-10T17:46Z",
+ "atualizado": "2026-11-10T18:06Z",
  "itens": [
-  {
-   "casa": "senado",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário do Senado",
-   "tipo": "Sessão deliberativa ordinária",
-   "descricao": "",
-   "desde": "14h",
-   "video": null
-  },
   {
    "casa": "senado",
    "plenario": false,
