@@ -1,26 +1,6 @@
 {
- "atualizado": "2026-11-10T14:31Z",
+ "atualizado": "2026-11-10T14:41Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão não deliberativa solene",
-   "descricao": "Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ",
-   "desde": "11h23",
-   "video": "https://www.youtube.com/watch?v=YrYADMrBfhA"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CSAUDE",
-   "nome": "Comissão de Saúde",
-   "tipo": "Comissão de Saúde",
-   "descricao": "Audiência pública: Políticas públicas em saúde da mulher e oncologia",
-   "desde": "10h19",
-   "video": "https://www.youtube.com/watch?v=MD9Ltpp1M-0"
-  },
   {
    "casa": "senado",
    "plenario": true,
