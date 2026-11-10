@@ -1,16 +1,16 @@
 {
- "atualizado": "2026-11-10T10:00-03:00",
+ "atualizado": "2026-11-10T11:12-03:00",
  "camara": null,
  "senado": [
   {
    "id": "588622",
    "inicio": "2026-11-10T10:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Em andamento",
    "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
-   "aoVivo": false
+   "aoVivo": true
   },
   {
    "id": "594172",
