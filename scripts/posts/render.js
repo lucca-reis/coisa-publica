@@ -67,6 +67,20 @@ function visual(V, poder){
     const bars = P.map((v,i)=>`<rect x="${(i*w).toFixed(1)}" y="${H-h(v)}" width="${(w+.6).toFixed(1)}" height="${h(v)}" fill="var(--pc)"/><text x="${((i+.5)*w).toFixed(1)}" y="${H-h(v)+46}" text-anchor="middle" fill="#F3F3F3" font-size="30" font-weight="600" letter-spacing="-.5">${String(v).replace('.',',')}</text>`).join('');
     return `<svg viewBox="0 0 ${W} ${H}" width="${W}" style="max-width:100%;font-family:inherit">${bars}<text x="${W}" y="104" text-anchor="end" font-size="136" font-weight="700" letter-spacing="-6" fill="var(--ink)">${esc(V.valor||'')}</text><text x="${W}" y="178" text-anchor="end" font-size="30" fill="var(--muted)">${esc(V.sub||'')}</text></svg>`;
   }
+  // distrital: o mesmo "estado" duas vezes, com as mesmas cadeiras (bolinhas de três partidos fictícios);
+  // à esquerda, um território só que elege todas; à direita, cortado em distritos que elegem uma cada
+  if (V.tipo === 'distrital'){
+    const s = 46, h3 = Math.sqrt(3), cells = [];
+    for (let q=-2;q<=2;q++) for (let r=-2;r<=2;r++){ if (Math.abs(q+r) > 2 || (q===2&&r===-2) || (q===-2&&r===2)) continue; cells.push([q,r]); }
+    const C = ['var(--ink)','var(--pc)','#9A9BA0'], pat = [0,1,0,2,1,0,1,0,2,0,1,2,0,1,0,2,1];
+    const hex = (cx,cy)=> [...Array(6)].map((_,i)=>{ const a = Math.PI/180*(60*i-30); return `${(cx+s*Math.cos(a)).toFixed(1)},${(cy+s*Math.sin(a)).toFixed(1)}`; }).join(' ');
+    const map = (ox, cut)=> cells.map(([q,r],i)=>{ const x = ox + s*h3*(q+r/2), y = 215 + s*1.5*r;
+      return `<polygon points="${hex(x,y)}" fill="var(--card2)" ${cut ? 'stroke="#F3F3F3" stroke-width="7" stroke-linejoin="round"' : 'stroke="var(--card2)" stroke-width="2"'}/>`; }).join('')
+      + cells.map(([q,r],i)=>`<circle cx="${(ox + s*h3*(q+r/2)).toFixed(1)}" cy="${(215 + s*1.5*r).toFixed(1)}" r="15" fill="${C[pat[i]]}"/>`).join('');
+    const R = V.rotulos || [['Hoje','um distrito, várias vagas'],['Distrital','um distrito, uma vaga']];
+    const lab = (x,[t,sub])=>`<text x="${x}" y="470" text-anchor="middle" font-size="40" font-weight="700" letter-spacing="-1" fill="var(--ink)">${esc(t)}</text><text x="${x}" y="512" text-anchor="middle" font-size="28" fill="var(--muted)">${esc(sub)}</text>`;
+    return `<svg viewBox="0 0 912 530" width="912" style="max-width:100%;font-family:inherit">${map(215,false)}${map(697,true)}${lab(215,R[0])}${lab(697,R[1])}</svg>`;
+  }
   if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   if (V.tipo === 'data') return `<div class="dat">${(V.simbolo || poder) === 'jud' ? MESA : `<div class="circ">${GLY[V.simbolo || poder] || ''}</div>`}<div>${V.rotulo ? `<small>${esc(V.rotulo)}</small>` : ''}<b>${esc(V.valor)}</b>${V.sub ? `<small style="margin-top:8px">${esc(V.sub)}</small>` : ''}</div></div>`;
   return '';
