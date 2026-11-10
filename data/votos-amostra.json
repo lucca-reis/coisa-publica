@@ -80,13 +80,5 @@
     }
    ]
   }
- },
- "senado-processo": {
-  "url": "https://legis.senado.leg.br/dadosabertos/processo?sigla=PL&numero=888&ano=2025",
-  "resposta": []
- },
- "senado-votacao": {
-  "url": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=174944",
-  "resposta": []
  }
 }
