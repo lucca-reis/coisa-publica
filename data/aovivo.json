@@ -1,46 +1,6 @@
 {
- "atualizado": "2026-11-10T19:25Z",
+ "atualizado": "2026-11-10T19:31Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CCULT",
-   "nome": "Comissão de Cultura",
-   "tipo": "Comissão de Cultura",
-   "descricao": "Outro evento: Cerimônia de Entrega do Prêmio Paulo Gustavo aos agraciados de 2026",
-   "desde": "15h",
-   "video": null
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "PEC03215",
-   "nome": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
-   "tipo": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
-   "descricao": "Audiência pública e deliberação: Redução da maioridade penal",
-   "desde": "14h49",
-   "video": "https://www.youtube.com/watch?v=x1ThePe2m7c"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CSPCCO",
-   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "14h28",
-   "video": "https://www.youtube.com/watch?v=cn79kZGNLA0"
-  },
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "desde": "14h03",
-   "video": "https://www.youtube.com/watch?v=uYaSA0ANr-g"
-  },
   {
    "casa": "senado",
    "plenario": false,
