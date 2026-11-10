@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-10T20:33Z",
+ "atualizado": "2026-11-10T20:44Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CSPCCO",
-   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "14h28",
-   "video": "https://www.youtube.com/watch?v=cn79kZGNLA0"
-  },
   {
    "casa": "camara",
    "plenario": true,
