@@ -194,18 +194,18 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2651337",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2651337",
-   "idDeputadoAutor": "204494",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204494",
+   "idProposicao": "2651872",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2651872",
+   "idDeputadoAutor": "204560",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204560",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Fred Costa",
-   "siglaPartidoAutor": "PRD",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/38010",
-   "siglaUFAutor": "MG",
-   "ordemAssinatura": "1",
-   "proponente": "1"
+   "nomeAutor": "Adolfo Viana",
+   "siglaPartidoAutor": "PSDB",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUFAutor": "BA",
+   "ordemAssinatura": "2",
+   "proponente": "0"
   }
  },
  "senado-votacao": {
