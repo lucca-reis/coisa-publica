@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-10T17:07Z",
- "itens": []
+ "atualizado": "2026-11-10T17:12Z",
+ "itens": [
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CCT",
+   "nome": "Comissão de Ciência, Tecnologia, Inovação e Informática",
+   "tipo": "Comissão de Ciência, Tecnologia, Inovação e Informática",
+   "descricao": "Comissão de Ciência e Tecnologia avalia impactos da crise climática em periferias 10/11/26",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=vGheE6-17a0"
+  }
+ ]
 }
