@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-10T13:52Z",
+ "atualizado": "2026-11-10T14:21Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSAUDE",
+   "nome": "Comissão de Saúde",
+   "tipo": "Comissão de Saúde",
+   "descricao": "Audiência pública: Políticas públicas em saúde da mulher e oncologia",
+   "desde": "10h19",
+   "video": "https://www.youtube.com/watch?v=MD9Ltpp1M-0"
+  },
   {
    "casa": "senado",
    "plenario": true,
