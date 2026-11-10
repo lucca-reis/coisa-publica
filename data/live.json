@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-09T23:52-03:00",
+ "atualizado": "2026-11-10T00:51-03:00",
  "camara": [
   {
    "id": 83083,
@@ -82,6 +82,16 @@
    "aoVivo": false
   },
   {
+   "id": 83148,
+   "inicio": "2026-11-24T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável\r\n Homenagem ao Dia do Policial Federal",
+   "video": null,
+   "aoVivo": false
+  },
+  {
    "id": 83190,
    "inicio": "2026-11-11T09:30-03:00",
    "fim": null,
@@ -90,29 +100,19 @@
    "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor\r\n Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
    "video": null,
    "aoVivo": false
+  },
+  {
+   "id": 83236,
+   "inicio": "2026-11-24T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
-  {
-   "id": "562781",
-   "inicio": "2026-11-09T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594173",
-   "inicio": "2026-11-09T14:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO NÃO DELIBERATIVA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "588622",
    "inicio": "2026-11-10T10:00-03:00",
@@ -189,6 +189,26 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO NÃO DELIBERATIVA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "570202",
+   "inicio": "2026-11-17T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594178",
+   "inicio": "2026-11-17T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
    "aoVivo": false
