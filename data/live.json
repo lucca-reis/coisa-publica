@@ -1,6 +1,127 @@
 {
- "atualizado": "2026-11-10T15:52-03:00",
- "camara": null,
+ "atualizado": "2026-11-10T16:53-03:00",
+ "camara": [
+  {
+   "id": 83083,
+   "inicio": "2026-11-10T09:12-03:00",
+   "fim": "2026-11-10T09:57-03:00",
+   "situacao": "Encerrada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers\r\n Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers",
+   "video": "https://www.youtube.com/watch?v=vH_e-1pgD-A",
+   "aoVivo": false
+  },
+  {
+   "id": 83084,
+   "inicio": "2026-11-10T11:23-03:00",
+   "fim": "2026-11-10T11:57-03:00",
+   "situacao": "Encerrada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ\r\n Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ",
+   "video": "https://www.youtube.com/watch?v=YrYADMrBfhA",
+   "aoVivo": false
+  },
+  {
+   "id": 83085,
+   "inicio": "2026-11-11T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem ao Dia Nacional da Consciência Negra\r\n Homenagem ao Dia Nacional da Consciência Negra",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83086,
+   "inicio": "2026-11-11T08:30-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)\r\n Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83087,
+   "inicio": "2026-11-18T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem ao Dia Nacional do Empreendedor\r\n Homenaagem ao Dia Nacional do Empreendedor",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83088,
+   "inicio": "2026-11-18T10:30-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano\r\n Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83089,
+   "inicio": "2026-11-18T12:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 131 anos do Clube de Regatas do Flamengo\r\n Homenagem aos 131 anos do Clube de Regatas do Flamengo",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83102,
+   "inicio": "2026-11-17T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83148,
+   "inicio": "2026-11-24T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável\r\n Homenagem ao Dia do Policial Federal",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83190,
+   "inicio": "2026-11-11T09:30-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor\r\n Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83236,
+   "inicio": "2026-11-24T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83243,
+   "inicio": "2026-11-10T14:03-03:00",
+   "fim": null,
+   "situacao": "Em Andamento",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": "https://www.youtube.com/watch?v=uYaSA0ANr-g",
+   "aoVivo": true
+  }
+ ],
  "senado": [
   {
    "id": "588622",
@@ -16,11 +137,11 @@
    "id": "594172",
    "inicio": "2026-11-10T14:00-03:00",
    "fim": null,
-   "situacao": "Suspensa",
+   "situacao": "Em andamento",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
-   "aoVivo": false
+   "aoVivo": true
   },
   {
    "id": "549939",
@@ -103,7 +224,5 @@
    "aoVivo": false
   }
  ],
- "erros": [
-  "camara: HTTP Error 504: Gateway Timeout"
- ]
+ "erros": []
 }
