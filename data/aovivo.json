@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-10T22:05Z",
+ "atualizado": "2026-11-10T22:41Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,16 +10,6 @@
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "desde": "14h03",
    "video": "https://www.youtube.com/watch?v=uYaSA0ANr-g"
-  },
-  {
-   "casa": "senado",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário do Senado",
-   "tipo": "Sessão deliberativa ordinária",
-   "descricao": "",
-   "desde": "14h",
-   "video": null
   }
  ]
 }
