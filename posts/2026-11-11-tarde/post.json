@@ -1,0 +1,32 @@
+{
+ "id": "2026-11-11-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-11",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "Nem toda votação tem placar",
+  "visual": {
+   "tipo": "plenario",
+   "casa": "senado",
+   "destaque": 3,
+   "numeros": [
+    {"n": "3", "l": "senadores pedem o voto no painel"},
+    {"n": "6%", "l": "dos deputados, na Câmara"}
+   ]
+  },
+  "texto": "Na votação simbólica, ninguém registra voto. Com esse apoio, a votação é refeita no painel, com o nome de cada um.",
+  "fonte": "Glossário Legislativo do Congresso Nacional"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? Nem toda votação tem placar. Desenho do plenário do Senado, com 81 cadeiras, 3 delas destacadas. Números: 3 senadores pedem o voto no painel; 6% dos deputados, na Câmara. Embaixo: na votação simbólica, ninguém registra voto; com esse apoio, a votação é refeita no painel, com o nome de cada um. Fonte: Glossário Legislativo do Congresso Nacional.",
+ "textos": {
+  "bluesky": "Você sabia? A maior parte das propostas é votada de forma simbólica: quem é a favor fica como está, e não há placar. Para ter o voto nominal de cada um no painel, basta o pedido de 3 senadores, ou de 6% dos deputados na Câmara.\n\ncoisapublica.io",
+  "instagram": "Você sabia? ✋\n\nNem toda votação no Congresso tem placar.\n\nVotação simbólica\nÉ a forma mais comum. O presidente da sessão pede que quem é a favor permaneça como está, e quem é contra se manifesta, normalmente levantando o braço. Ninguém registra o voto, e não há contagem no painel.\n\nVotação nominal\nCada parlamentar vota no painel eletrônico (ou na chamada, um por um), e fica registrado quem votou sim, não ou se absteve. Na Câmara, ela é usada nos casos previstos no Regimento, como as propostas de emenda à Constituição, que precisam de 308 votos.\n\nVerificação\nDepois de uma votação simbólica, os parlamentares podem pedir a verificação: a mesma votação é refeita, agora nominal. Quem pode pedir:\n• no Senado, um pedido com o apoio de pelo menos 3 senadores;\n• na Câmara, 6% dos deputados, ou líderes que representem esse número;\n• nas sessões do Congresso, um líder, 5 senadores ou 20 deputados.\n\nPor isso, algumas aprovações aparecem no site com placar e outras com \"votação simbólica\" ou \"placar não informado\".\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Congresso #Senado #Câmara #Política"
+ },
+ "fontes": [
+  {"l": "Congresso Nacional, Glossário Legislativo: Verificação de votação", "u": "https://www.congressonacional.leg.br/legislacao-e-publicacoes/glossario-legislativo/-/legislativo/termo/verificacao_de_votacao"},
+  {"l": "Congresso Nacional, Glossário Legislativo: Votação simbólica", "u": "https://www.congressonacional.leg.br/legislacao-e-publicacoes/glossario-legislativo/-/legislativo/termo/votacao_simbolica"},
+  {"l": "Congresso Nacional, Glossário Legislativo: Votação nominal", "u": "https://www.congressonacional.leg.br/legislacao-e-publicacoes/glossario-legislativo/-/legislativo/termo/votacao_nominal"},
+  {"l": "Câmara dos Deputados, guia para jornalistas: votação", "u": "https://www2.camara.leg.br/comunicacao/assessoria-de-imprensa/guia-para-jornalistas/votacao"}
+ ]
+}

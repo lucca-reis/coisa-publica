@@ -1,0 +1,48 @@
+{
+ "id": "2026-11-11-manha",
+ "periodo": "manha",
+ "data": "2026-11-11",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "STF",
+    "dia": "14h",
+    "tags": [{"t": "STF · Plenário", "poder": "jud"}],
+    "titulo": "Violência patrimonial e piso de professores",
+    "texto": "Na pauta, crimes contra o patrimônio entre cônjuges e parentes."
+   },
+   {
+    "quando": "Senado",
+    "dia": "14h",
+    "tags": [{"t": "Senado · Plenário", "poder": "leg"}],
+    "titulo": "Fust, Estatuto do Aprendiz e implantes",
+    "texto": "Três propostas na pauta da sessão de votações."
+   },
+   {
+    "quando": "Presidência",
+    "dia": "COP31",
+    "tags": [{"t": "Presidência · viagem", "poder": "exe"}],
+    "titulo": "Lula discursa na cúpula do clima",
+    "texto": "Abertura da cúpula de líderes da COP31, na Turquia."
+   }
+  ],
+  "fonte": "STF, Agência Senado e Agência Brasil"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 11 de novembro. STF, 14h: sessão do Plenário com ações sobre violência patrimonial e piso de professores; na pauta, crimes contra o patrimônio entre cônjuges e parentes. Senado, 14h: sessão de votações com três propostas na pauta, sobre o Fust, o Estatuto do Aprendiz e implantes cirúrgicos. Presidência: Lula discursa na abertura da cúpula de líderes da COP31, na Turquia. Fonte: STF, Agência Senado e Agência Brasil.",
+ "textos": {
+  "bluesky": "Hoje (11/11) nos Três Poderes:\n\n14h · STF: violência patrimonial contra a mulher e piso de professores.\n14h · Senado vota Fust, Estatuto do Aprendiz e implantes.\nLula discursa na cúpula de líderes da COP31.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, quarta (11/11), nos Três Poderes:\n\n14h · STF\nSessão do Plenário. Na pauta divulgada pelo presidente Edson Fachin:\n• ADPFs 1185 e 1241: discutem o artigo 181 do Código Penal, que isenta de pena crimes contra o patrimônio cometidos entre cônjuges e parentes, com foco na violência doméstica contra a mulher (relator: Dias Toffoli);\n• RE 1326541 (Tema 1.218): piso nacional dos professores da rede estadual de São Paulo;\n• ADI 7970: lei do Ceará que exige registro em cartório na venda de veículos;\n• RCL 78354: emissora de TV do Paraná contra condenação por reportagem.\nA pauta vale para hoje e amanhã (12/11), sem dizer o que entra em cada dia.\n\n14h · Senado\nSessão de votações. Na pauta:\n• PLP 230/2025: proíbe bloquear o dinheiro do Fust, fundo que leva internet a escolas públicas;\n• PL 6.461/2019: Estatuto do Aprendiz (relator: sen. Veneziano Vital do Rêgo);\n• PL 6.683/2025: qualidade e segurança de implantes cirúrgicos.\n\n10h · Congresso\nSessão solene em homenagem a Nossa Senhora de Nazaré, sem votações.\n\nCâmara\nPela manhã, sessões solenes no Plenário, sem votações. À tarde, nova audiência da comissão especial da maioridade penal (PEC 32/2015). Até a noite de ontem, a pauta de votações do Plenário não tinha sido divulgada.\n\nPresidência\nLula está em Antália, na Turquia, para a cúpula de líderes da COP31, a conferência do clima da ONU. Segundo o Itamaraty, ele discursa na abertura e numa sessão aberta a todas as delegações.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #STF #Senado #Câmara #COP31 #Política"
+ },
+ "fontes": [
+  {"l": "STF Notícias, 6/11: destaques da pauta do Plenário de novembro", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-da-pauta-do-plenario-do-stf-para-novembro/"},
+  {"l": "Agência Senado, 9/11: Plenário vota projeto que protege recursos para internet em escolas públicas", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/09/plenario-vota-projeto-que-protege-recursos-para-internet-em-escolas-publicas"},
+  {"l": "Agência Senado, 6/11: proibição de bloqueio do Fust na pauta de quarta", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/06/proibicao-de-bloqueio-de-recursos-do-fust-esta-na-pauta-do-plenario-de-quarta"},
+  {"l": "Rádio Senado, 10/11: Selo Rosa e Estatuto do Aprendiz são destaques da pauta", "u": "https://www12.senado.leg.br/noticias/audios/2026/11/selo-rosa-e-estatuto-do-aprendiz-sao-destaques-da-pauta-do-plenario"},
+  {"l": "Congresso Nacional: agenda das Casas em 11/11", "u": "https://www.congressonacional.leg.br/sessoes/agenda-do-congresso-senado-e-camara/-/agenda/2026-11-11"},
+  {"l": "Agência Pública: agenda da semana de 9 a 13/11", "u": "https://apublica.org/nota/agenda-maioridade-penal-volta-a-camara-e-lula-vai-a-cop31/"},
+  {"l": "Agência Brasil, 6/11: Lula apresentará avanços ambientais na COP31", "u": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/lula-apresentara-avancos-ambientais-na-cop31-na-turquia"}
+ ]
+}

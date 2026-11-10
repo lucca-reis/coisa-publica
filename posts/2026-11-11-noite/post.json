@@ -1,0 +1,27 @@
+{
+ "id": "2026-11-11-noite",
+ "periodo": "noite",
+ "data": "2026-11-11",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Em tramitação",
+  "titulo": "PLP 109/2025 · ANP e combustíveis",
+  "tags": [{"t": "Senado · aprovado", "poder": "leg"}, {"cat": "plp", "t": "PLP 109/2025"}],
+  "pergunta": "A ANP vai poder ver as notas fiscais das empresas de combustíveis?",
+  "rodape": {"rotulo": "O Senado aprovou por", "valor": "72 a 0"},
+  "fonte": "Agência Senado e Câmara dos Deputados"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, PLP 109/2025, ANP e combustíveis. Em letras grandes: A ANP vai poder ver as notas fiscais das empresas de combustíveis? Embaixo, o símbolo do Legislativo e o texto: o Senado aprovou por 72 a 0. Fonte: Agência Senado e Câmara dos Deputados.",
+ "textos": {
+  "bluesky": "O PLP 109/2025 dá à ANP acesso às notas fiscais eletrônicas de distribuidoras e revendedores de combustíveis, para fiscalizar e combater fraudes. Os dados seguem sob sigilo. Aprovado pela Câmara (381 a 2) e pelo Senado (72 a 0), vai à sanção.\n\ncoisapublica.io",
+  "instagram": "Em tramitação ⛽\n\nA ANP é a agência que regula o petróleo, o gás e os combustíveis. O PLP 109/2025 dá a ela acesso às notas fiscais eletrônicas (NF-e, NFC-e e CT-e) de distribuidoras e revendedores, para fiscalizar o setor e combater fraudes.\n\nO que muda:\n• para ter concessão ou autorização da ANP, a empresa precisa dar acesso permanente a esses dados. Quem já tem autorização terá um prazo, definido em regulamento, para se adequar;\n• os dados continuam sob sigilo. A ANP paga o custo do acesso e avisa a Receita ou a Fazenda estadual quando abrir processo com reflexo nos impostos;\n• regulamentos e convênios com os fiscos federal, estaduais e do DF devem sair em até 180 dias.\n\nPor onde passou:\n• apresentado na Câmara em maio de 2025 pelo deputado Alceu Moreira (MDB-RS) e outros;\n• Câmara aprovou em 7/4/2026, por 381 a 2;\n• Senado aprovou ontem (10/11), por 72 a 0, em votação nominal. Os relatores no Senado foram Dr. Hiran (PP-RR), na Comissão de Transparência, e Marcos Rogério (PL-RO), na Comissão de Infraestrutura.\n\nO que vem agora: o texto vai à sanção. O presidente tem 15 dias úteis, contados a partir do recebimento, para sancionar ou vetar, no todo ou em parte.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Senado #ANP #Combustíveis #Congresso #Política"
+ },
+ "fontes": [
+  {"l": "Agência Senado (via Manchete Popular), 10/11: aprovado projeto que aumenta poder da ANP", "u": "https://manchetepopular.com.br/aprovado-projeto-que-aumenta-poder-da-anp-para-combater-crimes-com-combustiveis/"},
+  {"l": "Brasil 247, 10/11: Senado aprova acesso da ANP a dados fiscais", "u": "https://www.brasil247.com/poder/senado-aprova-projeto-que-amplia-acesso-da-anp-a-dados-fiscais/"},
+  {"l": "Agência Senado, 6/11: fiscalização do setor de combustíveis na pauta", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/06/fiscalizacao-do-setor-de-combustiveis-esta-na-pauta-do-plenario"},
+  {"l": "Câmara dos Deputados: ficha do PLP 109/2025", "u": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2503998"},
+  {"l": "Senado Federal: ficha do PLP 109/2025", "u": "https://www25.senado.leg.br/web/atividade/materias/-/materia/173581"},
+  {"l": "Constituição Federal, art. 66 (prazo de sanção)", "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"}
+ ]
+}
