@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-10T17:17Z",
+ "atualizado": "2026-11-10T17:46Z",
  "itens": [
   {
    "casa": "senado",
@@ -10,6 +10,26 @@
    "descricao": "",
    "desde": "14h",
    "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CCJ",
+   "nome": "Comissão de Constituição, Justiça e Cidadania",
+   "tipo": "Comissão de Constituição, Justiça e Cidadania",
+   "descricao": "CCJ discute fortalecimento da política de busca por desaparecidos",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=rgV0VTA3VB8"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CMMPV 1376/2026",
+   "nome": "Comissão Mista da Medida Provisória n° 1376, de 2026",
+   "tipo": "Comissão Mista da Medida Provisória n° 1376, de 2026",
+   "descricao": "Comissão Mista avalia relatório sobre a MP das Dívidas Rurais",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=Oj4EWwqZiCw"
   },
   {
    "casa": "senado",
