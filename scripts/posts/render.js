@@ -96,18 +96,21 @@ function visual(V, poder){
         if (sh.length===2) out += `<line x1="${sh[0][0]}" y1="${sh[0][1]}" x2="${sh[1][0]}" y2="${sh[1][1]}" stroke="#F3F3F3" stroke-width="6" stroke-linecap="round"/>`; }
       return out;
     };
-    const seats = (x, y, list, gap)=> list.map((p,i)=>`<circle cx="${x + (i%5)*40 + 0}" cy="${y + Math.floor(i/5)*42}" r="16" fill="${PC[p]}"/>`).join('');
-    const row = (y, t, sub, mapSvg, seatSvg)=> `<text x="0" y="${y+52}" font-size="36" font-weight="700" letter-spacing="-1" fill="var(--ink)">${esc(t)}</text>${sub.map((l,k)=>`<text x="0" y="${y+92+k*32}" font-size="25" fill="var(--muted)">${esc(l)}</text>`).join('')}${mapSvg}<text x="584" y="${y+86}" font-size="40" fill="var(--muted)">→</text>${seatSvg}`;
-    const legend = ['A · 50% dos votos','B · 30%','C · 20%'].map((t,i)=>`<circle cx="${[14,400,660][i]}" cy="22" r="13" fill="${PC[i]}"/><text x="${[36,422,682][i]}" y="31" font-size="26" fill="var(--ink)">Partido ${t}</text>`).join('');
-    // proporcional: o estado é um distrito só; a barra mostra os votos e as vagas seguem a proporção
-    const r1 = map(450, 108, null, ()=> 'var(--card2)') + `<rect x="${450-90}" y="${108+rh-11}" width="90" height="22" fill="${PC[0]}"/><rect x="450" y="${108+rh-11}" width="54" height="22" fill="${PC[1]}"/><rect x="504" y="${108+rh-11}" width="36" height="22" fill="${PC[2]}"/>`;
+    const seats = (x, y, list)=> list.map((p,i)=>`<circle cx="${x + (i%5)*40}" cy="${y + Math.floor(i/5)*42}" r="16" fill="${PC[p]}"/>`).join('');
+    // uma linha por sistema, separadas por fios: nome e regra curta à esquerda, mapa no meio, cadeiras à direita
+    const H = 196, row = (k, t, sub, mapSvg, seatSvg)=>{ const y = k*H;
+      return `${k ? `<line x1="0" y1="${y}" x2="912" y2="${y}" stroke="var(--gray)" stroke-width="2"/>` : ''}<text x="0" y="${y+90}" font-size="36" font-weight="700" letter-spacing="-1" fill="var(--ink)">${esc(t)}</text><text x="0" y="${y+128}" font-size="26" fill="var(--muted)">${esc(sub)}</text>${mapSvg}${seatSvg}`; };
+    const M = 440, my = k => k*H + 98 - rh; // centro do mapa em cada linha
+    const r1 = map(M, my(0), null, ()=> 'var(--card2)') + `<rect x="${M-90}" y="${my(0)+rh-11}" width="90" height="22" fill="${PC[0]}"/><rect x="${M}" y="${my(0)+rh-11}" width="54" height="22" fill="${PC[1]}"/><rect x="${M+54}" y="${my(0)+rh-11}" width="36" height="22" fill="${PC[2]}"/>`;
     const win2 = [0,1,0,0,2,0,1,0,1,0];               // um vencedor por distrito: A 6, B 3, C 1
     const dist3 = [0,1,2,0,1,3,2,4,4,3], win3 = [0,0,1,0,2]; // 5 distritos de duas células
-    const Y = [62, 262, 462];
-    return `<svg viewBox="0 0 912 662" width="912" style="max-width:100%;font-family:inherit">${legend}
-      ${row(Y[0], 'Proporcional (hoje)', ['conta os votos do estado','todo e divide as vagas'], r1, seats(640, Y[0]+54, [0,0,0,0,0,1,1,1,2,2]))}
-      ${row(Y[1], 'Distrital', ['cada distrito elege','o mais votado ali'], map(450, Y[1]+46, [0,1,2,3,4,5,6,7,8,9], i=>PC[win2[i]]), seats(640, Y[1]+54, [0,0,0,0,0,0,1,1,1,2]))}
-      ${row(Y[2], 'Distrital misto', ['parte das vagas por distrito,','parte pela lista do partido'], map(450, Y[2]+46, dist3, i=>PC[win3[dist3[i]]]), seats(640, Y[2]+54, [0,0,0,1,2,0,0,0,1,2]) + `<text x="830" y="${Y[2]+61}" font-size="19" fill="var(--muted)">distritos</text><text x="830" y="${Y[2]+103}" font-size="19" fill="var(--muted)">lista</text>`)}
+    const SX = 640, sy = k => k*H + 77;
+    const legend = `<text x="0" y="${3*H+62}" font-size="24" fill="var(--muted)">Exemplo fictício: 10 vagas e três partidos</text>` + ['A 50%','B 30%','C 20%'].map((x,i)=>`<circle cx="${560+i*124}" cy="${3*H+54}" r="12" fill="${PC[i]}"/><text x="${580+i*124}" y="${3*H+62}" font-size="24" fill="var(--ink)">${x}</text>`).join('');
+    return `<svg viewBox="0 0 912 ${3*H+80}" width="912" style="max-width:100%;font-family:inherit">
+      ${row(0, 'Proporcional', 'como é hoje', r1, seats(SX, sy(0), [0,0,0,0,0,1,1,1,2,2]))}
+      ${row(1, 'Distrital', 'um eleito por distrito', map(M, my(1), [0,1,2,3,4,5,6,7,8,9], i=>PC[win2[i]]), seats(SX, sy(1), [0,0,0,0,0,0,1,1,1,2]))}
+      ${row(2, 'Misto', 'distritos + lista', map(M, my(2), dist3, i=>PC[win3[dist3[i]]]), seats(SX, sy(2), [0,0,0,1,2,0,0,0,1,2]) + `<text x="${SX+186}" y="${sy(2)+8}" font-size="22" fill="var(--muted)">distritos</text><text x="${SX+186}" y="${sy(2)+50}" font-size="22" fill="var(--muted)">lista</text>`)}
+      <line x1="0" y1="${3*H}" x2="912" y2="${3*H}" stroke="var(--gray)" stroke-width="2"/>${legend}
     </svg>`;
   }
   if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
