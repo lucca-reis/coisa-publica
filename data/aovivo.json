@@ -1,15 +1,45 @@
 {
- "atualizado": "2026-11-10T19:31Z",
+ "atualizado": "2026-11-10T19:52Z",
  "itens": [
   {
-   "casa": "senado",
+   "casa": "camara",
    "plenario": false,
-   "sigla": "CCT",
-   "nome": "Comissão de Ciência, Tecnologia, Inovação e Informática",
-   "tipo": "Comissão de Ciência, Tecnologia, Inovação e Informática",
-   "descricao": "Comissão de Ciência e Tecnologia avalia impactos da crise climática em periferias 10/11/26",
+   "sigla": "CCULT",
+   "nome": "Comissão de Cultura",
+   "tipo": "Comissão de Cultura",
+   "descricao": "Outro evento: Cerimônia de Entrega do Prêmio Paulo Gustavo aos agraciados de 2026",
+   "desde": "15h",
+   "video": null
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSPCCO",
+   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "14h28",
+   "video": "https://www.youtube.com/watch?v=cn79kZGNLA0"
+  },
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "desde": "14h03",
+   "video": "https://www.youtube.com/watch?v=uYaSA0ANr-g"
+  },
+  {
+   "casa": "senado",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário do Senado",
+   "tipo": "Sessão deliberativa ordinária",
+   "descricao": "",
    "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=vGheE6-17a0"
+   "video": null
   }
  ]
 }
