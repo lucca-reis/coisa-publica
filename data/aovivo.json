@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-10T13:12Z",
- "itens": []
+ "atualizado": "2026-11-10T13:17Z",
+ "itens": [
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CI",
+   "nome": "Comissão de Serviços de Infraestrutura",
+   "tipo": "Comissão de Serviços de Infraestrutura",
+   "descricao": "Comissão de Infraestrutura vota projetos e requerimentos",
+   "desde": "9h",
+   "video": "https://www.youtube.com/watch?v=VFOQok2ckQY"
+  }
+ ]
 }
