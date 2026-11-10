@@ -6,22 +6,42 @@
  "imagem": {
   "poder": "leg",
   "eyebrow": "Você sabia?",
-  "titulo": "O que é o voto distrital",
-  "visual": {"tipo": "distrital"},
-  "texto": "No modelo misto, em debate na Câmara, parte das vagas sai dos distritos e parte das listas dos partidos.",
+  "titulo": "Três jeitos de eleger deputados",
+  "visual": {
+   "tipo": "sistemas"
+  },
+  "texto": "Exemplo fictício: um estado com 10 vagas e três partidos.",
   "fonte": "Congresso em Foco e Câmara dos Deputados"
  },
- "alt": "Imagem da Coisa Pública, Você sabia? O que é o voto distrital. Desenho de dois mapas iguais de um estado fictício, feitos de 17 hexágonos cinza, cada um com uma bolinha preta, amarela ou cinza, que representam cadeiras de três partidos. À esquerda, rotulado Hoje: o mapa é uma área só, um distrito com várias vagas. À direita, rotulado Distrital: o mesmo mapa cortado em 17 pedaços, um distrito para cada vaga. Embaixo: no modelo misto, em debate na Câmara, parte das vagas sai dos distritos e parte das listas dos partidos. Fonte: Congresso em Foco e Câmara dos Deputados.",
+ "alt": "Imagem da Coisa Pública, Você sabia? Três jeitos de eleger deputados. Exemplo fictício de um estado com 10 vagas e três partidos: Partido A, laranja, com 50% dos votos; Partido B, verde-água, com 30%; Partido C, roxo, com 20%. Três linhas, cada uma com um mapa do estado feito de 10 hexágonos, uma seta e 10 bolinhas que são as cadeiras. Proporcional (hoje): conta os votos do estado todo e divide as vagas; o mapa é uma área só com uma barra de votos 50, 30 e 20; resultado: 5 cadeiras do A, 3 do B e 2 do C. Distrital: cada distrito elege o mais votado ali; o mapa tem 10 distritos pintados pela cor do vencedor; resultado: 6 do A, 3 do B e 1 do C. Distrital misto: parte das vagas por distrito, parte pela lista do partido; o mapa tem 5 distritos; resultado: nos distritos, 3 do A, 1 do B e 1 do C; na lista, 3 do A, 1 do B e 1 do C. Fonte: Congresso em Foco e Câmara dos Deputados.",
  "textos": {
   "bluesky": "Você sabia? Hoje, cada estado é um distrito só e elege todos os seus deputados pelo sistema proporcional. No voto distrital, o estado é dividido em pedaços, e cada um elege um. A Câmara discute um modelo misto, que juntaria os dois.\n\ncoisapublica.io",
-  "instagram": "Você sabia? 🗺️\n\nHoje, deputados federais, estaduais e vereadores são eleitos pelo sistema proporcional de lista aberta. Para a Câmara, cada estado é um distrito só: São Paulo, por exemplo, elege seus 70 deputados com os votos do estado inteiro.\n\nComo funciona hoje:\n• os votos válidos são divididos pelo número de vagas: é o quociente eleitoral;\n• cada partido ganha cadeiras conforme o total de votos que recebeu;\n• dentro do partido, ficam com as vagas os candidatos mais votados.\n\nNo voto distrital, o estado é dividido em distritos, e cada distrito elege um representante: o mais votado ali. É o que mostra o desenho: as mesmas vagas, mas cada uma ligada a um pedaço do território.\n\nNo distrital misto, os dois sistemas se juntam: parte das vagas é decidida nos distritos e parte pelos votos nos partidos, com listas organizadas por eles.\n\nO tema voltou ao Congresso. Em 28/10, o presidente da Câmara, Hugo Motta (Republicanos-PB), disse que quer discutir e tentar votar ainda este ano uma PEC sobre o distrital misto. Ela valeria para deputados e vereadores; presidente, governadores, prefeitos e senadores continuariam sendo eleitos como hoje. Na Câmara também tramita o PL 9.212/2017, do ex-senador José Serra, aprovado no Senado em 2017.\n\nEm 9/11, o deputado Domingos Neto (PSD-CE), relator na CCJ, apresentou as linhas gerais do seu relatório, com estreia prevista para as eleições municipais de 2032 e as gerais de 2034. O texto ainda não foi votado.\n\nComo PEC, a mudança precisa de 308 votos na Câmara e 49 no Senado, em dois turnos em cada Casa.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #VotoDistrital #Câmara #Eleições #Política"
+  "instagram": "Você sabia? 🗺️\n\nHoje, deputados federais, estaduais e vereadores são eleitos pelo sistema proporcional de lista aberta. Para a Câmara, cada estado é um distrito só: São Paulo, por exemplo, elege seus 70 deputados com os votos do estado inteiro.\n\nComo funciona hoje:\n• os votos válidos são divididos pelo número de vagas: é o quociente eleitoral;\n• cada partido ganha cadeiras conforme o total de votos que recebeu;\n• dentro do partido, ficam com as vagas os candidatos mais votados.\n\nNo voto distrital, o estado é dividido em distritos, e cada distrito elege um representante: o mais votado ali.\n\nNo distrital misto, os dois sistemas se juntam: parte das vagas é decidida nos distritos e parte pelos votos nos partidos, com listas organizadas por eles. Os detalhes (quantas vagas de cada tipo, se o eleitor dá um ou dois votos) dependem da regra aprovada.\n\nO desenho é um exemplo fictício, com um estado de 10 vagas e três partidos com 50%, 30% e 20% dos votos. No distrital, o resultado depende de quem vence em cada distrito; por isso o número de cadeiras de cada partido pode ficar diferente da sua fatia de votos.\n\nO tema voltou ao Congresso. Em 28/10, o presidente da Câmara, Hugo Motta (Republicanos-PB), disse que quer discutir e tentar votar ainda este ano uma PEC sobre o distrital misto. Ela valeria para deputados e vereadores; presidente, governadores, prefeitos e senadores continuariam sendo eleitos como hoje. Na Câmara também tramita o PL 9.212/2017, do ex-senador José Serra, aprovado no Senado em 2017.\n\nEm 9/11, o deputado Domingos Neto (PSD-CE), relator na CCJ, apresentou as linhas gerais do seu relatório, com estreia prevista para as eleições municipais de 2032 e as gerais de 2034. O texto ainda não foi votado.\n\nComo PEC, a mudança precisa de 308 votos na Câmara e 49 no Senado, em dois turnos em cada Casa.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #VotoDistrital #Câmara #Eleições #Política"
  },
  "fontes": [
-  {"l": "Congresso em Foco, 28/10: voto distrital misto, entenda o sistema", "u": "https://www.congressoemfoco.com.br/noticia/129609/voto-distrital-misto-entenda-o-sistema-que-deve-ser-votado-na-camara"},
-  {"l": "Brasil 61, 30/10: Câmara discute o voto distrital misto", "u": "https://brasil61.com/n/camara-dos-deputados-discute-adocao-do-voto-distrital-misto-nas-eleicoes-cacb260275"},
-  {"l": "Piranot, 9/11: relator propõe estreia em 2032", "u": "https://www.piranot.com.br/2026/11/09/noticias/politica/eleicoes/voto-distrital-misto-camara-proposta/"},
-  {"l": "Câmara dos Deputados: PL 9.212/2017", "u": "https://www.camara.leg.br/propostas-legislativas/2163674"},
-  {"l": "Senado Federal: PLS 86/2017", "u": "https://www25.senado.leg.br/web/atividade/materias/-/materia/128554"},
-  {"l": "Constituição Federal, art. 60 (quórum de PEC)", "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"}
+  {
+   "l": "Congresso em Foco, 28/10: voto distrital misto, entenda o sistema",
+   "u": "https://www.congressoemfoco.com.br/noticia/129609/voto-distrital-misto-entenda-o-sistema-que-deve-ser-votado-na-camara"
+  },
+  {
+   "l": "Brasil 61, 30/10: Câmara discute o voto distrital misto",
+   "u": "https://brasil61.com/n/camara-dos-deputados-discute-adocao-do-voto-distrital-misto-nas-eleicoes-cacb260275"
+  },
+  {
+   "l": "Piranot, 9/11: relator propõe estreia em 2032",
+   "u": "https://www.piranot.com.br/2026/11/09/noticias/politica/eleicoes/voto-distrital-misto-camara-proposta/"
+  },
+  {
+   "l": "Câmara dos Deputados: PL 9.212/2017",
+   "u": "https://www.camara.leg.br/propostas-legislativas/2163674"
+  },
+  {
+   "l": "Senado Federal: PLS 86/2017",
+   "u": "https://www25.senado.leg.br/web/atividade/materias/-/materia/128554"
+  },
+  {
+   "l": "Constituição Federal, art. 60 (quórum de PEC)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  }
  ]
 }

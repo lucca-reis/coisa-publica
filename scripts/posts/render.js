@@ -81,6 +81,35 @@ function visual(V, poder){
     const lab = (x,[t,sub])=>`<text x="${x}" y="470" text-anchor="middle" font-size="40" font-weight="700" letter-spacing="-1" fill="var(--ink)">${esc(t)}</text><text x="${x}" y="512" text-anchor="middle" font-size="28" fill="var(--muted)">${esc(sub)}</text>`;
     return `<svg viewBox="0 0 912 530" width="912" style="max-width:100%;font-family:inherit">${map(215,false)}${map(697,true)}${lab(215,R[0])}${lab(697,R[1])}</svg>`;
   }
+  // sistemas: três linhas (proporcional, distrital, misto) com o mesmo estado fictício de 10 vagas e três partidos fictícios;
+  // em cada linha, o nome e a regra, o mapa (com os votos ou com os distritos pintados pelo vencedor) e as cadeiras que resultam
+  if (V.tipo === 'sistemas'){
+    const PC = ['#E8603C','#16A08F','#7A52D1'], s = 31, w = s*Math.sqrt(3), rh = s*1.5;
+    const pos = [[-1,0],[0,0],[1,0],[-1.5,1],[-.5,1],[.5,1],[1.5,1],[-1,2],[0,2],[1,2]];
+    const vtx = (x,y)=> [...Array(6)].map((_,i)=>{ const a = Math.PI/180*(60*i-30); return [+(x+s*Math.cos(a)).toFixed(1), +(y+s*Math.sin(a)).toFixed(1)]; });
+    // um mapa: cada célula pintada; fio claro só entre células de distritos diferentes
+    const map = (ox, oy, dist, fill)=>{
+      const C = pos.map(([a,b])=>({x:ox + a*w, y:oy + b*rh})), V6 = C.map(c=>vtx(c.x,c.y));
+      let out = C.map((c,i)=>`<polygon points="${V6[i].map(p=>p.join(',')).join(' ')}" fill="${fill(i)}" stroke="${fill(i)}" stroke-width="1.5"/>`).join('');
+      if (dist) for (let i=0;i<10;i++) for (let j=i+1;j<10;j++){ if (dist[i]===dist[j]) continue;
+        const sh = V6[i].filter(p=> V6[j].some(q=> Math.abs(p[0]-q[0])<1 && Math.abs(p[1]-q[1])<1));
+        if (sh.length===2) out += `<line x1="${sh[0][0]}" y1="${sh[0][1]}" x2="${sh[1][0]}" y2="${sh[1][1]}" stroke="#F3F3F3" stroke-width="6" stroke-linecap="round"/>`; }
+      return out;
+    };
+    const seats = (x, y, list, gap)=> list.map((p,i)=>`<circle cx="${x + (i%5)*40 + 0}" cy="${y + Math.floor(i/5)*42}" r="16" fill="${PC[p]}"/>`).join('');
+    const row = (y, t, sub, mapSvg, seatSvg)=> `<text x="0" y="${y+52}" font-size="36" font-weight="700" letter-spacing="-1" fill="var(--ink)">${esc(t)}</text>${sub.map((l,k)=>`<text x="0" y="${y+92+k*32}" font-size="25" fill="var(--muted)">${esc(l)}</text>`).join('')}${mapSvg}<text x="584" y="${y+86}" font-size="40" fill="var(--muted)">→</text>${seatSvg}`;
+    const legend = ['A · 50% dos votos','B · 30%','C · 20%'].map((t,i)=>`<circle cx="${[14,400,660][i]}" cy="22" r="13" fill="${PC[i]}"/><text x="${[36,422,682][i]}" y="31" font-size="26" fill="var(--ink)">Partido ${t}</text>`).join('');
+    // proporcional: o estado é um distrito só; a barra mostra os votos e as vagas seguem a proporção
+    const r1 = map(450, 108, null, ()=> 'var(--card2)') + `<rect x="${450-90}" y="${108+rh-11}" width="90" height="22" fill="${PC[0]}"/><rect x="450" y="${108+rh-11}" width="54" height="22" fill="${PC[1]}"/><rect x="504" y="${108+rh-11}" width="36" height="22" fill="${PC[2]}"/>`;
+    const win2 = [0,1,0,0,2,0,1,0,1,0];               // um vencedor por distrito: A 6, B 3, C 1
+    const dist3 = [0,1,2,0,1,3,2,4,4,3], win3 = [0,0,1,0,2]; // 5 distritos de duas células
+    const Y = [62, 262, 462];
+    return `<svg viewBox="0 0 912 662" width="912" style="max-width:100%;font-family:inherit">${legend}
+      ${row(Y[0], 'Proporcional (hoje)', ['conta os votos do estado','todo e divide as vagas'], r1, seats(640, Y[0]+54, [0,0,0,0,0,1,1,1,2,2]))}
+      ${row(Y[1], 'Distrital', ['cada distrito elege','o mais votado ali'], map(450, Y[1]+46, [0,1,2,3,4,5,6,7,8,9], i=>PC[win2[i]]), seats(640, Y[1]+54, [0,0,0,0,0,0,1,1,1,2]))}
+      ${row(Y[2], 'Distrital misto', ['parte das vagas por distrito,','parte pela lista do partido'], map(450, Y[2]+46, dist3, i=>PC[win3[dist3[i]]]), seats(640, Y[2]+54, [0,0,0,1,2,0,0,0,1,2]) + `<text x="830" y="${Y[2]+61}" font-size="19" fill="var(--muted)">distritos</text><text x="830" y="${Y[2]+103}" font-size="19" fill="var(--muted)">lista</text>`)}
+    </svg>`;
+  }
   if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   if (V.tipo === 'data') return `<div class="dat">${(V.simbolo || poder) === 'jud' ? MESA : `<div class="circ">${GLY[V.simbolo || poder] || ''}</div>`}<div>${V.rotulo ? `<small>${esc(V.rotulo)}</small>` : ''}<b>${esc(V.valor)}</b>${V.sub ? `<small style="margin-top:8px">${esc(V.sub)}</small>` : ''}</div></div>`;
   return '';
