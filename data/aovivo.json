@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-11T13:39Z",
+ "atualizado": "2026-11-11T13:44Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CTRAB",
+   "nome": "Comissão de Trabalho",
+   "tipo": "Comissão de Trabalho",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h43",
+   "video": "https://www.youtube.com/watch?v=rsYBrHaK85g"
+  },
   {
    "casa": "camara",
    "plenario": false,
@@ -44,16 +54,6 @@
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CSAUDE",
-   "nome": "Comissão de Saúde",
-   "tipo": "Comissão de Saúde",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h18",
-   "video": "https://www.youtube.com/watch?v=yP11CYo9ysg"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
    "sigla": "CMADS",
    "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
    "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
@@ -70,6 +70,16 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h21",
    "video": "https://www.youtube.com/watch?v=Bx82gjXkEQ4"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CN",
+   "nome": "CONGRESSO NACIONAL",
+   "tipo": "CONGRESSO NACIONAL",
+   "descricao": "Sessão não deliberativa solene: Homenagem à Nossa Senhora de Nazaré",
+   "desde": "10h22",
+   "video": "https://www.youtube.com/watch?v=JQHP2pl9xRw"
   },
   {
    "casa": "camara",
@@ -99,7 +109,7 @@
    "tipo": "Comissão de Viação e Transportes",
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h35",
-   "video": null
+   "video": "https://www.youtube.com/watch?v=WRvM5ZHl3s8"
   },
   {
    "casa": "camara",
