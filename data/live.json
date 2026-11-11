@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T11:22-03:00",
+ "atualizado": "2026-11-11T12:53-03:00",
  "camara": [
   {
    "id": 83083,
@@ -23,13 +23,13 @@
   },
   {
    "id": 83085,
-   "inicio": "2026-11-11T11:00-03:00",
+   "inicio": "2026-11-11T11:23-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia Nacional da Consciência Negra\r\n Homenagem ao Dia Nacional da Consciência Negra",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=mn27XsdK5mc",
+   "aoVivo": true
   },
   {
    "id": 83086,
@@ -147,11 +147,11 @@
    "id": "549939",
    "inicio": "2026-11-11T10:00-03:00",
    "fim": null,
-   "situacao": "Em andamento",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO SOLENE ",
    "descricao": "",
    "video": null,
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": "594175",
