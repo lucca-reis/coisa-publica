@@ -1,6 +1,26 @@
 {
- "atualizado": "2026-11-11T17:15Z",
+ "atualizado": "2026-11-11T17:30Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CESPO",
+   "nome": "Comissão do Esporte",
+   "tipo": "Comissão do Esporte",
+   "descricao": "Audiência pública: Implantação e projeto acadêmico da Universidade Federal do Esporte",
+   "desde": "14h17",
+   "video": "https://www.youtube.com/watch?v=mwpofv6nQgQ"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSPCCO",
+   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "descricao": "Audiência pública: Debater a maioridade penal no Brasil, com foco no enfrentamento da criminalidade violenta e na responsabililzação penal.",
+   "desde": "14h21",
+   "video": null
+  },
   {
    "casa": "camara",
    "plenario": false,
@@ -20,16 +40,6 @@
    "descricao": "Reunião deliberativa da Comissão de Agricultura e Reforma Agrária",
    "desde": "14h",
    "video": "https://www.youtube.com/watch?v=pP_73z2oGAo"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CE",
-   "nome": "Comissão de Educação e Cultura",
-   "tipo": "Comissão de Educação e Cultura",
-   "descricao": "Reunião deliberativa da Comissão de Educação e Cultura",
-   "desde": "11h",
-   "video": "https://www.youtube.com/watch?v=ptl1uGGGdJ8"
   },
   {
    "casa": "senado",
