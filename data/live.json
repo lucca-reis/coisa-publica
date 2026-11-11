@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T13:57-03:00",
+ "atualizado": "2026-11-11T14:56-03:00",
  "camara": [
   {
    "id": 83083,
@@ -24,12 +24,12 @@
   {
    "id": 83085,
    "inicio": "2026-11-11T11:23-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-11T14:04-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia Nacional da Consciência Negra\r\n Homenagem ao Dia Nacional da Consciência Negra",
    "video": "https://www.youtube.com/watch?v=mn27XsdK5mc",
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": 83086,
@@ -133,13 +133,13 @@
   },
   {
    "id": 83266,
-   "inicio": "2026-11-11T13:55-03:00",
+   "inicio": "2026-11-11T14:39-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Deliberativa",
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=qTcOGuWH7CQ",
+   "aoVivo": true
   }
  ],
  "senado": [
@@ -157,11 +157,11 @@
    "id": "594175",
    "inicio": "2026-11-11T14:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Em andamento",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
-   "aoVivo": false
+   "aoVivo": true
   },
   {
    "id": "552104",
