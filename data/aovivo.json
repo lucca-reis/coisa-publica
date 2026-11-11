@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T14:53Z",
+ "atualizado": "2026-11-11T14:58Z",
  "itens": [
   {
    "casa": "camara",
@@ -30,16 +30,6 @@
    "descricao": "Sessão não deliberativa solene: Homenagem à Nossa Senhora de Nazaré",
    "desde": "10h22",
    "video": "https://www.youtube.com/watch?v=JQHP2pl9xRw"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CREDN",
-   "nome": "Comissão de Relações Exteriores e de Defesa Nacional",
-   "tipo": "Comissão de Relações Exteriores e de Defesa Nacional",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h04",
-   "video": "https://www.youtube.com/watch?v=UIlehLo21UE"
   },
   {
    "casa": "camara",
