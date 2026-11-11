@@ -1,6 +1,26 @@
 {
- "atualizado": "2026-11-11T12:47Z",
+ "atualizado": "2026-11-11T13:03Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CCTI",
+   "nome": "Comissão de Ciência, Tecnologia e Inovação",
+   "tipo": "Comissão de Ciência, Tecnologia e Inovação",
+   "descricao": "Audiência pública: Rede Nacional de Física de Altas Energias (Renafae)",
+   "desde": "9h52",
+   "video": "https://www.youtube.com/watch?v=aHqtOyUV8QI"
+  },
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão não deliberativa solene",
+   "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
+   "desde": "9h53",
+   "video": "https://www.youtube.com/watch?v=Z-yz-n97wRI"
+  },
   {
    "casa": "camara",
    "plenario": false,
