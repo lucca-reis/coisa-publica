@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-11T13:28Z",
+ "atualizado": "2026-11-11T13:39Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CE",
+   "nome": "Comissão de Educação",
+   "tipo": "Comissão de Educação",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h28",
+   "video": "https://www.youtube.com/watch?v=wvSeUzJZock"
+  },
   {
    "casa": "camara",
    "plenario": false,
@@ -87,9 +97,9 @@
    "sigla": "CVT",
    "nome": "Comissão de Viação e Transportes",
    "tipo": "Comissão de Viação e Transportes",
-   "descricao": "Reunião deliberativa: Definição das emendas da comissão ao Projeto de Lei Orçamentária Anual para 2027",
-   "desde": "10h06",
-   "video": "https://www.youtube.com/watch?v=cNmakcyXwDY"
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h35",
+   "video": null
   },
   {
    "casa": "camara",
