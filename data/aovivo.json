@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-11T19:14Z",
+ "atualizado": "2026-11-11T19:30Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "SUBPL657",
+   "nome": "Subcomissão Especial para debater e acompanhar a tramitação do Projeto de Lei nº 657, de 2025, que altera que altera a Lei nº 9.394, de 20 de dezembro de 1996, de diretrizes e bases da educação nacional (LDB), para dispensar a existência de diagnóstico clínico ou apresentação de laudo médico para educação especial",
+   "tipo": "Subcomissão Especial para debater e acompanhar a tramitação do Projeto de Lei nº 657, de 2025, que altera que altera a Lei nº 9.394, de 20 de dezembro de 1996, de diretrizes e bases da educação nacional (LDB), para dispensar a existência de diagnóstico clínico ou apresentação de laudo médico para educação especial",
+   "descricao": "Audiência pública: O papel do laudo médico e da avaliação psicopedagógica na identificação das necessidades e no apoio ao desenvolvimento escolar dos alunos.",
+   "desde": "16h21",
+   "video": "https://www.youtube.com/watch?v=Bfe9vE9bOK0"
+  },
   {
    "casa": "camara",
    "plenario": false,
@@ -80,6 +90,16 @@
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "desde": "14h39",
    "video": "https://www.youtube.com/watch?v=qTcOGuWH7CQ"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CDHMIR",
+   "nome": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "tipo": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "descricao": "Audiência pública: Déficit histórico no número de Auditores-Fiscais do Trabalho",
+   "desde": "16h28",
+   "video": null
   },
   {
    "casa": "senado",
