@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:52-03:00",
+ "atualizado": "2026-11-11T20:49-03:00",
  "camara": [
   {
    "id": 83083,
@@ -124,12 +124,12 @@
   {
    "id": 83266,
    "inicio": "2026-11-11T14:39-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-11T20:07-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Deliberativa",
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": "https://www.youtube.com/watch?v=qTcOGuWH7CQ",
-   "aoVivo": true
+   "aoVivo": false
   }
  ],
  "senado": [
