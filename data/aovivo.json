@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T12:27Z",
+ "atualizado": "2026-11-11T12:37Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,6 +10,16 @@
    "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
    "desde": "8h47",
    "video": "https://www.youtube.com/watch?v=Jvf7JILTCWE"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CE",
+   "nome": "Comissão de Educação",
+   "tipo": "Comissão de Educação",
+   "descricao": "Mesa redonda: Café da manhã com membros da comissão",
+   "desde": "9h30",
+   "video": null
   },
   {
    "casa": "camara",
