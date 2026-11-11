@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T13:23Z",
+ "atualizado": "2026-11-11T13:28Z",
  "itens": [
   {
    "casa": "camara",
@@ -100,16 +100,6 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h04",
    "video": "https://www.youtube.com/watch?v=UIlehLo21UE"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CE",
-   "nome": "Comissão de Educação",
-   "tipo": "Comissão de Educação",
-   "descricao": "Mesa redonda: Café da manhã com membros da comissão",
-   "desde": "9h30",
-   "video": null
   },
   {
    "casa": "camara",
