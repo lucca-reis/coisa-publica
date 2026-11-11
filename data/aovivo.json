@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T16:16Z",
+ "atualizado": "2026-11-11T16:26Z",
  "itens": [
   {
    "casa": "camara",
@@ -30,16 +30,6 @@
    "descricao": "Reunião deliberativa da Comissão de Educação e Cultura",
    "desde": "11h",
    "video": "https://www.youtube.com/watch?v=ptl1uGGGdJ8"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CDH",
-   "nome": "Comissão de Direitos Humanos e Legislação Participativa",
-   "tipo": "Comissão de Direitos Humanos e Legislação Participativa",
-   "descricao": "Comissão de Direitos Humanos analisa projetos e requerimentos",
-   "desde": "11h",
-   "video": "https://www.youtube.com/watch?v=ChHH2Ci1jQk"
   },
   {
    "casa": "senado",
