@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T17:40Z",
+ "atualizado": "2026-11-11T17:54Z",
  "itens": [
   {
    "casa": "camara",
@@ -24,22 +24,32 @@
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CCULT",
-   "nome": "Comissão de Cultura",
-   "tipo": "Comissão de Cultura",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas.",
-   "desde": "14h21",
-   "video": "https://www.youtube.com/watch?v=WQLYLzypXyw"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
    "sigla": "CPASF",
    "nome": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
    "tipo": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "14h21",
    "video": "https://www.youtube.com/watch?v=4q4FwyYsu8c"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMULHER",
+   "nome": "Comissão de Defesa dos Direitos da Mulher",
+   "tipo": "Comissão de Defesa dos Direitos da Mulher",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "14h37",
+   "video": "https://www.youtube.com/watch?v=1hHB_THdx5Q"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMO",
+   "nome": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "tipo": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "descricao": "Audiência pública: Apresentação da LDO e da LOA para 2027. Art. 29 e 84 da Res 1/2006-CN",
+   "desde": "14h38",
+   "video": "https://www.youtube.com/watch?v=fC54X5Uhn0M"
   },
   {
    "casa": "camara",
@@ -52,6 +62,16 @@
    "video": null
   },
   {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "desde": "14h39",
+   "video": "https://www.youtube.com/watch?v=qTcOGuWH7CQ"
+  },
+  {
    "casa": "senado",
    "plenario": true,
    "sigla": "Plenário",
@@ -59,7 +79,7 @@
    "tipo": "Sessão deliberativa ordinária",
    "descricao": "",
    "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=X9HNSTugDKI"
+   "video": null
   },
   {
    "casa": "senado",
@@ -70,16 +90,6 @@
    "descricao": "Reunião deliberativa da Comissão de Agricultura e Reforma Agrária",
    "desde": "14h",
    "video": "https://www.youtube.com/watch?v=pP_73z2oGAo"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CCT",
-   "nome": "Comissão de Ciência, Tecnologia, Inovação e Informática",
-   "tipo": "Comissão de Ciência, Tecnologia, Inovação e Informática",
-   "descricao": "Comissão de Ciência e Tecnologia avalia projetos",
-   "desde": "10h",
-   "video": "https://www.youtube.com/watch?v=i8wf0S1DSvo"
   }
  ]
 }
