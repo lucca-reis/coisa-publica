@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T10:07-03:00",
+ "atualizado": "2026-11-11T11:22-03:00",
  "camara": [
   {
    "id": 83083,
@@ -104,12 +104,12 @@
   {
    "id": 83190,
    "inicio": "2026-11-11T09:53-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-11T11:00-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor\r\n Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
    "video": "https://www.youtube.com/watch?v=Z-yz-n97wRI",
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": 83236,
@@ -147,11 +147,11 @@
    "id": "549939",
    "inicio": "2026-11-11T10:00-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em andamento",
    "tipo": "SESSÃO SOLENE ",
    "descricao": "",
    "video": null,
-   "aoVivo": false
+   "aoVivo": true
   },
   {
    "id": "594175",
