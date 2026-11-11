@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T17:30Z",
+ "atualizado": "2026-11-11T17:35Z",
  "itens": [
   {
    "casa": "camara",
@@ -19,7 +19,27 @@
    "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
    "descricao": "Audiência pública: Debater a maioridade penal no Brasil, com foco no enfrentamento da criminalidade violenta e na responsabililzação penal.",
    "desde": "14h21",
-   "video": null
+   "video": "https://www.youtube.com/watch?v=GsqXRdpNA4c"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CCULT",
+   "nome": "Comissão de Cultura",
+   "tipo": "Comissão de Cultura",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas.",
+   "desde": "14h21",
+   "video": "https://www.youtube.com/watch?v=WQLYLzypXyw"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CPASF",
+   "nome": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
+   "tipo": "Comissão de Previdência, Assistência Social, Infância, Adolescência e Família",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "14h21",
+   "video": "https://www.youtube.com/watch?v=4q4FwyYsu8c"
   },
   {
    "casa": "camara",
