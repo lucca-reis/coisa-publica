@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T12:37Z",
+ "atualizado": "2026-11-11T12:42Z",
  "itens": [
   {
    "casa": "camara",
@@ -40,6 +40,16 @@
    "descricao": "Reunião deliberativa da Comissão de Constituição e Justiça",
    "desde": "9h",
    "video": "https://www.youtube.com/watch?v=i6KM-etSrdQ"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CAS",
+   "nome": "Comissão de Assuntos Sociais",
+   "tipo": "Comissão de Assuntos Sociais",
+   "descricao": "Comissão de Assuntos Sociais vota projetos e requerimentos",
+   "desde": "9h",
+   "video": "https://www.youtube.com/watch?v=7VKzsz5CDWU"
   }
  ]
 }
