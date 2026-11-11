@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T13:13Z",
+ "atualizado": "2026-11-11T13:23Z",
  "itens": [
   {
    "casa": "camara",
@@ -24,12 +24,52 @@
   {
    "casa": "camara",
    "plenario": false,
+   "sigla": "CAPADR",
+   "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+   "tipo": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+   "descricao": "Reunião deliberativa: Discussão e votação de proposições",
+   "desde": "10h20",
+   "video": "https://www.youtube.com/watch?v=en6iqnDH7PU"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSAUDE",
+   "nome": "Comissão de Saúde",
+   "tipo": "Comissão de Saúde",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h18",
+   "video": "https://www.youtube.com/watch?v=yP11CYo9ysg"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
    "sigla": "CMADS",
    "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
    "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h11",
    "video": "https://www.youtube.com/watch?v=aqGBGgrs0Kg"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CINDRE",
+   "nome": "Comissão de Integração Nacional e Desenvolvimento Regional",
+   "tipo": "Comissão de Integração Nacional e Desenvolvimento Regional",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h21",
+   "video": "https://www.youtube.com/watch?v=Bx82gjXkEQ4"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CFT",
+   "nome": "Comissão de Finanças e Tributação",
+   "tipo": "Comissão de Finanças e Tributação",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h15",
+   "video": "https://www.youtube.com/watch?v=CyNHxvv4xts"
   },
   {
    "casa": "camara",
