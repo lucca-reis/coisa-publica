@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T22:50Z",
+ "atualizado": "2026-11-11T23:15Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,16 +10,6 @@
    "descricao": "Mesa redonda: \"Discussão da pauta e outros assuntos atinentes à Comissão\"",
    "desde": "8h",
    "video": null
-  },
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "desde": "14h39",
-   "video": "https://www.youtube.com/watch?v=qTcOGuWH7CQ"
   }
  ]
 }
