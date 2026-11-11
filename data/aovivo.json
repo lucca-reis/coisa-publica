@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T13:03Z",
+ "atualizado": "2026-11-11T13:08Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,6 +20,16 @@
    "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
    "desde": "9h53",
    "video": "https://www.youtube.com/watch?v=Z-yz-n97wRI"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CREDN",
+   "nome": "Comissão de Relações Exteriores e de Defesa Nacional",
+   "tipo": "Comissão de Relações Exteriores e de Defesa Nacional",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h04",
+   "video": null
   },
   {
    "casa": "camara",
