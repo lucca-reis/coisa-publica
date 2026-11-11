@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:09Z",
+ "atualizado": "2026-11-11T19:14Z",
  "itens": [
   {
    "casa": "camara",
@@ -90,16 +90,6 @@
    "descricao": "",
    "desde": "14h",
    "video": null
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CE",
-   "nome": "Comissão de Educação e Cultura",
-   "tipo": "Comissão de Educação e Cultura",
-   "descricao": "Comissão de Educação discute a criação do Dia Nacional da Cachaça",
-   "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=hBFgvHumOIM"
   }
  ]
 }
