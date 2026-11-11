@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T20:13Z",
+ "atualizado": "2026-11-11T20:23Z",
  "itens": [
   {
    "casa": "camara",
@@ -30,6 +30,16 @@
    "descricao": "Reunião técnica: Cultura, Comunicação e Esporte: caminhos para participação e pertencimento da juventude no Brasil",
    "desde": "17h07",
    "video": "https://www.youtube.com/watch?v=TDRNiX4xzi4"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSAUDE",
+   "nome": "Comissão de Saúde",
+   "tipo": "Comissão de Saúde",
+   "descricao": "Audiência pública: Cartão de identificação do usuário SUS (PL 5875/13) - Parte 2",
+   "desde": "17h12",
+   "video": "https://www.youtube.com/watch?v=CHZZn53bnVw"
   },
   {
    "casa": "camara",
