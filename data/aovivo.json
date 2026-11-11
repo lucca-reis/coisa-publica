@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:30Z",
+ "atualizado": "2026-11-11T19:35Z",
  "itens": [
   {
    "casa": "camara",
@@ -99,16 +99,6 @@
    "tipo": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
    "descricao": "Audiência pública: Déficit histórico no número de Auditores-Fiscais do Trabalho",
    "desde": "16h28",
-   "video": null
-  },
-  {
-   "casa": "senado",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário do Senado",
-   "tipo": "Sessão deliberativa ordinária",
-   "descricao": "",
-   "desde": "14h",
    "video": null
   }
  ]
