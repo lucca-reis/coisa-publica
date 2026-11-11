@@ -1,65 +1,25 @@
 {
- "atualizado": "2026-11-11T13:59Z",
+ "atualizado": "2026-11-11T14:53Z",
  "itens": [
   {
    "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão não deliberativa solene",
+   "descricao": "Homenagem ao Dia Nacional da Consciência Negra",
+   "desde": "11h23",
+   "video": "https://www.youtube.com/watch?v=mn27XsdK5mc"
+  },
+  {
+   "casa": "camara",
    "plenario": false,
-   "sigla": "CTRAB",
-   "nome": "Comissão de Trabalho",
-   "tipo": "Comissão de Trabalho",
+   "sigla": "CDE",
+   "nome": "Comissão de Desenvolvimento Econômico",
+   "tipo": "Comissão de Desenvolvimento Econômico",
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h43",
-   "video": "https://www.youtube.com/watch?v=rsYBrHaK85g"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CE",
-   "nome": "Comissão de Educação",
-   "tipo": "Comissão de Educação",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h28",
-   "video": "https://www.youtube.com/watch?v=wvSeUzJZock"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CCTI",
-   "nome": "Comissão de Ciência, Tecnologia e Inovação",
-   "tipo": "Comissão de Ciência, Tecnologia e Inovação",
-   "descricao": "Audiência pública: Rede Nacional de Física de Altas Energias (Renafae)",
-   "desde": "9h52",
-   "video": "https://www.youtube.com/watch?v=aHqtOyUV8QI"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CDU",
-   "nome": "Comissão de Desenvolvimento Urbano",
-   "tipo": "Comissão de Desenvolvimento Urbano",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h09",
-   "video": "https://www.youtube.com/watch?v=lBnEA7DXPto"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CAPADR",
-   "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
-   "tipo": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
-   "descricao": "Reunião deliberativa: Discussão e votação de proposições",
-   "desde": "10h20",
-   "video": "https://www.youtube.com/watch?v=en6iqnDH7PU"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CMADS",
-   "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
-   "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h11",
-   "video": "https://www.youtube.com/watch?v=aqGBGgrs0Kg"
+   "desde": "11h43",
+   "video": "https://www.youtube.com/watch?v=yxTqEjPJigU"
   },
   {
    "casa": "camara",
@@ -70,26 +30,6 @@
    "descricao": "Sessão não deliberativa solene: Homenagem à Nossa Senhora de Nazaré",
    "desde": "10h22",
    "video": "https://www.youtube.com/watch?v=JQHP2pl9xRw"
-  },
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão não deliberativa solene",
-   "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
-   "desde": "9h53",
-   "video": "https://www.youtube.com/watch?v=Z-yz-n97wRI"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CVT",
-   "nome": "Comissão de Viação e Transportes",
-   "tipo": "Comissão de Viação e Transportes",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h35",
-   "video": "https://www.youtube.com/watch?v=WRvM5ZHl3s8"
   },
   {
    "casa": "camara",
@@ -124,22 +64,42 @@
   {
    "casa": "senado",
    "plenario": false,
+   "sigla": "CSP",
+   "nome": "Comissão de Segurança Pública",
+   "tipo": "Comissão de Segurança Pública",
+   "descricao": "CSP vota convocação de ministro e convite ao diretor-geral da PF",
+   "desde": "11h",
+   "video": "https://www.youtube.com/watch?v=YCIe2xcbJU8"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CE",
+   "nome": "Comissão de Educação e Cultura",
+   "tipo": "Comissão de Educação e Cultura",
+   "descricao": "Reunião deliberativa da Comissão de Educação e Cultura",
+   "desde": "11h",
+   "video": "https://www.youtube.com/watch?v=ptl1uGGGdJ8"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CDH",
+   "nome": "Comissão de Direitos Humanos e Legislação Participativa",
+   "tipo": "Comissão de Direitos Humanos e Legislação Participativa",
+   "descricao": "Comissão de Direitos Humanos analisa projetos e requerimentos",
+   "desde": "11h",
+   "video": "https://www.youtube.com/watch?v=ChHH2Ci1jQk"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
    "sigla": "CCT",
    "nome": "Comissão de Ciência, Tecnologia, Inovação e Informática",
    "tipo": "Comissão de Ciência, Tecnologia, Inovação e Informática",
    "descricao": "Comissão de Ciência e Tecnologia avalia projetos",
    "desde": "10h",
    "video": "https://www.youtube.com/watch?v=i8wf0S1DSvo"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CCJ",
-   "nome": "Comissão de Constituição, Justiça e Cidadania",
-   "tipo": "Comissão de Constituição, Justiça e Cidadania",
-   "descricao": "Reunião deliberativa da Comissão de Constituição e Justiça",
-   "desde": "9h",
-   "video": "https://www.youtube.com/watch?v=i6KM-etSrdQ"
   }
  ]
 }
