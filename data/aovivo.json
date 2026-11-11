@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-11T16:54Z",
+ "atualizado": "2026-11-11T17:15Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão não deliberativa solene",
-   "descricao": "Homenagem ao Dia Nacional da Consciência Negra",
-   "desde": "11h23",
-   "video": "https://www.youtube.com/watch?v=mn27XsdK5mc"
-  },
   {
    "casa": "camara",
    "plenario": false,
@@ -20,6 +10,16 @@
    "descricao": "Mesa redonda: \"Discussão da pauta e outros assuntos atinentes à Comissão\"",
    "desde": "8h",
    "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CRA",
+   "nome": "Comissão de Agricultura e Reforma Agrária",
+   "tipo": "Comissão de Agricultura e Reforma Agrária",
+   "descricao": "Reunião deliberativa da Comissão de Agricultura e Reforma Agrária",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=pP_73z2oGAo"
   },
   {
    "casa": "senado",
