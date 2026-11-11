@@ -1,0 +1,48 @@
+{
+ "id": "2026-11-12-manha",
+ "periodo": "manha",
+ "data": "2026-11-12",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Congresso",
+    "dia": "9h",
+    "tags": [{"t": "Congresso · sessão conjunta", "poder": "leg"}],
+    "titulo": "24 projetos de crédito no orçamento",
+    "texto": "Deputados e senadores também elegem o Conselho de Comunicação Social."
+   },
+   {
+    "quando": "STF",
+    "dia": "14h",
+    "tags": [{"t": "STF · Plenário", "poder": "jud"}],
+    "titulo": "Violência patrimonial contra a mulher",
+    "texto": "Continua o julgamento, depois do voto do relator, Dias Toffoli."
+   },
+   {
+    "quando": "Presidência",
+    "dia": "COP31",
+    "tags": [{"t": "Presidência · viagem", "poder": "exe"}],
+    "titulo": "Lula deixa a Turquia rumo a Manila",
+    "texto": "Último dia na COP31, antes da cúpula da ASEAN, nas Filipinas."
+   }
+  ],
+  "fonte": "Agência Senado, CNN Brasil e Exame"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 12 de novembro. Congresso, 9h: sessão conjunta com 24 projetos de crédito no orçamento; deputados e senadores também elegem o Conselho de Comunicação Social. STF, 14h: continua o julgamento sobre violência patrimonial contra a mulher, depois do voto do relator, Dias Toffoli. Presidência: Lula deixa a Turquia rumo a Manila; último dia na COP31, antes da cúpula da ASEAN, nas Filipinas. Fonte: Agência Senado, CNN Brasil e Exame.",
+ "textos": {
+  "bluesky": "Hoje (12/11) nos Três Poderes:\n\n9h · Congresso vota 24 créditos no orçamento e elege o Conselho de Comunicação Social.\n14h · STF continua o julgamento sobre violência patrimonial contra a mulher.\nLula deixa a COP31 rumo a Manila.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, quinta (12/11), nos Três Poderes:\n\n9h · Congresso\nSessão conjunta de deputados e senadores, com 24 projetos na pauta, segundo a Agência Senado. A maior parte libera dinheiro extra para ministérios e órgãos públicos. Entre eles:\n• PLN 1/2026: consolida reestruturações de carreiras e reajustes já aprovados para órgãos dos Três Poderes, do MPU e da DPU;\n• PLN 3/2026: R$ 13 milhões para o Ministério da Ciência, Tecnologia e Inovação;\n• PLN 6/2026: R$ 543 milhões para vários ministérios;\n• PLN 7/2026: trata da Copa do Mundo Feminina de 2027 e do primeiro hospital inteligente do país.\nTambém deve ser votada a eleição do Conselho de Comunicação Social, órgão que assessora o Congresso.\n\n14h · STF\nO Plenário continua o julgamento das ADPFs 1185 e 1241, sobre o artigo 181 do Código Penal, que isenta de pena crimes contra o patrimônio cometidos entre cônjuges e parentes. Ontem, o relator, Dias Toffoli, votou para que a isenção não valha nos casos de violência doméstica e familiar contra a mulher. Faltam os votos dos outros ministros. O restante da pauta da semana segue valendo.\n\n14h · Senado\nSessão especial em homenagem ao centenário do Movimento Pestalozziano no Brasil, sem votações.\n\nCâmara\nAté a noite de ontem, a agenda oficial não mostrava sessão no Plenário da Câmara nesta quinta. Segundo o Focus Gaming News, termina hoje o prazo de urgência do PL 5.477/2026, do governo, que torna crime explorar e divulgar apostas de quota fixa. Se não for votado, passa a trancar a pauta do Plenário a partir de amanhã.\n\nPresidência\nÚltimo dia de Lula na COP31, em Antália, na Turquia. Pela agenda divulgada, ele se reúne com o primeiro-ministro do Reino Unido, Andy Burnham, visita o pavilhão da ApexBrasil, encontra representantes da sociedade civil e embarca para Manila, nas Filipinas, onde participa da cúpula da ASEAN.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #Congresso #STF #Orçamento #COP31 #Política"
+ },
+ "fontes": [
+  {"l": "Agência Senado, 11/11: Sessão do Congresso será nesta quinta-feira", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/11/sessao-do-congresso-sera-nesta-quinta-feira"},
+  {"l": "Congresso Nacional: agenda das Casas em 12/11", "u": "https://www.congressonacional.leg.br/sessoes/agenda-do-congresso-senado-e-camara/-/agenda/2026-11-12"},
+  {"l": "CNN Brasil, 11/11: Toffoli vota para punir crimes patrimoniais contra mulheres na família", "u": "https://www.cnnbrasil.com.br/politica/toffoli-vota-para-punir-crimes-patrimoniais-contra-mulheres-na-familia/"},
+  {"l": "Migalhas, 11/11: Toffoli vota por punir violência patrimonial contra mulheres", "u": "https://www.migalhas.com.br/quentes/468083/stf-toffoli-vota-por-punir-violencia-patrimonial-contra-mulheres"},
+  {"l": "STF Notícias, 6/11: destaques da pauta do Plenário de novembro", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-da-pauta-do-plenario-do-stf-para-novembro/"},
+  {"l": "Focus Gaming News, 2/11: projeto que criminaliza bets pode trancar a pauta da Câmara em 13 de novembro", "u": "https://focusgn.com/brasil/pl-criminaliza-bets-trancar-pauta-camara"},
+  {"l": "Exame, 10/11: Lula se reúne com presidente da Turquia na COP31 (agenda da semana)", "u": "https://exame.com/brasil/lula-se-reune-com-presidente-da-turquia-na-cop31-e-discute-defesa-comercio-e-minerais-criticos/"}
+ ]
+}

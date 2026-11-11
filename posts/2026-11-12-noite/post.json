@@ -1,0 +1,57 @@
+{
+ "id": "2026-11-12-noite",
+ "periodo": "noite",
+ "data": "2026-11-12",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Em tramitação",
+  "titulo": "PL 5.477/2026 · apostas",
+  "tags": [
+   {
+    "t": "Câmara · urgência",
+    "poder": "leg"
+   },
+   {
+    "cat": "pl",
+    "t": "PL 5.477/2026"
+   }
+  ],
+  "pergunta": "Explorar e divulgar bets pode virar crime?",
+  "rodape": {
+   "rotulo": "Pode trancar a pauta da Câmara a partir de",
+   "valor": "13 de novembro"
+  },
+  "fonte": "Agência Câmara e Focus Gaming News"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, PL 5.477/2026, apostas. Em letras grandes: Explorar e divulgar bets pode virar crime? Embaixo, o símbolo do Legislativo e o texto: pode trancar a pauta da Câmara a partir de 13 de novembro. Fonte: Agência Câmara e Focus Gaming News.",
+ "textos": {
+  "bluesky": "O PL 5.477/2026, do governo, torna crime explorar apostas de quota fixa (4 a 6 anos de prisão) e divulgá-las (2 a 4 anos). Enviado com urgência, pode trancar a pauta da Câmara a partir de 13/11 se não for votado.\n\ncoisapublica.io",
+  "instagram": "Em tramitação 🎲\n\nEm 25 de setembro, o governo editou a Medida Provisória 1.394/2026, que proíbe a exploração, a oferta, a intermediação e a publicidade das apostas de quota fixa, as bets. No mesmo dia, mandou à Câmara o PL 5.477/2026, que leva o assunto para o Código Penal: quem desrespeitar a proibição passa a cometer crime.\n\nO que o projeto prevê, segundo a Agência Câmara (reclusão e multa em todos os casos):\n• explorar ou operar apostas de quota fixa: 4 a 6 anos;\n• divulgar apostas ou captar apostadores: 2 a 4 anos;\n• usar dados pessoais para captar apostadores: 2 a 4 anos;\n• facilitar financeiramente a exploração: 2 a 4 anos;\n• fornecer aplicativo ou site para as apostas: 2 a 4 anos.\n\nA pena aumenta, por exemplo, em jogos de azar online, quando se burla a verificação de idade ou de localização, quando se usam dados de crianças e adolescentes ou de quem tem histórico de apostas, e quando quem divulga ganha parte das apostas ou das perdas. A Loteca, da Caixa, fica de fora. Os casos seriam investigados pela Polícia Federal e julgados pela Justiça Federal. A notícia da Câmara não prevê punição para quem aposta.\n\nOnde está: o projeto foi enviado em regime de urgência. Segundo o sistema da Câmara, citado pelo Focus Gaming News, o prazo de 45 dias termina hoje (12/11). Se não for votado, ele passa a trancar a pauta do Plenário da Câmara a partir de amanhã: as outras votações ficam paradas, com algumas exceções previstas na Constituição. Pelos dados abertos da Câmara, o texto ainda aguarda despacho do presidente da Casa.\n\nDepois da Câmara, segue ao Senado. No STF, as ações contra a MP 1.394 estão com o ministro Luiz Fux, sem data para julgamento.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Câmara #Apostas #Bets #Congresso #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Câmara, 28/9: projeto do governo torna crime a exploração e a publicidade de bets",
+   "u": "https://www.camara.leg.br/noticias/1307129-projeto-de-lei-apresentado-pelo-governo-torna-crime-a-exploracao-e-a-publicidade-de-bets"
+  },
+  {
+   "l": "Câmara dos Deputados: ficha do PL 5.477/2026",
+   "u": "https://www.camara.leg.br/propostas-legislativas/2647160"
+  },
+  {
+   "l": "Câmara dos Deputados: ficha da MP 1.394/2026",
+   "u": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2647155"
+  },
+  {
+   "l": "Focus Gaming News, 2/11: projeto que criminaliza bets pode trancar a pauta da Câmara em 13 de novembro",
+   "u": "https://focusgn.com/brasil/pl-criminaliza-bets-trancar-pauta-camara"
+  },
+  {
+   "l": "Yogonet, 5/11: STF vai julgar em conjunto ações sobre bets, loterias municipais e jogos de azar",
+   "u": "https://www.yogonet.com/brasil/noticias/2026/11/05/10779-stf-vai-julgar-em-conjunto-acoes-sobre-bets-loterias-municipais-e-jogos-de-azar"
+  },
+  {
+   "l": "Constituição Federal, art. 64 (urgência nos projetos do presidente)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  }
+ ]
+}

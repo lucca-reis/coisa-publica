@@ -1,0 +1,37 @@
+{
+ "id": "2026-11-12-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-12",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "O orçamento pode mudar no meio do ano",
+  "visual": {
+   "tipo": "data",
+   "rotulo": "Na pauta do Congresso hoje",
+   "valor": "24",
+   "sub": "pedidos de crédito ao orçamento"
+  },
+  "texto": "Para gastar além do previsto, o governo pede um crédito adicional ao Congresso. Esses projetos se chamam PLN.",
+  "fonte": "Constituição, arts. 166 e 167; Lei 4.320/1964; Agência Senado"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? O orçamento pode mudar no meio do ano. Ao lado do símbolo do Legislativo: na pauta do Congresso hoje, 24 pedidos de crédito ao orçamento. Embaixo: para gastar além do previsto, o governo pede um crédito adicional ao Congresso; esses projetos se chamam PLN. Fonte: Constituição, arts. 166 e 167; Lei 4.320/1964; Agência Senado.",
+ "textos": {
+  "bluesky": "Você sabia? Depois de aprovado, o orçamento ainda pode mudar. Para gastar além do previsto, o governo pede um crédito adicional, por projeto de lei (PLN) votado por deputados e senadores juntos. Só em casos urgentes e imprevisíveis vale uma MP.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 💰\n\nO orçamento do governo federal é uma lei, aprovada pelo Congresso todo ano. Mas ele pode mudar no meio do caminho, com os chamados créditos adicionais.\n\nSão três tipos (Lei 4.320/1964, art. 41):\n• suplementar: reforça um gasto que já está no orçamento, mas ficou curto;\n• especial: cria um gasto que não estava previsto;\n• extraordinário: para despesas urgentes e imprevisíveis, como guerra, comoção interna ou calamidade pública.\n\nQuem decide\nA Constituição proíbe abrir crédito suplementar ou especial sem autorização do Legislativo e sem dizer de onde vem o dinheiro (art. 167). Uma parte dos remanejamentos já vem autorizada na própria lei do orçamento; o que passa disso vira um projeto de lei do Congresso Nacional, o PLN.\n\nO caminho do PLN\nPrimeiro, a Comissão Mista de Orçamento, formada por deputados e senadores, dá o parecer. Depois, o projeto é votado em sessão conjunta do Congresso (art. 166).\n\nE o crédito extraordinário?\nÉ aberto por medida provisória, que vale na hora e depois é analisada pelo Congresso (art. 167, § 3º).\n\nHoje (12/11), às 9h, o Congresso tem 24 projetos desse tipo na pauta, segundo a Agência Senado.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Orçamento #Congresso #Constituição #Política"
+ },
+ "fontes": [
+  {
+   "l": "Constituição Federal, arts. 165 a 167 (orçamento e créditos adicionais)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  },
+  {
+   "l": "Lei 4.320/1964, arts. 40 a 46 (créditos adicionais)",
+   "u": "https://www.planalto.gov.br/ccivil_03/leis/l4320.htm"
+  },
+  {
+   "l": "Agência Senado, 11/11: Sessão do Congresso será nesta quinta-feira",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/11/sessao-do-congresso-sera-nesta-quinta-feira"
+  }
+ ]
+}
