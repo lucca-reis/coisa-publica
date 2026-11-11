@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T08:00-03:00",
+ "atualizado": "2026-11-11T08:57-03:00",
  "camara": [
   {
    "id": 83083,
@@ -33,13 +33,13 @@
   },
   {
    "id": 83086,
-   "inicio": "2026-11-11T08:30-03:00",
+   "inicio": "2026-11-11T08:47-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)\r\n Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=Jvf7JILTCWE",
+   "aoVivo": true
   },
   {
    "id": 83087,
