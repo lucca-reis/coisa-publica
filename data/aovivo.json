@@ -1,26 +1,6 @@
 {
- "atualizado": "2026-11-11T20:23Z",
+ "atualizado": "2026-11-11T21:33Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "SUBPL657",
-   "nome": "Subcomissão Especial para debater e acompanhar a tramitação do Projeto de Lei nº 657, de 2025, que altera que altera a Lei nº 9.394, de 20 de dezembro de 1996, de diretrizes e bases da educação nacional (LDB), para dispensar a existência de diagnóstico clínico ou apresentação de laudo médico para educação especial",
-   "tipo": "Subcomissão Especial para debater e acompanhar a tramitação do Projeto de Lei nº 657, de 2025, que altera que altera a Lei nº 9.394, de 20 de dezembro de 1996, de diretrizes e bases da educação nacional (LDB), para dispensar a existência de diagnóstico clínico ou apresentação de laudo médico para educação especial",
-   "descricao": "Audiência pública: O papel do laudo médico e da avaliação psicopedagógica na identificação das necessidades e no apoio ao desenvolvimento escolar dos alunos.",
-   "desde": "16h21",
-   "video": "https://www.youtube.com/watch?v=Bfe9vE9bOK0"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CSPCCO",
-   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "descricao": "Audiência pública: Debater a maioridade penal no Brasil, com foco no enfrentamento da criminalidade violenta e na responsabililzação penal.",
-   "desde": "14h21",
-   "video": "https://www.youtube.com/watch?v=GsqXRdpNA4c"
-  },
   {
    "casa": "camara",
    "plenario": false,
@@ -40,16 +20,6 @@
    "descricao": "Audiência pública: Cartão de identificação do usuário SUS (PL 5875/13) - Parte 2",
    "desde": "17h12",
    "video": "https://www.youtube.com/watch?v=CHZZn53bnVw"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CMULHER",
-   "nome": "Comissão de Defesa dos Direitos da Mulher",
-   "tipo": "Comissão de Defesa dos Direitos da Mulher",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "14h37",
-   "video": "https://www.youtube.com/watch?v=1hHB_THdx5Q"
   },
   {
    "casa": "camara",
