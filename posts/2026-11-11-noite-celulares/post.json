@@ -1,0 +1,41 @@
+{
+ "id": "2026-11-11-noite-celulares",
+ "periodo": "noite",
+ "data": "2026-11-11",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Congresso · compras",
+  "titulo": "Celulares e tablets no Congresso",
+  "texto": "Valores estimados nos editais. O preço final sai da disputa.",
+  "itens": [
+   {
+    "quando": "Senado",
+    "dia": "R$ 6 mi",
+    "tags": [{"t": "Senado · Pregão 290/2026", "poder": "leg"}],
+    "titulo": "425 celulares, 95 deles iPhones Pro",
+    "texto": "Em comodato (empréstimo) por 48 meses, a partir de fevereiro de 2027."
+   },
+   {
+    "quando": "Câmara",
+    "dia": "R$ 5,8 mi",
+    "tags": [{"t": "Câmara · pregão eletrônico", "poder": "leg"}],
+    "titulo": "604 tablets, 513 para os gabinetes",
+    "texto": "Um por deputado. A disputa começa em 17/11, às 10h."
+   }
+  ],
+  "fonte": "Senado Federal (via O Tempo), SBT News e Metrópoles"
+ },
+ "alt": "Imagem da Coisa Pública, Congresso, compras: celulares e tablets no Congresso. Valores estimados nos editais; o preço final sai da disputa. Senado, cerca de R$ 6 milhões, pregão 290/2026: 425 celulares, 95 deles iPhones Pro, em comodato (empréstimo) por 48 meses, a partir de fevereiro de 2027. Câmara, cerca de R$ 5,8 milhões, pregão eletrônico: 604 tablets, 513 para os gabinetes, um por deputado; a disputa começa em 17 de novembro, às 10h. Fonte: Senado Federal (via O Tempo), SBT News e Metrópoles.",
+ "textos": {
+  "bluesky": "Senado e Câmara abriram pregões para aparelhos. Senado: 425 celulares (95 iPhones Pro) em comodato por 48 meses, estimativa de R$ 6,05 mi. Câmara: 604 tablets, 513 para gabinetes, até R$ 5,77 mi; disputa em 17/11. Valores são estimativas.\n\ncoisapublica.io",
+  "instagram": "Congresso · compras 📱\n\nO Senado e a Câmara abriram pregões para comprar ou alugar aparelhos. Os valores abaixo são estimativas ou tetos dos editais; o preço final depende da disputa entre as empresas.\n\nSenado · Pregão eletrônico 290/2026\n• 425 celulares: 95 iPhones da linha Pro e 330 aparelhos de outras marcas (o edital cita Samsung e Motorola como referência);\n• valor estimado: R$ 6.045.048;\n• os aparelhos não são comprados: ficam em comodato (empréstimo) por 48 meses, a partir de 1º de fevereiro de 2027, com troca a cada dois anos. O contrato inclui linhas, modems e ligações;\n• segundo o Senado, os iPhones vão para senadores e alguns diretores, e os outros para cargos de chefia e assessoramento;\n• o novo contrato substitui o de 2022, que vale até fevereiro de 2027. Em nota, o Senado disse que o valor foi estimado com pesquisa de preços e que o comodato foi escolhido por economicidade e eficiência.\n\nCâmara · Pregão eletrônico\n• 604 tablets: 513 com 5G, um para cada gabinete de deputado (até R$ 9.809,86 cada), e 91 com Wi-Fi para áreas administrativas (até R$ 8.119,99 cada);\n• valor máximo: R$ 5.771.377,27;\n• o edital cita modelos da Samsung e da Apple como referência, sem obrigar uma marca;\n• a disputa começa em 17/11, às 10h. Segundo a Câmara, o objetivo é modernizar o trabalho legislativo e reduzir o uso de papel.\n\nO que vem agora\nA deputada Tabata Amaral (PSB-SP) disse ter pedido ao TCU a suspensão do pregão do Senado, e o deputado Nikolas Ferreira (PL-MG) anunciou um pedido ao TCU e uma ação popular. Até a noite de hoje, não havia decisão sobre esses pedidos.\n\nTudo com fonte no site, link na bio.\n\n#CoisaPública #Senado #Câmara #Transparência #Licitação #Política"
+ },
+ "fontes": [
+  {"l": "O Tempo, 10/11: Senado prevê compra de 425 celulares (com a nota do Senado)", "u": "https://www.otempo.com.br/politica/congresso/2026/11/10/senado-preve-compra-de-95-iphones-e-outros-330-smartphones-para-parlamentares-e-servidores"},
+  {"l": "SBT News, 10/11: Senado prevê 95 iPhones Pro e 330 celulares", "u": "https://sbtnews.sbt.com.br/noticia/politica/senado-preve-95-i-phones-pro-e-330-celulares-para-servidores"},
+  {"l": "Metrópoles, 11/11: Câmara abre pregão de R$ 5,7 milhões para tablets", "u": "https://www.metropoles.com/brasil/camara-abre-pregao-de-r-57-milhoes-para-adquirir-ipads-para-deputados"},
+  {"l": "Estado de Minas, 11/11: Câmara abre licitação de R$ 5,7 milhões para tablets", "u": "https://www.em.com.br/politica/2026/11/7536946-camara-dos-deputados-abre-licitacao-de-rs-57-milhoes-para-comprar-tablets.html"},
+  {"l": "Portal Viu, 11/11: Senado e Câmara preveem R$ 11,8 milhões em celulares e tablets", "u": "https://www.portalviu.com.br/brasil/senado-e-camara-preveem-r-118-milhoes-em-celulares-e-tablets"},
+  {"l": "Bahia Notícias, 11/11: Tabata e Nikolas anunciam ações contra a compra", "u": "https://www.bahianoticias.com.br/noticia/323560-tabata-amaral-e-nikolas-ferreira-anunciam-acoes-para-impedir-compra-de-novos-aparelhos-iphone-pelo-senado"}
+ ]
+}
