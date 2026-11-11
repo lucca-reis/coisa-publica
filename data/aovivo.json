@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:04Z",
+ "atualizado": "2026-11-11T19:09Z",
  "itens": [
   {
    "casa": "camara",
@@ -50,6 +50,16 @@
    "descricao": "Audiência pública: Apresentação da LDO e da LOA para 2027. Art. 29 e 84 da Res 1/2006-CN",
    "desde": "14h38",
    "video": "https://www.youtube.com/watch?v=fC54X5Uhn0M"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "PL808514",
+   "nome": "Comissão Especial destinada a proferir parecer ao Projeto de Lei nº 8085, de 2014, do Senado Federal, que \"altera a Lei nº 9.503, de 23 de setembro de 1997, que institui o Código de Trânsito Brasileiro, para instituir a obrigatoriedade da prática de direção veicular em vias públicas para fins de formação de condutores\"",
+   "tipo": "Comissão Especial destinada a proferir parecer ao Projeto de Lei nº 8085, de 2014, do Senado Federal, que \"altera a Lei nº 9.503, de 23 de setembro de 1997, que institui o Código de Trânsito Brasileiro, para instituir a obrigatoriedade da prática de direção veicular em vias públicas para fins de formação de condutores\"",
+   "descricao": "Reunião deliberativa: Discussão e votação do parecer do relator, Dep. Aureo Ribeiro",
+   "desde": "16h03",
+   "video": "https://www.youtube.com/watch?v=PG8HHDUPscM"
   },
   {
    "casa": "camara",
