@@ -1,4 +1,35 @@
 {
- "atualizado": "2026-11-11T02:24Z",
- "itens": []
+ "atualizado": "2026-11-11T12:27Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão não deliberativa solene",
+   "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
+   "desde": "8h47",
+   "video": "https://www.youtube.com/watch?v=Jvf7JILTCWE"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CTRAB",
+   "nome": "Comissão de Trabalho",
+   "tipo": "Comissão de Trabalho",
+   "descricao": "Mesa redonda: \"Discussão da pauta e outros assuntos atinentes à Comissão\"",
+   "desde": "8h",
+   "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CCJ",
+   "nome": "Comissão de Constituição, Justiça e Cidadania",
+   "tipo": "Comissão de Constituição, Justiça e Cidadania",
+   "descricao": "Reunião deliberativa da Comissão de Constituição e Justiça",
+   "desde": "9h",
+   "video": "https://www.youtube.com/watch?v=i6KM-etSrdQ"
+  }
+ ]
 }
