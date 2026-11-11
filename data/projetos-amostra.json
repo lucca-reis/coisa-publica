@@ -194,18 +194,18 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2651872",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2651872",
-   "idDeputadoAutor": "204560",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204560",
-   "codTipoAutor": "10000",
-   "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Adolfo Viana",
-   "siglaPartidoAutor": "PSDB",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
-   "siglaUFAutor": "BA",
-   "ordemAssinatura": "2",
-   "proponente": "0"
+   "idProposicao": "2652548",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2652548",
+   "idDeputadoAutor": "",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2003",
+   "codTipoAutor": "2",
+   "tipoAutor": "COMISSÃO PERMANENTE",
+   "nomeAutor": "Comissão de Constituição e Justiça e de Cidadania",
+   "siglaPartidoAutor": "",
+   "uriPartidoAutor": "",
+   "siglaUFAutor": "",
+   "ordemAssinatura": "1",
+   "proponente": "1"
   }
  },
  "senado-votacao": {
