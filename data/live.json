@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T08:57-03:00",
+ "atualizado": "2026-11-11T10:07-03:00",
  "camara": [
   {
    "id": 83083,
@@ -34,12 +34,12 @@
   {
    "id": 83086,
    "inicio": "2026-11-11T08:47-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-11T09:38-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)\r\n Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
    "video": "https://www.youtube.com/watch?v=Jvf7JILTCWE",
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": 83087,
@@ -103,13 +103,13 @@
   },
   {
    "id": 83190,
-   "inicio": "2026-11-11T09:30-03:00",
+   "inicio": "2026-11-11T09:53-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor\r\n Homenagem aos 95 anos da inauguração do Monumento ao Cristo Redentor",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=Z-yz-n97wRI",
+   "aoVivo": true
   },
   {
    "id": 83236,
