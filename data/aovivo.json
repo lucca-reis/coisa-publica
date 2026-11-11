@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T18:25Z",
+ "atualizado": "2026-11-11T18:35Z",
  "itens": [
   {
    "casa": "camara",
@@ -50,16 +50,6 @@
    "descricao": "Audiência pública: Apresentação da LDO e da LOA para 2027. Art. 29 e 84 da Res 1/2006-CN",
    "desde": "14h38",
    "video": "https://www.youtube.com/watch?v=fC54X5Uhn0M"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CLP",
-   "nome": "Comissão de Legislação Participativa",
-   "tipo": "Comissão de Legislação Participativa",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "15h16",
-   "video": null
   },
   {
    "casa": "camara",
