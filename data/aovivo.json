@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:35Z",
+ "atualizado": "2026-11-11T19:57Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,16 +10,6 @@
    "descricao": "Audiência pública: O papel do laudo médico e da avaliação psicopedagógica na identificação das necessidades e no apoio ao desenvolvimento escolar dos alunos.",
    "desde": "16h21",
    "video": "https://www.youtube.com/watch?v=Bfe9vE9bOK0"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CESPO",
-   "nome": "Comissão do Esporte",
-   "tipo": "Comissão do Esporte",
-   "descricao": "Audiência pública: Implantação e projeto acadêmico da Universidade Federal do Esporte",
-   "desde": "14h17",
-   "video": "https://www.youtube.com/watch?v=mwpofv6nQgQ"
   },
   {
    "casa": "camara",
@@ -40,36 +30,6 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "14h37",
    "video": "https://www.youtube.com/watch?v=1hHB_THdx5Q"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "PEC03215",
-   "nome": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
-   "tipo": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
-   "descricao": "Audiência pública e deliberação: Redução da maioridade penal",
-   "desde": "14h59",
-   "video": "https://www.youtube.com/watch?v=pi1Ev8mqU58"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CMO",
-   "nome": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
-   "tipo": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
-   "descricao": "Audiência pública: Apresentação da LDO e da LOA para 2027. Art. 29 e 84 da Res 1/2006-CN",
-   "desde": "14h38",
-   "video": "https://www.youtube.com/watch?v=fC54X5Uhn0M"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "PL808514",
-   "nome": "Comissão Especial destinada a proferir parecer ao Projeto de Lei nº 8085, de 2014, do Senado Federal, que \"altera a Lei nº 9.503, de 23 de setembro de 1997, que institui o Código de Trânsito Brasileiro, para instituir a obrigatoriedade da prática de direção veicular em vias públicas para fins de formação de condutores\"",
-   "tipo": "Comissão Especial destinada a proferir parecer ao Projeto de Lei nº 8085, de 2014, do Senado Federal, que \"altera a Lei nº 9.503, de 23 de setembro de 1997, que institui o Código de Trânsito Brasileiro, para instituir a obrigatoriedade da prática de direção veicular em vias públicas para fins de formação de condutores\"",
-   "descricao": "Reunião deliberativa: Discussão e votação do parecer do relator, Dep. Aureo Ribeiro",
-   "desde": "16h03",
-   "video": "https://www.youtube.com/watch?v=PG8HHDUPscM"
   },
   {
    "casa": "camara",
@@ -99,6 +59,16 @@
    "tipo": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
    "descricao": "Audiência pública: Déficit histórico no número de Auditores-Fiscais do Trabalho",
    "desde": "16h28",
+   "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário do Senado",
+   "tipo": "Sessão deliberativa ordinária",
+   "descricao": "",
+   "desde": "14h",
    "video": null
   }
  ]
