@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T17:35Z",
+ "atualizado": "2026-11-11T17:40Z",
  "itens": [
   {
    "casa": "camara",
@@ -50,6 +50,16 @@
    "descricao": "Mesa redonda: \"Discussão da pauta e outros assuntos atinentes à Comissão\"",
    "desde": "8h",
    "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário do Senado",
+   "tipo": "Sessão deliberativa ordinária",
+   "descricao": "",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=X9HNSTugDKI"
   },
   {
    "casa": "senado",
