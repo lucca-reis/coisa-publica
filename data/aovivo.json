@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T13:08Z",
+ "atualizado": "2026-11-11T13:13Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,6 +10,26 @@
    "descricao": "Audiência pública: Rede Nacional de Física de Altas Energias (Renafae)",
    "desde": "9h52",
    "video": "https://www.youtube.com/watch?v=aHqtOyUV8QI"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CDU",
+   "nome": "Comissão de Desenvolvimento Urbano",
+   "tipo": "Comissão de Desenvolvimento Urbano",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h09",
+   "video": "https://www.youtube.com/watch?v=lBnEA7DXPto"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMADS",
+   "nome": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
+   "tipo": "Comissão de Meio Ambiente e Desenvolvimento Sustentável",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "10h11",
+   "video": "https://www.youtube.com/watch?v=aqGBGgrs0Kg"
   },
   {
    "casa": "camara",
@@ -24,12 +44,22 @@
   {
    "casa": "camara",
    "plenario": false,
+   "sigla": "CVT",
+   "nome": "Comissão de Viação e Transportes",
+   "tipo": "Comissão de Viação e Transportes",
+   "descricao": "Reunião deliberativa: Definição das emendas da comissão ao Projeto de Lei Orçamentária Anual para 2027",
+   "desde": "10h06",
+   "video": "https://www.youtube.com/watch?v=cNmakcyXwDY"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
    "sigla": "CREDN",
    "nome": "Comissão de Relações Exteriores e de Defesa Nacional",
    "tipo": "Comissão de Relações Exteriores e de Defesa Nacional",
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "10h04",
-   "video": null
+   "video": "https://www.youtube.com/watch?v=UIlehLo21UE"
   },
   {
    "casa": "camara",
@@ -50,6 +80,16 @@
    "descricao": "Mesa redonda: \"Discussão da pauta e outros assuntos atinentes à Comissão\"",
    "desde": "8h",
    "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CCT",
+   "nome": "Comissão de Ciência, Tecnologia, Inovação e Informática",
+   "tipo": "Comissão de Ciência, Tecnologia, Inovação e Informática",
+   "descricao": "Comissão de Ciência e Tecnologia avalia projetos",
+   "desde": "10h",
+   "video": "https://www.youtube.com/watch?v=i8wf0S1DSvo"
   },
   {
    "casa": "senado",
