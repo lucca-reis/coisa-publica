@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T17:54Z",
+ "atualizado": "2026-11-11T17:59Z",
  "itens": [
   {
    "casa": "camara",
@@ -40,6 +40,26 @@
    "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
    "desde": "14h37",
    "video": "https://www.youtube.com/watch?v=1hHB_THdx5Q"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "PEC03215",
+   "nome": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
+   "tipo": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
+   "descricao": "Audiência pública e deliberação: Redução da maioridade penal",
+   "desde": "14h59",
+   "video": null
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CCOM",
+   "nome": "Comissão de Comunicação",
+   "tipo": "Comissão de Comunicação",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "14h53",
+   "video": "https://www.youtube.com/watch?v=HZvgIpMWikI"
   },
   {
    "casa": "camara",
