@@ -113,6 +113,21 @@ function visual(V, poder){
       <line x1="0" y1="${3*H}" x2="912" y2="${3*H}" stroke="var(--gray)" stroke-width="2"/>${legend}
     </svg>`;
   }
+  // aparelhos: uma coluna por grupo (ex.: Senado e Câmara), com um desenho por aparelho (celular em pé ou tablet deitado);
+  // `partes` pinta os primeiros na cor do poder e o resto em cinza, com a legenda e o valor embaixo
+  if (V.tipo === 'aparelhos'){
+    const col = G => {
+      const tot = (G.partes || []).reduce((a,[n])=>a+n,0), cel = G.forma !== 'tablet';
+      const w = cel ? 9 : 13, h = cel ? 16 : 9, gx = 4, gy = 4, W = 420, per = Math.floor((W+gx)/(w+gx)), rows = Math.ceil(tot/per);
+      const first = (G.partes[0] || [0])[0];
+      const units = [...Array(tot)].map((_,i)=>`<rect x="${(i%per)*(w+gx)}" y="${Math.floor(i/per)*(h+gy)}" width="${w}" height="${h}" rx="${cel ? 3 : 2.5}" fill="${i < first ? 'var(--pc)' : 'var(--gray)'}"/>`).join('');
+      return `<div class="ap"><small>${esc(G.titulo)}</small><b>${esc(G.n)} <span>${esc(G.l)}</span></b>
+        <svg viewBox="0 0 ${per*(w+gx)-gx} ${rows*(h+gy)-gy}" width="${W}">${units}</svg>
+        <div class="ap-lg">${G.partes.map(([n,t],i)=>`<span><i style="background:${i ? 'var(--gray)' : 'var(--pc)'}"></i>${n} ${esc(t)}</span>`).join('')}</div>
+        ${G.valor ? `<p class="ap-v">${esc(G.valor)}<small>${esc(G.sub || '')}</small></p>` : ''}</div>`;
+    };
+    return `<div class="aps">${(V.grupos || []).map(col).join('')}</div>`;
+  }
   if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   if (V.tipo === 'data') return `<div class="dat">${(V.simbolo || poder) === 'jud' ? MESA : `<div class="circ">${GLY[V.simbolo || poder] || ''}</div>`}<div>${V.rotulo ? `<small>${esc(V.rotulo)}</small>` : ''}<b>${esc(V.valor)}</b>${V.sub ? `<small style="margin-top:8px">${esc(V.sub)}</small>` : ''}</div></div>`;
   return '';

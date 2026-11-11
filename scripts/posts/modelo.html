@@ -44,6 +44,14 @@ body.cheio.p-exe{--pc:#009C3B;--pci:#F3F3F3}
 .dat b{display:block;font-size:calc(150px * var(--k));font-weight:700;letter-spacing:-.045em;line-height:.95}
 .cheio .row{width:100%;align-items:center}
 .cheio .leg2{color:var(--muted)}
+.aps{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);column-gap:72px;width:100%;align-items:start}
+.ap{display:grid;grid-row:span 5;grid-template-rows:subgrid}
+.ap small{display:block;font-size:28px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.ap > b{display:block;font-size:calc(96px * var(--k));font-weight:700;letter-spacing:-.045em;line-height:1;margin:8px 0 calc(24px * var(--k))}
+.ap > b span{font-size:32px;font-weight:400;letter-spacing:0;color:var(--muted)}
+.ap svg{display:block;max-width:100%;height:auto}
+.ap-lg{display:flex;flex-direction:column;gap:8px;margin-top:22px;font-size:26px;color:var(--ink)}.ap-lg i{display:inline-block;width:18px;height:18px;border-radius:5px;margin-right:12px;vertical-align:-2px}
+.ap-v{margin:calc(22px * var(--k)) 0 0;padding-top:18px;border-top:3px solid var(--gray);font-size:calc(40px * var(--k));font-weight:700;letter-spacing:-.02em}.ap-v small{display:block;margin-top:4px;font-size:24px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted)}
 .perg{flex:1;display:flex;align-items:center}
 .perg p{margin:0;font-size:calc(104px * var(--k));line-height:1.02;letter-spacing:-.04em;font-weight:700}
 .prod{display:flex;align-items:center;gap:36px;padding:34px 0 0;border-top:3px solid var(--gray)}
