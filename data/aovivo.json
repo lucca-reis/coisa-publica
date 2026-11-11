@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T15:13Z",
+ "atualizado": "2026-11-11T15:24Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,16 +20,6 @@
    "descricao": "Mesa redonda: \"Discussão da pauta e outros assuntos atinentes à Comissão\"",
    "desde": "8h",
    "video": null
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CSP",
-   "nome": "Comissão de Segurança Pública",
-   "tipo": "Comissão de Segurança Pública",
-   "descricao": "CSP vota convocação de ministro e convite ao diretor-geral da PF",
-   "desde": "11h",
-   "video": "https://www.youtube.com/watch?v=YCIe2xcbJU8"
   },
   {
    "casa": "senado",
