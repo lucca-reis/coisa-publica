@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-11T12:42Z",
+ "atualizado": "2026-11-11T12:47Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão não deliberativa solene",
-   "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
-   "desde": "8h47",
-   "video": "https://www.youtube.com/watch?v=Jvf7JILTCWE"
-  },
   {
    "casa": "camara",
    "plenario": false,
