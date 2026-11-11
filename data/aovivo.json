@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T13:49Z",
+ "atualizado": "2026-11-11T13:59Z",
  "itens": [
   {
    "casa": "camara",
@@ -64,32 +64,12 @@
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CINDRE",
-   "nome": "Comissão de Integração Nacional e Desenvolvimento Regional",
-   "tipo": "Comissão de Integração Nacional e Desenvolvimento Regional",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h21",
-   "video": "https://www.youtube.com/watch?v=Bx82gjXkEQ4"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
    "sigla": "CN",
    "nome": "CONGRESSO NACIONAL",
    "tipo": "CONGRESSO NACIONAL",
    "descricao": "Sessão não deliberativa solene: Homenagem à Nossa Senhora de Nazaré",
    "desde": "10h22",
    "video": "https://www.youtube.com/watch?v=JQHP2pl9xRw"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CFT",
-   "nome": "Comissão de Finanças e Tributação",
-   "tipo": "Comissão de Finanças e Tributação",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h15",
-   "video": "https://www.youtube.com/watch?v=CyNHxvv4xts"
   },
   {
    "casa": "camara",
@@ -160,16 +140,6 @@
    "descricao": "Reunião deliberativa da Comissão de Constituição e Justiça",
    "desde": "9h",
    "video": "https://www.youtube.com/watch?v=i6KM-etSrdQ"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CAS",
-   "nome": "Comissão de Assuntos Sociais",
-   "tipo": "Comissão de Assuntos Sociais",
-   "descricao": "Comissão de Assuntos Sociais vota projetos e requerimentos",
-   "desde": "9h",
-   "video": "https://www.youtube.com/watch?v=7VKzsz5CDWU"
   }
  ]
 }
