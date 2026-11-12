@@ -54,8 +54,34 @@ function hemi(casa, destaque){
   const r = casa === 'senado' ? 19 : 9.5;
   return `<svg viewBox="0 0 720 380" width="760">${seats.map((p,i)=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${i < destaque ? 'var(--pc)' : 'var(--gray)'}"/>`).join('')}</svg>`;
 }
+// cores dos partidos, as mesmas do site (PARTY no index.html)
+const PARTY = {PSOL:'#A3238E', Rede:'#14A39A', PCdoB:'#8A1325', PT:'#D6202C', PV:'#3A9A41', PSB:'#F2B705', PDT:'#E46AA2', Avante:'#3CC2D4',
+  Solidariedade:'#C9773A', MDB:'#86B840', PSD:'#F28C1E', Podemos:'#1F8F6A', PSDB:'#2F6DB5', PRD:'#6C7A8C', 'União':'#1AA0D8', PP:'#8FB3E3',
+  Republicanos:'#5446B8', 'Missão':'#E4CF4A', Novo:'#FF6A13', PL:'#2450B0', Cidadania:'#D8336D'};
+const PORDER = ['PSOL','Rede','PCdoB','PT','PV','PSB','PDT','Avante','Solidariedade','Cidadania','MDB','PSD','Podemos','PSDB','PRD','União','PP','Republicanos','Missão','Novo','PL'];
+// semicírculo com uma cor por cadeira (as que sobram em cinza), da esquerda para a direita
+function hemiCores(T, rows, cores, r, R0 = 150){
+  const R1 = 330, cx = 360, cy = 360;
+  const radii = [...Array(rows)].map((_,i)=> R0 + (R1-R0)*i/(rows-1)), sum = radii.reduce((a,b)=>a+b,0);
+  let seats = [];
+  radii.forEach((rr,i)=>{ const n = i===rows-1 ? T - seats.length : Math.round(T*rr/sum); for (let k=0;k<n;k++){ const a = Math.PI*(1-(k+.5)/n); seats.push({x:cx + rr*Math.cos(a), y:cy - rr*Math.sin(a), a}); } });
+  seats = seats.slice(0,T).sort((p,q)=> q.a-p.a);
+  return `<svg viewBox="0 0 720 370" width="100%" style="display:block">${seats.map((p,i)=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${cores[i] || 'var(--gray)'}"/>`).join('')}</svg>`;
+}
 function visual(V, poder){
   if (!V) return '';
+  // mulheres: um semicírculo por Casa, com as cadeiras das mulheres pintadas na cor do partido; embaixo, a porcentagem e os partidos
+  if (V.tipo === 'mulheres'){
+    const col = C => {
+      const ps = [...C.partidos].sort((a,b)=> PORDER.indexOf(a[0]) - PORDER.indexOf(b[0]));
+      const cores = ps.flatMap(([p,n])=> Array(n).fill(PARTY[p] || '#8A8B90'));
+      const lista = [...C.partidos].sort((a,b)=> b[1]-a[1] || PORDER.indexOf(a[0]) - PORDER.indexOf(b[0]));
+      return `<div class="mu"><small>${esc(C.titulo)}</small>${hemiCores(C.total, C.casa === 'senado' ? 5 : 11, cores, C.casa === 'senado' ? 19 : 9.5)}
+        <div class="mu-n"><b>${esc(C.pct)}</b><span>${esc(C.l)}</span></div>
+        <div class="mu-p">${lista.map(([p,n])=>`<span><i style="background:${PARTY[p] || '#8A8B90'}"></i>${esc(p)} <b>${n}</b></span>`).join('')}</div></div>`;
+    };
+    return `<div class="mus">${(V.casas || []).map(col).join('')}</div>`;
+  }
   // plenário em faixa única: o mesmo semicírculo do `plenario`, preenchido da esquerda até a porcentagem
   if (V.tipo === 'percentual'){
     const pc = Math.max(0, Math.min(100, +V.valor || 0)), r = 240, L = Math.PI*r, arc = `M${360-r} 360 A${r} ${r} 0 0 1 ${360+r} 360`;
@@ -153,6 +179,28 @@ function html(P, id){
     // poucos elementos: o tema, o título, o desenho, uma frase e a fonte (as etiquetas ficam na legenda)
     return head + `<div class="vis">${mid}</div>`
       + (I.texto ? `<p class="txt">${esc(I.texto)}</p>` : '') + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>coisapublica.io</span></div>`;
+  }
+  // destaques: grade 2x2 de cartões coloridos, cada um na cor do poder, com um desenho, um número grande, o título e uma frase
+  if (I.layout === 'destaques' && I.itens && I.itens.length){
+    const des = x => {
+      const D = x.desenho || {}, pw = PODER[x.poder] || 'leg';
+      if (D.tipo === 'senado' || D.tipo === 'camara'){
+        const T = D.tipo === 'senado' ? 81 : 513, sim = D.sim || 0, nao = D.nao || 0;
+        return hemiCores(T, D.tipo === 'senado' ? 5 : 11, [...Array(T)].map((_,i)=> i < sim ? 'var(--ink)' : i < sim+nao ? '#E24B4A' : 'rgba(18,20,23,.13)'), D.tipo === 'senado' ? 16 : 9.5, 200);
+      }
+      if (D.tipo === 'mesa') return MESA.replace('stroke="var(--gray)"','stroke="var(--tc)"').replace(/fill="var\(--gray\)"/g,'fill="var(--tc)"');
+      if (D.tipo === 'moedas'){ // pilhas de moedas
+        const pil = (x0, n)=> [...Array(n)].map((_,i)=>`<ellipse cx="${x0}" cy="${300-i*30}" rx="70" ry="22" fill="var(--tc)" stroke="var(--tcard)" stroke-width="6"/>`).join('');
+        return `<svg viewBox="0 0 520 340" width="100%">${pil(120,5)}${pil(260,8)}${pil(400,3)}</svg>`;
+      }
+      return `<svg viewBox="0 0 520 340" width="100%" style="font-family:inherit"><circle cx="260" cy="170" r="165" fill="var(--tc)"/>${D.texto ? `<text x="260" y="196" text-anchor="middle" font-size="78" font-weight="700" letter-spacing="-3" fill="#F3F3F3">${esc(D.texto)}</text>` : ''}</svg>`;
+    };
+    const TC = {leg:['#F2C200','color-mix(in srgb,#F2C200 26%,#F3F3F3)'], jud:['#1F4FB5','color-mix(in srgb,#1F4FB5 13%,#F3F3F3)'], exe:['#009C3B','color-mix(in srgb,#009C3B 15%,#F3F3F3)']};
+    card = `<div class="dq">${I.itens.map(x=>{ const pw = PODER[x.poder] || 'leg', [c,bg] = TC[pw];
+      return `<div class="dq-c" style="--tc:${c};--tcard:${bg};background:${bg}"><p class="dq-q">${esc(x.quando||'')}<span>${esc(x.dia||'')}</span></p>
+        <div class="dq-d">${des(x)}${x.num ? `<b class="dq-n">${esc(x.num)}</b>` : ''}</div>
+        <p class="dq-t">${esc(x.titulo)}</p>${x.texto ? `<p class="dq-s">${esc(x.texto)}</p>` : ''}</div>`; }).join('')}</div>`;
+    return head + card + `<div class="foot"><span>Fonte: ${esc(I.fonte || '')}</span><span>coisapublica.io</span></div>`;
   }
   if (I.itens && I.itens.length){
     card = `<div class="card"><div class="list">${I.itens.map(x=>`<div class="it"><div class="d">${esc(x.quando||'')}<b${String(x.dia||'').length > 5 ? ' class="lg"' : ''}>${esc(x.dia||'')}</b></div><div>
