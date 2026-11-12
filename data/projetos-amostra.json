@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2652548",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2652548",
-   "idDeputadoAutor": "",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2003",
-   "codTipoAutor": "2",
-   "tipoAutor": "COMISSÃO PERMANENTE",
-   "nomeAutor": "Comissão de Constituição e Justiça e de Cidadania",
-   "siglaPartidoAutor": "",
-   "uriPartidoAutor": "",
-   "siglaUFAutor": "",
+   "idProposicao": "2653046",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2653046",
+   "idDeputadoAutor": "204374",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204374",
+   "codTipoAutor": "10000",
+   "tipoAutor": "Deputado(a)",
+   "nomeAutor": "Bia Kicis",
+   "siglaPartidoAutor": "PL",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUFAutor": "DF",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
