@@ -1,26 +1,6 @@
 {
- "atualizado": "2026-11-11T23:53-03:00",
+ "atualizado": "2026-11-12T00:55-03:00",
  "camara": [
-  {
-   "id": 83083,
-   "inicio": "2026-11-10T09:12-03:00",
-   "fim": "2026-11-10T09:57-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers\r\n Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers",
-   "video": "https://www.youtube.com/watch?v=vH_e-1pgD-A",
-   "aoVivo": false
-  },
-  {
-   "id": 83084,
-   "inicio": "2026-11-10T11:23-03:00",
-   "fim": "2026-11-10T11:57-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ\r\n Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ",
-   "video": "https://www.youtube.com/watch?v=YrYADMrBfhA",
-   "aoVivo": false
-  },
   {
    "id": 83085,
    "inicio": "2026-11-11T11:23-03:00",
@@ -112,16 +92,6 @@
    "aoVivo": false
   },
   {
-   "id": 83243,
-   "inicio": "2026-11-10T14:03-03:00",
-   "fim": "2026-11-10T20:19-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": "https://www.youtube.com/watch?v=uYaSA0ANr-g",
-   "aoVivo": false
-  },
-  {
    "id": 83266,
    "inicio": "2026-11-11T14:39-03:00",
    "fim": "2026-11-11T20:07-03:00",
@@ -133,26 +103,6 @@
   }
  ],
  "senado": [
-  {
-   "id": "549939",
-   "inicio": "2026-11-11T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO SOLENE ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594175",
-   "inicio": "2026-11-11T14:00-03:00",
-   "fim": null,
-   "situacao": "Suspensa",
-   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "596834",
    "inicio": "2026-11-12T09:00-03:00",
@@ -249,6 +199,16 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "577254",
+   "inicio": "2026-11-19T10:00-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "SESSÃO SOLENE ",
    "descricao": "",
    "video": null,
    "aoVivo": false
