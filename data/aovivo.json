@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T18:09Z",
+ "atualizado": "2026-11-12T18:24Z",
  "itens": [
   {
    "casa": "senado",
@@ -9,6 +9,16 @@
    "tipo": "Sessão especial",
    "descricao": "",
    "desde": "14h",
+   "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CDH",
+   "nome": "Comissão de Direitos Humanos e Legislação Participativa",
+   "tipo": "Comissão de Direitos Humanos e Legislação Participativa",
+   "descricao": "Reunião outros eventos",
+   "desde": "15h",
    "video": null
   }
  ]
