@@ -1,0 +1,84 @@
+{
+ "id": "2026-11-13-manha",
+ "periodo": "manha",
+ "data": "2026-11-13",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Câmara",
+    "dia": "Prazo",
+    "tags": [
+     {
+      "t": "Câmara · urgência",
+      "poder": "leg"
+     },
+     {
+      "cat": "pl",
+      "t": "PL 5.477/2026"
+     }
+    ],
+    "titulo": "Projeto das bets passa a trancar a pauta",
+    "texto": "Venceu o prazo de 45 dias; outras votações do Plenário ficam paradas."
+   },
+   {
+    "quando": "Senado",
+    "dia": "10h",
+    "tags": [
+     {
+      "t": "Senado · sem votações",
+      "poder": "leg"
+     }
+    ],
+    "titulo": "Sessão só de discursos",
+    "texto": "A MP do Brasil Soberano 3 ainda precisa passar pelo Senado até 18/11."
+   },
+   {
+    "quando": "Presidência",
+    "dia": "Manila",
+    "tags": [
+     {
+      "t": "Presidência · viagem",
+      "poder": "exe"
+     }
+    ],
+    "titulo": "Lula chega às Filipinas",
+    "texto": "Participa da 49ª Cúpula da ASEAN, o bloco do Sudeste Asiático."
+   }
+  ],
+  "fonte": "Focus Gaming News, Congresso Nacional e O Tempo"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 13 de novembro. Câmara, prazo: o projeto que torna crime explorar e divulgar bets (PL 5.477/2026) passa a trancar a pauta; venceu o prazo de 45 dias, e outras votações do Plenário ficam paradas. Senado, 10h: sessão só de discursos, sem votações; a MP do Brasil Soberano 3 ainda precisa passar pelo Senado até 18/11. Presidência, Manila: Lula chega às Filipinas e participa da 49ª Cúpula da ASEAN, o bloco do Sudeste Asiático. Fonte: Focus Gaming News, Congresso Nacional e O Tempo.",
+ "textos": {
+  "bluesky": "Hoje (13/11) nos Três Poderes:\n\nCâmara · projeto das bets (PL 5.477) passa a trancar a pauta.\n10h · Senado faz sessão sem votações.\nSTF · termina a sessão do Plenário Virtual.\nLula chega a Manila para a cúpula da ASEAN.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, sexta (13/11), nos Três Poderes:\n\nCâmara\nO PL 5.477/2026, do governo, que torna crime explorar e divulgar apostas de quota fixa (as bets), foi enviado com urgência constitucional. O prazo de 45 dias terminou ontem (12/11), segundo o Focus Gaming News, e o projeto passa a trancar a pauta do Plenário: as outras votações ficam paradas até ele ser votado, com algumas exceções previstas na Constituição. Até a preparação deste post, não encontramos sessão de votações marcada no Plenário da Câmara para hoje.\n\n10h · Senado\nSessão não deliberativa: os senadores fazem discursos, sem projetos para votar, segundo a agenda do Congresso Nacional.\nNa quinta (12/11), o Senado aprovou, por 40 a 38, a urgência do projeto de ajuste fiscal do governo (PLP 299/2026). Até a preparação deste post, o resultado da votação do texto não estava confirmado.\nAinda falta o Senado votar a MP do Brasil Soberano 3 (MP 1.379/2026), aprovada pela Câmara em 10/11. Ela perde a validade em 18/11.\n\nSTF · Plenário Virtual\nTermina às 23h59 a sessão virtual iniciada em 6/11. Entre os processos: provas tiradas pela polícia, sem ordem judicial, de celular esquecido na cena do crime (Tema 977) e a caça de espécies exóticas invasoras autorizada por estados (Tema 1.426).\n\nPresidência\nDepois da COP31, na Turquia, Lula chega a Manila, nas Filipinas. Segundo a Presidência, citada por O Tempo, ele participa da 49ª Cúpula da ASEAN, o bloco do Sudeste Asiático, e se reúne com autoridades e empresários. Amanhã (14/11), visita de Estado às Filipinas. A volta a Brasília está prevista para 16/11.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #Câmara #Senado #STF #ASEAN #Política"
+ },
+ "fontes": [
+  {
+   "l": "Focus Gaming News, 2/11: projeto que criminaliza bets pode trancar a pauta da Câmara em 13 de novembro",
+   "u": "https://focusgn.com/brasil/pl-criminaliza-bets-trancar-pauta-camara"
+  },
+  {
+   "l": "Congresso Nacional: agenda das Casas em 13/11",
+   "u": "https://www.congressonacional.leg.br/sessoes/agenda-do-congresso-senado-e-camara/-/agenda/2026-11-13"
+  },
+  {
+   "l": "O Tempo, 12/11: Senado aprova urgência do pacote fiscal por 40 a 38",
+   "u": "https://www.otempo.com.br/politica/2026/11/12/senado-aprova-urgencia-do-pacote-fiscal-por-40-a-38-e-governo-fica-a-um-voto-do-minimo"
+  },
+  {
+   "l": "Agência Câmara: Câmara aprova crédito para exportadores afetados por novo tarifaço (MP 1.379)",
+   "u": "https://www.camara.leg.br/noticias/1317853-camara-aprova-credito-de-185-bi-para-exportadores-afetados-por-novo-tarifaco-dos-eua"
+  },
+  {
+   "l": "STF Notícias: destaques do Plenário Virtual de 6 a 13/11",
+   "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-do-plenario-virtual-desta-semana-7/"
+  },
+  {
+   "l": "O Tempo, 12/11: Lula segue para as Filipinas para participar de cúpula",
+   "u": "https://www.otempo.com.br/politica/2026/11/12/lula-segue-para-as-filipinas-para-participar-de-cupula-e-ampliar-comercio-com-a-asia"
+  }
+ ]
+}

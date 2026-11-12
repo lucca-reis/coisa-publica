@@ -1,0 +1,120 @@
+{
+ "id": "2026-11-13-noite",
+ "periodo": "noite",
+ "data": "2026-11-13",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Resumo da semana",
+  "titulo": "Os destaques da semana",
+  "itens": [
+   {
+    "quando": "Senado",
+    "dia": "10 e 11/11",
+    "tags": [
+     {
+      "t": "Senado · vão à sanção",
+      "poder": "leg"
+     },
+     {
+      "cat": "plp",
+      "t": "PLPs 109/2025 e 230/2025"
+     }
+    ],
+    "titulo": "ANP e Fust aprovados",
+    "texto": "72 a 0 para a ANP ver notas fiscais e 68 a 0 para o Fust sem bloqueio."
+   },
+   {
+    "quando": "Congresso",
+    "dia": "12/11",
+    "tags": [
+     {
+      "t": "Congresso · vão à sanção",
+      "poder": "leg"
+     }
+    ],
+    "titulo": "Créditos extras no orçamento",
+    "texto": "Inclui dinheiro para Previdência, Bolsa Família e BPC."
+   },
+   {
+    "quando": "STF",
+    "dia": "12/11",
+    "tags": [
+     {
+      "t": "STF · julgado",
+      "poder": "jud"
+     },
+     {
+      "cat": "acao",
+      "t": "ADPFs 1185 e 1241"
+     }
+    ],
+    "titulo": "Fim da isenção do artigo 181",
+    "texto": "Por unanimidade, crimes contra o patrimônio da mulher no lar podem ser punidos."
+   }
+  ],
+  "fonte": "Brasil 247, Telesíntese, TV Sim Brasil e CartaCapital"
+ },
+ "alt": "Imagem da Coisa Pública, Resumo da semana: os destaques da semana de 9 a 13 de novembro. 10 e 11/11, Senado: aprovados os projetos de lei complementar 109/2025 e 230/2025, por 72 a 0 para a ANP ver notas fiscais e 68 a 0 para o Fust sem bloqueio; vão à sanção. 12/11, Congresso: créditos extras no orçamento, incluindo dinheiro para Previdência, Bolsa Família e BPC; vão à sanção. 12/11, STF: por unanimidade, fim da isenção do artigo 181 do Código Penal; crimes contra o patrimônio da mulher no lar podem ser punidos. Fonte: Brasil 247, Telesíntese, TV Sim Brasil e CartaCapital.",
+ "textos": {
+  "bluesky": "A semana nos Três Poderes:\n\nSenado aprova ANP com acesso a notas fiscais (72 a 0) e Fust sem bloqueio (68 a 0).\nCongresso aprova créditos para Previdência, Bolsa Família e BPC.\nSTF derruba, por unanimidade, a isenção do art. 181 do Código Penal.\n\ncoisapublica.io",
+  "instagram": "Resumo da semana 🗂️\n\nO que aconteceu nos Três Poderes de 9 a 13 de novembro:\n\nSenado\n• 10/11: por 72 a 0, aprovado o PLP 109/2025, que dá à ANP acesso às notas fiscais eletrônicas das empresas de combustíveis. Vai à sanção. Também aprovado o Programa Empresa Rosa, para mulheres com câncer de mama (segue à sanção).\n• 11/11: por 68 a 0, aprovado o PLP 230/2025, que proíbe bloquear o dinheiro do Fust, fundo que leva internet às escolas, e a MP 1.376/2026, da renegociação de dívidas rurais, em votação simbólica. Os dois vão à sanção.\n• 12/11: aprovada, por 40 a 38, a urgência do projeto de ajuste fiscal do governo (PLP 299/2026). Até a preparação deste post, o resultado da votação do texto não estava confirmado.\n\nCâmara\n• 10/11: aprovada a MP do Brasil Soberano 3 (MP 1.379/2026), que amplia o crédito para empresas afetadas pelo tarifaço. Segue ao Senado e perde a validade em 18/11.\n• 11/11: maus-tratos que matam um animal, com intenção, passam a ser crime hediondo, e tentar interditar uma pessoa idosa para ficar com os bens dela vira crime. Os dois seguem ao Senado.\n\nCongresso\n• 12/11: em sessão conjunta, deputados e senadores aprovaram créditos extras no orçamento de 2026, entre eles o PLN 23/2026, com dinheiro para a Previdência, o Bolsa Família e o BPC. Vão à sanção.\n\nSTF\n• 10/11: o presidente, Edson Fachin, arquivou o inquérito das fake news, aberto em 2019, a pedido da PGR. Ações penais e investigações que saíram dele continuam.\n• 12/11: por unanimidade, o Plenário derrubou a regra de 1940 (art. 181 do Código Penal) que isentava de pena quem cometesse furto, roubo ou estelionato contra a mulher em contexto de violência doméstica e familiar.\n\nPresidência\n• 9/11: MP 1.400/2026 prorroga o Gás do Povo até novembro de 2031.\n• 10/11: decreto prorroga até 9/12 a isenção de PIS/Cofins sobre a gasolina e o etanol.\n• 11 e 12/11: Lula na COP31, na Turquia. Hoje (13/11), chega a Manila para a cúpula da ASEAN.\n\nTudo com fonte no site, link na bio.\n\n#CoisaPública #ResumoDaSemana #Senado #Câmara #STF #Política"
+ },
+ "fontes": [
+  {
+   "l": "Brasil 247, 10/11: Senado aprova acesso da ANP a dados fiscais",
+   "u": "https://www.brasil247.com/poder/senado-aprova-projeto-que-amplia-acesso-da-anp-a-dados-fiscais/"
+  },
+  {
+   "l": "nx1, 10/11: Senado aprova incentivo à contratação de mulheres com câncer de mama",
+   "u": "https://nx1.com.br/2026/11/10/senado-aprova-incentivo-a-contratacao-de-mulheres-com-cancer-de-mama/"
+  },
+  {
+   "l": "Telesíntese, 11/11: Senado aprova fim do contingenciamento do Fust",
+   "u": "https://telesintese.com.br/senado-aprova-fim-do-contingenciamento-do-fust-e-prorroga-beneficio-tributario-ate-2031/"
+  },
+  {
+   "l": "Bahia Notícias, 11/11: Senado aprova MP das dívidas rurais",
+   "u": "https://www.bahianoticias.com.br/noticia/323571-senado-aprova-mp-da-renegociacao-de-dividas-rurais-e-barra-jabuti-que-regulamentava-vapes"
+  },
+  {
+   "l": "O Tempo, 12/11: Senado aprova urgência do pacote fiscal por 40 a 38",
+   "u": "https://www.otempo.com.br/politica/2026/11/12/senado-aprova-urgencia-do-pacote-fiscal-por-40-a-38-e-governo-fica-a-um-voto-do-minimo"
+  },
+  {
+   "l": "Agência Câmara, 10/11: Câmara aprova crédito para exportadores afetados por novo tarifaço",
+   "u": "https://www.camara.leg.br/noticias/1317853-camara-aprova-credito-de-185-bi-para-exportadores-afetados-por-novo-tarifaco-dos-eua"
+  },
+  {
+   "l": "CartaCapital, 11/11: Câmara torna crime hediondo maus-tratos a animais que resultarem em morte",
+   "u": "https://www.cartacapital.com.br/cartaexpressa/camara-aprova-tornar-crime-hediondo-os-maus-tratos-a-animais-que-resultarem-em-morte/"
+  },
+  {
+   "l": "Atlas Público, 11/11: Câmara aprova substitutivo que pune interdição abusiva",
+   "u": "https://atlaspublico.com.br/camara/noticias/camara-aprova-substitutivo-que-pune-interdicao-abusiva-de-101105"
+  },
+  {
+   "l": "TV Sim Brasil, 12/11: Congresso libera créditos para Bolsa Família",
+   "u": "https://tvsimbrasil.com.br/brasil/politica/noticia/2026/11/12/congresso-libera-188-6-bi-bolsa-familia"
+  },
+  {
+   "l": "De Minuto a Minuto, 10/11: Fachin arquiva inquérito das fake news",
+   "u": "https://www.deminutoaminuto.com.br/2026/11/10/stf-ministro-fachin-arquiva-inquerito-das-fake-news/"
+  },
+  {
+   "l": "CartaCapital, 12/11: STF derruba regra que isentava de pena crimes patrimoniais contra mulheres",
+   "u": "https://www.cartacapital.com.br/justica/stf-derruba-regra-que-isentava-homens-de-pena-por-crimes-patrimoniais-contra-mulheres/"
+  },
+  {
+   "l": "ABC Repórter (Secom), 9/11: MP 1.400 prorroga o Gás do Povo até 2031",
+   "u": "https://abcreporter.com.br/2026/11/09/governo-federal-prorroga-vigencia-do-gas-do-povo-ate-novembro-de-2031/"
+  },
+  {
+   "l": "Diário de Suzano, 10/11: governo prorroga desoneração da gasolina e do etanol",
+   "u": "https://www.diariodesuzano.com.br/nacional/2026/11/10/governo-prorroga-ate-9-de-dezembro-desoneracao-da-gasolina-e-do-etanol.html"
+  },
+  {
+   "l": "O Tempo, 12/11: Lula segue para as Filipinas",
+   "u": "https://www.otempo.com.br/politica/2026/11/12/lula-segue-para-as-filipinas-para-participar-de-cupula-e-ampliar-comercio-com-a-asia"
+  }
+ ]
+}

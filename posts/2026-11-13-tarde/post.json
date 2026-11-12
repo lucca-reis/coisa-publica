@@ -1,0 +1,22 @@
+{
+ "id": "2026-11-13-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-13",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "O presidente pode pedir pressa",
+  "visual": {"tipo": "data", "rotulo": "Prazo em cada Casa", "valor": "45", "sub": "dias, com urgência do presidente"},
+  "texto": "Se o prazo vence sem votação, o projeto tranca a pauta: as outras votações da Casa param.",
+  "fonte": "Constituição Federal, art. 64"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? O presidente pode pedir pressa. Ao lado do símbolo do Legislativo, o número 45: prazo em cada Casa, em dias, com urgência do presidente. Embaixo: se o prazo vence sem votação, o projeto tranca a pauta, e as outras votações da Casa param. Fonte: Constituição Federal, art. 64.",
+ "textos": {
+  "bluesky": "Você sabia? O presidente pode pedir urgência para projetos de lei que ele mesmo enviou. Câmara e Senado têm 45 dias cada para votar. Se o prazo vence, o projeto tranca a pauta da Casa. É o que acontece hoje com o projeto das bets na Câmara.\n\ncoisapublica.io",
+  "instagram": "Você sabia? ⏱️\n\nO presidente da República pode pedir pressa ao Congresso. É a chamada urgência constitucional, prevista no artigo 64 da Constituição.\n\nComo funciona\n• vale para projetos de lei que o próprio presidente enviou;\n• a Câmara tem até 45 dias para votar. Depois, o Senado tem mais 45;\n• se o Senado mudar o texto, a Câmara tem 10 dias para analisar as mudanças.\n\nE se o prazo vencer?\nO projeto tranca a pauta: as outras votações daquela Casa ficam paradas até ele ser votado. A exceção são as propostas que têm prazo próprio fixado na Constituição, como as medidas provisórias.\n\nOs prazos não correm durante o recesso do Congresso, e a urgência não vale para projetos de código (como o Código Penal ou o Civil).\n\nNa prática\nO PL 5.477/2026, que torna crime explorar e divulgar bets, foi enviado pelo governo com urgência em 25/9. Segundo o Focus Gaming News, o prazo na Câmara terminou ontem (12/11), e o projeto passa a trancar a pauta do Plenário a partir de hoje.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Congresso #Câmara #Constituição #Política"
+ },
+ "fontes": [
+  {"l": "Constituição Federal, art. 64 (Planalto)", "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"},
+  {"l": "Focus Gaming News, 2/11: projeto que criminaliza bets pode trancar a pauta da Câmara em 13 de novembro", "u": "https://focusgn.com/brasil/pl-criminaliza-bets-trancar-pauta-camara"}
+ ]
+}
