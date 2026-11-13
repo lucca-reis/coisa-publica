@@ -186,7 +186,7 @@ function html(P, id){
       const D = x.desenho || {}, pw = PODER[x.poder] || 'leg';
       if (D.tipo === 'senado' || D.tipo === 'camara'){
         const T = D.tipo === 'senado' ? 81 : 513, sim = D.sim || 0, nao = D.nao || 0;
-        return hemiCores(T, D.tipo === 'senado' ? 5 : 11, [...Array(T)].map((_,i)=> i < sim ? 'var(--ink)' : i < sim+nao ? '#E24B4A' : 'rgba(18,20,23,.13)'), D.tipo === 'senado' ? 16 : 9.5, 200);
+        return hemiCores(T, D.tipo === 'senado' ? 5 : 11, [...Array(T)].map((_,i)=> i < sim ? 'var(--tc)' : i < sim+nao ? '#E24B4A' : 'rgba(18,20,23,.13)'), D.tipo === 'senado' ? 16 : 9.5, 200);
       }
       if (D.tipo === 'mesa') return MESA.replace('stroke="var(--gray)"','stroke="var(--tc)"').replace(/fill="var\(--gray\)"/g,'fill="var(--tc)"');
       if (D.tipo === 'moedas'){ // pilhas de moedas
