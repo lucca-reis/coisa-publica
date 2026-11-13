@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-13T02:32Z",
- "itens": []
+ "atualizado": "2026-11-13T12:27Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CEXEXPLO",
+   "nome": "Comissão Externa de Prevenção e Enfrentamento da Violência Sexual Infantojuvenil",
+   "tipo": "Comissão Externa de Prevenção e Enfrentamento da Violência Sexual Infantojuvenil",
+   "descricao": "Visita técnica: Reunião com a Secretaria de Justiça e Segurança Pública para apurar denúncias de exploração sexual de crianças e adolescentes no Estado do Amapá.",
+   "desde": "9h",
+   "video": null
+  }
+ ]
 }
