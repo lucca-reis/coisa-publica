@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2653046",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2653046",
-   "idDeputadoAutor": "204374",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204374",
+   "idProposicao": "2653544",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2653544",
+   "idDeputadoAutor": "74856",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/74856",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Bia Kicis",
-   "siglaPartidoAutor": "PL",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
-   "siglaUFAutor": "DF",
+   "nomeAutor": "Laura Carneiro",
+   "siglaPartidoAutor": "PSD",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36834",
+   "siglaUFAutor": "RJ",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
