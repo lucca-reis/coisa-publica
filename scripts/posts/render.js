@@ -71,6 +71,25 @@ function hemiCores(T, rows, cores, r, R0 = 150){
 function visual(V, poder){
   if (!V) return '';
   // mulheres: um semicírculo por Casa, com as cadeiras das mulheres pintadas na cor do partido; embaixo, a porcentagem e os partidos
+  // votação: o plenário com as cadeiras do sim (cor do poder), do não (vermelho) e de quem não votou (cinza);
+  // um fio marca o mínimo de votos (ex.: 41 no Senado), o placar fica no meio do arco e a legenda embaixo
+  if (V.tipo === 'votacao'){
+    const T = V.casa === 'camara' ? 513 : 81, rows = V.casa === 'camara' ? 11 : 5, R0 = V.casa === 'camara' ? 170 : 196, R1 = 340, cx = 360, cy = 372;
+    const radii = [...Array(rows)].map((_,i)=> R0 + (R1-R0)*i/(rows-1)), sum = radii.reduce((a,b)=>a+b,0);
+    let seats = [];
+    radii.forEach((rr,i)=>{ const n = i===rows-1 ? T - seats.length : Math.round(T*rr/sum); for (let k=0;k<n;k++){ const a = Math.PI*(1-(k+.5)/n); seats.push({x:cx + rr*Math.cos(a), y:cy - rr*Math.sin(a), a}); } });
+    seats = seats.slice(0,T).sort((p,q)=> q.a-p.a);
+    const sim = V.sim || 0, nao = V.nao || 0, cor = i => i < sim ? 'var(--pc)' : i >= T - nao ? '#E24B4A' : 'var(--gray)';
+    const r = V.casa === 'camara' ? 9 : 17;
+    let marca = '';
+    if (V.minimo){ const a = (seats[V.minimo-1].a + seats[V.minimo].a)/2, x1 = cx + (R0-30)*Math.cos(a), y1 = cy - (R0-30)*Math.sin(a), x2 = cx + (R1+34)*Math.cos(a), y2 = cy - (R1+34)*Math.sin(a);
+      marca = `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="var(--ink)" stroke-width="3.5" stroke-dasharray="9 8" stroke-linecap="round"/><text x="${(x2+12).toFixed(1)}" y="${(y2+6).toFixed(1)}" font-size="25" font-weight="600" fill="var(--ink)">${esc(V.minimoTexto || ('mínimo: ' + V.minimo))}</text>`; }
+    const L = V.rotulos || ['sim','não','não votaram'];
+    const outros = T - sim - nao;
+    return `<div style="width:100%"><svg viewBox="0 -40 760 420" width="100%" style="display:block;font-family:inherit">${marca}${seats.map((p,i)=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${cor(i)}"/>`).join('')}
+      <text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="88" font-weight="700" letter-spacing="-4" fill="var(--ink)">${sim} a ${nao}</text></svg>
+      <div class="vt-l"><span><i style="background:var(--pc)"></i><b>${sim}</b> ${esc(L[0])}</span><span><i style="background:#E24B4A"></i><b>${nao}</b> ${esc(L[1])}</span>${outros ? `<span><i style="background:var(--gray)"></i><b>${outros}</b> ${esc(L[2])}</span>` : ''}</div></div>`;
+  }
   if (V.tipo === 'mulheres'){
     const col = C => {
       const ps = [...C.partidos].sort((a,b)=> PORDER.indexOf(a[0]) - PORDER.indexOf(b[0]));

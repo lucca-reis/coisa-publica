@@ -1,0 +1,170 @@
+{
+ "id": "2026-11-13-tarde-mulheres",
+ "periodo": "tarde",
+ "data": "2026-11-13",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "Mulheres no Congresso em 2027",
+  "visual": {
+   "tipo": "mulheres",
+   "casas": [
+    {
+     "casa": "camara",
+     "titulo": "Câmara",
+     "total": 513,
+     "pct": "21,2%",
+     "l": "109 deputadas de 513",
+     "partidos": [
+      [
+       "PT",
+       25
+      ],
+      [
+       "PL",
+       22
+      ],
+      [
+       "União",
+       8
+      ],
+      [
+       "PSOL",
+       8
+      ],
+      [
+       "PCdoB",
+       7
+      ],
+      [
+       "Podemos",
+       7
+      ],
+      [
+       "PP",
+       6
+      ],
+      [
+       "PSB",
+       5
+      ],
+      [
+       "PSD",
+       5
+      ],
+      [
+       "MDB",
+       5
+      ],
+      [
+       "Republicanos",
+       5
+      ],
+      [
+       "PV",
+       2
+      ],
+      [
+       "Novo",
+       2
+      ],
+      [
+       "PRD",
+       1
+      ],
+      [
+       "PSDB",
+       1
+      ]
+     ]
+    },
+    {
+     "casa": "senado",
+     "titulo": "Senado",
+     "total": 81,
+     "pct": "23,5%",
+     "l": "19 senadoras de 81",
+     "partidos": [
+      [
+       "PT",
+       4
+      ],
+      [
+       "PL",
+       3
+      ],
+      [
+       "União",
+       2
+      ],
+      [
+       "Republicanos",
+       2
+      ],
+      [
+       "Rede",
+       1
+      ],
+      [
+       "PDT",
+       1
+      ],
+      [
+       "PSDB",
+       1
+      ],
+      [
+       "Podemos",
+       1
+      ],
+      [
+       "MDB",
+       1
+      ],
+      [
+       "PSB",
+       1
+      ],
+      [
+       "PSD",
+       1
+      ],
+      [
+       "PP",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  "texto": "É o maior número da história nas duas Casas. Cada cor é um partido.",
+  "fonte": "Agência Senado, Agência Brasil e Brasil em Folhas"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? Mulheres no Congresso em 2027. Dois semicírculos de cadeiras. Câmara: 109 deputadas de 513, 21,2%, com as cadeiras das mulheres pintadas na cor de cada partido: PT 25, PL 22, União 8, PSOL 8, PCdoB 7, Podemos 7, PP 6, PSB 5, PSD 5, MDB 5, Republicanos 5, PV 2, Novo 2, PRD 1 e PSDB 1. Senado: 19 senadoras de 81, 23,5%: PT 4, PL 3, União 2, Republicanos 2 e uma cada de Rede, PDT, PSDB, Podemos, MDB, PSB, PSD e PP. As outras cadeiras ficam em cinza. Embaixo: é o maior número da história nas duas Casas; cada cor é um partido. Fonte: Agência Senado, Agência Brasil e Brasil em Folhas.",
+ "textos": {
+  "bluesky": "Você sabia? Em 2027, o Congresso terá o maior número de mulheres da história: 109 das 513 deputadas e deputados (21,2%) e 19 dos 81 senadores (23,5%). Na Câmara, PT (25) e PL (22) elegeram mais mulheres.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 🗳️\n\nA partir de fevereiro de 2027, o Congresso terá o maior número de mulheres da sua história. Mesmo assim, elas seguem em pouco mais de uma a cada cinco cadeiras.\n\nCâmara dos Deputados\n• 109 deputadas eleitas em outubro, de 513 cadeiras: 21,2%;\n• em 2022, tinham sido 90;\n• por partido: PT 25, PL 22, União 8, PSOL 8, PCdoB 7, Podemos 7, PP 6, PSB 5, PSD 5, MDB 5, Republicanos 5, PV 2, Novo 2, PRD 1 e PSDB 1;\n• a federação PT, PCdoB e PV soma 34 deputadas, quase um terço do total;\n• o PL, que terá a maior bancada da Câmara, elegeu 22 mulheres;\n• São Paulo elegeu mais deputadas (16). Distrito Federal, Piauí e Roraima não elegeram nenhuma.\n\nSenado\n• 12 mulheres eleitas para as 54 vagas em disputa em 2026, o maior número desde a redemocratização;\n• com as 7 que têm mandato até 2031, serão 19 senadoras em 81: 23,5%, segundo a Agência Senado (outras contagens chegam a 18, porque nem todas incluem as suplentes em exercício);\n• por partido: PT 4, PL 3, União 2, Republicanos 2 e uma de cada um destes: Rede, PDT, PSDB, Podemos, MDB, PSB, PSD e PP;\n• o Distrito Federal terá três senadoras; o Piauí nunca elegeu uma.\n\nOs números do Senado ainda podem mudar com trocas de partido, substituições e decisões da Justiça Eleitoral. Os partidos são os da eleição.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Mulheres #Câmara #Senado #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Senado, 25/10: composição do Senado em 2027",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/10/25/fim-da-eleicao-define-composicao-do-senado-em-2027-com-13-partidos"
+  },
+  {
+   "l": "Agência Brasil, 5/10: cresce número de mulheres eleitas para o Congresso",
+   "u": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/cresce-numero-de-mulheres-eleitas-para-o-congresso-nacional"
+  },
+  {
+   "l": "Brasil em Folhas, 8/10: Câmara terá 109 deputadas (lista por partido)",
+   "u": "https://www.brasilemfolhas.com.br/2026/10/camara-tera-109-deputadas-maior-bancada-feminina-da-historia-e0f56/"
+  },
+  {
+   "l": "Times Brasil, 10/10: mulheres serão 21,2% da Câmara",
+   "u": "https://timesbrasil.com.br/brasil/decisao-2026-mulheres-serao-212-da-camara-veja-quantas-foram-eleitas/"
+  },
+  {
+   "l": "O Tempo, 5/10: as 12 senadoras eleitas em 2026",
+   "u": "https://www.otempo.com.br/eleicoes/2026/senadores/2026/10/5/senado-tera-numero-recorde-de-mulheres-eleitas-em-2026-veja-quantas-e-quem-sao"
+  }
+ ]
+}

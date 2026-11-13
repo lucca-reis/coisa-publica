@@ -4,27 +4,21 @@
  "data": "2026-11-13",
  "imagem": {
   "poder": "leg",
-  "eyebrow": "Você sabia?",
-  "titulo": "Mulheres no Congresso em 2027",
-  "visual": {"tipo": "mulheres", "casas": [
-   {"casa": "camara", "titulo": "Câmara", "total": 513, "pct": "21,2%", "l": "109 deputadas de 513",
-    "partidos": [["PT",25],["PL",22],["União",8],["PSOL",8],["PCdoB",7],["Podemos",7],["PP",6],["PSB",5],["PSD",5],["MDB",5],["Republicanos",5],["PV",2],["Novo",2],["PRD",1],["PSDB",1]]},
-   {"casa": "senado", "titulo": "Senado", "total": 81, "pct": "23,5%", "l": "19 senadoras de 81",
-    "partidos": [["PT",4],["PL",3],["União",2],["Republicanos",2],["Rede",1],["PDT",1],["PSDB",1],["Podemos",1],["MDB",1],["PSB",1],["PSD",1],["PP",1]]}
-  ]},
-  "texto": "É o maior número da história nas duas Casas. Cada cor é um partido.",
-  "fonte": "Agência Senado, Agência Brasil e Brasil em Folhas"
+  "eyebrow": "Senado · PLP 299/2026",
+  "titulo": "Senado aprova o ajuste fiscal",
+  "visual": {"tipo": "votacao", "casa": "senado", "sim": 45, "nao": 31, "minimo": 41, "minimoTexto": "mínimo: 41", "rotulos": ["sim", "não", "não votaram"]},
+  "texto": "Faltam quatro destaques, na terça (17/11). Depois, o texto vai à Câmara.",
+  "fonte": "Agência Senado, 12/11/2026"
  },
- "alt": "Imagem da Coisa Pública, Você sabia? Mulheres no Congresso em 2027. Dois semicírculos de cadeiras. Câmara: 109 deputadas de 513, 21,2%, com as cadeiras das mulheres pintadas na cor de cada partido: PT 25, PL 22, União 8, PSOL 8, PCdoB 7, Podemos 7, PP 6, PSB 5, PSD 5, MDB 5, Republicanos 5, PV 2, Novo 2, PRD 1 e PSDB 1. Senado: 19 senadoras de 81, 23,5%: PT 4, PL 3, União 2, Republicanos 2 e uma cada de Rede, PDT, PSDB, Podemos, MDB, PSB, PSD e PP. As outras cadeiras ficam em cinza. Embaixo: é o maior número da história nas duas Casas; cada cor é um partido. Fonte: Agência Senado, Agência Brasil e Brasil em Folhas.",
+ "alt": "Imagem da Coisa Pública: Senado aprova o ajuste fiscal (PLP 299/2026). Desenho do plenário do Senado com 81 cadeiras: 45 em amarelo (sim), 31 em vermelho (não) e 5 em cinza (não votaram). Uma linha tracejada marca o mínimo de 41 votos. No meio do arco, o placar: 45 a 31. Embaixo: faltam quatro destaques, na terça (17/11); depois, o texto vai à Câmara. Fonte: Agência Senado, 12/11/2026.",
  "textos": {
-  "bluesky": "Você sabia? Em 2027, o Congresso terá o maior número de mulheres da história: 109 das 513 deputadas e deputados (21,2%) e 19 dos 81 senadores (23,5%). Na Câmara, PT (25) e PL (22) elegeram mais mulheres.\n\ncoisapublica.io",
-  "instagram": "Você sabia? 🗳️\n\nA partir de fevereiro de 2027, o Congresso terá o maior número de mulheres da sua história. Mesmo assim, elas seguem em pouco mais de uma a cada cinco cadeiras.\n\nCâmara dos Deputados\n• 109 deputadas eleitas em outubro, de 513 cadeiras: 21,2%;\n• em 2022, tinham sido 90;\n• por partido: PT 25, PL 22, União 8, PSOL 8, PCdoB 7, Podemos 7, PP 6, PSB 5, PSD 5, MDB 5, Republicanos 5, PV 2, Novo 2, PRD 1 e PSDB 1;\n• a federação PT, PCdoB e PV soma 34 deputadas, quase um terço do total;\n• o PL, que terá a maior bancada da Câmara, elegeu 22 mulheres;\n• São Paulo elegeu mais deputadas (16). Distrito Federal, Piauí e Roraima não elegeram nenhuma.\n\nSenado\n• 12 mulheres eleitas para as 54 vagas em disputa em 2026, o maior número desde a redemocratização;\n• com as 7 que têm mandato até 2031, serão 19 senadoras em 81: 23,5%, segundo a Agência Senado (outras contagens chegam a 18, porque nem todas incluem as suplentes em exercício);\n• por partido: PT 4, PL 3, União 2, Republicanos 2 e uma de cada um destes: Rede, PDT, PSDB, Podemos, MDB, PSB, PSD e PP;\n• o Distrito Federal terá três senadoras; o Piauí nunca elegeu uma.\n\nOs números do Senado ainda podem mudar com trocas de partido, substituições e decisões da Justiça Eleitoral. Os partidos são os da eleição.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Mulheres #Câmara #Senado #Política"
+  "bluesky": "O Senado aprovou ontem (12/11), por 45 a 31, o texto principal do ajuste fiscal (PLP 299/2026). Ele limita o crescimento dos gastos em 2027 e corta benefícios fiscais. Quatro destaques ficam para terça (17/11); depois, vai à Câmara.\n\ncoisapublica.io",
+  "instagram": "Ajuste fiscal no Senado 🏛️\n\nOntem (12/11), o Senado aprovou, por 45 votos a 31, o texto principal do projeto de ajuste fiscal do governo (PLP 299/2026). Por ser lei complementar, precisava de pelo menos 41 votos. O relator foi o senador Eduardo Braga (MDB-AM).\n\nO que muda, segundo a Agência Senado:\n\n• Gastos: nos anos em que o governo adotar medidas extras de contenção, as despesas só podem crescer 2% acima da inflação, em vez dos 2,5% de hoje. Vale a partir de 2027.\n• Bloqueios: o governo pode bloquear gastos para mirar o centro da meta, de superávit de 0,5% do PIB em 2027, mesmo quando a previsão já estiver dentro da margem de tolerância (de 0,25% a 0,75%).\n• Benefícios fiscais: redução de isenções, créditos e regimes especiais. Tecnologia da informação, semicondutores e a compra de veículos por pessoas com deficiência ou autismo ficam de fora.\n• Impostos: o governo poderá criar novas restrições ao uso de créditos para pagar tributos.\n• Supersalários: o Congresso tem 120 dias para analisar a regulamentação. O que for economizado no Executivo pode ir para investimentos e segurança pública.\n• Lei Kandir: o repasse aos estados cai de R$ 4 bilhões para R$ 1 bilhão por ano, de 2027 a 2030. A diferença é paga até 2037.\n• Diesel: até R$ 10,5 bilhões da subvenção ao diesel em 2026 podem ficar fora do cálculo da meta fiscal deste ano.\n\nO efeito estimado é de R$ 45,1 bilhões a R$ 56,1 bilhões nas contas de 2027. Das 74 emendas, 21 foram aceitas no todo ou em parte.\n\nO que vem agora: quatro destaques (pedidos para votar trechos separadamente) devem ser votados na terça (17/11). O texto ainda pode mudar. Depois, segue à Câmara, onde precisa de 257 dos 513 votos.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Senado #AjusteFiscal #Orçamento #Congresso #Política"
  },
  "fontes": [
-  {"l": "Agência Senado, 25/10: composição do Senado em 2027", "u": "https://www12.senado.leg.br/noticias/materias/2026/10/25/fim-da-eleicao-define-composicao-do-senado-em-2027-com-13-partidos"},
-  {"l": "Agência Brasil, 5/10: cresce número de mulheres eleitas para o Congresso", "u": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/cresce-numero-de-mulheres-eleitas-para-o-congresso-nacional"},
-  {"l": "Brasil em Folhas, 8/10: Câmara terá 109 deputadas (lista por partido)", "u": "https://www.brasilemfolhas.com.br/2026/10/camara-tera-109-deputadas-maior-bancada-feminina-da-historia-e0f56/"},
-  {"l": "Times Brasil, 10/10: mulheres serão 21,2% da Câmara", "u": "https://timesbrasil.com.br/brasil/decisao-2026-mulheres-serao-212-da-camara-veja-quantas-foram-eleitas/"},
-  {"l": "O Tempo, 5/10: as 12 senadoras eleitas em 2026", "u": "https://www.otempo.com.br/eleicoes/2026/senadores/2026/10/5/senado-tera-numero-recorde-de-mulheres-eleitas-em-2026-veja-quantas-e-quem-sao"}
+  {"l": "Agência Senado, 12/11: texto principal do ajuste fiscal é aprovado pelo Senado", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/12/texto-principal-do-ajuste-fiscal-e-aprovado-pelo-senado"},
+  {"l": "TV Sim Brasil, 12/11: Senado aprova ajuste fiscal por 45 a 31", "u": "https://tvsimbrasil.com.br/brasil/politica/noticia/2026/11/12/senado-aprova-ajuste-fiscal-561-bi"},
+  {"l": "Revista Fórum, 12/11: como votou cada senador", "u": "https://revistaforum.com.br/politica/ajuste-fiscal-como-votou-cada-senador/"},
+  {"l": "O Tempo, 12/11: urgência aprovada por 40 a 38", "u": "https://www.otempo.com.br/politica/2026/11/12/senado-aprova-urgencia-do-pacote-fiscal-por-40-a-38-e-governo-fica-a-um-voto-do-minimo"}
  ]
 }
