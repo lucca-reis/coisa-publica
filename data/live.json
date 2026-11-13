@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T21:05-03:00",
+ "atualizado": "2026-11-12T22:06-03:00",
  "camara": [
   {
    "id": 83085,
@@ -104,36 +104,6 @@
  ],
  "senado": [
   {
-   "id": "596834",
-   "inicio": "2026-11-12T09:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO CONJUNTA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "552104",
-   "inicio": "2026-11-12T14:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "597365",
-   "inicio": "2026-11-12T16:00-03:00",
-   "fim": null,
-   "situacao": "Em andamento",
-   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": true
-  },
-  {
    "id": "594176",
    "inicio": "2026-11-13T10:00-03:00",
    "fim": null,
@@ -214,5 +184,7 @@
    "aoVivo": false
   }
  ],
- "erros": []
+ "erros": [
+  "senado 2026-11-12: HTTP Error 503: Service Unavailable"
+ ]
 }
