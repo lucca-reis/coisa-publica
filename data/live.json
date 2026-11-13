@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-13T10:06-03:00",
+ "atualizado": "2026-11-13T11:20-03:00",
  "camara": [
   {
    "id": 83088,
@@ -67,7 +67,7 @@
    "id": "594176",
    "inicio": "2026-11-13T10:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Sessão não realizada",
    "tipo": "SESSÃO NÃO DELIBERATIVA ",
    "descricao": "",
    "video": null,
