@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-14T13:01Z",
- "itens": []
+ "atualizado": "2026-11-14T13:26Z",
+ "itens": [
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CDH",
+   "nome": "Comissão de Direitos Humanos e Legislação Participativa",
+   "tipo": "Comissão de Direitos Humanos e Legislação Participativa",
+   "descricao": "Reunião outros eventos",
+   "desde": "10h",
+   "video": null
+  }
+ ]
 }
