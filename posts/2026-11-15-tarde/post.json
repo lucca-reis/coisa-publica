@@ -1,0 +1,46 @@
+{
+ "id": "2026-11-15-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-15",
+ "hora": "13:00",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Planos da semana",
+  "titulo": "A semana de 16 a 20/11",
+  "itens": [
+   {
+    "quando": "Senado",
+    "dia": "Ter 17/11",
+    "tags": [{"t": "Senado · em votação", "poder": "leg"}, {"cat": "plp", "t": "PLP 299/2026"}],
+    "titulo": "Destaques do ajuste fiscal",
+    "texto": "Texto-base aprovado em 12/11, por 45 a 31; faltam quatro destaques."
+   },
+   {
+    "quando": "Senado",
+    "dia": "Qua 18/11",
+    "tags": [{"t": "Senado · prazo", "poder": "leg"}, {"cat": "mp", "t": "MP 1.379/2026"}],
+    "titulo": "MP Brasil Soberano 3 vence",
+    "texto": "Crédito para exportadores afetados pelo tarifaço; sem votação, perde a validade."
+   },
+   {
+    "quando": "STF",
+    "dia": "Qua 18/11",
+    "tags": [{"t": "STF · em pauta", "poder": "jud"}],
+    "titulo": "Anistia a partidos e nepotismo",
+    "texto": "Plenário às 14h, com nova sessão na quinta. A pauta pode mudar."
+   }
+  ],
+  "fonte": "Agência Senado, Congresso Nacional e STF"
+ },
+ "alt": "Imagem da Coisa Pública, Planos da semana: a semana de 16 a 20 de novembro, em três itens. Senado, terça 17/11: destaques do ajuste fiscal (PLP 299/2026); o texto-base foi aprovado em 12/11, por 45 a 31, e faltam quatro destaques. Senado, quarta 18/11: vence a MP Brasil Soberano 3 (MP 1.379/2026), que dá crédito a exportadores afetados pelo tarifaço; sem votação, perde a validade. STF, quarta 18/11: anistia a partidos e nepotismo; Plenário às 14h, com nova sessão na quinta, e a pauta pode mudar. Fonte: Agência Senado, Congresso Nacional e STF.",
+ "textos": {
+  "bluesky": "A semana nos Três Poderes (16 a 20/11):\n\nTer · Senado vota os destaques do ajuste fiscal.\nQua · último dia da MP do Brasil Soberano 3 no Senado.\nQua e qui · STF julga anistia a partidos e nepotismo.\nSex · feriado.\n\ncoisapublica.io",
+  "instagram": "Planos da semana 🗓️\n\nO que está marcado nos Três Poderes de segunda (16/11) a sexta (20/11):\n\nSegunda (16/11)\n• Senado: às 10h, sessão especial pelo Dia de Zumbi e da Consciência Negra; às 14h, sessão só de discursos, sem votações.\n• Câmara: o presidente da Casa, Hugo Motta, pode reunir os líderes na segunda ou na terça para decidir como votar o ajuste fiscal, segundo a Agência O Globo.\n\nTerça (17/11)\n• Senado: votação dos quatro destaques ao projeto de ajuste fiscal do governo (PLP 299/2026). O texto-base foi aprovado em 12/11, por 45 votos a 31. Depois, o projeto vai à Câmara.\n• Câmara: o Plenário pode votar o projeto do governo sobre a regulação econômica das grandes plataformas digitais, segundo o Teletime. Pauta oficial ainda não divulgada.\n\nQuarta (18/11)\n• Senado: último dia para votar a MP 1.379/2026 (Brasil Soberano 3), que amplia o crédito com juros subsidiados para exportadores afetados pelo tarifaço. Aprovada pela Câmara em 10/11, ela perde a validade se não passar pelo Senado até essa data.\n• STF: sessão do Plenário às 14h. Na pauta de novembro: a anistia a partidos que não cumpriram as cotas de gênero e raça (ADI 7419), o nepotismo em cargos políticos (RE 1133118) e os honorários em acordos com o poder público. As datas podem mudar.\n\nQuinta (19/11)\n• STF: nova sessão do Plenário às 14h; processos do dia ainda não divulgados.\n\nSexta (20/11)\n• Feriado nacional do Dia de Zumbi e da Consciência Negra.\n• STF: começa a sessão virtual da Primeira Turma, de 20 a 30/11.\n\nPresidência: Lula termina neste domingo a viagem às Filipinas, com discurso na abertura da Cúpula da ASEAN, em Manila. A volta ao Brasil está prevista para 16 ou 17/11, segundo o Teletime.\n\nFontes: Agência Senado, Congresso Nacional, STF Notícias, Agência O Globo e Teletime.\n\nAgenda completa e atualizada automaticamente em coisapublica.io, link na bio.\n\n#CoisaPública #Senado #STF #Câmara #AjusteFiscal #Congresso"
+ },
+ "fontes": [
+  {"l": "Agência Senado: destaques do ajuste fiscal na terça", "u": "https://www12.senado.leg.br/noticias/audios/2026/11/senado-aprova-texto-base-do-ajuste-fiscal-e-analisara-quatro-destaques-na-terca"},
+  {"l": "Congresso Nacional: MP 1.379/2026", "u": "https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/175261"},
+  {"l": "STF Notícias: pauta do Plenário de novembro", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-da-pauta-do-plenario-do-stf-para-novembro/"},
+  {"l": "Itatiaia: pauta do STF em novembro", "u": "https://www.itatiaia.com.br/politica/stf-julga-isencao-de-pena-em-crimes-contra-mulheres-anistia-a-partidos-e-nepotismo-em-novembro/"}
+ ]
+}
