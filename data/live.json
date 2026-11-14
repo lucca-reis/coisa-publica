@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-13T23:52-03:00",
+ "atualizado": "2026-11-14T00:51-03:00",
  "camara": [
   {
    "id": 83088,
@@ -63,16 +63,6 @@
   }
  ],
  "senado": [
-  {
-   "id": "594176",
-   "inicio": "2026-11-13T10:00-03:00",
-   "fim": null,
-   "situacao": "Sessão não realizada",
-   "tipo": "SESSÃO NÃO DELIBERATIVA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "552091",
    "inicio": "2026-11-16T10:00-03:00",
