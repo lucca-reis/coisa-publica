@@ -194,15 +194,15 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2653544",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2653544",
-   "idDeputadoAutor": "74856",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/74856",
+   "idProposicao": "2653957",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2653957",
+   "idDeputadoAutor": "220611",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/220611",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Laura Carneiro",
-   "siglaPartidoAutor": "PSD",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36834",
+   "nomeAutor": "General Pazuello",
+   "siglaPartidoAutor": "PL",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
    "siglaUFAutor": "RJ",
    "ordemAssinatura": "1",
    "proponente": "1"
