@@ -1,0 +1,26 @@
+{
+ "id": "2026-11-16-noite",
+ "periodo": "noite",
+ "data": "2026-11-16",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Em tramitação",
+  "titulo": "PL 4.675/2025 · mercados digitais",
+  "tags": [{"t": "Câmara · urgência", "poder": "leg"}, {"cat": "pl", "t": "PL 4.675/2025"}],
+  "pergunta": "O Cade vai ganhar uma área só para as grandes plataformas digitais?",
+  "rodape": {"rotulo": "O relator quer votar no Plenário em", "valor": "17 de novembro"},
+  "fonte": "Agência Câmara, dados abertos da Câmara e Tribuna do Sertão"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, PL 4.675/2025, mercados digitais. Em letras grandes: O Cade vai ganhar uma área só para as grandes plataformas digitais? Embaixo, o símbolo do Legislativo e o texto: o relator quer votar no Plenário em 17 de novembro. Fonte: Agência Câmara, dados abertos da Câmara e Tribuna do Sertão.",
+ "textos": {
+  "bluesky": "O PL 4.675/2025, do governo, cria no Cade uma Superintendência de Mercados Digitais, que poderá impor obrigações a grandes grupos de tecnologia. Tramita em urgência na Câmara; o relator, Aliel Machado, quer votá-lo na terça (17/11).\n\ncoisapublica.io",
+  "instagram": "Em tramitação 💻\n\nO PL 4.675/2025 foi enviado pelo governo à Câmara em setembro de 2025. Ele trata da concorrência nos mercados digitais, e não do conteúdo publicado nas redes.\n\nO que o texto original prevê, segundo a Agência Câmara:\n• cria no Cade, o órgão que defende a concorrência, uma Superintendência de Mercados Digitais;\n• o Cade pode designar \"agentes de relevância sistêmica\": grupos com faturamento bruto acima de R$ 50 bilhões por ano no mundo ou de R$ 5 bilhões por ano no Brasil, avaliados também pelo número de usuários, pelo acesso a dados e pelo poder ligado aos efeitos de rede;\n• a designação vale por até dez anos, pode ser renovada e alcança todo o grupo econômico, que precisa ter escritório no país;\n• o Cade pode exigir, por exemplo, transparência sobre uso de dados e critérios de ranqueamento, portabilidade de dados gratuita, permissão para instalar aplicativos de outras empresas e tratamento igual para quem vende na plataforma;\n• pode proibir práticas como favorecer as próprias ofertas e vendas casadas.\n\nOnde está\nA Câmara aprovou a urgência em 18/3/2026, por 276 votos a 186, segundo os dados abertos da Câmara; com isso, o projeto pode ir direto ao Plenário. O relator, deputado Aliel Machado (PV-PR), apresentou um parecer com um texto substitutivo e disse em 10/11 que não pretende mudá-lo e que quer votar o projeto na terça (17/11). A pauta oficial ainda não foi divulgada, e a votação pode ser adiada.\n\nPróximo passo: se for aprovado pela Câmara, segue ao Senado.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Câmara #BigTechs #Cade #Congresso #Política"
+ },
+ "fontes": [
+  {"l": "Agência Câmara, 26/9/2025: projeto permite processos no Cade para proteger concorrência em mercados digitais", "u": "https://www.camara.leg.br/noticias/1204382-projeto-permite-processos-no-cade-para-proteger-concorrencia-em-mercados-digitais"},
+  {"l": "Câmara dos Deputados: ficha do PL 4.675/2025", "u": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2562481"},
+  {"l": "Câmara dos Deputados: parecer do relator (PRLP 1)", "u": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2638403"},
+  {"l": "Tribuna do Sertão, 10/11: não há perspectiva de mudança no relatório, afirma Aliel Machado", "u": "https://www.tribunadosertao.com.br/politica/2026/11/10/1018388-nao-ha-perspectiva-de-mudanca-no-relatorio-do-pl-dos-mercados-digitais-afirma-aliel-machado"},
+  {"l": "Teletime, 13/11: a semana política em Brasília", "u": "https://teletime.com.br/13/11/2026/a-semana-politica-em-brasilia/"}
+ ]
+}

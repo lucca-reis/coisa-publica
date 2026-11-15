@@ -1,0 +1,26 @@
+{
+ "id": "2026-11-16-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-16",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "Aprovar o texto-base não encerra a votação",
+  "visual": {"tipo": "votacao", "casa": "senado", "sim": 45, "nao": 31, "minimo": 41, "minimoTexto": "mínimo: 41"},
+  "texto": "Os destaques pedem que trechos sejam votados à parte. O ajuste fiscal passou por 45 a 31; faltam quatro destaques.",
+  "fonte": "Congresso Nacional e Agência Senado"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? Aprovar o texto-base não encerra a votação. Desenho do plenário do Senado: 45 cadeiras pintadas para o sim, 31 em vermelho para o não e 5 em cinza, de quem não votou, com uma linha tracejada no mínimo de 41 votos. Embaixo: os destaques pedem que trechos sejam votados à parte; o ajuste fiscal passou por 45 a 31, e faltam quatro destaques. Fonte: Congresso Nacional e Agência Senado.",
+ "textos": {
+  "bluesky": "Você sabia? Quando um projeto tem o texto-base aprovado, a votação ainda não acabou: faltam os destaques, pedidos para votar trechos em separado. O ajuste fiscal passou no Senado por 45 a 31 em 12/11; os quatro destaques ficam para terça (17/11).\n\ncoisapublica.io",
+  "instagram": "Você sabia? ✂️\n\nAprovar o \"texto-base\" de um projeto não encerra a votação.\n\nTexto-base\nÉ o texto principal, votado de uma vez só, \"ressalvados os destaques\". Ou seja: alguns pedaços ficam de fora dessa votação e são decididos depois, um por um.\n\nDestaque\nÉ o pedido para votar em separado um trecho do projeto ou uma emenda. Com ele, os parlamentares podem tentar tirar uma parte do texto ou incluir uma mudança que não entrou no texto principal. Cada destaque é votado depois do texto-base; só quando todos são decididos a votação termina e o projeto segue adiante.\n\nOs destaques podem ser pedidos pelos parlamentares ou pelas bancadas dos partidos, conforme as regras do Regimento de cada Casa.\n\nUm exemplo desta semana\nNa quinta (12/11), o Senado aprovou o texto-base do projeto de ajuste fiscal do governo (PLP 299/2026) por 45 votos a 31. Por ser um projeto de lei complementar, ele precisa de pelo menos 41 votos, a maioria dos 81 senadores. Quatro destaques ficaram para terça (17/11). Segundo o Brasil de Fato, eles tratam do limite de reajuste das despesas, do cálculo dos pisos constitucionais e das regras para benefícios tributários. Depois, o texto vai à Câmara.\n\nPor isso, no site, um projeto pode aparecer como \"texto-base aprovado\" antes de estar aprovado de vez.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Senado #Congresso #AjusteFiscal #Política"
+ },
+ "fontes": [
+  {"l": "Congresso Nacional, Glossário Legislativo: Destaque (quanto à forma de votação)", "u": "https://www.congressonacional.leg.br/legislacao-e-publicacoes/glossario-legislativo/-/legislativo/termo/destaque_quanto_a_forma_de_votacao"},
+  {"l": "Senado Federal: Regimento Interno", "u": "https://www25.senado.leg.br/web/atividade/regimento-interno"},
+  {"l": "Câmara dos Deputados, guia para jornalistas: votação", "u": "https://www2.camara.leg.br/comunicacao/assessoria-de-imprensa/guia-para-jornalistas/votacao"},
+  {"l": "Agência Senado, 12/11: texto principal do ajuste fiscal é aprovado pelo Senado", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/12/texto-principal-do-ajuste-fiscal-e-aprovado-pelo-senado"},
+  {"l": "Brasil de Fato, 14/11: semana começa com Senado votando destaques do ajuste fiscal", "u": "https://www.brasildefato.com.br/2026/11/14/semana-comeca-com-senado-votando-destaques-do-projeto-de-ajuste-fiscal-de-lula"},
+  {"l": "Constituição Federal, art. 69 (lei complementar por maioria absoluta)", "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"}
+ ]
+}

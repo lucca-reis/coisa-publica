@@ -1,0 +1,47 @@
+{
+ "id": "2026-11-16-manha",
+ "periodo": "manha",
+ "data": "2026-11-16",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Presidência",
+    "dia": "8h",
+    "tags": [{"t": "Presidência · viagem", "poder": "exe"}],
+    "titulo": "Lula encontra Pedro Sánchez em Madri",
+    "texto": "Visita de trabalho à Espanha, na volta da Ásia; às 11h no horário local."
+   },
+   {
+    "quando": "Senado",
+    "dia": "10h",
+    "tags": [{"t": "Senado · sessão especial", "poder": "leg"}],
+    "titulo": "Sessão pelo Dia da Consciência Negra",
+    "texto": "Homenagem no Plenário, sem votações. Às 14h, sessão só de discursos."
+   },
+   {
+    "quando": "Câmara",
+    "dia": "Hoje ou amanhã",
+    "tags": [{"t": "Câmara · reunião de líderes", "poder": "leg"}, {"cat": "plp", "t": "PLP 299/2026"}],
+    "titulo": "Líderes discutem o ajuste fiscal",
+    "texto": "Hugo Motta reúne os líderes para decidir como votar o projeto. Horário não informado."
+   }
+  ],
+  "fonte": "Agência Senado, Congresso Nacional, CartaCapital (AFP) e O Globo"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 16 de novembro. Presidência, 8h: Lula encontra o primeiro-ministro da Espanha, Pedro Sánchez, em Madri; visita de trabalho na volta da Ásia, às 11h no horário local. Senado, 10h: sessão especial pelo Dia da Consciência Negra, uma homenagem no Plenário, sem votações; às 14h, sessão só de discursos. Câmara, hoje ou amanhã: líderes discutem o ajuste fiscal (PLP 299/2026); Hugo Motta reúne os líderes para decidir como votar o projeto, horário não informado. Fonte: Agência Senado, Congresso Nacional, CartaCapital (AFP) e O Globo.",
+ "textos": {
+  "bluesky": "Hoje (16/11) nos Três Poderes:\n\n8h · Lula se reúne com Pedro Sánchez em Madri.\n10h · Senado faz sessão especial pelo Dia da Consciência Negra; às 14h, só discursos.\nCâmara · Motta reúne líderes para definir a votação do ajuste fiscal.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, segunda (16/11), nos Três Poderes:\n\n8h · Presidência\nNa volta da viagem à Turquia e às Filipinas, Lula faz uma visita de trabalho a Madri. Segundo a agenda divulgada pelo gabinete do presidente (AFP, via CartaCapital), o encontro com o primeiro-ministro da Espanha, Pedro Sánchez, é às 11h no horário local (8h de Brasília), no Palácio de La Moncloa, sede do governo espanhol. A pauta do encontro não foi informada. A volta ao Brasil está prevista para terça (17/11), segundo o Brasil de Fato.\n\n10h · Senado\nSessão especial pelo Dia Nacional de Zumbi e da Consciência Negra, comemorado na sexta (20/11), feriado nacional. Foi pedida pelo senador Paulo Paim (PT-RS). Na mesma sessão, o Congresso abre a campanha \"21 Dias de Ativismo pelo Fim da Violência e do Racismo contra as Mulheres\", segundo a Agência Senado. Sessão especial é uma homenagem: não há votações.\nÀs 14h, sessão não deliberativa, só com discursos, segundo a agenda do Congresso Nacional.\n\nCâmara\nSegundo a Agência O Globo, o presidente da Câmara, Hugo Motta, reúne os líderes hoje ou amanhã para decidir como votar o projeto de ajuste fiscal do governo (PLP 299/2026). O texto chega à Câmara depois que o Senado votar os quatro destaques que faltam, o que está previsto para terça (17/11). Horário não informado.\n\nSTF\nNenhuma sessão do Plenário marcada para hoje. A próxima é na quarta (18/11), às 14h.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #Senado #Câmara #ConsciênciaNegra #AjusteFiscal #Política"
+ },
+ "fontes": [
+  {"l": "CartaCapital (AFP): Lula se reunirá na segunda-feira com o premiê espanhol Pedro Sánchez", "u": "https://www.cartacapital.com.br/politica/lula-se-reunira-na-segunda-feira-com-o-premie-espanhol-pedro-sanchez/"},
+  {"l": "InfoMoney (Estadão Conteúdo), 15/11: após a Asean, Lula embarca para Madri", "u": "https://www.infomoney.com.br/politica/apos-asean-e-cop-31-lula-embarca-para-madri-para-encontro-com-pedro-sanchez/"},
+  {"l": "Agência Senado, 13/11: Senado celebra Dia da Consciência Negra em sessão especial na segunda-feira", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/13/senado-celebra-dia-da-consciencia-negra-em-sessao-especial-na-segunda-feira"},
+  {"l": "Congresso Nacional: agenda das Casas em 16/11", "u": "https://www.congressonacional.leg.br/sessoes/agenda-do-congresso-senado-e-camara/-/agenda/2026-11-16"},
+  {"l": "Tribuna do Sertão (Agência O Globo), 13/11: Motta vai reunir líderes para definir votação do ajuste fiscal", "u": "https://www.tribunadosertao.com.br/financas/2026/11/13/1020811-ajuste-fiscal-hugo-motta-vai-reunir-lideres-no-comeco-da-semana-que-vem-para-definir-votacao-na-camara"},
+  {"l": "Brasil de Fato, 14/11: semana começa com Senado votando destaques do ajuste fiscal", "u": "https://www.brasildefato.com.br/2026/11/14/semana-comeca-com-senado-votando-destaques-do-projeto-de-ajuste-fiscal-de-lula"}
+ ]
+}
