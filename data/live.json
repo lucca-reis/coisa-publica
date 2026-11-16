@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-16T08:00-03:00",
+ "atualizado": "2026-11-16T17:56-03:00",
  "camara": [
   {
    "id": 83088,
@@ -8,16 +8,6 @@
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano\r\n Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83089,
-   "inicio": "2026-11-18T12:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 131 anos do Clube de Regatas do Flamengo\r\n Homenagem aos 131 anos do Clube de Regatas do Flamengo",
    "video": null,
    "aoVivo": false
   },
@@ -35,7 +25,7 @@
    "id": 83102,
    "inicio": "2026-11-17T11:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
    "video": null,
@@ -67,7 +57,7 @@
    "id": "552091",
    "inicio": "2026-11-16T10:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
@@ -77,7 +67,7 @@
    "id": "594177",
    "inicio": "2026-11-16T14:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO NÃO DELIBERATIVA ",
    "descricao": "",
    "video": null,
