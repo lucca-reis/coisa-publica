@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-16T15:02Z",
+ "atualizado": "2026-11-16T15:22Z",
  "itens": [
   {
    "casa": "senado",
@@ -10,16 +10,6 @@
    "descricao": "",
    "desde": "10h",
    "video": "https://www.youtube.com/watch?v=nxa7ahc5-zE"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CDHYANOM",
-   "nome": "Subcomissão Permanente dos povos  indígenas Yanomami",
-   "tipo": "Subcomissão Permanente dos povos  indígenas Yanomami",
-   "descricao": "Subcomissão Permanente dos Povos Indígenas Yanomami",
-   "desde": "10h",
-   "video": "https://www.youtube.com/watch?v=JXqKF3LnTw0"
   }
  ]
 }
