@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-16T14:09Z",
+ "atualizado": "2026-11-16T14:19Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "TESTECOM",
-   "nome": "TESTE PARA GERAÇÃO DO ESPELHO DA COMISSÃO (COMISSÃO FICTÍCIA)",
-   "tipo": "TESTE PARA GERAÇÃO DO ESPELHO DA COMISSÃO (COMISSÃO FICTÍCIA)",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "10h58",
-   "video": null
-  },
   {
    "casa": "senado",
    "plenario": true,
