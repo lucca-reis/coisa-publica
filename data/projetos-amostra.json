@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2649642",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2649642",
-   "idDeputadoAutor": "204398",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204398",
+   "idProposicao": "2653957",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2653957",
+   "idDeputadoAutor": "220611",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/220611",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Felipe Francischini",
-   "siglaPartidoAutor": "PODE",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36896",
-   "siglaUFAutor": "PR",
+   "nomeAutor": "General Pazuello",
+   "siglaPartidoAutor": "PL",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUFAutor": "RJ",
    "ordemAssinatura": "1",
    "proponente": "1"
   }

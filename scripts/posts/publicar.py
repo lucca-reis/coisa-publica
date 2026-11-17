@@ -77,7 +77,8 @@ ORDEM = {'apresentacao': 0, 'manha': 1, 'tarde': 2, 'noite': 3}
 HORA = {'manha': '08:00', 'tarde': '13:00', 'noite': '18:00'}   # "hora" no post.json muda a de um post só
 BR = zoneinfo.ZoneInfo('America/Sao_Paulo')
 def chave(p): return (p.name[:10], ORDEM.get(p.name[11:].split('-')[0], 9), p.name)
-for d in sorted((p for p in POSTS.iterdir() if p.is_dir() and re.match(r'\d{4}-\d{2}-\d{2}-((manha|tarde|noite)(-[a-z0-9]+)?|apresentacao-\d+)$', p.name)), key=chave):
+SO = (os.environ.get('SO_POST') or '').strip()   # publicação manual de um post só (workflow_dispatch com o campo "post")
+for d in sorted((p for p in POSTS.iterdir() if p.is_dir() and (not SO or p.name == SO) and re.match(r'\d{4}-\d{2}-\d{2}-((manha|tarde|noite)(-[a-z0-9]+)?|apresentacao-\d+)$', p.name)), key=chave):
     post, img, feito_f = d / 'post.json', d / 'imagem.jpg', d / 'publicado.json'
     if not post.exists() or not img.exists(): continue
     P = json.loads(post.read_text(encoding='utf-8'))

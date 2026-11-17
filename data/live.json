@@ -1,63 +1,23 @@
 {
- "atualizado": "2026-11-03T11:05-03:00",
+ "atualizado": "2026-11-17T10:10-03:00",
  "camara": [
   {
-   "id": 83076,
-   "inicio": "2026-11-04T09:00-03:00",
+   "id": 83088,
+   "inicio": "2026-11-18T10:30-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.\r\n Homenagem aos 40 anos da Confederação Brasileira das Cooperativas de Crédito – CONFEBRAS.",
+   "descricao": "Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano\r\n Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano",
    "video": null,
    "aoVivo": false
   },
   {
-   "id": 83078,
-   "inicio": "2026-11-04T11:00-03:00",
+   "id": 83090,
+   "inicio": "2026-11-25T11:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem a Roberto Santos, Waldir Pires, Milton Santos e Luís Henrique Dias Tavares\r\n Homenagem ao centenário do geógrafo Milton Santos",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83083,
-   "inicio": "2026-11-10T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers\r\n Homenagem aos 50 anos da Abrasce – Associação Brasileira de Shopping Centers",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83084,
-   "inicio": "2026-11-10T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ\r\n Homenagem aos 100 anos do Grupo Mercadinho São Luiz - MSLZ",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83085,
-   "inicio": "2026-11-11T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem ao Dia Nacional da Consciência Negra\r\n Homenagem ao Dia Nacional da Consciência Negra",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83086,
-   "inicio": "2026-11-11T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)\r\n Homenagem aos 45 anos da Associação do Senhor Jesus (ASJ)",
+   "descricao": "Homenagem aos 70 anos do legado educacional do senhor Amador Aguiar\r\n Homenagem aos aos 70 anos do legado educacional do brasileiro Amador Aguiar",
    "video": null,
    "aoVivo": false
   },
@@ -65,15 +25,55 @@
    "id": 83102,
    "inicio": "2026-11-17T11:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
    "video": null,
    "aoVivo": false
   },
   {
-   "id": 83141,
-   "inicio": "2026-11-03T13:55-03:00",
+   "id": 83111,
+   "inicio": "2026-12-01T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias\r\n Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83148,
+   "inicio": "2026-11-24T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável\r\n Homenagem ao Dia do Policial Federal",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83236,
+   "inicio": "2026-11-24T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83239,
+   "inicio": "2026-12-01T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Diploma Mulher-Cidadã Carlota Pereira de Queirós",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83363,
+   "inicio": "2026-11-17T13:55-03:00",
    "fim": null,
    "situacao": "Convocada",
    "tipo": "Sessão Deliberativa",
@@ -84,8 +84,18 @@
  ],
  "senado": [
   {
-   "id": "594169",
-   "inicio": "2026-11-03T14:00-03:00",
+   "id": "570202",
+   "inicio": "2026-11-17T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594178",
+   "inicio": "2026-11-17T14:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
@@ -94,8 +104,18 @@
    "aoVivo": false
   },
   {
-   "id": "594170",
-   "inicio": "2026-11-04T14:00-03:00",
+   "id": "571069",
+   "inicio": "2026-11-18T10:00-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "SESSÃO SOLENE ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594179",
+   "inicio": "2026-11-18T14:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
@@ -104,8 +124,18 @@
    "aoVivo": false
   },
   {
-   "id": "586337",
-   "inicio": "2026-11-05T15:00-03:00",
+   "id": "577254",
+   "inicio": "2026-11-19T10:00-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "SESSÃO SOLENE ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594289",
+   "inicio": "2026-11-23T10:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO ESPECIAL ",
@@ -114,8 +144,8 @@
    "aoVivo": false
   },
   {
-   "id": "594171",
-   "inicio": "2026-11-06T10:00-03:00",
+   "id": "594180",
+   "inicio": "2026-11-23T14:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO NÃO DELIBERATIVA ",
@@ -124,8 +154,8 @@
    "aoVivo": false
   },
   {
-   "id": "562781",
-   "inicio": "2026-11-09T10:00-03:00",
+   "id": "574449",
+   "inicio": "2026-11-24T10:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO ESPECIAL ",
@@ -134,28 +164,8 @@
    "aoVivo": false
   },
   {
-   "id": "594173",
-   "inicio": "2026-11-09T14:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "SESSÃO NÃO DELIBERATIVA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "588622",
-   "inicio": "2026-11-10T10:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594172",
-   "inicio": "2026-11-10T14:00-03:00",
+   "id": "594181",
+   "inicio": "2026-11-24T14:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",

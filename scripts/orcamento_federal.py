@@ -51,7 +51,7 @@ Nação Municípios Petróleo Mudança Adaptação Mitigação Reembolsável Amo
 Instituição Pós-Graduação Graduação Território Territorial Agropecuária Agrícola Pecuária Veículos Órgãos Órgão Gratuidade Atuação
 Avaliação Informação Informações Inclusão Erradicação Alimentação Escolar Bolsa Rurais Saneamento Fomento Indenizações Indenização
 Emergência Calamidade Calamidades Hospitais Universitários Acadêmica Pesquisas Inteligência Polícia Penitenciário Prisional
-Ressarcimento Compensações Exercício Exercícios Contratuais Federativos Federativo Consórcios Tecnológico Científico Econômicos
+Estruturação Ressarcimento Compensações Exercício Exercícios Contratuais Federativos Federativo Consórcios Tecnológico Científico Econômicos
 """.split()}
 def acentua(w):
     k = w.lower()
