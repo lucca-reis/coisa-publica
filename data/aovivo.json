@@ -1,15 +1,25 @@
 {
- "atualizado": "2026-11-17T17:28Z",
+ "atualizado": "2026-11-17T17:39Z",
  "itens": [
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CPOVOS",
-   "nome": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
-   "tipo": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas e definição das emendas da Comissão ao PLOA 2027 e ao PLDO 2027",
-   "desde": "14h18",
-   "video": "https://www.youtube.com/watch?v=FNd7E8M6R4E"
+   "sigla": "CSPCCO",
+   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "descricao": "Reunião deliberativa: Votação das emendas da comissão à LDO e à LOA para 2027",
+   "desde": "14h32",
+   "video": "https://www.youtube.com/watch?v=fEtuF0_tLQ8"
+  },
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "desde": "14h32",
+   "video": "https://www.youtube.com/watch?v=XwiLj7eSj2s"
   },
   {
    "casa": "senado",
@@ -30,16 +40,6 @@
    "descricao": "CDH discute Novembro Roxo, mês de conscientização sobre bebês prematuros",
    "desde": "14h",
    "video": "https://www.youtube.com/watch?v=kuXOEFHCe9I"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CI",
-   "nome": "Comissão de Serviços de Infraestrutura",
-   "tipo": "Comissão de Serviços de Infraestrutura",
-   "descricao": "Comissão de Infraestrutura avalia indicações de emendas para a LOA 2027",
-   "desde": "11h",
-   "video": "https://www.youtube.com/watch?v=GAL1sg3_3kA"
   },
   {
    "casa": "senado",
