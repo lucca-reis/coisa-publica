@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T10:10-03:00",
+ "atualizado": "2026-11-17T12:05-03:00",
  "camara": [
   {
    "id": 83088,
@@ -23,13 +23,13 @@
   },
   {
    "id": 83102,
-   "inicio": "2026-11-17T11:00-03:00",
+   "inicio": "2026-11-17T11:13-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=kRHfNqKJOLM",
+   "aoVivo": true
   },
   {
    "id": 83111,
@@ -87,7 +87,7 @@
    "id": "570202",
    "inicio": "2026-11-17T10:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
