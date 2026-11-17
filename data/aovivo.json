@@ -1,6 +1,36 @@
 {
- "atualizado": "2026-11-17T18:25Z",
+ "atualizado": "2026-11-17T18:40Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CEXBRLEG",
+   "nome": "Comissão Externa destinada a discutir os atos de pirataria e a agenda do chamado “Brasil Legal”",
+   "tipo": "Comissão Externa destinada a discutir os atos de pirataria e a agenda do chamado “Brasil Legal”",
+   "descricao": "Audiência pública: Impactos econômicos e mecanismos de combate à pirataria e falsificação nos mercados de bebidas e cigarros",
+   "desde": "15h39",
+   "video": "https://www.youtube.com/watch?v=HfseNPU0rm0"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CICS",
+   "nome": "Comissão de Indústria, Comércio e Serviços",
+   "tipo": "Comissão de Indústria, Comércio e Serviços",
+   "descricao": "Reunião deliberativa: Definição das emendas da comissão ao Projeto de Lei Orçamentária Anual para 2027",
+   "desde": "15h33",
+   "video": "https://www.youtube.com/watch?v=zTTzfUF7b6E"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CASP",
+   "nome": "Comissão de Administração e Serviço Público",
+   "tipo": "Comissão de Administração e Serviço Público",
+   "descricao": "Reunião deliberativa: Votação das emendas da comissão à LDO 2027 e à LOA 2027",
+   "desde": "15h40",
+   "video": null
+  },
   {
    "casa": "camara",
    "plenario": false,
@@ -20,16 +50,6 @@
    "descricao": "Audiência pública e deliberação: Redução da maioridade penal",
    "desde": "14h47",
    "video": "https://www.youtube.com/watch?v=xtgKNzc03eA"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CDHMIR",
-   "nome": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
-   "tipo": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
-   "descricao": "Reunião deliberativa: Definição das emendas ao Projeto de Lei Diretrizes Orçamentárias e ao Projeto de Lei Orçamentaria Anual de 2027",
-   "desde": "15h12",
-   "video": "https://www.youtube.com/watch?v=XdciIWFebGc"
   },
   {
    "casa": "camara",
@@ -60,16 +80,6 @@
    "descricao": "CDH discute Novembro Roxo, mês de conscientização sobre bebês prematuros",
    "desde": "14h",
    "video": "https://www.youtube.com/watch?v=kuXOEFHCe9I"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CAE",
-   "nome": "Comissão de Assuntos Econômicos",
-   "tipo": "Comissão de Assuntos Econômicos",
-   "descricao": "Comissão de Assuntos Econômicos avalia indicações para a LDO e a LOA 2027",
-   "desde": "10h",
-   "video": "https://www.youtube.com/watch?v=oY_7vUXqHkI"
   },
   {
    "casa": "stf",
