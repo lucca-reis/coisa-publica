@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-16T17:56-03:00",
+ "atualizado": "2026-11-17T00:43-03:00",
  "camara": [
   {
    "id": 83088,
@@ -32,6 +32,16 @@
    "aoVivo": false
   },
   {
+   "id": 83111,
+   "inicio": "2026-12-01T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias\r\n Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias",
+   "video": null,
+   "aoVivo": false
+  },
+  {
    "id": 83148,
    "inicio": "2026-11-24T11:00-03:00",
    "fim": null,
@@ -50,29 +60,29 @@
    "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
    "video": null,
    "aoVivo": false
+  },
+  {
+   "id": 83239,
+   "inicio": "2026-12-01T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Diploma Mulher-Cidadã Carlota Pereira de Queirós",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83363,
+   "inicio": "2026-11-17T13:55-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
-  {
-   "id": "552091",
-   "inicio": "2026-11-16T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594177",
-   "inicio": "2026-11-16T14:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO NÃO DELIBERATIVA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "570202",
    "inicio": "2026-11-17T10:00-03:00",
@@ -139,6 +149,26 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO NÃO DELIBERATIVA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "574449",
+   "inicio": "2026-11-24T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594181",
+   "inicio": "2026-11-24T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
    "aoVivo": false
