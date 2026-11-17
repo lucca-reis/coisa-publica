@@ -1,1 +1,113 @@
-{"total": [6238295721285.98, 6427653939589.98, 5363059559850.84, 4809674297634.94], "divida": {"juros": [643939797050.0, 643939797050.0, 503536899289.75, 497608597146.78], "amortizacao": [450338893647.0, 460184893647.0, 334748582654.5, 332039186679.42], "rolagem": [1770172522774.0, 1760326522774.0, 1533443070267.63, 1500204605650.26]}, "areas": 29, "orgaos": 37, "log": ["25471 linhas lidas"]}
+Convocada | CN | null
+Convocada | CE | null
+Convocada | CCOM | null
+Convocada | SUBPL657 | null
+Convocada | CIDOSO | null
+Agendada | PLEN | null
+Em Andamento | PLEN | https://www.youtube.com/watch?v=kRHfNqKJOLM
+Em Andamento | CSAUDE | https://www.youtube.com/watch?v=IV4QmSBzeng
+Convocada | CEXBRLEG | null
+Convocada | CDHMIR | null
+Em Andamento | CCTI | https://www.youtube.com/watch?v=E1BUMEnNwmM
+Convocada | CE | null
+Convocada | CE | null
+Convocada | CCTI | null
+Convocada | CIDOSO | null
+Convocada | CME | null
+Convocada | CPD | null
+Convocada | CICS | null
+Convocada | CASP | null
+Convocada | CE | null
+Convocada | CASP | null
+Cancelada | CEXMABRU | null
+Convocada | CPOVOS | null
+Convocada | CSPCCO | null
+Convocada | PEC03215 | null
+Convocada | CAPADR | null
+Convocada | CME | null
+Convocada | CDU | null
+Convocada | CESPO | null
+Convocada | CDHMIR | null
+Convocada | CIDOSO | null
+Convocada | CCJC | null
+Convocada | CPASF | null
+Convocada | CMO | null
+Convocada | CMADS | null
+Convocada | CDE | null
+Cancelada | CFT | null
+Convocada | CFT | null
+Convocada | CMULHER | null
+Convocada | CCULT | null
+Convocada | CCULT | null
+Convocada | CMULHER | null
+Convocada | CINDRE | null
+Convocada | CTRAB | null
+Convocada | CTRAB | null
+Convocada | CCTI | null
+Convocada | CSAUDE | null
+Convocada | CEXMABRU | null
+Convocada | CREDN | null
+Convocada | CEXMABRU | null
+Convocada | CVT | null
+Convocada | CPD | null
+Convocada | CCJC | null
+Convocada | CCJC | null
+Convocada | CDE | null
+Convocada | CDE | null
+Convocada | CDC | null
+Convocada | CDC | null
+Convocada | CICS | null
+Convocada | CSPCCO | null
+Convocada | CDU | null
+Convocada | CREDN | null
+Convocada | CN | null
+Convocada | CMADS | null
+Convocada | CFFC | null
+Convocada | CAPADR | null
+Convocada | CAPADR | null
+Convocada | CVT | null
+Convocada | PEC03215 | null
+Convocada | CINDRE | null
+Convocada | CTRAB | null
+Convocada | CCOM | null
+Convocada | CMO | null
+Convocada | CFFC | null
+Convocada | PLEN | null
+Convocada | EVENTOS | null
+Convocada | CSAUDE | null
+Convocada | CPOVOS | null
+kRHfNqKJOLM mqdefault_live.jpg 200 12570B 320x180
+kRHfNqKJOLM hqdefault_live.jpg 200 18071B 480x360
+kRHfNqKJOLM hqdefault.jpg 200 18071B 480x360
+kRHfNqKJOLM mqdefault.jpg 200 12570B 320x180
+IV4QmSBzeng mqdefault_live.jpg 200 6123B 320x180
+IV4QmSBzeng hqdefault_live.jpg 200 8785B 480x360
+IV4QmSBzeng hqdefault.jpg 200 8785B 480x360
+IV4QmSBzeng mqdefault.jpg 200 6123B 320x180
+E1BUMEnNwmM mqdefault_live.jpg 200 12568B 320x180
+E1BUMEnNwmM hqdefault_live.jpg 200 18578B 480x360
+E1BUMEnNwmM hqdefault.jpg 200 18578B 480x360
+E1BUMEnNwmM mqdefault.jpg 200 12568B 320x180
+IVpY0_LiYxY mqdefault_live.jpg 200 12839B 320x180
+IVpY0_LiYxY hqdefault_live.jpg 200 18055B 480x360
+IVpY0_LiYxY hqdefault.jpg 200 18055B 480x360
+IVpY0_LiYxY mqdefault.jpg 200 12839B 320x180
+JXqKF3LnTw0 mqdefault_live.jpg 200 13413B 320x180
+JXqKF3LnTw0 hqdefault_live.jpg 200 20809B 480x360
+JXqKF3LnTw0 hqdefault.jpg 200 20809B 480x360
+JXqKF3LnTw0 mqdefault.jpg 200 13413B 320x180
+qTcOGuWH7CQ mqdefault_live.jpg 200 11397B 320x180
+qTcOGuWH7CQ hqdefault_live.jpg 200 16916B 480x360
+qTcOGuWH7CQ hqdefault.jpg 200 16916B 480x360
+qTcOGuWH7CQ mqdefault.jpg 200 11397B 320x180
+page 200 https://i.ytimg.com/vi/IV4QmSBzeng/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/JXqKF3LnTw0/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/IVpY0_LiYxY/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/E1BUMEnNwmM/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/IV4QmSBzeng/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/E1BUMEnNwmM/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/JXqKF3LnTw0/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/IVpY0_LiYxY/mqdefault_live.jpg?t=9971818
+page 200 https://i.ytimg.com/vi/IV4QmSBzeng/mqdefault_live.jpg?t=9971818
+bg: [["IV4QmSBzeng","url(\"https://i.ytimg.com/vi/IV4QmSBzeng/mqdefault_live.jpg?t=9971818\")","url(\"https://i.ytimg.com/vi/IV4QmSBzeng/mqdefault_live.jpg?t=9971818\")"],["E1BUMEnNwmM","url(\"https://i.ytimg.com/vi/E1BUMEnNwmM/mqdefault_live.jpg?t=9971818\")","url(\"https://i.ytimg.com/vi/E1BUMEnNwmM/mqdefault_live.jpg?t=9971818\")"],["IVpY0_LiYxY","url(\"https://i.ytimg.com/vi/IVpY0_LiYxY/mqdefault_live.jpg?t=9971818\")","url(\"https://i.ytimg.com/vi/IVpY0_LiYxY/mqdefault_live.jpg?t=9971818\")"],["JXqKF3LnTw0","url(\"https://i.ytimg.com/vi/JXqKF3LnTw0/mqdefault_live.jpg?t=9971818\")","url(\"https://i.ytimg.com/vi/JXqKF3LnTw0/mqdefault_live.jpg?t=9971818\")"]]
+errs: 
