@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-17T17:23Z",
+ "atualizado": "2026-11-17T17:28Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CPOVOS",
+   "nome": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
+   "tipo": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas e definição das emendas da Comissão ao PLOA 2027 e ao PLDO 2027",
+   "desde": "14h18",
+   "video": "https://www.youtube.com/watch?v=FNd7E8M6R4E"
+  },
   {
    "casa": "senado",
    "plenario": false,
