@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T19:41Z",
+ "atualizado": "2026-11-17T19:57Z",
  "itens": [
   {
    "casa": "camara",
@@ -50,16 +50,6 @@
    "descricao": "",
    "desde": "14h",
    "video": null
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CDH",
-   "nome": "Comissão de Direitos Humanos e Legislação Participativa",
-   "tipo": "Comissão de Direitos Humanos e Legislação Participativa",
-   "descricao": "CDH discute Novembro Roxo, mês de conscientização sobre bebês prematuros",
-   "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=kuXOEFHCe9I"
   },
   {
    "casa": "stf",
