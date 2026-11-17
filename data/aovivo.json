@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-17T18:55Z",
+ "atualizado": "2026-11-17T19:06Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "SUBPL657",
+   "nome": "Subcomissão Especial para debater e acompanhar a tramitação do Projeto de Lei nº 657, de 2025, que altera que altera a Lei nº 9.394, de 20 de dezembro de 1996, de diretrizes e bases da educação nacional (LDB), para dispensar a existência de diagnóstico clínico ou apresentação de laudo médico para educação especial",
+   "tipo": "Subcomissão Especial para debater e acompanhar a tramitação do Projeto de Lei nº 657, de 2025, que altera que altera a Lei nº 9.394, de 20 de dezembro de 1996, de diretrizes e bases da educação nacional (LDB), para dispensar a existência de diagnóstico clínico ou apresentação de laudo médico para educação especial",
+   "descricao": "Audiência pública: Sistema de Educação Inclusiva",
+   "desde": "15h58",
+   "video": "https://www.youtube.com/watch?v=WsdWoUkwVvc"
+  },
   {
    "casa": "camara",
    "plenario": false,
@@ -10,16 +20,6 @@
    "descricao": "Audiência pública: Impactos econômicos e mecanismos de combate à pirataria e falsificação nos mercados de bebidas e cigarros",
    "desde": "15h39",
    "video": "https://www.youtube.com/watch?v=HfseNPU0rm0"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CASP",
-   "nome": "Comissão de Administração e Serviço Público",
-   "tipo": "Comissão de Administração e Serviço Público",
-   "descricao": "Reunião deliberativa: Discussão e votação de proposições legislativas",
-   "desde": "15h49",
-   "video": "https://www.youtube.com/watch?v=i5LkU-dAbcw"
   },
   {
    "casa": "camara",
@@ -40,16 +40,6 @@
    "descricao": "Audiência pública e deliberação: Redução da maioridade penal",
    "desde": "14h47",
    "video": "https://www.youtube.com/watch?v=xtgKNzc03eA"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CCJC",
-   "nome": "Comissão de Constituição e Justiça e de Cidadania",
-   "tipo": "Comissão de Constituição e Justiça e de Cidadania",
-   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
-   "desde": "15h17",
-   "video": "https://www.youtube.com/watch?v=kTYSdoyCE3o"
   },
   {
    "casa": "camara",
