@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T18:09Z",
+ "atualizado": "2026-11-17T18:20Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,6 +20,26 @@
    "descricao": "Audiência pública e deliberação: Redução da maioridade penal",
    "desde": "14h47",
    "video": "https://www.youtube.com/watch?v=xtgKNzc03eA"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CDHMIR",
+   "nome": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "tipo": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "descricao": "Reunião deliberativa: Definição das emendas ao Projeto de Lei Diretrizes Orçamentárias e ao Projeto de Lei Orçamentaria Anual de 2027",
+   "desde": "15h12",
+   "video": "https://www.youtube.com/watch?v=XdciIWFebGc"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CCJC",
+   "nome": "Comissão de Constituição e Justiça e de Cidadania",
+   "tipo": "Comissão de Constituição e Justiça e de Cidadania",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "15h17",
+   "video": "https://www.youtube.com/watch?v=kTYSdoyCE3o"
   },
   {
    "casa": "camara",
