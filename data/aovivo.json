@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T21:08Z",
+ "atualizado": "2026-11-17T21:18Z",
  "itens": [
   {
    "casa": "camara",
@@ -10,16 +10,6 @@
    "descricao": "Audiência pública: Sistema de Educação Inclusiva",
    "desde": "15h58",
    "video": "https://www.youtube.com/watch?v=WsdWoUkwVvc"
-  },
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "desde": "14h32",
-   "video": "https://www.youtube.com/watch?v=XwiLj7eSj2s"
   },
   {
    "casa": "senado",
