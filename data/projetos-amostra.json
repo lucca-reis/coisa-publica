@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2653957",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2653957",
-   "idDeputadoAutor": "220611",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/220611",
+   "idProposicao": "2654285",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2654285",
+   "idDeputadoAutor": "143632",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/143632",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "General Pazuello",
-   "siglaPartidoAutor": "PL",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
-   "siglaUFAutor": "RJ",
+   "nomeAutor": "Domingos Neto",
+   "siglaPartidoAutor": "PSD",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36834",
+   "siglaUFAutor": "CE",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
