@@ -1,6 +1,16 @@
 {
- "atualizado": "2026-11-17T17:59Z",
+ "atualizado": "2026-11-17T18:09Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSPCCO",
+   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "15h02",
+   "video": "https://www.youtube.com/watch?v=i6pCo6itWDE"
+  },
   {
    "casa": "camara",
    "plenario": false,
@@ -20,6 +30,16 @@
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "desde": "14h32",
    "video": "https://www.youtube.com/watch?v=XwiLj7eSj2s"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CMMPV 1393/2026",
+   "nome": "Comissão Mista da Medida Provisória n° 1393, de 2026",
+   "tipo": "Comissão Mista da Medida Provisória n° 1393, de 2026",
+   "descricao": "Instalação da comissão mista sobre a MP do Desenrola 3.0",
+   "desde": "14h30",
+   "video": "https://www.youtube.com/watch?v=lN68I0aPLnU"
   },
   {
    "casa": "senado",
