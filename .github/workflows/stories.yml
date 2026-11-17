@@ -6,6 +6,9 @@ name: Stories ao vivo
 #   site lê: o que entra aparece e o que acaba sai do site;
 # - se a Câmara, o Senado, o STF ou a Presidência começou uma transmissão oficial, publica um story no Instagram com a
 #   arte de scripts/posts/story-live.js (uma vez por sessão; comissões, no máximo uma por Casa a cada 3 horas).
+# O agendamento do GitHub pula muitas rodadas (em novembro de 2026 rodava a cada 6 a 10 horas, e o data/aovivo.json
+# ficava velho, sem as comissões e sem os vídeos). Por isso cada rodada, ao terminar, chama a seguinte enquanto for
+# dia (até 23h de Brasília); os horários abaixo só recomeçam a corrente de manhã ou se ela cair.
 on:
   schedule:
     - cron: '33 11 * * *'   # 8h33: a primeira rodada do dia já está no ar quando as sessões das 9h começam
@@ -15,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # para a rodada chamar a seguinte (ver o fim)
 
 concurrency:
   group: stories
@@ -62,3 +66,10 @@ jobs:
             fi
             if [ "$rodada" -lt 10 ]; then sleep 300; fi
           done
+      - name: Chamar a rodada seguinte
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          H=$(TZ=America/Sao_Paulo date +%H)
+          if [ "$H" -ge 8 ] && [ "$H" -lt 23 ]; then gh workflow run stories.yml --ref main -R "$GITHUB_REPOSITORY" || true; fi

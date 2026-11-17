@@ -43,7 +43,9 @@ async function get(url){ const r = await fetch(url, {headers: UA}); if (!r.ok) t
 // ---------- Câmara: Plenário e comissões em andamento (todos os eventos do dia) ----------
 async function camara(hoje){
   const js = await get(`https://dadosabertos.camara.leg.br/api/v2/eventos?dataInicio=${hoje}&dataFim=${hoje}&ordem=ASC&ordenarPor=dataHoraInicio&itens=100`);
-  return (js.dados||[]).filter(e=> /andamento/i.test(e.situacao||'')).map(e=>{
+  // a Câmara deixa no ar, às vezes, eventos de teste do próprio sistema ("TESTE PARA GERAÇÃO DO ESPELHO ... (COMISSÃO FICTÍCIA)")
+  const teste = e=> /fict[ií]cia|^\s*teste\b/i.test([e.descricao, ...(e.orgaos||[]).map(o=> `${o.nome||''} ${o.sigla||''}`)].join(' '));
+  return (js.dados||[]).filter(e=> /andamento/i.test(e.situacao||'') && !teste(e)).map(e=>{
     const o = (e.orgaos||[])[0] || {}, plen = (e.orgaos||[]).some(x=> x.sigla==='PLEN' || x.id===180);
     const desc = limpa((e.descricao||'').split(/\r?\n/)[0]).slice(0, 180);
     return {chave:`camara-${e.id}`, casa:'camara', plenario:plen, sigla: plen ? 'Plenário' : (o.sigla||''), nome: plen ? 'Plenário da Câmara' : (o.nome||o.nomePublicacao||''),
