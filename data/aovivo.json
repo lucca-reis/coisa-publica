@@ -1,4 +1,55 @@
 {
- "atualizado": "2026-11-17T09:30Z",
- "itens": []
+ "atualizado": "2026-11-17T15:06Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão não deliberativa solene",
+   "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
+   "desde": "11h13",
+   "video": "https://www.youtube.com/watch?v=kRHfNqKJOLM"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSAUDE",
+   "nome": "Comissão de Saúde",
+   "tipo": "Comissão de Saúde",
+   "descricao": "Audiência pública: Setembro Vermelho e as doenças cardiovasculares",
+   "desde": "10h24",
+   "video": "https://www.youtube.com/watch?v=IV4QmSBzeng"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CCTI",
+   "nome": "Comissão de Ciência, Tecnologia e Inovação",
+   "tipo": "Comissão de Ciência, Tecnologia e Inovação",
+   "descricao": "Audiência pública: Comemoração dos 35 anos da Lei nº 8.248, de 23 de outubro de 1991 (Lei de TICs)",
+   "desde": "9h51",
+   "video": "https://www.youtube.com/watch?v=E1BUMEnNwmM"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CAE",
+   "nome": "Comissão de Assuntos Econômicos",
+   "tipo": "Comissão de Assuntos Econômicos",
+   "descricao": "Comissão de Assuntos Econômicos avalia indicações para a LDO e a LOA 2027",
+   "desde": "10h",
+   "video": "https://www.youtube.com/watch?v=oY_7vUXqHkI"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CDR",
+   "nome": "Comissão de Desenvolvimento Regional e Turismo",
+   "tipo": "Comissão de Desenvolvimento Regional e Turismo",
+   "descricao": "Comissão de Desenvolvimento Regional avalia indicações de emendas RP-8",
+   "desde": "9h30",
+   "video": "https://www.youtube.com/watch?v=H71dDzaaPOs"
+  }
+ ]
 }
