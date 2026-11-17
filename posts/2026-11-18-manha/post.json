@@ -1,0 +1,100 @@
+{
+ "id": "2026-11-18-manha",
+ "periodo": "manha",
+ "data": "2026-11-18",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Senado",
+    "dia": "16h",
+    "tags": [
+     {
+      "t": "Senado · destaques",
+      "poder": "leg"
+     },
+     {
+      "cat": "plp",
+      "t": "PLP 299/2026"
+     }
+    ],
+    "titulo": "Os 4 destaques do ajuste fiscal",
+    "texto": "Adiados de terça. Cada mudança precisa de 41 votos; depois, o texto vai à Câmara."
+   },
+   {
+    "quando": "STF",
+    "dia": "14h",
+    "tags": [
+     {
+      "t": "STF · em pauta",
+      "poder": "jud"
+     },
+     {
+      "cat": "acao",
+      "t": "ADI 7419"
+     }
+    ],
+    "titulo": "Anistia a partidos e nepotismo",
+    "texto": "Cotas de gênero e raça nas eleições e parentes em cargos de primeiro escalão."
+   },
+   {
+    "quando": "Câmara",
+    "dia": "Plenário",
+    "tags": [
+     {
+      "t": "Câmara · aguarda o Senado",
+      "poder": "leg"
+     }
+    ],
+    "titulo": "Ajuste fiscal pode chegar à Câmara",
+    "texto": "A votação depende de o Senado terminar os destaques. Data não confirmada."
+   }
+  ],
+  "fonte": "Agência Estado, GPS Brasília, STF Notícias, ND Mais"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 18 de novembro. Senado, 16h: os quatro destaques do ajuste fiscal (PLP 299/2026), adiados de terça; cada mudança precisa de 41 votos e, depois, o texto vai à Câmara. STF, 14h: anistia a partidos e nepotismo (ADI 7419); cotas de gênero e raça nas eleições e parentes em cargos de primeiro escalão. Câmara, Plenário: o ajuste fiscal pode chegar à Câmara; a votação depende de o Senado terminar os destaques, data não confirmada. Fonte: Agência Estado, GPS Brasília, STF Notícias, ND Mais.",
+ "textos": {
+  "bluesky": "Hoje (18/11) nos Três Poderes:\n\n16h · Senado vota os 4 destaques do ajuste fiscal, adiados de terça.\n14h · STF: anistia a partidos (cotas de gênero e raça) e nepotismo em cargos políticos.\nCâmara: ajuste fiscal depende do Senado.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, quarta (18/11), nos Três Poderes:\n\nSenado · 16h (segundo o GPS Brasília) · Plenário\nOs senadores votam os quatro destaques que faltam ao projeto de ajuste fiscal do governo (PLP 299/2026). A votação estava marcada para terça, mas o presidente do Senado, Davi Alcolumbre, adiou a pedido do relator, sen. Eduardo Braga (MDB-AM), segundo a Agência Estado.\n\nOs destaques pedem para tirar do texto: a restrição ao uso de créditos tributários por empresas (sen. Alan Rick, Republicanos-AC); o adiamento de cerca de R$ 12 bilhões em repasses da Lei Kandir aos estados e o limite de R$ 3 bilhões por ano para a compensação previdenciária (sen. Izalci Lucas, PL-DF); e uma emenda do sen. Rogério Marinho (PL-RN) que mexe no limite de gastos. Cada mudança precisa de pelo menos 41 dos 81 votos. O texto-base passou em 12/11, por 45 a 31.\n\nTambém na pauta da semana, segundo a Gazeta do Paraná: o Estatuto do Aprendiz (PL 6.461/2019) e o prazo de 20 anos para vítimas de crimes sexuais na infância pedirem reparação na Justiça (PL 4.186/2021). Às 10h, sessão solene do Congresso pelos 30 anos da Aneel.\n\nSTF · 14h · Plenário\nNa pauta de novembro divulgada pelo STF para 18 e 19/11: a anistia a partidos que não cumpriram as cotas de gênero e raça em eleições anteriores a 2022 (ADI 7419, relator Gilmar Mendes); a proibição de nepotismo em cargos políticos do primeiro escalão (RE 1.133.118); a dispensa de honorários de advogados em acordos com o poder público (ADIs 5405 e 7694); e a regra da Reforma Trabalhista que exige o valor de cada pedido na ação (ADI 6002).\n\nCâmara\nO ajuste fiscal vai à Câmara quando o Senado terminar. O relator será o dep. Mauro Benevides Filho (PDT-CE), segundo o ND Mais. A data da votação não foi confirmada; o presidente da Câmara, Hugo Motta, viaja nesta quarta a Buenos Aires, segundo a mesma fonte.\n\nPresidência\nAgenda oficial de hoje ainda não divulgada. O decreto que regulamenta a jornada de 42 horas será assinado na quinta (19/11), às 9h.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #Senado #STF #AjusteFiscal #Congresso #Política"
+ },
+ "fontes": [
+  {
+   "l": "O Povo (Agência Estado), 17/11: Senado adia votação de destaques do projeto de ajuste fiscal",
+   "u": "https://www.opovo.com.br/noticias/economia/2026/11/17/senado-adia-votacao-de-destaques-do-projeto-de-ajuste-fiscal.html"
+  },
+  {
+   "l": "GPS Brasília, 17/11: sem acordo, Senado adia votação de destaques para quarta (18)",
+   "u": "https://gpsbrasilia.com.br/sem-acordo-senado-adia-votacao-de-destaques-do-ajuste-fiscal-para-quarta-feira-18/"
+  },
+  {
+   "l": "Diario de Pernambuco, 17/11: Senado adia votação dos destaques para esta quarta (18)",
+   "u": "https://www.diariodepernambuco.com.br/politica/2026/11/11729377-senado-adia-votacao-dos-destaques-do-ajuste-fiscal-para-esta-quarta-feira-18.html"
+  },
+  {
+   "l": "Gazeta do Paraná, 16/11: Senado vota ajuste fiscal, crédito a exportadores e Estatuto do Aprendiz nesta semana",
+   "u": "https://gazetadoparana.com.br/publico/senado-vota-ajuste-fiscal-credito-a-exportadores-e-estatuto-do-aprendiz-nesta-semana"
+  },
+  {
+   "l": "Congresso Nacional: agenda de 18/11",
+   "u": "https://www.congressonacional.leg.br/sessoes/agenda-do-congresso-senado-e-camara/-/agenda/2026-11-18"
+  },
+  {
+   "l": "STF Notícias, 6/11: destaques da pauta do Plenário para novembro",
+   "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-da-pauta-do-plenario-do-stf-para-novembro/"
+  },
+  {
+   "l": "Itatiaia, 9/11: STF julga anistia a partidos e nepotismo em novembro",
+   "u": "https://www.itatiaia.com.br/politica/stf-julga-isencao-de-pena-em-crimes-contra-mulheres-anistia-a-partidos-e-nepotismo-em-novembro/"
+  },
+  {
+   "l": "ND Mais, 17/11: Hugo Motta prioriza o ajuste fiscal",
+   "u": "https://ndmais.com.br/politica/hugo-motta-prioriza-ajuste-fical-e-adia-big-techs/"
+  },
+  {
+   "l": "A Crítica, 17/11: Lula assina na quinta o decreto que regulamenta o fim da escala 6x1",
+   "u": "https://acritica.net/economia/lula-assina-decreto-regulamenta-fim-escala-6x1-quinta-feira/"
+  }
+ ]
+}

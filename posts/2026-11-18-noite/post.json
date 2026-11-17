@@ -1,0 +1,27 @@
+{
+ "id": "2026-11-18-noite",
+ "periodo": "noite",
+ "data": "2026-11-18",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Em tramitação",
+  "titulo": "EC 141 · fim da escala 6x1",
+  "tags": [{"t": "Presidência · decreto", "poder": "exe"}, {"cat": "pec", "t": "EC 141"}],
+  "pergunta": "Como fica a jornada de 42 horas, que começa em 16 de dezembro?",
+  "rodape": {"rotulo": "O decreto será assinado em", "valor": "19 de novembro"},
+  "fonte": "A Crítica, STF Notícias e Agência Senado"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, EC 141, fim da escala 6x1. Em letras grandes: Como fica a jornada de 42 horas, que começa em 16 de dezembro? Embaixo, o símbolo do Executivo e o texto: o decreto será assinado em 19 de novembro. Fonte: A Crítica, STF Notícias e Agência Senado.",
+ "textos": {
+  "bluesky": "Fim da escala 6x1: a jornada máxima cai de 44 para 42 horas em 16/12, com duas folgas. O presidente assina na quinta (19/11), às 9h, o decreto que regulamenta a mudança. No STF, ações sobre a transição vão a julgamento, sem data.\n\ncoisapublica.io",
+  "instagram": "Em tramitação ⏳\n\nA Emenda Constitucional 141, que acaba com a escala 6x1, foi promulgada em 16/10. Ela garante dois dias de descanso semanal remunerado e reduz a jornada máxima de 44 para 40 horas por semana, sem redução de salário. A mudança vem em duas etapas:\n• 16/12/2026: limite de 42 horas, com duas folgas;\n• cerca de 14 meses depois: 40 horas.\n\nO que acontece agora\nDepois de reunião com o presidente nesta terça (17/11), o ministro do Trabalho, Luiz Marinho, anunciou que o decreto que regulamenta a jornada de 42 horas será assinado na quinta (19/11), às 9h, no Palácio do Planalto, segundo A Crítica. Segundo a Plox, com a Rádio Itatiaia, o texto deve orientar a adaptação das escalas em atividades que não param, como saúde, segurança e transporte, e mudar o divisor do salário-hora de 220 para 210.\n\nNo STF\nEm 12/11, o ministro Flávio Dino manteve, em liminar, a regra de transição: 42 horas a partir de 16/12. O referendo dessa liminar chegou a 4 a 0 no plenário virtual, mas saiu de lá por um pedido de destaque do ministro Luiz Fux. Nesta terça, Dino mandou as ações da CNC (ADI 8.041) e da CNI (ADI 8.042) direto ao julgamento definitivo no plenário presencial, segundo o Brasil 247. A data não foi marcada, e a liminar continua valendo.\n\nPróximo passo: a assinatura do decreto, na quinta, e o julgamento no STF, ainda sem data.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Escala6x1 #Trabalho #STF #Constituição #Política"
+ },
+ "fontes": [
+  {"l": "A Crítica, 17/11: Lula assina na quinta o decreto que regulamenta o fim da escala 6x1", "u": "https://acritica.net/economia/lula-assina-decreto-regulamenta-fim-escala-6x1-quinta-feira/"},
+  {"l": "Plox (Rádio Itatiaia), 17/11: governo prepara decreto da transição da escala 6x1", "u": "https://plox.com.br/noticia/17/11/2026/decreto-transicao-escala-6x1-5x2"},
+  {"l": "STF Notícias, 12/11: STF mantém regra de transição para a jornada 5x2", "u": "https://noticias.stf.jus.br/postsnoticias/stf-mantem-regra-de-transicao-para-implementacao-da-jornada-5x2/"},
+  {"l": "O Tempo, 14/11: Fux pede destaque e decisão da 6x1 vai ao plenário físico", "u": "https://www.otempo.com.br/politica/judiciario/2026/11/14/fux-pede-destaque-e-decisao-da-6x1-vai-ao-plenario-fisico"},
+  {"l": "Brasil 247, 17/11: Dino encaminha ações sobre a escala 6x1 para julgamento definitivo", "u": "https://www.brasil247.com/brasil/fim-da-6x1-dino-encaminha-acao-para-julgamento-definitivo-no-stf/"},
+  {"l": "Agência Senado, 14/10: Senado aprova fim da 6x1", "u": "https://www12.senado.leg.br/noticias/materias/2026/10/14/senado-aprova-fim-da-6x1-em-primeiro-turno"}
+ ]
+}
