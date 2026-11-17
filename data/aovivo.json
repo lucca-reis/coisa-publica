@@ -3,16 +3,6 @@
  "itens": [
   {
    "casa": "senado",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário do Senado",
-   "tipo": "Sessão deliberativa ordinária",
-   "descricao": "",
-   "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=GykvBPnNmh8"
-  },
-  {
-   "casa": "senado",
    "plenario": false,
    "sigla": "CE",
    "nome": "Comissão de Educação e Cultura",
