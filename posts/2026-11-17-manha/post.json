@@ -1,0 +1,48 @@
+{
+ "id": "2026-11-17-manha",
+ "periodo": "manha",
+ "data": "2026-11-17",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Senado",
+    "dia": "Plenário",
+    "tags": [{"t": "Senado · destaques", "poder": "leg"}, {"cat": "plp", "t": "PLP 299/2026"}],
+    "titulo": "Os 4 destaques do ajuste fiscal",
+    "texto": "O texto-base passou por 45 a 31 em 12/11. Depois dos destaques, vai à Câmara."
+   },
+   {
+    "quando": "Senado",
+    "dia": "Plenário",
+    "tags": [{"t": "Senado · na pauta", "poder": "leg"}, {"cat": "mp", "t": "MP 1.379/2026"}],
+    "titulo": "MP do Brasil Soberano 3",
+    "texto": "Crédito a exportadoras afetadas pelo tarifaço. Perde a validade se não for votada até quarta (18/11)."
+   },
+   {
+    "quando": "Câmara",
+    "dia": "15h",
+    "tags": [{"t": "Câmara · reunião de líderes", "poder": "leg"}],
+    "titulo": "Líderes definem a pauta da Câmara",
+    "texto": "O projeto das grandes plataformas digitais (PL 4.675/2025) pode ir a voto."
+   }
+  ],
+  "fonte": "Agência Senado, TV Senado, Brasil 61, SBT News e BossaNews"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 17 de novembro. Senado, Plenário: os quatro destaques do ajuste fiscal (PLP 299/2026); o texto-base passou por 45 a 31 em 12 de novembro e, depois dos destaques, vai à Câmara. Senado, Plenário: MP do Brasil Soberano 3 (MP 1.379/2026), crédito a exportadoras afetadas pelo tarifaço; perde a validade se não for votada até quarta, 18 de novembro. Câmara, 15h: reunião de líderes define a pauta; o projeto das grandes plataformas digitais (PL 4.675/2025) pode ir a voto. Fonte: Agência Senado, TV Senado, Brasil 61, SBT News e BossaNews.",
+ "textos": {
+  "bluesky": "Hoje (17/11) nos Três Poderes:\n\nSenado · vota os 4 destaques do ajuste fiscal e a MP do Brasil Soberano 3, que vence na quarta.\n15h · Câmara · líderes definem a pauta; PL das plataformas digitais pode ir a voto.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, terça (17/11), nos Três Poderes:\n\nSenado · Plenário\nOs senadores votam os quatro destaques que faltam no projeto de ajuste fiscal do governo (PLP 299/2026). O texto-base foi aprovado em 12/11, por 45 votos a 31. Destaque é um pedido para votar um trecho em separado e pode mudar o texto. Segundo o SBT News, os destaques são dos senadores Izalci Lucas (PL-DF), Alan Rick (Republicanos-AC) e Rogério Marinho (PL-RN) e tratam, entre outros pontos, dos repasses da Lei Kandir aos estados e da compensação de créditos tributários. Depois, o projeto vai à Câmara.\n\nTambém está na pauta, segundo a Gazeta do Paraná, a MP 1.379/2026, do Brasil Soberano 3: crédito com juros subsidiados para empresas afetadas pelo tarifaço dos EUA. A Câmara aprovou a MP em 10/11, e ela perde a validade se o Senado não votar até quarta (18/11).\n\nSenado · 10h · Comissão de Assuntos Econômicos\nAudiência sobre a alíquota de referência da CBS, o novo tributo federal da reforma tributária, em 2027, com o ministro da Fazenda, Dario Durigan, segundo o Brasil 61.\n\nCâmara · 15h\nReunião de líderes para definir a pauta da semana, segundo o Brasil 61. O relator do projeto sobre as grandes plataformas digitais (PL 4.675/2025), dep. Aliel Machado (PV-PR), quer votá-lo hoje, mas, segundo o BossaNews, a pauta está travada pela urgência do projeto do governo sobre apostas ilegais. A data para votar o ajuste fiscal na Câmara ainda não foi definida.\n\nSTF\nSegundo a agenda da semana da Agência Pública, o Plenário analisa a Reclamação 78354, sobre liberdade de imprensa. Relator e partes não informados.\n\nPresidência\nAgenda oficial com horários ainda não divulgada. Segundo o vice-presidente Geraldo Alckmin, citado pelo Bahia Notícias, Lula começa nesta semana a definir o ministério do novo mandato.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #Senado #Câmara #AjusteFiscal #Congresso #Política"
+ },
+ "fontes": [
+  {"l": "TV Senado, 17/11: Senado analisa destaques ao ajuste fiscal", "u": "https://www12.senado.leg.br/tv/programas/noticias-1/2026/11/senado-analisa-destaques-ao-ajuste-fiscal-e-projetos-sobre-jovens-e-vitimas-de-violencia-sexual"},
+  {"l": "SBT News, 17/11: Senado vota nesta terça mudanças no ajuste fiscal", "u": "https://sbtnews.sbt.com.br/noticia/politica/senado-vota-nesta-terca-mudancas-no-ajuste-fiscal-de-lula"},
+  {"l": "Gazeta do Paraná, 16/11: Senado vota ajuste fiscal, crédito a exportadores e Estatuto do Aprendiz nesta semana", "u": "https://gazetadoparana.com.br/publico/senado-vota-ajuste-fiscal-credito-a-exportadores-e-estatuto-do-aprendiz-nesta-semana"},
+  {"l": "Brasil 61, 17/11: Congresso tem semana de votações sobre ajuste fiscal e debates sobre reforma tributária", "u": "https://brasil61.com/n/congresso-tem-semana-de-votacoes-sobre-ajuste-fiscal-e-debates-sobre-reforma-tributaria-bras2617482"},
+  {"l": "BossaNews, 17/11: relator cobra oposição para votar PL das big techs hoje", "u": "https://br.bossanews.com/camara-relator-cobra-oposicao-para-votar-pl-das-big-techs-hoje-17-11/"},
+  {"l": "Agência Pública, 16/11: Senado fecha o ajuste fiscal, que chega nesta semana à Câmara", "u": "https://apublica.org/nota/senado-fecha-ajuste-fiscal-que-chega-essa-semana-na-camara/"},
+  {"l": "Bahia Notícias, 16/11: Lula define novo ministério enquanto Senado vota ajuste fiscal", "u": "https://www.bahianoticias.com.br/noticia/323693-lula-define-novo-ministerio-enquanto-senado-vota-ajuste-fiscal-e-stf-discute-reforma-do-judiciario-confira-a-agenda"}
+ ]
+}

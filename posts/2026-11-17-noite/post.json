@@ -1,0 +1,26 @@
+{
+ "id": "2026-11-17-noite",
+ "periodo": "noite",
+ "data": "2026-11-17",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Em tramitação",
+  "titulo": "MP 1.379/2026 · Brasil Soberano 3",
+  "tags": [{"t": "Senado · em andamento", "poder": "leg"}, {"cat": "mp", "t": "MP 1.379/2026"}],
+  "pergunta": "O crédito para exportadoras atingidas pelo tarifaço vai subir para R$ 28,5 bilhões?",
+  "rodape": {"rotulo": "A MP perde a validade em", "valor": "18 de novembro"},
+  "fonte": "Agência Senado, Agência Câmara e dados abertos da Câmara"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, MP 1.379/2026, Brasil Soberano 3. Em letras grandes: O crédito para exportadoras atingidas pelo tarifaço vai subir para R$ 28,5 bilhões? Embaixo, o símbolo do Legislativo e o texto: a MP perde a validade em 18 de novembro. Fonte: Agência Senado, Agência Câmara e dados abertos da Câmara.",
+ "textos": {
+  "bluesky": "A MP 1.379/2026 (Brasil Soberano 3) amplia em até R$ 13,5 bi o crédito com juros subsidiados a empresas afetadas pelo tarifaço: o limite vai de R$ 15 bi para R$ 28,5 bi. A Câmara aprovou em 10/11; falta o Senado, até 18/11.\n\ncoisapublica.io",
+  "instagram": "Em tramitação 📦\n\nA medida provisória 1.379/2026 é a terceira edição do Plano Brasil Soberano, que oferece crédito com juros subsidiados a empresas afetadas pelo tarifaço dos Estados Unidos. Como toda MP, já vale desde a publicação, mas precisa ser aprovada pelo Congresso para continuar valendo.\n\nO que muda, segundo a Agência Senado e a Agência Câmara:\n• o limite do programa sobe em até R$ 13,5 bilhões, de R$ 15 bilhões para R$ 28,5 bilhões, com recursos do Tesouro Nacional e do BNDES;\n• o crédito atende também empresas afetadas pelas guerras na Ucrânia e no Irã;\n• o dinheiro pode ir para capital de giro, máquinas, investimentos, inovação e abertura de mercados, em setores como minerais críticos, fertilizantes, agropecuária, pesca, química e farmacêutica, têxtil, máquinas e automotivo.\n\nOnde está\nA comissão mista de deputados e senadores aprovou em 5/11 o relatório da senadora Leany Lemos (PSB-DF), que fez a ampliação. O Plenário da Câmara aprovou a MP em 10/11, na forma de um projeto de lei de conversão; os dados abertos da Câmara não trazem placar. A MP está na pauta do Senado desta semana.\n\nPróximo passo: se o Senado aprovar sem mudanças até quarta (18/11), o texto vai à sanção do presidente. Se não votar até lá, a MP perde a validade.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Senado #MedidaProvisória #Tarifaço #Congresso #Política"
+ },
+ "fontes": [
+  {"l": "Agência Senado, 5/11: comissão aprova ampliação de R$ 13,5 bilhões no Brasil Soberano 3", "u": "https://www12.senado.leg.br/noticias/materias/2026/11/05/comissao-aprova-ampliacao-de-r-13-5-bilhoes-no-credito-a-exportadores"},
+  {"l": "Agência Câmara, 10/11: Câmara aprova MP do Brasil Soberano 3", "u": "https://www.camara.leg.br/noticias/1317853-camara-aprova-credito-de-185-bi-para-exportadores-afetados-por-novo-tarifaco-dos-eua"},
+  {"l": "Câmara dos Deputados: ficha da MPV 1.379/2026", "u": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2641546"},
+  {"l": "Gazeta do Paraná, 16/11: Senado vota ajuste fiscal, crédito a exportadores e Estatuto do Aprendiz nesta semana", "u": "https://gazetadoparana.com.br/publico/senado-vota-ajuste-fiscal-credito-a-exportadores-e-estatuto-do-aprendiz-nesta-semana"},
+  {"l": "Brasil 61, 17/11: Congresso tem semana de votações sobre ajuste fiscal", "u": "https://brasil61.com/n/congresso-tem-semana-de-votacoes-sobre-ajuste-fiscal-e-debates-sobre-reforma-tributaria-bras2617482"}
+ ]
+}

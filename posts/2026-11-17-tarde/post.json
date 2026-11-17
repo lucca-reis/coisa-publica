@@ -1,0 +1,28 @@
+{
+ "id": "2026-11-17-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-17",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "A urgência do presidente tem prazo",
+  "visual": {
+   "tipo": "data",
+   "rotulo": "Prazo em cada Casa",
+   "valor": "45",
+   "sub": "dias; depois, a pauta trava"
+  },
+  "texto": "Se a Câmara ou o Senado não votar a tempo, as outras votações do Plenário ficam paradas.",
+  "fonte": "Constituição Federal, art. 64"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? A urgência do presidente tem prazo. Ao lado do símbolo do Legislativo, pontos amarelos em semicírculo num círculo: prazo em cada Casa, 45 dias; depois, a pauta trava. Embaixo: se a Câmara ou o Senado não votar a tempo, as outras votações do Plenário ficam paradas. Fonte: Constituição Federal, artigo 64.",
+ "textos": {
+  "bluesky": "Você sabia? O presidente pode pedir urgência para um projeto que ele mesmo enviou. Câmara e Senado têm 45 dias cada para votar; se não votam, as outras deliberações da Casa ficam paradas até a votação (art. 64 da Constituição).\n\ncoisapublica.io",
+  "instagram": "Você sabia? ⏱️\n\nO presidente da República pode pedir urgência para os projetos de lei que ele mesmo envia ao Congresso. É a chamada urgência constitucional, prevista no artigo 64 da Constituição.\n\nComo funciona:\n• a Câmara tem 45 dias para votar o projeto; depois, o Senado tem mais 45;\n• se a Casa não votar no prazo, as outras deliberações dela ficam paradas até que o projeto seja votado. É o que se chama de \"trancar a pauta\". Só escapa o que tem prazo próprio na Constituição, como as medidas provisórias;\n• se o Senado mudar o texto, a Câmara tem 10 dias para analisar as mudanças;\n• os prazos não correm durante o recesso do Congresso e não valem para projetos de código.\n\nÉ diferente da urgência pedida pelos próprios deputados ou senadores, aprovada em votação, que só deixa o projeto pular etapas, como as comissões, sem trancar a pauta.\n\nExemplo de agora: o projeto do governo que torna crime explorar e divulgar apostas sem autorização (PL 5.477/2026) foi enviado com urgência constitucional. O prazo na Câmara acabou em 12/11 sem votação, segundo o Focus Gaming News, e, segundo o BossaNews, isso trava a votação de outros projetos no Plenário, como o das grandes plataformas digitais. O presidente pode retirar a urgência a qualquer momento.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Câmara #Congresso #Constituição #Política"
+ },
+ "fontes": [
+  {"l": "Constituição Federal, art. 64 (Planalto)", "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"},
+  {"l": "Focus Gaming News, 13/11: prazo para votar projeto sobre crimes ligados às bets termina sem análise", "u": "https://focusgn.com/brasil/projeto-bets-trancar-pauta-camara"},
+  {"l": "BossaNews, 17/11: relator cobra oposição para votar PL das big techs hoje", "u": "https://br.bossanews.com/camara-relator-cobra-oposicao-para-votar-pl-das-big-techs-hoje-17-11/"}
+ ]
+}
