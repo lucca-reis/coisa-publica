@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T18:50Z",
+ "atualizado": "2026-11-17T18:55Z",
  "itens": [
   {
    "casa": "camara",
@@ -14,22 +14,12 @@
   {
    "casa": "camara",
    "plenario": false,
-   "sigla": "CICS",
-   "nome": "Comissão de Indústria, Comércio e Serviços",
-   "tipo": "Comissão de Indústria, Comércio e Serviços",
-   "descricao": "Reunião deliberativa: Definição das emendas da comissão ao Projeto de Lei Orçamentária Anual para 2027",
-   "desde": "15h33",
-   "video": "https://www.youtube.com/watch?v=zTTzfUF7b6E"
-  },
-  {
-   "casa": "camara",
-   "plenario": false,
    "sigla": "CASP",
    "nome": "Comissão de Administração e Serviço Público",
    "tipo": "Comissão de Administração e Serviço Público",
-   "descricao": "Reunião deliberativa: Votação das emendas da comissão à LDO 2027 e à LOA 2027",
-   "desde": "15h40",
-   "video": "https://www.youtube.com/watch?v=5_MiIeWHIKo"
+   "descricao": "Reunião deliberativa: Discussão e votação de proposições legislativas",
+   "desde": "15h49",
+   "video": "https://www.youtube.com/watch?v=i5LkU-dAbcw"
   },
   {
    "casa": "camara",
