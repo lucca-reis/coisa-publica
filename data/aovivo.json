@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T17:18Z",
+ "atualizado": "2026-11-17T17:23Z",
  "itens": [
   {
    "casa": "senado",
@@ -10,6 +10,36 @@
    "descricao": "",
    "desde": "14h",
    "video": "https://www.youtube.com/watch?v=GykvBPnNmh8"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CE",
+   "nome": "Comissão de Educação e Cultura",
+   "tipo": "Comissão de Educação e Cultura",
+   "descricao": "CE discute criação do Dia Nacional de Valorização do Sesc e do Senac",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=5JphnYN75dA"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CDH",
+   "nome": "Comissão de Direitos Humanos e Legislação Participativa",
+   "tipo": "Comissão de Direitos Humanos e Legislação Participativa",
+   "descricao": "CDH discute Novembro Roxo, mês de conscientização sobre bebês prematuros",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=kuXOEFHCe9I"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CI",
+   "nome": "Comissão de Serviços de Infraestrutura",
+   "tipo": "Comissão de Serviços de Infraestrutura",
+   "descricao": "Comissão de Infraestrutura avalia indicações de emendas para a LOA 2027",
+   "desde": "11h",
+   "video": "https://www.youtube.com/watch?v=GAL1sg3_3kA"
   },
   {
    "casa": "senado",
