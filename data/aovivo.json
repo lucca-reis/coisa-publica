@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T21:44Z",
+ "atualizado": "2026-11-17T22:04Z",
  "itens": [
   {
    "casa": "senado",
@@ -8,16 +8,6 @@
    "nome": "Plenário do Senado",
    "tipo": "Sessão deliberativa ordinária",
    "descricao": "",
-   "desde": "14h",
-   "video": null
-  },
-  {
-   "casa": "stf",
-   "plenario": true,
-   "sigla": "",
-   "nome": "STF",
-   "tipo": "Sessão plenária",
-   "descricao": "Reclamação sobre liberdade de imprensa",
    "desde": "14h",
    "video": null
   }
