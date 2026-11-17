@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.12'
+          node-version: '20'
       - run: |
-          mkdir -p out
-          python scripts/orcamento_federal.py > out/log.txt 2>&1 || true
-          cp data/orcamento-federal.json out/ || true
+          mkdir -p out; rm -f out/*
+          npm i playwright@1.47.2 >/dev/null 2>&1 && npx playwright install --with-deps chromium >/dev/null 2>&1
+          (python3 -m http.server 8765 >/dev/null 2>&1 &) ; sleep 2
+          node teste-thumb.js >> out/log.txt 2>&1 || true
           git config user.name t; git config user.email t@t
           git add -f out && git commit -qm "saida do teste" && git push origin HEAD:teste-api-comissoes
