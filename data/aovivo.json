@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T18:20Z",
+ "atualizado": "2026-11-17T18:25Z",
  "itens": [
   {
    "casa": "camara",
@@ -50,26 +50,6 @@
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "desde": "14h32",
    "video": "https://www.youtube.com/watch?v=XwiLj7eSj2s"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CMMPV 1393/2026",
-   "nome": "Comissão Mista da Medida Provisória n° 1393, de 2026",
-   "tipo": "Comissão Mista da Medida Provisória n° 1393, de 2026",
-   "descricao": "Instalação da comissão mista sobre a MP do Desenrola 3.0",
-   "desde": "14h30",
-   "video": "https://www.youtube.com/watch?v=lN68I0aPLnU"
-  },
-  {
-   "casa": "senado",
-   "plenario": false,
-   "sigla": "CE",
-   "nome": "Comissão de Educação e Cultura",
-   "tipo": "Comissão de Educação e Cultura",
-   "descricao": "CE discute criação do Dia Nacional de Valorização do Sesc e do Senac",
-   "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=5JphnYN75dA"
   },
   {
    "casa": "senado",
