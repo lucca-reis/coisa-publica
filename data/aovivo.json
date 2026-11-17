@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-17T15:06Z",
+ "atualizado": "2026-11-17T15:21Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário da Câmara",
-   "tipo": "Sessão não deliberativa solene",
-   "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
-   "desde": "11h13",
-   "video": "https://www.youtube.com/watch?v=kRHfNqKJOLM"
-  },
   {
    "casa": "camara",
    "plenario": false,
