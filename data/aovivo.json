@@ -1,6 +1,26 @@
 {
- "atualizado": "2026-11-18T20:17Z",
+ "atualizado": "2026-11-18T20:23Z",
  "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CIDOSO",
+   "nome": "Comissão de Defesa dos Direitos da Pessoa Idosa",
+   "tipo": "Comissão de Defesa dos Direitos da Pessoa Idosa",
+   "descricao": "Audiência pública: Convenção Interamericana sobre a Proteção dos Direitos Humanos das Pessoas Idosas",
+   "desde": "15h14",
+   "video": "https://www.youtube.com/watch?v=ZWeGFxL6Sag"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CEXMABRU",
+   "nome": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
+   "tipo": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
+   "descricao": "Reunião: Apresentação do Relatório Final e Audiência Pública sobre o Auxílio Emergencial: Direito dos Atingidos da Bacia do Rio Paraopeba",
+   "desde": "15h04",
+   "video": "https://www.youtube.com/watch?v=8bwhQDyqU_E"
+  },
   {
    "casa": "senado",
    "plenario": true,
