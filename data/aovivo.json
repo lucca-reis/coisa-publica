@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-18T20:23Z",
+ "atualizado": "2026-11-18T20:38Z",
  "itens": [
   {
    "casa": "camara",
@@ -20,6 +20,16 @@
    "descricao": "Reunião: Apresentação do Relatório Final e Audiência Pública sobre o Auxílio Emergencial: Direito dos Atingidos da Bacia do Rio Paraopeba",
    "desde": "15h04",
    "video": "https://www.youtube.com/watch?v=8bwhQDyqU_E"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CEXMABRU",
+   "nome": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
+   "tipo": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
+   "descricao": "Visita técnica: Reunião com o procurador-Geral da República",
+   "desde": "17h05",
+   "video": null
   },
   {
    "casa": "senado",
