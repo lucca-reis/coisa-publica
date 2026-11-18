@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-18T01:10-03:00",
+ "atualizado": "2026-11-18T10:50-03:00",
  "camara": [
   {
    "id": 83088,
@@ -107,11 +107,11 @@
    "id": "571069",
    "inicio": "2026-11-18T10:00-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em andamento",
    "tipo": "SESSÃO SOLENE ",
    "descricao": "",
    "video": null,
-   "aoVivo": false
+   "aoVivo": true
   },
   {
    "id": "594179",
