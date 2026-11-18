@@ -1,0 +1,41 @@
+{
+ "id": "2026-11-19-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-19",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "O 20 de novembro virou feriado por lei",
+  "visual": {
+   "tipo": "votacao",
+   "casa": "camara",
+   "sim": 286,
+   "nao": 121
+  },
+  "texto": "A Câmara aprovou o feriado nacional em 2023, por 286 a 121. A Lei 14.759 foi sancionada sem vetos.",
+  "fonte": "Agência Senado e Congresso Nacional"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? O 20 de novembro virou feriado por lei. Desenho do plenário da Câmara com 286 cadeiras pintadas de sim, 121 de não em vermelho e as demais em cinza. Texto: a Câmara aprovou o feriado nacional em 2023, por 286 a 121. A Lei 14.759 foi sancionada sem vetos. Fonte: Agência Senado e Congresso Nacional.",
+ "textos": {
+  "bluesky": "Você sabia? O 20 de novembro, Dia de Zumbi e da Consciência Negra, é feriado nacional por lei desde 2023. O projeto nasceu no Senado em 2017 e passou na Câmara por 286 a 121. Antes, valia só em alguns estados e cidades.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 📜\n\nAmanhã, 20 de novembro, é feriado nacional do Dia de Zumbi e da Consciência Negra. Ele foi criado por uma lei federal, e o caminho até lá levou seis anos.\n\nO caminho no Congresso:\n• 2017: o sen. Randolfe Rodrigues (Rede-AP) apresenta o projeto (PLS 482/2017).\n• Agosto de 2021: a Comissão de Educação do Senado aprova o texto em decisão terminativa, sem precisar passar pelo Plenário, e ele vai à Câmara.\n• Na Câmara, vira o PL 3.268/2021. O Plenário aprova em 29/11/2023, por 286 votos a 121, com 2 abstenções.\n• 21/12/2023: o presidente sanciona a Lei 14.759, sem vetos. Ela é publicada no Diário Oficial no dia seguinte.\n\nPor que 20 de novembro: é a data da morte de Zumbi, líder do Quilombo dos Palmares, em 1695.\n\nAntes da lei, o dia já existia no calendário: a Lei 12.519, de 2011, criou o Dia Nacional de Zumbi e da Consciência Negra, mas sem feriado. A folga valia só onde estados e cidades tinham lei própria, como Alagoas, Amazonas, Amapá, Mato Grosso, Rio de Janeiro e São Paulo e cerca de 1.200 municípios, segundo o Brasil de Fato.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #ConsciênciaNegra #Congresso #Feriado #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Senado, 22/12/2023: Dia da Consciência Negra se torna feriado nacional",
+   "u": "https://www12.senado.leg.br/noticias/materias/2023/12/22/dia-da-consciencia-negra-se-torna-feriado-nacional"
+  },
+  {
+   "l": "Congresso Nacional: tramitação do PLS 482/2017 (PL 3.268/2021)",
+   "u": "https://www.congressonacional.leg.br/materias/materias-bicamerais/-/ver/pls-482-2017"
+  },
+  {
+   "l": "Câmara dos Deputados: Lei 14.759, de 21 de dezembro de 2023",
+   "u": "https://www2.camara.leg.br/legin/fed/lei/2023/lei-14759-21-dezembro-2023-795091-publicacaooriginal-170522-pl.html"
+  },
+  {
+   "l": "Brasil de Fato, 16/11/2026: feriado nacional, entenda a origem e as regras do 20 de novembro",
+   "u": "https://www.brasildefato.com.br/2026/11/16/feriado-nacional-entenda-origem-e-regras-do-dia-20-de-novembro/"
+  }
+ ]
+}

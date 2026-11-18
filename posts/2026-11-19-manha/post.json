@@ -1,0 +1,88 @@
+{
+ "id": "2026-11-19-manha",
+ "periodo": "manha",
+ "data": "2026-11-19",
+ "imagem": {
+  "poder": "exe",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Presidência",
+    "dia": "9h",
+    "tags": [
+     {
+      "t": "Presidência · decreto",
+      "poder": "exe"
+     },
+     {
+      "cat": "pec",
+      "t": "EC 141"
+     }
+    ],
+    "titulo": "Decreto da jornada de 42 horas",
+    "texto": "Assinatura no Planalto. O limite cai de 44 para 42 horas por semana em 16/12."
+   },
+   {
+    "quando": "STF",
+    "dia": "14h",
+    "tags": [
+     {
+      "t": "STF · sessão",
+      "poder": "jud"
+     }
+    ],
+    "titulo": "Sessão do Plenário",
+    "texto": "Os processos do dia ainda não foram divulgados pelo STF."
+   },
+   {
+    "quando": "Congresso",
+    "dia": "Plenário",
+    "tags": [
+     {
+      "t": "Câmara · previsto",
+      "poder": "leg"
+     },
+     {
+      "cat": "plp",
+      "t": "PLP 299/2026"
+     }
+    ],
+    "titulo": "Ajuste fiscal deve ficar para 24/11",
+    "texto": "Sem sessão marcada no Senado e sem votação confirmada na Câmara."
+   }
+  ],
+  "fonte": "NC News, Vermelho, Senado Federal, BH 24 Horas, BM&C"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 19 de novembro. Presidência, 9h: decreto da jornada de 42 horas (EC 141); assinatura no Planalto; o limite cai de 44 para 42 horas por semana em 16/12. STF, 14h: sessão do Plenário; os processos do dia ainda não foram divulgados pelo STF. Congresso, Plenário: o ajuste fiscal (PLP 299/2026) deve ficar para 24/11; sem sessão marcada no Senado e sem votação confirmada na Câmara. Fonte: NC News, Vermelho, Senado Federal, BH 24 Horas, BM&C.",
+ "textos": {
+  "bluesky": "Hoje (19/11) nos Três Poderes:\n\n9h · Presidente assina o decreto da jornada de 42 horas.\n14h · Sessão do Plenário do STF; pauta do dia não divulgada.\nCongresso: Senado sem sessão; na Câmara, o ajuste fiscal deve ficar para 24/11.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, quinta (19/11), nos Três Poderes. Amanhã (20/11) é feriado nacional do Dia de Zumbi e da Consciência Negra.\n\nPresidência · 9h · Palácio do Planalto\nO presidente assina o decreto que regulamenta a redução da jornada de trabalho prevista na Emenda Constitucional 141 (fim da escala 6x1). Pela emenda, o limite cai de 44 para 42 horas semanais em 16/12, com dois dias de descanso, e depois para 40 horas. O texto final do decreto não foi divulgado; o ministro do Trabalho, Luiz Marinho, disse que ele vai orientar a adaptação dos setores, segundo o Vermelho. O horário das 9h é informado pelo NC News.\n\nSTF · 14h · Plenário\nA agenda do STF marca sessão do Plenário. Os processos do dia ainda não foram divulgados. A lista de novembro divulgada pelo tribunal inclui o nepotismo em cargos políticos (RE 1.133.118), a anistia a partidos que não cumpriram as cotas de gênero e raça (ADI 7419) e a dispensa de honorários em acordos com o poder público (ADIs 5405 e 7694). As datas podem mudar.\n\nSenado\nNão há sessão marcada para hoje no site do Senado. Na quarta (18/11), os senadores concluíram a votação do projeto de ajuste fiscal do governo (PLP 299/2026), que segue para a Câmara.\n\nCâmara\nNão há votação do ajuste fiscal confirmada para hoje. A previsão é a terça (24/11), mas a data ainda não está na pauta oficial, segundo a BM&C e o BH 24 Horas. O relator é o dep. Mauro Benevides Filho.\n\nA pauta pode mudar ao longo do dia. Tudo com fonte no site, link na bio.\n\n#CoisaPública #STF #Escala6x1 #AjusteFiscal #Congresso #Política"
+ },
+ "fontes": [
+  {
+   "l": "NC News, 18/11: Lula assina na quinta o decreto do fim da escala 6x1",
+   "u": "https://ncnews.com.br/2026/11/18/fim-escala-6x1-jornada-decreto-lula/"
+  },
+  {
+   "l": "Vermelho, 18/11: Lula assina nesta quinta-feira (19) decreto para regulamentar a redução da jornada",
+   "u": "https://vermelho.org.br/2026/11/18/lula-assina-decreto-para-regulamentar-reducao-da-jornada-e-escala-5x2/"
+  },
+  {
+   "l": "STF Notícias: destaques da pauta do Plenário para novembro",
+   "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-da-pauta-do-plenario-do-stf-para-novembro/"
+  },
+  {
+   "l": "Senado Federal: sessões plenárias",
+   "u": "https://www25.senado.leg.br/web/atividade/sessao-plenaria"
+  },
+  {
+   "l": "BM&C, 18/11: Câmara deve votar ajuste fiscal em 24 de novembro",
+   "u": "https://bmcnews.com.br/economia/camara-deve-votar-ajuste-fiscal-de-lula-em-24-de-novembro/"
+  },
+  {
+   "l": "BH 24 Horas, 18/11: votação do pacote fiscal na Câmara deve ir para 24 de novembro",
+   "u": "https://bh24horas.com.br/noticias/brasil/impasse-sobre-destaques-no-senado-deve-empurrar-votacao-do-pacote-fiscal-na-camara-para-24-de-novembro/"
+  }
+ ]
+}
