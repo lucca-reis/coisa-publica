@@ -1,4 +1,95 @@
 {
- "atualizado": "2026-11-18T07:33Z",
- "itens": []
+ "atualizado": "2026-11-18T19:31Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CIDOSO",
+   "nome": "Comissão de Defesa dos Direitos da Pessoa Idosa",
+   "tipo": "Comissão de Defesa dos Direitos da Pessoa Idosa",
+   "descricao": "Audiência pública: Convenção Interamericana sobre a Proteção dos Direitos Humanos das Pessoas Idosas",
+   "desde": "15h14",
+   "video": "https://www.youtube.com/watch?v=ZWeGFxL6Sag"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CEXMABRU",
+   "nome": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
+   "tipo": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
+   "descricao": "Reunião: Apresentação do Relatório Final e Audiência Pública sobre o Auxílio Emergencial: Direito dos Atingidos da Bacia do Rio Paraopeba",
+   "desde": "15h04",
+   "video": "https://www.youtube.com/watch?v=8bwhQDyqU_E"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "PEC03215",
+   "nome": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
+   "tipo": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 32, de 2015, do Sr. Gonzaga Patriota, que \"altera a redação dos artigos 14 e 228 da Constituição Federal, para estabelecer a plena maioridade civil e penal aos dezesseis anos de idade\", e apensadas",
+   "descricao": "Audiência pública e deliberação: Redução da maioridade penal",
+   "desde": "14h44",
+   "video": "https://www.youtube.com/watch?v=mGYlmx-lrpE"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMO",
+   "nome": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "tipo": "Comissão Mista de Planos, Orçamentos Públicos e Fiscalização",
+   "descricao": "Reunião técnica: Apresentação do Relatório de Fiscalizações em Políticas e Programas de Governo - RePP - TCU",
+   "desde": "14h45",
+   "video": "https://www.youtube.com/watch?v=xaV1SYH7r9U"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CMULHER",
+   "nome": "Comissão de Defesa dos Direitos da Mulher",
+   "tipo": "Comissão de Defesa dos Direitos da Mulher",
+   "descricao": "Reunião deliberativa: Discussão e votação de propostas legislativas",
+   "desde": "15h31",
+   "video": "https://www.youtube.com/watch?v=Z0T8q-5AYMc"
+  },
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "desde": "14h22",
+   "video": "https://www.youtube.com/watch?v=IoHM-JigCPA"
+  },
+  {
+   "casa": "senado",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário do Senado",
+   "tipo": "Sessão deliberativa ordinária",
+   "descricao": "",
+   "desde": "14h",
+   "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CMCVM",
+   "nome": "Comissão Permanente Mista de Combate à Violência contra a Mulher",
+   "tipo": "Comissão Permanente Mista de Combate à Violência contra a Mulher",
+   "descricao": "Comissão debate violência contra a mulher idosa",
+   "desde": "14h30",
+   "video": "https://www.youtube.com/watch?v=OufdkQS12f4"
+  },
+  {
+   "casa": "senado",
+   "plenario": false,
+   "sigla": "CCJ",
+   "nome": "Comissão de Constituição, Justiça e Cidadania",
+   "tipo": "Comissão de Constituição, Justiça e Cidadania",
+   "descricao": "CCJ e CSP ouvem ministro da Justiça sobre relatórios da PF no caso Master",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=5KELbVAEBag"
+  }
+ ]
 }
