@@ -173,6 +173,16 @@ function visual(V, poder){
     };
     return `<div class="aps">${(V.grupos || []).map(col).join('')}</div>`;
   }
+  // destaques: um cartão por destaque, com um círculo na cor do resultado (vermelho rejeitado, verde aprovado, amarelo em votação),
+  // e embaixo o caminho do projeto (Senado, Câmara, sanção), com a etapa atual cheia e as próximas só no contorno
+  if (V.tipo === 'destaques'){
+    const ST = {rejeitado:['#E24B4A','×'], aprovado:['#009C3B','✓'], votando:['#F2C200','…']};
+    const cards = (V.itens || []).map(x=>{ const [c, s] = ST[x.status] || ST.votando;
+      return `<div class="dv-c" style="--sc:${c}"><i>${s}</i><div><small>${esc(x.rotulo || '')}</small><b>${esc(x.titulo)}</b></div></div>`; }).join('');
+    const PC = {leg:'#F2C200', jud:'#1F4FB5', exe:'#009C3B'};
+    const tri = (V.caminho || []).map(e=>`<div class="dv-e${e.atual ? ' on' : ''}" style="--ec:${PC[PODER[e.poder] || 'leg']}"><i></i><span>${esc(e.nome)}</span></div>`).join('<div class="dv-l"></div>');
+    return `<div class="dv"><div class="dv-g">${cards}</div>${tri ? `<div class="dv-t">${tri}</div>` : ''}</div>`;
+  }
   if (V.tipo === 'plenario') return `<div>${hemi(V.casa, V.destaque || 0)}${V.numeros ? `<div class="nums">${V.numeros.map(x=>`<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div>`).join('')}</div>` : ''}</div>`;
   if (V.tipo === 'data') return `<div class="dat">${(V.simbolo || poder) === 'jud' ? MESA : `<div class="circ">${GLY[V.simbolo || poder] || ''}</div>`}<div>${V.rotulo ? `<small>${esc(V.rotulo)}</small>` : ''}<b>${esc(V.valor)}</b>${V.sub ? `<small style="margin-top:8px">${esc(V.sub)}</small>` : ''}</div></div>`;
   return '';

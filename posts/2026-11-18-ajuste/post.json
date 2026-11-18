@@ -1,0 +1,83 @@
+{
+ "id": "2026-11-18-ajuste",
+ "periodo": "noite",
+ "data": "2026-11-18",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ajuste fiscal · atualização",
+  "titulo": "Senado derruba 2 dos 4 destaques",
+  "visual": {
+   "tipo": "destaques",
+   "itens": [
+    {
+     "status": "rejeitado",
+     "rotulo": "Rejeitado · 47 a 30",
+     "titulo": "Limite de gastos mais duro"
+    },
+    {
+     "status": "rejeitado",
+     "rotulo": "Rejeitado · 45 a 32",
+     "titulo": "Fim do teto da compensação previdenciária"
+    },
+    {
+     "status": "votando",
+     "rotulo": "Em votação",
+     "titulo": "Repasses da Lei Kandir"
+    },
+    {
+     "status": "votando",
+     "rotulo": "Em votação",
+     "titulo": "Créditos tributários das empresas"
+    }
+   ],
+   "caminho": [
+    {
+     "nome": "Senado",
+     "poder": "leg",
+     "atual": true
+    },
+    {
+     "nome": "Câmara",
+     "poder": "leg"
+    },
+    {
+     "nome": "Sanção",
+     "poder": "exe"
+    }
+   ]
+  },
+  "texto": "Situação no início da noite de 18/11. Depois do Senado, o texto vai à Câmara.",
+  "fonte": "SBT News e Rede 98, 18/11/2026"
+ },
+ "alt": "Imagem da Coisa Pública, Ajuste fiscal, atualização: Senado derruba 2 dos 4 destaques. Quatro cartões coloridos: dois vermelhos, com um X: limite de gastos mais duro, rejeitado por 47 a 30, e fim do teto da compensação previdenciária, rejeitado por 45 a 32; dois amarelos, com reticências, marcados como em votação: repasses da Lei Kandir e créditos tributários das empresas. Embaixo, o caminho do projeto: Senado, em amarelo cheio, a etapa atual; depois Câmara, em contorno amarelo, e sanção, em contorno verde. Texto: situação no início da noite de 18/11; depois do Senado, o texto vai à Câmara. Fonte: SBT News e Rede 98, 18/11/2026.",
+ "textos": {
+  "bluesky": "Ajuste fiscal (PLP 299/2026): o Senado rejeitou nesta quarta (18/11) 2 dos 4 destaques, o do limite de gastos (47 a 30) e o do teto da compensação previdenciária (45 a 32). Lei Kandir e créditos tributários ainda em votação.\n\ncoisapublica.io",
+  "instagram": "Ajuste fiscal: atualização 🔄\n\nO Senado retomou nesta quarta (18/11) a votação dos quatro destaques ao projeto de ajuste fiscal do governo (PLP 299/2026). Destaque é um pedido para votar um trecho em separado; se for aprovado, muda o texto. O texto-base passou em 12/11, por 45 a 31.\n\nAté o início da noite, segundo o SBT News, os senadores tinham rejeitado dois destaques. Com isso, esses trechos ficam como estavam no texto aprovado:\n• o do sen. Rogério Marinho (PL-RN), que deixava mais duro o limite de crescimento dos gastos: o texto corta esse limite de 2,5% para 2% acima da inflação nos anos com medidas de contenção, e o destaque propunha 0,6%. Rejeitado por 47 votos a 30, segundo a Rede 98;\n• o do sen. Izalci Lucas (PL-DF), que tirava o teto de R$ 3 bilhões por ano para os pagamentos da União na compensação entre regimes de previdência. Rejeitado por 45 a 32, segundo a Rede 98.\n\nAinda em votação:\n• o destaque que tira o adiamento de cerca de R$ 12 bilhões em repasses da Lei Kandir a estados e municípios;\n• o destaque do sen. Alan Rick (Republicanos-AC) que tira a restrição ao uso de créditos tributários pelas empresas.\n\nPara mudar o texto, cada destaque precisa de pelo menos 41 dos 81 votos.\n\nPróximo passo: concluída a votação, o projeto vai à Câmara, onde o relator será o dep. Mauro Benevides Filho (PDT-CE). A data não foi marcada. Se a Câmara mudar o texto, ele volta ao Senado; se não, vai à sanção.\n\nA votação ainda não acabou. Acompanhe no site, link na bio.\n\n#CoisaPública #Senado #AjusteFiscal #Congresso #Orçamento #Política"
+ },
+ "fontes": [
+  {
+   "l": "SBT News, 18/11: Senado derruba dois primeiros destaques ao ajuste fiscal",
+   "u": "https://sbtnews.sbt.com.br/noticia/politica/senado-votacao-destaques-ajuste-fiscal"
+  },
+  {
+   "l": "Rede 98, 18/11: Senado rejeita emenda do PL ao ajuste fiscal (placares)",
+   "u": "https://rede98.com.br/noticias/politica/senado-rejeita-emenda-do-p-que-barrava-corte-nos-repasses-da-lei-kandir/"
+  },
+  {
+   "l": "GPS Brasília, 17/11: os quatro destaques (RQS 775, 776, 780 e 783)",
+   "u": "https://gpsbrasilia.com.br/sem-acordo-senado-adia-votacao-de-destaques-do-ajuste-fiscal-para-quarta-feira-18/"
+  },
+  {
+   "l": "O Povo (Agência Estado), 17/11: Senado adia votação de destaques do projeto de ajuste fiscal",
+   "u": "https://www.opovo.com.br/noticias/economia/2026/11/17/senado-adia-votacao-de-destaques-do-projeto-de-ajuste-fiscal.html"
+  },
+  {
+   "l": "Agência Senado, 17/11: votação de destaques ao ajuste fiscal é remarcada para quarta",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/17/votacao-de-destaques-ao-ajuste-fiscal-e-remarcada-na-quarta-feira"
+  },
+  {
+   "l": "ND Mais, 17/11: Hugo Motta prioriza o ajuste fiscal",
+   "u": "https://ndmais.com.br/politica/hugo-motta-prioriza-ajuste-fical-e-adia-big-techs/"
+  }
+ ]
+}
