@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2654285",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2654285",
-   "idDeputadoAutor": "143632",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/143632",
+   "idProposicao": "2654962",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2654962",
+   "idDeputadoAutor": "188097",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/188097",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Domingos Neto",
-   "siglaPartidoAutor": "PSD",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36834",
-   "siglaUFAutor": "CE",
+   "nomeAutor": "Merlong Solano",
+   "siglaPartidoAutor": "PT",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
+   "siglaUFAutor": "PI",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
