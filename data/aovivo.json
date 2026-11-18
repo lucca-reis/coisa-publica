@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-18T20:07Z",
+ "atualizado": "2026-11-18T20:12Z",
  "itens": [
   {
    "casa": "camara",
@@ -40,16 +40,6 @@
    "descricao": "Comissão debate violência contra a mulher idosa",
    "desde": "14h30",
    "video": "https://www.youtube.com/watch?v=OufdkQS12f4"
-  },
-  {
-   "casa": "stf",
-   "plenario": true,
-   "sigla": "",
-   "nome": "STF",
-   "tipo": "Sessão plenária",
-   "descricao": "Anistia a partidos, nepotismo em cargos políticos e honorários em acordos",
-   "desde": "14h",
-   "video": "https://www.youtube.com/watch?v=2tVPQbyaqxQ"
   }
  ]
 }
