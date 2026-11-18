@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-18T20:59Z",
+ "atualizado": "2026-11-18T21:04Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CIDOSO",
-   "nome": "Comissão de Defesa dos Direitos da Pessoa Idosa",
-   "tipo": "Comissão de Defesa dos Direitos da Pessoa Idosa",
-   "descricao": "Audiência pública: Convenção Interamericana sobre a Proteção dos Direitos Humanos das Pessoas Idosas",
-   "desde": "15h14",
-   "video": "https://www.youtube.com/watch?v=ZWeGFxL6Sag"
-  },
   {
    "casa": "camara",
    "plenario": false,
@@ -19,6 +9,16 @@
    "tipo": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
    "descricao": "Visita técnica: Reunião com o procurador-Geral da República",
    "desde": "17h05",
+   "video": null
+  },
+  {
+   "casa": "senado",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário do Senado",
+   "tipo": "Sessão deliberativa ordinária",
+   "descricao": "",
+   "desde": "14h",
    "video": null
   }
  ]
