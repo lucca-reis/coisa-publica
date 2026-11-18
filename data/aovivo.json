@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-18T20:43Z",
+ "atualizado": "2026-11-18T20:59Z",
  "itens": [
   {
    "casa": "camara",
@@ -19,16 +19,6 @@
    "tipo": "Comissão Externa destinada a fiscalizar os rompimentos de barragens, em especial acompanhar a repactuação do acordo de Mariana e a reparação do crime de Brumadinho",
    "descricao": "Visita técnica: Reunião com o procurador-Geral da República",
    "desde": "17h05",
-   "video": null
-  },
-  {
-   "casa": "senado",
-   "plenario": true,
-   "sigla": "Plenário",
-   "nome": "Plenário do Senado",
-   "tipo": "Sessão deliberativa ordinária",
-   "descricao": "",
-   "desde": "14h",
    "video": null
   }
  ]
