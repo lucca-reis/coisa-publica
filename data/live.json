@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-18T18:50-03:00",
+ "atualizado": "2026-11-19T00:15-03:00",
  "camara": [
   {
    "id": 83088,
@@ -19,16 +19,6 @@
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 70 anos do legado educacional do senhor Amador Aguiar\r\n Homenagem aos aos 70 anos do legado educacional do brasileiro Amador Aguiar",
    "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83102,
-   "inicio": "2026-11-17T11:13-03:00",
-   "fim": "2026-11-17T12:13-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)\r\n Homenagem aos 60 anos da instituição do Fundo de Garantia do Tempo de Serviço (FGTS)",
-   "video": "https://www.youtube.com/watch?v=kRHfNqKJOLM",
    "aoVivo": false
   },
   {
@@ -82,16 +72,6 @@
    "aoVivo": false
   },
   {
-   "id": 83363,
-   "inicio": "2026-11-17T14:32-03:00",
-   "fim": "2026-11-17T18:11-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": "https://www.youtube.com/watch?v=XwiLj7eSj2s",
-   "aoVivo": false
-  },
-  {
    "id": 83382,
    "inicio": "2026-11-18T14:22-03:00",
    "fim": "2026-11-18T17:02-03:00",
@@ -113,26 +93,6 @@
   }
  ],
  "senado": [
-  {
-   "id": "571069",
-   "inicio": "2026-11-18T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO SOLENE ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594179",
-   "inicio": "2026-11-18T14:00-03:00",
-   "fim": null,
-   "situacao": "Em andamento",
-   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": true
-  },
   {
    "id": "577254",
    "inicio": "2026-11-19T10:00-03:00",
@@ -199,6 +159,16 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "587302",
+   "inicio": "2026-11-26T15:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
    "aoVivo": false
