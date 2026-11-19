@@ -86,8 +86,10 @@ function visual(V, poder){
       marca = `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="var(--ink)" stroke-width="3.5" stroke-dasharray="9 8" stroke-linecap="round"/><text x="${(x2+12).toFixed(1)}" y="${(y2+6).toFixed(1)}" font-size="25" font-weight="600" fill="var(--ink)">${esc(V.minimoTexto || ('mínimo: ' + V.minimo))}</text>`; }
     const L = V.rotulos || ['sim','não','não votaram'];
     const outros = T - sim - nao;
+    // o placar cabe dentro do vão do arco, sem encostar nas cadeiras
+    const fs = Math.min(88, Math.floor(2*(R0 - r - 18) / (String(sim + ' a ' + nao).length * 0.56)));
     return `<div style="width:100%"><svg viewBox="0 -40 760 420" width="100%" style="display:block;font-family:inherit">${marca}${seats.map((p,i)=>`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${cor(i)}"/>`).join('')}
-      <text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="88" font-weight="700" letter-spacing="-4" fill="var(--ink)">${sim} a ${nao}</text></svg>
+      <text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="${fs}" font-weight="700" letter-spacing="-4" fill="var(--ink)">${sim} a ${nao}</text></svg>
       <div class="vt-l"><span><i style="background:var(--pc)"></i><b>${sim}</b> ${esc(L[0])}</span><span><i style="background:#E24B4A"></i><b>${nao}</b> ${esc(L[1])}</span>${outros ? `<span><i style="background:var(--gray)"></i><b>${outros}</b> ${esc(L[2])}</span>` : ''}</div></div>`;
   }
   if (V.tipo === 'mulheres'){
