@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-19T10:03-03:00",
+ "atualizado": "2026-11-19T18:25-03:00",
  "camara": [
   {
    "id": 83088,
@@ -90,6 +90,26 @@
    "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
    "video": null,
    "aoVivo": false
+  },
+  {
+   "id": 83419,
+   "inicio": "2026-11-23T18:00-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83434,
+   "inicio": "2026-11-25T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
@@ -97,7 +117,7 @@
    "id": "577254",
    "inicio": "2026-11-19T10:00-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO SOLENE ",
    "descricao": "",
    "video": null,
