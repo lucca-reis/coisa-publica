@@ -4,34 +4,99 @@
  "data": "2026-11-19",
  "imagem": {
   "poder": "leg",
-  "eyebrow": "Em tramitação",
-  "titulo": "PL 4.668/2020 · álcool ao volante",
-  "tags": [
+  "eyebrow": "Resumo da semana",
+  "titulo": "Os destaques da semana",
+  "layout": "destaques",
+  "itens": [
    {
-    "t": "Senado · segue à Câmara",
-    "poder": "leg"
+    "poder": "leg",
+    "quando": "Senado",
+    "dia": "18/11",
+    "desenho": {
+     "tipo": "senado",
+     "sim": 69,
+     "nao": 2
+    },
+    "num": "69 a 2",
+    "titulo": "Ajuste fiscal aprovado",
+    "texto": "Senado conclui a votação e manda o texto à Câmara, que deve votar em 24/11."
    },
    {
-    "cat": "pl",
-    "t": "PL 4.668/2020"
+    "poder": "leg",
+    "quando": "Senado",
+    "dia": "17/11",
+    "desenho": {
+     "tipo": "moedas"
+    },
+    "num": "R$ 13,5 bi",
+    "titulo": "Mais crédito a exportadores",
+    "texto": "MP do Brasil Soberano 3 aprovada a um dia do prazo. Vai à sanção."
+   },
+   {
+    "poder": "jud",
+    "quando": "STF",
+    "dia": "18/11",
+    "desenho": {
+     "tipo": "mesa"
+    },
+    "titulo": "Isenção de pena: efeitos",
+    "texto": "O fim da isenção em crimes contra o patrimônio na família vale a partir do julgamento."
+   },
+   {
+    "poder": "exe",
+    "quando": "Presidência",
+    "dia": "19/11",
+    "desenho": {
+     "tipo": "circulo",
+     "texto": "42h"
+    },
+    "titulo": "Decreto da jornada",
+    "texto": "Regulamenta o limite de 42 horas por semana, que começa em 16/12."
    }
   ],
-  "pergunta": "Matar no trânsito sob efeito de álcool vai dar pena de até 10 anos?",
-  "rodape": {
-   "rotulo": "Aprovado na CCJ do Senado em",
-   "valor": "18 de novembro"
-  },
-  "fonte": "Agência Senado, 18/11/2026"
+  "fonte": "Correio Braziliense, Agência Senado, STF Notícias, Gazeta do Paraná"
  },
- "alt": "Imagem da Coisa Pública, Em tramitação, PL 4.668/2020, álcool ao volante. Em letras grandes: Matar no trânsito sob efeito de álcool vai dar pena de até 10 anos? Embaixo, o símbolo do Legislativo e o texto: aprovado na CCJ do Senado em 18 de novembro. Fonte: Agência Senado, 18/11/2026.",
+ "alt": "Imagem da Coisa Pública, Resumo da semana: os destaques da semana de 16 a 19 de novembro, em quatro cartões coloridos. Amarelo, Senado, 18/11: desenho do plenário do Senado com 69 cadeiras de sim e 2 de não, placar 69 a 2; ajuste fiscal aprovado: o Senado conclui a votação e manda o texto à Câmara, que deve votar em 24/11. Amarelo, Senado, 17/11: desenho de pilhas de moedas e o valor R$ 13,5 bilhões; mais crédito a exportadores: a MP do Brasil Soberano 3 foi aprovada a um dia do prazo e vai à sanção. Azul, STF, 18/11: desenho da mesa do Supremo com as 11 cadeiras; isenção de pena, efeitos: o fim da isenção em crimes contra o patrimônio na família vale a partir do julgamento. Verde, Presidência, 19/11: círculo verde com o texto 42h; decreto da jornada: regulamenta o limite de 42 horas por semana, que começa em 16/12. Fonte: Correio Braziliense, Agência Senado, STF Notícias, Gazeta do Paraná.",
  "textos": {
-  "bluesky": "A CCJ do Senado aprovou em 18/11 pena maior para quem mata ou fere dirigindo sob efeito de álcool ou drogas: homicídio culposo passa de 5 a 8 para 6 a 10 anos de reclusão (PL 4.668/2020). Decisão terminativa: o texto vai à Câmara.\n\ncoisapublica.io",
-  "instagram": "Em tramitação ⏳\n\nO PL 4.668/2020, do sen. Zequinha Marinho (Podemos-PA), aumenta as penas do Código de Trânsito para quem mata ou fere alguém dirigindo sob efeito de álcool, droga ou medicamento.\n\nO que muda, pelo texto aprovado:\n• homicídio culposo (sem intenção de matar) ao volante sob efeito de álcool ou drogas: a pena passa de 5 a 8 para 6 a 10 anos de reclusão;\n• lesão corporal grave ou gravíssima nas mesmas condições: passa de 2 a 5 para 3 a 6 anos.\n\nOnde está\nNa quarta (18/11), a Comissão de Constituição e Justiça (CCJ) do Senado confirmou, em turno suplementar, o substitutivo da relatora, sen. Professora Dorinha Seabra (União-TO). A decisão é terminativa: o texto não precisa passar pelo Plenário do Senado, a não ser que haja recurso, e segue para a Câmara, segundo a Agência Senado. O placar não foi informado.\n\nPróximo passo: análise na Câmara dos Deputados. Se os deputados mudarem o texto, ele volta ao Senado; se aprovarem sem mudanças, vai à sanção do presidente.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #Senado #Trânsito #LeiSeca #Congresso #Política"
+  "bluesky": "A semana nos Três Poderes:\n\nSenado aprova o ajuste fiscal (69 a 2) e manda à Câmara.\nMP do Brasil Soberano 3 vai à sanção.\nSTF: fim da isenção de pena entre familiares vale a partir do julgamento.\nPresidência: decreto da jornada de 42 horas.\n\ncoisapublica.io",
+  "instagram": "Resumo da semana 🗂️\n\nO que aconteceu nos Três Poderes de 16 a 19 de novembro. A semana foi mais curta: sexta (20/11) é feriado nacional do Dia de Zumbi e da Consciência Negra.\n\nSenado\n• 17/11: aprovada a MP do Brasil Soberano 3 (MP 1.379/2026), um dia antes de perder a validade. Ela soma até R$ 13,5 bilhões aos R$ 15 bilhões já autorizados em crédito para empresas afetadas pelo tarifaço. Vai à sanção.\n• 18/11: o Senado concluiu o ajuste fiscal do governo (PLP 299/2026). Três destaques da oposição foram rejeitados, entre eles o que baixava o limite de crescimento dos gastos de 2% para 0,6% (47 a 30), e o quarto, sobre a Lei Kandir, foi retirado depois de um acordo. Na votação final, 69 a 2, segundo o Correio Braziliense. O texto vai à Câmara.\n• 18/11: a CCJ aprovou pena maior para quem mata dirigindo sob efeito de álcool ou drogas (PL 4.668/2020): de 5 a 8 para 6 a 10 anos. Segue à Câmara.\n\nCâmara\n• 17/11: adiada, sem nova data, a votação da regulação econômica das grandes plataformas digitais (PL 4.675/2025).\n• O ajuste fiscal deve ser votado na terça (24/11).\n\nSTF\n• 18/11: o Plenário decidiu que o fim da isenção de pena para furto e outros crimes contra o patrimônio entre familiares vale a partir do julgamento, preservando condenações definitivas e ações em que a isenção já tinha sido afastada por violência contra a mulher.\n• 18/11: derrubadas a lei de Rondônia que limitava os honorários dos procuradores do estado no Refaz e a regra do Ceará que obrigava cartórios a informar ao Detran a venda de veículos.\n\nPresidência\n• 16/11: encontro com o primeiro-ministro da Espanha, Pedro Sánchez, em Madri.\n• 19/11: cerimônia no Planalto, marcada para a manhã, para assinar o decreto que regulamenta a jornada de 42 horas semanais, com dois dias de descanso, a partir de 16/12. À tarde, viagem a Mato Grosso para a declaração da Terra Indígena Kapôt Nhinore.\n\nTudo com fonte no site, link na bio.\n\n#CoisaPública #ResumoDaSemana #Senado #Câmara #STF #Política"
  },
  "fontes": [
   {
+   "l": "Correio Braziliense, 18/11: com alterações, Senado aprova projeto de ajuste fiscal",
+   "u": "https://www.correiobraziliense.com.br/politica/2026/11/7540761-com-alteracoes-senado-aprova-projeto-de-ajuste-fiscal-para-2027.html"
+  },
+  {
+   "l": "Agência Senado, 17/11: medida que amplia crédito a exportações segue para sanção",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/17/medida-que-amplia-credito-a-exportacoes-segue-para-sancao"
+  },
+  {
    "l": "Agência Senado, 18/11: pena maior para quem mata dirigindo sob efeito de álcool vai à Câmara",
    "u": "https://www12.senado.leg.br/noticias/materias/2026/11/18/pena-maior-para-quem-mata-dirigindo-sob-efeito-de-alcool-vai-a-camara"
+  },
+  {
+   "l": "Mobile Time, 17/11: Câmara adia PL das plataformas digitais",
+   "u": "https://www.mobiletime.com.br/noticias/17/11/2026/camara-deputados-adia-pl/"
+  },
+  {
+   "l": "STF Notícias, 18/11: fim da isenção de pena entre familiares vale a partir do julgamento",
+   "u": "https://noticias.stf.jus.br/postsnoticias/fim-da-isencao-de-pena-em-crimes-patrimoniais-entre-familiares-vale-a-partir-do-julgamento-decide-stf/"
+  },
+  {
+   "l": "STF Notícias, 18/11: honorários de procuradores de Rondônia",
+   "u": "https://noticias.stf.jus.br/postsnoticias/stf-declara-inconstitucional-reducao-dos-honorarios-de-procuradores-de-rondonia/"
+  },
+  {
+   "l": "STF Notícias, 18/11: transferência de veículos no Ceará",
+   "u": "https://noticias.stf.jus.br/postsnoticias/stf-derruba-exigencia-de-comunicacao-eletronica-de-transferencia-de-veiculos-no-ceara/"
+  },
+  {
+   "l": "Gazeta do Paraná, 19/11: Lula assina decreto que regulamenta o fim da escala 6x1",
+   "u": "https://gazetadoparana.com.br/publico/lula-assina-decreto-que-regulamenta-fim-da-escala-6x1-e-implantacao-do-5x2"
+  },
+  {
+   "l": "BM&C, 18/11: Câmara deve votar ajuste fiscal em 24 de novembro",
+   "u": "https://bmcnews.com.br/economia/camara-deve-votar-ajuste-fiscal-de-lula-em-24-de-novembro/"
   }
  ]
 }
