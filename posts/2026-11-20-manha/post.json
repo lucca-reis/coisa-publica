@@ -1,0 +1,84 @@
+{
+ "id": "2026-11-20-manha",
+ "periodo": "manha",
+ "data": "2026-11-20",
+ "imagem": {
+  "poder": "jud",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Congresso",
+    "dia": "Feriado",
+    "tags": [
+     {
+      "t": "Câmara e Senado · sem sessões",
+      "poder": "leg"
+     }
+    ],
+    "titulo": "Dia da Consciência Negra",
+    "texto": "Sem votações marcadas. A Câmara volta na segunda (23/11), com o ajuste fiscal."
+   },
+   {
+    "quando": "STF",
+    "dia": "20 a 30/11",
+    "tags": [
+     {
+      "t": "STF · Primeira Turma",
+      "poder": "jud"
+     }
+    ],
+    "titulo": "Recurso sobre passaportes",
+    "texto": "Começa o julgamento virtual do recurso de Flávio Bolsonaro contra o cancelamento dos passaportes."
+   },
+   {
+    "quando": "STF",
+    "dia": "Até 23/11",
+    "tags": [
+     {
+      "t": "STF · plenário virtual",
+      "poder": "jud"
+     }
+    ],
+    "titulo": "Improbidade e Operação Spoofing",
+    "texto": "Por causa do feriado, a sessão virtual aberta em 13/11 vai até segunda."
+   }
+  ],
+  "fonte": "STF Notícias, NC News, Bahia Notícias e Jovem Pan"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 20 de novembro. Congresso, feriado: Dia da Consciência Negra; Câmara e Senado sem sessões; sem votações marcadas; a Câmara volta na segunda (23/11), com o ajuste fiscal. STF, de 20 a 30/11: Primeira Turma; começa o julgamento virtual do recurso de Flávio Bolsonaro contra o cancelamento dos passaportes. STF, até 23/11: plenário virtual; improbidade e Operação Spoofing; por causa do feriado, a sessão virtual aberta em 13/11 vai até segunda. Fonte: STF Notícias, NC News, Bahia Notícias e Jovem Pan.",
+ "textos": {
+  "bluesky": "Hoje (20/11) é feriado nacional da Consciência Negra: Câmara e Senado sem sessões.\n\nSTF: a Primeira Turma começa a julgar, no plenário virtual, o recurso de Flávio Bolsonaro sobre os passaportes (até 30/11).\n\nCâmara vota o ajuste fiscal na segunda (23/11).\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nHoje, sexta (20/11), é feriado nacional do Dia de Zumbi e da Consciência Negra. O que está marcado nos Três Poderes:\n\nCongresso\nCâmara e Senado não têm sessões de votação marcadas. A Câmara volta na segunda (23/11): o presidente da Casa, Hugo Motta, convocou uma sessão extraordinária à noite para votar o projeto de ajuste fiscal do governo (PLP 299/2026), aprovado pelo Senado em 18/11, segundo a Jovem Pan e o Correio Braziliense.\n\nSTF · Primeira Turma · de 20 a 30/11\nComeça no plenário virtual o julgamento do recurso da defesa do senador Flávio Bolsonaro (PL-RJ) contra a decisão do ministro Alexandre de Moraes, de 26/10, que cancelou os passaportes dele e o proibiu de deixar o país. O caso foi pautado pela presidente da Turma, Cármen Lúcia, segundo o NC News. A pauta não suspende as restrições.\n\nSTF · Plenário virtual · até 23/11\nAs sessões virtuais duram seis dias úteis; com o feriado, a sessão aberta em 13/11 termina na segunda. Na pauta, segundo o Bahia Notícias: se é preciso intenção (dolo) para punir improbidade (RE 656558), a Operação Spoofing (ADPF 605) e o Gaeco Nacional (ADI 7784).\n\nPresidência\nA agenda do presidente para hoje ainda não foi divulgada.\n\nTudo com fonte no site, link na bio.\n\n#CoisaPública #ConsciênciaNegra #STF #Câmara #AjusteFiscal #Política"
+ },
+ "fontes": [
+  {
+   "l": "Brasil 247, 19/11: feriado nacional fecha bancos e repartições em 20/11",
+   "u": "https://www.brasil247.com/tendencias/2026/11/19/sexta-feira-de-folga-feriado-nacional-fecha-bancos-e-reparticoes-amanha-20-11/"
+  },
+  {
+   "l": "Jovem Pan, 18/11: Motta convoca sessão extraordinária na segunda para o ajuste fiscal",
+   "u": "https://jovempan.com.br/politica/motta-convoca-sessao-extraordinaria-na-2a-feira-para-analise-do-ajuste-fiscal/"
+  },
+  {
+   "l": "Correio Braziliense, 19/11: Moretti espera votação tranquila do ajuste fiscal na Câmara",
+   "u": "https://www.correiobraziliense.com.br/economia/2026/11/7541585-ajuste-fiscal-moretti-espera-votacao-tranquila-na-camara-e-elogia-motta.html"
+  },
+  {
+   "l": "NC News, 13/11: Cármen Lúcia marca julgamento do recurso de Flávio Bolsonaro sobre os passaportes",
+   "u": "https://ncnews.com.br/2026/11/13/carmen-lucia-stf-flavio-passaportes/"
+  },
+  {
+   "l": "Bahia Notícias: agenda da semana nos Três Poderes",
+   "u": "https://www.bahianoticias.com.br/noticia/323693-lula-define-novo-ministerio-enquanto-senado-vota-ajuste-fiscal-e-stf-discute-reforma-do-judiciario-confira-a-agenda"
+  },
+  {
+   "l": "STF Notícias: conheça o funcionamento do Plenário Virtual",
+   "u": "https://noticias.stf.jus.br/postsnoticias/conheca-o-funcionamento-do-plenario-virtual-do-stf/"
+  },
+  {
+   "l": "Planalto: agenda do presidente da República",
+   "u": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/agenda-do-presidente-da-republica-lula/agenda-do-presidente-da-republica"
+  }
+ ]
+}

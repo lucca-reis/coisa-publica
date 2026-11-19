@@ -1,0 +1,65 @@
+{
+ "id": "2026-11-20-noite",
+ "periodo": "noite",
+ "data": "2026-11-20",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Em tramitação",
+  "titulo": "PLP 299/2026 · ajuste fiscal",
+  "tags": [
+   {
+    "t": "Câmara · na pauta",
+    "poder": "leg"
+   },
+   {
+    "cat": "plp",
+    "t": "PLP 299/2026"
+   }
+  ],
+  "pergunta": "A Câmara vai aprovar o ajuste fiscal do jeito que veio do Senado?",
+  "rodape": {
+   "rotulo": "A Câmara vota em sessão extraordinária em",
+   "valor": "23 de novembro"
+  },
+  "fonte": "Agência Senado, Correio Braziliense e Jovem Pan"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação, PLP 299/2026, ajuste fiscal. Em letras grandes: A Câmara vai aprovar o ajuste fiscal do jeito que veio do Senado? Embaixo, o símbolo do Legislativo e o texto: a Câmara vota em sessão extraordinária em 23 de novembro. Fonte: Agência Senado, Correio Braziliense e Jovem Pan.",
+ "textos": {
+  "bluesky": "O ajuste fiscal do governo (PLP 299/2026) passou no Senado por 69 a 2 e vai à Câmara na segunda (23/11), em sessão extraordinária. Por ser lei complementar, precisa de 257 votos. Se mudar, volta ao Senado.\n\ncoisapublica.io",
+  "instagram": "Em tramitação 📊\n\nO projeto de lei complementar 299/2026 reúne as medidas de ajuste fiscal do governo para cumprir a meta das contas públicas de 2027. Foi apresentado no Senado pelo líder do governo, senador Jaques Wagner (PT-BA), e relatado pelo senador Eduardo Braga (MDB-AM).\n\nO que muda, pelo texto aprovado no Senado:\n• o crescimento real das despesas do governo passa a ter limite de 2% ao ano a partir de 2027 (hoje, 2,5%);\n• o corte nos benefícios fiscais de empresas sobe de 10% para 20%;\n• fica mais difícil usar créditos tributários para pagar outros impostos (por acordo, ficam de fora os de PIS/Pasep, Cofins e CBS);\n• as compensações da Previdência a estados e municípios ficam limitadas a R$ 3 bilhões por ano, de 2027 a 2030;\n• o Congresso terá 60 dias para votar regras sobre salários acima do teto no serviço público.\n\nO governo estima melhora de R$ 45,1 bilhões a R$ 50,1 bilhões no resultado das contas de 2027, segundo A Tarde; antes das mudanças no Senado, a estimativa chegava a R$ 56,1 bilhões.\n\nOnde está\nO Senado aprovou o texto-base em 12/11, por 45 a 31, e concluiu a votação em 18/11, por 69 a 2, depois de rejeitar três destaques da oposição e fechar um acordo sobre os repasses da Lei Kandir.\n\nPróximo passo\nO presidente da Câmara, Hugo Motta, convocou sessão extraordinária para a noite de segunda (23/11). O relator, deputado Mauro Benevides Filho (União-CE), não pretende mudar o texto. Por ser lei complementar, o projeto precisa de pelo menos 257 votos dos 513 deputados. Se a Câmara aprovar sem mudanças, vai à sanção; se mudar o texto, volta ao Senado.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #AjusteFiscal #Câmara #Senado #Congresso #Política"
+ },
+ "fontes": [
+  {
+   "l": "Agência Senado, 12/11: texto principal do ajuste fiscal é aprovado",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/12/texto-principal-do-ajuste-fiscal-e-aprovado-pelo-senado"
+  },
+  {
+   "l": "Correio Braziliense, 18/11: com alterações, Senado aprova o ajuste fiscal",
+   "u": "https://www.correiobraziliense.com.br/politica/2026/11/7540761-com-alteracoes-senado-aprova-projeto-de-ajuste-fiscal-para-2027.html"
+  },
+  {
+   "l": "Tribuna do Sertão (Sputnik Brasil), 18/11: Senado conclui o ajuste fiscal e envia o projeto à Câmara",
+   "u": "https://www.tribunadosertao.com.br/geral/2026/11/18/1025131-senado-conclui-votacao-de-ajuste-fiscal-e-envia-projeto-a-camara-impacto-previsto-e-de-r-561-bi"
+  },
+  {
+   "l": "Jovem Pan, 18/11: Motta convoca sessão extraordinária na segunda para o ajuste fiscal",
+   "u": "https://jovempan.com.br/politica/motta-convoca-sessao-extraordinaria-na-2a-feira-para-analise-do-ajuste-fiscal/"
+  },
+  {
+   "l": "A Tarde, 19/11: Hugo Motta convoca sessão extra para votar o ajuste fiscal",
+   "u": "https://atarde.com.br/politica/hugo-motta-convoca-sessao-extra-para-votar-ajuste-fiscal-na-camara-1409947"
+  },
+  {
+   "l": "Correio Braziliense, 19/11: Moretti espera votação tranquila na Câmara",
+   "u": "https://www.correiobraziliense.com.br/economia/2026/11/7541585-ajuste-fiscal-moretti-espera-votacao-tranquila-na-camara-e-elogia-motta.html"
+  },
+  {
+   "l": "Senado Federal: ficha do PLP 299/2026",
+   "u": "https://www25.senado.leg.br/web/atividade/materias/-/materia/176328"
+  },
+  {
+   "l": "Constituição Federal, arts. 65 e 69 (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "id": "2026-11-20-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-20",
+ "imagem": {
+  "poder": "jud",
+  "eyebrow": "Você sabia?",
+  "titulo": "O STF também julga sem sessão ao vivo",
+  "visual": {
+   "tipo": "data",
+   "rotulo": "Cada sessão virtual dura",
+   "valor": "6",
+   "sub": "dias úteis, de sexta a sexta"
+  },
+  "texto": "No plenário virtual, os ministros votam por um sistema. Um pedido de destaque leva o caso ao plenário físico.",
+  "fonte": "STF Notícias"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia? O STF também julga sem sessão ao vivo. Ao lado da mesa do Supremo com as 11 cadeiras: cada sessão virtual dura 6 dias úteis, de sexta a sexta. Embaixo: no plenário virtual, os ministros votam por um sistema; um pedido de destaque leva o caso ao plenário físico. Fonte: STF Notícias.",
+ "textos": {
+  "bluesky": "Você sabia? Boa parte dos julgamentos do STF acontece no plenário virtual: os ministros votam por um sistema durante seis dias úteis, de sexta às 11h até a sexta seguinte. Um pedido de destaque leva o caso ao plenário físico.\n\ncoisapublica.io",
+  "instagram": "Você sabia? ⚖️\n\nO Supremo Tribunal Federal não julga só nas sessões transmitidas pela TV Justiça. Muitos processos são decididos no plenário virtual, em que os ministros votam por um sistema eletrônico, sem reunião ao vivo.\n\nComo funciona, segundo o STF:\n• qualquer processo pode ir ao plenário virtual, tanto do Plenário quanto das Turmas; quem decide é o relator;\n• a sessão começa às 11h de uma sexta e termina às 23h59 da sexta seguinte: seis dias úteis. Se houver feriado, o prazo aumenta. É o que acontece agora: a sessão aberta em 13/11 vai até segunda (23/11);\n• o relator vota primeiro, com relatório e voto escritos; os outros votam em qualquer ordem e podem mudar o voto até o fim da sessão;\n• advogados e a Procuradoria-Geral da República podem mandar a sustentação oral em áudio ou vídeo, até 48 horas antes do início;\n• o resultado só é proclamado quando a sessão termina, mesmo que todos já tenham votado.\n\nDois pedidos mudam o caminho:\n• pedido de vista: o julgamento para até o ministro devolver o processo, num prazo de até 90 dias;\n• pedido de destaque: o processo sai da sessão virtual e o julgamento recomeça no plenário físico.\n\nAs sessões virtuais não são transmitidas, mas os votos podem ser acompanhados no portal do STF, no link \"Sessão Virtual\" de cada processo.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #STF #Supremo #Judiciário #Política"
+ },
+ "fontes": [
+  {
+   "l": "STF Notícias: conheça o funcionamento do Plenário Virtual do STF",
+   "u": "https://noticias.stf.jus.br/postsnoticias/conheca-o-funcionamento-do-plenario-virtual-do-stf/"
+  },
+  {
+   "l": "STF: Resolução 642/2019 (sessões virtuais)",
+   "u": "https://www.stf.jus.br/arquivo/norma/resolucao642-2019.pdf"
+  },
+  {
+   "l": "Bahia Notícias: sessões virtuais prorrogadas até 23/11 por causa do feriado",
+   "u": "https://www.bahianoticias.com.br/noticia/323693-lula-define-novo-ministerio-enquanto-senado-vota-ajuste-fiscal-e-stf-discute-reforma-do-judiciario-confira-a-agenda"
+  }
+ ]
+}
