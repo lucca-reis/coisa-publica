@@ -87,10 +87,24 @@ body{box-sizing:border-box;display:grid;place-items:center;
 .src a{color:inherit}
 /* a house's page: the drawing on top, centred, and the panel below it in one centred column (at every width since
    Nov 2026; on computers the panel used to sit beside the drawing) */
-.panel{margin:20px auto 0;max-width:720px}
+.panel{margin:20px auto 0;max-width:var(--colw, 720px);width:100%}
 .tl{overflow:visible}
 #plan{transition:max-height .75s cubic-bezier(.3,.7,.3,1)}
 .stage.is-open #plan{max-height:min(44vh, 420px)}
+/* computers: the drawing opens large on top; scrolling down docks it on the left half, centred in the height, while the
+   column below slides into the right half (dockUpdate). --colw keeps the column narrow enough for that half */
+@media (min-width:1000px){
+  :root{--colw:min(720px, calc(50vw - 72px))}
+  .stage.is-open #plan{max-height:calc(100vh - var(--menu-h) - 150px);pointer-events:none}
+  .stage.is-open .house.is-active{pointer-events:auto}
+  .stf-grid{max-width:none}
+  #stf-svg,#pres-svg{max-height:calc(100vh - var(--menu-h) - 190px);pointer-events:none}
+  #stf-svg .jz,#pres-svg .jz{pointer-events:auto}
+  .stf-grid > .stf-panel,.stf-grid > .esp{width:100%;max-width:var(--colw);justify-self:center}
+}
+.dock-hero{position:sticky;z-index:1;transform-origin:0 0}
+/* the column passes over the drawing while it moves aside */
+#panel,.stf-grid > .stf-panel,.stf-grid > .esp{position:relative;z-index:2}
 
 /* party and person views: full-screen layers; the clicked sphere grows into place */
 .house.colored .seat{cursor:pointer}
@@ -3108,7 +3122,8 @@ for (const key of ['camara','senado']){
 
 /* ---------- build ---------- */
 function el(tag, attrs, parent){ const e=document.createElementNS(NS,tag); for (const k in attrs) e.setAttribute(k,attrs[k]); if(parent) parent.appendChild(e); return e; }
-function setT(g,t){ g.setAttribute('transform',`translate(${t.x.toFixed(2)} ${t.y.toFixed(2)}) scale(${t.s.toFixed(3)})`); }
+// r turns the house; f (1 to -1) mirrors it, so a turned house keeps the left-wing parties on the left
+function setT(g,t){ const f = t.f==null ? 1 : t.f; g.setAttribute('transform',`translate(${t.x.toFixed(2)} ${t.y.toFixed(2)}) rotate(${(t.r||0).toFixed(2)}) scale(${(t.s*f).toFixed(3)} ${t.s.toFixed(3)})`); }
 
 for (const key of ['camara','senado']){
   const H = HOUSES[key], g = document.getElementById('g-'+key);
@@ -3164,7 +3179,7 @@ function tween(H, to, dur){
   if (reduce){ H.cur={...to}; setT(H.g,H.cur); return; }
   const step = now => {
     const k = Math.min(1,(now-t0)/dur), e = ease(k);
-    H.cur = {x:from.x+(to.x-from.x)*e, y:from.y+(to.y-from.y)*e, s:from.s+(to.s-from.s)*e};
+    H.cur = {x:from.x+(to.x-from.x)*e, y:from.y+(to.y-from.y)*e, s:from.s+(to.s-from.s)*e, r:(from.r||0)+((to.r||0)-(from.r||0))*e, f:(from.f==null?1:from.f)+((to.f==null?1:to.f)-(from.f==null?1:from.f))*e};
     setT(H.g,H.cur);
     if (k<1) anim = requestAnimationFrame(step);
   };
@@ -3188,8 +3203,10 @@ function open(key, left){
   H.g.classList.add('is-active');
   Object.values(HOUSES).forEach(o=>o.g.setAttribute('tabindex','-1'));
   // on phones the panel sits below the drawing, so the house opens centered and as large as the strip allows
-  // the panel sits below the drawing, so the house opens centred and as large as the strip allows
-  tween(H, {x:700, y:320, s:292}, 750);
+  // the panel sits below the drawing, so the house opens centred and as large as the strip allows, turned so the
+  // president's chair (the black dot) is on top: the Câmara's is drawn on the right, so a quarter turn does it; the
+  // Senado's is on the left, so it is also mirrored (a plain turn the other way would put the right-wing parties on the left)
+  tween(H, {x:700, y:320, s:292, r:-90, f: key==='camara' ? 1 : -1}, 750);
   const n = H.seats.length;
   H.seats.forEach((s,i)=> s.style.transitionDelay = reduce ? '0ms' : (i/n*520).toFixed(0)+'ms, 0ms');
   clearTimeout(colorTimer);
@@ -4184,6 +4201,60 @@ Object.values(VIEWS).forEach(V=>{
   V.lg.addEventListener('keydown', e=>{ if (e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); enterView(V); } });
   V.el.addEventListener('click', e=>{ if (cardClick(e)) return; if (e.target.closest('.item-link')) projFrom = true; });
 });
+
+/* ---------- docking (computers): the drawing on top, then on the left as the page goes down ----------
+   The drawing is sticky at the place it opens, so it never scrolls away; with p going from 0 to 1 over the first screen
+   of scrolling it moves (translate and scale, no reflow) until its shape sits centred in the left half, and the column
+   below slides from the centre to the right half. Below 1000px nothing moves: drawing on top, column below. */
+const DOCK_MQ = matchMedia('(min-width:1000px)');
+let dockLast = null, dockRaf = 0;
+function dockCtx(){
+  const v = openView();
+  if (v){ const V = VIEWS[v]; if (!V.el.classList.contains('show') || zoomBusy) return null;
+    return v==='stf' ? {sc:V.el, hero:stfSvg, core:stfFrame, after:[document.getElementById('stf-panel')]}
+                     : {sc:V.el, hero:presSvg, core:presFrame, after:[document.getElementById('esp'), presPanel]}; }
+  if (openKey && !panel.hidden) return {sc:document.scrollingElement, hero:planSvg, core:HOUSES[openKey].g.querySelector('.shell'), after:[panel]};
+  return null;
+}
+function dockClear(c){ if (!c) return; c.hero.classList.remove('dock-hero'); c.hero.style.top = ''; c.hero.style.transform = ''; c.hero.style.transformOrigin = ''; c.hero.style.transition = '';
+  c.after.forEach(e=>{ if (e){ e.style.transform = ''; e.style.transition = ''; } }); }
+function dockUpdate(){
+  dockRaf = 0;
+  const c = dockCtx();
+  if (dockLast && (!c || c.hero!==dockLast.hero)) { dockClear(dockLast); dockLast = null; }
+  if (!c || !c.core) return;
+  if (!DOCK_MQ.matches){ dockClear(c); dockLast = null; return; }
+  const {sc, hero, core, after} = c, win = sc===document.scrollingElement;
+  // measured untransformed: the sticky place is the same at any scroll. No transform transitions while docking: each
+  // frame sets the place directly (the panel's own entrance transition would otherwise restart on every frame)
+  hero.style.transition = 'none'; after.forEach(e=> e && (e.style.transition = 'opacity .45s'));
+  hero.style.transform = 'none'; after.forEach(e=> e && (e.style.transform = 'none'));
+  if (!hero.classList.contains('dock-hero')){
+    if (sc.scrollTop > 2) return;                         // set the sticky place only at the top of the page
+    const r = hero.getBoundingClientRect(), base = win ? 0 : sc.getBoundingClientRect().top + parseFloat(getComputedStyle(sc).paddingTop);
+    hero.style.top = Math.round(r.top - base) + 'px'; hero.classList.add('dock-hero');
+  }
+  dockLast = c;
+  const H0 = hero.getBoundingClientRect(), C0 = core.getBoundingClientRect(); if (!C0.width) return;
+  const p = Math.max(0, Math.min(1, sc.scrollTop / Math.max(200, H0.height * .8))), e = p<.5 ? 2*p*p : 1 - Math.pow(-2*p+2, 2)/2;
+  // the column moves a little ahead of the drawing, so the title is out of the way before the drawing gets there
+  const q = Math.min(1, p*1.6), e2 = q<.5 ? 2*q*q : 1 - Math.pow(-2*q+2, 2)/2;
+  const W = document.documentElement.clientWidth, vh = innerHeight, menuH = document.querySelector('.menu').getBoundingClientRect().bottom;
+  const edge = Math.max(16, Math.min(40, W*.03)), g = 36;
+  // the left half below the menu and the back arrow
+  const R = {x: edge + 24, y: menuH + 70, w: W/2 - g - edge - 24, h: vh - menuH - 70 - 32};
+  const k = Math.min(1.25, R.w / C0.width, R.h / C0.height);
+  const cx = C0.left + C0.width/2, cy = C0.top + C0.height/2, tx = R.x + R.w/2, ty = R.y + R.h/2;
+  hero.style.transformOrigin = `${(cx - H0.left).toFixed(1)}px ${(cy - H0.top).toFixed(1)}px`;
+  hero.style.transform = e ? `translate(${(e*(tx-cx)).toFixed(1)}px, ${(e*(ty-cy)).toFixed(1)}px) scale(${(1 + e*(k-1)).toFixed(4)})` : '';
+  after.forEach(el=>{ if (!el) return; const r = el.getBoundingClientRect();
+    el.style.transform = e2 ? `translateX(${(e2*(W/2 + g - r.left)).toFixed(1)}px)` : ''; });
+}
+const dockSoon = ()=>{ if (!dockRaf) dockRaf = requestAnimationFrame(dockUpdate); };
+addEventListener('scroll', dockSoon, {passive:true});
+[stfv, presv].forEach(el=> el.addEventListener('scroll', dockSoon, {passive:true}));
+addEventListener('resize', ()=>{ if (dockLast){ dockClear(dockLast); dockLast = null; } dockSoon(); });
+setInterval(()=>{ if (dockCtx() || dockLast) dockSoon(); }, 400);   // after opening, closing and redraws
 
 /* previews: the real seats of each section, drawn small and grey inside its shape.
    All seats of one colour become a single path, so the opening view stays light. */
