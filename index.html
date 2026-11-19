@@ -25,7 +25,7 @@
 }
 :root[data-theme="dark"]{--bg:#0F1113;--ink:#ECEDE8;--nc:#4E5256;--muted:#9A9E9F;--rule:#2A2D30;--soft:#1B1E21;color-scheme:dark}
 /* colour schemes picked from the dots in the bottom-right corner: background · ink */
-:root{--ring:transparent;--menu-h:56px}
+:root{--ring:transparent;--menu-h:56px;--edge:clamp(16px,3vw,40px)}
 :root[data-scheme]{--muted:color-mix(in srgb, var(--ink) 62%, var(--bg));--rule:color-mix(in srgb, var(--ink) 22%, var(--bg));--soft:color-mix(in srgb, var(--ink) 9%, var(--bg));--nc:color-mix(in srgb, var(--ink) 35%, var(--bg))}
 :root[data-scheme="branco-preto"]{--bg:#F3F3F3;--ink:#121417;color-scheme:light}
 :root[data-scheme="preto-branco"]{--bg:#0F1113;--ink:#F4F4EF;color-scheme:dark}
@@ -85,13 +85,26 @@ body{box-sizing:border-box;display:grid;place-items:center;
 .day.past .item .t{color:var(--muted)}
 .src{margin:0;font-family:var(--mono);font-size:11px;color:var(--muted)}
 .src a{color:inherit}
+/* a house's page: the drawing on top, centred, and the panel below it in one centred column (at every width since
+   Nov 2026; on computers the panel used to sit beside the drawing) */
+.panel{margin:20px auto 0;max-width:var(--colw, 720px);width:100%}
+.tl{overflow:visible}
+#plan{transition:max-height .75s cubic-bezier(.3,.7,.3,1)}
+.stage.is-open #plan{max-height:min(44vh, 420px)}
+/* computers: the drawing opens large on top; scrolling down docks it on the left half, centred in the height, while the
+   column below slides into the right half (dockUpdate). --colw keeps the column narrow enough for that half */
 @media (min-width:1000px){
-  .panel{position:absolute;top:3%;bottom:3%}
-  .stage.open-senado .panel{left:47%;right:3%}
-  .stage.open-camara .panel{left:3%;right:53%}
-  .stage.open-camara.house-left .panel{left:51%;right:3%}
+  :root{--colw:min(720px, calc(50vw - 72px))}
+  .stage.is-open #plan{max-height:calc(100vh - var(--menu-h) - 150px);pointer-events:none}
+  .stage.is-open .house.is-active{pointer-events:auto}
+  .stf-grid{max-width:none}
+  #stf-svg,#pres-svg{max-height:calc(100vh - var(--menu-h) - 190px);pointer-events:none}
+  #stf-svg .jz,#pres-svg .jz{pointer-events:auto}
+  .stf-grid > .stf-panel,.stf-grid > .esp{width:100%;max-width:var(--colw);justify-self:center}
 }
-@media (max-width:999px){ .panel{margin-top:20px} .tl{overflow:visible} }
+.dock-hero{position:sticky;z-index:1;transform-origin:0 0}
+/* the column passes over the drawing while it moves aside */
+#panel,.stf-grid > .stf-panel,.stf-grid > .esp{position:relative;z-index:2}
 
 /* party and person views: full-screen layers; the clicked sphere grows into place */
 .house.colored .seat{cursor:pointer}
@@ -461,9 +474,10 @@ html,body,.ov::before,.back-arrow,.info-pop{transition:background-color .35s, co
   .menu-tools{grid-column:3!important}
   .menu .ham{margin-right:-12px}
 }
-/* phone: no spheres; they stay in the page, invisible and tiny in the middle of the screen, so opening a power still grows from there */
-@media (max-width:700px){
-  .landing{padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 4px)}
+/* no spheres (at every width since Nov 2026); they stay in the page, invisible and tiny in the middle of the screen, so
+   opening a power still grows from there */
+@media (max-width:700px){ .landing{padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 4px)} }
+@media all{
   .landing > .lx-wrap{display:block;position:fixed;left:50%;top:50%;width:0;height:0;overflow:visible;opacity:0;pointer-events:none}
   .landing > .lx-wrap .lx{--u:.1px;position:absolute;left:0;top:0;width:60px;transform:translate(-50%,-50%);gap:0}
   .landing > .lx-wrap .lx-text{display:none}
@@ -655,41 +669,12 @@ a.ev:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
 /* the three powers as spheres above the timeline: Legislativo, Executivo, Judiciário */
 .landing .lx{--u:.7px}
 .lx-wrap{display:contents}
-/* computer: the timeline takes the right half of the page, from the exact middle. The left half is the square: Legislativo on top,
-   Executivo below left and Judiciário below right, facing each other as in the Praça dos Três Poderes. Text sits below each circle. */
+/* the home page is only the timeline, centred (Nov 2026): the spheres no longer show at any width (see the rule
+   "no spheres" below) and the old two-halves layout is gone */
 @media (min-width:701px){
-  .landing{--lx-top:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;justify-items:stretch;align-items:start;column-gap:0;
-    padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + var(--lx-top))}
-  /* --u scales the drawings (a sphere box is 320u wide): two rows of spheres with their text fit the height, two spheres side by side fit the width */
-  .landing .lx{--tx:22px;--gy:18px;--gx:28px;--u:clamp(.2px, min(calc((100vh - var(--menu-h) - var(--lx-top) - 60px - 2 * var(--tx) - var(--gy)) / 640), calc((50vw - 170px) / 690)) * .92, .9px);
-    --S:calc(320 * var(--u));--s:calc((var(--S) + var(--tx) + var(--gy)) / .866);
-    /* centred in the space below the menu, a little above the middle so it reads as centred */
-    --lx-mt:max(0px, calc((100vh - var(--menu-h) - var(--lx-top) - 24px - (2 * var(--S) + 2 * var(--tx) + var(--gy))) / 2 - 20px));
-    position:sticky;top:var(--lx-mt);display:block;max-width:none;margin:var(--lx-mt) clamp(24px,4vw,64px) 0 0;
-    height:calc(2 * var(--S) + 2 * var(--tx) + var(--gy))}
-  /* the circles stay put until the bottom of the timeline's last card reaches them, then rise with the page (--lx-end trims the "Ver mais" line off the wrapper) */
-  .landing > .lx-wrap{display:block;grid-column:1;grid-row:1;align-self:stretch;margin-bottom:var(--lx-end, 0px)}
-  .landing > .today{grid-column:2;grid-row:1;max-width:none;box-sizing:border-box}
-  .landing > .site-foot{grid-column:1 / -1;grid-row:2;max-width:none}
-  .landing .lx{translate:var(--lx-sx, 0px) 0}
-  .landing .lx-row{position:absolute;flex-direction:column;align-items:center;gap:8px;width:calc(var(--S) + 60px);transform:translateX(-50%)}
-  .landing .lx-row[data-k="cong"]{left:50%;top:0}
-  .landing .lx-row[data-k="pres"]{left:calc(50% - var(--s) / 2);top:calc(.866 * var(--s))}
-  .landing .lx-row[data-k="stf"]{left:calc(50% + var(--s) / 2);top:calc(.866 * var(--s))}
-  .landing .lx-text > *{flex-shrink:0}
-  .landing .lx-bar{width:min(170px,88%)}
-  .landing .lx-text{max-width:100%}
-  .landing .lx-ph{justify-content:center}
-}
-/* tablet: the three circles stacked on the left half, Legislativo, Executivo and Judiciário from top to bottom */
-@media (min-width:701px) and (max-width:1199px){
-  .landing .lx{--u:clamp(.2px, min(calc((100vh - var(--menu-h) - var(--lx-top) - 60px - 3 * var(--tx) - 2 * var(--gy)) / 960), calc((50vw - 80px) / 340)), .9px);
-    --row:calc(var(--S) + var(--tx) + var(--gy));
-    --lx-mt:max(0px, calc((100vh - var(--menu-h) - var(--lx-top) - 24px - (3 * var(--S) + 3 * var(--tx) + 2 * var(--gy))) / 2 - 20px));
-    height:calc(3 * var(--S) + 3 * var(--tx) + 2 * var(--gy))}
-  .landing .lx-row[data-k="cong"]{left:50%;top:0}
-  .landing .lx-row[data-k="pres"]{left:50%;top:var(--row)}
-  .landing .lx-row[data-k="stf"]{left:50%;top:calc(2 * var(--row))}
+  .landing{padding-top:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 28px)}
+  .landing > .today{max-width:720px}
+  .landing > .site-foot{max-width:980px}
 }
 .lx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(12px,4vw,56px);width:100%;max-width:980px;margin:0 auto;font-family:var(--display)}
 .lx-row{display:flex;flex-direction:column;align-items:center;gap:14px;min-width:0}
@@ -770,8 +755,8 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .stfv{position:fixed;inset:0;z-index:14;background:var(--bg);overflow:auto;box-sizing:border-box;font-family:var(--display);
   padding:calc(env(safe-area-inset-top, 0px) + var(--menu-h) + 72px) max(16px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 48px) max(16px, env(safe-area-inset-left, 0px))}
 .stfv[hidden]{display:none!important}
-.stf-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
-#stf-svg{display:block;width:100%;height:auto;max-height:calc(100vh - var(--menu-h) - 130px);overflow:visible}
+.stf-grid{max-width:720px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+#stf-svg{display:block;width:100%;height:auto;max-height:min(44vh, 420px);overflow:visible}
 #stf-frame{fill:color-mix(in srgb, var(--ink) 6%, var(--bg));stroke:none}
 .u-table{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round;transition:opacity .45s}
 .jz{fill:var(--ink);cursor:pointer;outline:none;transform-box:fill-box;transform-origin:center;transition:transform .18s ease, opacity .45s ease}
@@ -782,7 +767,7 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .stf-panel{display:flex;flex-direction:column;gap:clamp(14px,2.2vw,28px);min-width:0;opacity:0;transform:translateY(8px);transition:opacity .45s, transform .45s}
 .stfv.show .stf-panel{opacity:1;transform:none}
 .stf-panel h2{margin:0;font-weight:700;font-size:clamp(36px,4.6vw,68px);line-height:.95;letter-spacing:-.03em;text-wrap:balance}
-.stf-panel .tl{max-height:calc(100vh - var(--menu-h) - 300px)}
+.stf-panel .tl{max-height:none;overflow:visible}
 .stf-sub{margin:-6px 0 0;font-size:14px;color:var(--muted)}
 .landing.leaving .lg.zoomsrc{opacity:0;transition:none}
 .avatar.vacant{background:transparent;box-shadow:inset 0 0 0 2px var(--ink)}
@@ -792,14 +777,13 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .d.j::before{content:"";position:absolute;top:4%;right:4%;width:5px;height:5px;border-radius:1px;background:currentColor}
 .d.j:not(.c):not(.s){border-radius:5px;box-shadow:inset 0 0 0 1.5px var(--ink)}
 .legend .d.j::before{display:none}
-#pres-svg{display:block;width:100%;height:auto;max-height:calc(100vh - var(--menu-h) - 130px);overflow:visible}
+#pres-svg{display:block;width:100%;height:auto;max-height:min(44vh, 420px);overflow:visible}
 #pres-frame{fill:color-mix(in srgb, var(--ink) 6%, var(--bg));stroke:none}
 .jz.ex{fill:var(--c)}
 .pres-grid{grid-template-rows:auto 1fr}
-.pres-grid > #pres-svg{grid-column:1;grid-row:1}
-.pres-grid > #pres-panel{grid-column:2;grid-row:1 / span 2}
+.pres-grid > #pres-svg,.pres-grid > #pres-panel{grid-column:1;grid-row:auto}
 /* the Esplanada dos Ministérios: two rows of buildings facing each other, one per ministry, with the minister's party dot */
-.esp{grid-column:1;grid-row:2;align-self:start;margin:0 clamp(0px,4%,40px);opacity:0;transform:translateY(8px);transition:opacity .45s .1s, transform .45s .1s}
+.esp{grid-column:1;grid-row:auto;align-self:start;margin:0;opacity:0;transform:translateY(8px);transition:opacity .45s .1s, transform .45s .1s}
 .stfv.show .esp{opacity:1;transform:none}
 .esp-h{margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .esp-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(18px,48px) minmax(0,1fr);align-items:start}
@@ -3138,7 +3122,8 @@ for (const key of ['camara','senado']){
 
 /* ---------- build ---------- */
 function el(tag, attrs, parent){ const e=document.createElementNS(NS,tag); for (const k in attrs) e.setAttribute(k,attrs[k]); if(parent) parent.appendChild(e); return e; }
-function setT(g,t){ g.setAttribute('transform',`translate(${t.x.toFixed(2)} ${t.y.toFixed(2)}) scale(${t.s.toFixed(3)})`); }
+// r turns the house; f (1 to -1) mirrors it, so a turned house keeps the left-wing parties on the left
+function setT(g,t){ const f = t.f==null ? 1 : t.f; g.setAttribute('transform',`translate(${t.x.toFixed(2)} ${t.y.toFixed(2)}) rotate(${(t.r||0).toFixed(2)}) scale(${(t.s*f).toFixed(3)} ${t.s.toFixed(3)})`); }
 
 for (const key of ['camara','senado']){
   const H = HOUSES[key], g = document.getElementById('g-'+key);
@@ -3194,7 +3179,7 @@ function tween(H, to, dur){
   if (reduce){ H.cur={...to}; setT(H.g,H.cur); return; }
   const step = now => {
     const k = Math.min(1,(now-t0)/dur), e = ease(k);
-    H.cur = {x:from.x+(to.x-from.x)*e, y:from.y+(to.y-from.y)*e, s:from.s+(to.s-from.s)*e};
+    H.cur = {x:from.x+(to.x-from.x)*e, y:from.y+(to.y-from.y)*e, s:from.s+(to.s-from.s)*e, r:(from.r||0)+((to.r||0)-(from.r||0))*e, f:(from.f==null?1:from.f)+((to.f==null?1:to.f)-(from.f==null?1:from.f))*e};
     setT(H.g,H.cur);
     if (k<1) anim = requestAnimationFrame(step);
   };
@@ -3206,7 +3191,7 @@ function tween(H, to, dur){
 function open(key, left){
   if (openKey) return;
   openKey = key; const H = HOUSES[key];
-  const toLeft = key==='camara' && !!left && matchMedia('(min-width:1000px)').matches;   // on phones the panel sits below anyway
+  const toLeft = false;   // the panel sits below the drawing at every width
   stage.classList.add('is-open','open-'+key);
   stage.classList.toggle('house-left', toLeft);
   renderPanel(key); panel.hidden = false;
@@ -3218,8 +3203,10 @@ function open(key, left){
   H.g.classList.add('is-active');
   Object.values(HOUSES).forEach(o=>o.g.setAttribute('tabindex','-1'));
   // on phones the panel sits below the drawing, so the house opens centered and as large as the strip allows
-  const phone = !matchMedia('(min-width:1000px)').matches;
-  tween(H, phone ? {x:700, y:320, s:292} : toLeft ? {...H.open, x:340} : H.open, 750);
+  // the panel sits below the drawing, so the house opens centred and as large as the strip allows, turned so the
+  // president's chair (the black dot) is on top: the Câmara's is drawn on the right, so a quarter turn does it; the
+  // Senado's is on the left, so it is also mirrored (a plain turn the other way would put the right-wing parties on the left)
+  tween(H, {x:700, y:320, s:292, r:-90, f: key==='camara' ? 1 : -1}, 750);
   const n = H.seats.length;
   H.seats.forEach((s,i)=> s.style.transitionDelay = reduce ? '0ms' : (i/n*520).toFixed(0)+'ms, 0ms');
   clearTimeout(colorTimer);
@@ -3888,7 +3875,8 @@ function renderToday(){
 // screen starts at the top as usual. After "Ver mais" the margin stays, so nothing jumps.
 function centerToday(){
   const L = document.getElementById('landing'); if (!L || L.hidden || feedMore) return;
-  if (matchMedia('(max-width:700px)').matches){ if (todayEl.style.marginTop) todayEl.style.marginTop = ''; return; }
+  // the timeline starts right below the menu at every width now (it used to be centred in the height on computers)
+  if (true){ if (todayEl.style.marginTop) todayEl.style.marginTop = ''; return; }
   const cur = parseFloat(todayEl.style.marginTop) || 0, r = todayEl.getBoundingClientRect(); if (!r.height) return;
   const menuH = document.querySelector('.menu').getBoundingClientRect().bottom, view = L.clientHeight - menuH;
   const top0 = r.top + L.scrollTop - cur;                       // where the block starts without the margin
@@ -3897,6 +3885,9 @@ function centerToday(){
 }
 function lxEnd(){
   centerToday();
+  // no spheres beside the timeline any more: nothing to measure or line up
+  if (todayEl.style.paddingRight) todayEl.style.paddingRight = '';
+  return;
   const cards = [...todayEl.querySelectorAll('.feed .card')].filter(c=> c.offsetParent);
   const last = cards[cards.length-1]; if (!last) return;
   // measured against the end of the wrapper's grid row (its bottom plus the trim already applied), so it holds after "Ver mais" too
@@ -4102,8 +4093,9 @@ function sizeBench(){
   const pu = svgUnit(planSvg, 1400, 640), su = svgUnit(stfSvg, 690, 500);
   if (!pu || !su) return;
   // seat radius on screen in an opened house; on phones the plan is tiny, so the bench is drawn larger
-  const target = HOUSES.camara.r * HOUSES.camara.open.s * pu * (matchMedia('(min-width:1000px)').matches ? 1 : 2.4);
-  const f = Math.min(1.6, target / su / BENCH.r);
+  const target = HOUSES.camara.r * HOUSES.camara.open.s * pu * 2.4;
+  // with the drawing on top of the page (Nov 2026) the bench is capped so the U keeps a margin inside the frame
+  const f = Math.min(1, target / su / BENCH.r);
   const fx = 10 + 670/2, fy = 10 + 485/2;
   document.getElementById('stf-bench').setAttribute('transform', `translate(${fx} ${fy}) scale(${f.toFixed(4)}) translate(${-BENCH.cx} ${-BENCH.cy})`);
 }
@@ -4136,7 +4128,7 @@ const PRES_BENCH = (()=>{ const cols = Math.ceil(EXEC_MIN.length/4), left = -10,
 function sizePresBench(){
   const pu = svgUnit(planSvg, 1400, 640), su = svgUnit(presSvg, 549, 260);
   if (!pu || !su) return;
-  const target = HOUSES.camara.r * HOUSES.camara.open.s * pu * (matchMedia('(min-width:1000px)').matches ? 1 : 2.4);
+  const target = HOUSES.camara.r * HOUSES.camara.open.s * pu * 2.4;
   const f = Math.min(2.4, target / su / PRES_BENCH.r, (536.5-40)/PRES_BENCH.w, (248-40)/PRES_BENCH.h);
   const fr = presFrame;
   const fx = +fr.getAttribute('x') + +fr.getAttribute('width')/2, fy = +fr.getAttribute('y') + +fr.getAttribute('height')/2;
@@ -4209,6 +4201,60 @@ Object.values(VIEWS).forEach(V=>{
   V.lg.addEventListener('keydown', e=>{ if (e.key==='Enter'||e.key===' '){ e.preventDefault(); e.stopPropagation(); enterView(V); } });
   V.el.addEventListener('click', e=>{ if (cardClick(e)) return; if (e.target.closest('.item-link')) projFrom = true; });
 });
+
+/* ---------- docking (computers): the drawing on top, then on the left as the page goes down ----------
+   The drawing is sticky at the place it opens, so it never scrolls away; with p going from 0 to 1 over the first screen
+   of scrolling it moves (translate and scale, no reflow) until its shape sits centred in the left half, and the column
+   below slides from the centre to the right half. Below 1000px nothing moves: drawing on top, column below. */
+const DOCK_MQ = matchMedia('(min-width:1000px)');
+let dockLast = null, dockRaf = 0;
+function dockCtx(){
+  const v = openView();
+  if (v){ const V = VIEWS[v]; if (!V.el.classList.contains('show') || zoomBusy) return null;
+    return v==='stf' ? {sc:V.el, hero:stfSvg, core:stfFrame, after:[document.getElementById('stf-panel')]}
+                     : {sc:V.el, hero:presSvg, core:presFrame, after:[document.getElementById('esp'), presPanel]}; }
+  if (openKey && !panel.hidden) return {sc:document.scrollingElement, hero:planSvg, core:HOUSES[openKey].g.querySelector('.shell'), after:[panel]};
+  return null;
+}
+function dockClear(c){ if (!c) return; c.hero.classList.remove('dock-hero'); c.hero.style.top = ''; c.hero.style.transform = ''; c.hero.style.transformOrigin = ''; c.hero.style.transition = '';
+  c.after.forEach(e=>{ if (e){ e.style.transform = ''; e.style.transition = ''; } }); }
+function dockUpdate(){
+  dockRaf = 0;
+  const c = dockCtx();
+  if (dockLast && (!c || c.hero!==dockLast.hero)) { dockClear(dockLast); dockLast = null; }
+  if (!c || !c.core) return;
+  if (!DOCK_MQ.matches){ dockClear(c); dockLast = null; return; }
+  const {sc, hero, core, after} = c, win = sc===document.scrollingElement;
+  // measured untransformed: the sticky place is the same at any scroll. No transform transitions while docking: each
+  // frame sets the place directly (the panel's own entrance transition would otherwise restart on every frame)
+  hero.style.transition = 'none'; after.forEach(e=> e && (e.style.transition = 'opacity .45s'));
+  hero.style.transform = 'none'; after.forEach(e=> e && (e.style.transform = 'none'));
+  if (!hero.classList.contains('dock-hero')){
+    if (sc.scrollTop > 2) return;                         // set the sticky place only at the top of the page
+    const r = hero.getBoundingClientRect(), base = win ? 0 : sc.getBoundingClientRect().top + parseFloat(getComputedStyle(sc).paddingTop);
+    hero.style.top = Math.round(r.top - base) + 'px'; hero.classList.add('dock-hero');
+  }
+  dockLast = c;
+  const H0 = hero.getBoundingClientRect(), C0 = core.getBoundingClientRect(); if (!C0.width) return;
+  const p = Math.max(0, Math.min(1, sc.scrollTop / Math.max(200, H0.height * .8))), e = p<.5 ? 2*p*p : 1 - Math.pow(-2*p+2, 2)/2;
+  // the column moves a little ahead of the drawing, so the title is out of the way before the drawing gets there
+  const q = Math.min(1, p*1.6), e2 = q<.5 ? 2*q*q : 1 - Math.pow(-2*q+2, 2)/2;
+  const W = document.documentElement.clientWidth, vh = innerHeight, menuH = document.querySelector('.menu').getBoundingClientRect().bottom;
+  const edge = Math.max(16, Math.min(40, W*.03)), g = 36;
+  // the left half below the menu and the back arrow
+  const R = {x: edge + 24, y: menuH + 70, w: W/2 - g - edge - 24, h: vh - menuH - 70 - 32};
+  const k = Math.min(1.25, R.w / C0.width, R.h / C0.height);
+  const cx = C0.left + C0.width/2, cy = C0.top + C0.height/2, tx = R.x + R.w/2, ty = R.y + R.h/2;
+  hero.style.transformOrigin = `${(cx - H0.left).toFixed(1)}px ${(cy - H0.top).toFixed(1)}px`;
+  hero.style.transform = e ? `translate(${(e*(tx-cx)).toFixed(1)}px, ${(e*(ty-cy)).toFixed(1)}px) scale(${(1 + e*(k-1)).toFixed(4)})` : '';
+  after.forEach(el=>{ if (!el) return; const r = el.getBoundingClientRect();
+    el.style.transform = e2 ? `translateX(${(e2*(W/2 + g - r.left)).toFixed(1)}px)` : ''; });
+}
+const dockSoon = ()=>{ if (!dockRaf) dockRaf = requestAnimationFrame(dockUpdate); };
+addEventListener('scroll', dockSoon, {passive:true});
+[stfv, presv].forEach(el=> el.addEventListener('scroll', dockSoon, {passive:true}));
+addEventListener('resize', ()=>{ if (dockLast){ dockClear(dockLast); dockLast = null; } dockSoon(); });
+setInterval(()=>{ if (dockCtx() || dockLast) dockSoon(); }, 400);   // after opening, closing and redraws
 
 /* previews: the real seats of each section, drawn small and grey inside its shape.
    All seats of one colour become a single path, so the opening view stays light. */
@@ -6245,12 +6291,13 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ const o=document
 // A static site has no server to see the visitor's IP, so "first visit" is remembered in this browser (localStorage).
 const TOUR_KEY = 'cp-tour-v1';
 function tourSteps(){
-  const wideV = innerWidth > 760, circles = innerWidth > 700;
+  const wideV = innerWidth > 760;
   const dot = c=> `<i style="background:${c}"></i>`;
   const pw = `<ul class="tt-pw"><li>${dot('#009C3B')}<span><b>Executivo</b>: a Presidência e os ministérios</span></li><li>${dot('#F2C200')}<span><b>Legislativo</b>: escolha entre o Senado e a Câmara</span></li><li>${dot('#1F4FB5')}<span><b>Judiciário</b>: o Supremo e os tribunais superiores</span></li></ul>`;
   return [
     {t:'Bem-vindo à Coisa Pública', p:'O que acontece nos Três Poderes, em linguagem simples e sempre com a fonte oficial. Um tour rápido de como usar o site.'},
-    circles ? {el:'.lx', t:'Os três círculos são os Três Poderes', p:'Toque num círculo para abrir o poder:' + pw}
+    // the circles left the home page (Nov 2026): on computers the three powers are the words in the menu
+    wideV ? {el:'.menu nav', t:'Os Três Poderes', p:'Clique num poder para abrir a página dele, ou passe o mouse para ver o que há dentro:' + pw}
             : {el:'.mpw', t:'As três bolinhas são os Três Poderes', p:'Toque numa bolinha para abrir o poder. A do poder aberto fica maior.' + pw},
     {el:'#today', maxH:.48, t:'A linha do tempo', p:'Cada cartão é uma proposta ou um processo. A etiqueta diz em que poder está e em que fase. Toque no cartão para ver o resumo, a votação e as fontes. No fim, “Ver mais” mostra o resto.', pad:6},
     wideV ? {el:'#srch-btn', t:'Pesquisa', p:'Procure uma pessoa, um projeto, um partido ou um órgão.', round:true} : null,
