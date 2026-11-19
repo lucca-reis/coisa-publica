@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-19T20:52Z",
+ "atualizado": "2026-11-19T21:08Z",
  "itens": [
   {
    "casa": "senado",
@@ -10,6 +10,16 @@
    "descricao": "Reunião outros eventos",
    "desde": "10h",
    "video": "https://www.youtube.com/watch?v=jN8vvt-nXAQ"
+  },
+  {
+   "casa": "stf",
+   "plenario": true,
+   "sigla": "",
+   "nome": "STF",
+   "tipo": "Sessão plenária",
+   "descricao": "Nova sessão do Plenário; pauta do dia não divulgada",
+   "desde": "14h",
+   "video": "https://www.youtube.com/watch?v=bZlnd9CC3aQ"
   }
  ]
 }
