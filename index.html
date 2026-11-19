@@ -3129,7 +3129,7 @@ const ELECTED = {}; for (const k of ['camara','senado']) PEOPLE_RAW[k].forEach(x
 const SEATS_SRC = OCC ? {camara: OCC.camara.map(x=>({...x, cur:true})), senado: OCC.senado.map(x=>({...x, cur:true}))} : PEOPLE_RAW;
 for (const key of ['camara','senado']){
   const H = HOUSES[key];
-  H.people = SEATS_SRC[key].map(x=> PARTY[x.p] ? x : {...x, p:'NC', p0:x.p}).slice().sort((a,b)=> ORDER.indexOf(a.p)-ORDER.indexOf(b.p) || a.uf.localeCompare(b.uf) || (b.v||0)-(a.v||0) || a.n.localeCompare(b.n,'pt'));
+  H.people = SEATS_SRC[key].map(x=> PARTY[x.p] ? x : {...x, p:'NC', p0:x.p}).slice().sort((a,b)=> ORDER.indexOf(a.p)-ORDER.indexOf(b.p) || (a.uf||'').localeCompare(b.uf||'') || (b.v||0)-(a.v||0) || (a.n||'').localeCompare(b.n||'','pt'));
   H.data = {}; H.people.forEach(x=>{ H.data[x.p]=(H.data[x.p]||0)+1; });
   // same number of seats on each side of the aisle (odd totals leave one extra below);
   // the serpentine path carries a party across the aisle at the same end, so it stays in one block

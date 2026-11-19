@@ -72,8 +72,17 @@ for p in lista(dig(js, 'ListaParlamentarEmExercicio', 'Parlamentares', 'Parlamen
     m = p.get('Mandato') or {}
     ini = dig(m, 'PrimeiraLegislaturaDoMandato', 'DataInicio') or ''
     fim = dig(m, 'SegundaLegislaturaDoMandato', 'DataFim') or dig(m, 'PrimeiraLegislaturaDoMandato', 'DataFim') or ''
-    senado.append({'n': (i.get('NomeParlamentar') or '').strip(), 'p': partido(i.get('SiglaPartidoParlamentar')), 'uf': i.get('UfParlamentar'),
+    senado.append({'n': (i.get('NomeParlamentar') or '').strip(), 'p': partido(i.get('SiglaPartidoParlamentar')), 'uf': i.get('UfParlamentar') or m.get('UfParlamentar'),
                    'id': i.get('CodigoParlamentar'), 'ini': ini[:10], 'fim': fim[:10], 'part': m.get('DescricaoParticipacao') or ''})
+
+# o Senado às vezes publica alguém sem o estado (em 19/11/2026, uma suplente que voltava ao cargo); o site precisa dele
+# para ordenar as cadeiras, então vem do arquivo anterior (mesmo código) ou, sem ele, fica vazio
+try:
+    _antes = {str(x.get('id')): x.get('uf') for x in json.load(open('data/ocupantes.json', encoding='utf-8')).get('senado', [])}
+except Exception:
+    _antes = {}
+for x in senado:
+    if not x.get('uf'): x['uf'] = _antes.get(str(x.get('id'))) or ''
 
 mesa_sen = None
 js = get(SEN + 'composicao/mesaSF.json')
