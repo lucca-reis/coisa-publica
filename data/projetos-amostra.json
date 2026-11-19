@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2654962",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2654962",
-   "idDeputadoAutor": "188097",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/188097",
+   "idProposicao": "2655473",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2655473",
+   "idDeputadoAutor": "139285",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/139285",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Merlong Solano",
-   "siglaPartidoAutor": "PT",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
-   "siglaUFAutor": "PI",
+   "nomeAutor": "Lídice da Mata",
+   "siglaPartidoAutor": "PSB",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36832",
+   "siglaUFAutor": "BA",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
