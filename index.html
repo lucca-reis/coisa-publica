@@ -91,18 +91,19 @@ body{box-sizing:border-box;display:grid;place-items:center;
 .tl{overflow:visible}
 #plan{transition:max-height .75s cubic-bezier(.3,.7,.3,1)}
 .stage.is-open #plan{max-height:min(44vh, 420px)}
-/* computers: the drawing opens large on top; scrolling down docks it on the left half, centred in the height, while the
-   column below slides into the right half (dockUpdate). --colw keeps the column narrow enough for that half */
-@media (min-width:1000px){
-  :root{--colw:min(720px, calc(50vw - 72px))}
-  .stage.is-open #plan{max-height:calc(100vh - var(--menu-h) - 150px);pointer-events:none}
-  .stage.is-open .house.is-active{pointer-events:auto}
-  .stf-grid{max-width:none}
-  #stf-svg,#pres-svg{max-height:calc(100vh - var(--menu-h) - 190px);pointer-events:none}
-  #stf-svg .jz,#pres-svg .jz{pointer-events:auto}
-  .stf-grid > .stf-panel,.stf-grid > .esp{width:100%;max-width:var(--colw);justify-self:center}
-}
 .dock-hero{position:sticky;z-index:1;transform-origin:0 0}
+#leg-panel{position:relative;z-index:2}
+.stage:not(.is-open) #plan{pointer-events:none}
+.stage:not(.is-open) .house{pointer-events:auto}
+.esp-d{border-radius:14px;background:color-mix(in srgb, var(--ink) 4%, var(--bg))}
+.esp-d > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 16px;font-size:14px;font-weight:600}
+.esp-d > summary::-webkit-details-marker{display:none}
+.esp-d > summary::after{content:"";margin-left:auto;width:8px;height:8px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.esp-d[open] > summary::after{transform:rotate(-135deg)}
+.esp-d > summary span{font-weight:400;color:var(--muted)}
+.esp-d > summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:14px}
+.esp-d .esp{margin:0;padding:0 12px 14px;opacity:1;transform:none}
+.esp-d .esp-h{display:none}
 /* the column passes over the drawing while it moves aside */
 #panel,.stf-grid > .stf-panel,.stf-grid > .esp{position:relative;z-index:2}
 
@@ -1654,6 +1655,17 @@ h1[tabindex="-1"]:focus{outline:none}
 .pj-pw .pw-v .xm-sig .sg{width:110px}
 @media (max-width:700px){ .pj-pw .c-pw{grid-template-columns:minmax(0,1fr)} .pj-pw .pw-c{padding:14px 0;border-left:0;border-top:1px solid var(--rule)} .pj-pw .pw-c:first-child{border-top:0;padding-top:0} }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+/* computers: the drawing opens large on top; scrolling down docks it on the left half, centred in the height, while the
+   column below slides into the right half (dockUpdate). --colw keeps the column narrow enough for that half */
+@media (min-width:1000px){
+  :root{--colw:min(720px, calc(50vw - 72px))}
+  #plan{max-height:calc(100vh - var(--menu-h) - 150px)} .stage.is-open #plan{max-height:calc(100vh - var(--menu-h) - 150px);pointer-events:none}
+  .stage.is-open .house.is-active{pointer-events:auto}
+  .stf-grid{max-width:none}
+  #stf-svg,#pres-svg{max-height:calc(100vh - var(--menu-h) - 190px);pointer-events:none}
+  #stf-svg .jz,#pres-svg .jz{pointer-events:auto}
+  .stf-grid > .stf-panel,.stf-grid > .esp{width:100%;max-width:var(--colw);justify-self:center}
+}
 </style>
 </head>
 <body>
@@ -1728,6 +1740,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <g class="house" id="g-camara" data-house="camara" tabindex="0" role="button" aria-label="Abrir Câmara dos Deputados"></g>
   </svg>
   <section class="panel" id="panel" hidden></section>
+  <section class="panel show" id="leg-panel" hidden></section>
 </main>
 <section class="ov party" id="party" hidden aria-live="polite"></section>
 <section class="ov person" id="person" hidden aria-live="polite"></section>
@@ -1754,11 +1767,11 @@ const ORDER = ['PSOL','Rede','PCdoB','PT','PV','PSB','PDT','Avante','Solidarieda
 
 const HOUSES = {
   senado:{
-    side:1, home:{x:365,y:319,s:143}, open:{x:356,y:320,s:400},
+    side:1, home:{x:365,y:319,s:143,r:-90,f:-1}, open:{x:356,y:320,s:400},
     arcR:.74, arcA:42, presU:-.44,
   },
   camara:{
-    side:-1, home:{x:997,y:319,s:189}, open:{x:1020,y:320,s:340},
+    side:-1, home:{x:997,y:319,s:189,r:-90,f:1}, open:{x:1020,y:320,s:340},
     arcR:.69, arcA:34, presU:-.57,
   }
 };
@@ -3194,6 +3207,7 @@ function open(key, left){
   const toLeft = false;   // the panel sits below the drawing at every width
   stage.classList.add('is-open','open-'+key);
   stage.classList.toggle('house-left', toLeft);
+  legSync(); legPanel.hidden = true; legPanel.innerHTML = ''; scrollTo(0, 0);
   renderPanel(key); panel.hidden = false;
   requestAnimationFrame(()=>{
     panel.classList.add('show');
@@ -3216,6 +3230,20 @@ function open(key, left){
     setTimeout(()=>H.seats.forEach(s=>s.style.transitionDelay=''), reduce?0:1200);
   }, reduce?0:720);   // after the zoom settles, so the two animations don't compete
 }
+
+// the Legislativo page (both houses, before one is opened): the timeline of everything that went through the Câmara or the Senado
+const legPanel = document.getElementById('leg-panel');
+const LEG_ONLY = c=> c.P.house==='camara' || c.P.house==='senado' || c.ev.some(e=> e.key==='camara' || e.key==='senado');
+function legSync(){
+  const on = landing.hidden && !openKey && !openView();
+  if (on && legPanel.hidden){
+    legPanel.innerHTML = `<div class="panel-head"><h2>Congresso Nacional</h2></div>
+      <p class="stf-sub">Câmara dos Deputados e Senado Federal. Escolha uma Casa no desenho para ver as cadeiras e a pauta dela.</p>
+      <ol class="tl feed" aria-label="Propostas na Câmara e no Senado, da mais recente à mais antiga">${feedHTML(null, LEG_ONLY)}</ol>`;
+    legPanel.hidden = false;
+  } else if (!on && !legPanel.hidden){ legPanel.hidden = true; legPanel.innerHTML = ''; }
+}
+setInterval(legSync, 300);
 
 function close(){
   if (!openKey) return;
@@ -4141,7 +4169,10 @@ function renderPresPanel(){
     <p class="stf-sub">Lula (PT), reeleito em 25/10 com 51,7% dos votos válidos · posse em 5 jan 2027 · ${EXEC_MIN.length} ministérios</p>
     ${liveBox('exec')}
     <ul class="pres-legend" aria-label="Ministérios por partido">${legend}</ul>
+    <details class="esp-d"><summary>Esplanada dos Ministérios <span>${EXEC_MIN.length} ministérios</span></summary></details>
     <ol class="tl feed" aria-label="Propostas que passaram pela Presidência, da mais recente à mais antiga">${feedHTML('exec')}</ol>`;
+  // the list of ministries (built once at start) folds inside the panel, so the timeline comes right after the title
+  presPanel.querySelector('.esp-d').appendChild(document.getElementById('esp'));
 }
 
 /* ---------- zoom views: a shape on the opening view grows into its section ---------- */
@@ -4212,8 +4243,9 @@ function dockCtx(){
   const v = openView();
   if (v){ const V = VIEWS[v]; if (!V.el.classList.contains('show') || zoomBusy) return null;
     return v==='stf' ? {sc:V.el, hero:stfSvg, core:stfFrame, after:[document.getElementById('stf-panel')]}
-                     : {sc:V.el, hero:presSvg, core:presFrame, after:[document.getElementById('esp'), presPanel]}; }
+                     : {sc:V.el, hero:presSvg, core:presFrame, after:[presPanel]}; }
   if (openKey && !panel.hidden) return {sc:document.scrollingElement, hero:planSvg, core:HOUSES[openKey].g.querySelector('.shell'), after:[panel]};
+  if (!openKey && !legPanel.hidden && !zoomBusy) return {sc:document.scrollingElement, hero:planSvg, core:frameEl, after:[legPanel]};
   return null;
 }
 function dockClear(c){ if (!c) return; c.hero.classList.remove('dock-hero'); c.hero.style.top = ''; c.hero.style.transform = ''; c.hero.style.transformOrigin = ''; c.hero.style.transition = '';
