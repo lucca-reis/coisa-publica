@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2655473",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2655473",
-   "idDeputadoAutor": "139285",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/139285",
+   "idProposicao": "2655709",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2655709",
+   "idDeputadoAutor": "160598",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/160598",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Lídice da Mata",
-   "siglaPartidoAutor": "PSB",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36832",
-   "siglaUFAutor": "BA",
+   "nomeAutor": "Flávia Morais",
+   "siglaPartidoAutor": "MDB",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
+   "siglaUFAutor": "GO",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
