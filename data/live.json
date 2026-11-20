@@ -1,6 +1,97 @@
 {
- "atualizado": "2026-11-20T00:02-03:00",
- "camara": null,
+ "atualizado": "2026-11-20T08:24-03:00",
+ "camara": [
+  {
+   "id": 83090,
+   "inicio": "2026-11-25T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 70 anos do legado educacional do senhor Amador Aguiar\r\n Homenagem aos aos 70 anos do legado educacional do brasileiro Amador Aguiar",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83111,
+   "inicio": "2026-12-01T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias\r\n Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83148,
+   "inicio": "2026-11-24T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável\r\n Homenagem ao Dia do Policial Federal",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83236,
+   "inicio": "2026-11-24T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83239,
+   "inicio": "2026-12-01T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Diploma Mulher-Cidadã Carlota Pereira de Queirós",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83240,
+   "inicio": "2026-12-02T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Sessão Solene para outorga da Medalha do Mérito Legislativo",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83389,
+   "inicio": "2026-11-26T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83419,
+   "inicio": "2026-11-23T18:00-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83434,
+   "inicio": "2026-11-25T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
+   "video": null,
+   "aoVivo": false
+  }
+ ],
  "senado": [
   {
    "id": "594289",
@@ -93,7 +184,5 @@
    "aoVivo": false
   }
  ],
- "erros": [
-  "camara: <urlopen error timed out>"
- ]
+ "erros": []
 }
