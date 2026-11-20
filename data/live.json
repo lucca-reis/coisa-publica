@@ -1,128 +1,7 @@
 {
- "atualizado": "2026-11-19T18:36-03:00",
- "camara": [
-  {
-   "id": 83088,
-   "inicio": "2026-11-18T10:58-03:00",
-   "fim": "2026-11-18T11:48-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano\r\n Homenagem aos 80 anos de Relações Diplomáticas entre o Brasil e o Líbano",
-   "video": "https://www.youtube.com/watch?v=VNnnyn6UKmA",
-   "aoVivo": false
-  },
-  {
-   "id": 83090,
-   "inicio": "2026-11-25T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 70 anos do legado educacional do senhor Amador Aguiar\r\n Homenagem aos aos 70 anos do legado educacional do brasileiro Amador Aguiar",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83111,
-   "inicio": "2026-12-01T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias\r\n Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83148,
-   "inicio": "2026-11-24T11:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável\r\n Homenagem ao Dia do Policial Federal",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83236,
-   "inicio": "2026-11-24T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83239,
-   "inicio": "2026-12-01T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Diploma Mulher-Cidadã Carlota Pereira de Queirós",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83240,
-   "inicio": "2026-12-02T10:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Sessão Solene para outorga da Medalha do Mérito Legislativo",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83382,
-   "inicio": "2026-11-18T14:22-03:00",
-   "fim": "2026-11-18T17:02-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": "https://www.youtube.com/watch?v=IoHM-JigCPA",
-   "aoVivo": false
-  },
-  {
-   "id": 83389,
-   "inicio": "2026-11-26T14:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83419,
-   "inicio": "2026-11-23T18:00-03:00",
-   "fim": null,
-   "situacao": "Convocada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83434,
-   "inicio": "2026-11-25T09:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
-   "video": null,
-   "aoVivo": false
-  }
- ],
+ "atualizado": "2026-11-20T00:02-03:00",
+ "camara": null,
  "senado": [
-  {
-   "id": "577254",
-   "inicio": "2026-11-19T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO SOLENE ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "594289",
    "inicio": "2026-11-23T10:00-03:00",
@@ -192,7 +71,29 @@
    "descricao": "",
    "video": null,
    "aoVivo": false
+  },
+  {
+   "id": "594183",
+   "inicio": "2026-11-27T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO NÃO DELIBERATIVA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "593612",
+   "inicio": "2026-11-27T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
   }
  ],
- "erros": []
+ "erros": [
+  "camara: <urlopen error timed out>"
+ ]
 }
