@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-20T07:23Z",
- "itens": []
+ "atualizado": "2026-11-20T19:14Z",
+ "itens": [
+  {
+   "casa": "stf",
+   "plenario": true,
+   "sigla": "",
+   "nome": "STF",
+   "tipo": "Sessão virtual da primeira turma",
+   "descricao": "Primeira Turma julga recurso de Flávio Bolsonaro contra o cancelamento dos passaportes",
+   "desde": "14h",
+   "video": null
+  }
+ ]
 }
