@@ -1,0 +1,47 @@
+{
+ "id": "2026-11-22-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-22",
+ "hora": "13:00",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Planos da semana",
+  "titulo": "A semana de 23 a 27/11",
+  "itens": [
+   {
+    "quando": "Câmara",
+    "dia": "Seg 23/11",
+    "tags": [{"t": "Câmara · na pauta", "poder": "leg"}, {"cat": "plp", "t": "PLP 299/2026"}],
+    "titulo": "Ajuste fiscal no Plenário",
+    "texto": "Sessão extraordinária às 18h. Precisa de 257 votos; sem mudanças, vai à sanção."
+   },
+   {
+    "quando": "Senado",
+    "dia": "Seg 23/11",
+    "tags": [{"t": "Senado · agendado", "poder": "leg"}],
+    "titulo": "Sessão pelos 30 anos do Coral",
+    "texto": "Às 10h; às 14h, só discursos. Votações da semana ainda sem pauta."
+   },
+   {
+    "quando": "STF",
+    "dia": "Qua 25 e Qui 26/11",
+    "tags": [{"t": "STF · em pauta", "poder": "jud"}, {"cat": "acao", "t": "ADI 7717"}],
+    "titulo": "Porte de arma de guardas municipais",
+    "texto": "Também na pauta: consulta a indígenas e Lei da Liberdade Econômica."
+   }
+  ],
+  "fonte": "Câmara, Senado e STF"
+ },
+ "alt": "Imagem da Coisa Pública, Planos da semana: a semana de 23 a 27 de novembro, em três itens. Câmara, segunda 23/11: ajuste fiscal no Plenário (PLP 299/2026), em sessão extraordinária às 18h; precisa de 257 votos e, se não houver mudanças, vai à sanção. Senado, segunda 23/11: sessão especial pelos 30 anos do Coral do Senado às 10h e, às 14h, sessão só de discursos; as votações da semana ainda não têm pauta. STF, quarta 25 e quinta 26/11: porte de arma para guardas municipais (ADI 7717); também na pauta, a consulta a povos indígenas e a Lei da Liberdade Econômica. Fonte: Câmara, Senado e STF.",
+ "textos": {
+  "bluesky": "A semana nos Três Poderes (23 a 27/11):\n\nSeg · Câmara vota o ajuste fiscal às 18h.\nSeg · Senado faz sessão pelos 30 anos do Coral; votações ainda sem pauta.\nQua e qui · STF julga porte de arma de guardas municipais.\n\ncoisapublica.io",
+  "instagram": "Planos da semana 🗓️\n\nO que está marcado nos Três Poderes de segunda (23/11) a sexta (27/11):\n\nSegunda (23/11)\n• Câmara: sessão extraordinária às 18h para votar o projeto de ajuste fiscal do governo (PLP 299/2026), já aprovado pelo Senado. Primeiro vem o pedido de urgência, que leva o projeto direto ao Plenário; depois, o texto. O relator, deputado Mauro Benevides Filho (União-CE), manteve o texto do Senado. Por ser lei complementar, precisa de pelo menos 257 dos 513 votos. Se for aprovado sem mudanças, vai à sanção; se mudar, volta ao Senado.\n• Senado: às 10h, sessão especial pelos 30 anos do Coral do Senado; às 14h, sessão só de discursos, sem votações.\n• STF: termina às 23h59 a sessão virtual do Plenário aberta em 13/11, estendida por causa do feriado de 20/11.\n\nTerça (24/11) a sexta (27/11)\n• Câmara e Senado: as pautas de votação dos outros dias ainda não foram divulgadas.\n\nQuarta (25/11) e quinta (26/11)\n• STF: sessões do Plenário com o porte de arma para guardas municipais (ADI 7717), a consulta prévia a povos indígenas antes de obras de infraestrutura (ADI 5905), trechos da Lei da Liberdade Econômica sobre atividades com impacto socioambiental (ADI 6528), regras estaduais para emendas parlamentares obrigatórias e o Plano Plurianual da Paraíba (ADI 7643). O dia de cada processo não foi informado, e a pauta pode mudar.\n\nPresidência: até a tarde de sábado, não havia compromissos do presidente divulgados para a semana nas fontes consultadas.\n\nFontes: Câmara dos Deputados, Senado Federal, STF Notícias, O Povo (Agência Estado) e O Tempo.\n\nAgenda completa e atualizada automaticamente em coisapublica.io, link na bio.\n\n#CoisaPública #Câmara #Senado #STF #AjusteFiscal #Congresso"
+ },
+ "fontes": [
+  {"l": "O Povo (Agência Estado): Câmara divulga pauta com o ajuste fiscal para segunda, 23/11 (20/11)", "u": "https://mais.opovo.com.br/jornal/economia/2026/11/20/camara-dos-deputados-divulga-pauta-com-votacao-do-ajuste-fiscal-para-a-segunda-feira-dia-23.html"},
+  {"l": "O Tempo: relator mantém o texto do Senado; votação marcada para segunda (19/11)", "u": "https://www.otempo.com.br/politica/2026/11/19/relator-na-camara-mantem-ajuste-fiscal-do-senado-sem-mudancas-votacao-esta-marcada-para-segunda"},
+  {"l": "Senado Federal: sessões plenárias agendadas", "u": "https://www25.senado.leg.br/web/atividade/sessao-plenaria"},
+  {"l": "STF Notícias: destaques da pauta do Plenário de novembro (6/11)", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-da-pauta-do-plenario-do-stf-para-novembro/"},
+  {"l": "STF: notícias do Plenário", "u": "https://noticias.stf.jus.br/"}
+ ]
+}
