@@ -1,0 +1,50 @@
+{
+ "id": "2026-11-23-tarde",
+ "periodo": "tarde",
+ "data": "2026-11-23",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Você sabia?",
+  "titulo": "Lei complementar pede 257 votos",
+  "visual": {
+   "tipo": "plenario",
+   "casa": "camara",
+   "destaque": 257,
+   "numeros": [
+    {
+     "n": "257",
+     "l": "dos 513 deputados"
+    },
+    {
+     "n": "41",
+     "l": "dos 81 senadores"
+    }
+   ]
+  },
+  "texto": "Uma lei complementar só passa com a maioria absoluta: mais da metade de todas as cadeiras, não só dos presentes.",
+  "fonte": "Constituição Federal, arts. 47 e 69"
+ },
+ "alt": "Imagem da Coisa Pública, Você sabia?: lei complementar pede 257 votos. Desenho do plenário da Câmara em semicírculo, com 257 das 513 cadeiras destacadas. Números: 257 dos 513 deputados; 41 dos 81 senadores. Texto: uma lei complementar só passa com a maioria absoluta: mais da metade de todas as cadeiras, não só dos presentes. Fonte: Constituição Federal, artigos 47 e 69.",
+ "textos": {
+  "bluesky": "Você sabia? Lei complementar precisa de maioria absoluta: 257 dos 513 deputados e 41 dos 81 senadores, contando todas as cadeiras. Lei ordinária basta a maioria dos presentes. O ajuste fiscal (PLP 299/2026) é lei complementar.\n\ncoisapublica.io",
+  "instagram": "Você sabia? 📜\n\nNem toda lei precisa do mesmo número de votos para ser aprovada.\n\nLei ordinária (PL)\nÉ a maioria das leis. Basta a maioria simples: mais votos a favor do que contra entre os presentes, desde que a maioria absoluta da Casa esteja na sessão (Constituição, art. 47).\n\nLei complementar (PLP)\nPrecisa de maioria absoluta: mais da metade de todas as cadeiras, não importa quantos estejam presentes (art. 69). São 257 dos 513 deputados e 41 dos 81 senadores.\n\nQuando se usa lei complementar? Só nos temas em que a própria Constituição pede esse tipo de lei. Um deles são as finanças públicas (art. 163): por isso a Lei de Responsabilidade Fiscal é a Lei Complementar 101/2000.\n\nComo uma lei comum, a lei complementar vai à sanção do presidente, que pode vetar partes. Já a emenda à Constituição (PEC) pede ainda mais: três quintos, em dois turnos em cada Casa.\n\nExemplo desta semana: o projeto de ajuste fiscal do governo (PLP 299/2026) é um projeto de lei complementar. O Senado aprovou o texto-base por 45 votos, acima do mínimo de 41. Na Câmara, a sessão marcada para hoje à noite começa a discussão; para passar, ele precisa de pelo menos 257 votos.\n\nMais sobre os Três Poderes no site, link na bio.\n\n#CoisaPública #VocêSabia #Constituição #Congresso #LeiComplementar #Política"
+ },
+ "fontes": [
+  {
+   "l": "Constituição Federal, arts. 47, 69 e 163 (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  },
+  {
+   "l": "Lei Complementar 101/2000, Lei de Responsabilidade Fiscal (Planalto)",
+   "u": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm"
+  },
+  {
+   "l": "Agência Senado, 12/11: texto principal do ajuste fiscal é aprovado pelo Senado (45 a 31)",
+   "u": "https://www12.senado.leg.br/noticias/materias/2026/11/12/texto-principal-do-ajuste-fiscal-e-aprovado-pelo-senado"
+  },
+  {
+   "l": "Agência Câmara, 19/11: Câmara deve votar ajuste fiscal",
+   "u": "https://www.camara.leg.br/noticias/1321186-camara-deve-votar-ajuste-fiscal-proposta-do-governo-pretende-economizar-r-70-bilhoes"
+  }
+ ]
+}

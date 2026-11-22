@@ -1,0 +1,47 @@
+{
+ "id": "2026-11-23-manha",
+ "periodo": "manha",
+ "data": "2026-11-23",
+ "imagem": {
+  "poder": "leg",
+  "eyebrow": "Ordem do dia",
+  "titulo": "O que está marcado hoje",
+  "itens": [
+   {
+    "quando": "Câmara",
+    "dia": "18h",
+    "tags": [{"t": "Câmara · sessão extraordinária", "poder": "leg"}, {"cat": "plp", "t": "PLP 299/2026"}],
+    "titulo": "Ajuste fiscal no Plenário",
+    "texto": "Começa a discussão; a votação depende do fim dos debates. Precisa de 257 votos."
+   },
+   {
+    "quando": "Senado",
+    "dia": "10h e 14h",
+    "tags": [{"t": "Senado · sem votações", "poder": "leg"}],
+    "titulo": "Sessão pelos 30 anos do Coral",
+    "texto": "Às 14h, sessão só de discursos."
+   },
+   {
+    "quando": "STF",
+    "dia": "Até 23h59",
+    "tags": [{"t": "STF · plenário virtual", "poder": "jud"}],
+    "titulo": "Improbidade e Operação Spoofing",
+    "texto": "Termina a sessão virtual aberta em 13/11. Também na pauta: o Gaeco Nacional."
+   }
+  ],
+  "fonte": "Agência Câmara, Senado Federal e STF Notícias"
+ },
+ "alt": "Imagem da Coisa Pública, Ordem do dia: o que está marcado hoje, 23 de novembro, em três itens. Câmara, 18h, sessão extraordinária: ajuste fiscal no Plenário (PLP 299/2026); começa a discussão, e a votação depende do fim dos debates; precisa de 257 votos. Senado, 10h e 14h, sem votações: sessão pelos 30 anos do Coral; às 14h, sessão só de discursos. STF, até 23h59, plenário virtual: improbidade e Operação Spoofing; termina a sessão virtual aberta em 13/11; também na pauta, o Gaeco Nacional. Fonte: Agência Câmara, Senado Federal e STF Notícias.",
+ "textos": {
+  "bluesky": "Hoje (23/11) nos Três Poderes:\n\nCâmara · 18h: sessão para o ajuste fiscal (PLP 299/2026); precisa de 257 votos.\nSenado: sessão pelos 30 anos do Coral, sem votações.\nSTF: termina às 23h59 a sessão virtual com improbidade e Operação Spoofing.\n\ncoisapublica.io",
+  "instagram": "Ordem do dia 🗓️\n\nO que está marcado para hoje, segunda (23/11), nos Três Poderes:\n\nCâmara · 18h · sessão extraordinária\nO Plenário começa a discutir o projeto de ajuste fiscal do governo (PLP 299/2026), já aprovado pelo Senado. Segundo a Agência Câmara, a votação depende do fim da discussão. O relator, deputado Mauro Benevides Filho (União-CE), não propôs mudanças: se o texto for aprovado assim, vai à sanção. Por ser lei complementar, precisa de pelo menos 257 dos 513 votos.\nO projeto quer um superávit de cerca de R$ 18,7 bilhões em 2027 e limita o crescimento das despesas a 2% acima da inflação nos anos em que houver bloqueio de gastos.\nA pauta também traz projetos ligados ao mês da Consciência Negra, que podem ser votados.\n\nSenado · 10h e 14h\nSessão especial pelos 30 anos do Coral do Senado. Às 14h, sessão só de discursos, sem votações.\n\nSTF · plenário virtual · até 23h59\nTermina a sessão virtual aberta em 13/11, estendida por causa do feriado de 20/11. Entre os destaques: se é preciso intenção (dolo) para punir improbidade administrativa (RE 656558), as provas da Operação Spoofing (ADPF 605) e o Gaeco Nacional do Ministério Público Federal (ADI 7784). O resultado sai ao fim da sessão, salvo pedido de vista ou destaque.\n\nPresidência\nA agenda do presidente para hoje ainda não tinha sido divulgada até a noite de domingo.\n\nTudo com fonte no site, link na bio.\n\n#CoisaPública #Câmara #AjusteFiscal #Senado #STF #Política"
+ },
+ "fontes": [
+  {"l": "Agência Câmara, 19/11: Câmara deve votar ajuste fiscal; sessão na segunda (23)", "u": "https://www.camara.leg.br/noticias/1321186-camara-deve-votar-ajuste-fiscal-proposta-do-governo-pretende-economizar-r-70-bilhoes"},
+  {"l": "O Povo (Agência Estado), 20/11: Câmara divulga pauta com o ajuste fiscal para segunda", "u": "https://mais.opovo.com.br/jornal/economia/2026/11/20/camara-dos-deputados-divulga-pauta-com-votacao-do-ajuste-fiscal-para-a-segunda-feira-dia-23.html"},
+  {"l": "WSCOM, 22/11: Câmara vota ajuste fiscal nesta segunda", "u": "https://wscom.com.br/politica/2026/11/22/camara-dos-deputados-vota-ajuste-fiscal-nesta-segunda-feira-veja-detalhes/"},
+  {"l": "Senado Federal: sessões plenárias agendadas", "u": "https://www25.senado.leg.br/web/atividade/sessao-plenaria"},
+  {"l": "STF Notícias, 13/11: destaques do Plenário Virtual (sessão até 23/11)", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-do-plenario-virtual-desta-semana-8/"},
+  {"l": "Planalto: agenda do presidente da República", "u": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/agenda-do-presidente-da-republica-lula/agenda-do-presidente-da-republica"}
+ ]
+}

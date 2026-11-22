@@ -1,0 +1,27 @@
+{
+ "id": "2026-11-23-noite",
+ "periodo": "noite",
+ "data": "2026-11-23",
+ "imagem": {
+  "poder": "jud",
+  "eyebrow": "Em tramitação",
+  "titulo": "ADI 7717 · porte de arma",
+  "tags": [{"t": "STF · na pauta", "poder": "jud"}, {"cat": "acao", "t": "Ação no Supremo · ADI 7717"}],
+  "pergunta": "Guardas municipais devem ter as mesmas regras de porte de arma das polícias?",
+  "rodape": {"rotulo": "Na pauta do STF em", "valor": "25 e 26 de novembro"},
+  "fonte": "STF Notícias, Gazeta do Povo e ConJur"
+ },
+ "alt": "Imagem da Coisa Pública, Em tramitação: ADI 7717, porte de arma. Pergunta em destaque: guardas municipais devem ter as mesmas regras de porte de arma das polícias? Embaixo, depois de um fio, o desenho da mesa do STF com as 11 cadeiras e o texto: na pauta do STF em 25 e 26 de novembro. Fonte: STF Notícias, Gazeta do Povo e ConJur.",
+ "textos": {
+  "bluesky": "Em tramitação: o STF pode julgar nesta quarta ou quinta (25 e 26/11) a ADI 7717, que pede para guardas municipais terem o porte de arma com as mesmas regras de policiais. O relator, Nunes Marques, votou para manter as exigências atuais.\n\ncoisapublica.io",
+  "instagram": "Em tramitação ⚖️\n\nA ADI 7717 é uma ação no Supremo sobre o porte de arma das guardas municipais. Foi apresentada em 2024 por associações e um sindicato de guardas municipais.\n\nO que diz a regra hoje: pelo Estatuto do Desarmamento (Lei 10.826/2003), o guarda municipal precisa, entre outras exigências, comprovar capacidade técnica e aptidão psicológica, apresentar certidões de antecedentes criminais e passar por formação em escola de atividade policial. A guarda também precisa ter mecanismos de fiscalização e controle interno, com supervisão do governo federal.\n\nO que a ação pede: que os guardas sejam dispensados dessas exigências, como já acontece com policiais e integrantes das Forças Armadas. O argumento é que, em 2021, o STF reconheceu as guardas como parte da segurança pública.\n\nOnde está: o relator, ministro Nunes Marques, votou no plenário virtual para negar o pedido e manter as exigências. Em 31/5, o ministro Alexandre de Moraes pediu vista (mais tempo para analisar). O julgamento no plenário presencial estava marcado para 14/10 e foi adiado a pedido do relator.\n\nO que vem agora: a ação está na pauta das sessões do Plenário desta quarta e quinta (25 e 26/11), segundo o STF. O dia exato não foi informado, e a pauta pode mudar. Faltam os votos dos outros ministros.\n\nSegundo o ND Mais, o Brasil tem cerca de 107,4 mil guardas municipais em pelo menos 1.384 cidades.\n\nAcompanhe no site, link na bio.\n\n#CoisaPública #STF #GuardaMunicipal #SegurançaPública #Supremo #Política"
+ },
+ "fontes": [
+  {"l": "STF Notícias, 6/11: destaques da pauta do Plenário de novembro", "u": "https://noticias.stf.jus.br/postsnoticias/confira-os-destaques-da-pauta-do-plenario-do-stf-para-novembro/"},
+  {"l": "Gazeta do Povo, 1/6: Moraes suspende julgamento sobre requisitos para porte de arma de GCMs", "u": "https://www.gazetadopovo.com.br/republica/moraes-suspende-julgamento-sobre-requisitos-para-porte-de-arma-de-gcm-s/"},
+  {"l": "ConJur, 1/6: STF suspende análise dos requisitos do porte de arma para guardas municipais", "u": "https://conjur.com.br/2026-jun-01/stf-suspende-analise-de-requisitos-do-porte-de-arma-para-guardas-municipais-2/"},
+  {"l": "Migalhas: sessão de 14/10", "u": "https://www.migalhas.com.br/quentes/466515/com-nove-processos-na-pauta-stf-julga-dois-e-encerra-sessao-mais-cedo"},
+  {"l": "ND Mais, 12/10: porte de arma para guardas municipais volta à pauta do STF", "u": "https://ndmais.com.br/justica/porte-de-arma-para-guardas-municipais-volta-a-pauta-do-stf/"},
+  {"l": "ADI 7717 no portal do STF", "u": "https://portal.stf.jus.br/processos/listarProcessos.asp?classe=ADI&numeroProcesso=7717"}
+ ]
+}
