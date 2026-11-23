@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T21:46-03:00",
+ "atualizado": "2026-11-23T05:56-03:00",
  "camara": [
   {
    "id": 83090,
@@ -179,6 +179,26 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "585268",
+   "inicio": "2026-11-30T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594185",
+   "inicio": "2026-11-30T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO NÃO DELIBERATIVA ",
    "descricao": "",
    "video": null,
    "aoVivo": false
