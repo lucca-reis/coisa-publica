@@ -202,6 +202,17 @@
      "email": "dep.alexmanente@camara.leg.br"
     },
     {
+     "id": 204571,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/204571",
+     "nome": "Alex Santana",
+     "siglaPartido": "REPUBLICANOS",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37908",
+     "siglaUf": "BA",
+     "idLegislatura": 57,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204571.jpg",
+     "email": "dep.alexsantana@camara.leg.br"
+    },
+    {
      "id": 220542,
      "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/220542",
      "nome": "Alexandre Guimarães",
@@ -1552,15 +1563,4 @@
      "siglaUf": "PR",
      "idLegislatura": 57,
      "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178929.jpg",
-     "email": "dep.diegogarcia@camara.leg.br"
-    },
-    {
-     "id": 73768,
-     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73768",
-     "nome": "Dilceu Sperafico",
-     "siglaPartido": "PP",
-     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37903",
-     "siglaUf": "PR",
-     "idLegislatura": 57,
-     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73768.jpg",
-     "email": "dep.dilceusperafico@cama
+     "email": "dep.diegogarcia
