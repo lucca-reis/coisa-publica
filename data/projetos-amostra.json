@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2655709",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2655709",
-   "idDeputadoAutor": "160598",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/160598",
+   "idProposicao": "2659062",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2659062",
+   "idDeputadoAutor": "178927",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/178927",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Flávia Morais",
-   "siglaPartidoAutor": "MDB",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
-   "siglaUFAutor": "GO",
+   "nomeAutor": "Aliel Machado",
+   "siglaPartidoAutor": "PV",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36851",
+   "siglaUFAutor": "PR",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
