@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T02:56-03:00",
+ "atualizado": "2026-11-24T14:31-03:00",
  "camara": [
   {
    "id": 83090,
@@ -23,19 +23,19 @@
   },
   {
    "id": 83148,
-   "inicio": "2026-11-24T11:00-03:00",
-   "fim": null,
-   "situacao": "Convocada",
+   "inicio": "2026-11-24T11:19-03:00",
+   "fim": "2026-11-24T11:49-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável\r\n Homenagem ao Dia do Policial Federal",
-   "video": null,
+   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável",
+   "video": "https://www.youtube.com/watch?v=P8x_KxV9etk",
    "aoVivo": false
   },
   {
    "id": 83236,
-   "inicio": "2026-11-24T09:00-03:00",
-   "fim": null,
-   "situacao": "Convocada",
+   "inicio": "2026-11-24T09:20-03:00",
+   "fim": "2026-11-24T10:59-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
    "video": null,
@@ -107,7 +107,7 @@
    "id": "574449",
    "inicio": "2026-11-24T10:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
@@ -117,11 +117,11 @@
    "id": "594181",
    "inicio": "2026-11-24T14:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Em andamento",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
-   "aoVivo": false
+   "aoVivo": true
   },
   {
    "id": "596299",
