@@ -1,4 +1,35 @@
 {
- "atualizado": "2026-11-24T10:06Z",
- "itens": []
+ "atualizado": "2026-11-24T21:28Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CPOVOS",
+   "nome": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
+   "tipo": "Comissão da Amazônia e dos Povos Originários e Tradicionais",
+   "descricao": "Audiência pública: Criação da Comissão Nacional Indígena da Verdade e as políticas de memória, verdade, reparação integral, justiça e não repetição para os Povos Indígenas",
+   "desde": "15h57",
+   "video": null
+  },
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "desde": "14h16",
+   "video": "https://www.youtube.com/watch?v=zuhFH1z5Bn8"
+  },
+  {
+   "casa": "senado",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário do Senado",
+   "tipo": "Sessão deliberativa ordinária",
+   "descricao": "",
+   "desde": "14h",
+   "video": null
+  }
+ ]
 }
