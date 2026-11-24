@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T18:14-03:00",
+ "atualizado": "2026-11-24T02:56-03:00",
  "camara": [
   {
    "id": 83090,
@@ -25,7 +25,7 @@
    "id": 83148,
    "inicio": "2026-11-24T11:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável\r\n Homenagem ao Dia do Policial Federal",
    "video": null,
@@ -35,7 +35,7 @@
    "id": 83236,
    "inicio": "2026-11-24T09:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
    "video": null,
@@ -73,12 +73,12 @@
   },
   {
    "id": 83419,
-   "inicio": "2026-11-23T18:00-03:00",
-   "fim": null,
-   "situacao": "Convocada",
+   "inicio": "2026-11-23T18:32-03:00",
+   "fim": "2026-11-24T00:35-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Deliberativa",
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": null,
+   "video": "https://www.youtube.com/watch?v=JnMcX2L3MDk",
    "aoVivo": false
   },
   {
@@ -90,29 +90,19 @@
    "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
    "video": null,
    "aoVivo": false
+  },
+  {
+   "id": 85464,
+   "inicio": "2026-11-24T13:55-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
-  {
-   "id": "594289",
-   "inicio": "2026-11-23T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594180",
-   "inicio": "2026-11-23T14:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO NÃO DELIBERATIVA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "574449",
    "inicio": "2026-11-24T10:00-03:00",
@@ -199,6 +189,26 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO NÃO DELIBERATIVA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "588623",
+   "inicio": "2026-12-01T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594186",
+   "inicio": "2026-12-01T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
    "aoVivo": false
