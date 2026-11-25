@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2659062",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2659062",
-   "idDeputadoAutor": "178927",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/178927",
+   "idProposicao": "2659428",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2659428",
+   "idDeputadoAutor": "220703",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/220703",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Aliel Machado",
-   "siglaPartidoAutor": "PV",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36851",
-   "siglaUFAutor": "PR",
+   "nomeAutor": "Neto Carletto",
+   "siglaPartidoAutor": "AVANTE",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36898",
+   "siglaUFAutor": "BA",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
