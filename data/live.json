@@ -1,11 +1,11 @@
 {
- "atualizado": "2026-11-24T14:31-03:00",
+ "atualizado": "2026-11-24T23:18-03:00",
  "camara": [
   {
    "id": 83090,
    "inicio": "2026-11-25T11:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 70 anos do legado educacional do senhor Amador Aguiar\r\n Homenagem aos aos 70 anos do legado educacional do brasileiro Amador Aguiar",
    "video": null,
@@ -17,7 +17,7 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias\r\n Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias",
+   "descricao": "Homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias\r\n Homenagem aos homenagem aos Agentes Comunitários de Saúde e aos Agentes de Combate às Endemias",
    "video": null,
    "aoVivo": false
   },
@@ -85,7 +85,7 @@
    "id": 83434,
    "inicio": "2026-11-25T09:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
    "video": null,
@@ -93,7 +93,17 @@
   },
   {
    "id": 85464,
-   "inicio": "2026-11-24T13:55-03:00",
+   "inicio": "2026-11-24T14:16-03:00",
+   "fim": "2026-11-24T19:26-03:00",
+   "situacao": "Encerrada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "video": "https://www.youtube.com/watch?v=zuhFH1z5Bn8",
+   "aoVivo": false
+  },
+  {
+   "id": 85492,
+   "inicio": "2026-11-25T13:55-03:00",
    "fim": null,
    "situacao": "Convocada",
    "tipo": "Sessão Deliberativa",
@@ -117,11 +127,11 @@
    "id": "594181",
    "inicio": "2026-11-24T14:00-03:00",
    "fim": null,
-   "situacao": "Em andamento",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": "596299",
