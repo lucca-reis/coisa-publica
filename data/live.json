@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T23:18-03:00",
+ "atualizado": "2026-11-25T09:40-03:00",
  "camara": [
   {
    "id": 83090,
@@ -29,6 +29,16 @@
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável",
    "video": "https://www.youtube.com/watch?v=P8x_KxV9etk",
+   "aoVivo": false
+  },
+  {
+   "id": 83195,
+   "inicio": "2026-12-09T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem ao Dia Internacional Contra a Corrupção\r\n Homenagem ao Dia Internacional Contra a Corrupção",
+   "video": null,
    "aoVivo": false
   },
   {
@@ -72,24 +82,14 @@
    "aoVivo": false
   },
   {
-   "id": 83419,
-   "inicio": "2026-11-23T18:32-03:00",
-   "fim": "2026-11-24T00:35-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": "https://www.youtube.com/watch?v=JnMcX2L3MDk",
-   "aoVivo": false
-  },
-  {
    "id": 83434,
-   "inicio": "2026-11-25T09:00-03:00",
+   "inicio": "2026-11-25T09:29-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=RrSbRzvQuYc",
+   "aoVivo": true
   },
   {
    "id": 85464,
@@ -99,6 +99,16 @@
    "tipo": "Sessão Deliberativa",
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": "https://www.youtube.com/watch?v=zuhFH1z5Bn8",
+   "aoVivo": false
+  },
+  {
+   "id": 85466,
+   "inicio": "2026-12-09T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos homenagem aos 75 anos da regulamentação da profissão de economista no Brasil\r\n Homenagem aos homenagem aos 75 anos da regulamentação da profissão de economista no Brasil",
+   "video": null,
    "aoVivo": false
   },
   {
@@ -113,26 +123,6 @@
   }
  ],
  "senado": [
-  {
-   "id": "574449",
-   "inicio": "2026-11-24T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594181",
-   "inicio": "2026-11-24T14:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "596299",
    "inicio": "2026-11-25T10:00-03:00",
@@ -216,6 +206,26 @@
   {
    "id": "594186",
    "inicio": "2026-12-01T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "600577",
+   "inicio": "2026-12-02T10:30-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594184",
+   "inicio": "2026-12-02T14:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
