@@ -1,4 +1,45 @@
 {
- "atualizado": "2026-11-25T08:39Z",
- "itens": []
+ "atualizado": "2026-11-25T20:36Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CESPO",
+   "nome": "Comissão do Esporte",
+   "tipo": "Comissão do Esporte",
+   "descricao": "Mesa redonda: 4º Fórum Legislativo do Esporte - Mesa-Redonda: Rendimento",
+   "desde": "16h27",
+   "video": "https://www.youtube.com/watch?v=ma_Ly14ivEE"
+  },
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CSPCCO",
+   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
+   "descricao": "Audiência pública: Debater sobre \"Eleições, áreas conflagradas e de domínio territorial pelas facções criminosas.\"",
+   "desde": "14h19",
+   "video": "https://www.youtube.com/watch?v=n94fcOdGeXk"
+  },
+  {
+   "casa": "camara",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário da Câmara",
+   "tipo": "Sessão deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
+   "desde": "14h21",
+   "video": "https://www.youtube.com/watch?v=JFncPQLO0X4"
+  },
+  {
+   "casa": "senado",
+   "plenario": true,
+   "sigla": "Plenário",
+   "nome": "Plenário do Senado",
+   "tipo": "Sessão deliberativa ordinária",
+   "descricao": "",
+   "desde": "14h",
+   "video": null
+  }
+ ]
 }
