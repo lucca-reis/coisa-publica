@@ -991,6 +991,59 @@ body.morphing #frame,body.morphing #stf-frame,body.morphing #pres-frame{visibili
 .c-votes{padding-top:10px;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:4px}
 .c-vlab{font-size:11.5px;color:var(--muted)}
 .c-who{font-size:12.5px;line-height:1.45;color:var(--muted)}
+.c-leg,.c-leg *{text-transform:none;letter-spacing:normal}
+.c-leg .lv-title{text-transform:uppercase;letter-spacing:.06em}
+.c-leg{display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:1px solid var(--rule)}
+.c-leg:empty{display:none}
+.lv-title{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.lv-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.lv-h{display:flex;flex-direction:column;gap:8px;min-width:0;padding:14px;border-radius:14px;background:var(--bg)}
+.lv-h h4{margin:0;font-size:14px;font-weight:600}
+.lv-what{font-size:13px;line-height:1.4}
+.lv-what b{font-weight:600;white-space:nowrap}
+.lv-when,.lv-note,.lv-src,.lv-sec{font-size:12px;line-height:1.45;color:var(--muted)}
+.lv-when a{color:inherit}
+.lv-pick select{width:100%;max-width:100%;font:inherit;font-size:12.5px;padding:6px 8px;border-radius:8px;border:1px solid var(--rule);background:var(--card, var(--bg));color:var(--ink)}
+.lv-fig{display:flex;flex-direction:column;align-items:center;gap:6px}
+.lv-hemi{width:100%;max-width:340px;height:auto;display:block}
+.lv-hemi circle{cursor:default}
+.lv-hemi circle:hover{stroke:var(--ink);stroke-width:.5}
+.lv-s{fill:var(--ink);background:var(--ink)}
+.lv-n{fill:#E24B4A;background:#E24B4A}
+.lv-a{fill:color-mix(in srgb, var(--ink) 45%, var(--bg));background:color-mix(in srgb, var(--ink) 45%, var(--bg))}
+.lv-p,.lv-x{fill:color-mix(in srgb, var(--ink) 14%, var(--bg));background:color-mix(in srgb, var(--ink) 14%, var(--bg))}
+.lv-tot{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px;font-size:12px;color:var(--muted)}
+.lv-tot i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+.lv-tot b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.lv-pt{width:100%;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+.lv-pt thead th{font-weight:500;color:var(--muted);text-align:right;padding:0 0 4px 6px}
+.lv-pt thead th:first-child{text-align:left;padding-left:0}
+.lv-pt tbody th{text-align:left;font-weight:500;white-space:nowrap;padding:3px 6px 3px 0}
+.lv-pt tbody th i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.lv-pt tbody th span{color:var(--muted);font-weight:400;margin-left:2px}
+.lv-pt td{text-align:right;padding:3px 0 3px 6px;width:2.4em}
+.lv-pt td:nth-child(2){width:auto}
+.lv-bar{display:flex;height:7px;border-radius:4px;overflow:hidden;min-width:40px;background:var(--rule)}
+.lv-bar b{display:block}
+.lv-names > summary{cursor:pointer;font-size:12.5px;font-weight:600;padding:4px 0;list-style:none}
+.lv-names > summary::-webkit-details-marker{display:none}
+.lv-names > summary span{font-weight:400;color:var(--muted)}
+.lv-names > summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:6px}
+.lv-nf{display:flex;flex-direction:column;gap:6px;margin:6px 0}
+.lv-nf input{font:inherit;font-size:12.5px;padding:6px 10px;border-radius:8px;border:1px solid var(--rule);background:var(--card, var(--bg));color:var(--ink);min-width:0}
+.lv-chips{display:flex;gap:4px;flex-wrap:wrap}
+.lv-chips button{all:unset;cursor:pointer;font-size:12px;padding:3px 10px;border-radius:999px;background:color-mix(in srgb, var(--ink) 6%, var(--bg))}
+.lv-chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lv-chips button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.lv-names ul{list-style:none;margin:0;padding:0;max-height:300px;overflow:auto;font-size:12.5px}
+.lv-names li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:4px 0;border-bottom:1px solid var(--rule)}
+.lv-names li[hidden]{display:none}
+.lv-nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lv-pu{color:var(--muted);font-size:11.5px}
+.lv-vt{font-size:11px;padding:1px 8px;border-radius:999px;white-space:nowrap;background:color-mix(in srgb, var(--ink) 8%, var(--bg))}
+.lv-vt.lv-s{background:var(--ink);color:var(--bg)}
+.lv-vt.lv-n{background:#E24B4A;color:#fff}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .c-full{align-self:flex-start;margin-top:2px;font-size:13.5px;color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:999px;background:var(--bg)}
 .c-full:hover{text-decoration:underline;text-underline-offset:3px}
 .c-full:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
@@ -1654,6 +1707,22 @@ h1[tabindex="-1"]:focus{outline:none}
 .pw-v .mv{flex-direction:row;align-items:center;gap:6px}
 .pw-v .mv svg{width:38px}
 .pw-v .mv-leg{display:none}
+.pw-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;align-items:flex-start;width:calc(100% + 20px);padding:10px;margin:0 -10px;border-radius:12px;transition:background .15s}
+.pw-btn .mv{flex-direction:row;align-items:center;gap:6px}.pw-btn .mv svg{width:44px}.pw-btn .mv-leg{display:none}
+.pw-btn .xm{align-items:flex-start}.pw-btn .xm-sig .sg{width:70px}.pw-btn .xm-cap{text-align:left}
+.pw-btn + .pw-btn{margin-top:2px}
+.pw-btn:hover{background:color-mix(in srgb, var(--ink) 5%, transparent)}
+.pw-btn[aria-pressed="true"]{background:color-mix(in srgb, var(--ink) 8%, transparent)}
+.pw-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.pw-btn .pw-t b{font-weight:600;color:var(--ink)}
+.pw-sub{position:relative;margin-top:12px;padding:16px;border-radius:16px;border-top:0;background:color-mix(in srgb, var(--ink) 4%, var(--bg))}
+.pw-sub[hidden]{display:none}
+.pw-sub .lv-h{padding:0;background:none}
+.pw-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.4}
+.pw-steps time{color:var(--muted);margin-right:6px;font-variant-numeric:tabular-nums}
+.pw-sub{text-align:left}
+.pw-sub .lv-pick,.pw-sub .lv-pt,.pw-sub .lv-names{max-width:720px}
+.pw-sub .lv-hemi{max-width:420px}
 .pw-v .xm{align-items:flex-start}
 .pw-v .xm-sig .sg{width:70px}
 .pw-v .xm-cap{text-align:left}
@@ -3682,6 +3751,110 @@ function miniVote(P, big){
   const label = `${(v.tally||[]).length>1 ? esc(lab)+' · ' : ''}${body==='stf'?'STF':body==='senado'?'Senado':'Câmara'}`;
   return `<div class="mv${big?' big':''}" role="img" aria-label="${label}: ${all ? esc(v.result)+', sem placar divulgado' : `${yes} ${esc(ly)}, ${no} ${esc(ln)}${rest?', '+rest+' sem voto':''}`}"><svg viewBox="${vb}" aria-hidden="true">${table}${dots}</svg><p class="mv-leg"><b>${label}</b>${legend}</p></div>`;
 }
+/* ---------- how each house voted: Câmara and Senado apart, seat by seat, by party and by name ----------
+   From data/votos.json (roll-call votes of the plenary). Where a house has no roll-call vote (symbolic vote, or a count
+   written by hand), its block shows what the card knows; a house the item has not reached says so. */
+const VKIND = r=>{ const k = String(r||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  return k==='sim' ? 's' : k==='nao' ? 'n' : /absten|obstru/.test(k) ? 'a' : /artigo 17|presidente/.test(k) ? 'p' : 'x'; };
+const VK_TX = {s:'Sim', n:'Não', a:'Abstenção ou obstrução', p:'Preside a sessão', x:'Não votou'};
+const HOUSE_TX = {camara:['Câmara dos Deputados','deputados','deputado'], senado:['Senado Federal','senadores','senador']};
+const partyOf = p=>{ const k = partyKey(p) || 'NC'; return PARTY[k] ? k : (SIGLA_PARTY[String(p||'').toUpperCase()] || k); };
+function legVotes(slug, casa){ const V = VOTOS && VOTOS.projetos && VOTOS.projetos[slug]; return (V||[]).filter(v=> v.casa===casa); }
+// the vote shown first: the last main one (text or round), else the last one
+function legMain(vs){ for (let i=vs.length-1;i>=0;i--) if (vs[i].p!==0) return i; return vs.length-1; }
+function legPeople(v){
+  return Object.values(v.votos).map(([n,p,r,uf])=> ({n, p:partyOf(p), sig:p||'', uf:uf||'', r, k:VKIND(r)}));
+}
+function legSeats(ps, casa){
+  // the voters on a hemicycle, parties from left to right, and inside each party yes, no, then the rest
+  const kOrd = {s:0, n:1, a:2, p:3, x:4}, oi = p=>{ const i = ORDER.indexOf(p); return i<0 ? ORDER.length : i; };
+  const list = ps.slice().sort((a,b)=> oi(a.p)-oi(b.p) || a.p.localeCompare(b.p) || kOrd[a.k]-kOrd[b.k] || a.n.localeCompare(b.n,'pt'));
+  const total = list.length, rows = casa==='senado' ? 4 : 9, R1 = 50, R0 = casa==='senado' ? 24 : 16, pts = [];
+  const radii = Array.from({length:rows}, (_,i)=> R0 + (R1-R0)*i/(rows-1)), sum = radii.reduce((a,b)=>a+b,0);
+  let left = total;
+  radii.forEach((rad,i)=>{ const n = i===rows-1 ? left : Math.round(total*rad/sum); left -= n;
+    for (let j=0;j<n;j++){ const a = Math.PI*(n===1?.5:j/(n-1)); pts.push({a, x:54-Math.cos(a)*rad, y:54-Math.sin(a)*rad}); } });
+  pts.sort((p,q)=> p.a-q.a);
+  const r = casa==='senado' ? 2.4 : 1.3;
+  return `<svg class="lv-hemi" viewBox="0 0 108 57" role="img" aria-label="Plenário: ${total} ${HOUSE_TX[casa][1]}, um ponto por pessoa, partidos da esquerda para a direita">${
+    list.map((x,i)=> pts[i] ? `<circle class="lv-${x.k}" cx="${pts[i].x.toFixed(2)}" cy="${pts[i].y.toFixed(2)}" r="${r}" data-p="${esc(x.p)}"><title>${esc(x.n)} (${esc(x.sig||x.p)}${x.uf?'-'+esc(x.uf):''}): ${esc(x.r)}</title></circle>` : '').join('')}</svg>`;
+}
+function legParties(ps){
+  const g = {};
+  ps.forEach(x=>{ const o = g[x.p] || (g[x.p] = {p:x.p, s:0, n:0, a:0, o:0, t:0}); o.t++; if (x.k==='s') o.s++; else if (x.k==='n') o.n++; else if (x.k==='a') o.a++; else o.o++; });
+  const rows = Object.values(g).sort((a,b)=> b.t-a.t || a.p.localeCompare(b.p));
+  return `<table class="lv-pt"><caption class="sr">Votos por partido</caption><thead><tr><th scope="col">Partido</th><th scope="col"><span class="sr">Divisão</span></th><th scope="col">Sim</th><th scope="col">Não</th><th scope="col">Outros</th></tr></thead><tbody>${
+    rows.map(o=>`<tr><th scope="row"><i style="background:${PARTY[o.p]||'var(--nc)'}"></i>${esc(PARTY_NAME[o.p]||o.p)} <span>${o.t}</span></th>
+      <td><span class="lv-bar" aria-hidden="true"><b class="lv-s" style="flex:${o.s}"></b><b class="lv-n" style="flex:${o.n}"></b><b class="lv-a" style="flex:${o.a}"></b><b class="lv-x" style="flex:${o.o}"></b></span></td>
+      <td>${o.s}</td><td>${o.n}</td><td>${o.a+o.o}</td></tr>`).join('')}</tbody></table>`;
+}
+function legNames(ps, casa){
+  const list = ps.slice().sort((a,b)=> a.n.localeCompare(b.n,'pt'));
+  return `<details class="lv-names"><summary>Ver o voto de cada ${HOUSE_TX[casa][2]} <span>${list.length}</span></summary>
+    <div class="lv-nf"><input type="search" placeholder="Buscar nome, partido ou estado" aria-label="Buscar nome, partido ou estado">
+      <div class="lv-chips" role="group" aria-label="Mostrar">${[['','Todos'],['s','Sim'],['n','Não'],['o','Outros']].map(([k,l],i)=>`<button type="button" data-k="${k}" aria-pressed="${i===0}">${l}</button>`).join('')}</div></div>
+    <ul>${list.map(x=>`<li data-k="${x.k}" data-q="${esc(slugName(x.n+' '+x.sig+' '+(PARTY_NAME[x.p]||'')+' '+x.uf))}"><span class="lv-nm">${esc(x.n)}</span><span class="lv-pu">${esc(x.sig||x.p)}${x.uf?'-'+esc(x.uf):''}</span><span class="lv-vt lv-${x.k}">${esc(x.k==='x' ? x.r : VK_TX[x.k]==='Abstenção ou obstrução' ? x.r : VK_TX[x.k])}</span></li>`).join('')}</ul></details>`;
+}
+function legVoteHTML(v, casa){
+  const when = v.data ? cardDate(v.data.slice(0,10), v.data.length>10 ? v.data.slice(11,16) : '') : '';
+  const head = `<p class="lv-what">${esc(v.descricao || 'Votação no Plenário')}${v.res ? ` <b>${esc(v.res)}</b>` : ''}</p><p class="lv-when">${when} · <a href="${esc(v.fonte)}" target="_blank" rel="noopener">fonte oficial</a></p>`;
+  if (v.secreta){ const [y,n,a] = v.tot||[];
+    return head + `<p class="lv-sec">Votação secreta: o Senado divulga só o total${y!=null ? ` (${y} sim, ${n||0} não${a ? ', '+a+' abstenção' : ''})` : ''}, não o voto de cada senador.</p>`; }
+  const ps = legPeople(v), c = k=> ps.filter(x=> x.k===k).length;
+  return head + `<div class="lv-fig">${legSeats(ps, casa)}<p class="lv-tot"><span><i class="lv-s"></i><b>${c('s')}</b> sim</span><span><i class="lv-n"></i><b>${c('n')}</b> não</span>${c('a') ? `<span><i class="lv-a"></i><b>${c('a')}</b> abstenção ou obstrução</span>` : ''}<span><i class="lv-x"></i><b>${c('x')+c('p')}</b> sem voto</span></p></div>`
+    + legParties(ps) + legNames(ps, casa);
+}
+function legHouseHTML(c, casa, sel){
+  const P = c.P, vs = legVotes(c.slug, casa), [name] = HOUSE_TX[casa];
+  let body;
+  if (vs.length){
+    const i = sel==null ? legMain(vs) : sel;
+    const pick = vs.length>1 ? `<label class="lv-pick"><span class="sr">Escolher a votação</span><select data-casa="${casa}">${vs.map((v,j)=>`<option value="${j}"${j===i?' selected':''}>${esc((v.data||'').slice(0,10).split('-').reverse().join('/'))} · ${esc((v.descricao||'Votação').replace(/\s+/g,' ').slice(0,90))}</option>`).join('')}</select></label>` : '';
+    body = pick + legVoteHTML(vs[i], casa);
+  } else {
+    const steps = (P.steps||[]).filter(([,t])=> new RegExp('^'+(casa==='senado'?'Senado':'Câmara')).test(t));
+    const touched = steps.length || P.house===casa || c.ev.some(e=> e.key===casa);
+    if (P.votes && voteBody(P)===casa) body = `<p class="lv-what">${esc(P.votes.label||'')} <b>${esc(P.votes.result||'')}</b></p>${miniVote(P, true)}${whoVoted(P.votes) ? `<p class="lv-note">${esc(whoVoted(P.votes))}</p>` : ''}<p class="lv-note">Sem voto nominal registrado nos dados abertos: o placar acima é o divulgado.</p>`;
+    else if (touched) body = `<p class="lv-note">${steps.length ? esc(steps[steps.length-1][1].replace(/^(Senado|Câmara):?\s*/,'')) + '. ' : ''}Sem votação nominal no Plenário registrada (votação simbólica ou ainda não votado).</p>`;
+    else body = `<p class="lv-note">Ainda não passou ${casa==='senado'?'pelo Senado':'pela Câmara'}.</p>`;
+  }
+  return `<section class="lv-h" data-casa="${casa}"><h4>${name}</h4>${body}</section>`;
+}
+function fillLeg(box){
+  const c = CARDS.find(x=> x.slug===box.dataset.s); if (!c) return;
+  if (!VOTOS){ box.dataset.wait = '1'; box.innerHTML = '<p class="lv-note">Carregando os votos…</p>'; needVotos(); return; }
+  delete box.dataset.wait;
+  box.innerHTML = `<p class="lv-title">Como votou cada Casa</p><div class="lv-two">${legHouseHTML(c,'camara')}${legHouseHTML(c,'senado')}</div><p class="lv-src">Votos nominais do Plenário, dos dados abertos da Câmara e do Senado. Votações simbólicas não têm voto individual.</p>`;
+}
+document.addEventListener('click', e=>{
+  const b = e.target.closest('.pw-btn'); if (!b) return;
+  const strip = b.closest('.c-pw'), sub = strip && strip.parentNode.querySelector('.pw-sub'), c = sub && CARDS.find(x=> x.slug===sub.dataset.s); if (!c) return;
+  if (b.getAttribute('aria-pressed')==='true') return;
+  strip.querySelectorAll('.pw-btn').forEach(x=> x.setAttribute('aria-pressed', String(x===b)));
+  const draw = ()=>{ sub.innerHTML = pwDetail(c, b.dataset.pw); };
+  draw(); if (!VOTOS && (b.dataset.pw==='camara' || b.dataset.pw==='senado')) needVotos().then(()=>{ if (b.getAttribute('aria-pressed')==='true') draw(); });
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && sub.animate) sub.animate([{opacity:0, transform:'translateY(-4px)'},{opacity:1, transform:'none'}], {duration:220, easing:'ease-out'});
+});
+document.addEventListener('change', e=>{
+  const sel = e.target.closest('.lv-pick select'); if (!sel) return;
+  const box = sel.closest('.c-leg'), c = CARDS.find(x=> x.slug===box.dataset.s); if (!c) return;
+  sel.closest('.lv-h').outerHTML = legHouseHTML(c, sel.dataset.casa, +sel.value);
+});
+document.addEventListener('input', e=>{
+  const inp = e.target.closest('.lv-nf input'); if (inp) legFilter(inp.closest('.lv-names'));
+});
+document.addEventListener('click', e=>{
+  const b = e.target.closest('.lv-chips button'); if (!b) return;
+  e.stopPropagation();
+  b.parentNode.querySelectorAll('button').forEach(x=> x.setAttribute('aria-pressed', String(x===b)));
+  legFilter(b.closest('.lv-names'));
+}, true);
+function legFilter(d){
+  const q = slugName(d.querySelector('input').value), k = (d.querySelector('.lv-chips [aria-pressed="true"]')||{}).dataset.k || '';
+  d.querySelectorAll('li').forEach(li=>{ const kk = li.dataset.k, okK = !k || (k==='o' ? !/^[sn]$/.test(kk) : kk===k);
+    li.hidden = !(okK && (!q || li.dataset.q.includes(q))); });
+}
+
 // how long ago, in plain words
 function agoTx(iso){
   if (!iso) return '';
@@ -3769,7 +3942,7 @@ function legTallies(c){
   const out = [];
   for (const h of ['camara','senado']){
     const vs = (V||[]).filter(v=> v.casa===h); if (!vs.length) continue;
-    const last = vs[vs.length-1], vals = Object.values(last.votos).map(x=> String(x[2]||'').toLowerCase());
+    const last = vs[legMain(vs)], vals = Object.values(last.votos).map(x=> String(x[2]||'').toLowerCase());
     const y = vals.filter(x=> x==='sim').length, n = vals.filter(x=> x==='não'||x==='nao').length;
     out.push({h, y, n, data:(last.data||'').slice(0,10)});
   }
@@ -3777,33 +3950,59 @@ function legTallies(c){
 }
 function powerStrip(c, S){
   const P = c.P, path = new Set(S.path||[]), stf = P.house==='stf';
-  const cell = (name, inner, off) => `<span class="pw-c${off?' off':''}"><span class="pw-n">${name}</span>${inner}</span>`;
+  const cell = (name, inner, off) => `<div class="pw-c${off?' off':''}"><span class="pw-n">${name}</span>${inner}</div>`;
   const note = t => `<span class="pw-t">${esc(t)}</span>`;
-  // Legislativo
+  const btn = (k, inner) => `<button type="button" class="pw-btn" data-pw="${k}" aria-pressed="false" aria-controls="pw-sub-${c.slug}">${inner}</button>`;
+  const HN = {camara:'Câmara', senado:'Senado'};
+  // Legislativo: one button per house the item went through
+  const T = legTallies(c);
+  const houses = stf ? [] : ['camara','senado'].filter(h=> T.some(t=> t.h===h) || (P.votes && voteBody(P)===h) || path.has(h) || P.house===h
+    || c.ev.some(e=> e.key===h) || (P.steps||[]).some(([,t])=> t.startsWith(HN[h])));
   let leg;
   if (stf) leg = cell('Legislativo', note('Não passou pelo Congresso'), true);
-  else {
-    const T = legTallies(c);
-    if (T.length) leg = cell('Legislativo', T.map(t=> `<span class="pw-v">${miniVote({house:t.h, votes:{tally:[['Votação', t.y, t.n]], label: t.h==='senado'?'Senado':'Câmara', result:''}})}<span class="pw-t">${t.h==='senado'?'Senado':'Câmara'} · ${t.y} sim, ${t.n} não${t.data ? ' · '+cardDate(t.data) : ''}</span></span>`).join(''));
-    else if (P.votes && /camara|senado/.test(voteBody(P)||'') ) leg = cell('Legislativo', `<span class="pw-v">${miniVote(P)}</span>${note(P.votes.result)}`);
-    else {
-      const evs = c.ev.filter(e=> (e.key==='camara'||e.key==='senado') && e.r && !e.week && e.date<=todayISO());
-      const last = evs[evs.length-1];
-      if (path.has('camara') || path.has('senado') || P.house==='camara' || P.house==='senado')
-        leg = cell('Legislativo', note(last ? last.r : 'Em tramitação; ainda sem votação no Plenário'));
-      else leg = cell('Legislativo', note('Ainda não votado no Congresso'), true);
-    }
-  }
+  else if (!houses.length) leg = cell('Legislativo', note('Ainda não votado no Congresso'), true);
+  else leg = cell('Legislativo', houses.map(h=>{
+    const t = T.find(x=> x.h===h);
+    if (t) return btn(h, `${miniVote({house:h, votes:{tally:[['Votação', t.y, t.n]], label:HN[h], result:''}})}<span class="pw-t"><b>${HN[h]}</b> · ${t.y} sim, ${t.n} não${t.data ? ' · '+cardDate(t.data) : ''}</span>`);
+    if (P.votes && voteBody(P)===h) return btn(h, `${miniVote(P)}<span class="pw-t"><b>${HN[h]}</b> · ${esc(P.votes.result)}</span>`);
+    const evs = c.ev.filter(e=> e.key===h && e.r && !e.week && e.date<=todayISO()), last = evs[evs.length-1];
+    return btn(h, `<span class="pw-t"><b>${HN[h]}</b> · ${esc(last ? last.r : 'sem votação nominal no Plenário')}</span>`);
+  }).join(''));
   // Executivo
   let exe;
   if (stf) exe = cell('Executivo', note('Não passou pela Presidência'), true);
-  else if (path.has('exec') || P.house==='exec'){ const m = execMark(P); exe = cell('Executivo', m ? `<span class="pw-v">${m}</span>` : note(P.status)); }
+  else if (path.has('exec') || P.house==='exec'){ const m = execMark(P); exe = cell('Executivo', btn('exec', m ? m : `<span class="pw-t"><b>Presidência</b> · ${esc(P.status)}</span>`)); }
   else exe = cell('Executivo', note('Ainda não chegou à sanção'), true);
   // Judiciário
   let jud;
-  if (stf){ const mv = P.votes ? miniVote(P) : ''; jud = cell('Judiciário', `${mv ? `<span class="pw-v">${mv}</span>` : ''}${note(P.votes ? P.votes.result : P.status)}`); }
+  if (stf){ const mv = P.votes ? miniVote(P) : ''; jud = cell('Judiciário', btn('stf', `${mv}<span class="pw-t"><b>STF</b> · ${esc(P.votes ? P.votes.result : P.status)}</span>`)); }
   else jud = cell('Judiciário', note('Não passou pelo Supremo'), true);
-  return `<div class="c-pw" aria-label="Por onde passou">${leg}${exe}${jud}</div>`;
+  // what opens first: the Supremo for its cases; else the house that voted last; else the last house it went through; else the Presidência
+  let def = stf ? 'stf' : '';
+  if (!def && T.length) def = T.slice().sort((a,b)=> (a.data||'').localeCompare(b.data||''))[T.length-1].h;
+  if (!def && houses.length) def = houses.includes(P.house) ? P.house : houses[houses.length-1];
+  if (!def && (path.has('exec') || P.house==='exec')) def = 'exec';
+  let strip = `<div class="c-pw" role="group" aria-label="Por onde passou: escolha um poder para ver os detalhes">${leg}${exe}${jud}</div>`;
+  if (def) strip = strip.replace(`data-pw="${def}" aria-pressed="false"`, `data-pw="${def}" aria-pressed="true"`);
+  return strip + (def ? `<div class="c-leg pw-sub" id="pw-sub-${c.slug}" data-s="${c.slug}" aria-live="polite">${pwDetail(c, def)}</div>` : '');
+}
+function tallyHTML(v){
+  if (!v || !v.tally) return '';
+  const [ly,ln] = v.labels || ['sim','não'];
+  return `<div class="tally">${v.tally.map(([l,y,n])=>{ const t=y+n||1;
+    return `<div class="tally-row"><span>${esc(l)}</span><span class="tally-bar" role="img" aria-label="${y} ${ly}, ${n} ${ln}"><span class="y" style="width:${(y/t*100).toFixed(1)}%"></span><span class="n" style="width:${(n/t*100).toFixed(1)}%"></span></span><span class="tally-num"><b>${y}</b> ${esc(ly)} · ${n} ${esc(ln)}</span></div>`; }).join('')}</div>`;
+}
+// the part below the strip: what happened in the power chosen above
+function pwDetail(c, k){
+  const P = c.P;
+  if (k==='camara' || k==='senado') return legHouseHTML(c, k) + `<p class="lv-src">Votos nominais do Plenário, dos dados abertos ${k==='senado'?'do Senado':'da Câmara'}. Votações simbólicas não têm voto individual.</p>`;
+  if (k==='exec'){
+    const st = (P.steps||[]).filter(([,t])=> /^(Presidente|Presidência|Planalto|Poder Executivo|Governo|MP |Medida provisória|Lula)/i.test(t));
+    return `<section class="lv-h"><h4>Presidência da República</h4>${execMark(P)||''}${ok(P.status) ? `<p class="lv-what">${esc(P.status)}</p>` : ''}
+      ${st.length ? `<ol class="pw-steps">${st.map(([d,t])=>`<li><time datetime="${d}">${cardDate(d)}</time> ${esc(t)}</li>`).join('')}</ol>` : `<p class="lv-note">Sem ato do presidente registrado nas etapas.</p>`}</section>`;
+  }
+  const v = P.votes;
+  return `<section class="lv-h"><h4>Supremo Tribunal Federal</h4>${v ? `<p class="lv-what">${esc(v.label||'')} <b>${esc(v.result||'')}</b></p>${miniVote(P,true)}${tallyHTML(v)}${v.note ? `<p class="lv-note">${esc(v.note)}</p>` : ''}` : `<p class="lv-note">Ainda sem julgamento concluído no Plenário.</p>`}</section>`;
 }
 // at the Presidência a card shows the act of the president instead of a floor count:
 // his mark when he signed it (sanction, MP, bill sent), a stamp while the text waits for sanction.
@@ -4580,8 +4779,16 @@ minQ.addEventListener('input', ()=>{
 });
 minQ.addEventListener('keydown', e=>{ if (e.key==='Enter'){ const a = document.querySelector('#nav-min a:not([hidden])'); if (a){ e.preventDefault(); a.click(); location.hash = a.getAttribute('href'); } } });
 document.querySelectorAll('.menu [data-nav]').forEach(a=>a.addEventListener('click', e=>{
-  e.preventDefault(); e.stopPropagation(); legOpen(false); a.blur(); navTo(a.dataset.nav);
+  e.preventDefault(); e.stopPropagation(); legOpen(false); a.blur();
+  // the logo, already on the home page with nothing open over it, reloads the page (like F5)
+  if (a.classList.contains('brand') && onHome()){ location.reload(); return; }
+  navTo(a.dataset.nav);
 }));
+function onHome(){
+  const per = document.getElementById('person');
+  return !landing.hidden && inst.hidden && tp.hidden && ob.hidden && vg.hidden && cons.hidden && cal.hidden && proj.hidden
+    && (!per || per.hidden) && !openView() && !openKey;
+}
 NAV_GRPS.forEach(g=>{
   // a click goes straight where the circle of the home page goes (the same as the dots of the phone menu);
   // the list of the power still opens on hover and with the keyboard
@@ -4668,7 +4875,6 @@ function renderProject(slug){
         <section><h3>Resumo</h3><p class="pj-lede">${esc(P.summary)}</p></section>
         ${P.points && P.points.length ? `<section><h3>O que muda</h3><ul class="pj-points">${P.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>` : ''}
         <section><h3>${isStf?'Andamento':'Tramitação'}</h3><ol class="pj-steps">${P.steps.map(([d,t])=>`<li class="${d>today?'future':''}"><time datetime="${d}">${fmtDate(d)}</time><i aria-hidden="true"></i><span>${esc(t)}</span></li>`).join('')}</ol></section>
-        <section><h3>${isStf?'Julgamento':'Votação'}</h3>${v ? `<div class="pj-vote"><span class="lbl">${esc(v.label)}</span><span class="res">${esc(v.result)}</span>${miniVote(P,true)}${tally}${v.note?`<p class="note">${esc(v.note)}</p>`:''}</div>` : `<p class="pj-none">${isStf?'Ainda sem julgamento concluído no Plenário.':'Ainda sem votação registrada em Plenário.'}</p>`}</section>
       </div>
       <aside class="pj-side">
         <dl class="pj-facts">
@@ -5131,12 +5337,37 @@ function addAuto(js){
 let projAllP = null, votosP = null;
 function needProjetos(){ if (!projAllP) projAllP = trFetch('data/projetos.json').then(addAuto).catch(()=>{ projAllP = null; }); return projAllP; }
 setTimeout(()=> trFetch('data/projetos-recentes.json').then(addAuto).catch(()=>{}), 0);
-function needVotos(){ if (votosP) return votosP; votosP = trFetch('data/votos.json').then(js=>{ VOTOS = js; window.QV = js; try { const m = location.hash.match(/^#p-([a-z0-9-]+)$/); if (m && !proj.hidden){ const top = proj.scrollTop; renderProject(m[1]); proj.scrollTop = top; } } catch(e){} const box = document.querySelector('#person .p-cards[data-n]'); if (box) box.outerHTML = relatedHTML(box.dataset.n, box.dataset.k, box.dataset.r||''); }).catch(()=>{ votosP = null; }); return votosP; }
+// data/votos.json comes compact (one character per person per vote); each vote rebuilds its {slug: [name, party, vote]}
+// map the first time something reads v.votos
+function votosAdapt(js){
+  if (!js || !js.rotulos || !js.pessoas) return js;
+  const R = js.rotulos;
+  Object.values(js.projetos||{}).forEach(vs=> vs.forEach(v=>{
+    if (v.votos) return;
+    let m = null;
+    Object.defineProperty(v, 'votos', {configurable:true, get(){
+      if (m) return m; m = {};
+      const P = js.pessoas[v.casa]||[], str = v.v||'';
+      for (let i=0;i<str.length;i++){ const ch = str[i]; if (ch==='-') continue; const x = P[i]; if (!x) continue;
+        m[slugName(x[0])] = [x[0], x[1], R[parseInt(ch,36)], x[2]]; }
+      return m; }});
+  }));
+  return js;
+}
+function needVotos(){ if (votosP) return votosP; votosP = trFetch('data/votos.json').then(js=>{ js = votosAdapt(js); VOTOS = js; document.querySelectorAll('.c-leg[data-wait]').forEach(fillLeg); window.QV = js; try { const m = location.hash.match(/^#p-([a-z0-9-]+)$/); if (m && !proj.hidden){ const top = proj.scrollTop; renderProject(m[1]); proj.scrollTop = top; } } catch(e){} const box = document.querySelector('#person .p-cards[data-n]'); if (box) box.outerHTML = relatedHTML(box.dataset.n, box.dataset.k, box.dataset.r||''); }).catch(()=>{ votosP = null; }); return votosP; }
 const VOTE_TX = {'Sim':'votou Sim','Não':'votou Não','Nao':'votou Não','Abstenção':'absteve-se','Obstrução':'obstruiu','Artigo 17':'não vota (preside)','SIM':'votou Sim','NAO':'votou Não','NÃO':'votou Não','ABST':'absteve-se','P-NRV':'presente, sem voto','AP':'ausente','LS':'de licença','MIS':'em missão'};
 function nameRe(n){
   const w = fold(n).replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(x=> x.length>1 && !['de','da','do','dos','das','e'].includes(x));
   const full = w.join(' '), short = w.length>2 ? w[0]+' '+w[w.length-1] : full;
   return t=>{ const f = ' '+fold(t).replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ')+' '; return f.includes(' '+full+' ') || f.includes(' '+short+' '); };
+}
+let votosSrv = {};
+function votosServed(casa){
+  if (votosSrv[casa] && votosSrv[casa].js===VOTOS) return votosSrv[casa].set;
+  const set = new Set();
+  if (VOTOS && VOTOS.pessoas) (VOTOS.pessoas[casa]||[]).forEach(x=> set.add(slugName(x[0])));
+  else if (VOTOS) Object.values(VOTOS.projetos||{}).forEach(vs=> vs.forEach(v=>{ if (v.casa===casa) Object.keys(v.votos).forEach(k=> set.add(k)); }));
+  votosSrv[casa] = {js:VOTOS, set}; return set;
 }
 function relatedHTML(name, key, role){
   needProjetos(); needVotos();
@@ -5152,7 +5383,7 @@ function relatedHTML(name, key, role){
     const V = VOTOS && VOTOS.projetos && VOTOS.projetos[c.slug];
     if (V && (key==='camara' || key==='senado')){
       const inHouse = V.filter(v=> v.casa===key);
-      const served = VOTOS.projetos && Object.values(VOTOS.projetos).some(vs=> vs.some(v=> v.casa===key && v.votos[sl]));
+      const served = votosServed(key).has(sl);
       inHouse.forEach(v=>{
         const x = v.votos[sl];
         if (x){ const k = String(x[2]||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase(), vt = k==='SIM' ? 's' : k==='NAO' ? 'n' : /^ABST/.test(k) ? 'a' : '';
@@ -5162,8 +5393,10 @@ function relatedHTML(name, key, role){
     }
     if (tags.length) rows.push({c, tags});
   });
+  // with every roll-call vote of the term there can be hundreds: the 30 first (cards in feed order), and how many more
+  const totalRows = rows.length; rows.splice(30);
   const body = rows.length
-    ? `<ul class="rel-list">${rows.map(r=>`<li><p class="rel-tags">${r.tags.map(t=> typeof t==='string' ? `<span>${esc(t)}</span>` : `<span class="vt${t.vt ? ' vt-'+t.vt : ''}">${t.vt ? `<i aria-hidden="true">${{s:'✓',n:'×',a:'–'}[t.vt]}</i>` : ''}${esc(t.t)}</span>`).join('')}</p>${cardHTML(r.c, null).replace(/^<li>|<\/li>$/g,'')}</li>`).join('')}</ul>`
+    ? `${totalRows>30 ? `<p class="vb-note">Mostrando 30 de ${totalRows} projetos e processos.</p>` : ''}<ul class="rel-list">${rows.map(r=>`<li><p class="rel-tags">${r.tags.map(t=> typeof t==='string' ? `<span>${esc(t)}</span>` : `<span class="vt${t.vt ? ' vt-'+t.vt : ''}">${t.vt ? `<i aria-hidden="true">${{s:'✓',n:'×',a:'–'}[t.vt]}</i>` : ''}${esc(t.t)}</span>`).join('')}</p>${cardHTML(r.c, null).replace(/^<li>|<\/li>$/g,'')}</li>`).join('')}</ul>`
     : `<p class="tr-empty">Nenhum projeto ou processo acompanhado pelo site cita ${esc(name)}${(key==='camara'||key==='senado') ? ', e não há voto nominal dele(a) nas votações registradas' : ''}.</p>`;
   return `<section class="p-tr p-cards" data-n="${esc(name)}" data-k="${key}" data-r="${esc(role||'')}"><h3>Projetos e processos relacionados</h3>${body}
     ${(key==='camara'||key==='senado') ? `<p class="vb-note">Votos nominais registrados pela ${key==='camara'?'Câmara':'Senado'}. Votações simbólicas não têm voto individual.</p>` : ''}</section>`;
