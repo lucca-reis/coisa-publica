@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-25T21:43Z",
+ "atualizado": "2026-11-25T21:48Z",
  "itens": [
-  {
-   "casa": "camara",
-   "plenario": false,
-   "sigla": "CSPCCO",
-   "nome": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "tipo": "Comissão de Segurança Pública e Combate ao Crime Organizado",
-   "descricao": "Audiência pública: Debater sobre \"Eleições, áreas conflagradas e de domínio territorial pelas facções criminosas.\"",
-   "desde": "14h19",
-   "video": "https://www.youtube.com/watch?v=n94fcOdGeXk"
-  },
   {
    "casa": "camara",
    "plenario": true,
