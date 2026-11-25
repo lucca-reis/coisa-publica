@@ -1,14 +1,14 @@
 {
- "atualizado": "2026-11-25T09:40-03:00",
+ "atualizado": "2026-11-25T14:19-03:00",
  "camara": [
   {
    "id": 83090,
-   "inicio": "2026-11-25T11:00-03:00",
-   "fim": null,
-   "situacao": "Convocada",
+   "inicio": "2026-11-25T11:32-03:00",
+   "fim": "2026-11-25T12:52-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos 70 anos do legado educacional do senhor Amador Aguiar\r\n Homenagem aos aos 70 anos do legado educacional do brasileiro Amador Aguiar",
-   "video": null,
+   "video": "https://www.youtube.com/watch?v=e2OR3TjOBVU",
    "aoVivo": false
   },
   {
@@ -72,24 +72,14 @@
    "aoVivo": false
   },
   {
-   "id": 83389,
-   "inicio": "2026-11-26T14:00-03:00",
-   "fim": null,
-   "situacao": "Agendada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
-   "video": null,
-   "aoVivo": false
-  },
-  {
    "id": 83434,
    "inicio": "2026-11-25T09:29-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-25T11:16-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
    "video": "https://www.youtube.com/watch?v=RrSbRzvQuYc",
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": 85464,
@@ -120,6 +110,16 @@
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": null,
    "aoVivo": false
+  },
+  {
+   "id": 85498,
+   "inicio": "2026-11-26T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
@@ -127,7 +127,7 @@
    "id": "596299",
    "inicio": "2026-11-25T10:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
@@ -137,11 +137,11 @@
    "id": "594182",
    "inicio": "2026-11-25T14:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Em andamento",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
    "descricao": "",
    "video": null,
-   "aoVivo": false
+   "aoVivo": true
   },
   {
    "id": "587302",
