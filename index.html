@@ -1707,20 +1707,21 @@ h1[tabindex="-1"]:focus{outline:none}
 .pw-v .mv{flex-direction:row;align-items:center;gap:6px}
 .pw-v .mv svg{width:38px}
 .pw-v .mv-leg{display:none}
-.pw-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:3px;align-items:flex-start;width:100%;padding:8px 10px;margin:0 -10px;border-radius:12px;transition:background .15s}
+.pw-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;align-items:flex-start;width:calc(100% + 20px);padding:10px;margin:0 -10px;border-radius:12px;transition:background .15s}
+.pw-btn .mv{flex-direction:row;align-items:center;gap:6px}.pw-btn .mv svg{width:44px}.pw-btn .mv-leg{display:none}
+.pw-btn .xm{align-items:flex-start}.pw-btn .xm-sig .sg{width:70px}.pw-btn .xm-cap{text-align:left}
 .pw-btn + .pw-btn{margin-top:2px}
 .pw-btn:hover{background:color-mix(in srgb, var(--ink) 5%, transparent)}
-.pw-btn[aria-expanded="true"]{background:color-mix(in srgb, var(--ink) 7%, transparent)}
+.pw-btn[aria-pressed="true"]{background:color-mix(in srgb, var(--ink) 8%, transparent)}
 .pw-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .pw-btn .pw-t b{font-weight:600;color:var(--ink)}
-.pw-go{font-size:11.5px;color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
-.pw-btn[aria-expanded="true"] .pw-go{text-decoration:none;font-weight:600}
 .pw-sub{position:relative;margin-top:12px;padding:16px;border-radius:16px;border-top:0;background:color-mix(in srgb, var(--ink) 4%, var(--bg))}
 .pw-sub[hidden]{display:none}
 .pw-sub .lv-h{padding:0;background:none}
-.pw-x{all:unset;cursor:pointer;position:absolute;top:10px;right:12px;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font-size:18px;line-height:1;color:var(--muted)}
-.pw-x:hover{background:color-mix(in srgb, var(--ink) 8%, transparent);color:var(--ink)}
-.pw-x:focus-visible{outline:2px solid var(--ink)}
+.pw-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.4}
+.pw-steps time{color:var(--muted);margin-right:6px;font-variant-numeric:tabular-nums}
+.pw-sub{text-align:left}
+.pw-sub .lv-pick,.pw-sub .lv-pt,.pw-sub .lv-names{max-width:720px}
 .pw-sub .lv-hemi{max-width:420px}
 .pw-v .xm{align-items:flex-start}
 .pw-v .xm-sig .sg{width:70px}
@@ -3817,20 +3818,12 @@ function fillLeg(box){
 }
 document.addEventListener('click', e=>{
   const b = e.target.closest('.pw-btn'); if (!b) return;
-  const sub = b.closest('.pj-pw, .c-pw').parentNode.querySelector('.pw-sub'), c = sub && CARDS.find(x=> x.slug===sub.dataset.s); if (!c) return;
-  const was = b.getAttribute('aria-expanded')==='true';
-  sub.parentNode.querySelectorAll('.pw-btn').forEach(x=> x.setAttribute('aria-expanded','false'));
-  if (was){ sub.hidden = true; sub.innerHTML = ''; return; }
-  b.setAttribute('aria-expanded','true');
-  const draw = ()=>{ sub.innerHTML = `<button type="button" class="pw-x" aria-label="Fechar">×</button>${legHouseHTML(c, b.dataset.leg)}<p class="lv-src">Votos nominais do Plenário, dos dados abertos ${b.dataset.leg==='senado'?'do Senado':'da Câmara'}.</p>`; };
-  sub.hidden = false;
-  if (VOTOS) draw(); else { sub.innerHTML = '<p class="lv-note">Carregando os votos…</p>'; needVotos().then(draw); }
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && sub.animate) sub.animate([{opacity:0, transform:'translateY(-6px)'},{opacity:1, transform:'none'}], {duration:260, easing:'ease-out'});
-});
-document.addEventListener('click', e=>{
-  const x = e.target.closest('.pw-x'); if (!x) return;
-  const sub = x.closest('.pw-sub'); sub.parentNode.querySelectorAll('.pw-btn').forEach(b=> b.setAttribute('aria-expanded','false'));
-  sub.hidden = true; sub.innerHTML = '';
+  const strip = b.closest('.c-pw'), sub = strip && strip.parentNode.querySelector('.pw-sub'), c = sub && CARDS.find(x=> x.slug===sub.dataset.s); if (!c) return;
+  if (b.getAttribute('aria-pressed')==='true') return;
+  strip.querySelectorAll('.pw-btn').forEach(x=> x.setAttribute('aria-pressed', String(x===b)));
+  const draw = ()=>{ sub.innerHTML = pwDetail(c, b.dataset.pw); };
+  draw(); if (!VOTOS && (b.dataset.pw==='camara' || b.dataset.pw==='senado')) needVotos().then(()=>{ if (b.getAttribute('aria-pressed')==='true') draw(); });
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && sub.animate) sub.animate([{opacity:0, transform:'translateY(-4px)'},{opacity:1, transform:'none'}], {duration:220, easing:'ease-out'});
 });
 document.addEventListener('change', e=>{
   const sel = e.target.closest('.lv-pick select'); if (!sel) return;
@@ -3947,34 +3940,59 @@ function legTallies(c){
 }
 function powerStrip(c, S){
   const P = c.P, path = new Set(S.path||[]), stf = P.house==='stf';
-  const cell = (name, inner, off) => `<span class="pw-c${off?' off':''}"><span class="pw-n">${name}</span>${inner}</span>`;
+  const cell = (name, inner, off) => `<div class="pw-c${off?' off':''}"><span class="pw-n">${name}</span>${inner}</div>`;
   const note = t => `<span class="pw-t">${esc(t)}</span>`;
-  // Legislativo
+  const btn = (k, inner) => `<button type="button" class="pw-btn" data-pw="${k}" aria-pressed="false" aria-controls="pw-sub-${c.slug}">${inner}</button>`;
+  const HN = {camara:'Câmara', senado:'Senado'};
+  // Legislativo: one button per house the item went through
+  const T = legTallies(c);
+  const houses = stf ? [] : ['camara','senado'].filter(h=> T.some(t=> t.h===h) || (P.votes && voteBody(P)===h) || path.has(h) || P.house===h
+    || c.ev.some(e=> e.key===h) || (P.steps||[]).some(([,t])=> t.startsWith(HN[h])));
   let leg;
   if (stf) leg = cell('Legislativo', note('Não passou pelo Congresso'), true);
-  else {
-    const T = legTallies(c);
-    // each house with roll-call votes is a button: it opens, inside the card, how each member voted
-    if (T.length) leg = cell('Legislativo', T.map(t=> `<button type="button" class="pw-v pw-btn" data-leg="${t.h}" aria-expanded="false" aria-controls="pw-sub-${c.slug}">${miniVote({house:t.h, votes:{tally:[['Votação', t.y, t.n]], label: t.h==='senado'?'Senado':'Câmara', result:''}})}<span class="pw-t"><b>${t.h==='senado'?'Senado':'Câmara'}</b> · ${t.y} sim, ${t.n} não${t.data ? ' · '+cardDate(t.data) : ''}</span><span class="pw-go">Ver como votou cada ${t.h==='senado'?'senador':'deputado'}</span></button>`).join(''));
-    else if (P.votes && /camara|senado/.test(voteBody(P)||'') ) leg = cell('Legislativo', `<span class="pw-v">${miniVote(P)}</span>${note(P.votes.result)}`);
-    else {
-      const evs = c.ev.filter(e=> (e.key==='camara'||e.key==='senado') && e.r && !e.week && e.date<=todayISO());
-      const last = evs[evs.length-1];
-      if (path.has('camara') || path.has('senado') || P.house==='camara' || P.house==='senado')
-        leg = cell('Legislativo', note(last ? last.r : 'Em tramitação; ainda sem votação no Plenário'));
-      else leg = cell('Legislativo', note('Ainda não votado no Congresso'), true);
-    }
-  }
+  else if (!houses.length) leg = cell('Legislativo', note('Ainda não votado no Congresso'), true);
+  else leg = cell('Legislativo', houses.map(h=>{
+    const t = T.find(x=> x.h===h);
+    if (t) return btn(h, `${miniVote({house:h, votes:{tally:[['Votação', t.y, t.n]], label:HN[h], result:''}})}<span class="pw-t"><b>${HN[h]}</b> · ${t.y} sim, ${t.n} não${t.data ? ' · '+cardDate(t.data) : ''}</span>`);
+    if (P.votes && voteBody(P)===h) return btn(h, `${miniVote(P)}<span class="pw-t"><b>${HN[h]}</b> · ${esc(P.votes.result)}</span>`);
+    const evs = c.ev.filter(e=> e.key===h && e.r && !e.week && e.date<=todayISO()), last = evs[evs.length-1];
+    return btn(h, `<span class="pw-t"><b>${HN[h]}</b> · ${esc(last ? last.r : 'sem votação nominal no Plenário')}</span>`);
+  }).join(''));
   // Executivo
   let exe;
   if (stf) exe = cell('Executivo', note('Não passou pela Presidência'), true);
-  else if (path.has('exec') || P.house==='exec'){ const m = execMark(P); exe = cell('Executivo', m ? `<span class="pw-v">${m}</span>` : note(P.status)); }
+  else if (path.has('exec') || P.house==='exec'){ const m = execMark(P); exe = cell('Executivo', btn('exec', m ? m : `<span class="pw-t"><b>Presidência</b> · ${esc(P.status)}</span>`)); }
   else exe = cell('Executivo', note('Ainda não chegou à sanção'), true);
   // Judiciário
   let jud;
-  if (stf){ const mv = P.votes ? miniVote(P) : ''; jud = cell('Judiciário', `${mv ? `<span class="pw-v">${mv}</span>` : ''}${note(P.votes ? P.votes.result : P.status)}`); }
+  if (stf){ const mv = P.votes ? miniVote(P) : ''; jud = cell('Judiciário', btn('stf', `${mv}<span class="pw-t"><b>STF</b> · ${esc(P.votes ? P.votes.result : P.status)}</span>`)); }
   else jud = cell('Judiciário', note('Não passou pelo Supremo'), true);
-  return `<div class="c-pw" aria-label="Por onde passou">${leg}${exe}${jud}</div>${stf ? '' : `<div class="c-leg pw-sub" id="pw-sub-${c.slug}" data-s="${c.slug}" hidden></div>`}`;
+  // what opens first: the Supremo for its cases; else the house that voted last; else the last house it went through; else the Presidência
+  let def = stf ? 'stf' : '';
+  if (!def && T.length) def = T.slice().sort((a,b)=> (a.data||'').localeCompare(b.data||''))[T.length-1].h;
+  if (!def && houses.length) def = houses.includes(P.house) ? P.house : houses[houses.length-1];
+  if (!def && (path.has('exec') || P.house==='exec')) def = 'exec';
+  let strip = `<div class="c-pw" role="group" aria-label="Por onde passou: escolha um poder para ver os detalhes">${leg}${exe}${jud}</div>`;
+  if (def) strip = strip.replace(`data-pw="${def}" aria-pressed="false"`, `data-pw="${def}" aria-pressed="true"`);
+  return strip + (def ? `<div class="c-leg pw-sub" id="pw-sub-${c.slug}" data-s="${c.slug}" aria-live="polite">${pwDetail(c, def)}</div>` : '');
+}
+function tallyHTML(v){
+  if (!v || !v.tally) return '';
+  const [ly,ln] = v.labels || ['sim','não'];
+  return `<div class="tally">${v.tally.map(([l,y,n])=>{ const t=y+n||1;
+    return `<div class="tally-row"><span>${esc(l)}</span><span class="tally-bar" role="img" aria-label="${y} ${ly}, ${n} ${ln}"><span class="y" style="width:${(y/t*100).toFixed(1)}%"></span><span class="n" style="width:${(n/t*100).toFixed(1)}%"></span></span><span class="tally-num"><b>${y}</b> ${esc(ly)} · ${n} ${esc(ln)}</span></div>`; }).join('')}</div>`;
+}
+// the part below the strip: what happened in the power chosen above
+function pwDetail(c, k){
+  const P = c.P;
+  if (k==='camara' || k==='senado') return legHouseHTML(c, k) + `<p class="lv-src">Votos nominais do Plenário, dos dados abertos ${k==='senado'?'do Senado':'da Câmara'}. Votações simbólicas não têm voto individual.</p>`;
+  if (k==='exec'){
+    const st = (P.steps||[]).filter(([,t])=> /^(Presidente|Presidência|Planalto|Poder Executivo|Governo|MP |Medida provisória|Lula)/i.test(t));
+    return `<section class="lv-h"><h4>Presidência da República</h4>${execMark(P)||''}${ok(P.status) ? `<p class="lv-what">${esc(P.status)}</p>` : ''}
+      ${st.length ? `<ol class="pw-steps">${st.map(([d,t])=>`<li><time datetime="${d}">${cardDate(d)}</time> ${esc(t)}</li>`).join('')}</ol>` : `<p class="lv-note">Sem ato do presidente registrado nas etapas.</p>`}</section>`;
+  }
+  const v = P.votes;
+  return `<section class="lv-h"><h4>Supremo Tribunal Federal</h4>${v ? `<p class="lv-what">${esc(v.label||'')} <b>${esc(v.result||'')}</b></p>${miniVote(P,true)}${tallyHTML(v)}${v.note ? `<p class="lv-note">${esc(v.note)}</p>` : ''}` : `<p class="lv-note">Ainda sem julgamento concluído no Plenário.</p>`}</section>`;
 }
 // at the Presidência a card shows the act of the president instead of a floor count:
 // his mark when he signed it (sanction, MP, bill sent), a stamp while the text waits for sanction.
@@ -4751,8 +4769,16 @@ minQ.addEventListener('input', ()=>{
 });
 minQ.addEventListener('keydown', e=>{ if (e.key==='Enter'){ const a = document.querySelector('#nav-min a:not([hidden])'); if (a){ e.preventDefault(); a.click(); location.hash = a.getAttribute('href'); } } });
 document.querySelectorAll('.menu [data-nav]').forEach(a=>a.addEventListener('click', e=>{
-  e.preventDefault(); e.stopPropagation(); legOpen(false); a.blur(); navTo(a.dataset.nav);
+  e.preventDefault(); e.stopPropagation(); legOpen(false); a.blur();
+  // the logo, already on the home page with nothing open over it, reloads the page (like F5)
+  if (a.classList.contains('brand') && onHome()){ location.reload(); return; }
+  navTo(a.dataset.nav);
 }));
+function onHome(){
+  const per = document.getElementById('person');
+  return !landing.hidden && inst.hidden && tp.hidden && ob.hidden && vg.hidden && cons.hidden && cal.hidden && proj.hidden
+    && (!per || per.hidden) && !openView() && !openKey;
+}
 NAV_GRPS.forEach(g=>{
   // a click goes straight where the circle of the home page goes (the same as the dots of the phone menu);
   // the list of the power still opens on hover and with the keyboard
@@ -4839,8 +4865,6 @@ function renderProject(slug){
         <section><h3>Resumo</h3><p class="pj-lede">${esc(P.summary)}</p></section>
         ${P.points && P.points.length ? `<section><h3>O que muda</h3><ul class="pj-points">${P.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>` : ''}
         <section><h3>${isStf?'Andamento':'Tramitação'}</h3><ol class="pj-steps">${P.steps.map(([d,t])=>`<li class="${d>today?'future':''}"><time datetime="${d}">${fmtDate(d)}</time><i aria-hidden="true"></i><span>${esc(t)}</span></li>`).join('')}</ol></section>
-        <section class="pj-pw" aria-labelledby="pj-pw-h"><h3 id="pj-pw-h">Nos três poderes</h3>${C ? powerStrip(C, S) : ''}</section>
-        <section><h3>${isStf?'Julgamento':'Votação'}</h3>${v ? `<div class="pj-vote"><span class="lbl">${esc(v.label)}</span><span class="res">${esc(v.result)}</span>${miniVote(P,true)}${tally}${v.note?`<p class="note">${esc(v.note)}</p>`:''}</div>` : `<p class="pj-none">${isStf?'Ainda sem julgamento concluído no Plenário.':'Ainda sem votação registrada em Plenário.'}</p>`}</section>
       </div>
       <aside class="pj-side">
         <dl class="pj-facts">
@@ -4853,6 +4877,7 @@ function renderProject(slug){
         <section><h3>Links oficiais</h3><ul class="pj-links">${P.links.map(l=>`<li><a href="${l.u}" target="_blank" rel="noopener">${esc(l.l)}</a></li>`).join('')}</ul></section>
       </aside>
     </div>
+    <section class="pj-pw" aria-labelledby="pj-pw-h"><h3 id="pj-pw-h">Nos três poderes</h3>${C ? powerStrip(C, S) : ''}</section>
     </article>
   </div>`;
   return true;
