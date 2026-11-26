@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-25T19:26-03:00",
+ "atualizado": "2026-11-26T01:56-03:00",
  "camara": [
   {
    "id": 83090,
@@ -22,32 +22,12 @@
    "aoVivo": false
   },
   {
-   "id": 83148,
-   "inicio": "2026-11-24T11:19-03:00",
-   "fim": "2026-11-24T11:49-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Prêmio Câmara Ambiental e Desenvolvimento Sustentável",
-   "video": "https://www.youtube.com/watch?v=P8x_KxV9etk",
-   "aoVivo": false
-  },
-  {
    "id": 83195,
    "inicio": "2026-12-09T09:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia Internacional Contra a Corrupção\r\n Homenagem ao Dia Internacional Contra a Corrupção",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 83236,
-   "inicio": "2026-11-24T09:20-03:00",
-   "fim": "2026-11-24T10:59-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 2 anos de instituição da Política Nacional de Cuidados\r\n Homenagem aos 2 anos de instituição da Política Nacional de Cuidados",
    "video": null,
    "aoVivo": false
   },
@@ -72,6 +52,26 @@
    "aoVivo": false
   },
   {
+   "id": 83256,
+   "inicio": "2026-12-10T14:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem ao Dia da Bíblia\r\n Homenagem ao Dia da Bíblia",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83257,
+   "inicio": "2026-12-10T16:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem ao Dia do Fonoaudiólogo\r\n Homengem ao Dia do Fonoaudiólogo",
+   "video": null,
+   "aoVivo": false
+  },
+  {
    "id": 83434,
    "inicio": "2026-11-25T09:29-03:00",
    "fim": "2026-11-25T11:16-03:00",
@@ -79,16 +79,6 @@
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
    "video": "https://www.youtube.com/watch?v=RrSbRzvQuYc",
-   "aoVivo": false
-  },
-  {
-   "id": 85464,
-   "inicio": "2026-11-24T14:16-03:00",
-   "fim": "2026-11-24T19:26-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": "https://www.youtube.com/watch?v=zuhFH1z5Bn8",
    "aoVivo": false
   },
   {
@@ -104,45 +94,35 @@
   {
    "id": 85492,
    "inicio": "2026-11-25T14:21-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-25T20:31-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Deliberativa",
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": "https://www.youtube.com/watch?v=JFncPQLO0X4",
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": 85498,
    "inicio": "2026-11-26T14:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Convocada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 85534,
+   "inicio": "2026-11-26T10:00-03:00",
+   "fim": null,
+   "situacao": "Convocada",
+   "tipo": "Sessão Deliberativa",
+   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": null,
    "aoVivo": false
   }
  ],
  "senado": [
-  {
-   "id": "596299",
-   "inicio": "2026-11-25T10:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": "594182",
-   "inicio": "2026-11-25T14:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "587302",
    "inicio": "2026-11-26T15:00-03:00",
@@ -229,6 +209,16 @@
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO DELIBERATIVA ORDINÁRIA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "598969",
+   "inicio": "2026-12-03T15:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
    "aoVivo": false
