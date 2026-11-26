@@ -1,8 +1,7 @@
 Câmara: 30 comissões, 8744 votações em comissão
-Senado: 0 comissões
-{"camara": [["CAPADR", 49, 49, 60], ["CASP", 15, 12, 33], ["CCJC", 54, 46, 60], ["CCOM", 27, 23, 60], ["CCTI", 17, 34, 60], ["CCULT", 21, 16, 60], ["CDC", 11, 20, 24], ["CDE", 18, 11, 60], ["CDHMIR", 19, 17, 60], ["CDU", 11, 18, 60], ["CE", 38, 39, 60], ["CESPO", 21, 21, 46], ["CFFC", 18, 21, 0], ["CFT", 28, 46, 60], ["CICS", 15, 17, 60], ["CIDOSO", 17, 11, 51], ["CINDRE", 19, 16, 35], ["CLP", 14, 8, 3], ["CMADS", 19, 18, 60], ["CME", 31, 39, 60], ["CMULHER", 24, 20, 60], ["CPASF", 17, 15, 60], ["CPD", 18, 16, 60], ["CPOVOS", 14, 8, 57], ["CREDN", 36, 29, 43], ["CSAUDE", 50, 50, 60], ["CSPCCO", 39, 32, 60], ["CTRAB", 20, 21, 60], ["CTUR", 24, 17, 25], ["CVT", 30, 29, 60]], "senado": [], "erros": []}
-Poucas comissões; arquivo anterior mantido.
+Senado: 16 comissões
+{"camara": [["CAPADR", 49, 49, 60], ["CASP", 15, 12, 33], ["CCJC", 54, 46, 60], ["CCOM", 27, 23, 60], ["CCTI", 17, 34, 60], ["CCULT", 21, 16, 60], ["CDC", 11, 20, 24], ["CDE", 18, 11, 60], ["CDHMIR", 19, 17, 60], ["CDU", 11, 18, 60], ["CE", 38, 39, 60], ["CESPO", 21, 21, 46], ["CFFC", 18, 21, 0], ["CFT", 28, 46, 60], ["CICS", 15, 17, 60], ["CIDOSO", 17, 11, 51], ["CINDRE", 19, 16, 35], ["CLP", 14, 8, 3], ["CMADS", 19, 18, 60], ["CME", 31, 39, 60], ["CMULHER", 24, 20, 60], ["CPASF", 17, 15, 60], ["CPD", 18, 16, 60], ["CPOVOS", 14, 8, 57], ["CREDN", 36, 29, 43], ["CSAUDE", 50, 50, 60], ["CSPCCO", 39, 32, 60], ["CTRAB", 20, 21, 60], ["CTUR", 24, 17, 25], ["CVT", 30, 29, 60]], "senado": [["CAE", 0, 0, 60], ["CAS", 0, 0, 60], ["CCDD", 0, 0, 0], ["CCJ", 0, 0, 60], ["CCT", 0, 0, 60], ["CDD", 0, 0, 0], ["CDH", 0, 0, 60], ["CDR", 0, 0, 50], ["CE", 0, 0, 60], ["CEsp", 0, 0, 22], ["CI", 0, 0, 60], ["CMA", 0, 0, 60], ["CRA", 0, 0, 60], ["CRE", 0, 0, 50], ["CSP", 0, 0, 60], ["CTFC", 0, 0, 31]], "erros": ["https://legis.senado.leg.br/dadosabertos/composicao/comissao/38.json: HTTP Error 400: Bad Request", "https://legis.senado.leg.br/dadosabertos/composicao/comissao/40.json: HTTP Error 400: Bad Request", "https://legis.senado.leg.br/dadosabertos/composicao/comissao/2614.json: HTTP Error 400: Bad Request", "https://legis.senado.leg.br/dadosabertos/composicao/comissao/34.json: HTTP Error 400: Bad Request", "https://legis.senado.leg.br/dadosabertos/composicao/comissao/1363.json: HTTP Error 400: Bad Request", "https://legis.senado.leg.br/dadosabertos/composicao/comissao/2617.json: HTTP Error 400: Bad Request", "https://legis.senado.leg.br/dadosabertos/composicao/comissao/834.json: HTTP Error 400: Bad Request", "https://legis.senado.leg.br/dadosabertos/composicao/comissao/1306.json: HTTP Error 400: Bad Request"]}
 
-real	2m48.514s
-user	0m3.034s
-sys	0m1.153s
+real	3m23.830s
+user	0m2.928s
+sys	0m0.926s
