@@ -1,0 +1,37 @@
+name: Comissões permanentes
+
+on:
+  schedule:
+    - cron: '41 9 * * *'   # todo dia às 6h41 de Brasília
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/comissoes.py', '.github/workflows/comissoes.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: comissoes
+  cancel-in-progress: false
+
+jobs:
+  comissoes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Membros e votações das comissões da Câmara e do Senado
+        run: timeout 2100 python -u scripts/comissoes.py
+      - name: Salvar se mudou
+        run: |
+          git config user.name "coisa-publica-robo"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/comissoes.json data/comissoes-amostra.json
+          if git diff --cached --quiet; then echo "Nada mudou."; exit 0; fi
+          git commit -m "Comissões atualizadas $(TZ=America/Sao_Paulo date '+%d/%m')"
+          git pull --rebase origin main
+          git push
