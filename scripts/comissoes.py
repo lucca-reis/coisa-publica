@@ -86,7 +86,11 @@ orgs = []
 for tipo in (2,):   # 2 = comissão permanente
     js = get(f'{CAM}orgaos?codTipoOrgao={tipo}&itens=100&ordem=ASC&ordenarPor=sigla', 'camara-orgaos')
     orgs += (js or {}).get('dados', [])
-ORDEM_CARGO = lambda c: 0 if re.match(r'Presidente', c or '') else 1 if re.search(r'Vice', c or '') else 2
+def ORDEM_CARGO(c):
+    c = c or ''
+    if re.match(r'Presidente', c): return 0
+    m = re.search(r'(\d)', c) if re.search(r'Vice', c) else None
+    return 1 + int(m.group(1)) / 10 if m else 1.9 if re.search(r'Vice', c) else 2
 for o in orgs:
     sig = o.get('sigla') or ''
     if not sig or o.get('dataFim'): continue
@@ -135,22 +139,23 @@ for c in cols:
     casa = str(c.get('SiglaCasa') or c.get('Casa') or 'SF')
     if not sig or casa not in ('SF', 'Senado Federal') or not re.search(r'PERMANENTE|^CP$', tipo.upper()): continue
     cod = c.get('Codigo') or c.get('CodigoColegiado')
-    comp = get(f'{SEN}composicao/comissao/{cod}.json', 'senado-composicao')
-    if 'senado-composicao-inteira' not in amostra and comp: amostra['senado-composicao-inteira'] = json.dumps(comp, ensure_ascii=False)[:12000]
-    mem, sup = [], []
+    # comissao/{cod}.json: membros por bloco (nome, partido, UF, titular ou suplente) e a mesa em Cargos
+    comp = get(f'{SEN}comissao/{cod}.json', 'senado-comissao')
+    sem = lambda n: re.sub(r'^Senadora? ', '', str(n or '')).strip()
+    mem, sup, vistos_m = [], [], set()
     for m in achar_listas(comp, 'Membro'):
-        nome = m.get('NomeParlamentar') or (m.get('IdentificacaoParlamentar') or {}).get('NomeParlamentar') or ''
-        if not nome: continue
-        part = m.get('SiglaPartidoParlamentar') or (m.get('IdentificacaoParlamentar') or {}).get('SiglaPartidoParlamentar') or ''
-        uf = m.get('UfParlamentar') or (m.get('IdentificacaoParlamentar') or {}).get('UfParlamentar') or ''
-        cargo = str(m.get('DescricaoParticipacao') or m.get('TipoVaga') or '')
-        x = [nome, part, uf, cargo]
-        (sup if re.search(r'Suplente', cargo, re.I) else mem).append(x)
+        nome = sem(m.get('NomeParlamentar'))
+        if not nome or nome.upper() == 'VAGO' or str(m.get('OrigemParlamentar') or 'Senado') != 'Senado': continue
+        k = (nome, str(m.get('TipoVaga')))
+        if k in vistos_m: continue
+        vistos_m.add(k)
+        x = [nome, m.get('Partido') or '', m.get('SiglaUf') or '', 'Titular']
+        (sup if re.search(r'Suplente', str(m.get('TipoVaga') or ''), re.I) else mem).append(x)
     for car in achar_listas(comp, 'Cargo'):
-        nome = car.get('NomeParlamentar') or ''
-        desc = str(car.get('DescricaoCargo') or '')
+        nome, desc = sem(car.get('NomeParlamentar')), str(car.get('TipoCargo') or '')
+        desc = desc.capitalize().replace('Vice-presidente', 'Vice-Presidente')
         for x in mem:
-            if x[0] == nome and desc: x[3] = desc.title() if desc.isupper() else desc
+            if x[0] == nome and desc: x[3] = desc
     mem.sort(key=lambda x: (ORDEM_CARGO(x[3]), x[0]))
     sup.sort(key=lambda x: x[0])
     senado.append({'sigla': sig, 'nome': c.get('Nome') or c.get('NomeColegiado') or sig, 'id': cod,
@@ -189,6 +194,7 @@ while d0 <= HOJE:
                         vistos.add(k)
                         par = {kk.lower(): vv for kk, vv in (pai or {}).items()} if isinstance(pai, dict) else {}
                         desc = str(low.get('ementa') or par.get('ementa') or low.get('descricao') or '')[:220]
+                        if re.match(r'(Emenda|Requerimento|Parecer)\b', desc): desc = ''
                         res = str(par.get('resultado') or par.get('descricaoresultado') or low.get('resultado') or par.get('situacao') or '')
                         if isinstance(par.get('resultado'), dict): res = str(par['resultado'].get('descricao') or '')
                         por_sig_s[sig]['itens'].append({'data': data, 'slug': slug(*hit), 'code': f'{hit[0]} {hit[1]}/{hit[2]}', 'desc': desc, 'res': res[:80]})
