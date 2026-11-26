@@ -129,11 +129,12 @@ js = get(f'{SEN}comissao/lista/colegiados.json', 'senado-colegiados')
 cols = achar_listas(js, 'Colegiado')
 for c in cols:
     tipo = str(c.get('SiglaTipoColegiado') or c.get('TipoColegiado') or c.get('DescricaoTipoColegiado') or '')
-    sig = str(c.get('SiglaColegiado') or '')
+    sig = str(c.get('Sigla') or c.get('SiglaColegiado') or '')
     casa = str(c.get('SiglaCasa') or c.get('Casa') or 'SF')
     if not sig or casa not in ('SF', 'Senado Federal') or not re.search(r'PERMANENTE|^CP$', tipo.upper()): continue
-    cod = c.get('CodigoColegiado')
+    cod = c.get('Codigo') or c.get('CodigoColegiado')
     comp = get(f'{SEN}composicao/comissao/{cod}.json', 'senado-composicao')
+    if 'senado-composicao-inteira' not in amostra and comp: amostra['senado-composicao-inteira'] = json.dumps(comp, ensure_ascii=False)[:12000]
     mem, sup = [], []
     for m in achar_listas(comp, 'Membro'):
         nome = m.get('NomeParlamentar') or (m.get('IdentificacaoParlamentar') or {}).get('NomeParlamentar') or ''
@@ -150,7 +151,7 @@ for c in cols:
             if x[0] == nome and desc: x[3] = desc.title() if desc.isupper() else desc
     mem.sort(key=lambda x: (ORDEM_CARGO(x[3]), x[0]))
     sup.sort(key=lambda x: x[0])
-    senado.append({'sigla': sig, 'nome': c.get('NomeColegiado') or sig, 'id': cod,
+    senado.append({'sigla': sig, 'nome': c.get('Nome') or c.get('NomeColegiado') or sig, 'id': cod,
                    'url': f'https://legis.senado.leg.br/comissoes/comissao?codcol={cod}', 'membros': mem, 'suplentes': sup, 'itens': []})
 por_sig_s = {c['sigla']: c for c in senado}
 # pautas das reuniões, mês a mês
@@ -159,33 +160,39 @@ while d0 <= HOJE:
     d1 = min(HOJE, (d0.replace(day=28) + datetime.timedelta(days=4)).replace(day=1) - datetime.timedelta(days=1))
     ag = get(f"{SEN}comissao/agenda/{d0.strftime('%Y%m%d')}/{d1.strftime('%Y%m%d')}.json", 'senado-agenda')
     d0 = d1 + datetime.timedelta(days=1)
-    for r in achar_listas(ag, 'Reuniao'):
-        sig = ''
-        for k in ('SiglaComissao', 'Sigla', 'SiglaColegiado'):
-            v = r.get(k) or (r.get('Comissoes') or {}).get(k) if isinstance(r, dict) else None
-            if v: sig = str(v); break
-        if not sig:
-            cs = achar_listas(r, 'Comissao')
-            if cs and isinstance(cs[0], dict): sig = str(cs[0].get('Sigla') or cs[0].get('SiglaComissao') or '')
+    for r in achar_listas(ag, 'reuniao') + achar_listas(ag, 'Reuniao'):
+        if not isinstance(r, dict): continue
+        cc = r.get('colegiadoCriador') or r.get('colegiados') or {}
+        if isinstance(cc, list): cc = cc[0] if cc else {}
+        sig = str(cc.get('sigla') or '')
         if sig not in por_sig_s: continue
-        data = str(r.get('Data') or r.get('DataReuniao') or r.get('dataInicio') or '')[:10]
-        if '/' in data: dd, mm, aa = data.split('/'); data = f'{aa}-{mm}-{dd}'
-        for it in achar_listas(r, 'Item') + achar_listas(r, 'Materia'):
-            if not isinstance(it, dict): continue
-            ident = str(it.get('Identificacao') or it.get('DescricaoIdentificacao') or it.get('IdentificacaoMateria') or '')
-            m = re.search(r'\b(PL|PLS|PLC|PLP|PEC|MPV|PDL|PDS|PLN)\s+(\d+)/(\d{4})', ident)
-            if not m:
-                s0, n0, a0 = it.get('Sigla') or it.get('SiglaMateria'), it.get('Numero') or it.get('NumeroMateria'), it.get('Ano') or it.get('AnoMateria')
-                if not (s0 and n0 and a0): continue
-                m = re.match(r'(\w+)\s+(\d+)/(\d{4})', f'{s0} {int(str(n0))}/{a0}')
-                if not m: continue
-            s, n, a = m.group(1), str(int(m.group(2))), m.group(3)
-            k = (sig, s, n, a, data)
-            if k in vistos: continue
-            vistos.add(k)
-            desc = str(it.get('Ementa') or it.get('EmentaMateria') or it.get('Descricao') or '')[:220]
-            res = str(it.get('Resultado') or it.get('DescricaoResultado') or it.get('Decisao') or '')[:80]
-            por_sig_s[sig]['itens'].append({'data': data, 'slug': slug(s, n, a), 'code': f'{s} {n}/{a}', 'desc': desc, 'res': res})
+        data = str(r.get('dataInicio') or r.get('Data') or '')[:10]
+        if 'senado-reuniao-inteira' not in amostra and re.search(r'"(sigla|siglaMateria)": ?"(PL|PEC|PLP|PDL|MPV)"', json.dumps(r.get('partes'), ensure_ascii=False)):
+            amostra['senado-reuniao-inteira'] = json.dumps(r.get('partes'), ensure_ascii=False)[:15000]
+        def anda(o, pai=None):
+            if isinstance(o, list):
+                for x in o: anda(x, pai)
+            elif isinstance(o, dict):
+                low = {k.lower(): v for k, v in o.items()}
+                sg = str(low.get('sigla') or low.get('siglamateria') or low.get('siglasubtipo') or '').upper()
+                nu, an = low.get('numero') or low.get('numeromateria'), low.get('ano') or low.get('anomateria')
+                ident = str(low.get('identificacao') or low.get('descricaoidentificacao') or '')
+                m = re.search(r'\b(PL|PLS|PLC|PLP|PEC|MPV|PDL|PDS|PLN)\s+(\d+)/(\d{4})', ident)
+                hit = None
+                if sg in TIPOS | {'PLC'} and nu and an and str(nu).strip().isdigit(): hit = (sg, str(int(str(nu).strip())), str(an)[:4])
+                elif m: hit = (m.group(1), str(int(m.group(2))), m.group(3))
+                if hit:
+                    k = (sig,) + hit + (data,)
+                    if k not in vistos:
+                        vistos.add(k)
+                        par = {kk.lower(): vv for kk, vv in (pai or {}).items()} if isinstance(pai, dict) else {}
+                        desc = str(low.get('ementa') or par.get('ementa') or low.get('descricao') or '')[:220]
+                        res = str(par.get('resultado') or par.get('descricaoresultado') or low.get('resultado') or par.get('situacao') or '')
+                        if isinstance(par.get('resultado'), dict): res = str(par['resultado'].get('descricao') or '')
+                        por_sig_s[sig]['itens'].append({'data': data, 'slug': slug(*hit), 'code': f'{hit[0]} {hit[1]}/{hit[2]}', 'desc': desc, 'res': res[:80]})
+                    return
+                for v in o.values(): anda(v, o)
+        anda(r.get('partes'))
 print(f'Senado: {len(senado)} comissões', flush=True)
 
 for c in camara + senado:
