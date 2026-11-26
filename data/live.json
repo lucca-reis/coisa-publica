@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-26T12:01-03:00",
+ "atualizado": "2026-11-26T14:31-03:00",
  "camara": [
   {
    "id": 83090,
@@ -103,23 +103,23 @@
   },
   {
    "id": 85498,
-   "inicio": "2026-11-26T14:00-03:00",
+   "inicio": "2026-11-26T14:18-03:00",
    "fim": null,
-   "situacao": "Convocada",
+   "situacao": "Em Andamento",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
-   "video": null,
-   "aoVivo": false
+   "video": "https://www.youtube.com/watch?v=1Fx2Rb5XLi0",
+   "aoVivo": true
   },
   {
    "id": 85534,
    "inicio": "2026-11-26T11:08-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-26T11:55-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Deliberativa",
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": "https://www.youtube.com/watch?v=CR7o8M2gE3c",
-   "aoVivo": true
+   "aoVivo": false
   }
  ],
  "senado": [
