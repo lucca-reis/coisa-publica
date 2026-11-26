@@ -40,7 +40,7 @@
    "links": [
     {
      "rel": "self",
-     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&itens=100&ordem=ASC&ordenarPor=sigla"
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&ordem=ASC&ordenarPor=sigla&itens=100"
     },
     {
      "rel": "first",
@@ -178,7 +178,7 @@
    "ComissoesCongressoNacional": {
     "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/cn/ComissoesCongressoNacionalv3.xsd",
     "Metadados": {
-     "Versao": "26/11/2026 10:52:05",
+     "Versao": "26/11/2026 14:32:52",
      "VersaoServico": "3"
     },
     "Colegiados": {
@@ -256,7 +256,7 @@
   "resposta": {
    "AgendaReuniao": {
     "Metadados": {
-     "Versao": "26/11/2026 10:50:17",
+     "Versao": "26/11/2026 14:33:16",
      "VersaoServico": "2",
      "DataVersaoServico": "2020-08-07",
      "DescricaoDataSet": "Agenda das Reuniões das Comissões no período informado."
