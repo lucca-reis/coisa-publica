@@ -37,10 +37,12 @@ def baixar(url, tent=3, timeout=120):
             if i == tent - 1: raise
             time.sleep(4 * (i + 1))
 
-def get(url, chave=None):
+def get(url, chave=None, timeout=45):
     try:
         time.sleep(0.2)
-        js = json.loads(baixar(url, 2) or 'null')
+        t0 = time.time()
+        js = json.loads(baixar(url, 2, timeout) or 'null')
+        if time.time() - t0 > 10: print(f'lento ({time.time() - t0:.0f}s): {url}', flush=True)
         if chave and chave not in amostra: amostra[chave] = {'url': url, 'resposta': cortar(js)}
         return js
     except Exception as ex:
