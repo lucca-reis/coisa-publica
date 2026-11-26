@@ -92,6 +92,35 @@ body{box-sizing:border-box;display:grid;place-items:center;
   .stage.open-camara.house-left .panel{left:51%;right:3%}
 }
 @media (max-width:999px){ .panel{margin-top:20px} .tl{overflow:visible} }
+/* permanent committees under the open house; on desktop the panel keeps the drawing's height (--plan-h) */
+.com{margin:10px 0 0;min-width:0;contain:inline-size;opacity:0;transform:translateY(8px);transition:opacity .45s .5s, transform .45s .5s}
+.stage.is-open .com{opacity:1;transform:none}
+.com-h{margin:0 0 10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.com-h span{color:var(--ink)}
+.com-grid{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.com-grid li{min-width:0;max-width:100%}
+.com-grid a{display:flex;align-items:baseline;gap:7px;max-width:100%;box-sizing:border-box;padding:6px 12px;border-radius:999px;background:color-mix(in srgb, var(--ink) 6%, var(--bg));color:var(--ink);text-decoration:none;white-space:nowrap;transition:background .2s}
+.com-grid a:hover,.com-grid a:focus-visible{background:color-mix(in srgb, var(--ink) 12%, var(--bg))}
+.com-grid a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.com-grid b{font-family:var(--mono);font-size:11.5px;font-weight:600;flex:none}
+.com-grid span{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;max-width:13em}
+@media (min-width:1000px){
+  .stage.is-open .panel{top:calc(var(--plan-h,640px) * .03);bottom:0;height:auto;min-height:calc(var(--plan-h,640px) * .94)}
+  .stage.open-senado .com,.stage.open-camara.house-left .com{margin-left:3%;width:44%}
+  .stage.open-camara:not(.house-left) .com{margin-left:53%;width:44%}
+}
+@media (max-width:999px){ .com{margin-top:16px} .com-grid{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin} .com-grid li{flex:none} }
+.com-hemi{display:block;width:100%;max-width:420px;margin:0 auto 6px;overflow:visible}
+.com-hemi circle{transition:opacity .2s}
+.com-tl{list-style:none;margin:0;padding:0}
+.com-tl li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;padding:9px 0;border-bottom:1px solid var(--rule)}
+.com-tl time{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding-top:2px}
+.com-it{margin:0;font-size:14px;line-height:1.4}
+.com-it a{color:inherit}
+.com-it{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.com-tl .lv-note{margin:2px 0 0}
+.inst-more [aria-current]{font-weight:700;text-decoration:none}
+.com-w #inst-title{font-size:clamp(30px,4.4vw,52px);line-height:1.05;text-wrap:balance}
 
 /* party and person views: full-screen layers; the clicked sphere grows into place */
 .house.colored .seat{cursor:pointer}
@@ -1812,6 +1841,7 @@ Legislativo<span class="nav-car" aria-hidden="true"></span></button>
     <g class="house" id="g-senado" data-house="senado" tabindex="0" role="button" aria-label="Abrir Senado Federal"></g>
     <g class="house" id="g-camara" data-house="camara" tabindex="0" role="button" aria-label="Abrir Câmara dos Deputados"></g>
   </svg>
+  <nav class="com" id="com" aria-label="Comissões permanentes" hidden></nav>
   <section class="panel" id="panel" hidden></section>
 </main>
 <section class="ov party" id="party" hidden aria-live="polite"></section>
@@ -3464,7 +3494,7 @@ function open(key, left){
   const toLeft = key==='camara' && !!left && matchMedia('(min-width:1000px)').matches;   // on phones the panel sits below anyway
   stage.classList.add('is-open','open-'+key);
   stage.classList.toggle('house-left', toLeft);
-  renderPanel(key); panel.hidden = false;
+  renderPanel(key); panel.hidden = false; comList(key);
   requestAnimationFrame(()=>{
     panel.classList.add('show');
     const tl = panel.querySelector('.tl'), cur = panel.querySelector('.day.today') || panel.querySelector('.day.future');
@@ -3485,6 +3515,76 @@ function open(key, left){
   }, reduce?0:720);   // after the zoom settles, so the two animations don't compete
 }
 
+/* ---------- permanent committees (data/comissoes.json, robot): the list under the open house, one page each ---------- */
+const comEl = document.getElementById('com');
+const planH = ()=> stage.style.setProperty('--plan-h', document.getElementById('plan').getBoundingClientRect().height+'px');
+if (window.ResizeObserver) new ResizeObserver(planH).observe(document.getElementById('plan')); addEventListener('resize', planH);
+let COMS = null, comsP = null;
+const needComs = ()=> comsP || (comsP = trFetch('data/comissoes.json').then(js=>{ COMS = js; if (openKey) comList(openKey);
+  const m = location.hash.match(/^#comissao-/); if (m) showRoute(); return js; }).catch(()=>{ comsP = null; }));
+const comShort = n=> String(n||'').replace(/^Comiss[ãa]o (Permanente )?(de |do |da |dos |das )?/i,'').replace(/^./, c=> c.toUpperCase());
+function comList(key){
+  if (!COMS){ comEl.hidden = false; comEl.innerHTML = '<p class="com-h">Comissões permanentes</p><p class="lv-note">Carregando…</p>'; needComs(); return; }
+  const L = COMS[key]||[];
+  if (!L.length){ comEl.hidden = true; return; }
+  comEl.hidden = false;
+  comEl.innerHTML = `<p class="com-h">Comissões permanentes <span>${L.length}</span></p>
+    <ul class="com-grid">${L.map(c=>`<li><a href="#comissao-${key}-${c.sigla.toLowerCase()}" title="${esc(c.nome)}"><b>${esc(c.sigla)}</b><span>${esc(comShort(c.nome))}</span></a></li>`).join('')}</ul>`;
+}
+// the members on a small hemicycle, one dot per seat, colored by party, parties from left to right; the chair in black on top
+function comSeats(c, casa){
+  const oi = p=>{ const i = ORDER.indexOf(p); return i<0 ? ORDER.length : i; };
+  const ms = c.membros.map(([n,p,uf,cargo])=> ({n, sig:p, p:partyOf(p), uf, cargo:cargo||'Titular'}));
+  const pres = ms.find(m=> /^Presidente/i.test(m.cargo));
+  const list = ms.filter(m=> m!==pres).sort((a,b)=> oi(a.p)-oi(b.p) || a.p.localeCompare(b.p) || a.n.localeCompare(b.n,'pt'));
+  const total = list.length, rows = total>40 ? 4 : total>18 ? 3 : 2, R1 = 50, R0 = rows===2 ? 34 : 24, pts = [];
+  const radii = Array.from({length:rows}, (_,i)=> R0 + (R1-R0)*i/Math.max(1,rows-1)), sum = radii.reduce((a,b)=>a+b,0);
+  let left = total;
+  radii.forEach((rad,i)=>{ const n = i===rows-1 ? left : Math.round(total*rad/sum); left -= n;
+    for (let j=0;j<n;j++){ const a = Math.PI*(n===1?.5:j/(n-1)); pts.push({a, x:54-Math.cos(a)*rad, y:54-Math.sin(a)*rad}); } });
+  pts.sort((p,q)=> p.a-q.a);
+  const r = total>40 ? 2.3 : total>18 ? 2.8 : 3.3;
+  const dot = (m,x,y,rr,cls)=> `<circle${cls?` class="${cls}"`:''} cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="${rr}" fill="${PARTY[m.p]||'var(--nc)'}" data-p="${esc(m.p)}"><title>${esc(m.n)} (${esc(m.p)}${m.uf?'-'+esc(m.uf):''})${m.cargo && m.cargo!=='Titular' ? ' · '+esc(m.cargo) : ''}</title></circle>`;
+  return `<svg class="com-hemi" viewBox="0 0 108 58" role="img" aria-label="${total + (pres?1:0)} titulares, um ponto por cadeira, na cor do partido">
+    ${list.map((m,i)=> pts[i] ? dot(m, pts[i].x, pts[i].y, r) : '').join('')}
+    ${pres ? `<circle cx="54" cy="51" r="${r+1.6}" fill="var(--ink)"><title>${esc(pres.n)} (${esc(pres.p)}${pres.uf?'-'+esc(pres.uf):''}) · Presidente</title></circle>` : ''}</svg>`;
+}
+function comHTML(id){
+  const m = String(id).match(/^(camara|senado)-(.+)$/); if (!m) return null;
+  const casa = m[1];
+  if (!COMS){ needComs(); return `<div class="cw inst-w"><header class="cw-head"><div><p class="inst-eye">${casa==='senado'?'Senado Federal':'Câmara dos Deputados'} · comissão permanente</p><h1 id="inst-title">Comissão</h1></div></header><p class="vd-none">Carregando…</p></div>`; }
+  const c = (COMS[casa]||[]).find(x=> x.sigla.toLowerCase()===m[2]); if (!c) return null;
+  needProjetos();
+  const ms = c.membros.map(([n,p,uf,cargo])=> ({n, sig:p, p:partyOf(p), uf, cargo:cargo||'Titular'}));
+  const mesa = ms.filter(x=> /Presidente/i.test(x.cargo));
+  const g = {}; ms.forEach(x=>{ g[x.p] = (g[x.p]||0)+1; });
+  const parties = Object.entries(g).sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]));
+  const max = parties.length ? parties[0][1] : 1;
+  const person = x=> `<li><span class="lv-nm">${esc(x.n)}</span><span class="lv-pu">${esc(x.p!=='NC' ? x.p : (x.sig||'sem partido'))}${x.uf?'-'+esc(x.uf):''}</span>${x.cargo && x.cargo!=='Titular' ? `<span class="lv-vt">${esc(x.cargo)}</span>` : '<span></span>'}</li>`;
+  const sup = (c.suplentes||[]).map(([n,p,uf,cargo])=> ({n, sig:p, p:partyOf(p), uf, cargo:''}));
+  const items = (c.itens||[]).map(it=>{
+    const has = it.slug && PROJECTS[it.slug];
+    const t = has ? PROJECTS[it.slug].title : (it.desc || it.code);
+    return `<li><time datetime="${it.data}">${cardDate(it.data)}</time><div><p class="com-it">${has ? `<a href="#p-${it.slug}">` : ''}<b>${esc(it.code)}</b>${t && t!==it.code ? ' · '+esc(t) : ''}${has ? '</a>' : ''}</p>${it.res ? `<p class="lv-note">${esc(it.res)}</p>` : ''}</div></li>`; }).join('');
+  const others = (COMS[casa]||[]).map(x=>`<li><a href="#comissao-${casa}-${x.sigla.toLowerCase()}"${x===c?' aria-current="page"':''}>${esc(x.sigla)}</a></li>`).join('');
+  return `<div class="cw inst-w com-w">
+    <header class="cw-head"><div><p class="inst-eye">${casa==='senado'?'Senado Federal':'Câmara dos Deputados'} · comissão permanente · ${esc(c.sigla)}</p><h1 id="inst-title">${esc(c.nome)}</h1></div></header>
+    <section class="inst-card com-fig" aria-labelledby="cm1"><h2 id="cm1">Quem compõe</h2>
+      ${comSeats(c, casa)}
+      <p class="lv-tot">${ms.length} titulares${sup.length ? ` · ${sup.length} suplentes` : ''}${mesa.length ? ` · ${mesa.map(x=> esc(x.cargo)+': '+esc(x.n)+' ('+esc(x.p)+'-'+esc(x.uf)+')').join(' · ')}` : ''}</p>
+      <table class="lv-pt com-pt"><caption class="sr">Titulares por partido</caption><thead><tr><th scope="col">Partido</th><th scope="col"><span class="sr">Proporção</span></th><th scope="col">Titulares</th></tr></thead><tbody>${
+        parties.map(([p,n])=>`<tr><th scope="row"><i style="background:${PARTY[p]||'var(--nc)'}"></i>${esc(PARTY_NAME[p]||p)}</th><td><span class="lv-bar"><b style="flex:${n};background:${PARTY[p]||'var(--nc)'}"></b><b style="flex:${max-n};background:none"></b></span></td><td>${n}</td></tr>`).join('')}</tbody></table>
+      <details class="lv-names" open><summary>Titulares <span>${ms.length}</span></summary><ul>${ms.map(person).join('')}</ul></details>
+      ${sup.length ? `<details class="lv-names"><summary>Suplentes <span>${sup.length}</span></summary><ul>${sup.sort((a,b)=> a.n.localeCompare(b.n,'pt')).map(person).join('')}</ul></details>` : ''}
+    </section>
+    <section class="inst-card" aria-labelledby="cm2"><h2 id="cm2">O que a comissão votou no último ano</h2>
+      ${items ? `<ol class="com-tl">${items}</ol>` : `<p class="vd-none">Nenhuma votação de proposta registrada nos dados abertos no último ano.</p>`}
+      <p class="vb-note">Votações registradas nos dados abertos ${casa==='senado'?'do Senado (pautas das reuniões)':'da Câmara'}, mais recentes primeiro (até 60).</p></section>
+    <section class="inst-card" aria-labelledby="cm3"><h2 id="cm3">Links oficiais</h2><ul class="inst-links"><li><a href="${esc(c.url)}" target="_blank" rel="noopener">Página da ${esc(c.sigla)}</a></li></ul></section>
+    <section aria-label="Outras comissões"><ul class="inst-more">${others}</ul></section>
+  </div>`;
+}
+
 function close(){
   if (!openKey) return;
   const H = HOUSES[openKey]; openKey = null;
@@ -3492,7 +3592,7 @@ function close(){
   H.seats.forEach(s=> s.style.transitionDelay='');
   H.g.classList.remove('colored','is-active');
   stage.classList.remove('is-open','open-senado','open-camara','house-left');
-  panel.classList.remove('show'); panel.hidden = true;
+  panel.classList.remove('show'); panel.hidden = true; comEl.hidden = true; comEl.innerHTML = '';
   Object.values(HOUSES).forEach(o=>o.g.setAttribute('tabindex','0'));
   tween(H, H.home, 650);
   H.g.focus({preventScroll:true});
@@ -5792,7 +5892,7 @@ const TP_SOURCES = [
 ];
 // party and state of each name in the cota list: from the current occupants (same name, or one name inside the other,
 // when only one fits); for someone no longer in office, the party of their latest expense in the Câmara file
-const P_ALIAS = {'UNIÃO':'União','UNIAO':'União','PODE':'Podemos','PODEMOS':'Podemos','REPUBLICANOS':'Republicanos','SOLIDARIEDADE':'Solidariedade','AVANTE':'Avante','NOVO':'Novo','REDE':'Rede','CIDADANIA':'Cidadania','MISSÃO':'Missão','PCDOB':'PCdoB','S.PART.':'NC','S/PARTIDO':'NC'};
+const P_ALIAS = {'REPUBLIC':'Republicanos','SOLIDARI':'Solidariedade','UNIÃO':'União','UNIAO':'União','PODE':'Podemos','PODEMOS':'Podemos','REPUBLICANOS':'Republicanos','SOLIDARIEDADE':'Solidariedade','AVANTE':'Avante','NOVO':'Novo','REDE':'Rede','CIDADANIA':'Cidadania','MISSÃO':'Missão','PCDOB':'PCdoB','S.PART.':'NC','S/PARTIDO':'NC'};
 const partyKey = p => { const u = String(p||'').trim(); return u ? (P_ALIAS[u.toUpperCase()] || u) : ''; };
 const TP_STOP = new Set(['de','da','do','das','dos','e']);
 let tpOccIx = null;
@@ -6591,10 +6691,10 @@ function instNews(kind, id){
   }).catch(()=>{ const b = document.getElementById('inst-news'); if (b) b.innerHTML = '<p class="vd-none">Não deu para carregar as notícias agora.</p>'; });
 }
 function showInst(kind, id){
-  const html = kind==='tribunal' ? courtHTML(id) : kind==='categoria' ? catHTML(id) : kind==='busca' ? searchHTML(id) : kind==='sobre' ? aboutHTML() : ministryHTML(id);
+  const html = kind==='tribunal' ? courtHTML(id) : kind==='categoria' ? catHTML(id) : kind==='busca' ? searchHTML(id) : kind==='sobre' ? aboutHTML() : kind==='comissao' ? comHTML(id) : ministryHTML(id);
   if (!html) return false;
   inst.innerHTML = html;
-  instKey = kind==='sobre' ? 's:' : (kind==='tribunal' ? 't:' : kind==='categoria' ? 'c:' : kind==='busca' ? 'b:' : 'm:') + id;
+  instKey = kind==='sobre' ? 's:' : (kind==='tribunal' ? 't:' : kind==='categoria' ? 'c:' : kind==='busca' ? 'b:' : kind==='comissao' ? 'k:' : 'm:') + id;
   inst.scrollTop = 0;
   if (inst.hidden){ inst.hidden = false; requestAnimationFrame(()=>inst.classList.add('show')); }
   document.title = inst.querySelector('#inst-title').textContent + ' · Coisa Pública';
@@ -6620,7 +6720,7 @@ function showRoute(){
   if (location.hash === '#transparencia') showTp(); else if (!/^#p-/.test(location.hash)) hideTp();
   if (location.hash === '#orcamento') showOb(); else hideOb();
   const bq = location.hash.match(/^#busca(?:\?q=(.*))?$/);
-  const im = location.hash==='#projetos' ? [0,'categoria','todas'] : location.hash==='#quem-somos' ? [0,'sobre','-'] : bq ? [0,'busca', bq[1] ? decodeURIComponent(bq[1].replace(/\+/g,' ')) : ''] : location.hash.match(/^#(tribunal|ministerio|categoria)-([a-z0-9-]+)$/);
+  const im = location.hash==='#projetos' ? [0,'categoria','todas'] : location.hash==='#quem-somos' ? [0,'sobre','-'] : bq ? [0,'busca', bq[1] ? decodeURIComponent(bq[1].replace(/\+/g,' ')) : ''] : location.hash.match(/^#(tribunal|ministerio|categoria|comissao)-([a-z0-9-]+)$/);
   if (im && showInst(im[1], im[2])) {} else if (!/^#p-/.test(location.hash)) hideInst();
   const m = location.hash.match(/^#p-([a-z0-9-]+)$/);
   if (m && renderProject(m[1])){
