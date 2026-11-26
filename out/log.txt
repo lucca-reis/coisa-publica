@@ -1,30 +1,7 @@
-ERR composicao/comissao/38.json 400 b'{"detail":"Required query parameter \'ativas\' is not present.","instance":"/dadosabertos/composicao/comissao/38","status":400,"title":"Bad Request"}'
------
-ERR composicao/comissao/38 400 b'{"detail":"Required query parameter \'ativas\' is not present.","instance":"/dadosabertos/composicao/comissao/38","status":400,"title":"Bad Request"}'
------
-ERR composicao/comissao/atual/38.json 404 b'{"detail":"No static resource dadosabertos/composicao/comissao/atual/38.","instance":"/dadosabertos/composicao/comissao/atual/38","status":404,"title":"Not Found"}'
------
-OK comissao/38.json 27980 {"ComissoesCongressoNacional":{"noNamespaceSchemaLocation":"https://legis.senado.leg.br/dadosabertos/dados/cn/ComissoesCongressoNacionalv3.xsd","Metadados":{"Versao":"26/11/2026 10:52:05","VersaoServico":"3"},"Colegiados":{"Colegiado":[{"CodigoColegiado":"38","NomeColegiado":"Comissão de Assuntos Econômicos","SiglaColegiado":"CAE","Requerimentos":{},"DataInicio":"01/01/1900","QuantidadesMembros":{"Distribuicao":{"Senadores":"54","SenadoresTitulares":"27","SenadoresSuplentes":"27"}},"Cargos":{"Cargo":[{"TipoCargo":"PRESIDENTE","CodigoCargo":"1","NomeParlamentar":"Senador Renan Calheiros","CodigoParlamentar":"70","Bancada":"(MDB-AL)","ObservacaoCargo":"6"},{"TipoCargo":"VICE-PRESIDENTE","CodigoCargo":"2","NomeParlamentar":"Senador Laércio Oliveira","CodigoParlamentar":"4811","Bancada":"(PP-SE)","ObservacaoCargo":"17"}]},"Eventos":{},"MembrosBlocoSF":{"PartidoBloco":[{"UnidadePartidaria":"B
------
-OK comissao/38 27980 {"ComissoesCongressoNacional":{"noNamespaceSchemaLocation":"https://legis.senado.leg.br/dadosabertos/dados/cn/ComissoesCongressoNacionalv3.xsd","Metadados":{"Versao":"26/11/2026 10:52:07","VersaoServico":"3"},"Colegiados":{"Colegiado":[{"CodigoColegiado":"38","NomeColegiado":"Comissão de Assuntos Econômicos","SiglaColegiado":"CAE","Requerimentos":{},"DataInicio":"01/01/1900","QuantidadesMembros":{"Distribuicao":{"Senadores":"54","SenadoresTitulares":"27","SenadoresSuplentes":"27"}},"Cargos":{"Cargo":[{"TipoCargo":"PRESIDENTE","CodigoCargo":"1","NomeParlamentar":"Senador Renan Calheiros","CodigoParlamentar":"70","Bancada":"(MDB-AL)","ObservacaoCargo":"6"},{"TipoCargo":"VICE-PRESIDENTE","CodigoCargo":"2","NomeParlamentar":"Senador Laércio Oliveira","CodigoParlamentar":"4811","Bancada":"(PP-SE)","ObservacaoCargo":"17"}]},"Eventos":{},"MembrosBlocoSF":{"PartidoBloco":[{"UnidadePartidaria":"B
------
-ERR composicao/colegiado/38.json 404 b'{"detail":"No static resource dadosabertos/composicao/colegiado/38.","instance":"/dadosabertos/composicao/colegiado/38","status":404,"title":"Not Found"}'
------
-ERR composicao/comissao/38.json?v=4 400 b'{"detail":"Required query parameter \'ativas\' is not present.","instance":"/dadosabertos/composicao/comissao/38","status":400,"title":"Bad Request"}'
------
-ERR composicao/lista/comissoes.json 404 b'{"detail":"No static resource dadosabertos/dados/notfound.json.","instance":"/dadosabertos/dados/notfound.json","status":404,"title":"Not Found"}'
------
-ERR dados/ListaComposicaoComissaov4.xsd 404 b'{"detail":"No static resource dadosabertos/dados/ListaComposicaoComissaov4.xsd.","instance":"/dadosabertos/dados/ListaComposicaoComissaov4.xsd","status":404,"title":"Not Found"}'
------
-OK senador/lista/atual.json?participacao=T 111701 {"ListaParlamentarEmExercicio":{"noNamespaceSchemaLocation":"https://legis.senado.leg.br/dadosabertos/dados/ListaParlamentarEmExerciciov4.xsd","Metadados":{"Versao":"26/11/2026 10:52:14","VersaoServico":"4","DataVersaoServico":"2020-07-15","DescricaoDataSet":"Lista dos Parlamentares que estão atualmente em Exercício. Informações atuais sobre o Parlamentar."},"Parlamentares":{"Parlamentar":[{"IdentificacaoParlamentar":{"CodigoParlamentar":"5672","CodigoPublicoNaLegAtual":"800","NomeParlamentar":"Alan Rick","NomeCompletoParlamentar":"Alan Rick Miranda","SexoParlamentar":"Masculino","FormaTratamento":"Senador ","UrlFotoParlamentar":"http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5672.jpg","UrlPaginaParlamentar":"http://www25.senado.leg.br/web/senadores/senador/-/perfil/5672","EmailParlamentar":"sen.alanrick@senado.leg.br","Telefones":{"Telefone":[{"NumeroTelefone":"33036333","
------
-ERR comissao/38/composicao.json 404 b'{"detail":"No static resource dadosabertos/comissao/38/composicao.","instance":"/dadosabertos/comissao/38/composicao","status":404,"title":"Not Found"}'
------
-ERR composicao/comissao/SF/38.json 404 b'{"detail":"No static resource dadosabertos/composicao/comissao/SF/38.","instance":"/dadosabertos/composicao/comissao/SF/38","status":404,"title":"Not Found"}'
------
-ERR composicao/resumoComissao/38.json 404 b'{"detail":"No static resource dadosabertos/composicao/resumoComissao/38.","instance":"/dadosabertos/composicao/resumoComissao/38","status":404,"title":"Not Found"}'
------
+OK comissao/38.json 27980
+OK composicao/comissao/38.json?ativas=S 7705
+OK composicao/comissao/38.json?ativas=true 9361
 
-real	0m24.807s
-user	0m0.106s
-sys	0m0.044s
+real	0m4.454s
+user	0m0.060s
+sys	0m0.019s
