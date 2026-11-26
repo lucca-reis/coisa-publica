@@ -1,7 +1,7 @@
-OK comissao/38.json 27980
-OK composicao/comissao/38.json?ativas=S 7705
-OK composicao/comissao/38.json?ativas=true 9361
+Câmara: 30 comissões, 8744 votações em comissão
+Senado: 16 comissões
+{"camara": [["CAPADR", 49, 49, 60], ["CASP", 15, 12, 33], ["CCJC", 54, 46, 60], ["CCOM", 27, 23, 60], ["CCTI", 17, 34, 60], ["CCULT", 21, 16, 60], ["CDC", 11, 20, 24], ["CDE", 18, 11, 60], ["CDHMIR", 19, 17, 60], ["CDU", 11, 18, 60], ["CE", 38, 39, 60], ["CESPO", 21, 21, 46], ["CFFC", 18, 21, 0], ["CFT", 28, 46, 60], ["CICS", 15, 17, 60], ["CIDOSO", 17, 11, 51], ["CINDRE", 19, 16, 35], ["CLP", 14, 8, 3], ["CMADS", 19, 18, 60], ["CME", 31, 39, 60], ["CMULHER", 24, 20, 60], ["CPASF", 17, 15, 60], ["CPD", 18, 16, 60], ["CPOVOS", 14, 8, 57], ["CREDN", 36, 29, 43], ["CSAUDE", 50, 50, 60], ["CSPCCO", 39, 32, 60], ["CTRAB", 20, 21, 60], ["CTUR", 24, 17, 25], ["CVT", 30, 29, 60]], "senado": [["CAE", 26, 26, 60], ["CAS", 20, 21, 60], ["CCDD", 15, 9, 0], ["CCJ", 27, 25, 60], ["CCT", 17, 13, 60], ["CDD", 8, 1, 0], ["CDH", 18, 19, 60], ["CDR", 15, 12, 50], ["CE", 19, 18, 60], ["CEsp", 11, 5, 22], ["CI", 22, 21, 60], ["CMA", 17, 16, 60], ["CRA", 15, 11, 60], ["CRE", 18, 19, 50], ["CSP", 19, 16, 60], ["CTFC", 17, 14, 31]], "erros": []}
 
-real	0m4.454s
-user	0m0.060s
-sys	0m0.019s
+real	2m20.213s
+user	0m3.565s
+sys	0m0.817s
