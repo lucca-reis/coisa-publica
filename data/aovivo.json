@@ -1,4 +1,15 @@
 {
- "atualizado": "2026-11-26T08:27Z",
- "itens": []
+ "atualizado": "2026-11-26T20:28Z",
+ "itens": [
+  {
+   "casa": "camara",
+   "plenario": false,
+   "sigla": "CDHMIR",
+   "nome": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "tipo": "Comissão de Direitos Humanos, Minorias e Igualdade Racial",
+   "descricao": "Audiência pública: Mães atípicas",
+   "desde": "14h40",
+   "video": "https://www.youtube.com/watch?v=Mug877vzoD8"
+  }
+ ]
 }
