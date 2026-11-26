@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2659428",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2659428",
-   "idDeputadoAutor": "220703",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/220703",
+   "idProposicao": "2660085",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2660085",
+   "idDeputadoAutor": "204456",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204456",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Neto Carletto",
-   "siglaPartidoAutor": "AVANTE",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36898",
-   "siglaUFAutor": "BA",
+   "nomeAutor": "Gutemberg Reis",
+   "siglaPartidoAutor": "MDB",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
+   "siglaUFAutor": "RJ",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
