@@ -15,7 +15,7 @@ jobs:
           python-version: '3.12'
       - run: |
           mkdir -p out data; rm -f out/*
-          ( time timeout 1500 python -u scripts/comissoes.py ) 2>&1 | tee out/log.txt || true
+          ( time timeout 600 python -u scripts/teste_sen.py ) 2>&1 | tee out/log.txt || true
           cp data/comissoes.json data/comissoes-amostra.json out/ 2>/dev/null || true
           git config user.name t; git config user.email t@t
           git add -f out && git commit -qm "saida do teste" && git push origin HEAD:teste-api-comissoes
