@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-26T14:31-03:00",
+ "atualizado": "2026-11-26T20:46-03:00",
  "camara": [
   {
    "id": 83090,
@@ -104,12 +104,12 @@
   {
    "id": 85498,
    "inicio": "2026-11-26T14:18-03:00",
-   "fim": null,
-   "situacao": "Em Andamento",
+   "fim": "2026-11-26T15:34-03:00",
+   "situacao": "Encerrada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia do Servidor Público\r\n Homenagem aos Servidores Públicos e aos Professores e Professoras do Brasil",
    "video": "https://www.youtube.com/watch?v=1Fx2Rb5XLi0",
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": 85534,
@@ -120,6 +120,16 @@
    "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
    "video": "https://www.youtube.com/watch?v=CR7o8M2gE3c",
    "aoVivo": false
+  },
+  {
+   "id": 85545,
+   "inicio": "2026-12-08T11:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Prêmio Transparência e Fiscalização Pública - edição 2026",
+   "video": null,
+   "aoVivo": false
   }
  ],
  "senado": [
@@ -127,7 +137,7 @@
    "id": "587302",
    "inicio": "2026-11-26T15:00-03:00",
    "fim": null,
-   "situacao": "Agendada",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
