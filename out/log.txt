@@ -1,7 +1,8 @@
-Câmara: 6927 votações no Plenário, 1114 nominais ligadas a proposições
-Senado: 191 votações nominais
-{"projetos_com_votos": 462, "votacoes": 1305, "rotulos": ["Sim", "Não", "Artigo 17", "Abstenção", "Obstrução", "Não informado", "Missão da Casa no País/exterior", "Atividade parlamentar", "Presente – Não registrou voto", "Licença saúde", "Presidente (art. 51 RISF)", "Não Compareceu", "Dispositivo não citado", "Licença Particular", "Licença paternidade ou ao adotante"], "pessoas": {"camara": 831, "senado": 134}, "erros": []}
+Câmara: 30 comissões, 8744 votações em comissão
+Senado: 0 comissões
+{"camara": [["CAPADR", 49, 49, 60], ["CASP", 15, 12, 33], ["CCJC", 54, 46, 60], ["CCOM", 27, 23, 60], ["CCTI", 17, 34, 60], ["CCULT", 21, 16, 60], ["CDC", 11, 20, 24], ["CDE", 18, 11, 60], ["CDHMIR", 19, 17, 60], ["CDU", 11, 18, 60], ["CE", 38, 39, 60], ["CESPO", 21, 21, 46], ["CFFC", 18, 21, 0], ["CFT", 28, 46, 60], ["CICS", 15, 17, 60], ["CIDOSO", 17, 11, 51], ["CINDRE", 19, 16, 35], ["CLP", 14, 8, 3], ["CMADS", 19, 18, 60], ["CME", 31, 39, 60], ["CMULHER", 24, 20, 60], ["CPASF", 17, 15, 60], ["CPD", 18, 16, 60], ["CPOVOS", 14, 8, 57], ["CREDN", 36, 29, 43], ["CSAUDE", 50, 50, 60], ["CSPCCO", 39, 32, 60], ["CTRAB", 20, 21, 60], ["CTUR", 24, 17, 25], ["CVT", 30, 29, 60]], "senado": [], "erros": []}
+Poucas comissões; arquivo anterior mantido.
 
-real	2m15.364s
-user	0m4.437s
-sys	0m0.932s
+real	2m48.514s
+user	0m3.034s
+sys	0m1.153s

@@ -1,0 +1,620 @@
+{
+ "camara-orgaos": {
+  "url": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&itens=100&ordem=ASC&ordenarPor=sigla",
+  "resposta": {
+   "dados": [
+    {
+     "id": 2001,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001",
+     "sigla": "CAPADR",
+     "nome": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+     "apelido": "Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+     "codTipoOrgao": 2,
+     "tipoOrgao": "Comissão Permanente",
+     "nomePublicacao": "Comissão de Agricultura, Pecuária, Abastecimento e Desenvolvimento Rural",
+     "nomeResumido": "Agropecuária"
+    },
+    {
+     "id": 539388,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/539388",
+     "sigla": "CASP",
+     "nome": "Comissão de Administração e Serviço Público",
+     "apelido": "Administração e Serviço Público",
+     "codTipoOrgao": 2,
+     "tipoOrgao": "Comissão Permanente",
+     "nomePublicacao": "Comissão de Administração e Serviço Público",
+     "nomeResumido": "Serviço Público"
+    },
+    {
+     "id": 2003,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2003",
+     "sigla": "CCJC",
+     "nome": "Comissão de Constituição e Justiça e de Cidadania",
+     "apelido": "Constituição e Justiça e de Cidadania",
+     "codTipoOrgao": 2,
+     "tipoOrgao": "Comissão Permanente",
+     "nomePublicacao": "Comissão de Constituição e Justiça e de Cidadania",
+     "nomeResumido": "Constituição e Justiça"
+    }
+   ],
+   "links": [
+    {
+     "rel": "self",
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&itens=100&ordem=ASC&ordenarPor=sigla"
+    },
+    {
+     "rel": "first",
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&ordem=ASC&ordenarPor=sigla&pagina=1&itens=100"
+    },
+    {
+     "rel": "last",
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&ordem=ASC&ordenarPor=sigla&pagina=1&itens=100"
+    }
+   ]
+  }
+ },
+ "camara-membros": {
+  "url": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&itens=200",
+  "resposta": {
+   "dados": [
+    {
+     "id": 161550,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/161550",
+     "nome": "Emidinho Madeira",
+     "siglaPartido": "PL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/110",
+     "siglaUf": "MG",
+     "idLegislatura": 57,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/161550.jpg",
+     "email": "dep.emidinhomadeira@camara.leg.br",
+     "titulo": "Titular",
+     "codTitulo": 101,
+     "dataInicio": "2026-02-03",
+     "dataFim": null
+    },
+    {
+     "id": 136811,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/136811",
+     "nome": "Afonso Hamm",
+     "siglaPartido": "PP",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/115",
+     "siglaUf": "RS",
+     "idLegislatura": 57,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/136811.jpg",
+     "email": "dep.afonsohamm@camara.leg.br",
+     "titulo": "Titular",
+     "codTitulo": 101,
+     "dataInicio": "2026-02-03",
+     "dataFim": null
+    },
+    {
+     "id": 230767,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/230767",
+     "nome": "Rodrigo da Zaeli",
+     "siglaPartido": "PL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/110",
+     "siglaUf": "MT",
+     "idLegislatura": 57,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/230767.jpg",
+     "email": "dep.rodrigodazaeli@camara.leg.br",
+     "titulo": "Titular",
+     "codTitulo": 101,
+     "dataInicio": "2026-02-03",
+     "dataFim": null
+    }
+   ],
+   "links": [
+    {
+     "rel": "self",
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&itens=200"
+    },
+    {
+     "rel": "first",
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&pagina=1&itens=100"
+    },
+    {
+     "rel": "last",
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&pagina=1&itens=100"
+    }
+   ]
+  }
+ },
+ "senado-colegiados": {
+  "url": "https://legis.senado.leg.br/dadosabertos/comissao/lista/colegiados.json",
+  "resposta": {
+   "ListaColegiados": {
+    "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/ListaColegiadosv2.xsd",
+    "Metadados": {
+     "Versao": "25/11/2026 08:19:20",
+     "VersaoServico": "2",
+     "DataVersaoServico": "2017-02-01",
+     "DescricaoDataSet": "Obtém a Lista geral de Colegiados EM ATIVIDADE no Congresso Nacional."
+    },
+    "Colegiados": {
+     "Colegiado": [
+      {
+       "Codigo": "38",
+       "Sigla": "CAE",
+       "Nome": "Comissão de Assuntos Econômicos",
+       "DataInicio": "1900-01-01",
+       "Publica": "S",
+       "CodigoTipoColegiado": "21",
+       "SiglaTipoColegiado": "PERMANENTE",
+       "DescricaoTipoColegiado": "Comissão Permanente",
+       "SiglaCasa": "SF"
+      },
+      {
+       "Codigo": "1702",
+       "Sigla": "CAEM",
+       "Nome": "Comitê de Admissibilidade de Emendas",
+       "Finalidade": "Art. 25 da Resolução nº 1 de 2006-CN.",
+       "DataInicio": "2006-12-26",
+       "Publica": "S",
+       "CodigoTipoColegiado": "124",
+       "SiglaTipoColegiado": "CCMO",
+       "DescricaoTipoColegiado": "Comitê da CMO",
+       "SiglaCasa": "CN"
+      },
+      {
+       "Codigo": "2636",
+       "Sigla": "CAESM",
+       "Nome": "Subcomissão Permanente Municipalista",
+       "Finalidade": "opinar sobre questões municipalistas, tais como: (a) desenvolvimento econômico-social; (b) políticas de financiamento das ações de competência municipal, inclusive mediante transferências constitucionais; (c) endividamento público; (d) política tributária; (e) viabilidade econômica e fiscal para criação, incorporação, fusão e desmembramento de municípios; (f) cooperação técnica e financeira com a União; (g) políticas de geração de emprego e renda; e (h) políticas de ordenamento territorial.",
+       "DataInicio": "2023-09-19",
+       "Publica": "S",
+       "CodigoTipoColegiado": "66",
+       "SiglaTipoColegiado": "SUBPECOPE",
+       "DescricaoTipoColegiado": "Subcomissão Permanente",
+       "SiglaCasa": "SF"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "senado-agenda": {
+  "url": "https://legis.senado.leg.br/dadosabertos/comissao/agenda/20251126/20251130.json",
+  "resposta": {
+   "AgendaReuniao": {
+    "Metadados": {
+     "Versao": "26/11/2026 10:11:56",
+     "VersaoServico": "2",
+     "DataVersaoServico": "2020-08-07",
+     "DescricaoDataSet": "Agenda das Reuniões das Comissões no período informado."
+    },
+    "reunioes": {
+     "reuniao": [
+      {
+       "codigo": "14224",
+       "versao": "2026-10-29T16:59:35.483",
+       "descricao": "83ª, Extraordinária",
+       "titulo": "83ª Reunião Extraordinária",
+       "colegiadoCriador": {
+        "codigo": "834",
+        "sigla": "CDH",
+        "nome": "Comissão de Direitos Humanos e Legislação Participativa",
+        "siglaCasa": "SF",
+        "codigoTipo": "21",
+        "descricaoTipo": "Comissão Permanente"
+       },
+       "dataInicio": "2025-11-27T14:00:00.000",
+       "dataInicioFormatadaComObsHorario": "27/11/2025 às 14h",
+       "isExibirNoPortal": "true",
+       "confirmada": "false",
+       "realizada": "true",
+       "foiAgendadaAposTerSidoSuspensa": "false",
+       "codigoSituacao": "6",
+       "situacao": "Realizada",
+       "status": "Realizada",
+       "secreta": "false",
+       "local": "Anexo II, Ala Senador Alexandre Costa, Plenário nº 7",
+       "numReuniao": "83",
+       "linkECidadania": "https://www12.senado.leg.br/ecidadania/visualizacaoaudiencia?id=36866",
+       "urlUltimaPautaSimplesPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/61f58bc1-4e4f-4881-8a8e-7056bf39fd8f",
+       "urlUltimaPautaCheiaPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/66e375ba-8765-4847-b409-ec4fc49cd2a0",
+       "urlUltimoResultadoPublicado": "https://legis.senado.leg.br/sdleg-getter/documento/download/199811a3-a2fb-4392-a3f5-69e563df8983",
+       "urlUltimaAtaPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/d8227ab7-e4c8-40e2-b3bc-a2cd688868b1?rendition_principal",
+       "urlUltimaAtaPublicadaDiario": "http://legis.senado.leg.br/diarios/BuscaDiario?tipDiario=1&datDiario=02/04/2026&paginaDireta=2874&indSuplemento=sim&codSuplemento=A",
+       "idUltimaPublicacaoPautaSimples": "61f58bc1-4e4f-4881-8a8e-7056bf39fd8f",
+       "idUltimaPublicacaoResultado": "199811a3-a2fb-4392-a3f5-69e563df8983",
+       "idUltimaPublicacaoAta": "d8227ab7-e4c8-40e2-b3bc-a2cd688868b1",
+       "tipoPresenca": "Presencial",
+       "continuacaoCancelada": "false",
+       "tipo": {
+        "codigo": "2",
+        "descricao": "Extraordinária",
+        "sigla": "EXT"
+       },
+       "sessaoLegislativa": {
+        "codigo": "873",
+        "numeroLegislatura": "57",
+        "numero": "3",
+        "descricao": "57a. Legislatura (2025) - 3a. Sessão Legislativa Ordinária",
+        "inicio": "2025-02-03",
+        "fim": "2025-12-22"
+       },
+       "permitePresencaApp": "false",
+       "permiteVotacaoSemPresencaFisica": "false",
+       "possuiVotacaoSecreta": "false",
+       "presidente": {
+        "codigo": "6369",
+        "nome": "Antônia Jussara Gomes Alves Sousa Lima",
+        "nomeParlamentar": "Jussara Lima",
+        "sexo": "F",
+        "cargo": "Senadora",
+        "nomeComCargo": "Senadora Jussara Lima",
+        "nomeComCargoResumido": "Sen. Jussara Lima",
+        "casa": "SF",
+        "ufPartido": "PI",
+        "siglaPartido": "PSD",
+        "partido": "Partido Social Democrático",
+        "urlFoto": "https://www.senado.gov.br/senadores/img/fotos-oficiais/senador6369.jpg",
+        "urlPagina": "https://www25.senado.leg.br/web/senadores/senador/-/perfil/6369",
+        "isSenador": "true",
+        "isDeputado": "false",
+        "data": "2025-11-27T00:00:00.000"
+       },
+       "dataReuniao": [
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        },
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        },
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        }
+       ],
+       "colegiados": {
+        "codigo": "834",
+        "nome": "Comissão de Direitos Humanos e Legislação Participativa",
+        "sigla": "CDH",
+        "siglaCasa": "SF",
+        "codigoTipoColegiado": "21",
+        "nomeTipoColegiado": "Comissão Permanente",
+        "numeroReuniao": "83",
+        "isSubcomissao": "false",
+        "composicaoPublica": "true",
+        "publicoPortal": "true"
+       },
+       "partes": {
+        "codigo": "18346",
+        "nome": "Audiência Pública Interativa",
+        "codigoTipo": "1",
+        "descricaoTipo": "Audiência Pública Interativa",
+        "sequencial": "1",
+        "sequencialFormatado": "1ª PARTE",
+        "isDeliberativa": "false",
+        "evento": {
+         "codigo": "…",
+         "finalidade": "…",
+         "isPublicado": "…",
+         "isRealizado": "…",
+         "observacoes": "…",
+         "resultadoTexto": "…",
+         "convidados": "…",
+         "participantes": "…",
+         "domasRelacionados": "…"
+        }
+       },
+       "videos": {
+        "codigo": "7534",
+        "ordem": "1",
+        "url": "https://www.youtube.com/watch?v=FWXhxOc1Rlo",
+        "titulo": "83ª Reunião, Extraordinária - CDH",
+        "dataHoraReuniao": "2025-11-27T14:00:00.000"
+       },
+       "localReuniao": {
+        "codigo": "4",
+        "descricao": "Anexo II, Ala Senador Alexandre Costa, Plenário nº 7",
+        "ordem": "7",
+        "suportaSve": "true"
+       }
+      },
+      {
+       "codigo": "14211",
+       "versao": "2026-10-29T17:00:01.257",
+       "descricao": "69ª, Extraordinária",
+       "titulo": "69ª Reunião Extraordinária",
+       "colegiadoCriador": {
+        "codigo": "40",
+        "sigla": "CAS",
+        "nome": "Comissão de Assuntos Sociais",
+        "siglaCasa": "SF",
+        "codigoTipo": "21",
+        "descricaoTipo": "Comissão Permanente"
+       },
+       "dataInicio": "2025-11-27T10:00:00.000",
+       "dataInicioFormatadaComObsHorario": "27/11/2025 às 10h",
+       "isExibirNoPortal": "true",
+       "confirmada": "false",
+       "realizada": "true",
+       "foiAgendadaAposTerSidoSuspensa": "false",
+       "codigoSituacao": "6",
+       "situacao": "Realizada",
+       "status": "Realizada",
+       "secreta": "false",
+       "local": "Anexo II, Ala Senador Alexandre Costa, Plenário nº 9",
+       "numReuniao": "69",
+       "linkECidadania": "https://www12.senado.leg.br/ecidadania/visualizacaoaudiencia?id=36826",
+       "urlUltimaPautaSimplesPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/7794268f-e237-47e6-acd8-9b15a41f0c68",
+       "urlUltimaPautaCheiaPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/f6f4fa77-7415-4c10-b02f-f1027e35c5a0",
+       "urlUltimoResultadoPublicado": "https://legis.senado.leg.br/sdleg-getter/documento/download/5b241ed0-4200-492b-8303-67c69997bcf4",
+       "urlUltimaAtaPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/0ecb1ba2-d3b7-4eb3-bc5d-710a076b545b?rendition_principal",
+       "urlUltimaAtaPublicadaDiario": "http://legis.senado.leg.br/diarios/BuscaDiario?tipDiario=1&datDiario=03/02/2026&paginaDireta=1464&indSuplemento=sim&codSuplemento=A",
+       "idUltimaPublicacaoPautaSimples": "7794268f-e237-47e6-acd8-9b15a41f0c68",
+       "idUltimaPublicacaoResultado": "5b241ed0-4200-492b-8303-67c69997bcf4",
+       "idUltimaPublicacaoAta": "0ecb1ba2-d3b7-4eb3-bc5d-710a076b545b",
+       "tipoPresenca": "Presencial",
+       "continuacaoCancelada": "false",
+       "tipo": {
+        "codigo": "2",
+        "descricao": "Extraordinária",
+        "sigla": "EXT"
+       },
+       "sessaoLegislativa": {
+        "codigo": "873",
+        "numeroLegislatura": "57",
+        "numero": "3",
+        "descricao": "57a. Legislatura (2025) - 3a. Sessão Legislativa Ordinária",
+        "inicio": "2025-02-03",
+        "fim": "2025-12-22"
+       },
+       "permitePresencaApp": "false",
+       "permiteVotacaoSemPresencaFisica": "false",
+       "possuiVotacaoSecreta": "false",
+       "presidente": {
+        "codigo": "6369",
+        "nome": "Antônia Jussara Gomes Alves Sousa Lima",
+        "nomeParlamentar": "Jussara Lima",
+        "sexo": "F",
+        "cargo": "Senadora",
+        "nomeComCargo": "Senadora Jussara Lima",
+        "nomeComCargoResumido": "Sen. Jussara Lima",
+        "casa": "SF",
+        "ufPartido": "PI",
+        "siglaPartido": "PSD",
+        "partido": "Partido Social Democrático",
+        "urlFoto": "https://www.senado.gov.br/senadores/img/fotos-oficiais/senador6369.jpg",
+        "urlPagina": "https://www25.senado.leg.br/web/senadores/senador/-/perfil/6369",
+        "isSenador": "true",
+        "isDeputado": "false",
+        "data": "2025-11-27T00:00:00.000"
+       },
+       "dataReuniao": [
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        },
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        },
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        }
+       ],
+       "colegiados": {
+        "codigo": "40",
+        "nome": "Comissão de Assuntos Sociais",
+        "sigla": "CAS",
+        "siglaCasa": "SF",
+        "codigoTipoColegiado": "21",
+        "nomeTipoColegiado": "Comissão Permanente",
+        "numeroReuniao": "69",
+        "isSubcomissao": "false",
+        "composicaoPublica": "true",
+        "publicoPortal": "true"
+       },
+       "partes": {
+        "codigo": "18329",
+        "nome": "Audiência Pública Interativa",
+        "codigoTipo": "1",
+        "descricaoTipo": "Audiência Pública Interativa",
+        "sequencial": "1",
+        "sequencialFormatado": "1ª PARTE",
+        "isDeliberativa": "false",
+        "evento": {
+         "codigo": "…",
+         "finalidade": "…",
+         "isPublicado": "…",
+         "isRealizado": "…",
+         "observacoes": "…",
+         "resultadoTexto": "…",
+         "resultadoObservacoes": "…",
+         "convidados": "…",
+         "participantes": "…",
+         "domasRelacionados": "…"
+        }
+       },
+       "videos": {
+        "codigo": "7530",
+        "ordem": "1",
+        "url": "https://www.youtube.com/watch?v=YNigQP3m0jI",
+        "dataHoraReuniao": "2025-11-27T10:00:00.000"
+       },
+       "localReuniao": {
+        "codigo": "5",
+        "descricao": "Anexo II, Ala Senador Alexandre Costa, Plenário nº 9",
+        "ordem": "9",
+        "suportaSve": "true"
+       }
+      },
+      {
+       "codigo": "14260",
+       "versao": "2026-10-29T16:58:20.554",
+       "descricao": "8ª, Reunião",
+       "titulo": "8ª Reunião",
+       "colegiadoCriador": {
+        "codigo": "2816",
+        "sigla": "CTCIVIL",
+        "nome": "Comissão Temporária para examinar o Projeto de Lei n° 4, de 2025 (Art. 374 RISF)",
+        "siglaCasa": "SF",
+        "codigoTipo": "24",
+        "descricaoTipo": "Comissão Temporária Interna",
+        "materiasOriginadoras": [
+         "…",
+         "…"
+        ]
+       },
+       "dataInicio": "2025-11-27T10:00:00.000",
+       "dataInicioFormatadaComObsHorario": "27/11/2025 às 10h",
+       "isExibirNoPortal": "true",
+       "confirmada": "false",
+       "realizada": "true",
+       "foiAgendadaAposTerSidoSuspensa": "false",
+       "codigoSituacao": "6",
+       "situacao": "Realizada",
+       "status": "Realizada",
+       "secreta": "false",
+       "local": "Anexo II, Ala Senador Alexandre Costa, Plenário nº 3",
+       "numReuniao": "8",
+       "linkECidadania": "https://www12.senado.leg.br/ecidadania/visualizacaoaudiencia?id=36846",
+       "urlUltimaPautaSimplesPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/3a6787da-63b2-41ea-895c-ef3587143e44",
+       "urlUltimaPautaCheiaPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/d8d8b322-c552-44f1-a5fd-f05961cf0acf",
+       "urlUltimoResultadoPublicado": "https://legis.senado.leg.br/sdleg-getter/documento/download/dbdfdc61-cbc0-48a8-84d4-04ec19310bb9",
+       "urlUltimaAtaPublicada": "https://legis.senado.leg.br/sdleg-getter/documento/download/7710ab8d-725a-4120-883e-92e2411c26b8?rendition_principal",
+       "urlUltimaAtaPublicadaDiario": "http://legis.senado.leg.br/diarios/BuscaDiario?tipDiario=1&datDiario=02/04/2026&paginaDireta=393&indSuplemento=sim&codSuplemento=B",
+       "idUltimaPublicacaoPautaSimples": "3a6787da-63b2-41ea-895c-ef3587143e44",
+       "idUltimaPublicacaoResultado": "dbdfdc61-cbc0-48a8-84d4-04ec19310bb9",
+       "idUltimaPublicacaoAta": "7710ab8d-725a-4120-883e-92e2411c26b8",
+       "tipoPresenca": "Presencial",
+       "continuacaoCancelada": "false",
+       "tipo": {
+        "codigo": "5",
+        "descricao": "Reunião",
+        "sigla": "REU"
+       },
+       "sessaoLegislativa": {
+        "codigo": "873",
+        "numeroLegislatura": "57",
+        "numero": "3",
+        "descricao": "57a. Legislatura (2025) - 3a. Sessão Legislativa Ordinária",
+        "inicio": "2025-02-03",
+        "fim": "2025-12-22"
+       },
+       "permitePresencaApp": "false",
+       "permiteVotacaoSemPresencaFisica": "false",
+       "possuiVotacaoSecreta": "false",
+       "presidente": {
+        "codigo": "5936",
+        "nome": "Carlos Francisco Portinho",
+        "nomeParlamentar": "Carlos Portinho",
+        "sexo": "M",
+        "cargo": "Senador",
+        "nomeComCargo": "Senador Carlos Portinho",
+        "nomeComCargoResumido": "Sen. Carlos Portinho",
+        "casa": "SF",
+        "ufPartido": "RJ",
+        "siglaPartido": "PL",
+        "partido": "Partido Liberal",
+        "urlFoto": "https://www.senado.gov.br/senadores/img/fotos-oficiais/senador5936.jpg",
+        "urlPagina": "https://www25.senado.leg.br/web/senadores/senador/-/perfil/5936",
+        "isSenador": "true",
+        "isDeputado": "false",
+        "data": "2025-11-27T00:00:00.000",
+        "liderancas": {
+         "titulo": "…",
+         "siglaPartido": "…",
+         "nomePartido": "…"
+        }
+       },
+       "dataReuniao": [
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        },
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        },
+        {
+         "codigo": "…",
+         "dataEvento": "…",
+         "codigoSituacao": "…",
+         "descricaoSituacao": "…",
+         "realizada": "…"
+        }
+       ],
+       "colegiados": {
+        "codigo": "2816",
+        "nome": "Comissão Temporária para examinar o Projeto de Lei n° 4, de 2025 (Art. 374 RISF)",
+        "sigla": "CTCIVIL",
+        "siglaCasa": "SF",
+        "codigoTipoColegiado": "24",
+        "nomeTipoColegiado": "Comissão Temporária Interna",
+        "numeroReuniao": "8",
+        "isSubcomissao": "false",
+        "composicaoPublica": "true",
+        "publicoPortal": "true"
+       },
+       "partes": [
+        {
+         "codigo": "…",
+         "nome": "…",
+         "codigoTipo": "…",
+         "descricaoTipo": "…",
+         "sequencial": "…",
+         "sequencialFormatado": "…",
+         "isDeliberativa": "…",
+         "itens": "…"
+        },
+        {
+         "codigo": "…",
+         "nome": "…",
+         "codigoTipo": "…",
+         "descricaoTipo": "…",
+         "sequencial": "…",
+         "sequencialFormatado": "…",
+         "isDeliberativa": "…",
+         "evento": "…"
+        }
+       ],
+       "videos": {
+        "codigo": "7532",
+        "ordem": "1",
+        "url": "https://www.youtube.com/watch?v=nRE838app6s",
+        "dataHoraReuniao": "2025-11-27T10:00:00.000"
+       },
+       "localReuniao": {
+        "codigo": "2",
+        "descricao": "Anexo II, Ala Senador Alexandre Costa, Plenário nº 3",
+        "ordem": "3",
+        "suportaSve": "true"
+       }
+      }
+     ]
+    }
+   }
+  }
+ },
+ "_erros": []
+}
