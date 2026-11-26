@@ -93,22 +93,23 @@ body{box-sizing:border-box;display:grid;place-items:center;
 }
 @media (max-width:999px){ .panel{margin-top:20px} .tl{overflow:visible} }
 /* permanent committees under the open house; on desktop the panel keeps the drawing's height (--plan-h) */
-.com{margin:8px 0 0;opacity:0;transform:translateY(8px);transition:opacity .45s .5s, transform .45s .5s}
+.com{margin:10px 0 0;min-width:0;contain:inline-size;opacity:0;transform:translateY(8px);transition:opacity .45s .5s, transform .45s .5s}
 .stage.is-open .com{opacity:1;transform:none}
 .com-h{margin:0 0 10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .com-h span{color:var(--ink)}
-.com-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
-.com-grid a{display:flex;flex-direction:column;gap:2px;height:100%;box-sizing:border-box;padding:9px 11px;border-radius:10px;background:color-mix(in srgb, var(--ink) 5%, var(--bg));color:var(--ink);text-decoration:none;transition:background .2s}
-.com-grid a:hover,.com-grid a:focus-visible{background:color-mix(in srgb, var(--ink) 10%, var(--bg))}
+.com-grid{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.com-grid li{min-width:0;max-width:100%}
+.com-grid a{display:flex;align-items:baseline;gap:7px;max-width:100%;box-sizing:border-box;padding:6px 12px;border-radius:999px;background:color-mix(in srgb, var(--ink) 6%, var(--bg));color:var(--ink);text-decoration:none;white-space:nowrap;transition:background .2s}
+.com-grid a:hover,.com-grid a:focus-visible{background:color-mix(in srgb, var(--ink) 12%, var(--bg))}
 .com-grid a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.com-grid b{font-family:var(--mono);font-size:12px;font-weight:600}
-.com-grid span{font-size:12.5px;line-height:1.3;color:var(--muted)}
+.com-grid b{font-family:var(--mono);font-size:11.5px;font-weight:600;flex:none}
+.com-grid span{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;max-width:13em}
 @media (min-width:1000px){
-  .stage.is-open .panel{top:calc(var(--plan-h,640px) * .03);bottom:auto;height:calc(var(--plan-h,640px) * .94)}
+  .stage.is-open .panel{top:calc(var(--plan-h,640px) * .03);bottom:0;height:auto;min-height:calc(var(--plan-h,640px) * .94)}
   .stage.open-senado .com,.stage.open-camara.house-left .com{margin-left:3%;width:44%}
   .stage.open-camara:not(.house-left) .com{margin-left:53%;width:44%}
 }
-@media (max-width:999px){ .com{margin-top:16px} .com-grid{display:flex;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;scrollbar-width:thin} .com-grid li{flex:0 0 150px;scroll-snap-align:start} }
+@media (max-width:999px){ .com{margin-top:16px} .com-grid{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin} .com-grid li{flex:none} }
 .com-hemi{display:block;width:100%;max-width:420px;margin:0 auto 6px;overflow:visible}
 .com-hemi circle{transition:opacity .2s}
 .com-tl{list-style:none;margin:0;padding:0}
@@ -3519,7 +3520,7 @@ function comList(key){
   if (!L.length){ comEl.hidden = true; return; }
   comEl.hidden = false;
   comEl.innerHTML = `<p class="com-h">Comissões permanentes <span>${L.length}</span></p>
-    <ul class="com-grid">${L.map(c=>`<li><a href="#comissao-${key}-${c.sigla.toLowerCase()}"><b>${esc(c.sigla)}</b><span>${esc(comShort(c.nome))}</span></a></li>`).join('')}</ul>`;
+    <ul class="com-grid">${L.map(c=>`<li><a href="#comissao-${key}-${c.sigla.toLowerCase()}" title="${esc(c.nome)}"><b>${esc(c.sigla)}</b><span>${esc(comShort(c.nome))}</span></a></li>`).join('')}</ul>`;
 }
 // the members on a small hemicycle, one dot per seat, colored by party, parties from left to right; the chair in black on top
 function comSeats(c, casa){
