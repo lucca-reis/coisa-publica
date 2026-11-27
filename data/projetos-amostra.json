@@ -194,16 +194,16 @@
    "proponente"
   ],
   "exemplo": {
-   "idProposicao": "2660085",
-   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2660085",
-   "idDeputadoAutor": "204456",
-   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204456",
+   "idProposicao": "2660363",
+   "uriProposicao": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2660363",
+   "idDeputadoAutor": "204526",
+   "uriAutor": "https://dadosabertos.camara.leg.br/api/v2/deputados/204526",
    "codTipoAutor": "10000",
    "tipoAutor": "Deputado(a)",
-   "nomeAutor": "Gutemberg Reis",
-   "siglaPartidoAutor": "MDB",
-   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
-   "siglaUFAutor": "RJ",
+   "nomeAutor": "Luiz Philippe de Orleans e Bragança",
+   "siglaPartidoAutor": "PL",
+   "uriPartidoAutor": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUFAutor": "SP",
    "ordemAssinatura": "1",
    "proponente": "1"
   }
