@@ -40,7 +40,7 @@
    "links": [
     {
      "rel": "self",
-     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&ordem=ASC&ordenarPor=sigla&itens=100"
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2&itens=100&ordem=ASC&ordenarPor=sigla"
     },
     {
      "rel": "first",
@@ -54,7 +54,7 @@
   }
  },
  "camara-membros": {
-  "url": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&itens=200",
+  "url": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-27&itens=200",
   "resposta": {
    "dados": [
     {
@@ -106,15 +106,15 @@
    "links": [
     {
      "rel": "self",
-     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&itens=200"
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-27&itens=200"
     },
     {
      "rel": "first",
-     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&pagina=1&itens=100"
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-27&pagina=1&itens=100"
     },
     {
      "rel": "last",
-     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-26&pagina=1&itens=100"
+     "href": "https://dadosabertos.camara.leg.br/api/v2/orgaos/2001/membros?dataInicio=2026-11-27&pagina=1&itens=100"
     }
    ]
   }
@@ -125,7 +125,7 @@
    "ListaColegiados": {
     "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/ListaColegiadosv2.xsd",
     "Metadados": {
-     "Versao": "26/11/2026 10:20:04",
+     "Versao": "27/11/2026 14:19:48",
      "VersaoServico": "2",
      "DataVersaoServico": "2017-02-01",
      "DescricaoDataSet": "Obtém a Lista geral de Colegiados EM ATIVIDADE no Congresso Nacional."
@@ -178,7 +178,7 @@
    "ComissoesCongressoNacional": {
     "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/cn/ComissoesCongressoNacionalv3.xsd",
     "Metadados": {
-     "Versao": "26/11/2026 14:32:52",
+     "Versao": "27/11/2026 16:12:19",
      "VersaoServico": "3"
     },
     "Colegiados": {
@@ -252,11 +252,11 @@
   }
  },
  "senado-agenda": {
-  "url": "https://legis.senado.leg.br/dadosabertos/comissao/agenda/20251126/20251130.json",
+  "url": "https://legis.senado.leg.br/dadosabertos/comissao/agenda/20251127/20251130.json",
   "resposta": {
    "AgendaReuniao": {
     "Metadados": {
-     "Versao": "26/11/2026 14:33:16",
+     "Versao": "27/11/2026 16:12:46",
      "VersaoServico": "2",
      "DataVersaoServico": "2020-08-07",
      "DescricaoDataSet": "Agenda das Reuniões das Comissões no período informado."
