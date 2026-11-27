@@ -1,16 +1,6 @@
 {
- "atualizado": "2026-11-26T20:46-03:00",
+ "atualizado": "2026-11-27T05:12-03:00",
  "camara": [
-  {
-   "id": 83090,
-   "inicio": "2026-11-25T11:32-03:00",
-   "fim": "2026-11-25T12:52-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem aos 70 anos do legado educacional do senhor Amador Aguiar\r\n Homenagem aos aos 70 anos do legado educacional do brasileiro Amador Aguiar",
-   "video": "https://www.youtube.com/watch?v=e2OR3TjOBVU",
-   "aoVivo": false
-  },
   {
    "id": 83111,
    "inicio": "2026-12-01T11:00-03:00",
@@ -28,6 +18,16 @@
    "situacao": "Agendada",
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem ao Dia Internacional Contra a Corrupção\r\n Homenagem ao Dia Internacional Contra a Corrupção",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": 83197,
+   "inicio": "2026-12-11T09:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "Sessão Não Deliberativa Solene",
+   "descricao": "Homenagem aos 40 anos da Associação dos Profissionais dos Correios – ADCAP\r\n Homenagem aos 40 anos da Associação dos Profissionais dos Correios – ADCAP",
    "video": null,
    "aoVivo": false
   },
@@ -72,16 +72,6 @@
    "aoVivo": false
   },
   {
-   "id": 83434,
-   "inicio": "2026-11-25T09:29-03:00",
-   "fim": "2026-11-25T11:16-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Não Deliberativa Solene",
-   "descricao": "Homenagem à Campanha Mundial 21 dias de ativismo pelo fim da violência contra as mulheres\r\n Homenagem ao Dia Internacional para Eliminação da Violência Contra a Mulher",
-   "video": "https://www.youtube.com/watch?v=RrSbRzvQuYc",
-   "aoVivo": false
-  },
-  {
    "id": 85466,
    "inicio": "2026-12-09T11:00-03:00",
    "fim": null,
@@ -89,16 +79,6 @@
    "tipo": "Sessão Não Deliberativa Solene",
    "descricao": "Homenagem aos homenagem aos 75 anos da regulamentação da profissão de economista no Brasil\r\n Homenagem aos homenagem aos 75 anos da regulamentação da profissão de economista no Brasil",
    "video": null,
-   "aoVivo": false
-  },
-  {
-   "id": 85492,
-   "inicio": "2026-11-25T14:21-03:00",
-   "fim": "2026-11-25T20:31-03:00",
-   "situacao": "Encerrada",
-   "tipo": "Sessão Deliberativa",
-   "descricao": "Sessão Deliberativa Extraordinária Semipresencial (AM nº 123/2020)",
-   "video": "https://www.youtube.com/watch?v=JFncPQLO0X4",
    "aoVivo": false
   },
   {
@@ -133,16 +113,6 @@
   }
  ],
  "senado": [
-  {
-   "id": "587302",
-   "inicio": "2026-11-26T15:00-03:00",
-   "fim": null,
-   "situacao": "Encerrada",
-   "tipo": "SESSÃO ESPECIAL ",
-   "descricao": "",
-   "video": null,
-   "aoVivo": false
-  },
   {
    "id": "594183",
    "inicio": "2026-11-27T10:00-03:00",
@@ -226,6 +196,26 @@
   {
    "id": "598969",
    "inicio": "2026-12-03T15:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO ESPECIAL ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "594187",
+   "inicio": "2026-12-04T10:00-03:00",
+   "fim": null,
+   "situacao": "Agendada",
+   "tipo": "SESSÃO NÃO DELIBERATIVA ",
+   "descricao": "",
+   "video": null,
+   "aoVivo": false
+  },
+  {
+   "id": "600667",
+   "inicio": "2026-12-04T14:00-03:00",
    "fim": null,
    "situacao": "Agendada",
    "tipo": "SESSÃO ESPECIAL ",
