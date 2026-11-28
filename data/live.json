@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T15:51-03:00",
+ "atualizado": "2026-11-27T22:54-03:00",
  "camara": [
   {
    "id": 83111,
@@ -127,11 +127,11 @@
    "id": "593612",
    "inicio": "2026-11-27T14:00-03:00",
    "fim": null,
-   "situacao": "Em andamento",
+   "situacao": "Encerrada",
    "tipo": "SESSÃO ESPECIAL ",
    "descricao": "",
    "video": null,
-   "aoVivo": true
+   "aoVivo": false
   },
   {
    "id": "585268",
